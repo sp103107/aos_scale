@@ -17,6 +17,24 @@ Third-party dependencies keep their own licenses.
 
 USB connect, live readings, Zero/Tare UX, and Guided Calibration are in place for bring-up. **Displayed grams are not trustworthy until calibration with a verified reference mass.** This project does **not** claim production-ready or legal-for-trade status.
 
+## System requirements
+
+See [docs/SYSTEM_REQUIREMENTS.md](docs/SYSTEM_REQUIREMENTS.md) for OS, hardware, and packaged-app requirements.
+
+## Windows packaged install
+
+On a Windows build host:
+
+```powershell
+.\packaging\windows\build_windows.ps1
+```
+
+Artifacts land in `dist\windows\` (zip + Setup `.exe` when Inno Setup is installed). Zip-only fallback:
+
+```powershell
+.\packaging\windows\install_windows.ps1
+```
+
 ## Routine operator screen
 
 The routine weighing screen exposes seven actions only:
