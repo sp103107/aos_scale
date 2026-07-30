@@ -1,0 +1,75 @@
+{
+  "agent_bootstrap": {
+    "lanes_passed": 13,
+    "lanes_total": 13,
+    "output": "validation/agent_bootstrap_output.v0.1.6.json",
+    "profile": "operator-ready",
+    "status": "PASS_WITH_WARNINGS",
+    "warnings": [
+      "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+    ]
+  },
+  "context": {
+    "episode": "episode_0007_v0.1.6.json",
+    "ledger_events": 76,
+    "resume_pack": "pass",
+    "status": "pass",
+    "working_set_update_seq": 7
+  },
+  "debian": "NATIVE_PLATFORM_PASS",
+  "firmware_compile": "BLOCKED",
+  "frontend": {
+    "alice_state_sync": "pass",
+    "pyside6_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+    "pyside6_source": "pass",
+    "screenshot": "reports/operator_ui_smoke.v0.1.6.png",
+    "tk_runtime": "pass"
+  },
+  "generated_at": "2026-07-23T20:48:35Z",
+  "launchers": {
+    "bat": "source_validated",
+    "powershell": "source_validated",
+    "shell": "runtime_validated"
+  },
+  "linux": "NATIVE_PLATFORM_PASS",
+  "non_claims": [
+    "No physical UNO R3 success unless executed.",
+    "No physical HX711 success unless executed.",
+    "No physical load-cell success unless executed.",
+    "No physical calibration, repeatability, zero-return, or hanging-load success unless executed.",
+    "No legal-for-trade certification.",
+    "No firmware compile or upload pass without Arduino AVR toolchain evidence.",
+    "No native Windows executable or runtime pass without native Windows execution evidence.",
+    "No UNO Q runtime claim.",
+    "No Bluetooth or Wi-Fi runtime activation claim.",
+    "No physical-button activation claim; only canonical mappings and scripted adapters are validated.",
+    "No production-readiness claim or release seal.",
+    "No Context Module runtime-execution claim.",
+    "The v0.1.6 operator application is validated with simulator and scripted-device evidence only."
+  ],
+  "operator_acceptance": {
+    "automatic": "SIMULATOR_PASS",
+    "background_worker": "pass",
+    "calibration": "SIMULATOR_PASS",
+    "captured_tare": "SIMULATOR_PASS",
+    "manual": "SIMULATOR_PASS",
+    "output": "validation/operator_acceptance_output.v0.1.6.json",
+    "status": "pass",
+    "zero": "SIMULATOR_PASS"
+  },
+  "package_name": "best_buds_cultivator_weight_station",
+  "physical_scale": "NOT_RUN",
+  "schemas": {
+    "count": 51,
+    "status": "pass"
+  },
+  "status": "pass_operator_software_ready_physical_and_windows_native_not_run",
+  "test_suite": {
+    "output": "validation/pytest_output.v0.1.6.txt",
+    "status": "pass",
+    "tests": 169
+  },
+  "truth_class": "UNIT_TEST_PASS",
+  "version": "0.1.6",
+  "windows": "WINDOWS_SOURCE_PRESENT_NATIVE_RUNTIME_NOT_RUN"
+}

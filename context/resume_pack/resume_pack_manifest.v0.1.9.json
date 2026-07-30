@@ -1,0 +1,8 @@
+{
+  "version": "0.1.9",
+  "status": "READY_FOR_CURSOR",
+  "working_set_update_seq": 10,
+  "episode": "episode_0010_v0.1.9",
+  "next_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "source_sha256": "71d336f3f0f8fbed9dcc04e804cc1c0da38349316c93fd8f400604ec54218e63"
+}

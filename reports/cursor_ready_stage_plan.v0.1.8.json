@@ -1,0 +1,435 @@
+{
+  "completed_stages": [
+    "00_repository_preflight",
+    "10_naming_concordance",
+    "20_launcher_validation",
+    "30_frontend_runtime_validation",
+    "40_operator_workflow_validation",
+    "50_scripted_scale_validation",
+    "60_zero_tare_calibration_validation",
+    "70_recovery_validation",
+    "80_windows_source_validation",
+    "90_context_manifest_validation",
+    "100_cursor_handoff"
+  ],
+  "failed_stage": null,
+  "finished_at": "2026-07-29T18:17:32Z",
+  "non_claims": [
+    "physical hardware not run",
+    "native Windows runtime not run",
+    "firmware compile/upload not run"
+  ],
+  "plan_id": "cursor_ready",
+  "receipts": [
+    {
+      "artifacts": [
+        "reports/execution_posture_decision.v0.1.8.json"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "scripts/validate_repo.py"
+          ],
+          "duration_s": 34.452,
+          "evidence_class": "runtime_execution_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:16:30Z",
+          "started_at": "2026-07-29T18:15:55Z",
+          "stderr": "",
+          "stdout": "{\n  \"checks\": {\n    \"claims\": {\n      \"physical\": \"NOT_RUN\",\n      \"production_ready\": false,\n      \"release_seal\": false,\n      \"runtime_scope\": \"authorized_local_software_only\",\n      \"windows_native\": \"NOT_RUN\"\n    },\n    \"context\": {\n      \"episode\": \"episode_0009_v0.1.8\",\n      \"ledger_events\": 106,\n      \"working_set\": 9\n    },\n    \"forbidden\": \"ABSENT\",\n    \"generated_hygiene\": \"PASS\",\n    \"json\": 430,\n    \"jsonl\": 131,\n    \"manifest\": \"DEFERRED_TO_FINAL_PACKAGE_GATE\",\n    \"phase_matrix\": {\n      \"phase_count\": 17,\n      \"unique_phase_count\": 17\n    },\n    \"python_compile\": \"PASS\",\n    \"required\": 36,\n    \"schemas\": 60,\n    \"tests\": 183,\n    \"validators\": {\n      \"validate_cursor_handoff_v018.py\": \"PASS\",\n      \"validate_cursor_ready_v018.py\": \"PASS\",\n      \"validate_drift_concordance_v018.py\": \"PASS\",\n      \"validate_frontend_polish_v018.py\": \"PASS\",\n      \"validate_frontend_runtime_truth.py\": \"PASS\",\n      \"validate_launchers.py\": \"PASS\",\n      \"validate_windows_source.py\": \"PASS\"\n    },\n    \"versions\": {\n      \"current_surfaces\": 16,\n      \"version\": \"0.1.8\"\n    },\n    \"yaml\": 1\n  },\n  \"errors\": [],\n  \"package_name\": \"best_buds_cultivator_weight_station\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.8\"\n}\n"
+        }
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "finished_at": "2026-07-29T18:16:30Z",
+      "next_stage": "10_naming_concordance",
+      "non_claims": [
+        "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+      ],
+      "receipt_id": "cursor-ready-v0.1.8-final2-00_repository_preflight",
+      "run_id": "cursor-ready-v0.1.8-final2",
+      "stage_id": "00_repository_preflight",
+      "started_at": "2026-07-29T18:15:55Z",
+      "status": "PASS",
+      "version": "0.1.8",
+      "warnings": []
+    },
+    {
+      "artifacts": [
+        "reports/drift_concordance_report.v0.1.8.json"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "scripts/validate_drift_concordance_v018.py"
+          ],
+          "duration_s": 1.986,
+          "evidence_class": "static_validation_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:16:32Z",
+          "started_at": "2026-07-29T18:16:30Z",
+          "stderr": "",
+          "stdout": "{\n  \"compatibility_policy\": \"older references are allowed only in immutable history or explicit compatibility surfaces\",\n  \"current_surface_count\": 23,\n  \"historical_immutable_count\": 16,\n  \"issues\": [],\n  \"status\": \"PASS\",\n  \"version\": \"0.1.8\"\n}\n"
+        }
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "finished_at": "2026-07-29T18:16:32Z",
+      "next_stage": "20_launcher_validation",
+      "non_claims": [
+        "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+      ],
+      "receipt_id": "cursor-ready-v0.1.8-final2-10_naming_concordance",
+      "run_id": "cursor-ready-v0.1.8-final2",
+      "stage_id": "10_naming_concordance",
+      "started_at": "2026-07-29T18:16:30Z",
+      "status": "PASS",
+      "version": "0.1.8",
+      "warnings": []
+    },
+    {
+      "artifacts": [],
+      "commands": [
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "scripts/validate_launchers.py"
+          ],
+          "duration_s": 12.119,
+          "evidence_class": "runtime_execution_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:16:44Z",
+          "started_at": "2026-07-29T18:16:32Z",
+          "stderr": "",
+          "stdout": "{\n  \"dry_run\": {\n    \"bootstrap\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python -m best_buds_weight_station.bootstrap --profile operator-ready\"\n    },\n    \"launch\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python -m best_buds_weight_station\"\n    },\n    \"simulator\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python -m best_buds_weight_station --simulator\"\n    },\n    \"stage\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python -m best_buds_weight_station.stage_runner list\"\n    },\n    \"validation\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python -m best_buds_weight_station.validation\"\n    }\n  },\n  \"required\": {\n    \"bootstrap_agent.bat\": true,\n    \"bootstrap_agent.ps1\": true,\n    \"bootstrap_agent.sh\": true,\n    \"cursor_bootstrap.bat\": true,\n    \"cursor_bootstrap.ps1\": true,\n    \"cursor_bootstrap.sh\": true,\n    \"launch_best_buds.bat\": true,\n    \"launch_best_buds.ps1\": true,\n    \"launch_best_buds.sh\": true,\n    \"launch_simulator.bat\": true,\n    \"launch_simulator.ps1\": true,\n    \"launch_simulator.sh\": true,\n    \"resume_stage.bat\": true,\n    \"resume_stage.ps1\": true,\n    \"resume_stage.sh\": true,\n    \"run_stage.bat\": true,\n    \"run_stage.ps1\": true,\n    \"run_stage.sh\": true,\n    \"run_validation.bat\": true,\n    \"run_validation.ps1\": true,\n    \"run_validation.sh\": true\n  },\n  \"shell_syntax\": {\n    \"bootstrap_agent.sh\": 0,\n    \"cursor_bootstrap.sh\": 0,\n    \"launch_best_buds.sh\": 0,\n    \"launch_simulator.sh\": 0,\n    \"resume_stage.sh\": 0,\n    \"run_stage.sh\": 0,\n    \"run_validation.sh\": 0\n  },\n  \"status\": \"PASS\"\n}\n"
+        }
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "finished_at": "2026-07-29T18:16:44Z",
+      "next_stage": "30_frontend_runtime_validation",
+      "non_claims": [
+        "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+      ],
+      "receipt_id": "cursor-ready-v0.1.8-final2-20_launcher_validation",
+      "run_id": "cursor-ready-v0.1.8-final2",
+      "stage_id": "20_launcher_validation",
+      "started_at": "2026-07-29T18:16:32Z",
+      "status": "PASS",
+      "version": "0.1.8",
+      "warnings": []
+    },
+    {
+      "artifacts": [
+        "reports/frontend_polish_validation.v0.1.8.json"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "scripts/validate_frontend_runtime_truth.py"
+          ],
+          "duration_s": 1.991,
+          "evidence_class": "runtime_execution_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:16:46Z",
+          "started_at": "2026-07-29T18:16:44Z",
+          "stderr": "",
+          "stdout": "{\n  \"checks\": {\n    \"alice_state_refresh\": true,\n    \"background_worker\": true,\n    \"barcode_keyboard_path\": true,\n    \"barcode_labeled\": true,\n    \"calibration_dialog\": true,\n    \"dead_contract_stubs_removed\": true,\n    \"no_synthetic_physical_zero\": true,\n    \"physical_warning_not_success\": true,\n    \"pyside_primary\": true,\n    \"scale_setup_dialog\": true,\n    \"scale_setup_not_placeholder\": true,\n    \"shared_action_layout\": true,\n    \"tare_dialog\": true,\n    \"windows_first_paths\": true,\n    \"worker_shutdown\": true\n  },\n  \"failures\": [],\n  \"status\": \"PASS\"\n}\n"
+        },
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "scripts/validate_frontend_polish_v018.py"
+          ],
+          "duration_s": 1.936,
+          "evidence_class": "runtime_execution_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:16:48Z",
+          "started_at": "2026-07-29T18:16:46Z",
+          "stderr": "",
+          "stdout": "{\n  \"checks\": {\n    \"advanced_menus\": true,\n    \"barcode_focus\": true,\n    \"barcode_label_pyside\": true,\n    \"barcode_label_tk\": true,\n    \"dead_contract_stubs_removed\": true,\n    \"generated_egg_info_absent\": true,\n    \"layout_contract_declared\": true,\n    \"manifest_runtime_truth\": true,\n    \"non_overlapping_actions\": true,\n    \"physical_warning_pyside\": true,\n    \"physical_warning_tk\": true,\n    \"seven_actions\": true,\n    \"simulator_badge\": true,\n    \"tokens_aligned\": true,\n    \"version\": true\n  },\n  \"failures\": [],\n  \"physical_hardware\": \"NOT_RUN\",\n  \"pyside_runtime\": \"NOT_RUN_DEPENDENCY_UNAVAILABLE\",\n  \"status\": \"PASS\",\n  \"tk_runtime\": \"SEPARATE_SMOKE_REQUIRED\",\n  \"version\": \"0.1.8\"\n}\n"
+        }
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "finished_at": "2026-07-29T18:16:48Z",
+      "next_stage": "40_operator_workflow_validation",
+      "non_claims": [
+        "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+      ],
+      "receipt_id": "cursor-ready-v0.1.8-final2-30_frontend_runtime_validation",
+      "run_id": "cursor-ready-v0.1.8-final2",
+      "stage_id": "30_frontend_runtime_validation",
+      "started_at": "2026-07-29T18:16:44Z",
+      "status": "PASS",
+      "version": "0.1.8",
+      "warnings": []
+    },
+    {
+      "artifacts": [],
+      "commands": [
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "scripts/run_v018_operator_acceptance.py"
+          ],
+          "duration_s": 6.157,
+          "evidence_class": "runtime_execution_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:16:54Z",
+          "started_at": "2026-07-29T18:16:48Z",
+          "stderr": "",
+          "stdout": "{\n  \"automatic\": {\n    \"pass\": true,\n    \"record_id\": \"f58afb30-061d-461c-b371-40cbe5eb5fc5\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"manual\": {\n    \"calibration_truth_class\": \"SIMULATOR_PASS\",\n    \"pass\": true,\n    \"record_id\": \"54fed29d-955d-4a9f-8d97-f9320fcf2085\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"physical_device\": \"NOT_RUN\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.8\",\n  \"windows_native_runtime\": \"NOT_RUN\"\n}\n"
+        },
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_operator_runtime.py"
+          ],
+          "duration_s": 7.019,
+          "evidence_class": "runtime_execution_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:17:01Z",
+          "started_at": "2026-07-29T18:16:54Z",
+          "stderr": "",
+          "stdout": "......                                                                   [100%]\n"
+        }
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "finished_at": "2026-07-29T18:17:01Z",
+      "next_stage": "50_scripted_scale_validation",
+      "non_claims": [
+        "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+      ],
+      "receipt_id": "cursor-ready-v0.1.8-final2-40_operator_workflow_validation",
+      "run_id": "cursor-ready-v0.1.8-final2",
+      "stage_id": "40_operator_workflow_validation",
+      "started_at": "2026-07-29T18:16:48Z",
+      "status": "PASS",
+      "version": "0.1.8",
+      "warnings": []
+    },
+    {
+      "artifacts": [],
+      "commands": [
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_device_service.py",
+            "tests/test_operator_runtime.py"
+          ],
+          "duration_s": 6.968,
+          "evidence_class": "runtime_execution_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:17:08Z",
+          "started_at": "2026-07-29T18:17:01Z",
+          "stderr": "",
+          "stdout": "..................                                                       [100%]\n"
+        }
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "finished_at": "2026-07-29T18:17:08Z",
+      "next_stage": "60_zero_tare_calibration_validation",
+      "non_claims": [
+        "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+      ],
+      "receipt_id": "cursor-ready-v0.1.8-final2-50_scripted_scale_validation",
+      "run_id": "cursor-ready-v0.1.8-final2",
+      "stage_id": "50_scripted_scale_validation",
+      "started_at": "2026-07-29T18:17:01Z",
+      "status": "PASS",
+      "version": "0.1.8",
+      "warnings": []
+    },
+    {
+      "artifacts": [],
+      "commands": [
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_scale_control.py",
+            "tests/test_operator_runtime.py"
+          ],
+          "duration_s": 7.219,
+          "evidence_class": "runtime_execution_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:17:15Z",
+          "started_at": "2026-07-29T18:17:08Z",
+          "stderr": "",
+          "stdout": "...................                                                      [100%]\n"
+        }
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "finished_at": "2026-07-29T18:17:15Z",
+      "next_stage": "70_recovery_validation",
+      "non_claims": [
+        "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+      ],
+      "receipt_id": "cursor-ready-v0.1.8-final2-60_zero_tare_calibration_validation",
+      "run_id": "cursor-ready-v0.1.8-final2",
+      "stage_id": "60_zero_tare_calibration_validation",
+      "started_at": "2026-07-29T18:17:08Z",
+      "status": "PASS",
+      "version": "0.1.8",
+      "warnings": []
+    },
+    {
+      "artifacts": [],
+      "commands": [
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_storage_crash_safety.py",
+            "tests/test_run_management.py"
+          ],
+          "duration_s": 5.767,
+          "evidence_class": "runtime_execution_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:17:21Z",
+          "started_at": "2026-07-29T18:17:15Z",
+          "stderr": "",
+          "stdout": ".............................                                            [100%]\n"
+        }
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "finished_at": "2026-07-29T18:17:21Z",
+      "next_stage": "80_windows_source_validation",
+      "non_claims": [
+        "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+      ],
+      "receipt_id": "cursor-ready-v0.1.8-final2-70_recovery_validation",
+      "run_id": "cursor-ready-v0.1.8-final2",
+      "stage_id": "70_recovery_validation",
+      "started_at": "2026-07-29T18:17:15Z",
+      "status": "PASS",
+      "version": "0.1.8",
+      "warnings": []
+    },
+    {
+      "artifacts": [],
+      "commands": [
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "scripts/validate_windows_source.py"
+          ],
+          "duration_s": 1.969,
+          "evidence_class": "static_validation_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:17:23Z",
+          "started_at": "2026-07-29T18:17:21Z",
+          "stderr": "",
+          "stdout": "{\n  \"failures\": [],\n  \"native_windows_execution\": \"NOT_RUN\",\n  \"required_files\": [\n    \"packaging/windows/BestBudsWeightStation.spec\",\n    \"packaging/windows/build_windows.ps1\",\n    \"packaging/windows/verify_windows.ps1\",\n    \"packaging/windows/install_windows.ps1\",\n    \"packaging/windows/uninstall_windows.ps1\",\n    \"packaging/windows/launcher_config.json\",\n    \"packaging/windows/README.md\",\n    \"launch_best_buds.bat\",\n    \"launch_best_buds.ps1\"\n  ],\n  \"status\": \"PASS\",\n  \"truth_class\": \"WINDOWS_SOURCE_PRESENT\"\n}\n"
+        }
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "finished_at": "2026-07-29T18:17:23Z",
+      "next_stage": "90_context_manifest_validation",
+      "non_claims": [
+        "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+      ],
+      "receipt_id": "cursor-ready-v0.1.8-final2-80_windows_source_validation",
+      "run_id": "cursor-ready-v0.1.8-final2",
+      "stage_id": "80_windows_source_validation",
+      "started_at": "2026-07-29T18:17:21Z",
+      "status": "PASS",
+      "version": "0.1.8",
+      "warnings": []
+    },
+    {
+      "artifacts": [
+        "reports/cursor_ready_validation.v0.1.8.json"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "scripts/validate_cursor_ready_v018.py"
+          ],
+          "duration_s": 7.339,
+          "evidence_class": "runtime_execution_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:17:30Z",
+          "started_at": "2026-07-29T18:17:23Z",
+          "stderr": "",
+          "stdout": "{\n  \"checks\": {\n    \"canonical_serial\": true,\n    \"context_seq\": true,\n    \"execution_posture\": true,\n    \"full_repo\": true,\n    \"generated_hygiene\": true,\n    \"physical_not_run\": true,\n    \"production_false\": true,\n    \"version\": true\n  },\n  \"commands\": [\n    {\n      \"argv\": [\n        \"/opt/pyvenv/bin/python\",\n        \"-m\",\n        \"best_buds_weight_station.stage_runner\",\n        \"list\"\n      ],\n      \"exit_code\": 0,\n      \"stderr\": \"\",\n      \"stdout\": \"{\\n  \\\"stages\\\": [\\n    \\\"00_repository_preflight\\\",\\n    \\\"10_naming_concordance\\\",\\n    \\\"20_launcher_validation\\\",\\n    \\\"30_frontend_runtime_validation\\\",\\n    \\\"40_operator_workflow_validation\\\",\\n    \\\"50_scripted_scale_validation\\\",\\n    \\\"60_zero_tare_calibration_validation\\\",\\n    \\\"70_recovery_validation\\\",\\n    \\\"80_windows_source_validation\\\",\\n    \\\"90_context_manifest_validation\\\",\\n    \\\"100_cursor_handoff\\\"\\n  ],\\n  \\\"version\\\": \\\"0.1.8\\\"\\n}\\n\"\n    },\n    {\n      \"argv\": [\n        \"/opt/pyvenv/bin/python\",\n        \"-m\",\n        \"best_buds_weight_station.stage_runner\",\n        \"status\"\n      ],\n      \"exit_code\": 0,\n      \"stderr\": \"\",\n      \"stdout\": \"{\\n  \\\"stages\\\": [\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/00_repository_preflight.latest.json\\\",\\n      \\\"stage_id\\\": \\\"00_repository_preflight\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/10_naming_concordance.latest.json\\\",\\n      \\\"stage_id\\\": \\\"10_naming_concordance\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/20_launcher_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"20_launcher_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/30_frontend_runtime_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"30_frontend_runtime_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/40_operator_workflow_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"40_operator_workflow_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/50_scripted_scale_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"50_scripted_scale_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/60_zero_tare_calibration_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"60_zero_tare_calibration_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/70_recovery_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"70_recovery_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/80_windows_source_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"80_windows_source_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": null,\\n      \\\"stage_id\\\": \\\"90_context_manifest_validation\\\",\\n      \\\"status\\\": \\\"NOT_RUN\\\"\\n    },\\n    {\\n      \\\"receipt\\\": null,\\n      \\\"stage_id\\\": \\\"100_cursor_handoff\\\",\\n      \\\"status\\\": \\\"NOT_RUN\\\"\\n    }\\n  ],\\n  \\\"version\\\": \\\"0.1.8\\\"\\n}\\n\"\n    },\n    {\n      \"argv\": [\n        \"/opt/pyvenv/bin/python\",\n        \"-m\",\n        \"best_buds_weight_station.stage_runner\",\n        \"validate-receipts\"\n      ],\n      \"exit_code\": 0,\n      \"stderr\": \"\",\n      \"stdout\": \"{\\n  \\\"errors\\\": [],\\n  \\\"receipt_count\\\": 9,\\n  \\\"status\\\": \\\"PASS\\\"\\n}\\n\"\n    }\n  ],\n  \"failures\": [],\n  \"required_count\": 21,\n  \"status\": \"PASS\",\n  \"verdicts\": [\n    \"CURSOR_READY\",\n    \"OPERATOR_SOFTWARE_READY\",\n    \"PHYSICAL_HARDWARE_NOT_RUN\",\n    \"WINDOWS_NATIVE_RUNTIME_NOT_RUN\"\n  ],\n  \"version\": \"0.1.8\"\n}\n"
+        }
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "finished_at": "2026-07-29T18:17:30Z",
+      "next_stage": "100_cursor_handoff",
+      "non_claims": [
+        "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+      ],
+      "receipt_id": "cursor-ready-v0.1.8-final2-90_context_manifest_validation",
+      "run_id": "cursor-ready-v0.1.8-final2",
+      "stage_id": "90_context_manifest_validation",
+      "started_at": "2026-07-29T18:17:23Z",
+      "status": "PASS",
+      "version": "0.1.8",
+      "warnings": []
+    },
+    {
+      "artifacts": [
+        "cursor/CURSOR_UNO_R3_PHYSICAL_INTEGRATION_HANDOFF_V0_1_8.md"
+      ],
+      "commands": [
+        {
+          "argv": [
+            "/opt/pyvenv/bin/python",
+            "scripts/validate_cursor_handoff_v018.py"
+          ],
+          "duration_s": 1.943,
+          "evidence_class": "runtime_execution_pass",
+          "exit_code": 0,
+          "finished_at": "2026-07-29T18:17:32Z",
+          "started_at": "2026-07-29T18:17:30Z",
+          "stderr": "",
+          "stdout": "{\n  \"handoff\": \"cursor/CURSOR_UNO_R3_PHYSICAL_INTEGRATION_HANDOFF_V0_1_8.md\",\n  \"missing_markers\": [],\n  \"status\": \"PASS\",\n  \"version\": \"0.1.8\"\n}\n"
+        }
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "finished_at": "2026-07-29T18:17:32Z",
+      "next_stage": null,
+      "non_claims": [
+        "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+      ],
+      "receipt_id": "cursor-ready-v0.1.8-final2-100_cursor_handoff",
+      "run_id": "cursor-ready-v0.1.8-final2",
+      "stage_id": "100_cursor_handoff",
+      "started_at": "2026-07-29T18:17:30Z",
+      "status": "PASS",
+      "version": "0.1.8",
+      "warnings": []
+    }
+  ],
+  "run_id": "cursor-ready-v0.1.8-final2",
+  "started_at": "2026-07-29T18:15:55Z",
+  "status": "PASS",
+  "verdicts": [
+    "CURSOR_READY",
+    "OPERATOR_SOFTWARE_READY",
+    "PHYSICAL_HARDWARE_NOT_RUN",
+    "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+  ],
+  "version": "0.1.8"
+}

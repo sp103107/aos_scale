@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bestbuds.local/schemas/prehardware_profile.v1.json",
+  "title": "Best Buds prehardware validation profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["profile", "version", "allow_safe_auto_repair", "drift_policy", "hard_gate_lanes", "physical_lanes"],
+  "properties": {
+    "profile": {"const": "prehardware"},
+    "version": {"type": "string"},
+    "allow_safe_auto_repair": {"const": true},
+    "drift_policy": {"type": "object"},
+    "hard_gate_lanes": {"type": "array", "items": {"type": "string"}},
+    "physical_lanes": {"type": "object", "additionalProperties": {"const": "NOT_RUN_ALLOWED"}}
+  }
+}

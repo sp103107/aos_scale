@@ -1,0 +1,8 @@
+{
+  "version": "0.1.9",
+  "status": "NOT_RUN",
+  "uno_r3": "NOT_RUN",
+  "hx711": "NOT_RUN",
+  "load_cell": "NOT_RUN",
+  "firmware_compile": "BLOCKED_OR_NOT_RUN"
+}

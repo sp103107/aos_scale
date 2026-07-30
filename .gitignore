@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local runtime / operator data (do not publish sessions)
+data/runtime/
+logs/
+*.log
+
+# Local probe / machine-specific reports (keep curated docs)
+reports/_probe_*/
+reports/*_probe*.json
+validation/receipts/stages/
+validation/checkpoints/
+validation/reports/stage_plan.*
+
+# Packaging outputs
+dist/windows/
+dist/debian/
+*.deb
+*.zip
+!packaging/**/*.zip
+
+# Arduino / editor leftovers
+*.hex
+.pio/

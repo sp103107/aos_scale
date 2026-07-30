@@ -1,0 +1,77 @@
+{
+  "authorized_runtime_scope": "local software tests, scripted serial, Tk render, stage runner, Debian package",
+  "bootstrap": {
+    "lanes_passed": 13,
+    "lanes_total": 13,
+    "status": "PASS_WITH_WARNINGS"
+  },
+  "context": "PASS",
+  "debian_package": "PASS",
+  "drift_concordance": "PASS",
+  "execution_posture": "real_execution_allowed",
+  "firmware_compile": "BLOCKED_ARDUINO_CLI_UNAVAILABLE",
+  "frontend": {
+    "native_windows_runtime": "NOT_RUN",
+    "pyside6_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+    "pyside6_source": "PASS",
+    "tk_fallback_runtime": "PASS"
+  },
+  "generated_at": "2026-07-24T04:37:04Z",
+  "json_files": {
+    "count": 379,
+    "status": "PASS"
+  },
+  "jsonl_files": {
+    "file_count": 6,
+    "record_count": 109,
+    "status": "PASS"
+  },
+  "launchers": "PASS",
+  "manifest": {
+    "file_count": 739,
+    "status": "PASS"
+  },
+  "manifest_status": null,
+  "non_claims": [
+    "No native Windows runtime pass.",
+    "No PySide6 runtime pass in this environment.",
+    "No firmware compile/upload pass.",
+    "No physical UNO R3, HX711, or load-cell pass.",
+    "No physical calibration or barcode-to-record pass.",
+    "No production-grade or release-seal pass."
+  ],
+  "package_name": "best_buds_cultivator_weight_station",
+  "persistence_recovery": "PASS",
+  "physical_hardware": "NOT_RUN",
+  "production_ready_claimed": false,
+  "release_seal_claimed": false,
+  "repo_validator": "PASS",
+  "schemas": {
+    "count": 60,
+    "status": "PASS"
+  },
+  "serial": {
+    "canonical_path": "PySerialTransport -> DeviceService -> ScaleReadingWorker -> reading.ingest",
+    "library": "pyserial",
+    "physical_transport": "NOT_RUN",
+    "scripted_transport": "PASS"
+  },
+  "stage_plan": {
+    "stages_passed": 11,
+    "stages_total": 11,
+    "status": "PASS",
+    "verdicts": [
+      "CURSOR_READY",
+      "OPERATOR_SOFTWARE_READY",
+      "PHYSICAL_HARDWARE_NOT_RUN",
+      "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+    ]
+  },
+  "status": "PASS_WITH_EVIDENCE_BOUNDARY",
+  "tests": {
+    "count": 177,
+    "status": "PASS"
+  },
+  "validated_at": "2026-07-24T04:38:11Z",
+  "version": "0.1.7"
+}

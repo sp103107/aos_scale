@@ -1,0 +1,9 @@
+{
+  "authority_boundary": "Alice does not write authoritative records and remains receipt-gated.",
+  "generated_at": "2026-07-22T21:10:00Z",
+  "physical_claims": "NOT_RUN",
+  "status": "pass",
+  "test_suite": "validation/pytest_output.v0.1.4.txt",
+  "truth_class": "UNIT_TEST_PASS",
+  "version": "0.1.4"
+}

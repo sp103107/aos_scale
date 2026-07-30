@@ -1,0 +1,33 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_storage_crash_safety_v013.py",
+        "tests/test_run_management_v013.py"
+      ],
+      "duration_seconds": 2.327,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ".............................                                            [100%]\n"
+    }
+  ],
+  "created_at": "2026-07-23T03:01:19Z",
+  "data": {},
+  "evidence_refs": [
+    "validation/receipts/recovery-matrix.latest.json"
+  ],
+  "lane": "recovery-matrix",
+  "next_action": null,
+  "profile": "prehardware",
+  "reason_code": "RECOVERY_MATRIX_PASSED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

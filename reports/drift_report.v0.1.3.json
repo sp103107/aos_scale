@@ -1,0 +1,31 @@
+{
+  "drift": [
+    {
+      "artifact": "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip",
+      "concordance_claimed": false,
+      "condition": "unavailable",
+      "expected_sha256": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c"
+    },
+    {
+      "condition": "dependency unavailable in current environment",
+      "runtime_claimed": false,
+      "source_present": true,
+      "surface": "PySide6 runtime"
+    }
+  ],
+  "generated_at": "2026-07-21T03:18:01Z",
+  "resolved": [
+    {
+      "artifact": "best_buds_cultivator_weight_station_v0_1_2.zip",
+      "sha256": "811569270d8999054d7a5178b971699b03c1869e26a7af6ffacd17075df2130e",
+      "status": "verified"
+    },
+    {
+      "artifact": "v0.1.3 kickoff prompt",
+      "sha256": "bb9ba148376678e2bf464eb7eea3f6ad51b5feef38fb5cac16963254ffe36844",
+      "status": "verified"
+    }
+  ],
+  "status": "warning",
+  "version": "0.1.3"
+}

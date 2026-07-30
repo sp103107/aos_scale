@@ -1,0 +1,70 @@
+{
+  "authorized_scope": [
+    "local software tests",
+    "Tk render smoke",
+    "scripted serial",
+    "stage runner",
+    "Debian build",
+    "metadata and drift repair"
+  ],
+  "claim_gate_required": true,
+  "compile_pack_anchors": [],
+  "contract_anchors": [
+    "contracts/runtime/",
+    "contracts/pipeline/"
+  ],
+  "current_internal_phase": "rc3c11_frontend_polish_stage_bootstrap_and_final_drift_concordance",
+  "current_version": "0.1.7",
+  "evidence_required": true,
+  "execution_authorization": true,
+  "execution_posture": "real_execution_allowed",
+  "expected_deliverables": [
+    "complete v0.1.8 repository",
+    "Debian package",
+    "Cursor handoff",
+    "validation receipts"
+  ],
+  "expected_validators": [
+    "repo",
+    "drift",
+    "frontend",
+    "stage plan",
+    "context",
+    "package"
+  ],
+  "forbidden_scope": [
+    "physical hardware activation",
+    "firmware upload",
+    "native Windows claims",
+    "production or release seal"
+  ],
+  "foundation_anchors": [
+    "README.md",
+    "docs/SYSTEM_STATE_CURRENT.md"
+  ],
+  "generated_at": "2026-07-29T17:17:48Z",
+  "latest_completed_arc": "Windows-first operator software and Cursor-ready stage bootstrap",
+  "latest_completed_episode": "episode_0008_v0.1.7",
+  "next_internal_phase": "rc3c12_final_polish_and_drift_review",
+  "next_version": "0.1.8",
+  "package_name": "best_buds_cultivator_weight_station",
+  "previous_version": "0.1.7",
+  "production_claims_allowed": [],
+  "production_claims_forbidden": [
+    "production_ready",
+    "release_sealed"
+  ],
+  "runtime_claims_allowed": [
+    "authorized local software lanes with receipts"
+  ],
+  "runtime_claims_forbidden": [
+    "physical hardware",
+    "native Windows",
+    "production grade",
+    "release seal"
+  ],
+  "source_of_truth": [
+    "best_buds_cultivator_weight_station_v0_1_7.zip",
+    "Runtime bump.pdf"
+  ]
+}

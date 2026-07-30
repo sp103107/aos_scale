@@ -1,0 +1,184 @@
+{
+  "$id": "https://bestbuds.local/schemas/alice_response.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "blocked_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "command_proposal": {
+      "additionalProperties": false,
+      "properties": {
+        "command_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "envelope": {
+          "type": "object"
+        },
+        "requires_operator_confirmation": {
+          "type": "boolean"
+        },
+        "retry_policy": {
+          "const": "never_automatic_after_ambiguous_failure"
+        }
+      },
+      "required": [
+        "command_type",
+        "envelope",
+        "requires_operator_confirmation",
+        "retry_policy"
+      ],
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "correlation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_refs": {
+      "items": {
+        "type": [
+          "object",
+          "string"
+        ]
+      },
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "operator_message": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "required_action": {
+      "additionalProperties": false,
+      "properties": {
+        "action_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "details": {
+          "type": "object"
+        },
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "action_type",
+        "required"
+      ],
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "response_id": {
+      "pattern": "^alice-response-",
+      "type": "string"
+    },
+    "response_version": {
+      "const": "1.0.0"
+    },
+    "session_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "severity": {
+      "enum": [
+        "info",
+        "warning",
+        "error",
+        "critical"
+      ],
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "DISCONNECTED",
+        "DEVICE_READY",
+        "SESSION_SETUP",
+        "SESSION_READY",
+        "WAITING_FOR_BARCODE",
+        "BARCODE_CAPTURED",
+        "WAITING_FOR_STABLE_WEIGHT",
+        "WEIGHT_STABLE",
+        "AUTO_RECORD",
+        "MANUAL_CONFIRM",
+        "LOCAL_COMMIT_PENDING",
+        "RECORD_SAVED",
+        "RECOVERY_REQUIRED",
+        "BLOCKED",
+        "ERROR"
+      ],
+      "type": "string"
+    },
+    "timestamp": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "truth_class": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "NOT_RUN",
+        "UNIT_TEST_PASS",
+        "UI_SMOKE_PASS",
+        "NATIVE_PLATFORM_PASS",
+        "PHYSICAL_DEVICE_PASS",
+        "SIMULATOR_PASS",
+        "SOURCE_PRESENT",
+        "RECEIPT_CONFIRMED",
+        "PENDING",
+        "NON_CLAIM"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "response_id",
+    "response_version",
+    "timestamp",
+    "session_id",
+    "state",
+    "truth_class",
+    "severity",
+    "operator_message",
+    "required_action",
+    "allowed_actions",
+    "blocked_actions",
+    "command_proposal",
+    "evidence_refs",
+    "non_claims",
+    "correlation_id"
+  ],
+  "title": "Alice Structured Response",
+  "type": "object"
+}

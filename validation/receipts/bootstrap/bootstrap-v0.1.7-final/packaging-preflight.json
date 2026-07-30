@@ -1,0 +1,47 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--no-build-isolation",
+        "--no-index",
+        "--disable-pip-version-check",
+        "--target",
+        "/tmp/bbws-install-preflight-2vv7whdc/site",
+        "."
+      ],
+      "duration_seconds": 2.63,
+      "exit_code": 0,
+      "stderr": "WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n",
+      "stdout": "Processing /tmp/bbws_v017/best_buds_cultivator_weight_station_v0_1_7\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: best-buds-cultivator-weight-station\n  Building wheel for best-buds-cultivator-weight-station (pyproject.toml): started\n  Building wheel for best-buds-cultivator-weight-station (pyproject.toml): finished with status 'done'\n  Created wheel for best-buds-cultivator-weight-station: filename=best_buds_cultivator_weight_station-0.1.7-py3-none-any.whl size=97099 sha256=d34c8dd83aecf800869dda0354bdd64d7baaf0fa06dc1ccd4970532a4095d8cc\n  Stored in directory: /tmp/pip-ephem-wheel-cache-5mkb_79y/wheels/14/1d/ee/2b734de0688677e06275725a10c00425718afe1d79bfeb5db2\nSuccessfully built best-buds-cultivator-weight-station\nInstalling collected packages: best-buds-cultivator-weight-station\nSuccessfully installed best-buds-cultivator-weight-station-0.1.7\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "-c",
+        "import sys; sys.path.insert(0, r'/tmp/bbws-install-preflight-2vv7whdc/site'); from best_buds_weight_station.version import __version__; from best_buds_weight_station.bootstrap import parser; assert __version__ == '0.1.7'; parser(); print(__version__)"
+      ],
+      "duration_seconds": 0.527,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "0.1.7\n"
+    }
+  ],
+  "created_at": "2026-07-24T04:32:01Z",
+  "data": {
+    "isolated_install": "PASS"
+  },
+  "evidence_refs": [],
+  "lane": "packaging-preflight",
+  "next_action": null,
+  "profile": "operator-ready",
+  "reason_code": "PACKAGING_PREFLIGHT_PASSED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

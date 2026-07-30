@@ -1,0 +1,42 @@
+{
+  "$id": "https://bestbuds.local/schemas/harvest_report.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "compiled_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "cultivar_totals": {
+      "type": "object"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "records_sha256": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "session_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "total_net_g": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "report_id",
+    "session_id",
+    "record_count",
+    "total_net_g",
+    "records_sha256",
+    "compiled_at"
+  ],
+  "title": "Harvest Report",
+  "type": "object"
+}

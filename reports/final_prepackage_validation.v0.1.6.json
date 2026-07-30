@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "background_worker": "pass",
+    "context_ledger_76": "pass",
+    "detached_package_scan": "pass",
+    "firmware_claim_boundary": "pass_blocked",
+    "full_repo_shape": "pass",
+    "launchers": "pass",
+    "native_debian": "pass",
+    "operator_ready_bootstrap_13_lanes": "pass_with_windows_native_nonclaim",
+    "physical_claim_boundary": "pass_not_run",
+    "pyside_source": "pass",
+    "schemas_51": "pass",
+    "scripted_device": "pass",
+    "test_suite_169": "pass",
+    "tk_runtime": "pass",
+    "version_alignment": "pass",
+    "windows_claim_boundary": "pass_source_only_native_not_run",
+    "zero_tare_calibration_ui": "pass_simulator_scripted_evidence"
+  },
+  "generated_at": "2026-07-23T20:48:35Z",
+  "manifest_file_count": 614,
+  "status": "pass",
+  "version": "0.1.6"
+}

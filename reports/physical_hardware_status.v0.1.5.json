@@ -1,0 +1,25 @@
+{
+  "gates": {
+    "firmware_upload": "NOT_RUN",
+    "hanging_load": "NOT_RUN",
+    "physical_barcode_loop": "NOT_RUN",
+    "physical_tare": "NOT_RUN",
+    "physical_zero": "NOT_RUN",
+    "raw_hx711_stream": "NOT_RUN",
+    "reference_weight_calibration": "NOT_RUN",
+    "repeatability": "NOT_RUN",
+    "serial_protocol": "NOT_RUN",
+    "wiring_truth": "NOT_RUN"
+  },
+  "generated_at": "2026-07-23T03:07:37Z",
+  "items": {
+    "10kg_load_cell": "AVAILABLE_REPORTED_NOT_CONNECTED",
+    "breadboards": "AVAILABLE_REPORTED_NOT_CONNECTED",
+    "hx711_modules": "AVAILABLE_REPORTED_NOT_CONNECTED",
+    "uno_r3": "AVAILABLE_REPORTED_NOT_CONNECTED"
+  },
+  "operator_reported_available": true,
+  "status": "not_run",
+  "truth_class": "NOT_RUN",
+  "version": "0.1.5"
+}

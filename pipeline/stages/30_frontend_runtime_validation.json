@@ -1,0 +1,62 @@
+{
+  "allowed_mutations": [
+    "validation/receipts/stages/**",
+    "validation/checkpoints/**",
+    "validation/reports/**"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "scripts/validate_frontend_runtime_truth.py"
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "required": true,
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/validate_frontend_polish_v018.py"
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "required": true,
+      "timeout_seconds": 180
+    }
+  ],
+  "entrypoint": {
+    "arguments": [
+      "run",
+      "--stage",
+      "30_frontend_runtime_validation"
+    ],
+    "module": "best_buds_weight_station.stage_runner"
+  },
+  "expected_artifacts": [
+    "reports/frontend_polish_validation.v0.1.9.json"
+  ],
+  "failure_classes": [
+    "FAIL",
+    "BLOCKED",
+    "NOT_RUN"
+  ],
+  "forbidden_mutations": [
+    "context/episodes/episode_0001_v0.1.0.json",
+    "context/ledger/ledger.jsonl:historical_lines",
+    "manifests/historical_release_manifests"
+  ],
+  "inputs": [],
+  "next_stage": "40_operator_workflow_validation",
+  "pass_conditions": [
+    "all required commands exit 0",
+    "receipt schema validates"
+  ],
+  "preconditions": [],
+  "purpose": "Validate primary frontend source, fallback runtime, layout rules, and state truth.",
+  "receipt_path": "validation/receipts/stages/30_frontend_runtime_validation.latest.json",
+  "requires": [
+    "20_launcher_validation"
+  ],
+  "stage_id": "30_frontend_runtime_validation",
+  "version": "0.1.9"
+}

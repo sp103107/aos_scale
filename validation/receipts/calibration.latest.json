@@ -1,0 +1,19 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [],
+  "created_at": "2026-07-22T20:54:06Z",
+  "data": {},
+  "evidence_refs": [
+    "validation/receipts/calibration.latest.json"
+  ],
+  "lane": "calibration",
+  "next_action": "Provide --port and --reference-weight-g after applying the known mass.",
+  "profile": "integration",
+  "reason_code": "REFERENCE_WEIGHT_AND_PORT_REQUIRED",
+  "required_action": {
+    "reference_weight_g": null,
+    "type": "APPLY_REFERENCE_WEIGHT"
+  },
+  "status": "WAITING_FOR_EXTERNAL_ACTION",
+  "warnings": []
+}

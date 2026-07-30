@@ -1,0 +1,187 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [],
+  "created_at": "2026-07-24T04:30:53Z",
+  "data": {
+    "capabilities": {
+      "modules": {
+        "jsonschema": true,
+        "openpyxl": true,
+        "pytest": true,
+        "serial": false,
+        "yaml": true
+      },
+      "platform": {
+        "machine": "x86_64",
+        "release": "6.12.13",
+        "system": "Linux"
+      },
+      "python": {
+        "available": true,
+        "executable": "/opt/pyvenv/bin/python",
+        "version": "3.13.5"
+      },
+      "repo_root": "/tmp/bbws_v017/best_buds_cultivator_weight_station_v0_1_7",
+      "serial_port_probe_error": null,
+      "serial_ports": [],
+      "tools": {
+        "arduino_cli": {
+          "available": false,
+          "path": null,
+          "version": null
+        },
+        "dpkg_deb": {
+          "available": true,
+          "exit_code": 0,
+          "path": "/usr/bin/dpkg-deb",
+          "version": "Debian 'dpkg-deb' package archive backend version 1.22.22 (amd64)."
+        },
+        "git": {
+          "available": true,
+          "exit_code": 0,
+          "path": "/usr/bin/git",
+          "version": "git version 2.47.3"
+        }
+      }
+    },
+    "drift": {
+      "issues": [
+        {
+          "code": "CURRENT_MANIFEST_STALE",
+          "path": "manifests/file_manifest.v0.1.7.json",
+          "repairable": true,
+          "severity": "warning"
+        }
+      ],
+      "status": "drift",
+      "version": "0.1.7"
+    },
+    "graph": {
+      "graph_version": "1.3.0",
+      "lanes": [
+        {
+          "lane": "repository-inspection",
+          "requires": []
+        },
+        {
+          "lane": "development-hygiene",
+          "requires": [
+            "repository-inspection"
+          ]
+        },
+        {
+          "lane": "software",
+          "requires": [
+            "development-hygiene"
+          ]
+        },
+        {
+          "lane": "launchers",
+          "requires": [
+            "software"
+          ]
+        },
+        {
+          "lane": "agent-entrypoint",
+          "requires": [
+            "launchers"
+          ]
+        },
+        {
+          "lane": "software-dry-run",
+          "requires": [
+            "agent-entrypoint"
+          ]
+        },
+        {
+          "lane": "recovery-matrix",
+          "requires": [
+            "software-dry-run"
+          ]
+        },
+        {
+          "lane": "operator-runtime",
+          "requires": [
+            "recovery-matrix"
+          ]
+        },
+        {
+          "lane": "scripted-device",
+          "requires": [
+            "operator-runtime"
+          ]
+        },
+        {
+          "lane": "frontend-smoke",
+          "requires": [
+            "scripted-device"
+          ]
+        },
+        {
+          "lane": "windows-packaging-source",
+          "requires": [
+            "frontend-smoke"
+          ]
+        },
+        {
+          "lane": "linux-parity",
+          "requires": [
+            "windows-packaging-source"
+          ]
+        },
+        {
+          "lane": "packaging-preflight",
+          "requires": [
+            "linux-parity"
+          ]
+        },
+        {
+          "lane": "firmware",
+          "requires": [
+            "packaging-preflight"
+          ]
+        },
+        {
+          "lane": "serial",
+          "requires": [
+            "firmware"
+          ]
+        },
+        {
+          "lane": "zero-tare",
+          "requires": [
+            "serial"
+          ]
+        },
+        {
+          "lane": "calibration",
+          "requires": [
+            "zero-tare"
+          ]
+        },
+        {
+          "lane": "physical-loop",
+          "requires": [
+            "calibration"
+          ]
+        },
+        {
+          "lane": "release-packaging",
+          "requires": [
+            "physical-loop"
+          ]
+        }
+      ],
+      "package_version": "0.1.7"
+    },
+    "version": "0.1.7"
+  },
+  "evidence_refs": [],
+  "lane": "repository-inspection",
+  "next_action": null,
+  "profile": "operator-ready",
+  "reason_code": "REPOSITORY_INSPECTED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

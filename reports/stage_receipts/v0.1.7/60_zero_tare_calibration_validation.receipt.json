@@ -1,0 +1,37 @@
+{
+  "artifacts": [],
+  "commands": [
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_scale_control_v013.py",
+        "tests/test_operator_runtime_v016.py"
+      ],
+      "duration_s": 3.571,
+      "evidence_class": "runtime_execution_pass",
+      "exit_code": 0,
+      "finished_at": "2026-07-24T04:27:49Z",
+      "started_at": "2026-07-24T04:27:45Z",
+      "stderr": "",
+      "stdout": "...................                                                      [100%]\n"
+    }
+  ],
+  "evidence_class": "runtime_execution_pass",
+  "finished_at": "2026-07-24T04:27:49Z",
+  "next_stage": "70_recovery_validation",
+  "non_claims": [
+    "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+  ],
+  "receipt_id": "release-v0.1.7-bg-60_zero_tare_calibration_validation",
+  "run_id": "release-v0.1.7-bg",
+  "stage_id": "60_zero_tare_calibration_validation",
+  "started_at": "2026-07-24T04:27:45Z",
+  "status": "PASS",
+  "version": "0.1.7",
+  "warnings": []
+}

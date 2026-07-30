@@ -1,0 +1,23 @@
+{
+  "added": [
+    "shared non-overlapping operator layout contract",
+    "labeled barcode surface",
+    "physical evidence-warning treatment",
+    "current drift validator hardening",
+    "generated-artifact hygiene"
+  ],
+  "completed_at": "2026-07-29T18:25:11Z",
+  "cursor_ready": true,
+  "generated_at": "2026-07-29T17:17:48Z",
+  "next_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "non_claims": [
+    "physical hardware not run",
+    "native Windows runtime not run",
+    "firmware compile/upload not run"
+  ],
+  "phase": "rc3c12_final_polish_and_drift_review",
+  "previous_version": "0.1.7",
+  "status": "completed",
+  "validation_status": "PASS",
+  "version": "0.1.8"
+}

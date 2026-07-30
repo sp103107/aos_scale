@@ -1,0 +1,39 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "duration_seconds": 14.145,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 40%]\n........................................................................ [ 81%]\n.................................                                        [100%]\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/validate_repo.py"
+      ],
+      "duration_seconds": 26.644,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"checks\": {\n    \"claims\": {\n      \"physical\": \"NOT_RUN\",\n      \"production\": false,\n      \"runtime_scope\": \"authorized_local_software_only\",\n      \"windows_native\": \"NOT_RUN\"\n    },\n    \"context\": {\n      \"episode\": \"episode_0008_v0.1.7\",\n      \"ledger_events\": 90,\n      \"working_set\": 8\n    },\n    \"forbidden\": \"ABSENT\",\n    \"json\": 357,\n    \"jsonl\": 103,\n    \"manifest\": 718,\n    \"python_compile\": \"PASS\",\n    \"required\": 23,\n    \"schemas\": 60,\n    \"tests\": 177,\n    \"validators\": {\n      \"validate_cursor_handoff_v017.py\": \"PASS\",\n      \"validate_cursor_ready_v017.py\": \"PASS\",\n      \"validate_drift_concordance_v017.py\": \"PASS\",\n      \"validate_frontend_polish_v017.py\": \"PASS\",\n      \"validate_frontend_runtime_truth.py\": \"PASS\",\n      \"validate_launchers.py\": \"PASS\",\n      \"validate_windows_source.py\": \"PASS\"\n    },\n    \"versions\": 11\n  },\n  \"errors\": [],\n  \"package_name\": \"best_buds_cultivator_weight_station\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.7\"\n}\n"
+    }
+  ],
+  "created_at": "2026-07-24T04:31:34Z",
+  "data": {},
+  "evidence_refs": [],
+  "lane": "software",
+  "next_action": null,
+  "profile": "operator-ready",
+  "reason_code": "SOFTWARE_VALIDATION_PASSED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

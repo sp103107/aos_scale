@@ -1,0 +1,15 @@
+{
+  "profiles": [
+    {
+      "max_spread_g": 0.8,
+      "max_stddev_g": 0.25,
+      "maximum_weight_g": 50000.0,
+      "minimum_samples": 6,
+      "minimum_weight_g": 1.0,
+      "profile_id": "standard_hanging_grams",
+      "settle_ms": 650,
+      "timeout_ms": 15000,
+      "window_size": 8
+    }
+  ]
+}

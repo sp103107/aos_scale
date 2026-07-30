@@ -1,0 +1,68 @@
+{
+  "$id": "https://bestbuds.local/schemas/validation_lane_result.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "blocking_gates": {
+      "type": "array"
+    },
+    "commands_executed": {
+      "type": "array"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object"
+    },
+    "evidence_refs": {
+      "type": "array"
+    },
+    "lane": {
+      "type": "string"
+    },
+    "next_action": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "profile": {
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "required_action": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "PASS_WITH_WARNINGS",
+        "BLOCKED",
+        "NOT_RUN",
+        "FAIL",
+        "WAITING_FOR_EXTERNAL_ACTION"
+      ]
+    },
+    "warnings": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "lane",
+    "status",
+    "reason_code",
+    "profile",
+    "commands_executed",
+    "evidence_refs",
+    "blocking_gates",
+    "warnings",
+    "created_at",
+    "data"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,62 @@
+{
+  "$id": "https://bestbuds.local/schemas/alice_evidence_statement.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_refs": {
+      "items": {
+        "type": [
+          "object",
+          "string"
+        ]
+      },
+      "type": "array"
+    },
+    "non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "statement": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "statement_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "subject": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "truth_class": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "NOT_RUN",
+        "UNIT_TEST_PASS",
+        "UI_SMOKE_PASS",
+        "NATIVE_PLATFORM_PASS",
+        "PHYSICAL_DEVICE_PASS",
+        "SIMULATOR_PASS",
+        "SOURCE_PRESENT",
+        "RECEIPT_CONFIRMED",
+        "PENDING",
+        "NON_CLAIM"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "statement_id",
+    "subject",
+    "truth_class",
+    "statement",
+    "evidence_refs",
+    "non_claims"
+  ],
+  "title": "Alice Evidence Statement",
+  "type": "object"
+}

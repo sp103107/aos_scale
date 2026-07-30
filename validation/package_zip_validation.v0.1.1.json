@@ -1,0 +1,12 @@
+{
+  "alice_module_inside_full_repo": true,
+  "forbidden_detached_package_paths": [],
+  "full_repo_required_paths_present": true,
+  "generated_at": "2026-07-19T16:55:47Z",
+  "note": "The final ZIP is rebuilt after this report and revalidated externally; its SHA-256 is necessarily stored outside the ZIP.",
+  "prior_v0.1.0_evidence_preserved": true,
+  "provisional_zip_membership_checked": 242,
+  "single_repository_root": true,
+  "status": "pass",
+  "version": "0.1.1"
+}

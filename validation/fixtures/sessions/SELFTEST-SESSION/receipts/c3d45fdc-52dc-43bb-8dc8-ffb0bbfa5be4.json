@@ -1,0 +1,16 @@
+{
+  "authoritative_paths": [
+    "validation/fixtures/sessions/SELFTEST-SESSION/records.jsonl",
+    "validation/fixtures/sessions/SELFTEST-SESSION/records/000001_7cf82ed9-e04c-468b-a662-17d7a59c0ef4.json",
+    "validation/fixtures/sessions/SELFTEST-SESSION/session_snapshot.json"
+  ],
+  "committed_at": "2026-07-19T15:36:01Z",
+  "derivative_status": {
+    "csv": "updated",
+    "xlsx": "updated"
+  },
+  "receipt_id": "c3d45fdc-52dc-43bb-8dc8-ffb0bbfa5be4",
+  "record_hash": "0f0be1fbb21cd5a289060537a96157ccd0e478bf5e0c0bc1464d54af8285941b",
+  "record_id": "7cf82ed9-e04c-468b-a662-17d7a59c0ef4",
+  "status": "committed"
+}

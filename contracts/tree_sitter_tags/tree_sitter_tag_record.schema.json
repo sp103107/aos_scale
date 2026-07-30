@@ -1,0 +1,33 @@
+{
+  "$id": "https://bestbuds.local/contracts/tree_sitter_tags/tree_sitter_tag_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "language": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "path": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "not_run",
+        "tagged",
+        "blocked"
+      ]
+    }
+  },
+  "required": [
+    "record_id",
+    "path",
+    "language",
+    "status"
+  ],
+  "type": "object"
+}

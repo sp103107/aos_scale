@@ -1,0 +1,40 @@
+{
+  "$id": "https://bestbuds.local/contracts/pipeline/resume_token.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_path": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "created_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "next_stage": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "plan_id",
+    "next_stage",
+    "version",
+    "created_at"
+  ],
+  "title": "Resume Token",
+  "type": "object"
+}

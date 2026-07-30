@@ -1,0 +1,119 @@
+{
+  "canonical_actions": {
+    "bluetooth": "contracts_validated_disabled_NOT_RUN",
+    "keyboard": "pass",
+    "local_test_buttons": "pass_not_physical",
+    "ui": "pass",
+    "wifi": "contracts_validated_disabled_NOT_RUN"
+  },
+  "context": {
+    "episode": "episode_0004_v0.1.3.json",
+    "ledger_events": 38,
+    "resume_pack": "pass",
+    "status": "pass",
+    "working_set_update_seq": 4
+  },
+  "core_acceptance": {
+    "evidence": "validation/core_operator_acceptance.v0.1.3.json",
+    "status": "pass",
+    "truth_class": "UNIT_TEST_PASS"
+  },
+  "device_control": {
+    "bounded_parse": "pass",
+    "connect": "pass",
+    "disconnect": "pass",
+    "discover": "pass_fixture_and_source",
+    "malformed": "pass",
+    "physical": "NOT_RUN",
+    "ping": "pass",
+    "reconnect": "pass",
+    "source": "SOURCE_PRESENT",
+    "stale": "pass",
+    "status": "pass",
+    "stream_start_stop": "pass",
+    "unit_and_simulator": "UNIT_TEST_PASS"
+  },
+  "drift": "warn_missing_declared_contract_bundle_and_pyside_runtime_dependency",
+  "frontend": {
+    "accessibility_contract": "UNIT_TEST_PASS",
+    "production_source": "SOURCE_PRESENT",
+    "pyside6_runtime": "NOT_RUN_dependency_unavailable",
+    "pyside6_source": "SOURCE_PRESENT",
+    "tk_source_smoke_automatic": "UI_SMOKE_PASS",
+    "tk_source_smoke_manual": "UI_SMOKE_PASS",
+    "visible_button_callbacks": "UNIT_TEST_PASS"
+  },
+  "generated_at": "2026-07-21T03:18:01Z",
+  "non_claims": [
+    "No physical scale pass.",
+    "No firmware compile pass.",
+    "No Windows-native pass.",
+    "No legal-for-trade certification.",
+    "No Bluetooth/Wi-Fi/UNO Q activation.",
+    "No production readiness or release seal."
+  ],
+  "operator_loop": {
+    "alice_receipt_gate": "pass",
+    "automatic": "SIMULATOR_PASS",
+    "cancel_uncommitted": "pass",
+    "confirm": "pass",
+    "gross_tare_net": "pass",
+    "manual": "SIMULATOR_PASS",
+    "next_barcode_reset": "pass",
+    "stability": "pass"
+  },
+  "package_name": "best_buds_cultivator_weight_station",
+  "persistence_recovery": {
+    "autosave_each_plant": "pass",
+    "checkpoint": "pass",
+    "duplicate_prevention": "pass",
+    "hash_chain": "pass",
+    "individual_json": "pass",
+    "interruption_cases": 13,
+    "jsonl": "pass",
+    "jsonl_tail_quarantine": "pass",
+    "no_success_before_alice": "pass",
+    "receipt_rebuild": "pass",
+    "recent_pointer": "pass",
+    "stale_checkpoint_rebuild": "pass",
+    "temporary_file_quarantine": "pass",
+    "uncommitted_weight_restored": false
+  },
+  "platforms": {
+    "debian": "NATIVE_PLATFORM_PASS",
+    "firmware_compile": "BLOCKED",
+    "physical_scale": "NOT_RUN",
+    "uno_q": "NOT_RUN",
+    "windows": "BLOCKED"
+  },
+  "run_management": {
+    "data_location": "pass",
+    "durable_recent_pointer": "pass",
+    "export": "pass",
+    "finish": "pass",
+    "invalid_location_rejection": "pass",
+    "invalid_run_rejection": "pass",
+    "load": "pass",
+    "new_run": "pass",
+    "resume_latest": "pass"
+  },
+  "scale_control": {
+    "container_tare": "UNIT_TEST_PASS",
+    "guided_calibration": "SIMULATOR_PASS",
+    "legal_for_trade": "NON_CLAIM",
+    "physical_calibration": "NOT_RUN",
+    "zero": "SIMULATOR_PASS"
+  },
+  "schemas": {
+    "count": 43,
+    "status": "pass"
+  },
+  "status": "pass_software_and_native_debian_with_evidence_gated_blocks",
+  "test_suite": {
+    "output": "validation/pytest_output.v0.1.3.txt",
+    "status": "pass",
+    "tests": 133
+  },
+  "truth_class": "UNIT_TEST_PASS",
+  "version": "0.1.3"
+}

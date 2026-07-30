@@ -1,0 +1,12 @@
+{
+  "current_version": "0.1.2",
+  "current_unversioned_aliases": {
+    "validation/version_output.txt": "0.1.2",
+    "validation/debian_extracted_version.txt": "0.1.2"
+  },
+  "legacy_preservation": {
+    "validation/history/v0.1.0/version_output.txt": "preserved original unversioned v0.1.0 evidence",
+    "validation/history/v0.1.0/debian_extracted_version.txt": "preserved original unversioned v0.1.0 evidence"
+  },
+  "status": "normalized"
+}

@@ -1,0 +1,39 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "duration_seconds": 6.236,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 45%]\n........................................................................ [ 90%]\n...............                                                          [100%]\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/validate_repo.py"
+      ],
+      "duration_seconds": 11.753,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"checks\": {\n    \"claim_boundaries\": \"bounded\",\n    \"context_alignment\": {\n      \"events\": 58,\n      \"latest\": 58\n    },\n    \"forbidden_detached_paths\": \"absent\",\n    \"json_parse\": 234,\n    \"jsonl_parse\": 60,\n    \"llm_harness\": {\n      \"firmware\": \"BLOCKED\",\n      \"inspect\": \"pass\",\n      \"prepare\": \"PASS\",\n      \"software_dry_run\": \"SIMULATOR_PASS\"\n    },\n    \"manifest_hashes\": 502,\n    \"prior_state_preserved\": 6,\n    \"python_compile_import\": {\n      \"bootstrap\": \"AgentBootstrap\",\n      \"harness\": \"ValidationHarness\"\n    },\n    \"required_paths\": 29,\n    \"schemas\": 51,\n    \"test_suite\": 159,\n    \"version_alignment\": \"0.1.5\",\n    \"yaml_parse\": 1\n  },\n  \"errors\": [],\n  \"status\": \"pass\",\n  \"version\": \"0.1.5\"\n}\n"
+    }
+  ],
+  "created_at": "2026-07-23T03:05:27Z",
+  "data": {},
+  "evidence_refs": [],
+  "lane": "software",
+  "next_action": null,
+  "profile": "prehardware",
+  "reason_code": "SOFTWARE_VALIDATION_PASSED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

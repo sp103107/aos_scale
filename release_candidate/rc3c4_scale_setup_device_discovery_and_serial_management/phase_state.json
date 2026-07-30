@@ -1,0 +1,8 @@
+{
+  "external_package": false,
+  "phase": "rc3c4_scale_setup_device_discovery_and_serial_management",
+  "physical_hardware_claimed": false,
+  "status": "implemented",
+  "summary": "Implemented Scale Setup with discovery, connect, disconnect, PING, STATUS, and simulator controls.",
+  "version": "0.1.6"
+}

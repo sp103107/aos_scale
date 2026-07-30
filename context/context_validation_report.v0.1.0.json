@@ -1,0 +1,14 @@
+{
+  "application_runtime_evidence": "simulator_and_native_debian",
+  "context_module_runtime_execution_claimed": false,
+  "created_at": "2026-07-19T15:45:23Z",
+  "episode_checkpoint": "episodes/episode_0001_v0.1.0.json",
+  "episode_checkpoint_added": true,
+  "ledger_events": 11,
+  "non_claim": "Context records were updated statically; no separate Context Module service/runtime execution was performed.",
+  "resume_pack_updated": true,
+  "source_hashes_recorded": true,
+  "status": "pass",
+  "version": "0.1.0",
+  "working_set_update_seq": 1
+}

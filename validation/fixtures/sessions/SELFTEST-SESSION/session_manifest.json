@@ -1,0 +1,25 @@
+{
+  "context": {
+    "calibration_id": "SIM-CAL-001",
+    "container_id": "BUCKET-01",
+    "cultivar_id": "cultivar-1",
+    "cultivar_normalized_name": "Test Cultivar",
+    "cultivar_raw_name": "Test Strain",
+    "device_id": "SIM-UNO-001",
+    "evidence_truth_class": "simulator",
+    "facility_id": "facility-test",
+    "firmware_version": "0.1.0-sim",
+    "measurement_stage": "harvest",
+    "operator_id": "operator-test",
+    "run_id": "HARVEST-2026-001",
+    "session_id": "SELFTEST-SESSION",
+    "stability_profile_id": "standard_hanging_grams",
+    "station_id": "station-test",
+    "tare_g": 10.0,
+    "weight_purpose": "wet_weight"
+  },
+  "created_at": "2026-07-19T15:36:01Z",
+  "run_id": "HARVEST-2026-001",
+  "session_id": "SELFTEST-SESSION",
+  "status": "active"
+}

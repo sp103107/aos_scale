@@ -1,0 +1,44 @@
+{
+  "drift_check_status": "warn_missing_declared_contract_zip_fixed_v0.1.1_alice_and_evidence_drift",
+  "findings": [
+    {
+      "artifact": "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip",
+      "effect": "Full concordance with the governing base contract bundle is not claimed.",
+      "expected_sha256": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c",
+      "status": "unavailable"
+    },
+    {
+      "artifact": "best_buds_cultivator_weight_station_v0_1_1.zip",
+      "sha256": "6f8f0ae8c89e26cdfde7bb5c7527c330666c1bdec644de7ccf2e318eb7cfeba8",
+      "status": "verified_source"
+    },
+    {
+      "finding": "automatic UI terminal receipt was not routed through Alice",
+      "status": "fixed"
+    },
+    {
+      "finding": "backend emitted success feedback before Alice interpretation",
+      "status": "fixed"
+    },
+    {
+      "finding": "duplicate acknowledgement did not require original receipt evidence",
+      "status": "fixed"
+    },
+    {
+      "finding": "Tk Cancel Capture lacked a command binding",
+      "status": "fixed"
+    },
+    {
+      "finding": "two unversioned validation aliases still reported 0.1.0",
+      "status": "fixed_legacy_copied_to_validation/history/v0.1.0"
+    },
+    {
+      "finding": "ten examples included only eight structured response fixtures",
+      "status": "clarified_and_validated_8_response_plus_2_evidence_statement"
+    }
+  ],
+  "generated_at": "2026-07-19T17:46:51Z",
+  "preservation": "All prior repository files, evidence receipts, source truth, and Context records were preserved; current-version additions are forward-only except current aliases intentionally normalized with legacy copies retained.",
+  "status": "warn_remaining_source_artifact_gap_only",
+  "version": "0.1.2"
+}

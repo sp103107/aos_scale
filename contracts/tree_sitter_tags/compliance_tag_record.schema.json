@@ -1,0 +1,28 @@
+{
+  "$id": "https://bestbuds.local/contracts/tree_sitter_tags/compliance_tag_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "not_run",
+        "tagged",
+        "blocked"
+      ]
+    },
+    "tag": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "tag",
+    "status"
+  ],
+  "type": "object"
+}

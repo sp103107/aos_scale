@@ -1,0 +1,112 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "best_buds_weight_station.validation.dry_run"
+      ],
+      "duration_seconds": 0.652,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"automatic_loop\": {\n    \"gross_g\": 1250.0,\n    \"load_resume_verified\": true,\n    \"mode\": \"automatic\",\n    \"net_g\": 1200.0,\n    \"recent_pointer_sequence\": 1,\n    \"record_id\": \"a9a02b8a-f660-480e-9cf9-fb81d4193528\",\n    \"sequence\": 1,\n    \"session_manifest\": \"/tmp/bbws-software-dry-run-skq1suea/automatic/data/sessions/SESSION-AUTOMATIC/session_manifest.json\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"tare_g\": 50.0,\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"bluetooth_boundary\": \"VALIDATED_DISABLED_NOT_RUN\",\n  \"calibration\": {\n    \"certification_claimed\": false,\n    \"physical_device_pass\": false,\n    \"receipt_id\": \"calibration-a7769cf8-c1c2-4de4-8002-52a1513c2197\",\n    \"reference_weight_g\": 1000.0,\n    \"truth_class\": \"SIMULATOR_PASS\"\n  },\n  \"canonical_button_mapping\": {\n    \"blue\": \"ui.open_scale_setup\",\n    \"green\": \"capture.confirm\",\n    \"red\": \"capture.cancel\",\n    \"yellow\": \"scale.zero\"\n  },\n  \"evidence_class\": \"SIMULATOR_PASS\",\n  \"firmware_upload\": \"NOT_RUN\",\n  \"manual_loop\": {\n    \"gross_g\": 1250.0,\n    \"load_resume_verified\": true,\n    \"mode\": \"manual\",\n    \"net_g\": 1200.0,\n    \"recent_pointer_sequence\": 1,\n    \"record_id\": \"2492f83d-f900-419e-aa96-b8e8a5561d31\",\n    \"sequence\": 1,\n    \"session_manifest\": \"/tmp/bbws-software-dry-run-skq1suea/manual/data/sessions/SESSION-MANUAL/session_manifest.json\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"tare_g\": 50.0,\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"non_claims\": [\n    \"No physical UNO, HX711, or load-cell pass.\",\n    \"No physical calibration or hanging-load pass.\",\n    \"No Bluetooth or Wi-Fi runtime activation.\",\n    \"No legal-for-trade certification.\"\n  ],\n  \"physical_device\": \"NOT_RUN\",\n  \"status\": \"PASS\",\n  \"uno_q\": \"NOT_RUN\",\n  \"version\": \"0.1.5\",\n  \"wifi_boundary\": \"VALIDATED_DISABLED_NOT_RUN\"\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/run_self_test.py"
+      ],
+      "duration_seconds": 0.596,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"alice_terminal_receipt_gate\": \"pass\",\n  \"automatic_capture\": \"pass\",\n  \"data_root\": \"/tmp/tmpioqn6kt6\",\n  \"hash_chain\": \"pass\",\n  \"local_write_failure_prevents_success_beep\": \"pass\",\n  \"manual_capture\": \"pass\",\n  \"no_success_before_alice_receipt_validation\": \"pass\",\n  \"records\": 2,\n  \"status\": \"pass\",\n  \"total_net_g\": 305.0,\n  \"truth_class\": \"SIMULATOR_PASS\"\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/run_v013_acceptance.py"
+      ],
+      "duration_seconds": 0.639,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"automatic_loop\": {\n    \"feedback\": [\n      \"success\"\n    ],\n    \"mode\": \"automatic\",\n    \"net_g\": 1200.0,\n    \"recent_pointer_sequence\": 1,\n    \"record_id\": \"d6afdcd4-9190-4af2-bd43-bbb2191928f0\",\n    \"session_manifest\": \"/tmp/tmpp2o598nu/automatic/data/sessions/SESSION-automatic/session_manifest.json\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"terminal_truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"bluetooth_boundary\": \"validated_disabled_by_default\",\n  \"calibration\": {\n    \"physical_device_pass\": false,\n    \"receipt_id\": \"calibration-c690024a-0571-4203-bfa8-b347b14ad271\",\n    \"truth_class\": \"SIMULATOR_PASS\"\n  },\n  \"canonical_buttons\": {\n    \"blue\": \"ui.open_scale_setup\",\n    \"green\": \"capture.confirm\",\n    \"red\": \"capture.cancel\",\n    \"yellow\": \"scale.zero\"\n  },\n  \"known_tare\": \"UNIT_TEST_PASS\",\n  \"manual_loop\": {\n    \"feedback\": [\n      \"success\"\n    ],\n    \"mode\": \"manual\",\n    \"net_g\": 1200.0,\n    \"recent_pointer_sequence\": 1,\n    \"record_id\": \"a63ea3aa-8204-49c1-96a8-adf968187ee5\",\n    \"session_manifest\": \"/tmp/tmpp2o598nu/manual/data/sessions/SESSION-manual/session_manifest.json\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"terminal_truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"non_claims\": [\n    \"No physical device pass.\",\n    \"No legal-for-trade calibration.\",\n    \"No Bluetooth or Wi-Fi activation.\"\n  ],\n  \"physical_device\": \"NOT_RUN\",\n  \"status\": \"pass\",\n  \"truth_class\": \"UNIT_TEST_PASS\",\n  \"uno_q\": \"NOT_RUN\",\n  \"version\": \"0.1.5\",\n  \"wifi_boundary\": \"validated_disabled_by_default\",\n  \"zero_scale\": \"SIMULATOR_PASS\"\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "best_buds_weight_station",
+        "--self-test"
+      ],
+      "duration_seconds": 0.611,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"alice_terminal_receipt_gate\": \"pass\",\n  \"automatic_capture\": \"pass\",\n  \"data_root\": \"/tmp/tmp3c_p60kj\",\n  \"hash_chain\": \"pass\",\n  \"local_write_failure_prevents_success_beep\": \"pass\",\n  \"manual_capture\": \"pass\",\n  \"no_success_before_alice_receipt_validation\": \"pass\",\n  \"records\": 2,\n  \"status\": \"pass\",\n  \"total_net_g\": 305.0,\n  \"truth_class\": \"SIMULATOR_PASS\"\n}\n"
+    }
+  ],
+  "created_at": "2026-07-23T03:05:31Z",
+  "data": {
+    "automatic_loop": {
+      "gross_g": 1250.0,
+      "load_resume_verified": true,
+      "mode": "automatic",
+      "net_g": 1200.0,
+      "recent_pointer_sequence": 1,
+      "record_id": "a9a02b8a-f660-480e-9cf9-fb81d4193528",
+      "sequence": 1,
+      "session_manifest": "/tmp/bbws-software-dry-run-skq1suea/automatic/data/sessions/SESSION-AUTOMATIC/session_manifest.json",
+      "state": "WAITING_FOR_BARCODE",
+      "tare_g": 50.0,
+      "truth_class": "RECEIPT_CONFIRMED"
+    },
+    "bluetooth_boundary": "VALIDATED_DISABLED_NOT_RUN",
+    "calibration": {
+      "certification_claimed": false,
+      "physical_device_pass": false,
+      "receipt_id": "calibration-a7769cf8-c1c2-4de4-8002-52a1513c2197",
+      "reference_weight_g": 1000.0,
+      "truth_class": "SIMULATOR_PASS"
+    },
+    "canonical_button_mapping": {
+      "blue": "ui.open_scale_setup",
+      "green": "capture.confirm",
+      "red": "capture.cancel",
+      "yellow": "scale.zero"
+    },
+    "evidence_class": "SIMULATOR_PASS",
+    "firmware_upload": "NOT_RUN",
+    "manual_loop": {
+      "gross_g": 1250.0,
+      "load_resume_verified": true,
+      "mode": "manual",
+      "net_g": 1200.0,
+      "recent_pointer_sequence": 1,
+      "record_id": "2492f83d-f900-419e-aa96-b8e8a5561d31",
+      "sequence": 1,
+      "session_manifest": "/tmp/bbws-software-dry-run-skq1suea/manual/data/sessions/SESSION-MANUAL/session_manifest.json",
+      "state": "WAITING_FOR_BARCODE",
+      "tare_g": 50.0,
+      "truth_class": "RECEIPT_CONFIRMED"
+    },
+    "non_claims": [
+      "No physical UNO, HX711, or load-cell pass.",
+      "No physical calibration or hanging-load pass.",
+      "No Bluetooth or Wi-Fi runtime activation.",
+      "No legal-for-trade certification."
+    ],
+    "physical_device": "NOT_RUN",
+    "status": "PASS",
+    "uno_q": "NOT_RUN",
+    "version": "0.1.5",
+    "wifi_boundary": "VALIDATED_DISABLED_NOT_RUN"
+  },
+  "evidence_refs": [],
+  "lane": "software-dry-run",
+  "next_action": null,
+  "profile": "prehardware",
+  "reason_code": "SOFTWARE_DRY_RUN_PASSED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

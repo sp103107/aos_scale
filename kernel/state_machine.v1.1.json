@@ -1,0 +1,23 @@
+{
+  "authority": "backend_state_machine",
+  "operator_guidance": "alice_response_agent",
+  "states": [
+    "DISCONNECTED",
+    "DEVICE_READY",
+    "SESSION_SETUP",
+    "SESSION_READY",
+    "WAITING_FOR_BARCODE",
+    "BARCODE_CAPTURED",
+    "WAITING_FOR_STABLE_WEIGHT",
+    "WEIGHT_STABLE",
+    "AUTO_RECORD",
+    "MANUAL_CONFIRM",
+    "LOCAL_COMMIT_PENDING",
+    "RECORD_SAVED",
+    "RECOVERY_REQUIRED",
+    "BLOCKED",
+    "ERROR"
+  ],
+  "success_gate": "valid_local_commit_receipt",
+  "version": "1.1.0"
+}

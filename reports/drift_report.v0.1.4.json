@@ -1,0 +1,18 @@
+{
+  "current_metadata_drift": "clean",
+  "generated_at": "2026-07-22T21:10:00Z",
+  "historical_evidence_mutation": "forbidden",
+  "non_claims": [
+    "No concordance with the unavailable governing contract bundle."
+  ],
+  "safe_auto_repair_policy": "implemented",
+  "source_drift": [
+    {
+      "artifact": "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip",
+      "expected_sha256": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c",
+      "status": "unavailable"
+    }
+  ],
+  "status": "warn",
+  "version": "0.1.4"
+}

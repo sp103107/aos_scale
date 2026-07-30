@@ -1,0 +1,12 @@
+{
+  "steps": [
+    "validate_command",
+    "construct_record",
+    "append_jsonl_and_fsync",
+    "write_individual_json_atomically",
+    "update_session_checkpoint_atomically",
+    "return_local_commit_receipt",
+    "emit_success_feedback",
+    "update_csv_xlsx_remote_asynchronously"
+  ]
+}

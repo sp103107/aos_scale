@@ -1,0 +1,21 @@
+{
+  "phases": [
+    {
+      "phase": "rc0_initial_application_build",
+      "status": "preserved_complete"
+    },
+    {
+      "phase": "rc1_alice_response_agent_implementation_and_truth_hardening",
+      "status": "preserved_complete"
+    },
+    {
+      "phase": "rc1a_alice_terminal_receipt_ui_flow_and_evidence_hygiene_hardening",
+      "status": "implemented_and_validated"
+    },
+    {
+      "phase": "rc2_physical_hardware_calibration_and_native_windows_evidence",
+      "status": "next"
+    }
+  ],
+  "version": "0.1.2"
+}

@@ -1,0 +1,26 @@
+{
+  "allow_safe_auto_repair": false,
+  "drift_policy": {
+    "current_version_reference": "HARD_GATE",
+    "generated_manifest": "HARD_GATE",
+    "historical_version_reference": "ALLOW"
+  },
+  "hard_gate_lanes": [
+    "repository-inspection",
+    "development-hygiene",
+    "software",
+    "agent-entrypoint",
+    "software-dry-run",
+    "recovery-matrix",
+    "frontend-smoke",
+    "packaging-preflight",
+    "firmware",
+    "serial",
+    "zero-tare",
+    "calibration",
+    "physical-loop",
+    "release-packaging"
+  ],
+  "profile": "release",
+  "version": "1.1.0"
+}

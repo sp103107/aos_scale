@@ -1,0 +1,37 @@
+{
+  "bootstrap": "PASS_WITH_WARNINGS_EVIDENCE_BOUNDARY",
+  "debian_package": "PASS",
+  "debian_sha256": "b29936c42fccd5aa0fe689c1677a8c60cb60ec5247bd8b3e3d10d73ab40eafc7",
+  "final_frontend_recheck": "PASS_14_AFFECTED_TESTS",
+  "findings_corrected": [
+    "Tk action-grid overlap",
+    "barcode field lacked visible label",
+    "physical serial pending state used success colors",
+    "current frontend manifest retained pending Tk status",
+    "dead callback stubs used for source-text tests",
+    "generated egg-info packaged in source",
+    "duplicate release phase ID",
+    "active current stages referenced old versioned test names",
+    "stale frontend-manifest barcode label",
+    "stale pre-correction frontend screenshot",
+    "authoritative full-suite log omitted by transient-log packaging rule"
+  ],
+  "frontend_render": "TK_FALLBACK_RUNTIME_PASS_PYSIDE_RUNTIME_NOT_RUN",
+  "generated_at": "2026-07-29T18:42:23Z",
+  "historical_records_preserved": true,
+  "json_schemas": 60,
+  "physical_runtime": "NOT_RUN",
+  "post_drift_regression": "PASS_16_AFFECTED_TESTS",
+  "post_drift_stage_revalidation": "PASS_STAGES_10_AND_30",
+  "production_ready": false,
+  "release_seal": false,
+  "remaining_drift": [
+    "Governing contract bundle unavailable; full concordance not claimed."
+  ],
+  "stage_plan": "PASS_11_OF_11",
+  "status": "PASS",
+  "tests": 183,
+  "validated_at": "2026-07-29T18:42:23Z",
+  "version": "0.1.8",
+  "windows_native_runtime": "NOT_RUN"
+}

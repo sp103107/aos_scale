@@ -1,0 +1,52 @@
+{
+  "claims": [
+    {
+      "status": "pass",
+      "subject": "Alice response agent implementation",
+      "truth_class": "PASS"
+    },
+    {
+      "status": "pass",
+      "subject": "Automatic/manual simulator capture",
+      "truth_class": "SIMULATOR_PASS"
+    },
+    {
+      "status": "present",
+      "subject": "Firmware source",
+      "truth_class": "SOURCE_PRESENT"
+    },
+    {
+      "status": "blocked",
+      "subject": "Firmware compile",
+      "truth_class": "BLOCKED"
+    },
+    {
+      "status": "not_run",
+      "subject": "Physical UNO/HX711/load cell",
+      "truth_class": "NOT_RUN"
+    },
+    {
+      "status": "pass",
+      "subject": "Native Debian package",
+      "truth_class": "PASS"
+    },
+    {
+      "status": "blocked",
+      "subject": "Native Windows executable",
+      "truth_class": "BLOCKED"
+    },
+    {
+      "status": "not_claimed",
+      "subject": "Production readiness",
+      "truth_class": "NON_CLAIM"
+    },
+    {
+      "status": "not_granted",
+      "subject": "Release seal",
+      "truth_class": "NON_CLAIM"
+    }
+  ],
+  "generated_at": "2026-07-19T16:53:32Z",
+  "status": "pass_truth_boundaries_with_blocked_release_gates",
+  "version": "0.1.1"
+}

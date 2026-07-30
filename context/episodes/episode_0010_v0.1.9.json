@@ -1,0 +1,14 @@
+{
+  "episode_id": "episode_0010_v0.1.9",
+  "version": "0.1.9",
+  "phase": "rc3c13_core_process_closure_and_final_cursor_hardening",
+  "previous_episode": "episode_0009_v0.1.8",
+  "status": "complete",
+  "validation_summary": "core software processes executable; resume last-record defect corrected",
+  "next_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "non_claims": [
+    "physical hardware not run",
+    "Windows native runtime not run"
+  ],
+  "sequence": 10
+}

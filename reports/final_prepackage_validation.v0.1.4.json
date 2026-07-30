@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "context_events": 48,
+    "debian": "pass",
+    "detached_phase_package": "absent",
+    "firmware": "blocked",
+    "full_repo_root": "pass",
+    "llm_harness": "pass",
+    "manifest_hashes": 471,
+    "physical": "not_run",
+    "schemas": 48,
+    "tests": 149,
+    "version_alignment": "pass",
+    "windows": "blocked"
+  },
+  "generated_at": "2026-07-22T21:15:00Z",
+  "non_claims": [
+    "No physical firmware, serial, zero, tare, calibration, load, or end-to-end pass.",
+    "No Windows-native execution.",
+    "No release seal."
+  ],
+  "package_name": "best_buds_cultivator_weight_station",
+  "status": "pass_prepackage",
+  "version": "0.1.4"
+}

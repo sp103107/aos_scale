@@ -1,0 +1,21 @@
+{
+  "alice_terminal_receipt_gate": true,
+  "application_controller": "app/best_buds_weight_station/application_controller.py",
+  "authoritative_store": "append-only JSONL",
+  "capture_state_machine": "app/best_buds_weight_station/state_machine.py",
+  "changes": [
+    "background scale-reading worker",
+    "operator runtime facade",
+    "device ping/reconnect/stream canonical actions",
+    "state-synchronized Alice guidance",
+    "Windows-first platform paths",
+    "operator-ready validation profile"
+  ],
+  "device_service": "app/best_buds_weight_station/device_service.py",
+  "generated_at": "2026-07-23T20:25:21Z",
+  "operator_runtime": "app/best_buds_weight_station/operator_runtime.py",
+  "platform_paths": "app/best_buds_weight_station/platform_paths.py",
+  "runtime": "Python 3.11+",
+  "scale_control": "app/best_buds_weight_station/scale_control.py",
+  "version": "0.1.6"
+}

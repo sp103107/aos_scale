@@ -1,0 +1,14 @@
+{
+  "context_module_runtime_execution_claimed": false,
+  "episode_checkpoint": "episodes/episode_0002_v0.1.1.json",
+  "episode_checkpoint_added": true,
+  "generated_at": "2026-07-19T16:53:32Z",
+  "ledger_events": 18,
+  "ledger_events_appended": 7,
+  "non_claim": "Context records were updated and validated statically; no separate Context Module service/runtime was installed or executed.",
+  "resume_pack_updated": true,
+  "source_hashes_recorded": true,
+  "status": "pass",
+  "version": "0.1.1",
+  "working_set_update_seq": 2
+}

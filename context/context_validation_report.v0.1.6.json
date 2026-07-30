@@ -1,0 +1,11 @@
+{
+  "context_runtime_execution_claimed": false,
+  "episode": "episode_0007_v0.1.6.json",
+  "generated_at": "2026-07-23T20:48:35Z",
+  "ledger_events": 76,
+  "resume_pack": "resume_pack_manifest.v0.1.6.json",
+  "source_hashes_recorded": true,
+  "status": "pass",
+  "version": "0.1.6",
+  "working_set_update_seq": 7
+}

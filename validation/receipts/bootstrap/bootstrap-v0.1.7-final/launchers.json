@@ -1,0 +1,28 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/validate_launchers.py"
+      ],
+      "duration_seconds": 3.234,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"dry_run\": {\n    \"bootstrap\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station.bootstrap --profile operator-ready\"\n    },\n    \"launch\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station\"\n    },\n    \"simulator\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station --simulator\"\n    },\n    \"stage\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station.stage_runner list\"\n    },\n    \"validation\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station.validation\"\n    }\n  },\n  \"required\": {\n    \"bootstrap_agent.bat\": true,\n    \"bootstrap_agent.ps1\": true,\n    \"bootstrap_agent.sh\": true,\n    \"cursor_bootstrap.bat\": true,\n    \"cursor_bootstrap.ps1\": true,\n    \"cursor_bootstrap.sh\": true,\n    \"launch_best_buds.bat\": true,\n    \"launch_best_buds.ps1\": true,\n    \"launch_best_buds.sh\": true,\n    \"launch_simulator.bat\": true,\n    \"launch_simulator.ps1\": true,\n    \"launch_simulator.sh\": true,\n    \"resume_stage.bat\": true,\n    \"resume_stage.ps1\": true,\n    \"resume_stage.sh\": true,\n    \"run_stage.bat\": true,\n    \"run_stage.ps1\": true,\n    \"run_stage.sh\": true,\n    \"run_validation.bat\": true,\n    \"run_validation.ps1\": true,\n    \"run_validation.sh\": true\n  },\n  \"shell_syntax\": {\n    \"bootstrap_agent.sh\": 0,\n    \"cursor_bootstrap.sh\": 0,\n    \"launch_best_buds.sh\": 0,\n    \"launch_simulator.sh\": 0,\n    \"resume_stage.sh\": 0,\n    \"run_stage.sh\": 0,\n    \"run_validation.sh\": 0\n  },\n  \"status\": \"PASS\"\n}\n"
+    }
+  ],
+  "created_at": "2026-07-24T04:31:37Z",
+  "data": {
+    "linux_launchers": "RUNTIME_VALIDATED",
+    "windows_launchers": "SOURCE_VALIDATED"
+  },
+  "evidence_refs": [],
+  "lane": "launchers",
+  "next_action": null,
+  "profile": "operator-ready",
+  "reason_code": "LAUNCHER_VALIDATION_PASSED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

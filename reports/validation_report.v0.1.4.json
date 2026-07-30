@@ -1,0 +1,72 @@
+{
+  "context": {
+    "episode": "episode_0005_v0.1.4.json",
+    "ledger_events": 48,
+    "resume_pack": "pass",
+    "status": "pass",
+    "working_set_update_seq": 5
+  },
+  "generated_at": "2026-07-22T21:10:00Z",
+  "llm_validation_harness": {
+    "historical_evidence_immutable": "pass",
+    "lanes": [
+      "repository-inspection",
+      "development-hygiene",
+      "software",
+      "firmware",
+      "serial",
+      "zero-tare",
+      "calibration",
+      "physical-loop",
+      "release-packaging"
+    ],
+    "machine_receipts": "validation/receipts/",
+    "profiles": [
+      "development",
+      "integration",
+      "release"
+    ],
+    "safe_current_metadata_repair": "pass",
+    "status": "pass"
+  },
+  "non_claims": [
+    "No physical hardware pass.",
+    "No firmware compile/upload pass.",
+    "No Windows-native pass.",
+    "No UNO Q runtime.",
+    "No Bluetooth/Wi-Fi/physical-button runtime.",
+    "No production readiness or release seal."
+  ],
+  "package_name": "best_buds_cultivator_weight_station",
+  "physical_arc": {
+    "rc3a": "pass",
+    "rc3b": "NOT_RUN",
+    "rc3c": "BLOCKED",
+    "rc3d": "NOT_RUN",
+    "rc3e": "NOT_RUN",
+    "rc3f": "NOT_RUN",
+    "rc3g": "NOT_RUN"
+  },
+  "platforms": {
+    "debian": "NATIVE_PLATFORM_PASS",
+    "firmware_compile": "BLOCKED",
+    "physical_scale": "NOT_RUN",
+    "uno_q": "NOT_RUN",
+    "windows": "BLOCKED"
+  },
+  "schemas": {
+    "count": 48,
+    "status": "pass"
+  },
+  "source_artifact": {
+    "v0.1.3_sha256": "ac5d8c1b3ce4265cf661733b9986354e12a88f3a6700b5a1b0bd74b41d6cb55c"
+  },
+  "status": "pass_software_llm_harness_and_native_debian_physical_gates_not_run",
+  "test_suite": {
+    "output": "validation/pytest_output.v0.1.4.txt",
+    "status": "pass",
+    "tests": 149
+  },
+  "truth_class": "UNIT_TEST_PASS",
+  "version": "0.1.4"
+}

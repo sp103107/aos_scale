@@ -1,0 +1,15 @@
+{
+  "context_runtime_execution_claimed": false,
+  "episode": "episode_0005_v0.1.4.json",
+  "generated_at": "2026-07-22T21:10:00Z",
+  "json_validation": "pass",
+  "jsonl_validation": "pass",
+  "ledger_events": 48,
+  "ledger_events_appended": 10,
+  "resume_pack": "resume_pack_manifest.v0.1.4.json",
+  "source_hashes_recorded": true,
+  "status": "pass",
+  "version": "0.1.4",
+  "version_alignment": "pass",
+  "working_set_update_seq": 5
+}

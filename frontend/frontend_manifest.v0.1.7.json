@@ -1,0 +1,27 @@
+{
+  "advanced_surfaces": [
+    "run_management",
+    "scale_setup",
+    "calibration",
+    "diagnostics",
+    "recovery",
+    "exports"
+  ],
+  "design_tokens": "frontend/design_tokens.v0.1.7.json",
+  "fallback_frontend": "Tk",
+  "package_name": "best_buds_cultivator_weight_station",
+  "primary_frontend": "PySide6",
+  "pyside_native_runtime": "NOT_RUN",
+  "routine_actions": [
+    "start_resume",
+    "connect_scale",
+    "zero",
+    "set_tare",
+    "confirm_record",
+    "cancel",
+    "finish_run"
+  ],
+  "theme": "frontend/themes/windows_light.qss",
+  "tk_runtime": "PENDING_VALIDATION",
+  "version": "0.1.7"
+}

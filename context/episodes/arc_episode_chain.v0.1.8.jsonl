@@ -1,0 +1,9 @@
+{"episode": "episode_0001_v0.1.0", "sequence": 1, "status": "completed", "version": "0.1.0"}
+{"episode": "episode_0002_v0.1.1", "sequence": 2, "status": "completed", "version": "0.1.1"}
+{"episode": "episode_0003_v0.1.2", "sequence": 3, "status": "completed", "version": "0.1.2"}
+{"episode": "episode_0004_v0.1.3", "sequence": 4, "status": "completed", "version": "0.1.3"}
+{"episode": "episode_0005_v0.1.4", "sequence": 5, "status": "completed", "version": "0.1.4"}
+{"episode": "episode_0006_v0.1.5", "sequence": 6, "status": "completed", "version": "0.1.5"}
+{"episode": "episode_0007_v0.1.6", "sequence": 7, "status": "completed", "version": "0.1.6"}
+{"episode": "episode_0008_v0.1.7", "sequence": 8, "status": "completed", "version": "0.1.7"}
+{"arc": "Windows-first operator application", "episode": "episode_0009_v0.1.8", "next_phase": "rc3d_uno_r3_hx711_physical_scale_bringup", "non_claims": ["No physical UNO R3, HX711, or load-cell success.", "No physical calibration, repeatability, or hanging-load success.", "No firmware compile or upload pass.", "No native Windows executable or PySide6 runtime pass.", "No Bluetooth, Wi-Fi, VPort, message-bus, MCP, socket, physical-button, or UNO Q activation.", "No legal-for-trade certification.", "No production-grade pass or release seal.", "No Context Module runtime-execution claim."], "phase": "rc3c12_final_polish_and_drift_review", "source_truth": ["best_buds_cultivator_weight_station_v0_1_7.zip", "Runtime bump.pdf"], "status": "completed", "timestamp": "2026-07-29T18:25:11Z", "version": "0.1.8"}

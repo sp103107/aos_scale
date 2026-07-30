@@ -1,0 +1,31 @@
+{
+  "blocked": [
+    "native Windows executable and smoke receipt",
+    "Arduino AVR firmware compile toolchain",
+    "physical UNO/HX711/load-cell calibration evidence"
+  ],
+  "completed": [
+    "preserved full v0.1.1 repository",
+    "moved terminal success feedback behind Alice receipt validation",
+    "routed automatic and manual UI terminal results through Alice",
+    "required resolvable original receipt evidence for duplicates",
+    "bound Tk Cancel Capture to the state machine",
+    "validated all ten robust examples against applicable schemas",
+    "normalized current version evidence and preserved legacy evidence",
+    "rebuilt native Debian 0.1.2 package and ran manual/automatic UI smoke"
+  ],
+  "context_runtime_execution_claimed": false,
+  "created_at": "2026-07-19T17:43:29Z",
+  "focus": "Alice terminal receipt/UI flow and evidence hygiene hardening",
+  "package_name": "best_buds_cultivator_weight_station",
+  "record_type": "working_set_update",
+  "source_hashes": {
+    "best_buds_cultivator_weight_station_context_kickoff_pack_v0_1_1.zip": "abbe1863f2566f739fc2155704a47de550f39046083586c9be7f3869c0a1f12d",
+    "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c",
+    "best_buds_cultivator_weight_station_v0_1_1.zip": "6f8f0ae8c89e26cdfde7bb5c7527c330666c1bdec644de7ccf2e318eb7cfeba8"
+  },
+  "update_seq": 3,
+  "updated_at": "2026-07-19T17:43:29Z",
+  "validation_status": "pass_47_tests_alice_terminal_gate_simulator_and_native_debian_with_blocked_required_release_gates",
+  "version": "0.1.2"
+}

@@ -1,0 +1,44 @@
+{
+  "accessibility": [
+    "large_controls",
+    "keyboard_shortcuts",
+    "text_status",
+    "no_critical_color_only_indicator",
+    "operator_safe_errors"
+  ],
+  "alice_guidance": "derived from application state and terminal receipts",
+  "changes": [
+    "Tk automatic and manual smoke included in coding-agent bootstrap",
+    "No new operator complexity added to the weighing screen"
+  ],
+  "compatibility_entry": "app/best_buds_weight_station/ui.py",
+  "engineering_details": "hidden from normal operator path",
+  "entry": "app/best_buds_weight_station/production_ui.py",
+  "framework": "PySide6 with Tk fallback",
+  "generated_at": "2026-07-23T02:57:09Z",
+  "primary_buttons": [
+    "start_resume_run",
+    "new_run",
+    "load_run",
+    "connect_scale",
+    "zero_scale",
+    "set_container_tare",
+    "confirm_record",
+    "cancel_current_item",
+    "finish_run",
+    "settings",
+    "scale_setup",
+    "recover_run"
+  ],
+  "primary_fields": [
+    "current_status",
+    "current_weight",
+    "barcode",
+    "cultivar",
+    "container",
+    "tare",
+    "net_weight",
+    "last_saved_record"
+  ],
+  "version": "0.1.5"
+}

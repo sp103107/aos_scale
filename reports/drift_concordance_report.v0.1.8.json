@@ -1,0 +1,8 @@
+{
+  "compatibility_policy": "older references are allowed only in immutable history or explicit compatibility surfaces",
+  "current_surface_count": 23,
+  "historical_immutable_count": 16,
+  "issues": [],
+  "status": "PASS",
+  "version": "0.1.8"
+}

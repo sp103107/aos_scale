@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-07-21T03:18:01Z",
+  "episode_id": "bbws-episode-0004",
+  "immutable": true,
+  "record_type": "episode_checkpoint",
+  "summary": "Full-repository bump implementing the core operator loop, durable run management, crash-safe recovery, production UI callbacks, serial-device control, zero/tare/calibration, canonical action adapters, and bounded evidence claims.",
+  "version": "0.1.3"
+}

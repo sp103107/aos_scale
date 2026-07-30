@@ -1,0 +1,61 @@
+{
+  "agent_bootstrap": {
+    "lanes_passed": 8,
+    "lanes_total": 8,
+    "output": "validation/agent_bootstrap_output.v0.1.5.json",
+    "profile": "prehardware",
+    "status": "pass"
+  },
+  "context": {
+    "episode": "episode_0006_v0.1.5.json",
+    "ledger_events": 60,
+    "resume_pack": "pass",
+    "status": "pass",
+    "working_set_update_seq": 6
+  },
+  "debian": "NATIVE_PLATFORM_PASS",
+  "firmware_compile": "BLOCKED",
+  "generated_at": "2026-07-23T03:09:08Z",
+  "isolated_python_install_preflight": "pass",
+  "manifest": {
+    "file_count": 524,
+    "status": "pass"
+  },
+  "non_claims": [
+    "No physical hardware pass.",
+    "No firmware compile/upload pass.",
+    "No native Windows pass.",
+    "No Bluetooth/Wi-Fi/UNO Q runtime.",
+    "No production readiness or release seal."
+  ],
+  "package_name": "best_buds_cultivator_weight_station",
+  "physical_scale": "NOT_RUN",
+  "recovery_matrix": "pass",
+  "schemas": {
+    "count": 51,
+    "status": "pass"
+  },
+  "software_dry_run": {
+    "automatic_loop": "pass",
+    "calibration": "SIMULATOR_PASS",
+    "evidence_class": "SIMULATOR_PASS",
+    "load_resume": "pass",
+    "manual_loop": "pass",
+    "status": "pass"
+  },
+  "status": "pass_software_prehardware_and_native_debian_physical_gates_not_run",
+  "test_suite": {
+    "output": "validation/pytest_output.v0.1.5.txt",
+    "status": "pass",
+    "tests": 159
+  },
+  "tk_ui_smoke": {
+    "automatic": "pass",
+    "manual": "pass",
+    "pyside6_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE"
+  },
+  "truth_class": "UNIT_TEST_PASS",
+  "uno_q": "NOT_RUN",
+  "version": "0.1.5",
+  "windows": "BLOCKED"
+}

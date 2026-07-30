@@ -1,0 +1,37 @@
+{
+  "artifact": {
+    "path": "dist/debian/best-buds-weight-station_0.1.4_amd64.deb",
+    "sha256": "77092a4b656b58119dbfc08944386d3f17e2d153cb2537132943d69d3ffa3ee1",
+    "size_bytes": 189940
+  },
+  "evidence": [
+    "validation/debian_dpkg_info.v0.1.4.txt",
+    "validation/debian_contents.v0.1.4.txt",
+    "validation/debian_native_install.v0.1.4.log",
+    "validation/debian_installed_version.v0.1.4.txt",
+    "validation/debian_installed_selftest.v0.1.4.json",
+    "validation/debian_installed_harness_inspect.v0.1.4.json",
+    "validation/debian_ui_smoke_manual.v0.1.4.log",
+    "validation/debian_ui_smoke_automatic.v0.1.4.log"
+  ],
+  "generated_at": "2026-07-22T21:10:00Z",
+  "non_claims": [
+    "Debian simulator and harness smoke are not physical scale evidence.",
+    "PySide6 runtime was not executed."
+  ],
+  "platform": "Debian GNU/Linux 13 (trixie) amd64",
+  "receipt_type": "native_debian_packaging",
+  "results": {
+    "build": "pass",
+    "dpkg_install": "pass",
+    "installed_version": "0.1.4",
+    "llm_harness_inspect": "pass",
+    "pyside6_runtime": "not_run",
+    "simulator_self_test": "pass",
+    "tk_ui_smoke_automatic": "pass",
+    "tk_ui_smoke_manual": "pass"
+  },
+  "status": "pass",
+  "truth_class": "NATIVE_PLATFORM_PASS",
+  "version": "0.1.4"
+}

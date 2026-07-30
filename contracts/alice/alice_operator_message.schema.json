@@ -1,0 +1,50 @@
+{
+  "$id": "https://bestbuds.local/schemas/alice_operator_message.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "correlation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "input_type": {
+      "enum": [
+        "barcode",
+        "operator_note",
+        "setup_answer",
+        "confirmation",
+        "command"
+      ],
+      "type": "string"
+    },
+    "message_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "session_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "text": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "message_id",
+    "state",
+    "text",
+    "input_type"
+  ],
+  "title": "Alice Operator Message",
+  "type": "object"
+}

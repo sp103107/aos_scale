@@ -1,0 +1,8 @@
+{
+  "external_package": false,
+  "phase": "rc3c1_windows_first_launchers_and_environment_bootstrap",
+  "physical_hardware_claimed": false,
+  "status": "implemented",
+  "summary": "Added root BAT, PowerShell, and shell launch, simulator, bootstrap, and validation surfaces.",
+  "version": "0.1.6"
+}

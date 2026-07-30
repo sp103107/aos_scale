@@ -1,0 +1,39 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "duration_seconds": 39.875,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 39%]\n........................................................................ [ 78%]\n.......................................                                  [100%]\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/validate_repo.py"
+      ],
+      "duration_seconds": 33.725,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"checks\": {\n    \"claims\": {\n      \"physical\": \"NOT_RUN\",\n      \"production_ready\": false,\n      \"release_seal\": false,\n      \"runtime_scope\": \"authorized_local_software_only\",\n      \"windows_native\": \"NOT_RUN\"\n    },\n    \"context\": {\n      \"episode\": \"episode_0009_v0.1.8\",\n      \"ledger_events\": 106,\n      \"working_set\": 9\n    },\n    \"forbidden\": \"ABSENT\",\n    \"generated_hygiene\": \"PASS\",\n    \"json\": 430,\n    \"jsonl\": 131,\n    \"manifest\": \"DEFERRED_TO_FINAL_PACKAGE_GATE\",\n    \"phase_matrix\": {\n      \"phase_count\": 17,\n      \"unique_phase_count\": 17\n    },\n    \"python_compile\": \"PASS\",\n    \"required\": 36,\n    \"schemas\": 60,\n    \"tests\": 183,\n    \"validators\": {\n      \"validate_cursor_handoff_v018.py\": \"PASS\",\n      \"validate_cursor_ready_v018.py\": \"PASS\",\n      \"validate_drift_concordance_v018.py\": \"PASS\",\n      \"validate_frontend_polish_v018.py\": \"PASS\",\n      \"validate_frontend_runtime_truth.py\": \"PASS\",\n      \"validate_launchers.py\": \"PASS\",\n      \"validate_windows_source.py\": \"PASS\"\n    },\n    \"versions\": {\n      \"current_surfaces\": 16,\n      \"version\": \"0.1.8\"\n    },\n    \"yaml\": 1\n  },\n  \"errors\": [],\n  \"package_name\": \"best_buds_cultivator_weight_station\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.8\"\n}\n"
+    }
+  ],
+  "created_at": "2026-07-29T18:19:03Z",
+  "data": {},
+  "evidence_refs": [],
+  "lane": "software",
+  "next_action": null,
+  "profile": "operator-ready",
+  "reason_code": "SOFTWARE_VALIDATION_PASSED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

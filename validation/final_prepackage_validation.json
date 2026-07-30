@@ -1,0 +1,97 @@
+{
+  "status": "pass",
+  "version": "0.1.2",
+  "checks": [
+    {
+      "check": "json_parse",
+      "status": "pass",
+      "detail": 144
+    },
+    {
+      "check": "jsonl_parse",
+      "status": "pass",
+      "detail": 30
+    },
+    {
+      "check": "yaml_parse",
+      "status": "pass",
+      "detail": 1
+    },
+    {
+      "check": "required_paths",
+      "status": "pass",
+      "detail": 40
+    },
+    {
+      "check": "version_consistency",
+      "status": "pass",
+      "detail": "0.1.2"
+    },
+    {
+      "check": "prior_state_preserved",
+      "status": "pass",
+      "detail": 12
+    },
+    {
+      "check": "forbidden_detached_shapes",
+      "status": "pass",
+      "detail": "absent"
+    },
+    {
+      "check": "python_compile",
+      "status": "pass",
+      "detail": "pass"
+    },
+    {
+      "check": "alice_contracts_and_all_examples",
+      "status": "pass",
+      "detail": {
+        "schemas": 8,
+        "structured_examples": 8,
+        "evidence_examples": 2
+      }
+    },
+    {
+      "check": "alice_terminal_receipt_ui_gate",
+      "status": "pass",
+      "detail": "pass"
+    },
+    {
+      "check": "manifest_hashes",
+      "status": "pass",
+      "detail": 304
+    },
+    {
+      "check": "blocked_evidence_truth",
+      "status": "pass",
+      "detail": "preserved"
+    },
+    {
+      "check": "context_alignment",
+      "status": "pass",
+      "detail": {
+        "ledger_events": 28,
+        "latest_sequence": 28
+      }
+    },
+    {
+      "check": "debian_artifact",
+      "status": "pass",
+      "detail": {
+        "version": "0.1.2",
+        "sha256": "0a79e752326add399cfaebf6278ad1d6173265f7c18f325e54b15b2e47ee6283"
+      }
+    },
+    {
+      "check": "evidence_version_hygiene",
+      "status": "pass",
+      "detail": "pass"
+    },
+    {
+      "check": "no_pending_current_state",
+      "status": "pass",
+      "detail": "absent"
+    }
+  ],
+  "errors": []
+}

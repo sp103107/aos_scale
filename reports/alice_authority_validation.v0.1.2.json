@@ -1,0 +1,28 @@
+{
+  "authority_boundary": "pass",
+  "automatic_terminal_ui_flow": "pass",
+  "backend_terminal_success_before_alice": "absent",
+  "duplicate_idempotency": "pass_original_receipt_required",
+  "evidence_statement_examples_validated": 2,
+  "failure_injection": [
+    "jsonl",
+    "individual_json",
+    "checkpoint"
+  ],
+  "generated_at": "2026-07-19T17:46:51Z",
+  "ledger_recovery": "pass",
+  "manual_terminal_ui_flow": "pass",
+  "no_success_before_alice_receipt_validation": "pass",
+  "non_claim_enforcement": "pass",
+  "persistence_truth": "pass",
+  "report_type": "alice_authority_validation",
+  "state_action_matrix": "pass",
+  "status": "pass",
+  "structured_response_examples_validated": 8,
+  "tests": "tests/alice/",
+  "tk_cancel_binding": "pass",
+  "truth_class_separation": "pass",
+  "ui_smoke_automatic": "pass",
+  "ui_smoke_manual": "pass",
+  "version": "0.1.2"
+}

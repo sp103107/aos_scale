@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-07-23T20:25:21Z",
+  "package_name": "best_buds_cultivator_weight_station",
+  "unavailable_sources": [
+    {
+      "expected_sha256": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c",
+      "name": "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip"
+    }
+  ],
+  "used_sources": [
+    {
+      "name": "best_buds_cultivator_weight_station_v0_1_5.zip",
+      "role": "full_repo_source",
+      "sha256": "8811681331e47272930c93cf0c8bccdf1438fdaa62aeb827fe1582e16bc420ae"
+    },
+    {
+      "name": "operator_platform_priority_statement",
+      "role": "windows_first_linux_second_requirement",
+      "sha256": null
+    }
+  ],
+  "version": "0.1.6"
+}

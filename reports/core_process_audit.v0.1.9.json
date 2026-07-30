@@ -1,0 +1,40 @@
+{
+  "automatic": {
+    "manifest": "/tmp/bbws-core-v019-3fjtnj8d/automatic/sessions/V019-AUTOMATIC-0a5321f8/session_manifest.json",
+    "net_g": 1250.0,
+    "pass": true,
+    "record_id": "b4d5c185-10a3-46fb-a78b-74aa4a4d9220",
+    "resumed": true,
+    "truth_class": "RECEIPT_CONFIRMED"
+  },
+  "checks": {
+    "alice_receipt_gate": true,
+    "automatic_flow": true,
+    "canonical_worker": true,
+    "launchers": true,
+    "manual_flow": true,
+    "pyserial_transport": true,
+    "version": true
+  },
+  "firmware_compile": "BLOCKED_OR_NOT_RUN",
+  "launchers": {
+    "cursor_bootstrap.bat": true,
+    "cursor_bootstrap.ps1": true,
+    "cursor_bootstrap.sh": true,
+    "launch_best_buds.bat": true,
+    "launch_best_buds.ps1": true,
+    "launch_best_buds.sh": true
+  },
+  "manual": {
+    "manifest": "/tmp/bbws-core-v019-3fjtnj8d/manual/sessions/V019-MANUAL-26977139/session_manifest.json",
+    "net_g": 1250.0,
+    "pass": true,
+    "record_id": "d31760de-e6ff-4f10-8b22-da39173aea26",
+    "resumed": true,
+    "truth_class": "RECEIPT_CONFIRMED"
+  },
+  "physical_hardware": "NOT_RUN",
+  "status": "PASS",
+  "version": "0.1.9",
+  "windows_native_runtime": "NOT_RUN"
+}

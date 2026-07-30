@@ -1,0 +1,41 @@
+{
+  "$id": "https://bestbuds.local/schemas/alice_command_proposal.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "command_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "envelope": {
+      "properties": {
+        "envelope_version": {
+          "const": "aos.application.envelope.v1"
+        }
+      },
+      "required": [
+        "envelope_version",
+        "envelope_id",
+        "message_type",
+        "payload",
+        "idempotency_key",
+        "content_hash"
+      ],
+      "type": "object"
+    },
+    "requires_operator_confirmation": {
+      "type": "boolean"
+    },
+    "retry_policy": {
+      "const": "never_automatic_after_ambiguous_failure"
+    }
+  },
+  "required": [
+    "command_type",
+    "envelope",
+    "requires_operator_confirmation",
+    "retry_policy"
+  ],
+  "title": "Alice Command Proposal",
+  "type": "object"
+}

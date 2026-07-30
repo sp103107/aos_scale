@@ -1,0 +1,26 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [],
+  "created_at": "2026-07-29T18:09:48Z",
+  "data": {
+    "generated_at": "2026-07-29T18:09:48Z",
+    "lanes": [],
+    "profile": "operator-ready",
+    "repairs": [],
+    "status": "PASS_WITH_WARNINGS",
+    "version": "0.1.8",
+    "warnings": [
+      "CURRENT_MANIFEST_STALE"
+    ]
+  },
+  "evidence_refs": [],
+  "lane": "development-hygiene",
+  "next_action": null,
+  "profile": "operator-ready",
+  "reason_code": "SAFE_DRIFT_PREPARED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": [
+    "CURRENT_MANIFEST_STALE"
+  ]
+}

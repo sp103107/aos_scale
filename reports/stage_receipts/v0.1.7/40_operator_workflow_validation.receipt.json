@@ -1,0 +1,49 @@
+{
+  "artifacts": [],
+  "commands": [
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "scripts/run_v017_operator_acceptance.py"
+      ],
+      "duration_s": 3.947,
+      "evidence_class": "runtime_execution_pass",
+      "exit_code": 0,
+      "finished_at": "2026-07-24T04:27:37Z",
+      "started_at": "2026-07-24T04:27:33Z",
+      "stderr": "",
+      "stdout": "{\n  \"automatic\": {\n    \"pass\": true,\n    \"record_id\": \"60157960-b6ae-4ed9-ac1b-6a97fc45e3fa\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"manual\": {\n    \"calibration_truth_class\": \"SIMULATOR_PASS\",\n    \"pass\": true,\n    \"record_id\": \"e30d99b7-c67c-4e47-98d3-b2fae00dd44b\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"physical_device\": \"NOT_RUN\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.7\",\n  \"windows_native_runtime\": \"NOT_RUN\"\n}\n"
+    },
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_operator_runtime_v016.py"
+      ],
+      "duration_s": 3.523,
+      "evidence_class": "runtime_execution_pass",
+      "exit_code": 0,
+      "finished_at": "2026-07-24T04:27:41Z",
+      "started_at": "2026-07-24T04:27:37Z",
+      "stderr": "",
+      "stdout": "......                                                                   [100%]\n"
+    }
+  ],
+  "evidence_class": "runtime_execution_pass",
+  "finished_at": "2026-07-24T04:27:41Z",
+  "next_stage": "50_scripted_scale_validation",
+  "non_claims": [
+    "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+  ],
+  "receipt_id": "release-v0.1.7-bg-40_operator_workflow_validation",
+  "run_id": "release-v0.1.7-bg",
+  "stage_id": "40_operator_workflow_validation",
+  "started_at": "2026-07-24T04:27:33Z",
+  "status": "PASS",
+  "version": "0.1.7",
+  "warnings": []
+}

@@ -1,0 +1,11 @@
+{
+  "build_status": "NOT_RUN",
+  "exe_claimed": false,
+  "execution_status": "NOT_RUN",
+  "generated_at": "2026-07-23T03:07:37Z",
+  "pyinstaller_spec_status": "SOURCE_PRESENT",
+  "reason_code": "NO_NATIVE_WINDOWS_RUNNER",
+  "status": "blocked",
+  "truth_class": "BLOCKED",
+  "version": "0.1.5"
+}

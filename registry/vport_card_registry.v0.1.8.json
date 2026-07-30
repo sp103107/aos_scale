@@ -1,0 +1,11 @@
+{
+  "cards": [
+    {
+      "card_id": "bbws-weight-events",
+      "purpose": "future local weight-event publication",
+      "runtime_claimed": false,
+      "status": "suggested_not_activated"
+    }
+  ],
+  "version": "0.1.8"
+}

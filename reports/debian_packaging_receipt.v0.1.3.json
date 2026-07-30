@@ -1,0 +1,34 @@
+{
+  "artifact": {
+    "path": "dist/debian/best-buds-weight-station_0.1.3_amd64.deb",
+    "sha256": "ac42f7235d72e2c28f4b2c765dd630dffe06067012416e7b7aad0a71cea796e7",
+    "size_bytes": 184188
+  },
+  "evidence": [
+    "validation/debian_native_build_install_smoke.v0.1.3.log",
+    "validation/debian_dpkg_info.v0.1.3.txt",
+    "validation/debian_contents.v0.1.3.txt",
+    "validation/debian_installed_version.v0.1.3.txt",
+    "validation/debian_ui_smoke_manual.v0.1.3.log",
+    "validation/debian_ui_smoke_automatic.v0.1.3.log"
+  ],
+  "generated_at": "2026-07-21T03:18:01Z",
+  "non_claims": [
+    "Debian simulator/UI smoke is not physical scale evidence.",
+    "PySide6 runtime was not executed in this environment."
+  ],
+  "platform": "Debian GNU/Linux 13 (trixie) amd64",
+  "receipt_type": "native_debian_packaging",
+  "results": {
+    "build": "pass",
+    "dpkg_install": "pass",
+    "installed_version": "0.1.3",
+    "pyside6_runtime": "not_run_dependency_unavailable",
+    "simulator_self_test": "pass",
+    "tk_ui_smoke_automatic": "pass",
+    "tk_ui_smoke_manual": "pass"
+  },
+  "status": "pass",
+  "truth_class": "NATIVE_PLATFORM_PASS",
+  "version": "0.1.3"
+}

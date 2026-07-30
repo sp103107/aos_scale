@@ -1,0 +1,26 @@
+{
+  "compile": {
+    "exit_code": 3,
+    "reason": "arduino-cli is unavailable in the execution environment",
+    "status": "blocked",
+    "stderr": "validation/firmware_compile_stderr.v0.1.1.txt",
+    "stdout": "validation/firmware_compile_stdout.v0.1.1.txt",
+    "truth_class": "BLOCKED"
+  },
+  "generated_at": "2026-07-19T16:53:32Z",
+  "non_claims": [
+    "No Arduino AVR compile pass, upload pass, physical UNO R3, HX711, load-cell, calibration, or hanging-load evidence."
+  ],
+  "physical_hardware": {
+    "status": "not_run",
+    "truth_class": "NOT_RUN"
+  },
+  "receipt_type": "firmware_compile",
+  "source": {
+    "path": "firmware/elegoo_uno_r3_hx711/best_buds_scale_firmware.ino",
+    "sha256": "2321f20a7913e00fdd8e8aafd727c6714a1f8b533ec85ea487270c3747b01ce7",
+    "status": "present",
+    "truth_class": "SOURCE_PRESENT"
+  },
+  "version": "0.1.1"
+}

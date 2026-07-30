@@ -1,0 +1,25 @@
+{
+  "allowed_claims": [
+    "LLM validation harness implemented",
+    "149 tests pass",
+    "Debian native package pass",
+    "firmware source present"
+  ],
+  "blocked_claims": [
+    "firmware compile/upload",
+    "physical serial",
+    "physical zero/tare",
+    "physical calibration",
+    "physical barcode loop",
+    "Windows native runtime",
+    "UNO Q runtime",
+    "Bluetooth/Wi-Fi runtime",
+    "physical button runtime",
+    "production readiness",
+    "release seal"
+  ],
+  "generated_at": "2026-07-22T21:10:00Z",
+  "runtime_claim_boundary": "software tests, simulator workflows, LLM harness CLI, Debian package/install/self-test/Tk smoke",
+  "status": "pass",
+  "version": "0.1.4"
+}

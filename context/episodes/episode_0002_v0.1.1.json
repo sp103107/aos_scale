@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-07-19T16:53:32Z",
+  "episode_id": "bbws-episode-0002",
+  "immutable": true,
+  "record_type": "episode_checkpoint",
+  "summary": "Full-repository bump implementing Alice as the operator-facing response agent and receipt-gated application gatekeeper, with native Debian rebuild and preserved blocked evidence.",
+  "version": "0.1.1"
+}

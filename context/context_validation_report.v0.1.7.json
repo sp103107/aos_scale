@@ -1,0 +1,14 @@
+{
+  "context_runtime_execution_claimed": false,
+  "episode": "episode_0008_v0.1.7",
+  "json_validation": "PASS",
+  "jsonl_validation": "PASS",
+  "ledger_events": 96,
+  "ledger_events_appended": 20,
+  "resume_pack": "context/resume_pack/resume_pack_manifest.v0.1.7.json",
+  "status": "PASS",
+  "validated_at": "2026-07-24T04:35:23Z",
+  "version": "0.1.7",
+  "version_alignment": "PASS",
+  "working_set_update_seq": 8
+}

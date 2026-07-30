@@ -1,0 +1,54 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "best_buds_weight_station.bootstrap",
+        "--version"
+      ],
+      "duration_seconds": 1.829,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "0.1.8\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "best_buds_weight_station.bootstrap",
+        "--help"
+      ],
+      "duration_seconds": 2.205,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "usage: best-buds-weight-station-bootstrap [-h] [--repo-root REPO_ROOT]\n                                          [--profile {development,prehardware,operator-ready,cursor-ready}]\n                                          [--run-id RUN_ID] [--skip-ui]\n                                          [--no-persist] [--output OUTPUT]\n                                          [--version]\n\nRun evidence-gated coding-agent readiness profiles.\n\noptions:\n  -h, --help            show this help message and exit\n  --repo-root REPO_ROOT\n  --profile {development,prehardware,operator-ready,cursor-ready}\n  --run-id RUN_ID\n  --skip-ui\n  --no-persist\n  --output OUTPUT\n  --version\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "best_buds_weight_station.validation",
+        "graph"
+      ],
+      "duration_seconds": 2.083,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"graph_version\": \"1.3.0\",\n  \"lanes\": [\n    {\n      \"lane\": \"repository-inspection\",\n      \"requires\": []\n    },\n    {\n      \"lane\": \"development-hygiene\",\n      \"requires\": [\n        \"repository-inspection\"\n      ]\n    },\n    {\n      \"lane\": \"software\",\n      \"requires\": [\n        \"development-hygiene\"\n      ]\n    },\n    {\n      \"lane\": \"launchers\",\n      \"requires\": [\n        \"software\"\n      ]\n    },\n    {\n      \"lane\": \"agent-entrypoint\",\n      \"requires\": [\n        \"launchers\"\n      ]\n    },\n    {\n      \"lane\": \"software-dry-run\",\n      \"requires\": [\n        \"agent-entrypoint\"\n      ]\n    },\n    {\n      \"lane\": \"recovery-matrix\",\n      \"requires\": [\n        \"software-dry-run\"\n      ]\n    },\n    {\n      \"lane\": \"operator-runtime\",\n      \"requires\": [\n        \"recovery-matrix\"\n      ]\n    },\n    {\n      \"lane\": \"scripted-device\",\n      \"requires\": [\n        \"operator-runtime\"\n      ]\n    },\n    {\n      \"lane\": \"frontend-smoke\",\n      \"requires\": [\n        \"scripted-device\"\n      ]\n    },\n    {\n      \"lane\": \"windows-packaging-source\",\n      \"requires\": [\n        \"frontend-smoke\"\n      ]\n    },\n    {\n      \"lane\": \"linux-parity\",\n      \"requires\": [\n        \"windows-packaging-source\"\n      ]\n    },\n    {\n      \"lane\": \"packaging-preflight\",\n      \"requires\": [\n        \"linux-parity\"\n      ]\n    },\n    {\n      \"lane\": \"firmware\",\n      \"requires\": [\n        \"packaging-preflight\"\n      ]\n    },\n    {\n      \"lane\": \"serial\",\n      \"requires\": [\n        \"firmware\"\n      ]\n    },\n    {\n      \"lane\": \"zero-tare\",\n      \"requires\": [\n        \"serial\"\n      ]\n    },\n    {\n      \"lane\": \"calibration\",\n      \"requires\": [\n        \"zero-tare\"\n      ]\n    },\n    {\n      \"lane\": \"physical-loop\",\n      \"requires\": [\n        \"calibration\"\n      ]\n    },\n    {\n      \"lane\": \"release-packaging\",\n      \"requires\": [\n        \"physical-loop\"\n      ]\n    }\n  ],\n  \"package_version\": \"0.1.8\"\n}\n"
+    }
+  ],
+  "created_at": "2026-07-29T18:11:24Z",
+  "data": {
+    "console_entrypoint": "best-buds-weight-station-bootstrap",
+    "module_entrypoint": "python -m best_buds_weight_station.bootstrap"
+  },
+  "evidence_refs": [],
+  "lane": "agent-entrypoint",
+  "next_action": null,
+  "profile": "operator-ready",
+  "reason_code": "AGENT_ENTRYPOINT_PASSED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

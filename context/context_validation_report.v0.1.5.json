@@ -1,0 +1,15 @@
+{
+  "context_runtime_execution_claimed": false,
+  "continuation_handoff": "context/resume_pack/CONTINUATION_HANDOFF_PROMPT.v0.1.5.md",
+  "episode": "context/episodes/episode_0006_v0.1.5.json",
+  "generated_at": "2026-07-23T03:09:08Z",
+  "ledger_events": 60,
+  "ledger_latest_sequence": 60,
+  "ledger_sequence_contiguous": true,
+  "resume_pack": "context/resume_pack/resume_pack_manifest.v0.1.5.json",
+  "source_hashes_recorded": true,
+  "status": "pass",
+  "version": "0.1.5",
+  "working_set": "context/working_set/working_set_update_0006.json",
+  "working_set_update_seq": 6
+}

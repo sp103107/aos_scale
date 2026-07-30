@@ -1,0 +1,46 @@
+{
+  "artifacts": [
+    "reports/frontend_polish_validation.v0.1.7.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "scripts/validate_frontend_runtime_truth.py"
+      ],
+      "duration_s": 0.511,
+      "evidence_class": "runtime_execution_pass",
+      "exit_code": 0,
+      "finished_at": "2026-07-24T04:27:32Z",
+      "started_at": "2026-07-24T04:27:32Z",
+      "stderr": "",
+      "stdout": "{\n  \"checks\": {\n    \"alice_state_refresh\": true,\n    \"background_worker\": true,\n    \"barcode_keyboard_path\": true,\n    \"calibration_dialog\": true,\n    \"no_synthetic_physical_zero\": true,\n    \"pyside_primary\": true,\n    \"scale_setup_dialog\": true,\n    \"scale_setup_not_placeholder\": true,\n    \"tare_dialog\": true,\n    \"windows_first_paths\": true,\n    \"worker_shutdown\": true\n  },\n  \"failures\": [],\n  \"status\": \"PASS\"\n}\n"
+    },
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "scripts/validate_frontend_polish_v017.py"
+      ],
+      "duration_s": 0.509,
+      "evidence_class": "runtime_execution_pass",
+      "exit_code": 0,
+      "finished_at": "2026-07-24T04:27:33Z",
+      "started_at": "2026-07-24T04:27:32Z",
+      "stderr": "",
+      "stdout": "{\n  \"checks\": {\n    \"advanced_menus\": true,\n    \"advanced_not_main_grid\": true,\n    \"barcode_focus\": true,\n    \"design_tokens\": true,\n    \"operator_language\": true,\n    \"primary_weight_hierarchy\": true,\n    \"pyside_main_actions\": true,\n    \"simulator_badge\": true,\n    \"status_consistency\": true,\n    \"tk_fallback_polished\": true\n  },\n  \"failures\": [],\n  \"pyside_runtime\": \"NOT_RUN\",\n  \"status\": \"PASS\",\n  \"tk_runtime\": \"SEPARATE_SMOKE_REQUIRED\",\n  \"version\": \"0.1.7\"\n}\n"
+    }
+  ],
+  "evidence_class": "runtime_execution_pass",
+  "finished_at": "2026-07-24T04:27:33Z",
+  "next_stage": "40_operator_workflow_validation",
+  "non_claims": [
+    "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+  ],
+  "receipt_id": "release-v0.1.7-bg-30_frontend_runtime_validation",
+  "run_id": "release-v0.1.7-bg",
+  "stage_id": "30_frontend_runtime_validation",
+  "started_at": "2026-07-24T04:27:32Z",
+  "status": "PASS",
+  "version": "0.1.7",
+  "warnings": []
+}

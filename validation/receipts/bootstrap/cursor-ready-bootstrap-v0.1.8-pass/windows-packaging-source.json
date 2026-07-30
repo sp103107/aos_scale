@@ -1,0 +1,30 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/validate_windows_source.py"
+      ],
+      "duration_seconds": 1.783,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"failures\": [],\n  \"native_windows_execution\": \"NOT_RUN\",\n  \"required_files\": [\n    \"packaging/windows/BestBudsWeightStation.spec\",\n    \"packaging/windows/build_windows.ps1\",\n    \"packaging/windows/verify_windows.ps1\",\n    \"packaging/windows/install_windows.ps1\",\n    \"packaging/windows/uninstall_windows.ps1\",\n    \"packaging/windows/launcher_config.json\",\n    \"packaging/windows/README.md\",\n    \"launch_best_buds.bat\",\n    \"launch_best_buds.ps1\"\n  ],\n  \"status\": \"PASS\",\n  \"truth_class\": \"WINDOWS_SOURCE_PRESENT\"\n}\n"
+    }
+  ],
+  "created_at": "2026-07-29T18:20:01Z",
+  "data": {
+    "native_runtime": "NOT_RUN",
+    "truth_class": "WINDOWS_SOURCE_PRESENT"
+  },
+  "evidence_refs": [],
+  "lane": "windows-packaging-source",
+  "next_action": null,
+  "profile": "operator-ready",
+  "reason_code": "WINDOWS_SOURCE_VALIDATED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": [
+    "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+  ]
+}

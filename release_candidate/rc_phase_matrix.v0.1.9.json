@@ -1,0 +1,78 @@
+{
+  "current_internal_phase": "rc3c12_final_polish_and_drift_review",
+  "migration_note": "v0.1.9 corrects final UI layout, generated-artifact hygiene, current metadata, and active test/stage naming while preserving all historical phases.",
+  "next_internal_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "package_name": "best_buds_cultivator_weight_station",
+  "phases": [
+    {
+      "phase": "rc3a_llm_validation_harness_and_drift_profiles",
+      "status": "pass"
+    },
+    {
+      "phase": "rc3b_software_dry_run_and_agent_bootstrap_entrypoint_hardening",
+      "status": "pass"
+    },
+    {
+      "phase": "rc3c0_source_truth_freeze_and_frontend_gap_audit",
+      "status": "pass"
+    },
+    {
+      "phase": "rc3c1_windows_first_launchers_and_environment_bootstrap",
+      "status": "implemented"
+    },
+    {
+      "phase": "rc3c2_pyside6_operator_shell_and_runtime_state_truth",
+      "status": "implemented"
+    },
+    {
+      "phase": "rc3c3_run_workspace_file_and_crash_resume_frontend",
+      "status": "implemented"
+    },
+    {
+      "phase": "rc3c4_scale_setup_device_discovery_and_serial_management",
+      "status": "implemented"
+    },
+    {
+      "phase": "rc3c5_background_scale_reading_worker_and_state_ingestion",
+      "status": "implemented"
+    },
+    {
+      "phase": "rc3c6_zero_tare_and_calibration_operator_workflows",
+      "status": "implemented"
+    },
+    {
+      "phase": "rc3c7_barcode_keyboard_input_and_control_adapter_readiness",
+      "status": "implemented"
+    },
+    {
+      "phase": "rc3c8_windows_packaging_and_linux_parity",
+      "status": "source_implemented_native_windows_not_run"
+    },
+    {
+      "phase": "rc3c9_frontend_runtime_truth_validators_and_evidence_closure",
+      "status": "pass"
+    },
+    {
+      "phase": "rc3c10_full_repo_packaging_and_physical_integration_handoff",
+      "status": "pass"
+    },
+    {
+      "phase": "rc3c11_final_naming_and_drift_concordance_pass",
+      "status": "superseded_by_expanded_rc3c11_v0.1.7"
+    },
+    {
+      "phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+      "status": "next"
+    },
+    {
+      "phase": "rc3c12_final_polish_and_drift_review",
+      "status": "pass_pending_final_validation"
+    },
+    {
+      "phase": "rc3c11_frontend_polish_stage_bootstrap_and_final_drift_concordance",
+      "status": "pass_cursor_ready_preserved"
+    }
+  ],
+  "status": "pending_final_validation",
+  "version": "0.1.9"
+}

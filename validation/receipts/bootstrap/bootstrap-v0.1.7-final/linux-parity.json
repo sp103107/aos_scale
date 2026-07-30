@@ -1,0 +1,55 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "sh",
+        "-n",
+        "launch_best_buds.sh"
+      ],
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "sh",
+        "-n",
+        "launch_simulator.sh"
+      ],
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/launcher.py",
+        "simulator",
+        "--direct",
+        "--dry-run",
+        "--ui-smoke"
+      ],
+      "duration_seconds": 0.501,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "/opt/pyvenv/bin/python3 -m best_buds_weight_station --simulator --ui-smoke\n"
+    }
+  ],
+  "created_at": "2026-07-24T04:31:57Z",
+  "data": {
+    "linux_launcher": "PASS",
+    "pyside_primary": "SOURCE_PRESENT",
+    "tk_fallback": "SOURCE_PRESENT"
+  },
+  "evidence_refs": [],
+  "lane": "linux-parity",
+  "next_action": null,
+  "profile": "operator-ready",
+  "reason_code": "LINUX_PARITY_PASSED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

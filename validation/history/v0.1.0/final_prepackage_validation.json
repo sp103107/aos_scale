@@ -1,0 +1,55 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "check": "windows_executable_presence",
+      "status": "pass",
+      "detail": {
+        "found": [],
+        "expected": "none because blocked"
+      }
+    },
+    {
+      "check": "debian_checksum",
+      "status": "pass",
+      "detail": "2180f0b4a162e72fd5fa30a1e8e1b41ec81416332f51bae43b41bc8ed6780704"
+    },
+    {
+      "check": "feature_source_anchors",
+      "status": "pass",
+      "detail": {
+        "checks": {
+          "barcode": true,
+          "automatic_manual": true,
+          "append_jsonl": true,
+          "xlsx": true,
+          "aos_envelope": true,
+          "alice_startup": true,
+          "gross_tare_net": true,
+          "serial_hx711": true
+        },
+        "missing": []
+      }
+    },
+    {
+      "check": "forbidden_generated_paths",
+      "status": "pass",
+      "detail": "absent"
+    },
+    {
+      "check": "release_state_version",
+      "status": "pass",
+      "detail": "0.1.0"
+    },
+    {
+      "check": "release_claim_honesty",
+      "status": "pass",
+      "detail": {
+        "production": false,
+        "seal": false
+      }
+    }
+  ],
+  "warnings": [],
+  "errors": []
+}

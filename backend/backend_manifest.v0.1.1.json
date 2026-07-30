@@ -1,0 +1,21 @@
+{
+  "alice_boundary": {
+    "authoritative_persistence": "SessionStore",
+    "command_proposals_only": true,
+    "receipt_required_for_saved_language": true
+  },
+  "authoritative_store": "append-only JSONL",
+  "modules": [
+    "storage",
+    "state_machine",
+    "stability",
+    "envelope",
+    "reports",
+    "spreadsheet",
+    "serial_adapter"
+  ],
+  "optional_index": "SQLite rebuildable only",
+  "remote_adapters_default": "disabled",
+  "runtime": "Python 3.11+",
+  "version": "0.1.1"
+}

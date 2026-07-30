@@ -1,0 +1,29 @@
+{
+  "artifact_hashes": {
+    "validation/evidence/frontend/best_buds_cultivator_weight_station_operator_ui_smoke_v0_1_7.png": "53ab1424e15375003a6d811e42af731085d12e8e377bd987bc39b9aaa84fcd5b"
+  },
+  "artifact_paths": [
+    "validation/evidence/frontend/best_buds_cultivator_weight_station_operator_ui_smoke_v0_1_7.png"
+  ],
+  "claim_id": "tk_fallback_render_smoke",
+  "claim_type": "frontend_render_pass",
+  "command_or_action": "Tk fallback operator frontend executed under Xvfb and screenshot captured.",
+  "evidence_id": "frontend-render-v0.1.7-tk-xvfb",
+  "execution_posture": "real_execution_allowed",
+  "exit_code_or_result": "PASS",
+  "finished_at": "2026-07-24T04:27:57Z",
+  "frontend_backend": "Tk fallback",
+  "judge_verdict": "ACCEPT_AUTHORIZED_TK_RENDER_EVIDENCE_ONLY",
+  "native_windows_status": "NOT_RUN",
+  "non_claims": [
+    "No PySide6 runtime pass.",
+    "No native Windows frontend render pass.",
+    "No physical scale interaction."
+  ],
+  "pyside6_runtime_status": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+  "started_at": "2026-07-24T04:26:59Z",
+  "stderr_path_or_inline_summary": "",
+  "stdout_path_or_inline_summary": "Polished fallback interface rendered at 1280x900 with simulator banner, seven primary actions, weight hierarchy, safe-save state, and Alice next-step panel.",
+  "validator_path": "scripts/validate_frontend_polish_v017.py",
+  "validator_result": "PASS"
+}

@@ -1,0 +1,18 @@
+{
+  "blocking_gates": [
+    "firmware"
+  ],
+  "commands_executed": [],
+  "created_at": "2026-07-22T20:54:06Z",
+  "data": {},
+  "evidence_refs": [
+    "validation/receipts/serial.latest.json"
+  ],
+  "lane": "serial",
+  "next_action": "Pass prerequisites: firmware",
+  "profile": "integration",
+  "reason_code": "PREREQUISITE_NOT_PASSED",
+  "required_action": null,
+  "status": "BLOCKED",
+  "warnings": []
+}

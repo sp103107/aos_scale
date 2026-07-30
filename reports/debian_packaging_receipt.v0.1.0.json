@@ -1,0 +1,52 @@
+{
+  "artifact_path": "dist/debian/best-buds-weight-station_0.1.0_amd64.deb",
+  "artifact_sha256": "2180f0b4a162e72fd5fa30a1e8e1b41ec81416332f51bae43b41bc8ed6780704",
+  "artifact_size_bytes": 157424,
+  "build_command": "./scripts/build_debian.sh",
+  "checks": [
+    {
+      "check": "dpkg_deb_build",
+      "evidence": "validation/debian_native_build_install_smoke.log",
+      "status": "pass"
+    },
+    {
+      "check": "dpkg_install",
+      "evidence": "validation/debian_native_build_install_smoke.log",
+      "status": "pass"
+    },
+    {
+      "check": "installed_cli_version",
+      "evidence": "validation/debian_extracted_version.txt",
+      "observed": "0.1.0",
+      "status": "pass"
+    },
+    {
+      "check": "installed_simulator_self_test",
+      "evidence": "validation/debian_extracted_self_test.json",
+      "status": "pass",
+      "truth_class": "simulator"
+    },
+    {
+      "check": "installed_ui_launch_xvfb",
+      "evidence": "validation/debian_extracted_ui_smoke.txt",
+      "status": "pass",
+      "ui_implementation": "Tk fallback because PySide6 was unavailable"
+    }
+  ],
+  "generated_at": "2026-07-19T15:40:04Z",
+  "install_command": "dpkg -i dist/debian/best-buds-weight-station_0.1.0_amd64.deb",
+  "non_claims": [
+    "No physical scale hardware was involved.",
+    "PySide6 primary UI rendering was not exercised; the packaged Tk fallback was launch-smoked under Xvfb.",
+    "No production deployment claim."
+  ],
+  "platform": {
+    "architecture": "x86_64/amd64",
+    "native": true,
+    "os": "Debian GNU/Linux 13 (trixie)"
+  },
+  "receipt_id": "debian-native-build-install-smoke-v0.1.0",
+  "status": "pass_native_debian",
+  "truth_class": "native_debian_build_install_and_execution",
+  "version": "0.1.0"
+}

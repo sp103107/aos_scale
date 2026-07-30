@@ -1,0 +1,14 @@
+{
+  "firmware": "BLOCKED",
+  "generated_at": "2026-07-23T20:48:35Z",
+  "linux_tk_runtime": "NATIVE_PLATFORM_PASS",
+  "operator_software": "SIMULATOR_AND_SCRIPTED_DEVICE_PASS",
+  "physical_device": "NOT_RUN",
+  "production_ready_claimed": false,
+  "pyside_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE_ON_TEST_HOST",
+  "release_seal_claimed": false,
+  "status": "pass",
+  "version": "0.1.6",
+  "windows_native": "NOT_RUN",
+  "windows_source": "WINDOWS_SOURCE_PRESENT"
+}

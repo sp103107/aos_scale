@@ -1,0 +1,37 @@
+{
+  "$id": "https://bestbuds.local/schemas/validation_harness_report.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "generated_at": {
+      "type": "string"
+    },
+    "lanes": {
+      "type": "array"
+    },
+    "profile": {
+      "type": "string"
+    },
+    "repairs": {
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "warnings": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "profile",
+    "status",
+    "version",
+    "lanes",
+    "warnings",
+    "repairs",
+    "generated_at"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,10 @@
+{
+  "episode_id": "episode_0007",
+  "generated_at": "2026-07-23T20:48:35Z",
+  "immutable": true,
+  "phase": "rc3c_windows_first_operator_application_implementation",
+  "record_type": "episode",
+  "status": "pass",
+  "summary": "Implemented the Windows-first operator application, Linux parity, cross-platform launchers, platform-aware paths, real scale setup, background reading ingestion, zero/tare/calibration workflows, Windows packaging source, and operator-ready validation gates without promoting physical or native-Windows claims.",
+  "version": "0.1.6"
+}

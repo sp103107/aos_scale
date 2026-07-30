@@ -1,0 +1,69 @@
+{
+  "$id": "https://aos.local/schemas/aos.application.envelope.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "causation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "content_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "correlation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "envelope_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "envelope_version": {
+      "const": "aos.application.envelope.v1"
+    },
+    "idempotency_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "message_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "security_context": {
+      "type": "object"
+    },
+    "source": {
+      "type": "object"
+    },
+    "target": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "envelope_version",
+    "envelope_id",
+    "message_type",
+    "created_at",
+    "source",
+    "payload",
+    "idempotency_key",
+    "content_hash"
+  ],
+  "title": "AoS Application Envelope",
+  "type": "object"
+}

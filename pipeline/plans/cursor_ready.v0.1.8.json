@@ -1,0 +1,29 @@
+{
+  "allowed_nonclaims": [
+    "physical hardware not run",
+    "native Windows runtime not run",
+    "firmware compile/upload not run"
+  ],
+  "description": "Complete deterministic pre-Cursor software, frontend, drift, evidence, and handoff validation.",
+  "final_verdicts": [
+    "CURSOR_READY",
+    "OPERATOR_SOFTWARE_READY",
+    "PHYSICAL_HARDWARE_NOT_RUN",
+    "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+  ],
+  "plan_id": "cursor_ready",
+  "stages": [
+    "00_repository_preflight",
+    "10_naming_concordance",
+    "20_launcher_validation",
+    "30_frontend_runtime_validation",
+    "40_operator_workflow_validation",
+    "50_scripted_scale_validation",
+    "60_zero_tare_calibration_validation",
+    "70_recovery_validation",
+    "80_windows_source_validation",
+    "90_context_manifest_validation",
+    "100_cursor_handoff"
+  ],
+  "version": "0.1.8"
+}

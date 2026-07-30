@@ -1,0 +1,25 @@
+{
+  "$id": "https://bestbuds.local/schemas/context_record.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "created_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "const": "0.1.0"
+    }
+  },
+  "required": [
+    "record_type",
+    "version",
+    "created_at"
+  ],
+  "title": "Context Record",
+  "type": "object"
+}

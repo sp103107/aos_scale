@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bestbuds.local/contracts/actions/canonical_action.schema.json",
+  "title": "Canonical Application Action",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["action_id", "action_type", "payload", "source", "authenticated", "created_at"],
+  "properties": {
+    "action_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "action_type": {"type": "string", "enum": ["run.new","run.load","run.resume","run.finish","settings.data_location.set","settings.capture_mode.set","device.discover","device.connect","device.disconnect","device.status","scale.zero","scale.container_tare.capture","scale.container_tare.set","scale.calibration.start","scale.calibration.sample","scale.calibration.test","scale.calibration.accept","scale.calibration.cancel","barcode.submit","reading.ingest","capture.confirm","capture.cancel","state.recover","state.flush","report.export","ui.open_scale_setup"]},
+    "payload": {"type": "object"},
+    "idempotency_key": {"type": ["string", "null"], "maxLength": 256},
+    "source": {"type": "string", "enum": ["local_ui","keyboard","local_hardware_button","bluetooth","wifi","test"]},
+    "device_identity": {"type": ["string", "null"], "maxLength": 256},
+    "authenticated": {"type": "boolean"},
+    "created_at": {"type": "string", "format": "date-time"}
+  }
+}

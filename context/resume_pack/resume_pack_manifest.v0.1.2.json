@@ -1,0 +1,20 @@
+{
+  "alice_validation": "../../reports/alice_authority_validation.v0.1.2.json",
+  "created_at": "2026-07-19T17:43:29Z",
+  "debian_receipt": "../../reports/debian_packaging_receipt.v0.1.2.json",
+  "episode": "../episodes/episode_0003_v0.1.2.json",
+  "firmware_receipt": "../../reports/firmware_compile_receipt.v0.1.2.json",
+  "handoff": "CONTINUATION_HANDOFF_PROMPT.v0.1.2.md",
+  "ledger": "../ledger/ledger.jsonl",
+  "release_state": "../../repo_release_state.json",
+  "source_hashes": {
+    "best_buds_cultivator_weight_station_v0_1_1.zip": "6f8f0ae8c89e26cdfde7bb5c7527c330666c1bdec644de7ccf2e318eb7cfeba8",
+    "best_buds_cultivator_weight_station_context_kickoff_pack_v0_1_1.zip": "abbe1863f2566f739fc2155704a47de550f39046083586c9be7f3869c0a1f12d",
+    "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c"
+  },
+  "updated_at": "2026-07-19T17:43:29Z",
+  "validation_report": "../../reports/validation_report.v0.1.2.json",
+  "version": "0.1.2",
+  "windows_receipt": "../../reports/windows_packaging_receipt.v0.1.2.json",
+  "working_set": "../working_set/working_set_update_0003.json"
+}

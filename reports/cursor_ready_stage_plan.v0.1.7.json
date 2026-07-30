@@ -1,0 +1,50 @@
+{
+  "completed_stages": [
+    "00_repository_preflight",
+    "10_naming_concordance",
+    "20_launcher_validation",
+    "30_frontend_runtime_validation",
+    "40_operator_workflow_validation",
+    "50_scripted_scale_validation",
+    "60_zero_tare_calibration_validation",
+    "70_recovery_validation",
+    "80_windows_source_validation",
+    "90_context_manifest_validation",
+    "100_cursor_handoff"
+  ],
+  "evidence_gate": "authorized_local_software_lanes_only",
+  "execution_posture": "real_execution_allowed",
+  "failed_stage": null,
+  "finished_at": "2026-07-24T04:27:57Z",
+  "non_claims": [
+    "physical hardware not run",
+    "native Windows runtime not run",
+    "firmware compile/upload not run"
+  ],
+  "package_name": "best_buds_cultivator_weight_station",
+  "plan_id": "cursor_ready",
+  "receipt_paths": [
+    "reports/stage_receipts/v0.1.7/00_repository_preflight.receipt.json",
+    "reports/stage_receipts/v0.1.7/10_naming_concordance.receipt.json",
+    "reports/stage_receipts/v0.1.7/20_launcher_validation.receipt.json",
+    "reports/stage_receipts/v0.1.7/30_frontend_runtime_validation.receipt.json",
+    "reports/stage_receipts/v0.1.7/40_operator_workflow_validation.receipt.json",
+    "reports/stage_receipts/v0.1.7/50_scripted_scale_validation.receipt.json",
+    "reports/stage_receipts/v0.1.7/60_zero_tare_calibration_validation.receipt.json",
+    "reports/stage_receipts/v0.1.7/70_recovery_validation.receipt.json",
+    "reports/stage_receipts/v0.1.7/80_windows_source_validation.receipt.json",
+    "reports/stage_receipts/v0.1.7/90_context_manifest_validation.receipt.json",
+    "reports/stage_receipts/v0.1.7/100_cursor_handoff.receipt.json"
+  ],
+  "run_id": "release-v0.1.7-bg",
+  "stage_count": 11,
+  "started_at": "2026-07-24T04:26:59Z",
+  "status": "PASS",
+  "verdicts": [
+    "CURSOR_READY",
+    "OPERATOR_SOFTWARE_READY",
+    "PHYSICAL_HARDWARE_NOT_RUN",
+    "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+  ],
+  "version": "0.1.7"
+}

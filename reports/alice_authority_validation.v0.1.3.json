@@ -1,0 +1,14 @@
+{
+  "authority_boundary": "pass",
+  "examples_validated": 10,
+  "generated_at": "2026-07-21T03:18:01Z",
+  "no_success_before_commit": "pass",
+  "non_claim_enforcement": "pass",
+  "operator_safe_errors": "pass",
+  "run_device_zero_tare_calibration_guidance": "pass",
+  "state_action_guidance": "pass",
+  "status": "pass",
+  "terminal_receipt_gate": "pass",
+  "truth_class": "UNIT_TEST_PASS",
+  "version": "0.1.3"
+}

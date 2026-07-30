@@ -1,0 +1,9 @@
+{
+  "episode_id": "episode_0006",
+  "generated_at": "2026-07-23T02:57:09Z",
+  "phase": "rc3b_software_dry_run_and_agent_bootstrap_entrypoint_hardening",
+  "record_type": "episode",
+  "status": "pass",
+  "summary": "Added a Python coding-agent bootstrap, prehardware validation profile, real software-only dry run, recovery matrix, Tk runtime smoke, isolated install preflight, and machine-readable receipts while preserving physical non-claims.",
+  "version": "0.1.5"
+}

@@ -1,0 +1,68 @@
+{
+  "status": "pass",
+  "version": "0.1.1",
+  "checks": [
+    {
+      "check": "json_parse",
+      "status": "pass",
+      "detail": 106
+    },
+    {
+      "check": "jsonl_parse",
+      "status": "pass",
+      "detail": 20
+    },
+    {
+      "check": "yaml_parse",
+      "status": "pass",
+      "detail": 1
+    },
+    {
+      "check": "required_paths",
+      "status": "pass",
+      "detail": 30
+    },
+    {
+      "check": "version_consistency",
+      "status": "pass",
+      "detail": "0.1.1"
+    },
+    {
+      "check": "forbidden_detached_shapes",
+      "status": "pass",
+      "detail": "absent"
+    },
+    {
+      "check": "python_compile",
+      "status": "pass",
+      "detail": "pass"
+    },
+    {
+      "check": "alice_contracts_and_examples",
+      "status": "pass",
+      "detail": {
+        "schemas": 8,
+        "examples": 8
+      }
+    },
+    {
+      "check": "manifest_hashes",
+      "status": "pass",
+      "detail": 239
+    },
+    {
+      "check": "blocked_evidence_truth",
+      "status": "pass",
+      "detail": "preserved"
+    },
+    {
+      "check": "context_alignment",
+      "status": "pass",
+      "detail": {
+        "ledger_events": 18,
+        "latest_sequence": 18
+      }
+    }
+  ],
+  "errors": []
+}

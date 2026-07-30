@@ -1,0 +1,13 @@
+{
+  "bat_launcher_status": "SOURCE_VALIDATED",
+  "build_status": "NOT_RUN",
+  "exe_claimed": false,
+  "execution_status": "NOT_RUN",
+  "generated_at": "2026-07-23T20:48:35Z",
+  "powershell_launcher_status": "SOURCE_VALIDATED",
+  "pyinstaller_spec_status": "SOURCE_VALIDATED",
+  "reason_code": "NO_NATIVE_WINDOWS_RUNNER",
+  "status": "blocked",
+  "truth_class": "WINDOWS_SOURCE_PRESENT",
+  "version": "0.1.6"
+}

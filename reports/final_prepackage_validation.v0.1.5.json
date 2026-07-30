@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "agent_bootstrap_8_lanes": "pass",
+    "context_ledger_60": "pass",
+    "detached_package_scan": "pass",
+    "firmware_claim_boundary": "pass_blocked",
+    "full_repo_shape": "pass",
+    "native_debian": "pass",
+    "physical_claim_boundary": "pass_not_run",
+    "schemas_51": "pass",
+    "test_suite_159": "pass",
+    "version_alignment": "pass",
+    "windows_claim_boundary": "pass_blocked"
+  },
+  "generated_at": "2026-07-23T03:09:08Z",
+  "manifest_file_count": 524,
+  "status": "pass",
+  "version": "0.1.5"
+}

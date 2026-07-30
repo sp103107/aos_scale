@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-07-19T15:25:41Z",
+  "episode_id": "bbws-episode-0001",
+  "immutable": true,
+  "record_type": "episode_checkpoint",
+  "summary": "Initial complete repo build with simulator-tested capture workflow and evidence-gated packaging.",
+  "version": "0.1.0"
+}

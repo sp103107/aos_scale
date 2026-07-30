@@ -1,0 +1,64 @@
+{
+  "kernel_id": "best_buds.weight_station.capture.v1",
+  "states": [
+    "DISCONNECTED",
+    "DEVICE_READY",
+    "SESSION_READY",
+    "WAITING_FOR_BARCODE",
+    "BARCODE_CAPTURED",
+    "WAITING_FOR_STABLE_WEIGHT",
+    "WEIGHT_STABLE",
+    "MANUAL_CONFIRM",
+    "LOCAL_COMMIT_PENDING",
+    "RECORD_SAVED",
+    "ERROR"
+  ],
+  "terminal_feedback_rule": "success_beep_only_after_required_local_commit",
+  "transitions": [
+    [
+      "DISCONNECTED",
+      "DEVICE_READY"
+    ],
+    [
+      "DEVICE_READY",
+      "SESSION_READY"
+    ],
+    [
+      "SESSION_READY",
+      "WAITING_FOR_BARCODE"
+    ],
+    [
+      "WAITING_FOR_BARCODE",
+      "BARCODE_CAPTURED"
+    ],
+    [
+      "BARCODE_CAPTURED",
+      "WAITING_FOR_STABLE_WEIGHT"
+    ],
+    [
+      "WAITING_FOR_STABLE_WEIGHT",
+      "WEIGHT_STABLE"
+    ],
+    [
+      "WEIGHT_STABLE",
+      "LOCAL_COMMIT_PENDING"
+    ],
+    [
+      "WEIGHT_STABLE",
+      "MANUAL_CONFIRM"
+    ],
+    [
+      "MANUAL_CONFIRM",
+      "LOCAL_COMMIT_PENDING"
+    ],
+    [
+      "LOCAL_COMMIT_PENDING",
+      "RECORD_SAVED"
+    ],
+    [
+      "RECORD_SAVED",
+      "WAITING_FOR_BARCODE"
+    ]
+  ],
+  "version": "1.0.0"
+}

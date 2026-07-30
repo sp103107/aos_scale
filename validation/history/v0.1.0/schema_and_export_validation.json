@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "schema_count": 22,
+  "schema_paths": [
+    "contracts/calibration/calibration_receipt.schema.json",
+    "contracts/context/context_record.schema.json",
+    "contracts/device/serial_message.schema.json",
+    "contracts/envelope/aos.application.envelope.v1.schema.json",
+    "contracts/harvest/harvest_run.schema.json",
+    "contracts/receipts/commit_receipt.schema.json",
+    "contracts/report/harvest_report.schema.json",
+    "contracts/runtime/api_health_probe_evidence.schema.json",
+    "contracts/runtime/backend_service_evidence.schema.json",
+    "contracts/runtime/bus_delivery_evidence.schema.json",
+    "contracts/runtime/execution_authorization.schema.json",
+    "contracts/runtime/frontend_build_evidence.schema.json",
+    "contracts/runtime/frontend_render_evidence.schema.json",
+    "contracts/runtime/listener_activation_evidence.schema.json",
+    "contracts/runtime/mcp_tool_call_evidence.schema.json",
+    "contracts/runtime/production_grade_evidence_gate.schema.json",
+    "contracts/runtime/release_seal_evidence.schema.json",
+    "contracts/runtime/runtime_claim_gate.schema.json",
+    "contracts/runtime/runtime_execution_evidence_record.schema.json",
+    "contracts/stability/stability_profile.schema.json",
+    "contracts/weight/correction_event.schema.json",
+    "contracts/weight/weight_record.schema.json"
+  ],
+  "fixture_session": "validation/fixtures/sessions/SELFTEST-SESSION",
+  "fixture_status": "pass",
+  "errors": []
+}

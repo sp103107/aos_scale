@@ -1,0 +1,127 @@
+{"action": "source_truth_reconciliation", "created_at": "2026-07-19T15:25:41Z", "record_type": "ledger_event", "result": "warn_missing_contract_zip", "sequence": 1, "version": "0.1.0"}
+{"action": "full_repo_generation", "created_at": "2026-07-19T15:25:41Z", "record_type": "ledger_event", "result": "complete", "sequence": 2, "version": "0.1.0"}
+{"action": "validation_and_packaging", "created_at": "2026-07-19T15:25:41Z", "record_type": "ledger_event", "result": "pending", "sequence": 3, "version": "0.1.0"}
+{"action": "test_and_simulator_validation", "created_at": "2026-07-19T15:40:04Z", "record_type": "ledger_event", "result": "pass", "sequence": 4, "version": "0.1.0"}
+{"action": "native_debian_build_install_smoke", "created_at": "2026-07-19T15:40:04Z", "record_type": "ledger_event", "result": "pass", "sequence": 5, "version": "0.1.0"}
+{"action": "native_windows_build", "created_at": "2026-07-19T15:40:04Z", "record_type": "ledger_event", "result": "blocked_no_native_runner", "sequence": 6, "version": "0.1.0"}
+{"action": "firmware_compile", "created_at": "2026-07-19T15:40:04Z", "record_type": "ledger_event", "result": "blocked_toolchain_unavailable", "sequence": 7, "version": "0.1.0"}
+{"action": "physical_hardware_test", "created_at": "2026-07-19T15:40:04Z", "record_type": "ledger_event", "result": "blocked_no_hardware", "sequence": 8, "version": "0.1.0"}
+{"action": "context_validation", "created_at": "2026-07-19T15:40:04Z", "record_type": "ledger_event", "result": "pass", "sequence": 9, "version": "0.1.0"}
+{"action": "google_drive_binary_delivery", "created_at": "2026-07-19T15:42:11Z", "record_type": "ledger_event", "result": "partial_folder_and_receipt_created_binary_upload_blocked", "sequence": 10, "version": "0.1.0"}
+{"action": "full_repo_package_preflight", "created_at": "2026-07-19T15:45:23Z", "record_type": "ledger_event", "result": "pass", "sequence": 11, "version": "0.1.0"}
+{"action": "source_artifact_inspection", "created_at": "2026-07-19T16:53:32Z", "record_type": "ledger_event", "result": "pass_v0.1.0_zip_and_kickoff_hashes_verified", "sequence": 12, "version": "0.1.1"}
+{"action": "source_drift_review", "created_at": "2026-07-19T16:53:32Z", "record_type": "ledger_event", "result": "warn_missing_declared_contract_bundle", "sequence": 13, "version": "0.1.1"}
+{"action": "alice_response_agent_implementation", "created_at": "2026-07-19T16:53:32Z", "record_type": "ledger_event", "result": "pass", "sequence": 14, "version": "0.1.1"}
+{"action": "alice_and_full_test_suite", "created_at": "2026-07-19T16:53:32Z", "record_type": "ledger_event", "result": "pass_40_tests", "sequence": 15, "version": "0.1.1"}
+{"action": "alice_contract_and_persistence_validation", "created_at": "2026-07-19T16:53:32Z", "record_type": "ledger_event", "result": "pass", "sequence": 16, "version": "0.1.1"}
+{"action": "native_debian_v0.1.1_rebuild_install_smoke", "created_at": "2026-07-19T16:53:32Z", "record_type": "ledger_event", "result": "pass", "sequence": 17, "version": "0.1.1"}
+{"action": "full_repo_bump_result", "created_at": "2026-07-19T16:53:32Z", "record_type": "ledger_event", "result": "pass_core_alice_simulator_debian_blocked_windows_firmware_physical", "sequence": 18, "version": "0.1.1"}
+{"action": "source_artifact_inspection", "created_at": "2026-07-19T17:43:29Z", "record_type": "ledger_event", "result": "pass_v0.1.1_full_repo_zip_sha256_and_crc_verified", "sequence": 19, "version": "0.1.2"}
+{"action": "alice_drift_review", "created_at": "2026-07-19T17:43:29Z", "record_type": "ledger_event", "result": "found_automatic_ui_receipt_progression_duplicate_and_evidence_hygiene_gaps", "sequence": 20, "version": "0.1.2"}
+{"action": "alice_terminal_receipt_gate_implementation", "created_at": "2026-07-19T17:43:29Z", "record_type": "ledger_event", "result": "pass_backend_no_terminal_success_before_alice", "sequence": 21, "version": "0.1.2"}
+{"action": "automatic_and_manual_ui_flow_hardening", "created_at": "2026-07-19T17:43:29Z", "record_type": "ledger_event", "result": "pass_shared_pyside_tk_controller_gate", "sequence": 22, "version": "0.1.2"}
+{"action": "duplicate_evidence_and_tk_cancel_hardening", "created_at": "2026-07-19T17:43:29Z", "record_type": "ledger_event", "result": "pass", "sequence": 23, "version": "0.1.2"}
+{"action": "robust_example_and_version_evidence_hygiene", "created_at": "2026-07-19T17:43:29Z", "record_type": "ledger_event", "result": "pass_10_examples_and_legacy_evidence_preserved", "sequence": 24, "version": "0.1.2"}
+{"action": "full_test_suite", "created_at": "2026-07-19T17:43:29Z", "record_type": "ledger_event", "result": "pass_47_tests_prepackage", "sequence": 25, "version": "0.1.2"}
+{"action": "native_debian_v0.1.2_rebuild_install_smoke", "created_at": "2026-07-19T17:46:51Z", "record_type": "ledger_event", "result": "pass_build_install_version_selftest_manual_and_automatic_ui_smoke", "sequence": 26, "version": "0.1.2"}
+{"action": "firmware_compile", "created_at": "2026-07-19T17:46:51Z", "record_type": "ledger_event", "result": "blocked_arduino_cli_unavailable_source_present_physical_not_run", "sequence": 27, "version": "0.1.2"}
+{"action": "v0.1.2_validation_result", "created_at": "2026-07-19T17:46:51Z", "record_type": "ledger_event", "result": "pass_47_tests_alice_terminal_gate_10_examples_debian_blocked_windows_firmware_physical", "sequence": 28, "version": "0.1.2"}
+{"action": "source_inspection", "created_at": "2026-07-21T03:18:01Z", "record_type": "ledger_event", "result": "pass_v0.1.2_zip_sha256_crc_and_repository_state_verified", "sequence": 29, "version": "0.1.3"}
+{"action": "drift_review", "created_at": "2026-07-21T03:18:01Z", "record_type": "ledger_event", "result": "warn_missing_governing_contract_bundle_and_pyside_runtime_dependency", "sequence": 30, "version": "0.1.3"}
+{"action": "core_implementation", "created_at": "2026-07-21T03:18:01Z", "record_type": "ledger_event", "result": "pass_run_manager_application_controller_canonical_actions", "sequence": 31, "version": "0.1.3"}
+{"action": "frontend_implementation", "created_at": "2026-07-21T03:18:01Z", "record_type": "ledger_event", "result": "pass_production_pyside_source_and_tk_runtime_callbacks", "sequence": 32, "version": "0.1.3"}
+{"action": "persistence_testing", "created_at": "2026-07-21T03:18:01Z", "record_type": "ledger_event", "result": "pass_commit_order_recent_pointer_and_13_interruption_cases", "sequence": 33, "version": "0.1.3"}
+{"action": "recovery_testing", "created_at": "2026-07-21T03:18:01Z", "record_type": "ledger_event", "result": "pass_tail_temp_individual_checkpoint_receipt_and_hash_chain_gates", "sequence": 34, "version": "0.1.3"}
+{"action": "device_service_testing", "created_at": "2026-07-21T03:18:01Z", "record_type": "ledger_event", "result": "pass_serial_protocol_simulator_and_unit_physical_not_run", "sequence": 35, "version": "0.1.3"}
+{"action": "calibration_testing", "created_at": "2026-07-21T03:18:01Z", "record_type": "ledger_event", "result": "pass_guided_simulator_workflow_no_certification", "sequence": 36, "version": "0.1.3"}
+{"action": "packaging", "created_at": "2026-07-21T03:18:01Z", "record_type": "ledger_event", "result": "pass_native_debian_v0.1.3_blocked_windows_firmware_physical", "sequence": 37, "version": "0.1.3"}
+{"action": "final_validation", "created_at": "2026-07-21T03:18:01Z", "record_type": "ledger_event", "result": "pass_133_tests_full_repo_context_and_evidence_boundaries", "sequence": 38, "version": "0.1.3"}
+{"event": "source_repository_verified", "sequence": 39, "status": "pass", "timestamp": "2026-07-22T20:55:00Z", "version": "0.1.4"}
+{"event": "v0.1.4_worktree_created", "sequence": 40, "status": "pass", "timestamp": "2026-07-22T20:55:00Z", "version": "0.1.4"}
+{"event": "validation_profiles_added", "sequence": 41, "status": "pass", "timestamp": "2026-07-22T20:55:00Z", "version": "0.1.4"}
+{"event": "llm_harness_implemented", "sequence": 42, "status": "pass", "timestamp": "2026-07-22T20:55:00Z", "version": "0.1.4"}
+{"event": "safe_drift_policy_added", "sequence": 43, "status": "pass", "timestamp": "2026-07-22T20:55:00Z", "version": "0.1.4"}
+{"event": "validation_graph_added", "sequence": 44, "status": "pass", "timestamp": "2026-07-22T20:55:00Z", "version": "0.1.4"}
+{"event": "physical_truth_gates_added", "sequence": 45, "status": "pass", "timestamp": "2026-07-22T20:55:00Z", "version": "0.1.4"}
+{"event": "harness_tests_added", "sequence": 46, "status": "pass", "timestamp": "2026-07-22T20:55:00Z", "version": "0.1.4"}
+{"event": "debian_package_rebuilt", "sequence": 47, "status": "pass", "timestamp": "2026-07-22T20:55:00Z", "version": "0.1.4"}
+{"event": "final_validation_completed", "sequence": 48, "status": "pass", "timestamp": "2026-07-22T20:55:00Z", "version": "0.1.4"}
+{"event": "source_repository_verified", "sequence": 49, "status": "pass", "timestamp": "2026-07-23T02:57:09Z", "version": "0.1.5"}
+{"event": "v0.1.5_worktree_created", "sequence": 50, "status": "pass", "timestamp": "2026-07-23T02:57:09Z", "version": "0.1.5"}
+{"event": "prehardware_profile_added", "sequence": 51, "status": "pass", "timestamp": "2026-07-23T02:57:09Z", "version": "0.1.5"}
+{"event": "agent_bootstrap_entrypoint_implemented", "sequence": 52, "status": "pass", "timestamp": "2026-07-23T02:57:09Z", "version": "0.1.5"}
+{"event": "software_dry_run_implemented", "sequence": 53, "status": "pass", "timestamp": "2026-07-23T02:57:09Z", "version": "0.1.5"}
+{"event": "run_manifest_version_drift_fixed", "sequence": 54, "status": "pass", "timestamp": "2026-07-23T02:57:09Z", "version": "0.1.5"}
+{"event": "recovery_and_frontend_lanes_added", "sequence": 55, "status": "pass", "timestamp": "2026-07-23T02:57:09Z", "version": "0.1.5"}
+{"event": "bootstrap_tests_added", "sequence": 56, "status": "pass", "timestamp": "2026-07-23T02:57:09Z", "version": "0.1.5"}
+{"event": "debian_rebuild_started", "sequence": 57, "status": "pass", "timestamp": "2026-07-23T02:57:09Z", "version": "0.1.5"}
+{"event": "final_validation_pending", "sequence": 58, "status": "pending", "timestamp": "2026-07-23T02:57:09Z", "version": "0.1.5"}
+{"event": "prehardware_agent_bootstrap_completed", "sequence": 59, "status": "pass", "timestamp": "2026-07-23T03:07:37Z", "version": "0.1.5"}
+{"event": "final_validation_completed", "sequence": 60, "status": "pass", "timestamp": "2026-07-23T03:09:08Z", "version": "0.1.5"}
+{"event": "source_v0.1.5_verified", "sequence": 61, "status": "pass", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "v0.1.6_full_repo_worktree_created", "sequence": 62, "status": "pass", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "frontend_launcher_gap_audited", "sequence": 63, "status": "pass", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "windows_first_launchers_implemented", "sequence": 64, "status": "pass", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "pyside6_operator_application_implemented", "sequence": 65, "status": "pass", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "platform_paths_implemented", "sequence": 66, "status": "pass", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "background_reading_worker_implemented", "sequence": 67, "status": "pass", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "scale_setup_tare_calibration_ui_implemented", "sequence": 68, "status": "pass", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "windows_packaging_source_implemented", "sequence": 69, "status": "pass", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "operator_ready_validation_profile_added", "sequence": 70, "status": "pass", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "runtime_truth_tests_added", "sequence": 71, "status": "pass", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "context_module_v0.1.6_updated", "sequence": 72, "status": "pending_final_validation", "timestamp": "2026-07-23T20:25:21Z", "version": "0.1.6"}
+{"event": "launcher_frontend_runtime_validation_completed", "sequence": 73, "status": "pass", "timestamp": "2026-07-23T20:48:35Z", "version": "0.1.6"}
+{"event": "operator_ready_agent_bootstrap_completed", "sequence": 74, "status": "pass_with_windows_native_nonclaim", "timestamp": "2026-07-23T20:48:35Z", "version": "0.1.6"}
+{"event": "debian_0.1.6_package_built_installed_and_smoked", "sequence": 75, "status": "pass", "timestamp": "2026-07-23T20:48:35Z", "version": "0.1.6"}
+{"event": "final_validation_completed", "sequence": 76, "status": "pass", "timestamp": "2026-07-23T20:48:35Z", "version": "0.1.6"}
+{"event_type": "source_intake", "evidence_refs": [], "sequence": 77, "summary": "Imported and hash-verified v0.1.6 and runtime-enabled factory prompt.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "execution_authorized", "evidence_refs": [], "sequence": 78, "summary": "Authorized safe local software, validation, Tk smoke, stage-runner, and Debian lanes.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 79, "summary": "Created complete v0.1.7 repository state.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 80, "summary": "Polished Windows-first frontend source and Tk fallback layout.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 81, "summary": "Added JSON stage contract family and stage catalog.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 82, "summary": "Added resumable Python stage runner and wrappers.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 83, "summary": "Canonicalized pyserial capture path and deprecated legacy adapter.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 84, "summary": "Added surface-entry mesh, pod lineage, catalog cards, and runtime evidence indexes.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "claim_gate_evaluated", "evidence_refs": [], "sequence": 85, "summary": "Kept native Windows, firmware, physical hardware, production, and seal claims false.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "context_update", "evidence_refs": [], "sequence": 86, "summary": "Added Working Set sequence 8 and Episode 8.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "validation_result", "evidence_refs": [], "sequence": 87, "summary": "Final validation pending.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "non_claim", "evidence_refs": [], "sequence": 88, "summary": "Physical scale and Windows-native runtime not run.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "handoff", "evidence_refs": [], "sequence": 89, "summary": "Prepared Cursor physical integration handoff.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 90, "summary": "Prepared full-repo packaging phase.", "timestamp": "2026-07-24T03:58:53Z", "version": "0.1.7"}
+{"event_type": "execution_finished", "evidence_refs": ["reports/cursor_ready_stage_plan.v0.1.7.json"], "sequence": 91, "summary": "Cursor-ready JSON stage plan completed: 11 of 11 stages passed.", "timestamp": "2026-07-24T04:35:23Z", "version": "0.1.7"}
+{"event_type": "validation_result", "evidence_refs": ["reports/cursor_ready_stage_plan.v0.1.7.json"], "sequence": 92, "summary": "Automated software, schema, launcher, frontend, recovery, and drift validators passed.", "timestamp": "2026-07-24T04:35:23Z", "version": "0.1.7"}
+{"event_type": "execution_finished", "evidence_refs": ["reports/frontend_render_evidence.v0.1.7.json"], "sequence": 93, "summary": "Tk fallback frontend rendered under Xvfb and screenshot evidence was hashed.", "timestamp": "2026-07-24T04:35:23Z", "version": "0.1.7"}
+{"event_type": "execution_finished", "evidence_refs": ["reports/debian_packaging_receipt.v0.1.7.json"], "sequence": 94, "summary": "Debian 0.1.7 package built, inspected, extracted, stage-catalog tested, and simulator self-tested.", "timestamp": "2026-07-24T04:35:23Z", "version": "0.1.7"}
+{"event_type": "claim_gate_evaluated", "evidence_refs": ["runtime/evidence_index.v0.1.7.json"], "sequence": 95, "summary": "Authorized local software runtime accepted; native Windows, PySide6 runtime, firmware, and physical hardware claims remain false.", "timestamp": "2026-07-24T04:35:23Z", "version": "0.1.7"}
+{"event_type": "handoff", "evidence_refs": ["cursor/CURSOR_UNO_R3_PHYSICAL_INTEGRATION_HANDOFF_V0_1_7.md"], "sequence": 96, "summary": "Full v0.1.7 repository prepared as the Cursor-ready baseline for UNO R3/HX711 physical integration.", "timestamp": "2026-07-24T04:35:23Z", "version": "0.1.7"}
+{"event_type": "source_intake", "evidence_refs": ["manifests/source_artifact_inventory.v0.1.8.json"], "sequence": 97, "summary": "Verified v0.1.7 repository and Runtime bump policy hashes.", "timestamp": "2026-07-29T17:19:02Z", "version": "0.1.8"}
+{"event_type": "execution_authorized", "evidence_refs": ["reports/execution_posture_decision.v0.1.8.json"], "sequence": 98, "summary": "Authorized local software, drift, frontend render, and packaging lanes only.", "timestamp": "2026-07-29T17:19:02Z", "version": "0.1.8"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 99, "summary": "Audited v0.1.7 frontend, manifests, release matrix, tests, and generated paths.", "timestamp": "2026-07-29T17:19:02Z", "version": "0.1.8"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 100, "summary": "Corrected non-overlapping routine action layout through a shared executable contract.", "timestamp": "2026-07-29T17:19:02Z", "version": "0.1.8"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 101, "summary": "Added labeled barcode capture and scanner guidance to Tk and PySide surfaces.", "timestamp": "2026-07-29T17:19:02Z", "version": "0.1.8"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 102, "summary": "Changed physical serial evidence-pending presentation from success to warning status.", "timestamp": "2026-07-29T17:19:02Z", "version": "0.1.8"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 103, "summary": "Removed generated egg-info and dead callback stubs from release source.", "timestamp": "2026-07-29T17:19:02Z", "version": "0.1.8"}
+{"event_type": "bump_action", "evidence_refs": [], "sequence": 104, "summary": "Normalized active test names and current stage references while preserving historical evidence.", "timestamp": "2026-07-29T17:19:02Z", "version": "0.1.8"}
+{"event_type": "non_claim", "evidence_refs": [], "sequence": 105, "summary": "Preserved physical, firmware, Windows-native, certification, production, and release-seal non-claims.", "timestamp": "2026-07-29T17:19:02Z", "version": "0.1.8"}
+{"event_type": "validation_result", "evidence_refs": ["context/context_validation_report.v0.1.8.json"], "sequence": 106, "summary": "Prepared Context sequence 9, Episode 9, Resume Pack, and prepackage JSON/JSONL validation.", "timestamp": "2026-07-29T17:19:02Z", "version": "0.1.8"}
+{"event_type": "execution_started", "evidence_refs": ["reports/execution_posture_decision.v0.1.8.json"], "sequence": 107, "summary": "Began final evidence-gated polish, software validation, stage orchestration, and package lanes.", "timestamp": "2026-07-29T18:25:11Z", "version": "0.1.8"}
+{"event_type": "execution_finished", "evidence_refs": ["reports/pytest_full_suite_evidence.v0.1.8.json"], "sequence": 108, "summary": "Full automated software suite passed with 183 tests.", "timestamp": "2026-07-29T18:25:11Z", "version": "0.1.8"}
+{"event_type": "execution_finished", "evidence_refs": ["reports/frontend_render_evidence.v0.1.8.json"], "sequence": 109, "summary": "Polished Tk fallback rendered under Xvfb in manual and automatic simulator modes with non-overlapping operator controls.", "timestamp": "2026-07-29T18:25:11Z", "version": "0.1.8"}
+{"event_type": "execution_finished", "evidence_refs": ["reports/cursor_ready_stage_plan.v0.1.8.json"], "sequence": 110, "summary": "Cursor-ready JSON stage plan completed all 11 stages and returned CURSOR_READY and OPERATOR_SOFTWARE_READY.", "timestamp": "2026-07-29T18:25:11Z", "version": "0.1.8"}
+{"event_type": "execution_finished", "evidence_refs": ["reports/cursor_ready_bootstrap.v0.1.8.json"], "sequence": 111, "summary": "Cursor-ready coding-agent bootstrap passed all 13 software lanes; native Windows and physical hardware remain warnings/non-claims.", "timestamp": "2026-07-29T18:25:11Z", "version": "0.1.8"}
+{"event_type": "execution_blocked", "evidence_refs": ["reports/firmware_compile_receipt.v0.1.8.json"], "sequence": 112, "summary": "Firmware compilation was attempted and blocked because arduino-cli is unavailable.", "timestamp": "2026-07-29T18:25:11Z", "version": "0.1.8"}
+{"event_type": "execution_finished", "evidence_refs": ["reports/debian_packaging_receipt.v0.1.8.json"], "sequence": 113, "summary": "Debian 0.1.8 package built and passed metadata, extracted-runtime, stage-list, simulator, and Tk smoke checks.", "timestamp": "2026-07-29T18:25:11Z", "version": "0.1.8"}
+{"event_type": "claim_gate_evaluated", "evidence_refs": ["runtime/evidence_index.v0.1.8.json"], "sequence": 114, "summary": "Authorized local software runtime accepted; native Windows, PySide6 runtime, firmware, physical hardware, production-grade, and release-seal claims remain false.", "timestamp": "2026-07-29T18:25:11Z", "version": "0.1.8"}
+{"event_type": "validation_result", "evidence_refs": ["reports/final_polish_and_drift_review.v0.1.8.json", "context/context_validation_report.v0.1.8.json"], "sequence": 115, "summary": "Final naming, frontend, stage, context, and evidence concordance reached PASS before manifest freeze.", "timestamp": "2026-07-29T18:25:11Z", "version": "0.1.8"}
+{"event_type": "handoff", "evidence_refs": ["cursor/CURSOR_UNO_R3_PHYSICAL_INTEGRATION_HANDOFF_V0_1_8.md"], "sequence": 116, "summary": "Prepared the complete v0.1.8 repository as the Cursor baseline for UNO R3/HX711 physical scale bring-up.", "timestamp": "2026-07-29T18:25:11Z", "version": "0.1.8"}
+{"event_type": "drift_detected", "evidence_refs": ["frontend/frontend_manifest.v0.1.8.json", "reports/frontend_render_evidence.v0.1.8.json", "manifests/file_manifest.v0.1.8.json"], "sequence": 117, "summary": "Independent rendered-artifact and extracted-package review found a stale barcode label in the frontend manifest/screenshot and exclusion of the authoritative full-suite log.", "timestamp": "2026-07-29T18:39:56Z", "version": "0.1.8"}
+{"event_type": "bump_action", "evidence_refs": ["scripts/validate_frontend_polish_v018.py", "scripts/generate_manifest.py", "scripts/package_release.py"], "sequence": 118, "summary": "Corrected frontend label/render concordance, added a validator guard, and changed package policy to preserve the authoritative full-suite test log.", "timestamp": "2026-07-29T18:39:56Z", "version": "0.1.8"}
+{"event_type": "validation_result", "evidence_refs": ["reports/post_drift_regression_evidence.v0.1.8.json", "reports/post_drift_stage_revalidation.v0.1.8.json"], "sequence": 119, "summary": "Post-drift regression passed 16 affected tests and revalidated naming and frontend runtime stages 10 and 30.", "timestamp": "2026-07-29T18:39:56Z", "version": "0.1.8"}
+{"event_type": "execution_finished", "evidence_refs": ["reports/debian_packaging_receipt.v0.1.8.json"], "sequence": 120, "summary": "Final Debian rebuild completed after the post-drift frontend, evidence, and packaging corrections.", "timestamp": "2026-07-29T18:40:26Z", "version": "0.1.8"}
+{"event_seq":121,"event_type":"source_intake","version":"0.1.9","message":"Accepted v0.1.8 as source truth","timestamp":"2026-07-29T20:25:00Z"}
+{"event_seq":122,"event_type":"bump_action","version":"0.1.9","message":"Created v0.1.9 full-repo state","timestamp":"2026-07-29T20:25:00Z"}
+{"event_seq":123,"event_type":"drift_check","version":"0.1.9","message":"Audited current release surfaces","timestamp":"2026-07-29T20:25:00Z"}
+{"event_seq":124,"event_type":"implementation","version":"0.1.9","message":"Restored last saved record on load/resume","timestamp":"2026-07-29T20:25:00Z"}
+{"event_seq":125,"event_type":"validation_result","version":"0.1.9","message":"Core process audit passed","timestamp":"2026-07-29T20:25:00Z"}
+{"event_seq":126,"event_type":"non_claim","version":"0.1.9","message":"Physical hardware and native Windows remain not run","timestamp":"2026-07-29T20:25:00Z"}
+{"event_seq":127,"event_type":"handoff","version":"0.1.9","message":"Prepared Cursor physical integration handoff","timestamp":"2026-07-29T20:25:00Z"}

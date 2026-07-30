@@ -1,0 +1,745 @@
+{
+  "generated_at": "2026-07-29T18:20:14Z",
+  "lanes": [
+    {
+      "blocking_gates": [],
+      "commands_executed": [],
+      "created_at": "2026-07-29T18:17:49Z",
+      "data": {
+        "capabilities": {
+          "modules": {
+            "jsonschema": true,
+            "openpyxl": true,
+            "pytest": true,
+            "serial": false,
+            "yaml": true
+          },
+          "platform": {
+            "machine": "x86_64",
+            "release": "6.12.13",
+            "system": "Linux"
+          },
+          "python": {
+            "available": true,
+            "executable": "/opt/pyvenv/bin/python",
+            "version": "3.13.5"
+          },
+          "repo_root": "/tmp/bbws_v018",
+          "serial_port_probe_error": null,
+          "serial_ports": [],
+          "tools": {
+            "arduino_cli": {
+              "available": false,
+              "path": null,
+              "version": null
+            },
+            "dpkg_deb": {
+              "available": true,
+              "exit_code": 0,
+              "path": "/usr/bin/dpkg-deb",
+              "version": "Debian 'dpkg-deb' package archive backend version 1.22.22 (amd64)."
+            },
+            "git": {
+              "available": true,
+              "exit_code": 0,
+              "path": "/usr/bin/git",
+              "version": "git version 2.47.3"
+            }
+          }
+        },
+        "drift": {
+          "issues": [
+            {
+              "code": "CURRENT_MANIFEST_STALE",
+              "path": "manifests/file_manifest.v0.1.8.json",
+              "repairable": true,
+              "severity": "warning"
+            }
+          ],
+          "status": "drift",
+          "version": "0.1.8"
+        },
+        "graph": {
+          "graph_version": "1.3.0",
+          "lanes": [
+            {
+              "lane": "repository-inspection",
+              "requires": []
+            },
+            {
+              "lane": "development-hygiene",
+              "requires": [
+                "repository-inspection"
+              ]
+            },
+            {
+              "lane": "software",
+              "requires": [
+                "development-hygiene"
+              ]
+            },
+            {
+              "lane": "launchers",
+              "requires": [
+                "software"
+              ]
+            },
+            {
+              "lane": "agent-entrypoint",
+              "requires": [
+                "launchers"
+              ]
+            },
+            {
+              "lane": "software-dry-run",
+              "requires": [
+                "agent-entrypoint"
+              ]
+            },
+            {
+              "lane": "recovery-matrix",
+              "requires": [
+                "software-dry-run"
+              ]
+            },
+            {
+              "lane": "operator-runtime",
+              "requires": [
+                "recovery-matrix"
+              ]
+            },
+            {
+              "lane": "scripted-device",
+              "requires": [
+                "operator-runtime"
+              ]
+            },
+            {
+              "lane": "frontend-smoke",
+              "requires": [
+                "scripted-device"
+              ]
+            },
+            {
+              "lane": "windows-packaging-source",
+              "requires": [
+                "frontend-smoke"
+              ]
+            },
+            {
+              "lane": "linux-parity",
+              "requires": [
+                "windows-packaging-source"
+              ]
+            },
+            {
+              "lane": "packaging-preflight",
+              "requires": [
+                "linux-parity"
+              ]
+            },
+            {
+              "lane": "firmware",
+              "requires": [
+                "packaging-preflight"
+              ]
+            },
+            {
+              "lane": "serial",
+              "requires": [
+                "firmware"
+              ]
+            },
+            {
+              "lane": "zero-tare",
+              "requires": [
+                "serial"
+              ]
+            },
+            {
+              "lane": "calibration",
+              "requires": [
+                "zero-tare"
+              ]
+            },
+            {
+              "lane": "physical-loop",
+              "requires": [
+                "calibration"
+              ]
+            },
+            {
+              "lane": "release-packaging",
+              "requires": [
+                "physical-loop"
+              ]
+            }
+          ],
+          "package_version": "0.1.8"
+        },
+        "version": "0.1.8"
+      },
+      "evidence_refs": [],
+      "lane": "repository-inspection",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "REPOSITORY_INSPECTED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [],
+      "created_at": "2026-07-29T18:17:50Z",
+      "data": {
+        "generated_at": "2026-07-29T18:17:50Z",
+        "lanes": [],
+        "profile": "operator-ready",
+        "repairs": [],
+        "status": "PASS_WITH_WARNINGS",
+        "version": "0.1.8",
+        "warnings": [
+          "CURRENT_MANIFEST_STALE"
+        ]
+      },
+      "evidence_refs": [],
+      "lane": "development-hygiene",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "SAFE_DRIFT_PREPARED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": [
+        "CURRENT_MANIFEST_STALE"
+      ]
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider"
+          ],
+          "duration_seconds": 39.875,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "........................................................................ [ 39%]\n........................................................................ [ 78%]\n.......................................                                  [100%]\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/validate_repo.py"
+          ],
+          "duration_seconds": 33.725,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"checks\": {\n    \"claims\": {\n      \"physical\": \"NOT_RUN\",\n      \"production_ready\": false,\n      \"release_seal\": false,\n      \"runtime_scope\": \"authorized_local_software_only\",\n      \"windows_native\": \"NOT_RUN\"\n    },\n    \"context\": {\n      \"episode\": \"episode_0009_v0.1.8\",\n      \"ledger_events\": 106,\n      \"working_set\": 9\n    },\n    \"forbidden\": \"ABSENT\",\n    \"generated_hygiene\": \"PASS\",\n    \"json\": 430,\n    \"jsonl\": 131,\n    \"manifest\": \"DEFERRED_TO_FINAL_PACKAGE_GATE\",\n    \"phase_matrix\": {\n      \"phase_count\": 17,\n      \"unique_phase_count\": 17\n    },\n    \"python_compile\": \"PASS\",\n    \"required\": 36,\n    \"schemas\": 60,\n    \"tests\": 183,\n    \"validators\": {\n      \"validate_cursor_handoff_v018.py\": \"PASS\",\n      \"validate_cursor_ready_v018.py\": \"PASS\",\n      \"validate_drift_concordance_v018.py\": \"PASS\",\n      \"validate_frontend_polish_v018.py\": \"PASS\",\n      \"validate_frontend_runtime_truth.py\": \"PASS\",\n      \"validate_launchers.py\": \"PASS\",\n      \"validate_windows_source.py\": \"PASS\"\n    },\n    \"versions\": {\n      \"current_surfaces\": 16,\n      \"version\": \"0.1.8\"\n    },\n    \"yaml\": 1\n  },\n  \"errors\": [],\n  \"package_name\": \"best_buds_cultivator_weight_station\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.8\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-29T18:19:03Z",
+      "data": {},
+      "evidence_refs": [],
+      "lane": "software",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "SOFTWARE_VALIDATION_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/validate_launchers.py"
+          ],
+          "duration_seconds": 12.57,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"dry_run\": {\n    \"bootstrap\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station.bootstrap --profile operator-ready\"\n    },\n    \"launch\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station\"\n    },\n    \"simulator\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station --simulator\"\n    },\n    \"stage\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station.stage_runner list\"\n    },\n    \"validation\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station.validation\"\n    }\n  },\n  \"required\": {\n    \"bootstrap_agent.bat\": true,\n    \"bootstrap_agent.ps1\": true,\n    \"bootstrap_agent.sh\": true,\n    \"cursor_bootstrap.bat\": true,\n    \"cursor_bootstrap.ps1\": true,\n    \"cursor_bootstrap.sh\": true,\n    \"launch_best_buds.bat\": true,\n    \"launch_best_buds.ps1\": true,\n    \"launch_best_buds.sh\": true,\n    \"launch_simulator.bat\": true,\n    \"launch_simulator.ps1\": true,\n    \"launch_simulator.sh\": true,\n    \"resume_stage.bat\": true,\n    \"resume_stage.ps1\": true,\n    \"resume_stage.sh\": true,\n    \"run_stage.bat\": true,\n    \"run_stage.ps1\": true,\n    \"run_stage.sh\": true,\n    \"run_validation.bat\": true,\n    \"run_validation.ps1\": true,\n    \"run_validation.sh\": true\n  },\n  \"shell_syntax\": {\n    \"bootstrap_agent.sh\": 0,\n    \"cursor_bootstrap.sh\": 0,\n    \"launch_best_buds.sh\": 0,\n    \"launch_simulator.sh\": 0,\n    \"resume_stage.sh\": 0,\n    \"run_stage.sh\": 0,\n    \"run_validation.sh\": 0\n  },\n  \"status\": \"PASS\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-29T18:19:16Z",
+      "data": {
+        "linux_launchers": "RUNTIME_VALIDATED",
+        "windows_launchers": "SOURCE_VALIDATED"
+      },
+      "evidence_refs": [],
+      "lane": "launchers",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "LAUNCHER_VALIDATION_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station.bootstrap",
+            "--version"
+          ],
+          "duration_seconds": 2.345,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "0.1.8\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station.bootstrap",
+            "--help"
+          ],
+          "duration_seconds": 2.089,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "usage: best-buds-weight-station-bootstrap [-h] [--repo-root REPO_ROOT]\n                                          [--profile {development,prehardware,operator-ready,cursor-ready}]\n                                          [--run-id RUN_ID] [--skip-ui]\n                                          [--no-persist] [--output OUTPUT]\n                                          [--version]\n\nRun evidence-gated coding-agent readiness profiles.\n\noptions:\n  -h, --help            show this help message and exit\n  --repo-root REPO_ROOT\n  --profile {development,prehardware,operator-ready,cursor-ready}\n  --run-id RUN_ID\n  --skip-ui\n  --no-persist\n  --output OUTPUT\n  --version\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station.validation",
+            "graph"
+          ],
+          "duration_seconds": 2.03,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"graph_version\": \"1.3.0\",\n  \"lanes\": [\n    {\n      \"lane\": \"repository-inspection\",\n      \"requires\": []\n    },\n    {\n      \"lane\": \"development-hygiene\",\n      \"requires\": [\n        \"repository-inspection\"\n      ]\n    },\n    {\n      \"lane\": \"software\",\n      \"requires\": [\n        \"development-hygiene\"\n      ]\n    },\n    {\n      \"lane\": \"launchers\",\n      \"requires\": [\n        \"software\"\n      ]\n    },\n    {\n      \"lane\": \"agent-entrypoint\",\n      \"requires\": [\n        \"launchers\"\n      ]\n    },\n    {\n      \"lane\": \"software-dry-run\",\n      \"requires\": [\n        \"agent-entrypoint\"\n      ]\n    },\n    {\n      \"lane\": \"recovery-matrix\",\n      \"requires\": [\n        \"software-dry-run\"\n      ]\n    },\n    {\n      \"lane\": \"operator-runtime\",\n      \"requires\": [\n        \"recovery-matrix\"\n      ]\n    },\n    {\n      \"lane\": \"scripted-device\",\n      \"requires\": [\n        \"operator-runtime\"\n      ]\n    },\n    {\n      \"lane\": \"frontend-smoke\",\n      \"requires\": [\n        \"scripted-device\"\n      ]\n    },\n    {\n      \"lane\": \"windows-packaging-source\",\n      \"requires\": [\n        \"frontend-smoke\"\n      ]\n    },\n    {\n      \"lane\": \"linux-parity\",\n      \"requires\": [\n        \"windows-packaging-source\"\n      ]\n    },\n    {\n      \"lane\": \"packaging-preflight\",\n      \"requires\": [\n        \"linux-parity\"\n      ]\n    },\n    {\n      \"lane\": \"firmware\",\n      \"requires\": [\n        \"packaging-preflight\"\n      ]\n    },\n    {\n      \"lane\": \"serial\",\n      \"requires\": [\n        \"firmware\"\n      ]\n    },\n    {\n      \"lane\": \"zero-tare\",\n      \"requires\": [\n        \"serial\"\n      ]\n    },\n    {\n      \"lane\": \"calibration\",\n      \"requires\": [\n        \"zero-tare\"\n      ]\n    },\n    {\n      \"lane\": \"physical-loop\",\n      \"requires\": [\n        \"calibration\"\n      ]\n    },\n    {\n      \"lane\": \"release-packaging\",\n      \"requires\": [\n        \"physical-loop\"\n      ]\n    }\n  ],\n  \"package_version\": \"0.1.8\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-29T18:19:22Z",
+      "data": {
+        "console_entrypoint": "best-buds-weight-station-bootstrap",
+        "module_entrypoint": "python -m best_buds_weight_station.bootstrap"
+      },
+      "evidence_refs": [],
+      "lane": "agent-entrypoint",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "AGENT_ENTRYPOINT_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station.validation.dry_run"
+          ],
+          "duration_seconds": 2.684,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"automatic_loop\": {\n    \"gross_g\": 1250.0,\n    \"load_resume_verified\": true,\n    \"mode\": \"automatic\",\n    \"net_g\": 1200.0,\n    \"recent_pointer_sequence\": 1,\n    \"record_id\": \"cb2fe9c8-7f05-412d-bb3f-9ee03ee89012\",\n    \"sequence\": 1,\n    \"session_manifest\": \"/tmp/bbws-software-dry-run-lppydor1/automatic/data/sessions/SESSION-AUTOMATIC/session_manifest.json\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"tare_g\": 50.0,\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"bluetooth_boundary\": \"VALIDATED_DISABLED_NOT_RUN\",\n  \"calibration\": {\n    \"certification_claimed\": false,\n    \"physical_device_pass\": false,\n    \"receipt_id\": \"calibration-ffdc81e5-e597-434f-8d0a-fd60897166d8\",\n    \"reference_weight_g\": 1000.0,\n    \"truth_class\": \"SIMULATOR_PASS\"\n  },\n  \"canonical_button_mapping\": {\n    \"blue\": \"ui.open_scale_setup\",\n    \"green\": \"capture.confirm\",\n    \"red\": \"capture.cancel\",\n    \"yellow\": \"scale.zero\"\n  },\n  \"evidence_class\": \"SIMULATOR_PASS\",\n  \"firmware_upload\": \"NOT_RUN\",\n  \"manual_loop\": {\n    \"gross_g\": 1250.0,\n    \"load_resume_verified\": true,\n    \"mode\": \"manual\",\n    \"net_g\": 1200.0,\n    \"recent_pointer_sequence\": 1,\n    \"record_id\": \"64dd048f-a5ab-4b23-a3a6-804209326293\",\n    \"sequence\": 1,\n    \"session_manifest\": \"/tmp/bbws-software-dry-run-lppydor1/manual/data/sessions/SESSION-MANUAL/session_manifest.json\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"tare_g\": 50.0,\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"non_claims\": [\n    \"No physical UNO, HX711, or load-cell pass.\",\n    \"No physical calibration or hanging-load pass.\",\n    \"No Bluetooth or Wi-Fi runtime activation.\",\n    \"No legal-for-trade certification.\"\n  ],\n  \"physical_device\": \"NOT_RUN\",\n  \"status\": \"PASS\",\n  \"uno_q\": \"NOT_RUN\",\n  \"version\": \"0.1.8\",\n  \"wifi_boundary\": \"VALIDATED_DISABLED_NOT_RUN\"\n}\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/run_self_test.py"
+          ],
+          "duration_seconds": 2.383,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"alice_terminal_receipt_gate\": \"pass\",\n  \"automatic_capture\": \"pass\",\n  \"data_root\": \"/tmp/tmpn31_3nsn\",\n  \"hash_chain\": \"pass\",\n  \"local_write_failure_prevents_success_beep\": \"pass\",\n  \"manual_capture\": \"pass\",\n  \"no_success_before_alice_receipt_validation\": \"pass\",\n  \"records\": 2,\n  \"status\": \"pass\",\n  \"total_net_g\": 305.0,\n  \"truth_class\": \"SIMULATOR_PASS\"\n}\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/run_v018_operator_acceptance.py"
+          ],
+          "duration_seconds": 5.804,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"automatic\": {\n    \"pass\": true,\n    \"record_id\": \"38f362a1-af2e-4ba9-bc08-233f7b66435d\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"manual\": {\n    \"calibration_truth_class\": \"SIMULATOR_PASS\",\n    \"pass\": true,\n    \"record_id\": \"42fe9df1-1f19-4942-adc1-f46d76fc2ffd\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"physical_device\": \"NOT_RUN\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.8\",\n  \"windows_native_runtime\": \"NOT_RUN\"\n}\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station",
+            "--self-test"
+          ],
+          "duration_seconds": 2.182,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"alice_terminal_receipt_gate\": \"pass\",\n  \"automatic_capture\": \"pass\",\n  \"data_root\": \"/tmp/tmpreuqp3k0\",\n  \"hash_chain\": \"pass\",\n  \"local_write_failure_prevents_success_beep\": \"pass\",\n  \"manual_capture\": \"pass\",\n  \"no_success_before_alice_receipt_validation\": \"pass\",\n  \"records\": 2,\n  \"status\": \"pass\",\n  \"total_net_g\": 305.0,\n  \"truth_class\": \"SIMULATOR_PASS\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-29T18:19:35Z",
+      "data": {
+        "automatic_loop": {
+          "gross_g": 1250.0,
+          "load_resume_verified": true,
+          "mode": "automatic",
+          "net_g": 1200.0,
+          "recent_pointer_sequence": 1,
+          "record_id": "cb2fe9c8-7f05-412d-bb3f-9ee03ee89012",
+          "sequence": 1,
+          "session_manifest": "/tmp/bbws-software-dry-run-lppydor1/automatic/data/sessions/SESSION-AUTOMATIC/session_manifest.json",
+          "state": "WAITING_FOR_BARCODE",
+          "tare_g": 50.0,
+          "truth_class": "RECEIPT_CONFIRMED"
+        },
+        "bluetooth_boundary": "VALIDATED_DISABLED_NOT_RUN",
+        "calibration": {
+          "certification_claimed": false,
+          "physical_device_pass": false,
+          "receipt_id": "calibration-ffdc81e5-e597-434f-8d0a-fd60897166d8",
+          "reference_weight_g": 1000.0,
+          "truth_class": "SIMULATOR_PASS"
+        },
+        "canonical_button_mapping": {
+          "blue": "ui.open_scale_setup",
+          "green": "capture.confirm",
+          "red": "capture.cancel",
+          "yellow": "scale.zero"
+        },
+        "evidence_class": "SIMULATOR_PASS",
+        "firmware_upload": "NOT_RUN",
+        "manual_loop": {
+          "gross_g": 1250.0,
+          "load_resume_verified": true,
+          "mode": "manual",
+          "net_g": 1200.0,
+          "recent_pointer_sequence": 1,
+          "record_id": "64dd048f-a5ab-4b23-a3a6-804209326293",
+          "sequence": 1,
+          "session_manifest": "/tmp/bbws-software-dry-run-lppydor1/manual/data/sessions/SESSION-MANUAL/session_manifest.json",
+          "state": "WAITING_FOR_BARCODE",
+          "tare_g": 50.0,
+          "truth_class": "RECEIPT_CONFIRMED"
+        },
+        "non_claims": [
+          "No physical UNO, HX711, or load-cell pass.",
+          "No physical calibration or hanging-load pass.",
+          "No Bluetooth or Wi-Fi runtime activation.",
+          "No legal-for-trade certification."
+        ],
+        "physical_device": "NOT_RUN",
+        "status": "PASS",
+        "uno_q": "NOT_RUN",
+        "version": "0.1.8",
+        "wifi_boundary": "VALIDATED_DISABLED_NOT_RUN"
+      },
+      "evidence_refs": [],
+      "lane": "software-dry-run",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "SOFTWARE_DRY_RUN_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_storage_crash_safety.py",
+            "tests/test_run_management.py"
+          ],
+          "duration_seconds": 5.558,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": ".............................                                            [100%]\n"
+        }
+      ],
+      "created_at": "2026-07-29T18:19:41Z",
+      "data": {},
+      "evidence_refs": [],
+      "lane": "recovery-matrix",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "RECOVERY_MATRIX_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/run_v018_operator_acceptance.py"
+          ],
+          "duration_seconds": 5.765,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"automatic\": {\n    \"pass\": true,\n    \"record_id\": \"a0cafaea-d0ce-4102-bc5d-554df5b0d2e0\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"manual\": {\n    \"calibration_truth_class\": \"SIMULATOR_PASS\",\n    \"pass\": true,\n    \"record_id\": \"2a05e95b-b815-4a9b-87f8-b2899436ddf6\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"physical_device\": \"NOT_RUN\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.8\",\n  \"windows_native_runtime\": \"NOT_RUN\"\n}\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/validate_frontend_runtime_truth.py"
+          ],
+          "duration_seconds": 1.93,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"checks\": {\n    \"alice_state_refresh\": true,\n    \"background_worker\": true,\n    \"barcode_keyboard_path\": true,\n    \"barcode_labeled\": true,\n    \"calibration_dialog\": true,\n    \"dead_contract_stubs_removed\": true,\n    \"no_synthetic_physical_zero\": true,\n    \"physical_warning_not_success\": true,\n    \"pyside_primary\": true,\n    \"scale_setup_dialog\": true,\n    \"scale_setup_not_placeholder\": true,\n    \"shared_action_layout\": true,\n    \"tare_dialog\": true,\n    \"windows_first_paths\": true,\n    \"worker_shutdown\": true\n  },\n  \"failures\": [],\n  \"status\": \"PASS\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-29T18:19:49Z",
+      "data": {
+        "automatic": "SIMULATOR_PASS",
+        "manual": "SIMULATOR_PASS",
+        "physical_device": "NOT_RUN"
+      },
+      "evidence_refs": [],
+      "lane": "operator-runtime",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "OPERATOR_RUNTIME_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_operator_runtime.py",
+            "tests/test_device_service.py"
+          ],
+          "duration_seconds": 6.758,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "..................                                                       [100%]\n"
+        }
+      ],
+      "created_at": "2026-07-29T18:19:55Z",
+      "data": {
+        "physical_device_pass": false,
+        "truth_class": "UNIT_TEST_PASS"
+      },
+      "evidence_refs": [],
+      "lane": "scripted-device",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "SCRIPTED_DEVICE_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/validate_frontend_runtime_truth.py"
+          ],
+          "duration_seconds": 1.833,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"checks\": {\n    \"alice_state_refresh\": true,\n    \"background_worker\": true,\n    \"barcode_keyboard_path\": true,\n    \"barcode_labeled\": true,\n    \"calibration_dialog\": true,\n    \"dead_contract_stubs_removed\": true,\n    \"no_synthetic_physical_zero\": true,\n    \"physical_warning_not_success\": true,\n    \"pyside_primary\": true,\n    \"scale_setup_dialog\": true,\n    \"scale_setup_not_placeholder\": true,\n    \"shared_action_layout\": true,\n    \"tare_dialog\": true,\n    \"windows_first_paths\": true,\n    \"worker_shutdown\": true\n  },\n  \"failures\": [],\n  \"status\": \"PASS\"\n}\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/validate_frontend_polish_v018.py"
+          ],
+          "duration_seconds": 1.882,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"checks\": {\n    \"advanced_menus\": true,\n    \"barcode_focus\": true,\n    \"barcode_label_pyside\": true,\n    \"barcode_label_tk\": true,\n    \"dead_contract_stubs_removed\": true,\n    \"generated_egg_info_absent\": true,\n    \"layout_contract_declared\": true,\n    \"manifest_runtime_truth\": true,\n    \"non_overlapping_actions\": true,\n    \"physical_warning_pyside\": true,\n    \"physical_warning_tk\": true,\n    \"seven_actions\": true,\n    \"simulator_badge\": true,\n    \"tokens_aligned\": true,\n    \"version\": true\n  },\n  \"failures\": [],\n  \"physical_hardware\": \"NOT_RUN\",\n  \"pyside_runtime\": \"NOT_RUN_DEPENDENCY_UNAVAILABLE\",\n  \"status\": \"PASS\",\n  \"tk_runtime\": \"SEPARATE_SMOKE_REQUIRED\",\n  \"version\": \"0.1.8\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-29T18:19:59Z",
+      "data": {
+        "native_windows_runtime": "NOT_RUN",
+        "pyside6_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+        "render_evidence": "reports/frontend_render_evidence.v0.1.8.json",
+        "tk_runtime": "PASS"
+      },
+      "evidence_refs": [],
+      "lane": "frontend-smoke",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "FRONTEND_RENDER_EVIDENCE_VALIDATED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/validate_windows_source.py"
+          ],
+          "duration_seconds": 1.783,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"failures\": [],\n  \"native_windows_execution\": \"NOT_RUN\",\n  \"required_files\": [\n    \"packaging/windows/BestBudsWeightStation.spec\",\n    \"packaging/windows/build_windows.ps1\",\n    \"packaging/windows/verify_windows.ps1\",\n    \"packaging/windows/install_windows.ps1\",\n    \"packaging/windows/uninstall_windows.ps1\",\n    \"packaging/windows/launcher_config.json\",\n    \"packaging/windows/README.md\",\n    \"launch_best_buds.bat\",\n    \"launch_best_buds.ps1\"\n  ],\n  \"status\": \"PASS\",\n  \"truth_class\": \"WINDOWS_SOURCE_PRESENT\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-29T18:20:01Z",
+      "data": {
+        "native_runtime": "NOT_RUN",
+        "truth_class": "WINDOWS_SOURCE_PRESENT"
+      },
+      "evidence_refs": [],
+      "lane": "windows-packaging-source",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "WINDOWS_SOURCE_VALIDATED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": [
+        "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+      ]
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "sh",
+            "-n",
+            "launch_best_buds.sh"
+          ],
+          "duration_seconds": 0.006,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": ""
+        },
+        {
+          "command": [
+            "sh",
+            "-n",
+            "launch_simulator.sh"
+          ],
+          "duration_seconds": 0.009,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": ""
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/launcher.py",
+            "simulator",
+            "--direct",
+            "--dry-run",
+            "--ui-smoke"
+          ],
+          "duration_seconds": 1.836,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "/opt/pyvenv/bin/python3 -m best_buds_weight_station --simulator --ui-smoke\n"
+        }
+      ],
+      "created_at": "2026-07-29T18:20:03Z",
+      "data": {
+        "linux_launcher": "PASS",
+        "pyside_primary": "SOURCE_PRESENT",
+        "tk_fallback": "SOURCE_PRESENT"
+      },
+      "evidence_refs": [],
+      "lane": "linux-parity",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "LINUX_PARITY_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "pip",
+            "install",
+            "--no-deps",
+            "--no-build-isolation",
+            "--no-index",
+            "--disable-pip-version-check",
+            "--target",
+            "/tmp/bbws-install-preflight-p_zt9uez/site",
+            "."
+          ],
+          "duration_seconds": 8.842,
+          "exit_code": 0,
+          "stderr": "WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n",
+          "stdout": "Processing /tmp/bbws-install-preflight-p_zt9uez/source\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: best-buds-cultivator-weight-station\n  Building wheel for best-buds-cultivator-weight-station (pyproject.toml): started\n  Building wheel for best-buds-cultivator-weight-station (pyproject.toml): finished with status 'done'\n  Created wheel for best-buds-cultivator-weight-station: filename=best_buds_cultivator_weight_station-0.1.8-py3-none-any.whl size=99740 sha256=2276ee174b789ff1fc12f7d96bcab24de9c8bfbc525f0c8edb956f94d49e4121\n  Stored in directory: /tmp/pip-ephem-wheel-cache-d3p3d8vl/wheels/e5/c6/a4/c232304f236d667839d3b87c997752399e8d28f4ff637692dd\nSuccessfully built best-buds-cultivator-weight-station\nInstalling collected packages: best-buds-cultivator-weight-station\nSuccessfully installed best-buds-cultivator-weight-station-0.1.8\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-c",
+            "import sys; sys.path.insert(0, r'/tmp/bbws-install-preflight-p_zt9uez/site'); from best_buds_weight_station.version import __version__; from best_buds_weight_station.bootstrap import parser; assert __version__ == '0.1.8'; parser(); print(__version__)"
+          ],
+          "duration_seconds": 1.983,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "0.1.8\n"
+        }
+      ],
+      "created_at": "2026-07-29T18:20:14Z",
+      "data": {
+        "isolated_install": "PASS"
+      },
+      "evidence_refs": [],
+      "lane": "packaging-preflight",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "PACKAGING_PREFLIGHT_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    }
+  ],
+  "next_command": "python -m best_buds_weight_station.validation run --lane firmware --profile integration --port <serial-port>",
+  "next_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "physical_gates": {
+    "calibration": "NOT_RUN",
+    "firmware_compile_upload": "NOT_RUN",
+    "physical_loop": "NOT_RUN",
+    "physical_serial": "NOT_RUN",
+    "zero_tare": "NOT_RUN"
+  },
+  "profile": "operator-ready",
+  "repo_root": "/tmp/bbws_v018",
+  "run_id": "cursor-ready-bootstrap-v0.1.8-pass",
+  "status": "PASS_WITH_WARNINGS",
+  "version": "0.1.8",
+  "warnings": [
+    "CURRENT_MANIFEST_STALE",
+    "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+  ]
+}

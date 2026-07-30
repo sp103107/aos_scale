@@ -1,0 +1,32 @@
+{
+  "active_tasks": [
+    "Cursor physical integration handoff",
+    "UNO R3/HX711 hardware inventory",
+    "firmware compile/upload and pyserial physical bring-up"
+  ],
+  "current_phase": "rc3c12_final_polish_and_drift_review",
+  "generated_at": "2026-07-29T17:19:02Z",
+  "next_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "non_claims": [
+    "No physical UNO R3, HX711, or load-cell success.",
+    "No physical calibration, repeatability, or hanging-load success.",
+    "No firmware compile or upload pass.",
+    "No native Windows executable or PySide6 runtime pass.",
+    "No Bluetooth, Wi-Fi, VPort, message-bus, MCP, socket, physical-button, or UNO Q activation.",
+    "No legal-for-trade certification.",
+    "No production-grade pass or release seal.",
+    "No Context Module runtime-execution claim."
+  ],
+  "post_drift_status": "PASS",
+  "source_artifact_hashes": {
+    "Runtime bump.pdf": "dc15b1d30ee5eeada3357edb48115bd4841a1fb4bdf588865bea0f8d55598243",
+    "best_buds_cultivator_weight_station_v0_1_7.zip": "ce9b7d5f7162ad4cfbdf60e0ec1e5b890813ceb923a009566debb0c0f8d2fb70"
+  },
+  "stage_plan_status": "PASS_11_OF_11",
+  "status": "completed_ready_for_cursor",
+  "update_seq": 9,
+  "updated_at": "2026-07-29T18:39:56Z",
+  "validation_status": "PASS",
+  "version": "0.1.8",
+  "working_set_id": "best-buds-weight-station-v0.1.8"
+}

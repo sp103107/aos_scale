@@ -1,0 +1,17 @@
+{
+  "entrypoints": [
+    "launch_best_buds.bat",
+    "launch_best_buds.ps1",
+    "launch_best_buds.sh"
+  ],
+  "mountpoints": [
+    "operator_selected_data_root"
+  ],
+  "non_claims": [
+    "No pod boot, service activation, or standalone appliance runtime is claimed."
+  ],
+  "pod_id": "best_buds_weight_station",
+  "runtime_claimed": false,
+  "status": "candidate_not_activated",
+  "version": "0.1.7"
+}

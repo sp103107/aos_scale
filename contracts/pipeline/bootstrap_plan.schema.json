@@ -1,0 +1,48 @@
+{
+  "$id": "https://bestbuds.local/contracts/pipeline/bootstrap_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_nonclaims": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "description": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "final_verdicts": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "stages": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "plan_id",
+    "version",
+    "stages",
+    "final_verdicts"
+  ],
+  "title": "Bootstrap Plan",
+  "type": "object"
+}

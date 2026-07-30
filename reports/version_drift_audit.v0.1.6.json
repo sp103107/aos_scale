@@ -1,0 +1,17 @@
+{
+  "aligned": [
+    "VERSION",
+    "pyproject.toml",
+    "version.py",
+    "README.md",
+    "docs/SYSTEM_STATE_CURRENT.md",
+    "docs/DEBIAN_INSTALL.md",
+    "docs/WINDOWS_BUILD.md",
+    "repo_release_state.json",
+    "guide_pack.json",
+    "validation graph"
+  ],
+  "next_pass": "historical/current naming and stale generated evidence scan",
+  "status": "current_anchors_aligned_final_deep_concordance_next",
+  "version": "0.1.6"
+}

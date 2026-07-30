@@ -1,0 +1,53 @@
+{
+  "allowed_mutations": [
+    "validation/receipts/stages/**",
+    "validation/checkpoints/**",
+    "validation/reports/**"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "scripts/validate_windows_source.py"
+      ],
+      "evidence_class": "static_validation_pass",
+      "required": true,
+      "timeout_seconds": 180
+    }
+  ],
+  "entrypoint": {
+    "arguments": [
+      "run",
+      "--stage",
+      "80_windows_source_validation"
+    ],
+    "module": "best_buds_weight_station.stage_runner"
+  },
+  "expected_artifacts": [
+    "reports/windows_source_validation.v0.1.9.json"
+  ],
+  "failure_classes": [
+    "FAIL",
+    "BLOCKED",
+    "NOT_RUN"
+  ],
+  "forbidden_mutations": [
+    "context/episodes/episode_0001_v0.1.0.json",
+    "context/ledger/ledger.jsonl:historical_lines",
+    "manifests/historical_release_manifests"
+  ],
+  "inputs": [],
+  "next_stage": "90_context_manifest_validation",
+  "pass_conditions": [
+    "all required commands exit 0",
+    "receipt schema validates"
+  ],
+  "preconditions": [],
+  "purpose": "Validate Windows-first launch, PyInstaller, COM discovery, and packaging source.",
+  "receipt_path": "validation/receipts/stages/80_windows_source_validation.latest.json",
+  "requires": [
+    "70_recovery_validation"
+  ],
+  "stage_id": "80_windows_source_validation",
+  "version": "0.1.9"
+}

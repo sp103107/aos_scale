@@ -1,0 +1,33 @@
+{
+  "$id": "https://bestbuds.local/schemas/validation_capability_probe.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "modules": {
+      "type": "object"
+    },
+    "platform": {
+      "type": "object"
+    },
+    "python": {
+      "type": "object"
+    },
+    "repo_root": {
+      "type": "string"
+    },
+    "serial_ports": {
+      "type": "array"
+    },
+    "tools": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "python",
+    "platform",
+    "modules",
+    "tools",
+    "serial_ports",
+    "repo_root"
+  ],
+  "type": "object"
+}

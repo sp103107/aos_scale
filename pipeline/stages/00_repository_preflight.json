@@ -1,0 +1,51 @@
+{
+  "allowed_mutations": [
+    "validation/receipts/stages/**",
+    "validation/checkpoints/**",
+    "validation/reports/**"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "scripts/validate_repo.py"
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "required": true,
+      "timeout_seconds": 180
+    }
+  ],
+  "entrypoint": {
+    "arguments": [
+      "run",
+      "--stage",
+      "00_repository_preflight"
+    ],
+    "module": "best_buds_weight_station.stage_runner"
+  },
+  "expected_artifacts": [
+    "reports/execution_posture_decision.v0.1.9.json"
+  ],
+  "failure_classes": [
+    "FAIL",
+    "BLOCKED",
+    "NOT_RUN"
+  ],
+  "forbidden_mutations": [
+    "context/episodes/episode_0001_v0.1.0.json",
+    "context/ledger/ledger.jsonl:historical_lines",
+    "manifests/historical_release_manifests"
+  ],
+  "inputs": [],
+  "next_stage": "10_naming_concordance",
+  "pass_conditions": [
+    "all required commands exit 0",
+    "receipt schema validates"
+  ],
+  "preconditions": [],
+  "purpose": "Inspect package shape, version, source anchors, and execution posture.",
+  "receipt_path": "validation/receipts/stages/00_repository_preflight.latest.json",
+  "requires": [],
+  "stage_id": "00_repository_preflight",
+  "version": "0.1.9"
+}

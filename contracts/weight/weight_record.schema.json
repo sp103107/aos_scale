@@ -1,0 +1,186 @@
+{
+  "$id": "https://bestbuds.local/schemas/weight_record.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "barcode_normalized": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "barcode_raw": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "calibration_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capture_mode": {
+      "enum": [
+        "automatic",
+        "manual"
+      ]
+    },
+    "captured_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "container_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "cultivar_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "cultivar_normalized_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "cultivar_raw_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "device_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "duplicate_status": {
+      "enum": [
+        "none",
+        "warning",
+        "accepted"
+      ]
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_type": {
+      "const": "weight_record"
+    },
+    "evidence_truth_class": {
+      "enum": [
+        "simulator",
+        "physical_hardware",
+        "imported"
+      ]
+    },
+    "facility_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "firmware_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "gross_g": {
+      "type": "number"
+    },
+    "idempotency_key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "net_g": {
+      "type": "number"
+    },
+    "operator_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "operator_note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "previous_record_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "raw_adc_value": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "record_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_status": {
+      "enum": [
+        "accepted",
+        "voided",
+        "corrected"
+      ]
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sample_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "session_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source": {
+      "enum": [
+        "live_scale",
+        "serial_simulator",
+        "manual_import"
+      ]
+    },
+    "stability_metrics": {
+      "type": "object"
+    },
+    "stability_profile_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "station_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "tare_g": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "event_type",
+    "record_id",
+    "session_id",
+    "run_id",
+    "sequence",
+    "barcode_raw",
+    "barcode_normalized",
+    "cultivar_id",
+    "container_id",
+    "tare_g",
+    "gross_g",
+    "net_g",
+    "captured_at",
+    "capture_mode",
+    "previous_record_hash",
+    "record_hash",
+    "event_id",
+    "facility_id"
+  ],
+  "title": "Weight Record",
+  "type": "object"
+}

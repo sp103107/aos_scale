@@ -1,0 +1,9 @@
+{
+  "live_hardware_surfaces": 0,
+  "non_claims": [
+    "MCP, VPort, socket, bus, physical scale, and UNO Q are not activated."
+  ],
+  "status": "PASS",
+  "surface_count": 15,
+  "version": "0.1.8"
+}

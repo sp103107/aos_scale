@@ -1,0 +1,7 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://bestbuds.local/contracts/transports/remote_command_envelope.schema.json",
+  "type":"object","additionalProperties":false,
+  "required":["transport","device_identity","authenticated","idempotency_key","action_type","payload"],
+  "properties":{"transport":{"enum":["bluetooth","wifi"]},"device_identity":{"type":"string","minLength":1},"authenticated":{"const":true},"idempotency_key":{"type":"string","minLength":1},"action_type":{"type":"string"},"payload":{"type":"object"}}
+}

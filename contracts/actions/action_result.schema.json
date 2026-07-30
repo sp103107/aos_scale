@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bestbuds.local/contracts/actions/action_result.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["action_id","action_type","status","truth_class","state","message","data","terminal","created_at"],
+  "properties": {
+    "action_id":{"type":"string"}, "action_type":{"type":"string"},
+    "status":{"type":"string","enum":["accepted","completed","blocked","failed"]},
+    "truth_class":{"type":"string","enum":["SOURCE_PRESENT","UNIT_TEST_PASS","SIMULATOR_PASS","UI_SMOKE_PASS","NATIVE_PLATFORM_PASS","PHYSICAL_DEVICE_PASS","BLOCKED","NOT_RUN","FAIL","NON_CLAIM","PENDING","RECEIPT_CONFIRMED"]},
+    "state":{"type":"string"}, "message":{"type":"string"}, "data":{"type":"object"},
+    "terminal":{"type":"boolean"}, "created_at":{"type":"string","format":"date-time"}
+  }
+}

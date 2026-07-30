@@ -1,0 +1,22 @@
+{
+  "artifacts": [
+    {
+      "availability": "mounted",
+      "embedded_path": "context/source_truth/best_buds_cultivator_weight_station_context_kickoff_pack_v0_1_1.zip",
+      "embedded_sha256": "abbe1863f2566f739fc2155704a47de550f39046083586c9be7f3869c0a1f12d",
+      "name": "best_buds_cultivator_weight_station_context_kickoff_pack_v0_1_1.zip",
+      "sha256": "abbe1863f2566f739fc2155704a47de550f39046083586c9be7f3869c0a1f12d"
+    },
+    {
+      "availability": "missing",
+      "expected_sha256": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c",
+      "name": "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip"
+    },
+    {
+      "availability": "fetched",
+      "drive_file_id": "1SzOuj9vWDYqlelgJw44MnOzjSWqOUCaDvf4Qet9vSGc",
+      "name": "Google Drive source transcript"
+    }
+  ],
+  "generated_at": "2026-07-19T15:42:11Z"
+}

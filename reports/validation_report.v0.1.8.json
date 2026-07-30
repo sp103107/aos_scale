@@ -1,0 +1,103 @@
+{
+  "bootstrap": {
+    "software_lanes_passed": 13,
+    "status": "PASS_WITH_WARNINGS"
+  },
+  "bump_scope": "full_repo",
+  "context": {
+    "episode": "episode_0009_v0.1.8",
+    "ledger_events": 116,
+    "resume_pack": "READY_FOR_CURSOR",
+    "status": "PASS",
+    "working_set_seq": 9
+  },
+  "debian": {
+    "sha256": "b29936c42fccd5aa0fe689c1677a8c60cb60ec5247bd8b3e3d10d73ab40eafc7",
+    "status": "NATIVE_PLATFORM_PASS"
+  },
+  "debian_sha256": null,
+  "final_frontend_recheck": {
+    "count": 14,
+    "status": "PASS"
+  },
+  "firmware": "BLOCKED_ARDUINO_CLI_UNAVAILABLE",
+  "frontend": {
+    "native_windows": "NOT_RUN",
+    "pyside6_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+    "pyside6_source": "PASS",
+    "tk_fallback_runtime": "PASS"
+  },
+  "generated_at": "2026-07-29T18:45:09Z",
+  "json": {
+    "count": 446,
+    "status": "PASS"
+  },
+  "jsonl": {
+    "records": 141,
+    "status": "PASS"
+  },
+  "manifest": {
+    "file_count": 827,
+    "status": "PASS"
+  },
+  "operator_workflows": {
+    "automatic": "SIMULATOR_PASS",
+    "manual": "SIMULATOR_PASS",
+    "recovery": "PASS",
+    "zero_tare_calibration": "SIMULATOR_PASS"
+  },
+  "package": {
+    "status": "EXTERNAL_ZIP_GATE_REQUIRED"
+  },
+  "package_name": "best_buds_cultivator_weight_station",
+  "phase": "rc3c12_final_polish_and_drift_review",
+  "physical_hardware": "NOT_RUN",
+  "post_drift_regression": {
+    "count": 16,
+    "status": "PASS"
+  },
+  "post_drift_stage_revalidation": {
+    "stages": [
+      "10_naming_concordance",
+      "30_frontend_runtime_validation"
+    ],
+    "status": "PASS"
+  },
+  "previous_version": "0.1.7",
+  "production_ready": false,
+  "python_compile": "PASS",
+  "release_seal": false,
+  "schemas": {
+    "count": 60,
+    "status": "PASS"
+  },
+  "serial": {
+    "canonical_path": "PySerialTransport -> DeviceService -> ScaleReadingWorker -> reading.ingest",
+    "physical_transport": "NOT_RUN",
+    "scripted_transport": "PASS"
+  },
+  "stage_runner": {
+    "completed": 11,
+    "status": "PASS",
+    "total": 11,
+    "verdicts": [
+      "CURSOR_READY",
+      "OPERATOR_SOFTWARE_READY",
+      "PHYSICAL_HARDWARE_NOT_RUN",
+      "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+    ]
+  },
+  "status": "PASS_SOURCE_AND_MANIFEST_GATE",
+  "tests": {
+    "count": 183,
+    "status": "PASS"
+  },
+  "validated_at": null,
+  "version": "0.1.8",
+  "version_concordance": "PASS",
+  "windows_native_runtime": "NOT_RUN",
+  "yaml": {
+    "count": 1,
+    "status": "PASS"
+  }
+}

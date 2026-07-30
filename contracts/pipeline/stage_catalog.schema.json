@@ -1,0 +1,43 @@
+{
+  "$id": "https://bestbuds.local/contracts/pipeline/stage_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "package_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "stages": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "stage_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "stage_id",
+          "path"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "package_name",
+    "version",
+    "stages"
+  ],
+  "title": "Stage Catalog",
+  "type": "object"
+}

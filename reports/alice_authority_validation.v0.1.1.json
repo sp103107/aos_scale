@@ -1,0 +1,22 @@
+{
+  "authority_boundary": "pass",
+  "duplicate_idempotency": "pass",
+  "failure_injection": [
+    "jsonl",
+    "individual_json",
+    "checkpoint"
+  ],
+  "generated_at": "2026-07-19T16:53:32Z",
+  "ledger_recovery": "pass",
+  "no_success_before_commit": "pass",
+  "non_claim_enforcement": "pass",
+  "persistence_truth": "pass",
+  "report_type": "alice_authority_validation",
+  "state_action_matrix": "pass",
+  "status": "pass",
+  "structured_examples_validated": 8,
+  "tests": "tests/alice/",
+  "truth_class_separation": "pass",
+  "ui_smoke": "pass",
+  "version": "0.1.1"
+}

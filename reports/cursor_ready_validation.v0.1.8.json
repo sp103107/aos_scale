@@ -1,0 +1,57 @@
+{
+  "checks": {
+    "canonical_serial": true,
+    "context_seq": true,
+    "execution_posture": true,
+    "full_repo": true,
+    "generated_hygiene": true,
+    "physical_not_run": true,
+    "production_false": true,
+    "version": true
+  },
+  "commands": [
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "best_buds_weight_station.stage_runner",
+        "list"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"stages\": [\n    \"00_repository_preflight\",\n    \"10_naming_concordance\",\n    \"20_launcher_validation\",\n    \"30_frontend_runtime_validation\",\n    \"40_operator_workflow_validation\",\n    \"50_scripted_scale_validation\",\n    \"60_zero_tare_calibration_validation\",\n    \"70_recovery_validation\",\n    \"80_windows_source_validation\",\n    \"90_context_manifest_validation\",\n    \"100_cursor_handoff\"\n  ],\n  \"version\": \"0.1.8\"\n}\n"
+    },
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "best_buds_weight_station.stage_runner",
+        "status"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"stages\": [\n    {\n      \"receipt\": \"validation/receipts/stages/00_repository_preflight.latest.json\",\n      \"stage_id\": \"00_repository_preflight\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"receipt\": \"validation/receipts/stages/10_naming_concordance.latest.json\",\n      \"stage_id\": \"10_naming_concordance\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"receipt\": \"validation/receipts/stages/20_launcher_validation.latest.json\",\n      \"stage_id\": \"20_launcher_validation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"receipt\": \"validation/receipts/stages/30_frontend_runtime_validation.latest.json\",\n      \"stage_id\": \"30_frontend_runtime_validation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"receipt\": \"validation/receipts/stages/40_operator_workflow_validation.latest.json\",\n      \"stage_id\": \"40_operator_workflow_validation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"receipt\": \"validation/receipts/stages/50_scripted_scale_validation.latest.json\",\n      \"stage_id\": \"50_scripted_scale_validation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"receipt\": \"validation/receipts/stages/60_zero_tare_calibration_validation.latest.json\",\n      \"stage_id\": \"60_zero_tare_calibration_validation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"receipt\": \"validation/receipts/stages/70_recovery_validation.latest.json\",\n      \"stage_id\": \"70_recovery_validation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"receipt\": \"validation/receipts/stages/80_windows_source_validation.latest.json\",\n      \"stage_id\": \"80_windows_source_validation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"receipt\": \"validation/receipts/stages/90_context_manifest_validation.latest.json\",\n      \"stage_id\": \"90_context_manifest_validation\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"receipt\": \"validation/receipts/stages/100_cursor_handoff.latest.json\",\n      \"stage_id\": \"100_cursor_handoff\",\n      \"status\": \"PASS\"\n    }\n  ],\n  \"version\": \"0.1.8\"\n}\n"
+    },
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "best_buds_weight_station.stage_runner",
+        "validate-receipts"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"errors\": [],\n  \"receipt_count\": 11,\n  \"status\": \"PASS\"\n}\n"
+    }
+  ],
+  "failures": [],
+  "required_count": 21,
+  "status": "PASS",
+  "verdicts": [
+    "CURSOR_READY",
+    "OPERATOR_SOFTWARE_READY",
+    "PHYSICAL_HARDWARE_NOT_RUN",
+    "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+  ],
+  "version": "0.1.8"
+}

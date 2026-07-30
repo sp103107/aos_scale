@@ -1,0 +1,25 @@
+{
+  "context": {
+    "calibration_id": "SIM-CAL-001",
+    "container_id": "b",
+    "cultivar_id": "c",
+    "cultivar_normalized_name": "n",
+    "cultivar_raw_name": "r",
+    "device_id": "SIM-UNO-001",
+    "evidence_truth_class": "simulator",
+    "facility_id": "fac",
+    "firmware_version": "0.1.0-sim",
+    "measurement_stage": "harvest",
+    "operator_id": "op",
+    "run_id": "RUN-F",
+    "session_id": "FAIL-SESSION",
+    "stability_profile_id": "standard_hanging_grams",
+    "station_id": "st",
+    "tare_g": 0,
+    "weight_purpose": "wet_weight"
+  },
+  "created_at": "2026-07-19T15:36:01Z",
+  "run_id": "RUN-F",
+  "session_id": "FAIL-SESSION",
+  "status": "active"
+}

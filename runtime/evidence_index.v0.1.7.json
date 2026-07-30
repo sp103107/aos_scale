@@ -1,0 +1,60 @@
+{
+  "authorized_lanes": [
+    "automated tests",
+    "schema validation",
+    "launcher execution",
+    "software dry run",
+    "scripted serial",
+    "Tk frontend render",
+    "recovery matrix",
+    "stage runner",
+    "Debian build and extracted-runtime smoke"
+  ],
+  "claim_gate_status": "PASS_AUTHORIZED_SCOPE_ONLY",
+  "execution_posture": "real_execution_allowed",
+  "generated_at": "2026-07-24T04:35:23Z",
+  "physical_runtime": "NOT_RUN",
+  "production_grade": "NOT_RUN",
+  "pyside6_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+  "records": [
+    {
+      "evidence_id": "cursor-ready-stage-plan",
+      "path": "reports/cursor_ready_stage_plan.v0.1.7.json",
+      "result": "PASS_11_OF_11"
+    },
+    {
+      "evidence_id": "cursor-ready-bootstrap",
+      "path": "reports/cursor_ready_bootstrap.v0.1.7.json",
+      "result": "PASS_WITH_WARNINGS"
+    },
+    {
+      "evidence_id": "tk-frontend-render",
+      "path": "reports/frontend_render_evidence.v0.1.7.json",
+      "result": "PASS"
+    },
+    {
+      "evidence_id": "debian-package",
+      "path": "reports/debian_packaging_receipt.v0.1.7.json",
+      "result": "PASS"
+    },
+    {
+      "evidence_id": "firmware-compile",
+      "path": "reports/firmware_compile_receipt.v0.1.7.json",
+      "result": "BLOCKED"
+    },
+    {
+      "evidence_id": "windows-native-runtime",
+      "path": "reports/windows_runtime_status.v0.1.7.json",
+      "result": "NOT_RUN"
+    },
+    {
+      "evidence_id": "physical-hardware",
+      "path": "reports/physical_hardware_status.v0.1.7.json",
+      "result": "NOT_RUN"
+    }
+  ],
+  "release_seal": "NOT_RUN",
+  "runtime_claim_scope": "authorized_local_software_only",
+  "version": "0.1.7",
+  "windows_native_runtime": "NOT_RUN"
+}

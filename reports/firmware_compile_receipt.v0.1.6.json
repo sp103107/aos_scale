@@ -1,0 +1,12 @@
+{
+  "compile_exit_code": 3,
+  "generated_at": "2026-07-23T20:48:35Z",
+  "physical_controller_status": "NOT_RUN",
+  "reason_code": "ARDUINO_CLI_UNAVAILABLE",
+  "source_status": "SOURCE_PRESENT",
+  "status": "blocked",
+  "stderr": "arduino-cli unavailable",
+  "truth_class": "BLOCKED",
+  "upload_status": "NOT_RUN",
+  "version": "0.1.6"
+}

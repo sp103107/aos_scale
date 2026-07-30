@@ -1,0 +1,73 @@
+{
+  "authorized_scope": [
+    "local software tests",
+    "Tk render smoke",
+    "scripted serial tests",
+    "Python stage execution",
+    "Debian package build"
+  ],
+  "claim_gate_required": true,
+  "compile_pack_anchors": [],
+  "contract_anchors": [
+    "contracts/runtime/",
+    "contracts/pipeline/"
+  ],
+  "current_internal_phase": "rc3c_windows_first_operator_application_implementation",
+  "current_version": "0.1.6",
+  "evidence_required": true,
+  "execution_authorization": true,
+  "execution_posture": "real_execution_allowed",
+  "expected_deliverables": [
+    "full v0.1.7 repository",
+    "stage runner",
+    "polished frontend source",
+    "Cursor handoff",
+    "validation receipts"
+  ],
+  "expected_validators": [
+    "pytest",
+    "validate_repo.py",
+    "cursor-ready stage plan",
+    "manifest verification"
+  ],
+  "forbidden_scope": [
+    "physical hardware mutation",
+    "firmware upload",
+    "native Windows execution",
+    "network listener activation",
+    "release seal"
+  ],
+  "foundation_anchors": [
+    "README.md",
+    "docs/SYSTEM_STATE_CURRENT.md"
+  ],
+  "generated_at": "2026-07-24T03:58:53Z",
+  "latest_completed_arc": "Windows-first operator application implementation",
+  "latest_completed_episode": "episode_0007_v0.1.6",
+  "next_internal_phase": "rc3c11_frontend_polish_stage_bootstrap_and_final_drift_concordance",
+  "next_version": "0.1.7",
+  "package_name": "best_buds_cultivator_weight_station",
+  "previous_version": "0.1.6",
+  "production_claims_allowed": [],
+  "production_claims_forbidden": [
+    "production_grade_pass",
+    "release_seal_pass"
+  ],
+  "runtime_claims_allowed": [
+    "local CLI tests",
+    "Tk fallback runtime smoke",
+    "scripted-device execution",
+    "Debian package build/inspection"
+  ],
+  "runtime_claims_forbidden": [
+    "native Windows pass",
+    "physical scale pass",
+    "firmware pass",
+    "production ready",
+    "release seal"
+  ],
+  "source_of_truth": [
+    "best_buds_cultivator_weight_station_v0_1_6.zip",
+    "Runtime bump.pdf"
+  ]
+}

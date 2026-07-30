@@ -1,0 +1,36 @@
+{
+  "$id": "https://bestbuds.local/schemas/validation_profile.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "allow_safe_auto_repair": {
+      "type": "boolean"
+    },
+    "drift_policy": {
+      "type": "object"
+    },
+    "hard_gate_lanes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "profile": {
+      "enum": [
+        "development",
+        "prehardware",
+        "integration",
+        "release"
+      ]
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "profile",
+    "version",
+    "allow_safe_auto_repair",
+    "hard_gate_lanes"
+  ],
+  "type": "object"
+}

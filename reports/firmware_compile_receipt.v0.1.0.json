@@ -1,0 +1,29 @@
+{
+  "command": "arduino-cli compile --fqbn arduino:avr:uno firmware/elegoo_uno_r3_hx711",
+  "exit_code": 3,
+  "generated_at": "2026-07-19T15:40:04Z",
+  "non_claims": [
+    "No Arduino compile pass.",
+    "No flash/upload pass.",
+    "No physical UNO R3, HX711, or load-cell pass."
+  ],
+  "physical_hardware_tested": false,
+  "receipt_id": "firmware-compile-v0.1.0",
+  "source_path": "firmware/elegoo_uno_r3_hx711/best_buds_scale_firmware.ino",
+  "source_sha256": "2321f20a7913e00fdd8e8aafd727c6714a1f8b533ec85ea487270c3747b01ce7",
+  "static_source_validation": {
+    "checks": {
+      "baud_9600": true,
+      "brace_balance": true,
+      "commands_present": true,
+      "machine_readable_frames": true,
+      "target_pins_dout_2_sck_3": true
+    },
+    "status": "pass"
+  },
+  "status": "blocked_toolchain_unavailable",
+  "stderr": "arduino-cli unavailable",
+  "target": "arduino:avr:uno",
+  "truth_class": "static_firmware_source_plus_blocked_native_compile_attempt",
+  "version": "0.1.0"
+}

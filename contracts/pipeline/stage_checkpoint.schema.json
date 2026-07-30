@@ -1,0 +1,54 @@
+{
+  "$id": "https://bestbuds.local/contracts/pipeline/stage_checkpoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "next_stage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "receipt_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "stage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PENDING",
+        "RUNNING",
+        "PASS",
+        "PASS_WITH_WARNINGS",
+        "FAIL",
+        "BLOCKED"
+      ]
+    },
+    "updated_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "stage_id",
+    "version",
+    "status",
+    "updated_at"
+  ],
+  "title": "Stage Checkpoint",
+  "type": "object"
+}

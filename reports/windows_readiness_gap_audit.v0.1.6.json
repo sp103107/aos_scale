@@ -1,0 +1,19 @@
+{
+  "implemented": [
+    "PySide6 primary frontend",
+    "BAT and PowerShell launchers",
+    "LOCALAPPDATA paths",
+    "COM discovery through pyserial",
+    "PyInstaller build source",
+    "verify/install/uninstall scripts"
+  ],
+  "not_run": [
+    "native Windows build",
+    "native Windows UI smoke",
+    "COM port hardware",
+    "sleep/wake USB reconnect"
+  ],
+  "primary_platform": "Windows 10/11 x64",
+  "status": "source_implementation_complete_native_execution_not_run",
+  "version": "0.1.6"
+}

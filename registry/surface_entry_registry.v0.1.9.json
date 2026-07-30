@@ -1,0 +1,351 @@
+{
+  "package_name": "best_buds_cultivator_weight_station",
+  "records": [
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "law/",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "boundary_declared",
+      "surface_family": "law",
+      "surface_id": "law",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "kernel/",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "boundary_declared",
+      "surface_family": "kernel",
+      "surface_id": "kernel",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "prompts/",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "boundary_declared",
+      "surface_family": "prompt",
+      "surface_id": "prompt",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "contracts/",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "schema_declared",
+      "surface_family": "contract_schema",
+      "surface_id": "contract_schema",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "adapters/",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "boundary_declared",
+      "surface_family": "tool_adapter",
+      "surface_id": "tool_adapter",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "app/best_buds_weight_station/stage_runner/",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "real_execution_allowed",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": true,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "runtime_execution_pass",
+      "surface_family": "stage_adapter",
+      "surface_id": "stage_adapter",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "app/best_buds_weight_station/pyside_frontend.py",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "source_present",
+      "surface_family": "frontend_structure",
+      "surface_id": "frontend_structure",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "app/best_buds_weight_station/application_controller.py",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "real_execution_allowed",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": true,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "runtime_execution_pass",
+      "surface_family": "backend_structure",
+      "surface_id": "backend_structure",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "runtime/evidence_index.v0.1.9.json",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "evidence_recorded",
+      "surface_family": "runtime_execution_evidence",
+      "surface_id": "runtime_execution_evidence",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "scripts/validate_cursor_ready_v018.py",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "real_execution_allowed",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": true,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "runtime_execution_pass",
+      "surface_family": "validation_judge",
+      "surface_id": "validation_judge",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "context/",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "updated",
+      "surface_family": "context_module",
+      "surface_id": "context_module",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "adapters/mcp/",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "disabled_default",
+      "surface_family": "mcp_communications",
+      "surface_id": "mcp_communications",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "registry/vport_card_registry.v0.1.9.json",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "suggested_not_activated",
+      "surface_family": "vport_registry",
+      "surface_id": "vport_registry",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "adapters/message_bus/",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "disabled_default",
+      "surface_family": "message_bus_nats_boundary",
+      "surface_id": "message_bus_nats_boundary",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    },
+    {
+      "activation_allowed": false,
+      "authority_level": "declared",
+      "entrypoint_path": "pods/best_buds_weight_station_pod_manifest.v0.1.9.json",
+      "entrypoint_type": "path",
+      "evidence_required": true,
+      "execution_posture": "static_only",
+      "non_claims": [
+        "No physical, MCP, message-bus, VPort, or socket activation without evidence."
+      ],
+      "receipt_path": "reports/surface_entry_mesh_review.v0.1.9.json",
+      "related_arc": "rc3c12_final_polish_and_drift_review",
+      "related_episode": "episode_0009_v0.1.9",
+      "runtime_claimed": false,
+      "source_truth_paths": [
+        "VERSION",
+        "repo_release_state.json"
+      ],
+      "status": "candidate",
+      "surface_family": "pods_capsule_template_hub",
+      "surface_id": "pods_capsule_template_hub",
+      "validator_path": "scripts/validate_cursor_ready_v018.py"
+    }
+  ],
+  "version": "0.1.9"
+}

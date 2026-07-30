@@ -1,0 +1,91 @@
+{
+  "$id": "https://bestbuds.local/contracts/pipeline/stage_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "commands": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "evidence_class": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "finished_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "next_stage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "non_claims": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "receipt_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "stage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "started_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "PASS_WITH_WARNINGS",
+        "FAIL",
+        "BLOCKED",
+        "NOT_RUN"
+      ]
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "receipt_id",
+    "run_id",
+    "stage_id",
+    "version",
+    "status",
+    "started_at",
+    "finished_at",
+    "commands",
+    "evidence_class",
+    "non_claims"
+  ],
+  "title": "Stage Receipt",
+  "type": "object"
+}

@@ -1,0 +1,35 @@
+{
+  "profile": "operator-ready",
+  "version": "1.0.0",
+  "allow_safe_auto_repair": true,
+  "drift_policy": {
+    "current_version_reference": "HARD_GATE_AFTER_REPAIR",
+    "generated_manifest": "HARD_GATE_AFTER_REPAIR",
+    "current_checksum_index": "AUTO_REPAIR_THEN_GATE",
+    "current_documentation_pointer": "WARN",
+    "historical_version_reference": "ALLOW"
+  },
+  "hard_gate_lanes": [
+    "repository-inspection",
+    "development-hygiene",
+    "software",
+    "launchers",
+    "agent-entrypoint",
+    "software-dry-run",
+    "recovery-matrix",
+    "operator-runtime",
+    "scripted-device",
+    "frontend-smoke",
+    "windows-packaging-source",
+    "linux-parity",
+    "packaging-preflight"
+  ],
+  "physical_lanes": {
+    "firmware": "NOT_RUN_ALLOWED",
+    "serial": "NOT_RUN_ALLOWED",
+    "zero-tare": "NOT_RUN_ALLOWED",
+    "calibration": "NOT_RUN_ALLOWED",
+    "physical-loop": "NOT_RUN_ALLOWED"
+  },
+  "native_windows_runtime": "NOT_RUN_ALLOWED_WITH_NON_CLAIM"
+}

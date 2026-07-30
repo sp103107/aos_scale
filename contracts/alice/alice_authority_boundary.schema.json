@@ -1,0 +1,41 @@
+{
+  "$id": "https://bestbuds.local/schemas/alice_authority_boundary.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_id": {
+      "const": "best_buds_weight_station.alice.authority.v1"
+    },
+    "direct_filesystem_write": {
+      "const": false
+    },
+    "may": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "may_not": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "persistence_authority": {
+      "const": "backend_session_store"
+    },
+    "regulatory_authority": {
+      "const": "none"
+    }
+  },
+  "required": [
+    "authority_id",
+    "may",
+    "may_not",
+    "persistence_authority",
+    "regulatory_authority",
+    "direct_filesystem_write"
+  ],
+  "title": "Alice Authority Boundary",
+  "type": "object"
+}

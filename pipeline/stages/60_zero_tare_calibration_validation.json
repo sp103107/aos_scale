@@ -1,0 +1,59 @@
+{
+  "allowed_mutations": [
+    "validation/receipts/stages/**",
+    "validation/checkpoints/**",
+    "validation/reports/**"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_scale_control.py",
+        "tests/test_operator_runtime.py"
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "required": true,
+      "timeout_seconds": 180
+    }
+  ],
+  "entrypoint": {
+    "arguments": [
+      "run",
+      "--stage",
+      "60_zero_tare_calibration_validation"
+    ],
+    "module": "best_buds_weight_station.stage_runner"
+  },
+  "expected_artifacts": [
+    "reports/scale_workflow_validation.v0.1.9.json"
+  ],
+  "failure_classes": [
+    "FAIL",
+    "BLOCKED",
+    "NOT_RUN"
+  ],
+  "forbidden_mutations": [
+    "context/episodes/episode_0001_v0.1.0.json",
+    "context/ledger/ledger.jsonl:historical_lines",
+    "manifests/historical_release_manifests"
+  ],
+  "inputs": [],
+  "next_stage": "70_recovery_validation",
+  "pass_conditions": [
+    "all required commands exit 0",
+    "receipt schema validates"
+  ],
+  "preconditions": [],
+  "purpose": "Validate zero, known/captured tare, and calibration services without physical claims.",
+  "receipt_path": "validation/receipts/stages/60_zero_tare_calibration_validation.latest.json",
+  "requires": [
+    "50_scripted_scale_validation"
+  ],
+  "stage_id": "60_zero_tare_calibration_validation",
+  "version": "0.1.9"
+}

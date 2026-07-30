@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-07-23T20:48:35Z",
+  "lanes": [
+    {
+      "lane": "repository-inspection",
+      "reason_code": "REPOSITORY_INSPECTED",
+      "status": "PASS"
+    },
+    {
+      "lane": "development-hygiene",
+      "reason_code": "SAFE_DRIFT_PREPARED",
+      "status": "PASS"
+    },
+    {
+      "lane": "software",
+      "reason_code": "SOFTWARE_VALIDATION_PASSED",
+      "status": "PASS"
+    },
+    {
+      "lane": "launchers",
+      "reason_code": "LAUNCHER_VALIDATION_PASSED",
+      "status": "PASS"
+    },
+    {
+      "lane": "agent-entrypoint",
+      "reason_code": "AGENT_ENTRYPOINT_PASSED",
+      "status": "PASS"
+    },
+    {
+      "lane": "software-dry-run",
+      "reason_code": "SOFTWARE_DRY_RUN_PASSED",
+      "status": "PASS"
+    },
+    {
+      "lane": "recovery-matrix",
+      "reason_code": "RECOVERY_MATRIX_PASSED",
+      "status": "PASS"
+    },
+    {
+      "lane": "operator-runtime",
+      "reason_code": "OPERATOR_RUNTIME_PASSED",
+      "status": "PASS"
+    },
+    {
+      "lane": "scripted-device",
+      "reason_code": "SCRIPTED_DEVICE_PASSED",
+      "status": "PASS"
+    },
+    {
+      "lane": "frontend-smoke",
+      "reason_code": "FRONTEND_SMOKE_PASSED",
+      "status": "PASS"
+    },
+    {
+      "lane": "windows-packaging-source",
+      "reason_code": "WINDOWS_SOURCE_VALIDATED",
+      "status": "PASS"
+    },
+    {
+      "lane": "linux-parity",
+      "reason_code": "LINUX_PARITY_PASSED",
+      "status": "PASS"
+    },
+    {
+      "lane": "packaging-preflight",
+      "reason_code": "PACKAGING_PREFLIGHT_PASSED",
+      "status": "PASS"
+    }
+  ],
+  "output": "validation/agent_bootstrap_output.v0.1.6.json",
+  "physical_gates": {
+    "calibration": "NOT_RUN",
+    "firmware_compile_upload": "NOT_RUN",
+    "physical_loop": "NOT_RUN",
+    "physical_serial": "NOT_RUN",
+    "zero_tare": "NOT_RUN"
+  },
+  "profile": "operator-ready",
+  "status": "PASS_WITH_WARNINGS",
+  "version": "0.1.6",
+  "warnings": [
+    "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+  ]
+}

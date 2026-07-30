@@ -1,0 +1,13 @@
+{
+  "phases": [
+    {
+      "phase": "rc0_initial_application_build",
+      "status": "implemented_simulator_and_debian_evidence"
+    },
+    {
+      "phase": "rc1_physical_hardware_calibration_and_dual_platform_pilot",
+      "status": "next"
+    }
+  ],
+  "version": "0.1.0"
+}

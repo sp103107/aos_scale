@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bestbuds.local/schemas/agent_bootstrap_result.v1.json",
+  "title": "Best Buds coding-agent bootstrap result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id", "version", "profile", "status", "lanes", "repo_root",
+    "next_phase", "next_command", "physical_gates", "warnings", "generated_at"
+  ],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "profile": {"enum": ["development", "prehardware"]},
+    "status": {"enum": ["PASS", "PASS_WITH_WARNINGS", "FAIL"]},
+    "lanes": {"type": "array", "items": {"type": "object"}},
+    "repo_root": {"type": "string", "minLength": 1},
+    "next_phase": {"type": "string", "minLength": 1},
+    "next_command": {"type": "string", "minLength": 1},
+    "physical_gates": {"type": "object"},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "generated_at": {"type": "string", "minLength": 1}
+  }
+}

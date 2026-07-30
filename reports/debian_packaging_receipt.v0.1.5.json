@@ -1,0 +1,26 @@
+{
+  "architecture": "amd64",
+  "artifact": "dist/debian/best-buds-weight-station_0.1.5_amd64.deb",
+  "checks": {
+    "dpkg_deb_inspection": "pass",
+    "dpkg_install": "pass",
+    "installed_bootstrap_entrypoint_version": "pass",
+    "installed_self_test": "pass",
+    "installed_validation_graph": "pass_14_lanes",
+    "installed_version": "0.1.5",
+    "tk_automatic_xvfb_smoke": "pass",
+    "tk_manual_xvfb_smoke": "pass"
+  },
+  "generated_at": "2026-07-23T03:07:37Z",
+  "non_claims": [
+    "No native Windows validation.",
+    "No physical scale validation.",
+    "Installed full prehardware bootstrap requires repository development dependencies and was not claimed from the Debian runtime package."
+  ],
+  "package_name": "best-buds-weight-station",
+  "platform": "Debian GNU/Linux 13",
+  "sha256": "bbba42416879a82f0033c12186c0f8307d4839ac2eab55de94a87e42ee9c8de0",
+  "status": "pass",
+  "truth_class": "NATIVE_PLATFORM_PASS",
+  "version": "0.1.5"
+}

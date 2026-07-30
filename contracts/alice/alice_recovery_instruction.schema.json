@@ -1,0 +1,64 @@
+{
+  "$id": "https://bestbuds.local/schemas/alice_recovery_instruction.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocked_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "condition": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "operator_message": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "recovery_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "required_steps": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "restore_uncommitted_weight": {
+      "const": false
+    },
+    "truth_class": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "NOT_RUN",
+        "UNIT_TEST_PASS",
+        "UI_SMOKE_PASS",
+        "NATIVE_PLATFORM_PASS",
+        "PHYSICAL_DEVICE_PASS",
+        "SIMULATOR_PASS",
+        "SOURCE_PRESENT",
+        "RECEIPT_CONFIRMED",
+        "PENDING",
+        "NON_CLAIM"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "recovery_id",
+    "condition",
+    "truth_class",
+    "operator_message",
+    "required_steps",
+    "blocked_actions",
+    "restore_uncommitted_weight"
+  ],
+  "title": "Alice Recovery Instruction",
+  "type": "object"
+}

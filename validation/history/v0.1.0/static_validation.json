@@ -1,0 +1,46 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "check": "json_parse",
+      "status": "pass",
+      "detail": 70
+    },
+    {
+      "check": "jsonl_parse",
+      "status": "pass",
+      "detail": 12
+    },
+    {
+      "check": "yaml_parse",
+      "status": "pass",
+      "detail": 1
+    },
+    {
+      "check": "required_paths",
+      "status": "pass",
+      "detail": 30
+    },
+    {
+      "check": "version_consistency",
+      "status": "pass",
+      "detail": "0.1.0"
+    },
+    {
+      "check": "forbidden_external_shapes",
+      "status": "pass",
+      "detail": "absent"
+    },
+    {
+      "check": "python_compile",
+      "status": "pass",
+      "detail": "pass"
+    },
+    {
+      "check": "context_alignment",
+      "status": "pass",
+      "detail": "aligned"
+    }
+  ],
+  "errors": []
+}

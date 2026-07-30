@@ -1,0 +1,18 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [],
+  "created_at": "2026-07-22T20:54:06Z",
+  "data": {},
+  "evidence_refs": [
+    "validation/receipts/zero-tare.latest.json"
+  ],
+  "lane": "zero-tare",
+  "next_action": "Remove all load and rerun with --port.",
+  "profile": "integration",
+  "reason_code": "ZERO_CONDITION_AND_PORT_REQUIRED",
+  "required_action": {
+    "type": "REMOVE_LOAD_AND_PROVIDE_PORT"
+  },
+  "status": "WAITING_FOR_EXTERNAL_ACTION",
+  "warnings": []
+}

@@ -1,0 +1,51 @@
+{
+  "automatic_loop": {
+    "feedback": [
+      "success"
+    ],
+    "mode": "automatic",
+    "net_g": 1200.0,
+    "recent_pointer_sequence": 1,
+    "record_id": "aa5b9c55-67f0-48d5-9293-ef90598a475d",
+    "session_manifest": "/tmp/tmpz379i1xg/automatic/data/sessions/SESSION-automatic/session_manifest.json",
+    "state": "WAITING_FOR_BARCODE",
+    "terminal_truth_class": "RECEIPT_CONFIRMED"
+  },
+  "bluetooth_boundary": "validated_disabled_by_default",
+  "calibration": {
+    "physical_device_pass": false,
+    "receipt_id": "calibration-2ef7cf09-ec7a-43f6-a0b7-ec9d5eb22b62",
+    "truth_class": "SIMULATOR_PASS"
+  },
+  "canonical_buttons": {
+    "blue": "ui.open_scale_setup",
+    "green": "capture.confirm",
+    "red": "capture.cancel",
+    "yellow": "scale.zero"
+  },
+  "known_tare": "UNIT_TEST_PASS",
+  "manual_loop": {
+    "feedback": [
+      "success"
+    ],
+    "mode": "manual",
+    "net_g": 1200.0,
+    "recent_pointer_sequence": 1,
+    "record_id": "f6b1b342-4285-4f79-90b0-527a5687abf5",
+    "session_manifest": "/tmp/tmpz379i1xg/manual/data/sessions/SESSION-manual/session_manifest.json",
+    "state": "WAITING_FOR_BARCODE",
+    "terminal_truth_class": "RECEIPT_CONFIRMED"
+  },
+  "non_claims": [
+    "No physical device pass.",
+    "No legal-for-trade calibration.",
+    "No Bluetooth or Wi-Fi activation."
+  ],
+  "physical_device": "NOT_RUN",
+  "status": "pass",
+  "truth_class": "UNIT_TEST_PASS",
+  "uno_q": "NOT_RUN",
+  "version": "0.1.3",
+  "wifi_boundary": "validated_disabled_by_default",
+  "zero_scale": "SIMULATOR_PASS"
+}

@@ -1,0 +1,147 @@
+{
+  "checks": [
+    {
+      "check": "JSON parse",
+      "evidence": "validation/static_validation.json",
+      "status": "pass"
+    },
+    {
+      "check": "JSONL parse and hash chain",
+      "evidence": [
+        "validation/static_validation.json",
+        "validation/persistent_simulator_self_test.json"
+      ],
+      "status": "pass"
+    },
+    {
+      "check": "YAML parse",
+      "evidence": "validation/static_validation.json",
+      "status": "pass"
+    },
+    {
+      "check": "JSON Schema meta-validation",
+      "count": 22,
+      "evidence": "validation/schema_and_export_validation.json",
+      "status": "pass"
+    },
+    {
+      "check": "Python compile",
+      "evidence": "validation/static_validation.json",
+      "status": "pass"
+    },
+    {
+      "check": "Shell syntax",
+      "evidence": "scripts/*.sh checked with sh -n",
+      "status": "pass"
+    },
+    {
+      "check": "Unit/integration tests",
+      "count": 17,
+      "evidence": "validation/pytest_output.txt",
+      "status": "pass"
+    },
+    {
+      "check": "Simulator automatic/manual capture",
+      "evidence": "validation/persistent_simulator_self_test.json",
+      "status": "pass",
+      "truth_class": "simulator"
+    },
+    {
+      "check": "JSON/JSONL/CSV/XLSX output fixture",
+      "evidence": "validation/fixtures/sessions/SELFTEST-SESSION",
+      "status": "pass",
+      "truth_class": "simulator"
+    },
+    {
+      "check": "Compatible XLSX open",
+      "evidence": "validation/schema_and_export_validation.json",
+      "status": "pass"
+    },
+    {
+      "check": "Reproducible harvest report outputs",
+      "evidence": "validation/fixtures/sessions/SELFTEST-SESSION/reports",
+      "status": "pass"
+    },
+    {
+      "check": "AoS envelope tests",
+      "evidence": "tests/test_envelope.py",
+      "status": "pass"
+    },
+    {
+      "check": "Source UI launch smoke",
+      "evidence": "validation/source_ui_smoke.txt",
+      "status": "pass_tk_fallback_xvfb"
+    },
+    {
+      "check": "Native Debian package build/install/version/self-test/UI smoke",
+      "evidence": "reports/debian_packaging_receipt.v0.1.0.json",
+      "status": "pass"
+    },
+    {
+      "check": "Native Windows executable build and smoke",
+      "evidence": "reports/windows_packaging_receipt.v0.1.0.json",
+      "status": "blocked"
+    },
+    {
+      "check": "Arduino firmware source static validation",
+      "evidence": "reports/firmware_compile_receipt.v0.1.0.json",
+      "status": "pass"
+    },
+    {
+      "check": "Arduino firmware native compile",
+      "evidence": "reports/firmware_compile_receipt.v0.1.0.json",
+      "status": "blocked"
+    },
+    {
+      "check": "Physical UNO/HX711/load-cell",
+      "status": "blocked_not_run"
+    },
+    {
+      "check": "Version consistency",
+      "evidence": "validation/static_validation.json",
+      "status": "pass"
+    },
+    {
+      "check": "Required repo shape",
+      "evidence": "validation/static_validation.json",
+      "status": "pass"
+    },
+    {
+      "check": "Forbidden mini-pack shapes",
+      "evidence": "validation/static_validation.json",
+      "status": "pass"
+    },
+    {
+      "check": "Context alignment",
+      "evidence": "context/context_validation_report.v0.1.0.json",
+      "status": "pass"
+    },
+    {
+      "check": "Full repo ZIP shape preflight",
+      "evidence": "validation/package_zip_validation.json",
+      "status": "pass"
+    },
+    {
+      "check": "Google Drive delivery",
+      "evidence": "reports/drive_delivery_receipt.v0.1.0.json",
+      "status": "partial_folder_and_receipt_created_binary_upload_blocked"
+    }
+  ],
+  "drift": [
+    "The declared contract bundle ZIP was unavailable; expected hash retained and fallback source transcript used without a full concordance claim."
+  ],
+  "generated_at": "2026-07-19T15:45:23Z",
+  "non_claims": [
+    "Physical hardware success",
+    "Legal-for-trade certification",
+    "Metrc/seed-to-sale integration",
+    "Native Windows packaging success",
+    "Arduino compile success",
+    "Production readiness",
+    "Release seal"
+  ],
+  "overall_status": "pass_core_with_blocked_required_release_gates",
+  "release_gate_status": "blocked_windows_native_firmware_compile_physical_hardware",
+  "report_id": "best-buds-weight-station-validation-v0.1.0",
+  "version": "0.1.0"
+}

@@ -1,0 +1,26 @@
+{
+  "bootstrap_command": "python -m best_buds_weight_station.bootstrap --profile cursor-ready",
+  "bootstrap_result": "PASS_WITH_WARNINGS_EVIDENCE_BOUNDARY",
+  "context_runtime_execution_claimed": false,
+  "current_phase": "rc3c12_final_polish_and_drift_review",
+  "cursor_handoff": "cursor/CURSOR_UNO_R3_PHYSICAL_INTEGRATION_HANDOFF_V0_1_8.md",
+  "episode": "episode_0009_v0.1.8",
+  "frontend_render_evidence": "reports/frontend_render_evidence.v0.1.8.json",
+  "generated_at": "2026-07-29T18:25:11Z",
+  "ledger_events": 120,
+  "next_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "package_name": "best_buds_cultivator_weight_station",
+  "previous_version": "0.1.7",
+  "source_hashes": {
+    "Runtime bump.pdf": "dc15b1d30ee5eeada3357edb48115bd4841a1fb4bdf588865bea0f8d55598243",
+    "best_buds_cultivator_weight_station_v0_1_7.zip": "ce9b7d5f7162ad4cfbdf60e0ec1e5b890813ceb923a009566debb0c0f8d2fb70"
+  },
+  "stage_plan": "reports/cursor_ready_stage_plan.v0.1.8.json",
+  "stage_plan_status": "PASS_11_OF_11",
+  "status": "READY_FOR_CURSOR",
+  "updated_at": "2026-07-29T18:40:26Z",
+  "validated_at": "2026-07-29T18:40:26Z",
+  "validation_status": "PASS",
+  "version": "0.1.8",
+  "working_set_update_seq": 9
+}

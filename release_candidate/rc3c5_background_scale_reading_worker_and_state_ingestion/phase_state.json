@@ -1,0 +1,8 @@
+{
+  "external_package": false,
+  "phase": "rc3c5_background_scale_reading_worker_and_state_ingestion",
+  "physical_hardware_claimed": false,
+  "status": "implemented",
+  "summary": "Implemented a non-authoritative background reader that routes samples through reading.ingest.",
+  "version": "0.1.6"
+}

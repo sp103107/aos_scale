@@ -1,0 +1,56 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/usr/bin/xvfb-run",
+        "-a",
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "best_buds_weight_station",
+        "--simulator",
+        "--ui-smoke",
+        "--capture-mode",
+        "manual",
+        "--data-root",
+        "/tmp/bbws-ui-smoke-yfsc7w6h/manual"
+      ],
+      "duration_seconds": 1.667,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/usr/bin/xvfb-run",
+        "-a",
+        "/opt/pyvenv/bin/python3",
+        "-m",
+        "best_buds_weight_station",
+        "--simulator",
+        "--ui-smoke",
+        "--capture-mode",
+        "automatic",
+        "--data-root",
+        "/tmp/bbws-ui-smoke-yfsc7w6h/automatic"
+      ],
+      "duration_seconds": 1.698,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "created_at": "2026-07-23T03:05:37Z",
+  "data": {
+    "pyside6_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+    "tk_runtime": "PASS"
+  },
+  "evidence_refs": [],
+  "lane": "frontend-smoke",
+  "next_action": null,
+  "profile": "prehardware",
+  "reason_code": "FRONTEND_SMOKE_PASSED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

@@ -1,0 +1,42 @@
+{
+  "added": [
+    "shared non-overlapping routine-action layout contract",
+    "barcode label and scanner guidance",
+    "physical evidence-warning status",
+    "generated-artifact hygiene",
+    "active test and stage naming concordance",
+    "final drift taxonomy hardening"
+  ],
+  "arc": "Windows-first operator application",
+  "completed_at": "2026-07-29T18:39:56Z",
+  "episode_id": "episode_0009_v0.1.8",
+  "generated_at": "2026-07-29T17:19:02Z",
+  "next_episode": "UNO R3/HX711 physical scale bring-up",
+  "phase": "rc3c12_final_polish_and_drift_review",
+  "sequence": 9,
+  "source_truth": [
+    "best_buds_cultivator_weight_station_v0_1_7.zip",
+    "Runtime bump.pdf"
+  ],
+  "status": "completed",
+  "validation_not_proved": [
+    "native Windows/PySide runtime",
+    "physical hardware",
+    "firmware compile/upload",
+    "production readiness"
+  ],
+  "validation_proved": [
+    "183 automated software tests passed",
+    "60 JSON Schemas validated",
+    "11-stage cursor-ready plan passed",
+    "13-lane cursor-ready bootstrap passed within software scope",
+    "Tk fallback manual and automatic runtime/render passed under Xvfb",
+    "scripted pyserial transport and operator workflows passed",
+    "Debian 0.1.8 package and extracted runtime passed",
+    "current naming and drift concordance passed",
+    "16 affected post-drift regression tests passed",
+    "naming and frontend runtime stages revalidated after final label/render correction",
+    "authoritative 183-test log preserved in package policy"
+  ],
+  "version": "0.1.8"
+}

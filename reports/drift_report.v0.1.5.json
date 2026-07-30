@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-07-23T03:07:37Z",
+  "remaining": [
+    {
+      "artifact": "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip",
+      "code": "MISSING_GOVERNING_CONTRACT_BUNDLE",
+      "concordance_claimed": false,
+      "expected_sha256": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c"
+    }
+  ],
+  "resolved": [
+    {
+      "code": "RUN_MANIFEST_APPLICATION_VERSION_LITERAL",
+      "resolution": "run_manager now uses __version__"
+    },
+    {
+      "code": "PREHARDWARE_BOOTSTRAP_MISSING",
+      "resolution": "Python module and console entry points added"
+    }
+  ],
+  "status": "warn",
+  "version": "0.1.5"
+}

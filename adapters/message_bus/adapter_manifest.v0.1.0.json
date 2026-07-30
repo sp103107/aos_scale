@@ -1,0 +1,6 @@
+{
+  "activation_claimed": false,
+  "adapter": "message_bus",
+  "blocking_capture": false,
+  "status": "disabled"
+}

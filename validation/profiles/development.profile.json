@@ -1,0 +1,18 @@
+{
+  "allow_safe_auto_repair": true,
+  "drift_policy": {
+    "current_checksum_index": "AUTO_REPAIR",
+    "current_documentation_pointer": "WARN",
+    "current_version_reference": "AUTO_REPAIR",
+    "generated_manifest": "AUTO_REPAIR",
+    "historical_version_reference": "ALLOW"
+  },
+  "hard_gate_lanes": [
+    "repository-inspection",
+    "software",
+    "agent-entrypoint",
+    "software-dry-run"
+  ],
+  "profile": "development",
+  "version": "1.1.0"
+}

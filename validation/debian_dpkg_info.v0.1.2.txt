@@ -1,0 +1,13 @@
+ new Debian package, version 2.0.
+ size 166684 bytes: control archive=492 bytes.
+     386 bytes,    10 lines      control
+ Package: best-buds-weight-station
+ Version: 0.1.2
+ Section: utils
+ Priority: optional
+ Architecture: amd64
+ Maintainer: Best Buds <local@bestbuds.invalid>
+ Depends: python3 (>= 3.11)
+ Suggests: python3-serial
+ Description: Local-first cultivation barcode weight station
+  Simulator/self-test is dependency-light; PySide6 desktop UI is installed separately when unavailable from the base system.

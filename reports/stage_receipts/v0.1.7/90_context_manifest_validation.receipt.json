@@ -1,0 +1,33 @@
+{
+  "artifacts": [
+    "reports/cursor_ready_validation.v0.1.7.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "scripts/validate_cursor_ready_v017.py"
+      ],
+      "duration_s": 2.298,
+      "evidence_class": "runtime_execution_pass",
+      "exit_code": 0,
+      "finished_at": "2026-07-24T04:27:55Z",
+      "started_at": "2026-07-24T04:27:53Z",
+      "stderr": "",
+      "stdout": "{\n  \"checks\": {\n    \"canonical_serial\": true,\n    \"context_seq\": true,\n    \"execution_posture\": true,\n    \"full_repo\": true,\n    \"physical_not_run\": true,\n    \"production_false\": true,\n    \"version\": true\n  },\n  \"commands\": [\n    {\n      \"argv\": [\n        \"/opt/pyvenv/bin/python\",\n        \"-m\",\n        \"best_buds_weight_station.stage_runner\",\n        \"list\"\n      ],\n      \"exit_code\": 0,\n      \"stderr\": \"\",\n      \"stdout\": \"{\\n  \\\"stages\\\": [\\n    \\\"00_repository_preflight\\\",\\n    \\\"10_naming_concordance\\\",\\n    \\\"20_launcher_validation\\\",\\n    \\\"30_frontend_runtime_validation\\\",\\n    \\\"40_operator_workflow_validation\\\",\\n    \\\"50_scripted_scale_validation\\\",\\n    \\\"60_zero_tare_calibration_validation\\\",\\n    \\\"70_recovery_validation\\\",\\n    \\\"80_windows_source_validation\\\",\\n    \\\"90_context_manifest_validation\\\",\\n    \\\"100_cursor_handoff\\\"\\n  ],\\n  \\\"version\\\": \\\"0.1.7\\\"\\n}\\n\"\n    },\n    {\n      \"argv\": [\n        \"/opt/pyvenv/bin/python\",\n        \"-m\",\n        \"best_buds_weight_station.stage_runner\",\n        \"status\"\n      ],\n      \"exit_code\": 0,\n      \"stderr\": \"\",\n      \"stdout\": \"{\\n  \\\"stages\\\": [\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/00_repository_preflight.latest.json\\\",\\n      \\\"stage_id\\\": \\\"00_repository_preflight\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/10_naming_concordance.latest.json\\\",\\n      \\\"stage_id\\\": \\\"10_naming_concordance\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/20_launcher_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"20_launcher_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/30_frontend_runtime_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"30_frontend_runtime_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/40_operator_workflow_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"40_operator_workflow_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/50_scripted_scale_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"50_scripted_scale_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/60_zero_tare_calibration_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"60_zero_tare_calibration_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/70_recovery_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"70_recovery_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/80_windows_source_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"80_windows_source_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/90_context_manifest_validation.latest.json\\\",\\n      \\\"stage_id\\\": \\\"90_context_manifest_validation\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    },\\n    {\\n      \\\"receipt\\\": \\\"validation/receipts/stages/100_cursor_handoff.latest.json\\\",\\n      \\\"stage_id\\\": \\\"100_cursor_handoff\\\",\\n      \\\"status\\\": \\\"PASS\\\"\\n    }\\n  ],\\n  \\\"version\\\": \\\"0.1.7\\\"\\n}\\n\"\n    },\n    {\n      \"argv\": [\n        \"/opt/pyvenv/bin/python\",\n        \"-m\",\n        \"best_buds_weight_station.stage_runner\",\n        \"validate-receipts\"\n      ],\n      \"exit_code\": 0,\n      \"stderr\": \"\",\n      \"stdout\": \"{\\n  \\\"errors\\\": [],\\n  \\\"receipt_count\\\": 11,\\n  \\\"status\\\": \\\"PASS\\\"\\n}\\n\"\n    }\n  ],\n  \"failures\": [],\n  \"required_count\": 20,\n  \"status\": \"PASS\",\n  \"verdicts\": [\n    \"CURSOR_READY\",\n    \"OPERATOR_SOFTWARE_READY\",\n    \"PHYSICAL_HARDWARE_NOT_RUN\",\n    \"WINDOWS_NATIVE_RUNTIME_NOT_RUN\"\n  ],\n  \"version\": \"0.1.7\"\n}\n"
+    }
+  ],
+  "evidence_class": "runtime_execution_pass",
+  "finished_at": "2026-07-24T04:27:55Z",
+  "next_stage": "100_cursor_handoff",
+  "non_claims": [
+    "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+  ],
+  "receipt_id": "release-v0.1.7-bg-90_context_manifest_validation",
+  "run_id": "release-v0.1.7-bg",
+  "stage_id": "90_context_manifest_validation",
+  "started_at": "2026-07-24T04:27:53Z",
+  "status": "PASS",
+  "version": "0.1.7",
+  "warnings": []
+}

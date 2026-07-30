@@ -1,0 +1,8 @@
+{
+  "external_package": false,
+  "phase": "rc3c9_frontend_runtime_truth_validators_and_evidence_closure",
+  "physical_hardware_claimed": false,
+  "status": "implemented",
+  "summary": "Added launcher, frontend truth, Windows source, and operator runtime validators.",
+  "version": "0.1.6"
+}

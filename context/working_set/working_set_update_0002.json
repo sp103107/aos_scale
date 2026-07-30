@@ -1,0 +1,32 @@
+{
+  "blocked": [
+    "native Windows executable and smoke receipt",
+    "Arduino AVR firmware compile toolchain",
+    "physical UNO/HX711/load-cell calibration evidence"
+  ],
+  "completed": [
+    "preserved full v0.1.0 repository",
+    "implemented executable Alice response-agent module",
+    "added eight Alice contract schemas",
+    "added six Alice prompt assets",
+    "added state/action, persistence, idempotency, recovery, evidence and UI tests",
+    "rebuilt native Debian 0.1.1 package"
+  ],
+  "context_runtime_execution_claimed": false,
+  "created_at": "2026-07-19T16:53:32Z",
+  "focus": "Alice response agent implementation and truth hardening",
+  "package_name": "best_buds_cultivator_weight_station",
+  "record_type": "working_set_update",
+  "source_hashes": {
+    "best_buds_cultivator_weight_station_context_kickoff_pack_v0_1_1.zip": "abbe1863f2566f739fc2155704a47de550f39046083586c9be7f3869c0a1f12d",
+    "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c",
+    "best_buds_cultivator_weight_station_execution_hardening_addendum_v0_1_1.json": "675548d76ebaf116e22c1ed827abbe7313c1e8a94c7dcda4f05b8d44077e5121",
+    "best_buds_cultivator_weight_station_new_context_build_kickoff_prompt_v0_1_1.md": "8dcb51d9f0185784d25332c9aea5a48ef9d1c8bad6d000280d19d230ff58a013",
+    "best_buds_cultivator_weight_station_v0_1_0.zip": "07b1cbd8801e617c6453b6630a774bb6dcd66a586c776a64945f5ce4ab3958f7",
+    "best_buds_cultivator_weight_station_v0_1_0.zip.sha256": "ae66ef122b58d3c3b33d4baffe956af999a6e12710db1df6e7519cc38b543fa2"
+  },
+  "update_seq": 2,
+  "updated_at": "2026-07-19T16:53:32Z",
+  "validation_status": "pass_core_alice_simulator_and_native_debian_with_blocked_required_release_gates",
+  "version": "0.1.1"
+}

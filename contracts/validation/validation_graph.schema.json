@@ -1,0 +1,39 @@
+{
+  "$id": "https://bestbuds.local/schemas/validation_graph.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "graph_version": {
+      "type": "string"
+    },
+    "lanes": {
+      "items": {
+        "properties": {
+          "lane": {
+            "type": "string"
+          },
+          "requires": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "lane",
+          "requires"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "package_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "graph_version",
+    "package_version",
+    "lanes"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+{
+  "artifact_hashes": {
+    "validation/reports/final_frontend_recheck.v0.1.8.log": "fe9dca0451129aaabdd76ea13e310b61a52091a146a1f9fe5b72b851eb33547f"
+  },
+  "artifact_paths": [
+    "validation/reports/final_frontend_recheck.v0.1.8.log"
+  ],
+  "claim_id": "final-frontend-render-validator-concordance",
+  "claim_type": "runtime_execution_pass",
+  "command_or_action": "pytest frontend polish and frontend contract after final render-evidence validator hardening",
+  "evidence_id": "final-frontend-validator-recheck-v0.1.8",
+  "execution_posture": "real_execution_allowed",
+  "exit_code_or_result": 0,
+  "finished_at": "2026-07-29T18:42:23Z",
+  "judge_verdict": "PASS_WITHIN_AFFECTED_SCOPE",
+  "non_claims": [
+    "Supplements the 183-test full-suite and 16-test post-drift regression receipts.",
+    "No native Windows or physical hardware claim."
+  ],
+  "started_at": "2026-07-29T18:42:23Z",
+  "status": "PASS",
+  "stderr_path_or_inline_summary": "stderr redirected to log",
+  "stdout_path_or_inline_summary": "validation/reports/final_frontend_recheck.v0.1.8.log",
+  "test_count": 14,
+  "validator_path": "pytest selected frontend recheck",
+  "validator_result": "PASS"
+}

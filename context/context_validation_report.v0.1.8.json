@@ -1,0 +1,18 @@
+{
+  "bootstrap_status": "PASS_WITH_WARNINGS_EVIDENCE_BOUNDARY",
+  "context_runtime_execution_claimed": false,
+  "episode": "episode_0009_v0.1.8",
+  "json_validation": "PASS",
+  "jsonl_validation": "PASS",
+  "ledger_events": 120,
+  "ledger_events_appended": 24,
+  "post_drift_regression": "PASS",
+  "resume_pack": "context/resume_pack/resume_pack_manifest.v0.1.8.json",
+  "stage_plan_status": "PASS_11_OF_11",
+  "status": "PASS",
+  "updated_at": "2026-07-29T18:40:26Z",
+  "validated_at": "2026-07-29T18:40:26Z",
+  "version": "0.1.8",
+  "version_alignment": "PASS",
+  "working_set_update_seq": 9
+}

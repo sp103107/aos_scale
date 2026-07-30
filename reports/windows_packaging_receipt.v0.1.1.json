@@ -1,0 +1,18 @@
+{
+  "artifact_created": false,
+  "generated_at": "2026-07-19T16:53:32Z",
+  "native_execution_receipt": false,
+  "non_claims": [
+    "No Windows executable build, PE verification, version smoke, simulator self-test, installer, signing, or release pass."
+  ],
+  "reason": "No native Windows host or Windows CI runner executed the PyInstaller workflow in this run.",
+  "receipt_type": "native_windows_packaging",
+  "source_present": [
+    "packaging/windows/BestBudsWeightStation.spec",
+    "packaging/windows/build_windows.ps1",
+    ".github/workflows/release.yml"
+  ],
+  "status": "blocked",
+  "truth_class": "BLOCKED",
+  "version": "0.1.1"
+}

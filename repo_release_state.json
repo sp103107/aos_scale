@@ -1,0 +1,82 @@
+{
+  "arc_episode_continuity_status": "pass",
+  "bump_scope": "full_repo",
+  "capsule_shape_status": "pass_structural_candidate_not_activated",
+  "claim_gate_required": true,
+  "compile_pack_source_anchors": [],
+  "context_update_status": "pass_sequence_10_episode_10_resume_pack_updated",
+  "contract_source_anchors": [
+    "contracts/runtime/",
+    "contracts/pipeline/"
+  ],
+  "current_internal_phase": "rc3c13_core_process_closure_and_final_cursor_hardening",
+  "cursor_ready_status": "pass",
+  "debian_package_sha256": "2b0acb181cd8ffc6ce16fa890637ccb71efd7276df2c566a162715e1960825dd",
+  "debian_package_status": "native_package_built_and_inspected",
+  "drift_check_status": "pass_current_surfaces_core_process_resume_defect_corrected",
+  "evidence_gate_status": "pass_authorized_local_software_scope",
+  "evidence_records": [
+    "reports/execution_posture_decision.v0.1.8.json",
+    "reports/final_polish_and_drift_review.v0.1.8.json",
+    "reports/frontend_render_evidence.v0.1.8.json",
+    "runtime/evidence_index.v0.1.8.json",
+    "reports/cursor_ready_bootstrap.v0.1.8.json",
+    "reports/debian_packaging_receipt.v0.1.8.json",
+    "reports/repo_validator.v0.1.8.json",
+    "reports/final_prepackage_validation.v0.1.8.json",
+    "reports/validation_report.v0.1.8.json",
+    "reports/post_drift_regression_evidence.v0.1.8.json",
+    "reports/post_drift_stage_revalidation.v0.1.8.json",
+    "reports/final_frontend_recheck_evidence.v0.1.8.json",
+    "reports/core_process_audit.v0.1.9.json"
+  ],
+  "evidence_required": true,
+  "execution_authorized": true,
+  "execution_posture": "real_execution_allowed",
+  "final_validation_report": "reports/repo_validator.v0.1.8.json",
+  "firmware_compile_status": "blocked_arduino_cli_unavailable",
+  "foundation_source_anchors": [
+    "README.md",
+    "docs/SYSTEM_STATE_CURRENT.md"
+  ],
+  "frontend_status": "pyside_source_polished_tk_runtime_pass_native_windows_not_run",
+  "generated_at": "2026-07-29T20:35:00Z",
+  "latest_completed_arc": "Core-process implementation closure and final Cursor hardening",
+  "latest_completed_episode": "episode_0010_v0.1.9",
+  "linux_status": "native_debian_and_tk_runtime_pass",
+  "next_internal_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "non_claims": [
+    "No physical UNO R3, HX711, or load-cell success.",
+    "No physical calibration, repeatability, or hanging-load success.",
+    "No firmware compile or upload pass.",
+    "No native Windows executable or PySide6 runtime pass.",
+    "No Bluetooth, Wi-Fi, VPort, message-bus, MCP, socket, physical-button, or UNO Q activation.",
+    "No legal-for-trade certification.",
+    "No production-grade pass or release seal.",
+    "No Context Module runtime-execution claim."
+  ],
+  "operator_software_status": "pass_core_process_audit",
+  "package_name": "best_buds_cultivator_weight_station",
+  "package_validation_status": "pending_zip",
+  "physical_device_status": "not_run",
+  "previous_version": "0.1.8",
+  "production_grade_status": "not_run",
+  "production_ready_claimed": false,
+  "pyside6_runtime_status": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+  "release_seal_claimed": false,
+  "release_seal_status": "not_run",
+  "runtime_claimed": true,
+  "runtime_execution_status": "passed_authorized_local_software",
+  "source_artifact_hashes": {
+    "best_buds_cultivator_weight_station_v0_1_8.zip": "71d336f3f0f8fbed9dcc04e804cc1c0da38349316c93fd8f400604ec54218e63"
+  },
+  "source_of_truth": [
+    "best_buds_cultivator_weight_station_v0_1_8.zip",
+    "AoS/AGO Runtime-Enabled Full Repo Bump Continuation v0.4.23"
+  ],
+  "stage_plan_status": "pass_11_of_11",
+  "validation_status": "pass_core_process_and_targeted_regression",
+  "version": "0.1.9",
+  "windows_native_runtime_status": "NOT_RUN",
+  "windows_status": "source_ready_native_runtime_not_run"
+}

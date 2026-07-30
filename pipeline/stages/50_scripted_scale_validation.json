@@ -1,0 +1,59 @@
+{
+  "allowed_mutations": [
+    "validation/receipts/stages/**",
+    "validation/checkpoints/**",
+    "validation/reports/**"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_device_service.py",
+        "tests/test_operator_runtime.py"
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "required": true,
+      "timeout_seconds": 180
+    }
+  ],
+  "entrypoint": {
+    "arguments": [
+      "run",
+      "--stage",
+      "50_scripted_scale_validation"
+    ],
+    "module": "best_buds_weight_station.stage_runner"
+  },
+  "expected_artifacts": [
+    "reports/scripted_scale_validation.v0.1.9.json"
+  ],
+  "failure_classes": [
+    "FAIL",
+    "BLOCKED",
+    "NOT_RUN"
+  ],
+  "forbidden_mutations": [
+    "context/episodes/episode_0001_v0.1.0.json",
+    "context/ledger/ledger.jsonl:historical_lines",
+    "manifests/historical_release_manifests"
+  ],
+  "inputs": [],
+  "next_stage": "60_zero_tare_calibration_validation",
+  "pass_conditions": [
+    "all required commands exit 0",
+    "receipt schema validates"
+  ],
+  "preconditions": [],
+  "purpose": "Exercise canonical pyserial transport boundary with scripted firmware messages.",
+  "receipt_path": "validation/receipts/stages/50_scripted_scale_validation.latest.json",
+  "requires": [
+    "40_operator_workflow_validation"
+  ],
+  "stage_id": "50_scripted_scale_validation",
+  "version": "0.1.9"
+}

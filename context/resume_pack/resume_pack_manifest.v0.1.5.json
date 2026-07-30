@@ -1,0 +1,12 @@
+{
+  "continuation_handoff": "context/resume_pack/CONTINUATION_HANDOFF_PROMPT.v0.1.5.md",
+  "current_internal_phase": "rc3b_software_dry_run_and_agent_bootstrap_entrypoint_hardening",
+  "episode": "context/episodes/episode_0006_v0.1.5.json",
+  "generated_at": "2026-07-23T02:57:09Z",
+  "ledger": "context/ledger/ledger.jsonl",
+  "next_internal_phase": "rc3c_hardware_inventory_wiring_and_physical_integration",
+  "record_type": "resume_pack_manifest",
+  "status": "pass",
+  "version": "0.1.5",
+  "working_set": "context/working_set/working_set_update_0006.json"
+}

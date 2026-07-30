@@ -1,0 +1,12 @@
+{
+  "continuation_handoff": "context/resume_pack/CONTINUATION_HANDOFF_PROMPT.v0.1.6.md",
+  "current_internal_phase": "rc3c_windows_first_operator_application_implementation",
+  "episode": "context/episodes/episode_0007_v0.1.6.json",
+  "generated_at": "2026-07-23T20:48:35Z",
+  "ledger": "context/ledger/ledger.jsonl",
+  "next_internal_phase": "rc3c11_final_naming_and_drift_concordance_pass",
+  "record_type": "resume_pack_manifest",
+  "status": "pass",
+  "version": "0.1.6",
+  "working_set": "context/working_set/working_set_update_0007.json"
+}

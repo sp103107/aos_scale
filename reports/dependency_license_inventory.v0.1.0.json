@@ -1,0 +1,31 @@
+{
+  "application_license": "project proprietary/unspecified",
+  "dependencies": [
+    {
+      "license": "PSF",
+      "name": "Python",
+      "purpose": "runtime"
+    },
+    {
+      "license": "MIT",
+      "name": "openpyxl",
+      "purpose": "XLSX"
+    },
+    {
+      "license": "LGPLv3/GPL/commercial per distribution",
+      "name": "PySide6",
+      "purpose": "desktop UI optional"
+    },
+    {
+      "license": "BSD-3-Clause",
+      "name": "pyserial",
+      "purpose": "serial optional"
+    },
+    {
+      "license": "depends on selected library; verify before distribution",
+      "name": "HX711 Arduino library",
+      "purpose": "firmware dependency"
+    }
+  ],
+  "note": "Inventory is declarative; package-manager license scan was not performed for unavailable optional dependencies."
+}

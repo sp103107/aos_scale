@@ -1,0 +1,115 @@
+{
+  "$id": "https://bestbuds.local/schemas/harvest_run.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capture_mode": {
+      "enum": [
+        "automatic",
+        "manual"
+      ]
+    },
+    "container_policy": {
+      "type": "object"
+    },
+    "cultivars": {
+      "items": {
+        "properties": {
+          "cultivar_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "normalized_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "raw_name": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "cultivar_id",
+          "raw_name",
+          "normalized_name"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "external_tracking_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "facility_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "maximum_capacity_g": {
+      "type": "number"
+    },
+    "measurement_stage": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "operator_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rack": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "room": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_context": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stability_profile_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "station_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "weight_purpose": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "zone": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "run_id",
+    "operator_id",
+    "facility_id",
+    "station_id",
+    "measurement_stage",
+    "weight_purpose",
+    "capture_mode",
+    "cultivars"
+  ],
+  "title": "Harvest Run",
+  "type": "object"
+}

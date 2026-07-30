@@ -1,0 +1,18 @@
+{
+  "alice_terminal_receipt_gate": true,
+  "application_controller": "app/best_buds_weight_station/application_controller.py",
+  "authoritative_store": "append-only JSONL",
+  "canonical_actions": "app/best_buds_weight_station/actions.py",
+  "capture_state_machine": "app/best_buds_weight_station/state_machine.py",
+  "changes": [
+    "LLM-native validation harness integration",
+    "Validation profile and drift policy alignment"
+  ],
+  "device_service": "app/best_buds_weight_station/device_service.py",
+  "generated_at": "2026-07-22T20:55:00Z",
+  "remote_adapters_default": "disabled",
+  "run_management": "app/best_buds_weight_station/run_manager.py",
+  "runtime": "Python 3.11+",
+  "scale_control": "app/best_buds_weight_station/scale_control.py",
+  "version": "0.1.4"
+}

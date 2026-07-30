@@ -1,0 +1,32 @@
+{
+  "version": "0.1.9",
+  "status": "PASS",
+  "core_process_audit": "PASS",
+  "test_evidence": {
+    "core_process_suite": "PASS",
+    "frontend_contract_and_polish": "PASS",
+    "llm_harness": "PASS",
+    "stage_and_runtime_governance": "PASS"
+  },
+  "implemented": [
+    "launchers and coding-agent bootstrap",
+    "new/load/resume/finish/export",
+    "automatic and manual capture",
+    "append-only commit and checkpoint",
+    "Alice terminal receipt gate",
+    "crash recovery",
+    "last-saved restoration after resume",
+    "canonical pyserial transport and background worker",
+    "zero/tare/calibration simulator workflows",
+    "JSON stage plans and stage runner"
+  ],
+  "not_run": [
+    "native Windows runtime",
+    "PySide6 runtime on Windows",
+    "UNO R3",
+    "HX711",
+    "load cell",
+    "physical calibration"
+  ],
+  "drift": "PASS_CURRENT_SURFACES_MISSING_CONTRACT_BUNDLE_REMAINS_DECLARED"
+}

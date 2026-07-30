@@ -1,0 +1,13 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://bestbuds.local/contracts/settings/operator_settings.schema.json",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","data_root","capture_mode","baud_rate","unit","simulator_enabled","bluetooth_enabled","wifi_enabled","updated_at"],
+  "properties":{
+    "schema_version":{"const":"1.0.0"},"data_root":{"type":"string","minLength":1},
+    "capture_mode":{"enum":["automatic","manual"]},"serial_port":{"type":["string","null"]},
+    "baud_rate":{"type":"integer","enum":[115200,9600]},"unit":{"const":"g"},"stability_profile_id":{"type":"string"},
+    "simulator_enabled":{"type":"boolean"},"bluetooth_enabled":{"const":false},"wifi_enabled":{"const":false},
+    "updated_at":{"type":"string","format":"date-time"}
+  }
+}

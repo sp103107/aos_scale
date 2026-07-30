@@ -1,0 +1,21 @@
+{
+  "completed_phase": "rc3c12_final_polish_and_drift_review",
+  "current_episode": "episode_0009_v0.1.8",
+  "current_version": "0.1.8",
+  "last_completed_arc": "Windows-first operator application and Cursor-ready stage bootstrap",
+  "last_completed_version": "0.1.7",
+  "next_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "non_claims": [
+    "No physical UNO R3, HX711, or load-cell success.",
+    "No physical calibration, repeatability, or hanging-load success.",
+    "No firmware compile or upload pass.",
+    "No native Windows executable or PySide6 runtime pass.",
+    "No Bluetooth, Wi-Fi, VPort, message-bus, MCP, socket, physical-button, or UNO Q activation.",
+    "No legal-for-trade certification.",
+    "No production-grade pass or release seal.",
+    "No Context Module runtime-execution claim."
+  ],
+  "status": "PASS",
+  "validated_at": "2026-07-29T18:25:11Z",
+  "version": "0.1.8"
+}

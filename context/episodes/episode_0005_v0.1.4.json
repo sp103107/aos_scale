@@ -1,0 +1,9 @@
+{
+  "episode_id": "episode_0005",
+  "generated_at": "2026-07-22T20:55:00Z",
+  "phase": "rc3a_llm_validation_harness_and_drift_profiles",
+  "record_type": "episode",
+  "status": "pass",
+  "summary": "Added deterministic LLM-native validation harness, profiles, safe drift repair, dependency graph, machine-readable receipts, and physical truth gates.",
+  "version": "0.1.4"
+}

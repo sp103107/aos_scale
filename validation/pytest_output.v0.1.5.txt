@@ -1,0 +1,19 @@
+........................................................................ [ 45%]
+.................F...................................................... [ 90%]
+...............                                                          [100%]
+=================================== FAILURES ===================================
+____________________ test_current_drift_inspection_is_clean ____________________
+
+    def test_current_drift_inspection_is_clean():
+>       assert inspect(ROOT)["status"]=="clean"
+E       AssertionError: assert 'drift' == 'clean'
+E         
+E         - clean
+E         + drift
+
+tests/test_llm_validation_harness_v014.py:75: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_llm_validation_harness_v014.py::test_current_drift_inspection_is_clean - AssertionError: assert 'drift' == 'clean'
+  
+  - clean
+  + drift

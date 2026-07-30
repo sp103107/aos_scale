@@ -1,0 +1,33 @@
+{
+  "artifacts": [
+    "reports/execution_posture_decision.v0.1.7.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "scripts/validate_repo.py"
+      ],
+      "duration_s": 26.653,
+      "evidence_class": "runtime_execution_pass",
+      "exit_code": 0,
+      "finished_at": "2026-07-24T04:27:26Z",
+      "started_at": "2026-07-24T04:26:59Z",
+      "stderr": "",
+      "stdout": "{\n  \"checks\": {\n    \"claims\": {\n      \"physical\": \"NOT_RUN\",\n      \"production\": false,\n      \"runtime_scope\": \"authorized_local_software_only\",\n      \"windows_native\": \"NOT_RUN\"\n    },\n    \"context\": {\n      \"episode\": \"episode_0008_v0.1.7\",\n      \"ledger_events\": 90,\n      \"working_set\": 8\n    },\n    \"forbidden\": \"ABSENT\",\n    \"json\": 344,\n    \"jsonl\": 103,\n    \"manifest\": 703,\n    \"python_compile\": \"PASS\",\n    \"required\": 23,\n    \"schemas\": 60,\n    \"tests\": 177,\n    \"validators\": {\n      \"validate_cursor_handoff_v017.py\": \"PASS\",\n      \"validate_cursor_ready_v017.py\": \"PASS\",\n      \"validate_drift_concordance_v017.py\": \"PASS\",\n      \"validate_frontend_polish_v017.py\": \"PASS\",\n      \"validate_frontend_runtime_truth.py\": \"PASS\",\n      \"validate_launchers.py\": \"PASS\",\n      \"validate_windows_source.py\": \"PASS\"\n    },\n    \"versions\": 11\n  },\n  \"errors\": [],\n  \"package_name\": \"best_buds_cultivator_weight_station\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.7\"\n}\n"
+    }
+  ],
+  "evidence_class": "runtime_execution_pass",
+  "finished_at": "2026-07-24T04:27:26Z",
+  "next_stage": "10_naming_concordance",
+  "non_claims": [
+    "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+  ],
+  "receipt_id": "release-v0.1.7-bg-00_repository_preflight",
+  "run_id": "release-v0.1.7-bg",
+  "stage_id": "00_repository_preflight",
+  "started_at": "2026-07-24T04:26:59Z",
+  "status": "PASS",
+  "version": "0.1.7",
+  "warnings": []
+}

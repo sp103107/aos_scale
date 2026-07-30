@@ -1,0 +1,761 @@
+{
+  "generated_at": "2026-07-24T04:32:01Z",
+  "lanes": [
+    {
+      "blocking_gates": [],
+      "commands_executed": [],
+      "created_at": "2026-07-24T04:30:53Z",
+      "data": {
+        "capabilities": {
+          "modules": {
+            "jsonschema": true,
+            "openpyxl": true,
+            "pytest": true,
+            "serial": false,
+            "yaml": true
+          },
+          "platform": {
+            "machine": "x86_64",
+            "release": "6.12.13",
+            "system": "Linux"
+          },
+          "python": {
+            "available": true,
+            "executable": "/opt/pyvenv/bin/python",
+            "version": "3.13.5"
+          },
+          "repo_root": "/tmp/bbws_v017/best_buds_cultivator_weight_station_v0_1_7",
+          "serial_port_probe_error": null,
+          "serial_ports": [],
+          "tools": {
+            "arduino_cli": {
+              "available": false,
+              "path": null,
+              "version": null
+            },
+            "dpkg_deb": {
+              "available": true,
+              "exit_code": 0,
+              "path": "/usr/bin/dpkg-deb",
+              "version": "Debian 'dpkg-deb' package archive backend version 1.22.22 (amd64)."
+            },
+            "git": {
+              "available": true,
+              "exit_code": 0,
+              "path": "/usr/bin/git",
+              "version": "git version 2.47.3"
+            }
+          }
+        },
+        "drift": {
+          "issues": [
+            {
+              "code": "CURRENT_MANIFEST_STALE",
+              "path": "manifests/file_manifest.v0.1.7.json",
+              "repairable": true,
+              "severity": "warning"
+            }
+          ],
+          "status": "drift",
+          "version": "0.1.7"
+        },
+        "graph": {
+          "graph_version": "1.3.0",
+          "lanes": [
+            {
+              "lane": "repository-inspection",
+              "requires": []
+            },
+            {
+              "lane": "development-hygiene",
+              "requires": [
+                "repository-inspection"
+              ]
+            },
+            {
+              "lane": "software",
+              "requires": [
+                "development-hygiene"
+              ]
+            },
+            {
+              "lane": "launchers",
+              "requires": [
+                "software"
+              ]
+            },
+            {
+              "lane": "agent-entrypoint",
+              "requires": [
+                "launchers"
+              ]
+            },
+            {
+              "lane": "software-dry-run",
+              "requires": [
+                "agent-entrypoint"
+              ]
+            },
+            {
+              "lane": "recovery-matrix",
+              "requires": [
+                "software-dry-run"
+              ]
+            },
+            {
+              "lane": "operator-runtime",
+              "requires": [
+                "recovery-matrix"
+              ]
+            },
+            {
+              "lane": "scripted-device",
+              "requires": [
+                "operator-runtime"
+              ]
+            },
+            {
+              "lane": "frontend-smoke",
+              "requires": [
+                "scripted-device"
+              ]
+            },
+            {
+              "lane": "windows-packaging-source",
+              "requires": [
+                "frontend-smoke"
+              ]
+            },
+            {
+              "lane": "linux-parity",
+              "requires": [
+                "windows-packaging-source"
+              ]
+            },
+            {
+              "lane": "packaging-preflight",
+              "requires": [
+                "linux-parity"
+              ]
+            },
+            {
+              "lane": "firmware",
+              "requires": [
+                "packaging-preflight"
+              ]
+            },
+            {
+              "lane": "serial",
+              "requires": [
+                "firmware"
+              ]
+            },
+            {
+              "lane": "zero-tare",
+              "requires": [
+                "serial"
+              ]
+            },
+            {
+              "lane": "calibration",
+              "requires": [
+                "zero-tare"
+              ]
+            },
+            {
+              "lane": "physical-loop",
+              "requires": [
+                "calibration"
+              ]
+            },
+            {
+              "lane": "release-packaging",
+              "requires": [
+                "physical-loop"
+              ]
+            }
+          ],
+          "package_version": "0.1.7"
+        },
+        "version": "0.1.7"
+      },
+      "evidence_refs": [],
+      "lane": "repository-inspection",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "REPOSITORY_INSPECTED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [],
+      "created_at": "2026-07-24T04:30:53Z",
+      "data": {
+        "generated_at": "2026-07-24T04:30:53Z",
+        "lanes": [],
+        "profile": "operator-ready",
+        "repairs": [],
+        "status": "PASS_WITH_WARNINGS",
+        "version": "0.1.7",
+        "warnings": [
+          "CURRENT_MANIFEST_STALE"
+        ]
+      },
+      "evidence_refs": [],
+      "lane": "development-hygiene",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "SAFE_DRIFT_PREPARED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": [
+        "CURRENT_MANIFEST_STALE"
+      ]
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider"
+          ],
+          "duration_seconds": 14.145,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "........................................................................ [ 40%]\n........................................................................ [ 81%]\n.................................                                        [100%]\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/validate_repo.py"
+          ],
+          "duration_seconds": 26.644,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"checks\": {\n    \"claims\": {\n      \"physical\": \"NOT_RUN\",\n      \"production\": false,\n      \"runtime_scope\": \"authorized_local_software_only\",\n      \"windows_native\": \"NOT_RUN\"\n    },\n    \"context\": {\n      \"episode\": \"episode_0008_v0.1.7\",\n      \"ledger_events\": 90,\n      \"working_set\": 8\n    },\n    \"forbidden\": \"ABSENT\",\n    \"json\": 357,\n    \"jsonl\": 103,\n    \"manifest\": 718,\n    \"python_compile\": \"PASS\",\n    \"required\": 23,\n    \"schemas\": 60,\n    \"tests\": 177,\n    \"validators\": {\n      \"validate_cursor_handoff_v017.py\": \"PASS\",\n      \"validate_cursor_ready_v017.py\": \"PASS\",\n      \"validate_drift_concordance_v017.py\": \"PASS\",\n      \"validate_frontend_polish_v017.py\": \"PASS\",\n      \"validate_frontend_runtime_truth.py\": \"PASS\",\n      \"validate_launchers.py\": \"PASS\",\n      \"validate_windows_source.py\": \"PASS\"\n    },\n    \"versions\": 11\n  },\n  \"errors\": [],\n  \"package_name\": \"best_buds_cultivator_weight_station\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.7\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-24T04:31:34Z",
+      "data": {},
+      "evidence_refs": [],
+      "lane": "software",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "SOFTWARE_VALIDATION_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/validate_launchers.py"
+          ],
+          "duration_seconds": 3.234,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"dry_run\": {\n    \"bootstrap\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station.bootstrap --profile operator-ready\"\n    },\n    \"launch\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station\"\n    },\n    \"simulator\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station --simulator\"\n    },\n    \"stage\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station.stage_runner list\"\n    },\n    \"validation\": {\n      \"exit_code\": 0,\n      \"stdout\": \"/opt/pyvenv/bin/python3 -m best_buds_weight_station.validation\"\n    }\n  },\n  \"required\": {\n    \"bootstrap_agent.bat\": true,\n    \"bootstrap_agent.ps1\": true,\n    \"bootstrap_agent.sh\": true,\n    \"cursor_bootstrap.bat\": true,\n    \"cursor_bootstrap.ps1\": true,\n    \"cursor_bootstrap.sh\": true,\n    \"launch_best_buds.bat\": true,\n    \"launch_best_buds.ps1\": true,\n    \"launch_best_buds.sh\": true,\n    \"launch_simulator.bat\": true,\n    \"launch_simulator.ps1\": true,\n    \"launch_simulator.sh\": true,\n    \"resume_stage.bat\": true,\n    \"resume_stage.ps1\": true,\n    \"resume_stage.sh\": true,\n    \"run_stage.bat\": true,\n    \"run_stage.ps1\": true,\n    \"run_stage.sh\": true,\n    \"run_validation.bat\": true,\n    \"run_validation.ps1\": true,\n    \"run_validation.sh\": true\n  },\n  \"shell_syntax\": {\n    \"bootstrap_agent.sh\": 0,\n    \"cursor_bootstrap.sh\": 0,\n    \"launch_best_buds.sh\": 0,\n    \"launch_simulator.sh\": 0,\n    \"resume_stage.sh\": 0,\n    \"run_stage.sh\": 0,\n    \"run_validation.sh\": 0\n  },\n  \"status\": \"PASS\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-24T04:31:37Z",
+      "data": {
+        "linux_launchers": "RUNTIME_VALIDATED",
+        "windows_launchers": "SOURCE_VALIDATED"
+      },
+      "evidence_refs": [],
+      "lane": "launchers",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "LAUNCHER_VALIDATION_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station.bootstrap",
+            "--version"
+          ],
+          "duration_seconds": 0.55,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "0.1.7\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station.bootstrap",
+            "--help"
+          ],
+          "duration_seconds": 0.535,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "usage: best-buds-weight-station-bootstrap [-h] [--repo-root REPO_ROOT]\n                                          [--profile {development,prehardware,operator-ready,cursor-ready}]\n                                          [--run-id RUN_ID] [--skip-ui]\n                                          [--no-persist] [--output OUTPUT]\n                                          [--version]\n\nRun evidence-gated coding-agent readiness profiles.\n\noptions:\n  -h, --help            show this help message and exit\n  --repo-root REPO_ROOT\n  --profile {development,prehardware,operator-ready,cursor-ready}\n  --run-id RUN_ID\n  --skip-ui\n  --no-persist\n  --output OUTPUT\n  --version\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station.validation",
+            "graph"
+          ],
+          "duration_seconds": 0.531,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"graph_version\": \"1.3.0\",\n  \"lanes\": [\n    {\n      \"lane\": \"repository-inspection\",\n      \"requires\": []\n    },\n    {\n      \"lane\": \"development-hygiene\",\n      \"requires\": [\n        \"repository-inspection\"\n      ]\n    },\n    {\n      \"lane\": \"software\",\n      \"requires\": [\n        \"development-hygiene\"\n      ]\n    },\n    {\n      \"lane\": \"launchers\",\n      \"requires\": [\n        \"software\"\n      ]\n    },\n    {\n      \"lane\": \"agent-entrypoint\",\n      \"requires\": [\n        \"launchers\"\n      ]\n    },\n    {\n      \"lane\": \"software-dry-run\",\n      \"requires\": [\n        \"agent-entrypoint\"\n      ]\n    },\n    {\n      \"lane\": \"recovery-matrix\",\n      \"requires\": [\n        \"software-dry-run\"\n      ]\n    },\n    {\n      \"lane\": \"operator-runtime\",\n      \"requires\": [\n        \"recovery-matrix\"\n      ]\n    },\n    {\n      \"lane\": \"scripted-device\",\n      \"requires\": [\n        \"operator-runtime\"\n      ]\n    },\n    {\n      \"lane\": \"frontend-smoke\",\n      \"requires\": [\n        \"scripted-device\"\n      ]\n    },\n    {\n      \"lane\": \"windows-packaging-source\",\n      \"requires\": [\n        \"frontend-smoke\"\n      ]\n    },\n    {\n      \"lane\": \"linux-parity\",\n      \"requires\": [\n        \"windows-packaging-source\"\n      ]\n    },\n    {\n      \"lane\": \"packaging-preflight\",\n      \"requires\": [\n        \"linux-parity\"\n      ]\n    },\n    {\n      \"lane\": \"firmware\",\n      \"requires\": [\n        \"packaging-preflight\"\n      ]\n    },\n    {\n      \"lane\": \"serial\",\n      \"requires\": [\n        \"firmware\"\n      ]\n    },\n    {\n      \"lane\": \"zero-tare\",\n      \"requires\": [\n        \"serial\"\n      ]\n    },\n    {\n      \"lane\": \"calibration\",\n      \"requires\": [\n        \"zero-tare\"\n      ]\n    },\n    {\n      \"lane\": \"physical-loop\",\n      \"requires\": [\n        \"calibration\"\n      ]\n    },\n    {\n      \"lane\": \"release-packaging\",\n      \"requires\": [\n        \"physical-loop\"\n      ]\n    }\n  ],\n  \"package_version\": \"0.1.7\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-24T04:31:39Z",
+      "data": {
+        "console_entrypoint": "best-buds-weight-station-bootstrap",
+        "module_entrypoint": "python -m best_buds_weight_station.bootstrap"
+      },
+      "evidence_refs": [],
+      "lane": "agent-entrypoint",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "AGENT_ENTRYPOINT_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station.validation.dry_run"
+          ],
+          "duration_seconds": 0.706,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"automatic_loop\": {\n    \"gross_g\": 1250.0,\n    \"load_resume_verified\": true,\n    \"mode\": \"automatic\",\n    \"net_g\": 1200.0,\n    \"recent_pointer_sequence\": 1,\n    \"record_id\": \"0e45fcb5-b69d-4d08-896e-00983682a93c\",\n    \"sequence\": 1,\n    \"session_manifest\": \"/tmp/bbws-software-dry-run-kb6pxkx3/automatic/data/sessions/SESSION-AUTOMATIC/session_manifest.json\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"tare_g\": 50.0,\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"bluetooth_boundary\": \"VALIDATED_DISABLED_NOT_RUN\",\n  \"calibration\": {\n    \"certification_claimed\": false,\n    \"physical_device_pass\": false,\n    \"receipt_id\": \"calibration-c52c9c42-d084-4d43-a067-9208cab14687\",\n    \"reference_weight_g\": 1000.0,\n    \"truth_class\": \"SIMULATOR_PASS\"\n  },\n  \"canonical_button_mapping\": {\n    \"blue\": \"ui.open_scale_setup\",\n    \"green\": \"capture.confirm\",\n    \"red\": \"capture.cancel\",\n    \"yellow\": \"scale.zero\"\n  },\n  \"evidence_class\": \"SIMULATOR_PASS\",\n  \"firmware_upload\": \"NOT_RUN\",\n  \"manual_loop\": {\n    \"gross_g\": 1250.0,\n    \"load_resume_verified\": true,\n    \"mode\": \"manual\",\n    \"net_g\": 1200.0,\n    \"recent_pointer_sequence\": 1,\n    \"record_id\": \"07b8d2ed-5fdf-4f41-af96-3102eb5058c2\",\n    \"sequence\": 1,\n    \"session_manifest\": \"/tmp/bbws-software-dry-run-kb6pxkx3/manual/data/sessions/SESSION-MANUAL/session_manifest.json\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"tare_g\": 50.0,\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"non_claims\": [\n    \"No physical UNO, HX711, or load-cell pass.\",\n    \"No physical calibration or hanging-load pass.\",\n    \"No Bluetooth or Wi-Fi runtime activation.\",\n    \"No legal-for-trade certification.\"\n  ],\n  \"physical_device\": \"NOT_RUN\",\n  \"status\": \"PASS\",\n  \"uno_q\": \"NOT_RUN\",\n  \"version\": \"0.1.7\",\n  \"wifi_boundary\": \"VALIDATED_DISABLED_NOT_RUN\"\n}\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/run_self_test.py"
+          ],
+          "duration_seconds": 0.664,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"alice_terminal_receipt_gate\": \"pass\",\n  \"automatic_capture\": \"pass\",\n  \"data_root\": \"/tmp/tmpqd66tfi9\",\n  \"hash_chain\": \"pass\",\n  \"local_write_failure_prevents_success_beep\": \"pass\",\n  \"manual_capture\": \"pass\",\n  \"no_success_before_alice_receipt_validation\": \"pass\",\n  \"records\": 2,\n  \"status\": \"pass\",\n  \"total_net_g\": 305.0,\n  \"truth_class\": \"SIMULATOR_PASS\"\n}\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/run_v013_acceptance.py"
+          ],
+          "duration_seconds": 0.653,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"automatic_loop\": {\n    \"feedback\": [\n      \"success\"\n    ],\n    \"mode\": \"automatic\",\n    \"net_g\": 1200.0,\n    \"recent_pointer_sequence\": 1,\n    \"record_id\": \"2101bddd-5f88-4840-a540-557239e74552\",\n    \"session_manifest\": \"/tmp/tmpauhl8prd/automatic/data/sessions/SESSION-automatic/session_manifest.json\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"terminal_truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"bluetooth_boundary\": \"validated_disabled_by_default\",\n  \"calibration\": {\n    \"physical_device_pass\": false,\n    \"receipt_id\": \"calibration-046680c6-fa4a-4545-ac5d-cb93bb6a99ee\",\n    \"truth_class\": \"SIMULATOR_PASS\"\n  },\n  \"canonical_buttons\": {\n    \"blue\": \"ui.open_scale_setup\",\n    \"green\": \"capture.confirm\",\n    \"red\": \"capture.cancel\",\n    \"yellow\": \"scale.zero\"\n  },\n  \"known_tare\": \"UNIT_TEST_PASS\",\n  \"manual_loop\": {\n    \"feedback\": [\n      \"success\"\n    ],\n    \"mode\": \"manual\",\n    \"net_g\": 1200.0,\n    \"recent_pointer_sequence\": 1,\n    \"record_id\": \"9ef1139d-66c6-42db-b35f-1d923237c435\",\n    \"session_manifest\": \"/tmp/tmpauhl8prd/manual/data/sessions/SESSION-manual/session_manifest.json\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"terminal_truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"non_claims\": [\n    \"No physical device pass.\",\n    \"No legal-for-trade calibration.\",\n    \"No Bluetooth or Wi-Fi activation.\"\n  ],\n  \"physical_device\": \"NOT_RUN\",\n  \"status\": \"pass\",\n  \"truth_class\": \"UNIT_TEST_PASS\",\n  \"uno_q\": \"NOT_RUN\",\n  \"version\": \"0.1.7\",\n  \"wifi_boundary\": \"validated_disabled_by_default\",\n  \"zero_scale\": \"SIMULATOR_PASS\"\n}\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station",
+            "--self-test"
+          ],
+          "duration_seconds": 0.645,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"alice_terminal_receipt_gate\": \"pass\",\n  \"automatic_capture\": \"pass\",\n  \"data_root\": \"/tmp/tmp8_h744n3\",\n  \"hash_chain\": \"pass\",\n  \"local_write_failure_prevents_success_beep\": \"pass\",\n  \"manual_capture\": \"pass\",\n  \"no_success_before_alice_receipt_validation\": \"pass\",\n  \"records\": 2,\n  \"status\": \"pass\",\n  \"total_net_g\": 305.0,\n  \"truth_class\": \"SIMULATOR_PASS\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-24T04:31:42Z",
+      "data": {
+        "automatic_loop": {
+          "gross_g": 1250.0,
+          "load_resume_verified": true,
+          "mode": "automatic",
+          "net_g": 1200.0,
+          "recent_pointer_sequence": 1,
+          "record_id": "0e45fcb5-b69d-4d08-896e-00983682a93c",
+          "sequence": 1,
+          "session_manifest": "/tmp/bbws-software-dry-run-kb6pxkx3/automatic/data/sessions/SESSION-AUTOMATIC/session_manifest.json",
+          "state": "WAITING_FOR_BARCODE",
+          "tare_g": 50.0,
+          "truth_class": "RECEIPT_CONFIRMED"
+        },
+        "bluetooth_boundary": "VALIDATED_DISABLED_NOT_RUN",
+        "calibration": {
+          "certification_claimed": false,
+          "physical_device_pass": false,
+          "receipt_id": "calibration-c52c9c42-d084-4d43-a067-9208cab14687",
+          "reference_weight_g": 1000.0,
+          "truth_class": "SIMULATOR_PASS"
+        },
+        "canonical_button_mapping": {
+          "blue": "ui.open_scale_setup",
+          "green": "capture.confirm",
+          "red": "capture.cancel",
+          "yellow": "scale.zero"
+        },
+        "evidence_class": "SIMULATOR_PASS",
+        "firmware_upload": "NOT_RUN",
+        "manual_loop": {
+          "gross_g": 1250.0,
+          "load_resume_verified": true,
+          "mode": "manual",
+          "net_g": 1200.0,
+          "recent_pointer_sequence": 1,
+          "record_id": "07b8d2ed-5fdf-4f41-af96-3102eb5058c2",
+          "sequence": 1,
+          "session_manifest": "/tmp/bbws-software-dry-run-kb6pxkx3/manual/data/sessions/SESSION-MANUAL/session_manifest.json",
+          "state": "WAITING_FOR_BARCODE",
+          "tare_g": 50.0,
+          "truth_class": "RECEIPT_CONFIRMED"
+        },
+        "non_claims": [
+          "No physical UNO, HX711, or load-cell pass.",
+          "No physical calibration or hanging-load pass.",
+          "No Bluetooth or Wi-Fi runtime activation.",
+          "No legal-for-trade certification."
+        ],
+        "physical_device": "NOT_RUN",
+        "status": "PASS",
+        "uno_q": "NOT_RUN",
+        "version": "0.1.7",
+        "wifi_boundary": "VALIDATED_DISABLED_NOT_RUN"
+      },
+      "evidence_refs": [],
+      "lane": "software-dry-run",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "SOFTWARE_DRY_RUN_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_storage_crash_safety_v013.py",
+            "tests/test_run_management_v013.py"
+          ],
+          "duration_seconds": 1.888,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": ".............................                                            [100%]\n"
+        }
+      ],
+      "created_at": "2026-07-24T04:31:44Z",
+      "data": {},
+      "evidence_refs": [],
+      "lane": "recovery-matrix",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "RECOVERY_MATRIX_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/run_v016_operator_acceptance.py"
+          ],
+          "duration_seconds": 3.968,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"automatic_frontend_runtime\": {\n    \"pass\": true,\n    \"snapshot\": {\n      \"alice_message\": \"Record 5d5b36ce-ae50-4483-ab91-23b5101dd501 saved locally. Net weight: 1250.0 g. Scan the next container.\",\n      \"alice_required_action\": \"scan_barcode\",\n      \"alice_truth_class\": \"RECEIPT_CONFIRMED\",\n      \"capture_mode\": \"automatic\",\n      \"container_id\": \"HOOK-SLING\",\n      \"cultivar\": \"Acceptance Cultivar\",\n      \"device\": {\n        \"calibration_factor\": 103.2,\n        \"connected\": true,\n        \"device_id\": \"SIM-UNO-001\",\n        \"disconnect_reason\": null,\n        \"firmware_version\": \"0.1.7-sim\",\n        \"last_reading_at\": 2564.19855995,\n        \"mode\": \"serial_simulator\",\n        \"port\": \"SIMULATOR\",\n        \"protocol_validated\": true,\n        \"stale\": false,\n        \"streaming\": true,\n        \"truth_class\": \"SIMULATOR_PASS\",\n        \"unit\": \"g\"\n      },\n      \"last_saved\": {\n        \"barcode_normalized\": \"AUTO-PLANT-001\",\n        \"barcode_raw\": \"AUTO-PLANT-001\",\n        \"calibration_id\": \"SIM-CAL-001\",\n        \"capture_mode\": \"automatic\",\n        \"captured_at\": \"2026-07-24T04:31:45Z\",\n        \"container_id\": \"HOOK-SLING\",\n        \"cultivar_id\": \"CV-001\",\n        \"cultivar_normalized_name\": \"Acceptance Cultivar\",\n        \"cultivar_raw_name\": \"Acceptance Cultivar\",\n        \"device_id\": \"SIM-UNO-001\",\n        \"duplicate_status\": \"none\",\n        \"event_id\": \"3dd85c69-c581-4509-ac0d-a15549edb48d\",\n        \"event_type\": \"weight_record\",\n        \"evidence_truth_class\": \"simulator\",\n        \"facility_id\": \"BEST-BUDS\",\n        \"firmware_version\": \"0.1.7-sim\",\n        \"gross_g\": 1350.0,\n        \"idempotency_key\": \"V016-AUTO-6d99a263:1:AUTO-PLANT-001\",\n        \"net_g\": 1250.0,\n        \"operator_id\": \"OPERATOR-ACCEPTANCE\",\n        \"operator_note\": null,\n        \"previous_record_hash\": null,\n        \"raw_adc_value\": 139320,\n        \"record_hash\": \"dc07bf2d005679904c5cdbbe40c360325bced9bb267c40e2e05bd63e65c65837\",\n        \"record_id\": \"5d5b36ce-ae50-4483-ab91-23b5101dd501\",\n        \"record_status\": \"accepted\",\n        \"run_id\": \"V016-AUTO\",\n        \"sample_count\": 6,\n        \"sequence\": 1,\n        \"session_id\": \"V016-AUTO-6d99a263\",\n        \"source\": \"serial_simulator\",\n        \"stability_metrics\": {\n          \"spread_g\": 0.0,\n          \"stddev_g\": 0.0\n        },\n        \"stability_profile_id\": \"standard_hanging_grams\",\n        \"station_id\": \"WEIGHT-STATION-01\",\n        \"tare_g\": 100.0\n      },\n      \"net_g\": 1250.0,\n      \"operator_id\": \"OPERATOR-ACCEPTANCE\",\n      \"operator_state\": \"READY TO SCAN\",\n      \"raw_value\": 139320,\n      \"run_id\": \"V016-AUTO\",\n      \"state\": \"WAITING_FOR_BARCODE\",\n      \"tare_g\": 100.0,\n      \"version\": \"0.1.7\",\n      \"weight_g\": 1350.0,\n      \"worker_error\": null,\n      \"worker_running\": true\n    },\n    \"submitted\": {\n      \"action_id\": \"2c805bf5-7a76-407d-be30-6a2c6b7c1b37\",\n      \"action_type\": \"barcode.submit\",\n      \"created_at\": \"2026-07-24T04:31:45Z\",\n      \"data\": {\n        \"alice_response\": {\n          \"allowed_actions\": [\n            \"keep_load_still\",\n            \"cancel_capture\",\n            \"reconnect_device\"\n          ],\n          \"blocked_actions\": [],\n          \"command_proposal\": null,\n          \"correlation_id\": null,\n          \"evidence_refs\": [],\n          \"non_claims\": [],\n          \"operator_message\": \"Keep the load centered and still while the weight stabilizes.\",\n          \"required_action\": {\n            \"action_type\": \"keep_load_still\",\n            \"details\": {},\n            \"label\": null,\n            \"required\": true\n          },\n          \"response_id\": \"alice-response-a49a5526-2794-43bd-b875-88babc66ddcf\",\n          \"response_version\": \"1.0.0\",\n          \"session_id\": \"V016-AUTO-6d99a263\",\n          \"severity\": \"info\",\n          \"state\": \"WAITING_FOR_STABLE_WEIGHT\",\n          \"timestamp\": \"2026-07-24T04:31:45Z\",\n          \"truth_class\": \"PENDING\"\n        }\n      },\n      \"message\": \"Barcode accepted; waiting for a stable load\",\n      \"state\": \"WAITING_FOR_STABLE_WEIGHT\",\n      \"status\": \"accepted\",\n      \"terminal\": false,\n      \"truth_class\": \"PENDING\"\n    },\n    \"tare\": {\n      \"action_id\": \"9693c49a-2166-4947-882d-8aa4e4be4cd8\",\n      \"action_type\": \"scale.container_tare.capture\",\n      \"created_at\": \"2026-07-24T04:31:45Z\",\n      \"data\": {\n        \"alice_response\": {\n          \"allowed_actions\": [\n            \"scan_barcode\",\n            \"barcode.submit\",\n            \"scale.zero\",\n            \"scale.container_tare.set\",\n            \"scale.container_tare.capture\",\n            \"scale.calibration.start\",\n            \"run.finish\",\n            \"open_run_summary\"\n          ],\n          \"blocked_actions\": [],\n          \"command_proposal\": null,\n          \"correlation_id\": null,\n          \"evidence_refs\": [],\n          \"non_claims\": [],\n          \"operator_message\": \"Scan the next container barcode.\",\n          \"required_action\": {\n            \"action_type\": \"scan_barcode\",\n            \"details\": {},\n            \"label\": null,\n            \"required\": true\n          },\n          \"response_id\": \"alice-response-7e79be22-8146-46b8-a895-5c4aa9127d7b\",\n          \"response_version\": \"1.0.0\",\n          \"session_id\": \"V016-AUTO-6d99a263\",\n          \"severity\": \"info\",\n          \"state\": \"WAITING_FOR_BARCODE\",\n          \"timestamp\": \"2026-07-24T04:31:45Z\",\n          \"truth_class\": \"PASS\"\n        },\n        \"physical_device_pass\": false,\n        \"tare_record\": {\n          \"container_id\": \"HOOK-SLING\",\n          \"created_at\": \"2026-07-24T04:31:45Z\",\n          \"operator_id\": \"OPERATOR-ACCEPTANCE\",\n          \"source\": \"captured_stable_weight\",\n          \"tare_g\": 100.0,\n          \"tare_id\": \"tare-f221cfe3-8dd5-4355-8931-43f146ccea2b\",\n          \"truth_class\": \"SIMULATOR_PASS\"\n        }\n      },\n      \"message\": \"Stable container tare captured and saved\",\n      \"state\": \"WAITING_FOR_BARCODE\",\n      \"status\": \"completed\",\n      \"terminal\": true,\n      \"truth_class\": \"SIMULATOR_PASS\"\n    }\n  },\n  \"manual_and_calibration_runtime\": {\n    \"accepted\": {\n      \"action_id\": \"5255166d-57aa-4ab2-8d0c-10236bf50cfa\",\n      \"action_type\": \"scale.calibration.accept\",\n      \"created_at\": \"2026-07-24T04:31:47Z\",\n      \"data\": {\n        \"calibration_receipt\": {\n          \"accepted_factor\": 103.2,\n          \"calibration_session_id\": \"cal-22266d14-0fc4-4925-94b7-2c1292d127b8\",\n          \"created_at\": \"2026-07-24T04:31:47Z\",\n          \"device_id\": \"SIM-UNO-001\",\n          \"non_claims\": [\n            \"No legal-for-trade certification is claimed.\",\n            \"No physical calibration pass is claimed without physical evidence.\"\n          ],\n          \"operator_id\": \"OPERATOR-ACCEPTANCE\",\n          \"physical_device_pass\": false,\n          \"proposal\": {\n            \"accepted\": false,\n            \"calibration_session_id\": \"cal-22266d14-0fc4-4925-94b7-2c1292d127b8\",\n            \"created_at\": \"2026-07-24T04:31:47Z\",\n            \"error_g\": 0.0,\n            \"loaded_raw_mean\": 206400.0,\n            \"predicted_weight_g\": 2000.0,\n            \"proposed_factor\": 103.2,\n            \"raw_spread\": 0.0,\n            \"reference_weight_g\": 2000.0,\n            \"relative_error_percent\": 0.0,\n            \"zero_raw_mean\": 0.0\n          },\n          \"receipt_id\": \"calibration-f42e78a7-41ce-4dd9-b7cb-a3b1a08fb4c9\",\n          \"status\": \"accepted\",\n          \"test_result\": {\n            \"error_g\": 0.0,\n            \"non_claim\": \"This is not legal-for-trade certification.\",\n            \"passed_local_tolerance\": true,\n            \"raw_spread\": 0.0,\n            \"raw_stddev\": 0.0,\n            \"reference_weight_g\": 2000.0,\n            \"relative_error_percent\": 0.0,\n            \"test_weight_g\": 2000.0,\n            \"truth_class\": \"SIMULATOR_PASS\"\n          },\n          \"truth_class\": \"SIMULATOR_PASS\"\n        },\n        \"physical_device_pass\": false\n      },\n      \"message\": \"Calibration factor accepted by the connected test device\",\n      \"state\": \"WAITING_FOR_BARCODE\",\n      \"status\": \"completed\",\n      \"terminal\": true,\n      \"truth_class\": \"SIMULATOR_PASS\"\n    },\n    \"confirmed\": {\n      \"action_id\": \"f188f6eb-9da6-4782-a917-0a63697bf26f\",\n      \"action_type\": \"capture.confirm\",\n      \"created_at\": \"2026-07-24T04:31:46Z\",\n      \"data\": {\n        \"alice_response\": {\n          \"allowed_actions\": [\n            \"scan_barcode\",\n            \"open_record\",\n            \"open_run_summary\"\n          ],\n          \"blocked_actions\": [],\n          \"command_proposal\": null,\n          \"correlation_id\": \"f188f6eb-9da6-4782-a917-0a63697bf26f\",\n          \"evidence_refs\": [\n            {\n              \"evidence_type\": \"jsonl_event\",\n              \"reference\": \"dee2ab71-21a3-42e2-b42b-05d2a6f52c26\"\n            },\n            {\n              \"evidence_type\": \"individual_record\",\n              \"reference\": \"/tmp/bbws-v016-operator-zrh26yea/manual/sessions/V016-MANUAL-f582126c/records/000001_30f027c7-faf4-4e42-a65e-8408c909481b.json\"\n            },\n            {\n              \"evidence_type\": \"checkpoint\",\n              \"reference\": \"1\"\n            },\n            {\n              \"evidence_type\": \"hash_chain\",\n              \"reference\": \"417be0a77db61887c8e0c8274ac73d18e62a69b2a6acf573c27e99cb101f0b6f\"\n            },\n            {\n              \"evidence_type\": \"commit_receipt\",\n              \"reference\": \"3984f3fb-d907-4e8a-818b-e7728fb72b2b\"\n            }\n          ],\n          \"non_claims\": [],\n          \"operator_message\": \"Record 30f027c7-faf4-4e42-a65e-8408c909481b saved locally. Net weight: 1500.0 g. Scan the next container.\",\n          \"required_action\": {\n            \"action_type\": \"scan_barcode\",\n            \"details\": {},\n            \"label\": null,\n            \"required\": true\n          },\n          \"response_id\": \"alice-response-4ddde925-8cf6-4577-b38e-0e86ec2e935a\",\n          \"response_version\": \"1.0.0\",\n          \"session_id\": \"V016-MANUAL-f582126c\",\n          \"severity\": \"info\",\n          \"state\": \"RECORD_SAVED\",\n          \"timestamp\": \"2026-07-24T04:31:46Z\",\n          \"truth_class\": \"RECEIPT_CONFIRMED\"\n        },\n        \"backend_result\": {\n          \"authoritative_paths\": [\n            \"/tmp/bbws-v016-operator-zrh26yea/manual/sessions/V016-MANUAL-f582126c/records.jsonl\",\n            \"/tmp/bbws-v016-operator-zrh26yea/manual/sessions/V016-MANUAL-f582126c/records/000001_30f027c7-faf4-4e42-a65e-8408c909481b.json\",\n            \"/tmp/bbws-v016-operator-zrh26yea/manual/sessions/V016-MANUAL-f582126c/session_snapshot.json\"\n          ],\n          \"checkpoint_version\": 1,\n          \"committed_at\": \"2026-07-24T04:31:46Z\",\n          \"derivative_status\": {\n            \"csv\": \"updated\",\n            \"xlsx\": \"updated\"\n          },\n          \"individual_record_path\": \"/tmp/bbws-v016-operator-zrh26yea/manual/sessions/V016-MANUAL-f582126c/records/000001_30f027c7-faf4-4e42-a65e-8408c909481b.json\",\n          \"jsonl_event_id\": \"dee2ab71-21a3-42e2-b42b-05d2a6f52c26\",\n          \"local_commit\": true,\n          \"net_g\": 1500.0,\n          \"receipt_id\": \"3984f3fb-d907-4e8a-818b-e7728fb72b2b\",\n          \"record_hash\": \"417be0a77db61887c8e0c8274ac73d18e62a69b2a6acf573c27e99cb101f0b6f\",\n          \"record_id\": \"30f027c7-faf4-4e42-a65e-8408c909481b\",\n          \"status\": \"committed\"\n        },\n        \"feedback\": \"success\",\n        \"record\": {\n          \"barcode_normalized\": \"MANUAL-PLANT-001\",\n          \"barcode_raw\": \"MANUAL-PLANT-001\",\n          \"calibration_id\": \"SIM-CAL-001\",\n          \"capture_mode\": \"manual\",\n          \"captured_at\": \"2026-07-24T04:31:46Z\",\n          \"container_id\": \"DEFAULT\",\n          \"cultivar_id\": \"CV-001\",\n          \"cultivar_normalized_name\": \"Acceptance Cultivar\",\n          \"cultivar_raw_name\": \"Acceptance Cultivar\",\n          \"device_id\": \"SIM-UNO-001\",\n          \"duplicate_status\": \"none\",\n          \"event_id\": \"dee2ab71-21a3-42e2-b42b-05d2a6f52c26\",\n          \"event_type\": \"weight_record\",\n          \"evidence_truth_class\": \"simulator\",\n          \"facility_id\": \"BEST-BUDS\",\n          \"firmware_version\": \"0.1.7-sim\",\n          \"gross_g\": 1500.0,\n          \"idempotency_key\": \"V016-MANUAL-f582126c:1:MANUAL-PLANT-001\",\n          \"net_g\": 1500.0,\n          \"operator_id\": \"OPERATOR-ACCEPTANCE\",\n          \"operator_note\": null,\n          \"previous_record_hash\": null,\n          \"raw_adc_value\": null,\n          \"record_hash\": \"417be0a77db61887c8e0c8274ac73d18e62a69b2a6acf573c27e99cb101f0b6f\",\n          \"record_id\": \"30f027c7-faf4-4e42-a65e-8408c909481b\",\n          \"record_status\": \"accepted\",\n          \"run_id\": \"V016-MANUAL\",\n          \"sample_count\": 6,\n          \"sequence\": 1,\n          \"session_id\": \"V016-MANUAL-f582126c\",\n          \"source\": \"serial_simulator\",\n          \"stability_metrics\": {\n            \"spread_g\": 0.0,\n            \"stddev_g\": 0.0\n          },\n          \"stability_profile_id\": \"standard_hanging_grams\",\n          \"station_id\": \"WEIGHT-STATION-01\",\n          \"tare_g\": 0.0\n        }\n      },\n      \"message\": \"Record 30f027c7-faf4-4e42-a65e-8408c909481b saved locally. Net weight: 1500.0 g. Scan the next container.\",\n      \"state\": \"WAITING_FOR_BARCODE\",\n      \"status\": \"completed\",\n      \"terminal\": true,\n      \"truth_class\": \"RECEIPT_CONFIRMED\"\n    },\n    \"pass\": true,\n    \"proposal\": {\n      \"action_id\": \"bb0812af-19d3-4b0d-9e76-c6b617c54ad4\",\n      \"action_type\": \"scale.calibration.sample\",\n      \"created_at\": \"2026-07-24T04:31:47Z\",\n      \"data\": {\n        \"physical_device_pass\": false,\n        \"proposal\": {\n          \"accepted\": false,\n          \"calibration_session_id\": \"cal-22266d14-0fc4-4925-94b7-2c1292d127b8\",\n          \"created_at\": \"2026-07-24T04:31:47Z\",\n          \"error_g\": 0.0,\n          \"loaded_raw_mean\": 206400.0,\n          \"predicted_weight_g\": 2000.0,\n          \"proposed_factor\": 103.2,\n          \"raw_spread\": 0.0,\n          \"reference_weight_g\": 2000.0,\n          \"relative_error_percent\": 0.0,\n          \"zero_raw_mean\": 0.0\n        }\n      },\n      \"message\": \"Calibration factor proposal calculated\",\n      \"state\": \"WAITING_FOR_BARCODE\",\n      \"status\": \"completed\",\n      \"terminal\": true,\n      \"truth_class\": \"UNIT_TEST_PASS\"\n    },\n    \"snapshot\": {\n      \"alice_message\": \"Record 30f027c7-faf4-4e42-a65e-8408c909481b saved locally. Net weight: 1500.0 g. Scan the next container.\",\n      \"alice_required_action\": \"scan_barcode\",\n      \"alice_truth_class\": \"RECEIPT_CONFIRMED\",\n      \"capture_mode\": \"manual\",\n      \"container_id\": \"DEFAULT\",\n      \"cultivar\": \"Acceptance Cultivar\",\n      \"device\": {\n        \"calibration_factor\": 103.2,\n        \"connected\": true,\n        \"device_id\": \"SIM-UNO-001\",\n        \"disconnect_reason\": null,\n        \"firmware_version\": \"0.1.7-sim\",\n        \"last_reading_at\": 2566.281956583,\n        \"mode\": \"serial_simulator\",\n        \"port\": \"SIMULATOR\",\n        \"protocol_validated\": true,\n        \"stale\": false,\n        \"streaming\": true,\n        \"truth_class\": \"SIMULATOR_PASS\",\n        \"unit\": \"g\"\n      },\n      \"last_saved\": {\n        \"barcode_normalized\": \"MANUAL-PLANT-001\",\n        \"barcode_raw\": \"MANUAL-PLANT-001\",\n        \"calibration_id\": \"SIM-CAL-001\",\n        \"capture_mode\": \"manual\",\n        \"captured_at\": \"2026-07-24T04:31:46Z\",\n        \"container_id\": \"DEFAULT\",\n        \"cultivar_id\": \"CV-001\",\n        \"cultivar_normalized_name\": \"Acceptance Cultivar\",\n        \"cultivar_raw_name\": \"Acceptance Cultivar\",\n        \"device_id\": \"SIM-UNO-001\",\n        \"duplicate_status\": \"none\",\n        \"event_id\": \"dee2ab71-21a3-42e2-b42b-05d2a6f52c26\",\n        \"event_type\": \"weight_record\",\n        \"evidence_truth_class\": \"simulator\",\n        \"facility_id\": \"BEST-BUDS\",\n        \"firmware_version\": \"0.1.7-sim\",\n        \"gross_g\": 1500.0,\n        \"idempotency_key\": \"V016-MANUAL-f582126c:1:MANUAL-PLANT-001\",\n        \"net_g\": 1500.0,\n        \"operator_id\": \"OPERATOR-ACCEPTANCE\",\n        \"operator_note\": null,\n        \"previous_record_hash\": null,\n        \"raw_adc_value\": null,\n        \"record_hash\": \"417be0a77db61887c8e0c8274ac73d18e62a69b2a6acf573c27e99cb101f0b6f\",\n        \"record_id\": \"30f027c7-faf4-4e42-a65e-8408c909481b\",\n        \"record_status\": \"accepted\",\n        \"run_id\": \"V016-MANUAL\",\n        \"sample_count\": 6,\n        \"sequence\": 1,\n        \"session_id\": \"V016-MANUAL-f582126c\",\n        \"source\": \"serial_simulator\",\n        \"stability_metrics\": {\n          \"spread_g\": 0.0,\n          \"stddev_g\": 0.0\n        },\n        \"stability_profile_id\": \"standard_hanging_grams\",\n        \"station_id\": \"WEIGHT-STATION-01\",\n        \"tare_g\": 0.0\n      },\n      \"net_g\": 2000.0,\n      \"operator_id\": \"OPERATOR-ACCEPTANCE\",\n      \"operator_state\": \"READY TO SCAN\",\n      \"raw_value\": 206400,\n      \"run_id\": \"V016-MANUAL\",\n      \"state\": \"WAITING_FOR_BARCODE\",\n      \"tare_g\": 0.0,\n      \"version\": \"0.1.7\",\n      \"weight_g\": 2000.0,\n      \"worker_error\": null,\n      \"worker_running\": true\n    },\n    \"tested\": {\n      \"action_id\": \"086aa806-d2f4-41f6-8350-c1094966bb3c\",\n      \"action_type\": \"scale.calibration.test\",\n      \"created_at\": \"2026-07-24T04:31:47Z\",\n      \"data\": {\n        \"calibration_test\": {\n          \"error_g\": 0.0,\n          \"non_claim\": \"This is not legal-for-trade certification.\",\n          \"passed_local_tolerance\": true,\n          \"raw_spread\": 0.0,\n          \"raw_stddev\": 0.0,\n          \"reference_weight_g\": 2000.0,\n          \"relative_error_percent\": 0.0,\n          \"test_weight_g\": 2000.0,\n          \"truth_class\": \"SIMULATOR_PASS\"\n        },\n        \"physical_device_pass\": false\n      },\n      \"message\": \"Proposed calibration factor tested\",\n      \"state\": \"WAITING_FOR_BARCODE\",\n      \"status\": \"completed\",\n      \"terminal\": true,\n      \"truth_class\": \"SIMULATOR_PASS\"\n    },\n    \"zero_samples\": {\n      \"action_id\": \"4a922c97-5a0e-4710-9208-cdf0ed9fdb96\",\n      \"action_type\": \"scale.calibration.sample\",\n      \"created_at\": \"2026-07-24T04:31:47Z\",\n      \"data\": {},\n      \"message\": \"Zero-load calibration samples accepted\",\n      \"state\": \"WAITING_FOR_BARCODE\",\n      \"status\": \"completed\",\n      \"terminal\": true,\n      \"truth_class\": \"UNIT_TEST_PASS\"\n    }\n  },\n  \"physical_device\": \"NOT_RUN\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.7\",\n  \"windows_native_runtime\": \"NOT_RUN\"\n}\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/validate_frontend_runtime_truth.py"
+          ],
+          "duration_seconds": 0.507,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"checks\": {\n    \"alice_state_refresh\": true,\n    \"background_worker\": true,\n    \"barcode_keyboard_path\": true,\n    \"calibration_dialog\": true,\n    \"no_synthetic_physical_zero\": true,\n    \"pyside_primary\": true,\n    \"scale_setup_dialog\": true,\n    \"scale_setup_not_placeholder\": true,\n    \"tare_dialog\": true,\n    \"windows_first_paths\": true,\n    \"worker_shutdown\": true\n  },\n  \"failures\": [],\n  \"status\": \"PASS\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-24T04:31:48Z",
+      "data": {
+        "automatic": "SIMULATOR_PASS",
+        "manual": "SIMULATOR_PASS",
+        "physical_device": "NOT_RUN"
+      },
+      "evidence_refs": [],
+      "lane": "operator-runtime",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "OPERATOR_RUNTIME_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_operator_runtime_v016.py",
+            "tests/test_device_service_v013.py"
+          ],
+          "duration_seconds": 3.703,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "..................                                                       [100%]\n"
+        }
+      ],
+      "created_at": "2026-07-24T04:31:52Z",
+      "data": {
+        "physical_device_pass": false,
+        "truth_class": "UNIT_TEST_PASS"
+      },
+      "evidence_refs": [],
+      "lane": "scripted-device",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "SCRIPTED_DEVICE_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/usr/bin/xvfb-run",
+            "-a",
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station",
+            "--simulator",
+            "--ui-smoke",
+            "--capture-mode",
+            "manual",
+            "--data-root",
+            "/tmp/bbws-ui-smoke-tvua3yo9/manual"
+          ],
+          "duration_seconds": 2.362,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": ""
+        },
+        {
+          "command": [
+            "/usr/bin/xvfb-run",
+            "-a",
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "best_buds_weight_station",
+            "--simulator",
+            "--ui-smoke",
+            "--capture-mode",
+            "automatic",
+            "--data-root",
+            "/tmp/bbws-ui-smoke-tvua3yo9/automatic"
+          ],
+          "duration_seconds": 2.325,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": ""
+        }
+      ],
+      "created_at": "2026-07-24T04:31:56Z",
+      "data": {
+        "pyside6_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+        "tk_runtime": "PASS"
+      },
+      "evidence_refs": [],
+      "lane": "frontend-smoke",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "FRONTEND_SMOKE_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/validate_windows_source.py"
+          ],
+          "duration_seconds": 0.514,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\n  \"failures\": [],\n  \"native_windows_execution\": \"NOT_RUN\",\n  \"required_files\": [\n    \"packaging/windows/BestBudsWeightStation.spec\",\n    \"packaging/windows/build_windows.ps1\",\n    \"packaging/windows/verify_windows.ps1\",\n    \"packaging/windows/install_windows.ps1\",\n    \"packaging/windows/uninstall_windows.ps1\",\n    \"packaging/windows/launcher_config.json\",\n    \"packaging/windows/README.md\",\n    \"launch_best_buds.bat\",\n    \"launch_best_buds.ps1\"\n  ],\n  \"status\": \"PASS\",\n  \"truth_class\": \"WINDOWS_SOURCE_PRESENT\"\n}\n"
+        }
+      ],
+      "created_at": "2026-07-24T04:31:57Z",
+      "data": {
+        "native_runtime": "NOT_RUN",
+        "truth_class": "WINDOWS_SOURCE_PRESENT"
+      },
+      "evidence_refs": [],
+      "lane": "windows-packaging-source",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "WINDOWS_SOURCE_VALIDATED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": [
+        "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+      ]
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "sh",
+            "-n",
+            "launch_best_buds.sh"
+          ],
+          "duration_seconds": 0.001,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": ""
+        },
+        {
+          "command": [
+            "sh",
+            "-n",
+            "launch_simulator.sh"
+          ],
+          "duration_seconds": 0.001,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": ""
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "scripts/launcher.py",
+            "simulator",
+            "--direct",
+            "--dry-run",
+            "--ui-smoke"
+          ],
+          "duration_seconds": 0.501,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "/opt/pyvenv/bin/python3 -m best_buds_weight_station --simulator --ui-smoke\n"
+        }
+      ],
+      "created_at": "2026-07-24T04:31:57Z",
+      "data": {
+        "linux_launcher": "PASS",
+        "pyside_primary": "SOURCE_PRESENT",
+        "tk_fallback": "SOURCE_PRESENT"
+      },
+      "evidence_refs": [],
+      "lane": "linux-parity",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "LINUX_PARITY_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    },
+    {
+      "blocking_gates": [],
+      "commands_executed": [
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-m",
+            "pip",
+            "install",
+            "--no-deps",
+            "--no-build-isolation",
+            "--no-index",
+            "--disable-pip-version-check",
+            "--target",
+            "/tmp/bbws-install-preflight-2vv7whdc/site",
+            "."
+          ],
+          "duration_seconds": 2.63,
+          "exit_code": 0,
+          "stderr": "WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n",
+          "stdout": "Processing /tmp/bbws_v017/best_buds_cultivator_weight_station_v0_1_7\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: best-buds-cultivator-weight-station\n  Building wheel for best-buds-cultivator-weight-station (pyproject.toml): started\n  Building wheel for best-buds-cultivator-weight-station (pyproject.toml): finished with status 'done'\n  Created wheel for best-buds-cultivator-weight-station: filename=best_buds_cultivator_weight_station-0.1.7-py3-none-any.whl size=97099 sha256=d34c8dd83aecf800869dda0354bdd64d7baaf0fa06dc1ccd4970532a4095d8cc\n  Stored in directory: /tmp/pip-ephem-wheel-cache-5mkb_79y/wheels/14/1d/ee/2b734de0688677e06275725a10c00425718afe1d79bfeb5db2\nSuccessfully built best-buds-cultivator-weight-station\nInstalling collected packages: best-buds-cultivator-weight-station\nSuccessfully installed best-buds-cultivator-weight-station-0.1.7\n"
+        },
+        {
+          "command": [
+            "/opt/pyvenv/bin/python3",
+            "-c",
+            "import sys; sys.path.insert(0, r'/tmp/bbws-install-preflight-2vv7whdc/site'); from best_buds_weight_station.version import __version__; from best_buds_weight_station.bootstrap import parser; assert __version__ == '0.1.7'; parser(); print(__version__)"
+          ],
+          "duration_seconds": 0.527,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "0.1.7\n"
+        }
+      ],
+      "created_at": "2026-07-24T04:32:01Z",
+      "data": {
+        "isolated_install": "PASS"
+      },
+      "evidence_refs": [],
+      "lane": "packaging-preflight",
+      "next_action": null,
+      "profile": "operator-ready",
+      "reason_code": "PACKAGING_PREFLIGHT_PASSED",
+      "required_action": null,
+      "status": "PASS",
+      "warnings": []
+    }
+  ],
+  "next_command": "python -m best_buds_weight_station.validation run --lane firmware --profile integration --port <serial-port>",
+  "next_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "physical_gates": {
+    "calibration": "NOT_RUN",
+    "firmware_compile_upload": "NOT_RUN",
+    "physical_loop": "NOT_RUN",
+    "physical_serial": "NOT_RUN",
+    "zero_tare": "NOT_RUN"
+  },
+  "profile": "operator-ready",
+  "repo_root": "/tmp/bbws_v017/best_buds_cultivator_weight_station_v0_1_7",
+  "run_id": "bootstrap-v0.1.7-final",
+  "status": "PASS_WITH_WARNINGS",
+  "version": "0.1.7",
+  "warnings": [
+    "CURRENT_MANIFEST_STALE",
+    "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+  ]
+}

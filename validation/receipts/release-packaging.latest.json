@@ -1,0 +1,19 @@
+{
+  "blocking_gates": [
+    "calibration",
+    "physical-loop"
+  ],
+  "commands_executed": [],
+  "created_at": "2026-07-22T20:54:06Z",
+  "data": {},
+  "evidence_refs": [
+    "validation/receipts/release-packaging.latest.json"
+  ],
+  "lane": "release-packaging",
+  "next_action": "Complete physical calibration and end-to-end loop before release packaging.",
+  "profile": "release",
+  "reason_code": "PHYSICAL_EVIDENCE_NOT_CLOSED",
+  "required_action": null,
+  "status": "BLOCKED",
+  "warnings": []
+}

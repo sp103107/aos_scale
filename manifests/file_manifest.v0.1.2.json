@@ -1,0 +1,1543 @@
+{
+  "exclusions": [
+    "manifests/file_manifest.v0.1.2.json",
+    ".git/",
+    ".pytest_cache/",
+    "__pycache__/",
+    "build/",
+    "data/runtime/",
+    "*.pyc"
+  ],
+  "file_count": 305,
+  "files": [
+    {
+      "path": ".github/workflows/release.yml",
+      "sha256": "9fd264b741b444e13350c52a77fe3019e6115a4ac654dbf92e4095e4153731cf",
+      "size_bytes": 1268
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "7bf28c3aa0ca78bbe7ae0613ac39582fef1c7489ee0aa5e43a8437b06392028a",
+      "size_bytes": 2927
+    },
+    {
+      "path": "README.md",
+      "sha256": "07fe8bcd48908e3cca62b4224585f11028a87e8a9f2d5134af8d745966541d76",
+      "size_bytes": 3022
+    },
+    {
+      "path": "VERSION",
+      "sha256": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+      "size_bytes": 6
+    },
+    {
+      "path": "adapters/README.md",
+      "sha256": "9913b150e50df9a913b0f06add7f70486a11724035e8b60b856147ec02df14df",
+      "size_bytes": 218
+    },
+    {
+      "path": "adapters/camera_barcode/adapter_manifest.v0.1.0.json",
+      "sha256": "ba3866e058046bea3f7685095bd2e59fc98231de5e8639578399f7acf6df92d5",
+      "size_bytes": 116
+    },
+    {
+      "path": "adapters/http/adapter_manifest.v0.1.0.json",
+      "sha256": "1eef7c3e418a7e30b4e0f6415b375d02af116fdf20033149fa9d4e22b5236e26",
+      "size_bytes": 108
+    },
+    {
+      "path": "adapters/mcp/adapter_manifest.v0.1.0.json",
+      "sha256": "81eea264997508a2d1ab06845e2fc8ba8e8f4e0a7125e1e3521d13cd6baefd6d",
+      "size_bytes": 107
+    },
+    {
+      "path": "adapters/message_bus/adapter_manifest.v0.1.0.json",
+      "sha256": "3206f7237caa32df25c0c3466e972947aa14cf5256f7f9d86fed6820b1fa0c8e",
+      "size_bytes": 115
+    },
+    {
+      "path": "adapters/private_cloud/adapter_manifest.v0.1.0.json",
+      "sha256": "698ed9f4b666b0e61e36f8e9ec9cedfad5d7bab4f554e6b733b1557cc58bfdc7",
+      "size_bytes": 117
+    },
+    {
+      "path": "adapters/private_git/adapter_manifest.v0.1.0.json",
+      "sha256": "593f7bdcbf446c4a9593076c044c8a01b73d75f27c3b8641d1dc509e2b680dde",
+      "size_bytes": 115
+    },
+    {
+      "path": "adapters/serial_barcode/adapter_manifest.v0.1.0.json",
+      "sha256": "02720e8831eb438c2d8a2297bf8a04272f55d3365700531feacf56ef683d167e",
+      "size_bytes": 116
+    },
+    {
+      "path": "adapters/vport/adapter_manifest.v0.1.0.json",
+      "sha256": "24230adafe3d983f0bf4e8ac1254e10fe97f7c59db4cf73f1dbc39e20d56a6cf",
+      "size_bytes": 109
+    },
+    {
+      "path": "app/best_buds_weight_station/__init__.py",
+      "sha256": "bd30fb4dc8195475963b9a7b6d2152f212422873e119ed76149f9c3eb0cb4178",
+      "size_bytes": 57
+    },
+    {
+      "path": "app/best_buds_weight_station/__main__.py",
+      "sha256": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+      "size_bytes": 47
+    },
+    {
+      "path": "app/best_buds_weight_station/alice/__init__.py",
+      "sha256": "e5c99b2de989be3da71025f61f7d0d053a91b80cd23f8013a42afc467db0b17e",
+      "size_bytes": 937
+    },
+    {
+      "path": "app/best_buds_weight_station/alice/authority.py",
+      "sha256": "75dc5b59e2546b8a01185bb1daa0935cabfeec8c1ad7f013a5998a6d06358844",
+      "size_bytes": 3826
+    },
+    {
+      "path": "app/best_buds_weight_station/alice/command_builder.py",
+      "sha256": "8faa08d105537657a366035064b2f3ae987f2bd08ebf11fce3891df0f0ecf13d",
+      "size_bytes": 1985
+    },
+    {
+      "path": "app/best_buds_weight_station/alice/errors.py",
+      "sha256": "ed8fe420e9bc10a3fbadcf8cc28a088309ed2fad85afdb6e7aff2edd24fb4c74",
+      "size_bytes": 448
+    },
+    {
+      "path": "app/best_buds_weight_station/alice/examples.py",
+      "sha256": "e24dd6abaca232305f3a2f8cc5c05dc4e8f435d3d57180b4883e28835b82bc78",
+      "size_bytes": 3620
+    },
+    {
+      "path": "app/best_buds_weight_station/alice/prompt_loader.py",
+      "sha256": "40e83b4e3b9c515c9df3093e7495962ff48afc82daadd31f6beb0cce61d36e99",
+      "size_bytes": 658
+    },
+    {
+      "path": "app/best_buds_weight_station/alice/receipt_interpreter.py",
+      "sha256": "3b82658fb765c922f723ee08ccaabf85fb61b1b53d72d4118223adccc0b87014",
+      "size_bytes": 6217
+    },
+    {
+      "path": "app/best_buds_weight_station/alice/recovery_router.py",
+      "sha256": "95982eb8a3347b25a67eea5785f7a425679a199a4e330e91f35b66dca29aa0b0",
+      "size_bytes": 3191
+    },
+    {
+      "path": "app/best_buds_weight_station/alice/response_agent.py",
+      "sha256": "bf869ffe55002cad54dd3f258d48eab9fde98309bc2b1127665f74a083619709",
+      "size_bytes": 3017
+    },
+    {
+      "path": "app/best_buds_weight_station/alice/response_models.py",
+      "sha256": "2f8a0c39d08ab773d2ef6b9b05872706e6b69bfeb231556cdc427909d8c58fc1",
+      "size_bytes": 1899
+    },
+    {
+      "path": "app/best_buds_weight_station/alice/state_interpreter.py",
+      "sha256": "0e556862dc5977c5c326e8c73b6a24f01a19ae80500d15866c0b19a5c95b94ad",
+      "size_bytes": 4091
+    },
+    {
+      "path": "app/best_buds_weight_station/cli.py",
+      "sha256": "3b8cda3b3a55281bb63321994110aefed1550b89ae41a1c46c59ac22f929062c",
+      "size_bytes": 1377
+    },
+    {
+      "path": "app/best_buds_weight_station/envelope.py",
+      "sha256": "ef8d5a757e18d83e706fabb3a0075652f3ff606ea5a66cfedfb77bf553d4968f",
+      "size_bytes": 1799
+    },
+    {
+      "path": "app/best_buds_weight_station/models.py",
+      "sha256": "6f71bc517e9e79b17e80bf6e1d4a767dd4a5667abb4b83ce1e77f15623bcfe1a",
+      "size_bytes": 2658
+    },
+    {
+      "path": "app/best_buds_weight_station/reports.py",
+      "sha256": "78933ff8d7f3be08691946bfe6a56e27e47ff73234827d6a65998dcf675d3dea",
+      "size_bytes": 1636
+    },
+    {
+      "path": "app/best_buds_weight_station/selftest.py",
+      "sha256": "74a647c842c33cbb9b392f25635cedfac61c0a6a0f50d550efc4e5d0d5e6df1c",
+      "size_bytes": 4385
+    },
+    {
+      "path": "app/best_buds_weight_station/serial_adapter.py",
+      "sha256": "9b90a721b12c4d8eda4470aa055e674e829ed062e3e613b065eaa57e211f1176",
+      "size_bytes": 933
+    },
+    {
+      "path": "app/best_buds_weight_station/simulator.py",
+      "sha256": "f844cb0a21850d460014c100a21bc09c06ba3caf466d29e3b584a2c9e7571c4a",
+      "size_bytes": 1054
+    },
+    {
+      "path": "app/best_buds_weight_station/spreadsheet.py",
+      "sha256": "77f34473032f0bcf6373de382e2001c6b317aa73177074f6c318c90bf201bee4",
+      "size_bytes": 1610
+    },
+    {
+      "path": "app/best_buds_weight_station/stability.py",
+      "sha256": "a20e6079af2ca851bcca0022e65ea4143bbc84539aa414cc3c556e1ef0b179fa",
+      "size_bytes": 2119
+    },
+    {
+      "path": "app/best_buds_weight_station/state_machine.py",
+      "sha256": "9e71dbb8ce1bed59c4ad66370238374022d09967c9733c498736f3471d7a5cc9",
+      "size_bytes": 7525
+    },
+    {
+      "path": "app/best_buds_weight_station/storage.py",
+      "sha256": "1ce0436f7eef9f82bcf947051adf741cf6223e4b70c2c06f18db4e33c1a70201",
+      "size_bytes": 11861
+    },
+    {
+      "path": "app/best_buds_weight_station/ui.py",
+      "sha256": "13cb1653a1b3906f3ab0e48aa036fa124237a27acaf3897fb532d48da400b7aa",
+      "size_bytes": 21441
+    },
+    {
+      "path": "app/best_buds_weight_station/version.py",
+      "sha256": "99da7609fb5fa986dd2ad3fe796bf5cfbac0532718bfa5f59ed5d23147fc2acb",
+      "size_bytes": 22
+    },
+    {
+      "path": "backend/backend_manifest.v0.1.0.json",
+      "sha256": "dcb8498b53b585d12219d4227e77482099517045bdeb4ab9036564d91d01243f",
+      "size_bytes": 310
+    },
+    {
+      "path": "backend/backend_manifest.v0.1.1.json",
+      "sha256": "24820c7839fd26c9765bb7c6a776c44274369c2465f28a0e3f71ed864012912e",
+      "size_bytes": 492
+    },
+    {
+      "path": "backend/backend_manifest.v0.1.2.json",
+      "sha256": "4ac3e1a47b9e9f38874c2b72ecb506962b99730a4f2e145783355f11f352d12f",
+      "size_bytes": 599
+    },
+    {
+      "path": "backend/service.py",
+      "sha256": "72821830e4e8cfebe7502c897c3e3d89433b9f0d01a00ffcd1fe865a2b5f8922",
+      "size_bytes": 537
+    },
+    {
+      "path": "context/context_validation_report.v0.1.0.json",
+      "sha256": "c5933b7ed10812d22c39dd8f04e49e4a8ecc0c502bb92814216319c7e30d360b",
+      "size_bytes": 546
+    },
+    {
+      "path": "context/context_validation_report.v0.1.1.json",
+      "sha256": "49ce2bc54b980031a93846d299b6c120b441ffb8245fd7947e2db03894ac66fc",
+      "size_bytes": 530
+    },
+    {
+      "path": "context/context_validation_report.v0.1.2.json",
+      "sha256": "32e9e12a6c4250bfdba803d7e281a8301d0ae34fa98696c022ead5400a0df1ea",
+      "size_bytes": 531
+    },
+    {
+      "path": "context/episodes/episode_0001_v0.1.0.json",
+      "sha256": "a2942d2c506d311436df2d94417997f51459c085f7c0466e0d2ed0d469f68d5b",
+      "size_bytes": 275
+    },
+    {
+      "path": "context/episodes/episode_0002_v0.1.1.json",
+      "sha256": "ad6a254bca79e7b5dfc2e6431ed8eb8020ca524873c2236b0fa47d28d92d3311",
+      "size_bytes": 357
+    },
+    {
+      "path": "context/episodes/episode_0003_v0.1.2.json",
+      "sha256": "716f310480580130f134075237e67d552551863e3dffb332bb98c4d62d259ac0",
+      "size_bytes": 332
+    },
+    {
+      "path": "context/ledger/ledger.jsonl",
+      "sha256": "5ad357ecfeb0cbff8c4743cf02f07efcbcdbcca2928697c9c0f867ef47540589",
+      "size_bytes": 5260
+    },
+    {
+      "path": "context/resume_pack/CONTINUATION_HANDOFF_PROMPT.v0.1.0.md",
+      "sha256": "e184fdd372992bf2f3ae77a430dc8129db5b9653cfad7d0cc041668ff6de1a77",
+      "size_bytes": 477
+    },
+    {
+      "path": "context/resume_pack/CONTINUATION_HANDOFF_PROMPT.v0.1.1.md",
+      "sha256": "0b745a9d37203a6375149a3a58495d2663475909e19c50d629102ad3c40f31d7",
+      "size_bytes": 1083
+    },
+    {
+      "path": "context/resume_pack/CONTINUATION_HANDOFF_PROMPT.v0.1.2.md",
+      "sha256": "7bb803dfd3898e2d25243766122e00db34b639f5c38e0cb82ec8ceca832d1f49",
+      "size_bytes": 896
+    },
+    {
+      "path": "context/resume_pack/resume_pack_manifest.v0.1.0.json",
+      "sha256": "414ea68faf28c3060fd753a9dcfcdf34906d928b96d69f83645c58cd34fb8c94",
+      "size_bytes": 977
+    },
+    {
+      "path": "context/resume_pack/resume_pack_manifest.v0.1.1.json",
+      "sha256": "89c6482b9b2ae7c3fae5cd7f2a473dbbbbfb70166cc629c51b4e72b6de62e5ed",
+      "size_bytes": 1603
+    },
+    {
+      "path": "context/resume_pack/resume_pack_manifest.v0.1.2.json",
+      "sha256": "a1be25de724c9e49bb403f0f370afb402bf24c4e4678f7f422274ee24166b036",
+      "size_bytes": 1168
+    },
+    {
+      "path": "context/source_truth/best_buds_cultivator_weight_station_context_kickoff_pack_v0_1_1.manifest.json",
+      "sha256": "d1226113411dea640659342085ea70fe2fae723b5a0c733e59ca7294e48a1b7f",
+      "size_bytes": 1783
+    },
+    {
+      "path": "context/source_truth/best_buds_cultivator_weight_station_context_kickoff_pack_v0_1_1.zip",
+      "sha256": "abbe1863f2566f739fc2155704a47de550f39046083586c9be7f3869c0a1f12d",
+      "size_bytes": 11934
+    },
+    {
+      "path": "context/source_truth/best_buds_cultivator_weight_station_context_kickoff_pack_v0_1_1.zip.sha256",
+      "sha256": "018d461b3fd9a66ce7bdf33b1a4e8990ca90ab6caf263b55b559f79a75defcf4",
+      "size_bytes": 134
+    },
+    {
+      "path": "context/source_truth/best_buds_cultivator_weight_station_execution_hardening_addendum_v0_1_1.json",
+      "sha256": "675548d76ebaf116e22c1ed827abbe7313c1e8a94c7dcda4f05b8d44077e5121",
+      "size_bytes": 8309
+    },
+    {
+      "path": "context/source_truth/best_buds_cultivator_weight_station_new_context_build_kickoff_prompt_v0_1_1.md",
+      "sha256": "8dcb51d9f0185784d25332c9aea5a48ef9d1c8bad6d000280d19d230ff58a013",
+      "size_bytes": 18533
+    },
+    {
+      "path": "context/working_set/working_set_update_0001.json",
+      "sha256": "2c162044dae9cf28f11509abfd5840e3a4a361ebb7a571d6cde932d8bbe1a395",
+      "size_bytes": 1297
+    },
+    {
+      "path": "context/working_set/working_set_update_0002.json",
+      "sha256": "44cd8f73fe68ddb5e847638423c9efb61f6a6db80e8ab95c10bcadacc3b24b5b",
+      "size_bytes": 1804
+    },
+    {
+      "path": "context/working_set/working_set_update_0003.json",
+      "sha256": "6520d7744a38cb0faabe014318a7e2401f215272fc82d8547f5034474319b397",
+      "size_bytes": 1606
+    },
+    {
+      "path": "contracts/alice/alice_authority_boundary.schema.json",
+      "sha256": "d9c55bb6f2693c65eb3ded17951f17e488a76394c2d9fdaebf5aa038dfb3a6d7",
+      "size_bytes": 885
+    },
+    {
+      "path": "contracts/alice/alice_command_proposal.schema.json",
+      "sha256": "60c8672b48e51b6793542522f3ba8d6bd852c8e8c1507e229b43e66eb6858eaf",
+      "size_bytes": 936
+    },
+    {
+      "path": "contracts/alice/alice_evidence_statement.schema.json",
+      "sha256": "ca49d23a08c611467906bb22a12eec5f992b1d1aab895a8379b97afd1a35f64c",
+      "size_bytes": 1109
+    },
+    {
+      "path": "contracts/alice/alice_gate_decision.schema.json",
+      "sha256": "cf641a1b6e72feaf58544e3ce631a199bbd7f6266e520f4818d934df8d794543",
+      "size_bytes": 1291
+    },
+    {
+      "path": "contracts/alice/alice_operator_message.schema.json",
+      "sha256": "3bf0cba74792de6e903e39a11385384ce6f0bede08a643dc8c29452fe2187aad",
+      "size_bytes": 918
+    },
+    {
+      "path": "contracts/alice/alice_recovery_instruction.schema.json",
+      "sha256": "c4d7ba597cd655ad289e0f68b477d124d56956641d62a5b79015ebbc0a9eea45",
+      "size_bytes": 1218
+    },
+    {
+      "path": "contracts/alice/alice_response.schema.json",
+      "sha256": "ded68658620114ea990b0dd892c10074fff89ab9db41b66993caf78e560612da",
+      "size_bytes": 3522
+    },
+    {
+      "path": "contracts/alice/alice_response_envelope.schema.json",
+      "sha256": "e400fdcbdd788de4bead8707a69089e49edda678bcd0aaad46c8a777d4578fe9",
+      "size_bytes": 1285
+    },
+    {
+      "path": "contracts/calibration/calibration_receipt.schema.json",
+      "sha256": "1a41ef5b336fedb45f3bad80dbba09c3298daea7b82f52e0ebeb1310190f3af7",
+      "size_bytes": 1259
+    },
+    {
+      "path": "contracts/context/context_record.schema.json",
+      "sha256": "06e97c664f304206c8f677dfdefb590f741a43a104e49f952da92b32f49e962c",
+      "size_bytes": 497
+    },
+    {
+      "path": "contracts/device/serial_message.schema.json",
+      "sha256": "e865fbffbe947f22aa15e5745b46155de42077e56836e22c3dbf1999cc162c77",
+      "size_bytes": 421
+    },
+    {
+      "path": "contracts/envelope/aos.application.envelope.v1.schema.json",
+      "sha256": "8519c6c8531cce4df45d6cc0fa9c35db3339d21a22cbd429bd421ab42c222b23",
+      "size_bytes": 1273
+    },
+    {
+      "path": "contracts/harvest/harvest_run.schema.json",
+      "sha256": "019390c2f7266b234fca390309d6b144b3ead75847d9d2433476ed650730d9c6",
+      "size_bytes": 2117
+    },
+    {
+      "path": "contracts/receipts/commit_receipt.schema.json",
+      "sha256": "125296cc4795f48b168ae558da20cc4bf1550e3fa63bdcbfd99677356b69db62",
+      "size_bytes": 1428
+    },
+    {
+      "path": "contracts/report/harvest_report.schema.json",
+      "sha256": "646e493a9475e41c942cdab175a589540fefd6fbcfcfc9312b59ba9bae67bc5c",
+      "size_bytes": 820
+    },
+    {
+      "path": "contracts/runtime/api_health_probe_evidence.schema.json",
+      "sha256": "4d20c0ff5a2e93f0d84e18b86b352a31b40a780e548bcd9f82a82f0bb92650f8",
+      "size_bytes": 1516
+    },
+    {
+      "path": "contracts/runtime/backend_service_evidence.schema.json",
+      "sha256": "874beba362554caf9cb315bdee02c1748520213fd8ac827cf5ed47fba046d5b7",
+      "size_bytes": 1514
+    },
+    {
+      "path": "contracts/runtime/bus_delivery_evidence.schema.json",
+      "sha256": "57de8d207697c6db3c7c8f317b2d691954967502a51bc6c47ceb432057a7d990",
+      "size_bytes": 1508
+    },
+    {
+      "path": "contracts/runtime/execution_authorization.schema.json",
+      "sha256": "ee150648e214c9dd1070b1d555a7c5d3a5d22a84374ec86e6fc86072cca54183",
+      "size_bytes": 1512
+    },
+    {
+      "path": "contracts/runtime/frontend_build_evidence.schema.json",
+      "sha256": "5d30f0ebc046d78070a80d4f8ed24c6fb9786edb47c7c0cf3c6fd7e72228941e",
+      "size_bytes": 1512
+    },
+    {
+      "path": "contracts/runtime/frontend_render_evidence.schema.json",
+      "sha256": "40bc41523af9cf13f03674a5c852aacd2bb9b781d09ebb35702bc651131fe023",
+      "size_bytes": 1514
+    },
+    {
+      "path": "contracts/runtime/listener_activation_evidence.schema.json",
+      "sha256": "c8dc362583f868e4307063e02aaaed786914acb82e2caf7666051499f0b54f90",
+      "size_bytes": 1522
+    },
+    {
+      "path": "contracts/runtime/mcp_tool_call_evidence.schema.json",
+      "sha256": "5351694c4a8c302c895afb959b3caf8bea85fb273b9db9febf8a9443769f763b",
+      "size_bytes": 1510
+    },
+    {
+      "path": "contracts/runtime/production_grade_evidence_gate.schema.json",
+      "sha256": "00a8350172e7816a88730a8d83590a774bf186216cd1a48c6744a06295182618",
+      "size_bytes": 1526
+    },
+    {
+      "path": "contracts/runtime/release_seal_evidence.schema.json",
+      "sha256": "5f6837bc1344ed3d079d843fedc031c22a615fa5dbc7f0047fc68ca30e8bd20e",
+      "size_bytes": 1508
+    },
+    {
+      "path": "contracts/runtime/runtime_claim_gate.schema.json",
+      "sha256": "d8b063d16ec451129f519faa42791330fdf4b128b0a2a5c4bdac538e8684eb6c",
+      "size_bytes": 1502
+    },
+    {
+      "path": "contracts/runtime/runtime_execution_evidence_record.schema.json",
+      "sha256": "24e7a98654d330ca36f8629efd5990c372ad7ab4df5193a96ff7499c185ff2b2",
+      "size_bytes": 1532
+    },
+    {
+      "path": "contracts/stability/stability_profile.schema.json",
+      "sha256": "cf1ece75595f426e938f12516d78d054d9aad5590dbba3c665255fd30fb518b5",
+      "size_bytes": 980
+    },
+    {
+      "path": "contracts/weight/correction_event.schema.json",
+      "sha256": "8f25ff99d03d38a481ee1370e5f59f8a4680a701d2b37790d0cf3df2c309ba67",
+      "size_bytes": 896
+    },
+    {
+      "path": "contracts/weight/weight_record.schema.json",
+      "sha256": "426208b81442e5e6017ac7a1c517bceb2cc8d17c683e6414ec12f97f0436c908",
+      "size_bytes": 3317
+    },
+    {
+      "path": "data/README.md",
+      "sha256": "47ed6b931024c5a88b18eccb205dc066f6759542874dcd2ed1bf074ba66fa8b3",
+      "size_bytes": 151
+    },
+    {
+      "path": "dist/debian/best-buds-weight-station_0.1.0_amd64.deb",
+      "sha256": "2180f0b4a162e72fd5fa30a1e8e1b41ec81416332f51bae43b41bc8ed6780704",
+      "size_bytes": 157424
+    },
+    {
+      "path": "dist/debian/best-buds-weight-station_0.1.0_amd64.deb.sha256",
+      "sha256": "05a2e0f119191b8da910b7cbdf6a7872efa953833c5b4e9626fc2d8764e35165",
+      "size_bytes": 119
+    },
+    {
+      "path": "dist/debian/best-buds-weight-station_0.1.1_amd64.deb",
+      "sha256": "17bef3a16098364ef3b4fe9c40088dde70b341597d87a7700718a41cfe73a120",
+      "size_bytes": 165292
+    },
+    {
+      "path": "dist/debian/best-buds-weight-station_0.1.1_amd64.deb.sha256",
+      "sha256": "fe19c5c91317f994c1145b8048ff9cf3f9dc537592f7877b93cfc31f44336fef",
+      "size_bytes": 172
+    },
+    {
+      "path": "dist/debian/best-buds-weight-station_0.1.2_amd64.deb",
+      "sha256": "0a79e752326add399cfaebf6278ad1d6173265f7c18f325e54b15b2e47ee6283",
+      "size_bytes": 166684
+    },
+    {
+      "path": "dist/debian/best-buds-weight-station_0.1.2_amd64.deb.sha256",
+      "sha256": "ef468b5a3ed5fc22783bcf6acb5394135c1e3739cea7c15a359103a65815a39a",
+      "size_bytes": 188
+    },
+    {
+      "path": "dist/windows/windows_build_blocked_receipt.v0.1.0.json",
+      "sha256": "0065ae71d1ce4ab1f057ae82f4ae72492c89ec2fcfaa9d16c41e9bf7ec094d36",
+      "size_bytes": 847
+    },
+    {
+      "path": "dist/windows/windows_build_blocked_receipt.v0.1.1.json",
+      "sha256": "57c002079e948972da98e04e0912ac53f4c63d7d6f8a93876953b0e16d2445a0",
+      "size_bytes": 642
+    },
+    {
+      "path": "dist/windows/windows_build_blocked_receipt.v0.1.2.json",
+      "sha256": "573dd082abf60df30d20d8aa197abbabce69cfb3b5c476dee867a14ef7446e0d",
+      "size_bytes": 642
+    },
+    {
+      "path": "docs/ALICE_OPERATOR_GUIDANCE.md",
+      "sha256": "cf98cb11876c3c3d879bfaafe7907a0fa2058b0c8690e87251d2adb4d0df2bfa",
+      "size_bytes": 380
+    },
+    {
+      "path": "docs/ALICE_PERSISTENCE_TRUTH.md",
+      "sha256": "ccc57fe2726bbc134cb57c68f7736042c31883195f486b681f3604d7684a5b92",
+      "size_bytes": 656
+    },
+    {
+      "path": "docs/ALICE_RESPONSE_AGENT.md",
+      "sha256": "b60653211b2c3ccbce5a5a2b3559d0d8db1a77c8addeb9b3ecfc489de4061659",
+      "size_bytes": 2234
+    },
+    {
+      "path": "docs/ALICE_TERMINAL_RECEIPT_UI_FLOW.md",
+      "sha256": "00a2ead9fb9661eb915aa23474374ca7631181fd5c9e294532a6b382d8f47110",
+      "size_bytes": 1333
+    },
+    {
+      "path": "docs/AOS_ENVELOPES.md",
+      "sha256": "00a23fe49d5297b246b2ae19bbfcedf3902507047ecc2ab6bea48631a29667ae",
+      "size_bytes": 310
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "bf1444eca93036d1b7efbdbc3ca2d4ad20a3ad0c374cf8993bc74b76ec6a2734",
+      "size_bytes": 266
+    },
+    {
+      "path": "docs/CALIBRATION_RUNBOOK.md",
+      "sha256": "8ed596e791523c74271829edcf0c50dfbca943ecba855411eb4601980d0a6af3",
+      "size_bytes": 250
+    },
+    {
+      "path": "docs/DEBIAN_INSTALL.md",
+      "sha256": "e00a9875f70996c7e5d96528c308ddd58e2e7cd2dc0630ce6b850bce6a317fc7",
+      "size_bytes": 424
+    },
+    {
+      "path": "docs/HARDWARE_AND_WIRING.md",
+      "sha256": "b035114971aa1b6551e941247dc74b77063d184816822acd48c22fbe58159ef3",
+      "size_bytes": 243
+    },
+    {
+      "path": "docs/NON_CLAIMS.md",
+      "sha256": "d94a3d61be6cd7eb7dbb3da34d8cd004a2811529b476854f64d8d7286fb58d62",
+      "size_bytes": 637
+    },
+    {
+      "path": "docs/OPERATOR_RUNBOOK.md",
+      "sha256": "a5ee0487e2678480b6a5187c265d7838101ec68bacfd6f0c5a4629954504356e",
+      "size_bytes": 349
+    },
+    {
+      "path": "docs/RECOVERY_AND_BACKUP.md",
+      "sha256": "5f814b7dc042e39e32cca6f98462731322d11648512c042ac4886272a5f2f3af",
+      "size_bytes": 250
+    },
+    {
+      "path": "docs/SPREADSHEET_CONTINUATION.md",
+      "sha256": "95928b875e691418ba5648027009fa021208eeb191e2a24f17e12de2d09c0c53",
+      "size_bytes": 357
+    },
+    {
+      "path": "docs/SYSTEM_STATE_CURRENT.md",
+      "sha256": "f4e193527f0e2f9287061de384305c8f55fbc3917d94e8cfa5599ec081e67fe6",
+      "size_bytes": 1905
+    },
+    {
+      "path": "docs/WINDOWS_BUILD.md",
+      "sha256": "51a97fa305223afdf96f1f313fffd51025b6b14e132e7f4c5a76e5afbc557305",
+      "size_bytes": 297
+    },
+    {
+      "path": "firmware/elegoo_uno_r3_hx711/SERIAL_PROTOCOL.md",
+      "sha256": "3293c4dcdcdc9f0d7645b37ff36ecb61a0bc57e900808fdad934cfc4d46d06eb",
+      "size_bytes": 322
+    },
+    {
+      "path": "firmware/elegoo_uno_r3_hx711/best_buds_scale_firmware.ino",
+      "sha256": "2321f20a7913e00fdd8e8aafd727c6714a1f8b533ec85ea487270c3747b01ce7",
+      "size_bytes": 2569
+    },
+    {
+      "path": "firmware/elegoo_uno_r3_hx711/calibration_notes.md",
+      "sha256": "b8e00fbb21ac135907da859cacc281629fa6f4b67239871a0827ff90f5ea143b",
+      "size_bytes": 282
+    },
+    {
+      "path": "firmware/elegoo_uno_r3_hx711/compile_receipt.json",
+      "sha256": "32a23ca9930d842f68b9b48ceebc20b7af1f0c4c42270d087ecb3c9f69088de0",
+      "size_bytes": 862
+    },
+    {
+      "path": "firmware/elegoo_uno_r3_hx711/compile_receipt.v0.1.1.json",
+      "sha256": "6a203c950efa3d9fa5f16997052ecfd99b9fd652a51e06a9e366167ce40cdb67",
+      "size_bytes": 862
+    },
+    {
+      "path": "firmware/elegoo_uno_r3_hx711/compile_receipt.v0.1.2.json",
+      "sha256": "32a23ca9930d842f68b9b48ceebc20b7af1f0c4c42270d087ecb3c9f69088de0",
+      "size_bytes": 862
+    },
+    {
+      "path": "firmware/elegoo_uno_r3_hx711/firmware_config.example.h",
+      "sha256": "7f4c4289178d2d91cb5f329153398854f7ed821dfbab62cd921d054f2ffed9c4",
+      "size_bytes": 81
+    },
+    {
+      "path": "firmware/elegoo_uno_r3_hx711/platform_notes.md",
+      "sha256": "68385daa02f464e88e39a3eb61e5734dfdda53d4f9fe38d9198ccf08248ca6ae",
+      "size_bytes": 169
+    },
+    {
+      "path": "frontend/assets/best-buds-weight-station.svg",
+      "sha256": "7b695f536d7af5774a23f5bfb14af7b6f0e9a6a3dd924ea5e54aeadaa66f0231",
+      "size_bytes": 355
+    },
+    {
+      "path": "frontend/frontend_manifest.v0.1.0.json",
+      "sha256": "28af249a4d3d3c3ffefa58f57efde51a4d59d2c7b07ad5ffb23b07e857e0f1e1",
+      "size_bytes": 666
+    },
+    {
+      "path": "frontend/frontend_manifest.v0.1.1.json",
+      "sha256": "9f94efd45c0750ce8395083d16944da141f98451b3730e7933ef56ef7a0b1c66",
+      "size_bytes": 958
+    },
+    {
+      "path": "frontend/frontend_manifest.v0.1.2.json",
+      "sha256": "6f926a5b9ab883326e92cc069a6479f58fb9e018cfd25d9ea7b34cfd34f80dc6",
+      "size_bytes": 1098
+    },
+    {
+      "path": "guide_pack.json",
+      "sha256": "26572514898a8b69653d80043aba11b51d3f508c421dc49adb303f79e93d51aa",
+      "size_bytes": 1779
+    },
+    {
+      "path": "kernel/commit_order.v1.json",
+      "sha256": "7a6f07a795a5063a9e2dd9b2641bdfb4e217959afd4fe1fb4b163953648c600d",
+      "size_bytes": 291
+    },
+    {
+      "path": "kernel/stability_profiles.v1.json",
+      "sha256": "834ce04b90d84fa0181ca8866f18427a54a9d18a7a1380630f0ffbbd1da39c31",
+      "size_bytes": 305
+    },
+    {
+      "path": "kernel/state_machine.v1.1.json",
+      "sha256": "6b9a044dd4d1a13d72d2cb674664e63627effe07d132c8370ee5134f957f904e",
+      "size_bytes": 507
+    },
+    {
+      "path": "kernel/state_machine.v1.json",
+      "sha256": "65a2e822208d4f7e982cb08f0f65420225505d6f6c7b0a94ab26f51a23e1d0a5",
+      "size_bytes": 1150
+    },
+    {
+      "path": "law/MECHANICAL_SAFETY.md",
+      "sha256": "599b841b1de3d5a28d6f392979605fbd2b46e09549acf16f6a3e64d095c74095",
+      "size_bytes": 399
+    },
+    {
+      "path": "law/NON_CLAIM_POLICY.md",
+      "sha256": "9d87511d18b8f6a4ee495a62e776f5662fe3a34fad444506b3f4f80d0343fa09",
+      "size_bytes": 643
+    },
+    {
+      "path": "law/WEIGHT_STATION_LAW.md",
+      "sha256": "f24ea8847ed8d28cd13ea9539d30f56ba5d2b24f7d597bd78d7a985f7d94c5d1",
+      "size_bytes": 883
+    },
+    {
+      "path": "manifests/file_manifest.v0.1.0.json",
+      "sha256": "2c40f799b871100f1a559f76ddff644b5b99b589d657fa8e78d25ecb68beb398",
+      "size_bytes": 30185
+    },
+    {
+      "path": "manifests/file_manifest.v0.1.1.json",
+      "sha256": "9ceb0126b2aa0fbafff94051b7bd5777df0b54e563b61f1f9c12f14550269437",
+      "size_bytes": 44541
+    },
+    {
+      "path": "manifests/source_artifact_inventory.v0.1.0.json",
+      "sha256": "160c270344661caa822580f141003d4091c3ba71f0ab844b2e119d537918818c",
+      "size_bytes": 870
+    },
+    {
+      "path": "manifests/source_artifact_inventory.v0.1.1.json",
+      "sha256": "db4a8a7524022e1df38b470ddb369051ebf5095ba62f077250f180c19bf9252f",
+      "size_bytes": 1663
+    },
+    {
+      "path": "manifests/source_artifact_inventory.v0.1.2.json",
+      "sha256": "a4bfef72e7ef7355ed04ae9623b0da455398dd8f7f166cc79aeb17971dc092fd",
+      "size_bytes": 1572
+    },
+    {
+      "path": "packaging/debian/SERIAL_PERMISSIONS.md",
+      "sha256": "9b402f7b918904115cb2e55b9aad958076f59edf8a9315555be1177978790ece",
+      "size_bytes": 235
+    },
+    {
+      "path": "packaging/debian/best-buds-weight-station.desktop",
+      "sha256": "b6535f5c3480dd8726271e8fe30de1c9c8c4a44b3cf76c5c15d3a6f8f2c60728",
+      "size_bytes": 158
+    },
+    {
+      "path": "packaging/windows/BestBudsWeightStation.spec",
+      "sha256": "7c56468340478b89755ffec7d0c77103c24dee44aeeae40de572264a2fce3409",
+      "size_bytes": 514
+    },
+    {
+      "path": "packaging/windows/build_windows.ps1",
+      "sha256": "8befd5572f25dc6aa478916cd3854c9e4d91eee783acb5e4ff37bd320deedb96",
+      "size_bytes": 465
+    },
+    {
+      "path": "packaging/windows/windows_build_blocked_receipt.v0.1.0.json",
+      "sha256": "0065ae71d1ce4ab1f057ae82f4ae72492c89ec2fcfaa9d16c41e9bf7ec094d36",
+      "size_bytes": 847
+    },
+    {
+      "path": "packaging/windows/windows_build_blocked_receipt.v0.1.1.json",
+      "sha256": "57c002079e948972da98e04e0912ac53f4c63d7d6f8a93876953b0e16d2445a0",
+      "size_bytes": 642
+    },
+    {
+      "path": "packaging/windows/windows_build_blocked_receipt.v0.1.2.json",
+      "sha256": "573dd082abf60df30d20d8aa197abbabce69cfb3b5c476dee867a14ef7446e0d",
+      "size_bytes": 642
+    },
+    {
+      "path": "prompts/ALICE_HARVEST_STARTUP.md",
+      "sha256": "f819555bdcc677713fb69f4e54c3165509f22d829dc767d85596207f048d92d8",
+      "size_bytes": 902
+    },
+    {
+      "path": "prompts/ALICE_RECOVERY.md",
+      "sha256": "5ecb2a65edc52d2cac1a5e7d8e17e00ba7844a9b4dc6000feb6dbb2249e91841",
+      "size_bytes": 252
+    },
+    {
+      "path": "prompts/OPERATOR_CAPTURE_FLOW.md",
+      "sha256": "6f785598976a2988daffbfde64e185004361c04bacb6ac4d8892be901194ed9c",
+      "size_bytes": 261
+    },
+    {
+      "path": "prompts/alice/ALICE_CAPTURE_PROMPT.md",
+      "sha256": "29eb9a592985934072ecd3142e5537084fa7761249648fe17c94768272340232",
+      "size_bytes": 369
+    },
+    {
+      "path": "prompts/alice/ALICE_HARVEST_START_PROMPT.md",
+      "sha256": "1ff737611833b405e6cb8bbf5798fd20891a3aadbff206bbf883a58716322ce1",
+      "size_bytes": 377
+    },
+    {
+      "path": "prompts/alice/ALICE_NON_CLAIM_POLICY.md",
+      "sha256": "f0417d223acbbd3dad94a6c4fde2ceccd77dcc6f73d12d308b4229159c2b9503",
+      "size_bytes": 338
+    },
+    {
+      "path": "prompts/alice/ALICE_RECOVERY_PROMPT.md",
+      "sha256": "b8273ca40fc8c1968a7778666da61620db979dcee2e9b9ef9581cb9a839691c3",
+      "size_bytes": 340
+    },
+    {
+      "path": "prompts/alice/ALICE_SYSTEM_PROMPT.md",
+      "sha256": "f9ea941aadc70f0fdf2840fe44a32d8b16edab94f88093ca9e686fa672ac8919",
+      "size_bytes": 578
+    },
+    {
+      "path": "prompts/alice/ALICE_VALIDATION_PROMPT.md",
+      "sha256": "4f36a67a645ee57f12c181f560e25ccaa788fc641a9845894993d7fb641b41e2",
+      "size_bytes": 308
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "e2687c484cd64cdd0fb3bdaa74efb7dc0d7d70a304efd87c32a54e15fdaddc38",
+      "size_bytes": 850
+    },
+    {
+      "path": "release_candidate/rc0_initial_application_build/README.md",
+      "sha256": "60bfef2e3c0bdde94f70ce0df7394395adb09c68ba9a0902f8bdf0ac76644107",
+      "size_bytes": 158
+    },
+    {
+      "path": "release_candidate/rc1_alice_response_agent_implementation_and_truth_hardening/README.md",
+      "sha256": "56a182c17fd85ddc0dccb2ebde5a0712ddc6e31da2e921e93e0e95512ebf1b25",
+      "size_bytes": 428
+    },
+    {
+      "path": "release_candidate/rc1a_alice_terminal_receipt_ui_flow_and_evidence_hygiene_hardening/README.md",
+      "sha256": "1f5c427a0ce622104da6a68612b651ea2495bd3fefeae3222c91b51ab5c8fbd0",
+      "size_bytes": 798
+    },
+    {
+      "path": "release_candidate/rc_phase_matrix.v0.1.0.json",
+      "sha256": "7214971ffc162152f3b73c3d0980247856cbcb2ed2ca0b1c991420b9ff931a49",
+      "size_bytes": 276
+    },
+    {
+      "path": "release_candidate/rc_phase_matrix.v0.1.1.json",
+      "sha256": "653df76f99dc0d1c37c93abcc0285f0f8db4af83e2b9531edaf63290c5fd33d4",
+      "size_bytes": 392
+    },
+    {
+      "path": "release_candidate/rc_phase_matrix.v0.1.2.json",
+      "sha256": "8133f3f736f5445a4e3be070dd2217e855c603fa8f6b635b3e2f8698adc4a203",
+      "size_bytes": 527
+    },
+    {
+      "path": "repo_release_state.json",
+      "sha256": "8c1f16ca5a6c4519708413c3ed18aeff6968bf6095d6d9c1e553232bd4ed2b2d",
+      "size_bytes": 4028
+    },
+    {
+      "path": "repo_scaffold/README.md",
+      "sha256": "7ae706de50229906d84aacd3a8398ba94e4729357e297fe8682ad298c4b6a0a2",
+      "size_bytes": 188
+    },
+    {
+      "path": "reports/alice_authority_validation.v0.1.1.json",
+      "sha256": "7bf12b9e34a086df91ad806d015bb16da5bea053ec10f4de4e23b3f19236555b",
+      "size_bytes": 573
+    },
+    {
+      "path": "reports/alice_authority_validation.v0.1.2.json",
+      "sha256": "5e5b74c9a020dc013b849b5f9c9619d1ba5fc494c8e55f94aa4fbc705136f3b5",
+      "size_bytes": 872
+    },
+    {
+      "path": "reports/debian_packaging_receipt.v0.1.0.json",
+      "sha256": "492e2991d77d3edf592d68eabaf3510a7db05ae53988f1d0759646a5dcdddd2a",
+      "size_bytes": 1745
+    },
+    {
+      "path": "reports/debian_packaging_receipt.v0.1.1.json",
+      "sha256": "53d9a6ae3c7c107c5df6fc5f88e64e29627f03fd079a82ec7d2910f4cddcab0c",
+      "size_bytes": 1448
+    },
+    {
+      "path": "reports/debian_packaging_receipt.v0.1.2.json",
+      "sha256": "1cffdb047436a62153e63ff1acd42562d7f3abce14ccb50356b40ddb79a5c558",
+      "size_bytes": 1609
+    },
+    {
+      "path": "reports/dependency_license_inventory.v0.1.0.json",
+      "sha256": "f4992491c38e7faa7b78c08e3d96cf449b5027f52cbcc2befe18d2fe5bc9a78f",
+      "size_bytes": 797
+    },
+    {
+      "path": "reports/dependency_license_inventory.v0.1.1.json",
+      "sha256": "2f61ac94601f38f300507c2b61bdb48c10c4fce321045c26191340c4c846544c",
+      "size_bytes": 978
+    },
+    {
+      "path": "reports/dependency_license_inventory.v0.1.2.json",
+      "sha256": "a87d816dff1f47010c4f6b228a5a5da86875d043dfee43aa39ab05bc63bab4cd",
+      "size_bytes": 1016
+    },
+    {
+      "path": "reports/drift_report.v0.1.0.json",
+      "sha256": "6a80cc1eb2d5d2695a020295b7b5985c200417400cdc79f3f0b5dc781794a1d5",
+      "size_bytes": 532
+    },
+    {
+      "path": "reports/drift_report.v0.1.1.json",
+      "sha256": "cf1985557d3c0c79c88948a6518ae5b9589d3883fa60749f162ff863ff0c8c1c",
+      "size_bytes": 1069
+    },
+    {
+      "path": "reports/drift_report.v0.1.2.json",
+      "sha256": "2beaf70955f60fff38d311c76cb32e87a4ca0d5b488317cf3630405676c4ce9d",
+      "size_bytes": 1780
+    },
+    {
+      "path": "reports/drive_delivery_receipt.v0.1.0.json",
+      "sha256": "4e9c87d6828c0ec214809b5cb1ca8010c5349b17ee64795a30c0ce5a8fd11ea5",
+      "size_bytes": 1413
+    },
+    {
+      "path": "reports/firmware_compile_receipt.v0.1.0.json",
+      "sha256": "b780752b45b3126bbe5119a4a6927588004e66a67d5be2c36c003886f36dbddc",
+      "size_bytes": 993
+    },
+    {
+      "path": "reports/firmware_compile_receipt.v0.1.1.json",
+      "sha256": "6a203c950efa3d9fa5f16997052ecfd99b9fd652a51e06a9e366167ce40cdb67",
+      "size_bytes": 862
+    },
+    {
+      "path": "reports/firmware_compile_receipt.v0.1.2.json",
+      "sha256": "32a23ca9930d842f68b9b48ceebc20b7af1f0c4c42270d087ecb3c9f69088de0",
+      "size_bytes": 862
+    },
+    {
+      "path": "reports/runtime_claim_gate_report.v0.1.0.json",
+      "sha256": "cbccd3c5ff27dcaf4e7139cbfad1d97f7a240b9ec87dd0e790f76f7fe5b049c9",
+      "size_bytes": 2103
+    },
+    {
+      "path": "reports/runtime_claim_gate_report.v0.1.1.json",
+      "sha256": "a216ff410a3d72206857c7acc8f37d9024d33722d964c06b741eadff61eda2bc",
+      "size_bytes": 1194
+    },
+    {
+      "path": "reports/runtime_claim_gate_report.v0.1.2.json",
+      "sha256": "5bf28cdd511c57b816167202c83e3baf841775aea651eb53c29f3afeeb57a790",
+      "size_bytes": 1444
+    },
+    {
+      "path": "reports/validation_report.v0.1.0.json",
+      "sha256": "6e9c90f38be349a1a41add6b1c00256b423149157f2dc7f788f8a5ec3d68b9c5",
+      "size_bytes": 4305
+    },
+    {
+      "path": "reports/validation_report.v0.1.0.md",
+      "sha256": "78eaa6db51a79612f1bb96e23fae14bc116eca45ec02465dbc651d590d6c2b8d",
+      "size_bytes": 1957
+    },
+    {
+      "path": "reports/validation_report.v0.1.1.json",
+      "sha256": "76ce8f17acb42cbf18ff7656e780ac24073e43de2fa98b63a3af06935c37c9e5",
+      "size_bytes": 4382
+    },
+    {
+      "path": "reports/validation_report.v0.1.1.md",
+      "sha256": "be564feee914bf5ee655fc892773b096cced55fe11d05c4e14552d54f6957e62",
+      "size_bytes": 602
+    },
+    {
+      "path": "reports/validation_report.v0.1.2.json",
+      "sha256": "c3e639c0b97ea7606c8e2612af769f7e3ef65fb28846c6ec460a760918519d95",
+      "size_bytes": 4575
+    },
+    {
+      "path": "reports/validation_report.v0.1.2.md",
+      "sha256": "91008ff4748df849d7efa69c44e576c9b29c72fe28c926d339524aa283fcb161",
+      "size_bytes": 772
+    },
+    {
+      "path": "reports/windows_packaging_receipt.v0.1.0.json",
+      "sha256": "0065ae71d1ce4ab1f057ae82f4ae72492c89ec2fcfaa9d16c41e9bf7ec094d36",
+      "size_bytes": 847
+    },
+    {
+      "path": "reports/windows_packaging_receipt.v0.1.1.json",
+      "sha256": "57c002079e948972da98e04e0912ac53f4c63d7d6f8a93876953b0e16d2445a0",
+      "size_bytes": 642
+    },
+    {
+      "path": "reports/windows_packaging_receipt.v0.1.2.json",
+      "sha256": "573dd082abf60df30d20d8aa197abbabce69cfb3b5c476dee867a14ef7446e0d",
+      "size_bytes": 642
+    },
+    {
+      "path": "scripts/build_debian.sh",
+      "sha256": "e12280389c1990a1b56b7b5e46f42bdfc0a0fb5d2e6a686eaf98167d570fe76f",
+      "size_bytes": 1821
+    },
+    {
+      "path": "scripts/build_firmware.sh",
+      "sha256": "92c3c15b20d008706db2c53c3b2d581054293711da4d17620fc206b145017c36",
+      "size_bytes": 248
+    },
+    {
+      "path": "scripts/compile_report.py",
+      "sha256": "b82ece1bb629a4fcbe1eda865b4bbf0bdb943fa4c9cf070380a7d294899869a1",
+      "size_bytes": 251
+    },
+    {
+      "path": "scripts/generate_manifest.py",
+      "sha256": "508e157d75dff44420ce124f54e20e65889583297671c5d2fe5a539a6c65281d",
+      "size_bytes": 1426
+    },
+    {
+      "path": "scripts/package_release.py",
+      "sha256": "99fc23d5bc913c5a25832e33a13ac3f61be9ffe202b57f891bb5b7d91f53c274",
+      "size_bytes": 1296
+    },
+    {
+      "path": "scripts/run_self_test.py",
+      "sha256": "2a133aaaaa9ed6cd6f24e8c5b615baf66ee7026f949fa96ffbfb290f838cba26",
+      "size_bytes": 239
+    },
+    {
+      "path": "scripts/validate_alice.py",
+      "sha256": "ffcf3d8f87934c0254acaefa0903d784592e635cc76e4dfdb0c0eb9f981484e9",
+      "size_bytes": 1874
+    },
+    {
+      "path": "scripts/validate_repo.py",
+      "sha256": "ddc51824114705d00dc5cbb8ce838f8dfcff8e4216b1c6ff7df48ad137f9133b",
+      "size_bytes": 11873
+    },
+    {
+      "path": "tests/alice/test_alice_authority.py",
+      "sha256": "6cb7795ead31d46627c5681ce56b7dbf07f8443ae7333063831e069ffd4c3cd6",
+      "size_bytes": 957
+    },
+    {
+      "path": "tests/alice/test_alice_command_building.py",
+      "sha256": "2b40dbfadc6815c070d12852b6179183f0b0ce25ca119df4625eea6977b7d38c",
+      "size_bytes": 1095
+    },
+    {
+      "path": "tests/alice/test_alice_evidence_classes.py",
+      "sha256": "91b351a949ad81586f4c3b193104fa6be81fbd0ee9e92f6e1c282baf77af361b",
+      "size_bytes": 906
+    },
+    {
+      "path": "tests/alice/test_alice_idempotency.py",
+      "sha256": "9da85b04eec0fde49fbceb1c131c9cc8fe5d984e3bc13d3337dd959b37de49c2",
+      "size_bytes": 1066
+    },
+    {
+      "path": "tests/alice/test_alice_persistence_truth.py",
+      "sha256": "7e52cafa236ace37544ef5d21fbab32056ff3377a1728f5537f0cbee544c0e3b",
+      "size_bytes": 1613
+    },
+    {
+      "path": "tests/alice/test_alice_receipt_interpretation.py",
+      "sha256": "667b754ea5fb992a2907e4b01a586d94a2f8c77be180a662808c04d2926fb39b",
+      "size_bytes": 2062
+    },
+    {
+      "path": "tests/alice/test_alice_recovery.py",
+      "sha256": "62c8dadf911126af99a884538fce2fb8ae06c50170aa20a651de82a8c8d67abc",
+      "size_bytes": 1436
+    },
+    {
+      "path": "tests/alice/test_alice_response_examples.py",
+      "sha256": "ddaa72cc3d536529ac14faeb366709633bae6400956957ef4697f1ef5cf2f21c",
+      "size_bytes": 1382
+    },
+    {
+      "path": "tests/alice/test_alice_state_interpretation.py",
+      "sha256": "5676f251e93fa19537b5338a1f1a16e2cfd077cf1010d7151f62b826df8dabe7",
+      "size_bytes": 1456
+    },
+    {
+      "path": "tests/alice/test_alice_terminal_ui_flow.py",
+      "sha256": "055aa0daa7c2b4cfd424520e19fe1e3df9ddf3504a0b5cf2c09ba0626524a882",
+      "size_bytes": 3308
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "f411c3e11a4f67a3e524ffbb78173594bccfc5f455b70706f07049e70b9a5bf6",
+      "size_bytes": 92
+    },
+    {
+      "path": "tests/test_alice.py",
+      "sha256": "757009b77787010fe81f364587720183445012c5b1ed85bb3af9b9b195071991",
+      "size_bytes": 468
+    },
+    {
+      "path": "tests/test_envelope.py",
+      "sha256": "3e210048505e1fafc27529f6613be25363af55749edce0e71f3f1aff01600234",
+      "size_bytes": 472
+    },
+    {
+      "path": "tests/test_reports.py",
+      "sha256": "29a69af3b75f43167974987389784db252422377684dfd9804419a547465ffb0",
+      "size_bytes": 474
+    },
+    {
+      "path": "tests/test_spreadsheet.py",
+      "sha256": "1049d05fc89271464b6f61dfb4a49adacbd8cd0765f30cdfde6008745aa317dc",
+      "size_bytes": 667
+    },
+    {
+      "path": "tests/test_stability.py",
+      "sha256": "9aa139f9d5bf36d5540afb24f2a2591b7d5ee9d644ed3e44b89847229ca8c2b3",
+      "size_bytes": 726
+    },
+    {
+      "path": "tests/test_state_machine.py",
+      "sha256": "6f80c767f89203c6771eb29a0192b74ab82fd79623e96dae50673c23ce7648eb",
+      "size_bytes": 3090
+    },
+    {
+      "path": "tests/test_storage.py",
+      "sha256": "0e43e5da573ed0ae1ccb105ba1135082924647fc9cc69ede9de54036e4f57fdf",
+      "size_bytes": 2224
+    },
+    {
+      "path": "validation/EVIDENCE_VERSION_INDEX.v0.1.2.json",
+      "sha256": "34132fae8bc60ef3f0516db78d3e2d48c2f5ff009ffbf5e4b396e8f96a6fdb6e",
+      "size_bytes": 445
+    },
+    {
+      "path": "validation/VALIDATION_PLAN.md",
+      "sha256": "efd7e1ea7a3ddbcb6c21e52d877e597fa22fd397ff7eed6179665859c5a35c81",
+      "size_bytes": 890
+    },
+    {
+      "path": "validation/VALIDATION_PLAN.v0.1.1.md",
+      "sha256": "bf2ad4aa23f045acf2f3197bb27e1f74e5b74fe1074f2a8a6b00a9e3ee4cef9b",
+      "size_bytes": 490
+    },
+    {
+      "path": "validation/VALIDATION_PLAN.v0.1.2.md",
+      "sha256": "efd7e1ea7a3ddbcb6c21e52d877e597fa22fd397ff7eed6179665859c5a35c81",
+      "size_bytes": 890
+    },
+    {
+      "path": "validation/alice_response_examples.v0.1.1.json",
+      "sha256": "87d155da0686bc6d0125d409f084e7d21df49774e82c49d2ef8a7628c45eaf13",
+      "size_bytes": 8570
+    },
+    {
+      "path": "validation/alice_response_examples.v0.1.2.json",
+      "sha256": "c26f5da601cbcaa1cc2bc534814cd9c887806cd16b21ca6b9f99a3d059934949",
+      "size_bytes": 9700
+    },
+    {
+      "path": "validation/alice_validation.v0.1.2.json",
+      "sha256": "871a8a3298831c2d3c704a56f7d87dffca4592d56e0bfdb9bb95e3cf92dcf54d",
+      "size_bytes": 339
+    },
+    {
+      "path": "validation/alice_validation_output.v0.1.1.json",
+      "sha256": "204ac9a19a1e6900e8b6d24dcc30a62c05ba6832ae8df7cd4ee8f71f146ed690",
+      "size_bytes": 218
+    },
+    {
+      "path": "validation/debian_build_output.txt",
+      "sha256": "138fca006e0b6bb9cfeb6dc4a716fc902a8a512b21c19346849a54791601a743",
+      "size_bytes": 122
+    },
+    {
+      "path": "validation/debian_build_output.v0.1.1.txt",
+      "sha256": "917f150ce201337f9384d1ea938c80f810c6f99f439364e02d7e6d4781cde624",
+      "size_bytes": 106
+    },
+    {
+      "path": "validation/debian_build_output.v0.1.2.txt",
+      "sha256": "138fca006e0b6bb9cfeb6dc4a716fc902a8a512b21c19346849a54791601a743",
+      "size_bytes": 122
+    },
+    {
+      "path": "validation/debian_contents.txt",
+      "sha256": "dc416a327fe23d26923625fc58d54bbc45acbc6657d90302dbbf53696f38179c",
+      "size_bytes": 28345
+    },
+    {
+      "path": "validation/debian_contents.v0.1.1.txt",
+      "sha256": "5c2841d6823490e10c23d6444444b15a24f481f5e92ba9ef82afbc2fa5edba5a",
+      "size_bytes": 28345
+    },
+    {
+      "path": "validation/debian_contents.v0.1.2.txt",
+      "sha256": "dc416a327fe23d26923625fc58d54bbc45acbc6657d90302dbbf53696f38179c",
+      "size_bytes": 28345
+    },
+    {
+      "path": "validation/debian_dpkg_info.txt",
+      "sha256": "e5fc594374ab3cf79ec577f8a5a151ec35d4fd9393dd42610280dd2c61409052",
+      "size_bytes": 518
+    },
+    {
+      "path": "validation/debian_dpkg_info.v0.1.1.txt",
+      "sha256": "b20a77802611bc9f414313406ffcabff0ce8d83c1e9431be1dbd491bbdabba90",
+      "size_bytes": 518
+    },
+    {
+      "path": "validation/debian_dpkg_info.v0.1.2.txt",
+      "sha256": "e5fc594374ab3cf79ec577f8a5a151ec35d4fd9393dd42610280dd2c61409052",
+      "size_bytes": 518
+    },
+    {
+      "path": "validation/debian_extracted_self_test.json",
+      "sha256": "705141d81759fec0fd8710b774c994f6538bb8d566cc8d69cf73a4d6854b886e",
+      "size_bytes": 363
+    },
+    {
+      "path": "validation/debian_extracted_ui_smoke.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "validation/debian_extracted_version.txt",
+      "sha256": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+      "size_bytes": 6
+    },
+    {
+      "path": "validation/debian_native_build_install_smoke.log",
+      "sha256": "2578d38261cc0743d3c2c21f6ec0cdce1e7558f433e54bd2f24b102ee6646218",
+      "size_bytes": 874
+    },
+    {
+      "path": "validation/debian_native_build_install_smoke.v0.1.1.log",
+      "sha256": "2e2698d2f7e2a928e0c2c2823419d3c95be2776d743c82c2b30383c892953cb8",
+      "size_bytes": 1162
+    },
+    {
+      "path": "validation/debian_native_build_install_smoke.v0.1.2.log",
+      "sha256": "2578d38261cc0743d3c2c21f6ec0cdce1e7558f433e54bd2f24b102ee6646218",
+      "size_bytes": 874
+    },
+    {
+      "path": "validation/final_prepackage_validation.json",
+      "sha256": "d3044ebdb1ed0c9142bbc737800128dd88ada750542b3e1143c782213a9cb270",
+      "size_bytes": 1901
+    },
+    {
+      "path": "validation/final_prepackage_validation.v0.1.1.json",
+      "sha256": "0d97adf71e3299b3120974b32b4db30b99757de2cba800e59b95116f6a444856",
+      "size_bytes": 1231
+    },
+    {
+      "path": "validation/final_prepackage_validation.v0.1.2.json",
+      "sha256": "d3044ebdb1ed0c9142bbc737800128dd88ada750542b3e1143c782213a9cb270",
+      "size_bytes": 1901
+    },
+    {
+      "path": "validation/firmware_compile_exit_code.txt",
+      "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2",
+      "size_bytes": 2
+    },
+    {
+      "path": "validation/firmware_compile_exit_code.v0.1.1.txt",
+      "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2",
+      "size_bytes": 2
+    },
+    {
+      "path": "validation/firmware_compile_exit_code.v0.1.2.txt",
+      "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2",
+      "size_bytes": 2
+    },
+    {
+      "path": "validation/firmware_compile_stderr.txt",
+      "sha256": "59da6448c0c0ae387b88597b063fc061e7083b19af8ad6f59391e5e0d8f6cf32",
+      "size_bytes": 24
+    },
+    {
+      "path": "validation/firmware_compile_stderr.v0.1.1.txt",
+      "sha256": "59da6448c0c0ae387b88597b063fc061e7083b19af8ad6f59391e5e0d8f6cf32",
+      "size_bytes": 24
+    },
+    {
+      "path": "validation/firmware_compile_stderr.v0.1.2.txt",
+      "sha256": "59da6448c0c0ae387b88597b063fc061e7083b19af8ad6f59391e5e0d8f6cf32",
+      "size_bytes": 24
+    },
+    {
+      "path": "validation/firmware_compile_stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "validation/firmware_compile_stdout.v0.1.1.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "validation/firmware_compile_stdout.v0.1.2.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "validation/fixtures/failure/sessions/FAIL-SESSION/session_manifest.json",
+      "sha256": "30296042eb2834d3379262a1c675baedd1ddb6c3079f2a69c8e9b4621b405dfa",
+      "size_bytes": 675
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/receipts/5ef7ea35-9b4d-48a9-afbe-9192cf0c4aaf.json",
+      "sha256": "c6b53e403321929dbc378d14c40ebf1901b7a851f38ae98eebf6d853061492ab",
+      "size_bytes": 623
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/receipts/c3d45fdc-52dc-43bb-8dc8-ffb0bbfa5be4.json",
+      "sha256": "ff8c7b0fd524c7e5d629d8c597291377daa5a12519205cc8f543ca1a21d22eb6",
+      "size_bytes": 623
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/records/000001_7cf82ed9-e04c-468b-a662-17d7a59c0ef4.json",
+      "sha256": "e8949ee13b8af9fc7fd466126dabb901bded2564b64764d25db3bfd058070e89",
+      "size_bytes": 1239
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/records/000002_05e31b02-5a53-401a-9afa-8724bb6e92e8.json",
+      "sha256": "5a90e1e142a78656b168f8346eb935a3dcfa8cd2be7436befe8582a81b5b8731",
+      "size_bytes": 1299
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/records.csv",
+      "sha256": "549d13e993d4601ad001fb75a7fb046221eb0c5b234ea6dfa5d28249c2124e5f",
+      "size_bytes": 790
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/records.jsonl",
+      "sha256": "faaa24d8db98dfbe4f039638a73465716cb0403d9145d5f2a11fab3861f0b72a",
+      "size_bytes": 2234
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/records.xlsx",
+      "sha256": "25161c754ba47ba5517e167112de2797ef9bca7d62b2b23d7946a6e5e4439475",
+      "size_bytes": 5567
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/reports/harvest_run_report.csv",
+      "sha256": "724ffb726bd3daa34e5c9f1cb09870f064bae8412761a3e552c4b52d222304bd",
+      "size_bytes": 50
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/reports/harvest_run_report.json",
+      "sha256": "84a472a8aeac302fff97d9af4e45a630b6ce9d626a162f501075728767aaa425",
+      "size_bytes": 318
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/reports/harvest_run_report.xlsx",
+      "sha256": "f26f2d3fedbe6e88b15dfdd860e291709c834ea82819f13cfe0c80ab9e2a1bfb",
+      "size_bytes": 4883
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/session_manifest.json",
+      "sha256": "179c2615aefdc0ab9f12075abdad17f2fbc8351fa80a10432fd549f7c2d26434",
+      "size_bytes": 778
+    },
+    {
+      "path": "validation/fixtures/sessions/SELFTEST-SESSION/session_snapshot.json",
+      "sha256": "ffcfae43483eec4cbf20de204461c3effac1ae2ad7a8ca524d372d21903ada16",
+      "size_bytes": 304
+    },
+    {
+      "path": "validation/history/v0.1.0/debian_build_output.txt",
+      "sha256": "4bc2eacaeca17327da1e745cac59432e987fb7fd4e0199942c7e50e29b54bb42",
+      "size_bytes": 106
+    },
+    {
+      "path": "validation/history/v0.1.0/debian_contents.txt",
+      "sha256": "0af65411162615d26e3f4645fc7ab5eda1fed4d469052e1d85268e9f4f701f3a",
+      "size_bytes": 26910
+    },
+    {
+      "path": "validation/history/v0.1.0/debian_dpkg_info.txt",
+      "sha256": "569e55aa184bfadc39226e79da252e8443294addbb38548a6f7159b28d904f9e",
+      "size_bytes": 518
+    },
+    {
+      "path": "validation/history/v0.1.0/debian_extracted_self_test.json",
+      "sha256": "2e0630a74db10bb661b78d4cef6e3c01324b9ef0d6f4866286bb45c5bff20d8f",
+      "size_bytes": 266
+    },
+    {
+      "path": "validation/history/v0.1.0/debian_extracted_ui_smoke.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "validation/history/v0.1.0/debian_extracted_version.txt",
+      "sha256": "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67",
+      "size_bytes": 6
+    },
+    {
+      "path": "validation/history/v0.1.0/debian_native_build_install_smoke.log",
+      "sha256": "58a81a7fd1a224f3afe4f31c8c52f88a7612e9e452a9a7d2a83463c7909176c0",
+      "size_bytes": 19597
+    },
+    {
+      "path": "validation/history/v0.1.0/final_prepackage_validation.json",
+      "sha256": "4d4da709151941bba893eed36c9e69a7e2631c142f259f65fec153c585c65d5b",
+      "size_bytes": 1169
+    },
+    {
+      "path": "validation/history/v0.1.0/firmware_compile_exit_code.txt",
+      "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2",
+      "size_bytes": 2
+    },
+    {
+      "path": "validation/history/v0.1.0/firmware_compile_stderr.txt",
+      "sha256": "59da6448c0c0ae387b88597b063fc061e7083b19af8ad6f59391e5e0d8f6cf32",
+      "size_bytes": 24
+    },
+    {
+      "path": "validation/history/v0.1.0/firmware_compile_stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "validation/history/v0.1.0/package_zip_validation.json",
+      "sha256": "c4efaf850eda0137cd4d3b52e9b49db0b50b17d04b1e09894c5477ed2ba9972e",
+      "size_bytes": 489
+    },
+    {
+      "path": "validation/history/v0.1.0/persistent_simulator_self_test.json",
+      "sha256": "1379934d128fc80d4dc9d9e7954adc6627db4dc600d8f9bc39ebfac52de57e31",
+      "size_bytes": 269
+    },
+    {
+      "path": "validation/history/v0.1.0/schema_and_export_validation.json",
+      "sha256": "149ae8e0505b46e9786db78a3e164766f227464b7ce56ef3045ff906feae7d08",
+      "size_bytes": 1474
+    },
+    {
+      "path": "validation/history/v0.1.0/static_validation.json",
+      "sha256": "5c020261a30533c69a242c27746b7e7f7626f301fed84962aacd82f9e420c43d",
+      "size_bytes": 798
+    },
+    {
+      "path": "validation/history/v0.1.0/version_output.txt",
+      "sha256": "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67",
+      "size_bytes": 6
+    },
+    {
+      "path": "validation/package_zip_validation.json",
+      "sha256": "8f0a9f78449b35a4b90afbf45615934f4f571342e217565baffd6e4124ffa8f1",
+      "size_bytes": 452
+    },
+    {
+      "path": "validation/package_zip_validation.v0.1.1.json",
+      "sha256": "6d90463d1d5418036ad2ac685b84c311b3832aa3a2e7c4c2494b4c1c9f47e98e",
+      "size_bytes": 471
+    },
+    {
+      "path": "validation/package_zip_validation.v0.1.2.json",
+      "sha256": "8f0a9f78449b35a4b90afbf45615934f4f571342e217565baffd6e4124ffa8f1",
+      "size_bytes": 452
+    },
+    {
+      "path": "validation/persistent_simulator_self_test.json",
+      "sha256": "031fb6597aa267d8f7a33b39b90d76f1ed6e6e3383455ffea1d94d6820e190a4",
+      "size_bytes": 363
+    },
+    {
+      "path": "validation/pytest_output.txt",
+      "sha256": "325b7cf7b0d6ead544ebb7e833a08009fa10cf90ce29b8f9021e2ede461488f5",
+      "size_bytes": 80
+    },
+    {
+      "path": "validation/pytest_output.v0.1.1.txt",
+      "sha256": "b1caae85ec31d08a00b70488af9cc30676ea609b8012c2800620e199adf3bcb2",
+      "size_bytes": 80
+    },
+    {
+      "path": "validation/pytest_output.v0.1.2.txt",
+      "sha256": "325b7cf7b0d6ead544ebb7e833a08009fa10cf90ce29b8f9021e2ede461488f5",
+      "size_bytes": 80
+    },
+    {
+      "path": "validation/schema_and_export_validation.json",
+      "sha256": "82d65e5c7de4225567ee94c31569c9790f28437ab11df2aa14148709cf99842d",
+      "size_bytes": 157
+    },
+    {
+      "path": "validation/schema_and_export_validation.v0.1.2.json",
+      "sha256": "82d65e5c7de4225567ee94c31569c9790f28437ab11df2aa14148709cf99842d",
+      "size_bytes": 157
+    },
+    {
+      "path": "validation/simulator_self_test.json",
+      "sha256": "031fb6597aa267d8f7a33b39b90d76f1ed6e6e3383455ffea1d94d6820e190a4",
+      "size_bytes": 363
+    },
+    {
+      "path": "validation/simulator_self_test.v0.1.1.json",
+      "sha256": "581a9581248ea1ac9f41dd9c2310ac2fb10f20a64c22ca0c4b6daca6dc514a3c",
+      "size_bytes": 266
+    },
+    {
+      "path": "validation/simulator_self_test.v0.1.2.json",
+      "sha256": "031fb6597aa267d8f7a33b39b90d76f1ed6e6e3383455ffea1d94d6820e190a4",
+      "size_bytes": 363
+    },
+    {
+      "path": "validation/source_ui_smoke.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "validation/source_ui_smoke_automatic.v0.1.2.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "validation/source_ui_smoke_manual.v0.1.2.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "validation/static_validation.json",
+      "sha256": "d3044ebdb1ed0c9142bbc737800128dd88ada750542b3e1143c782213a9cb270",
+      "size_bytes": 1901
+    },
+    {
+      "path": "validation/static_validation.v0.1.1.json",
+      "sha256": "0d97adf71e3299b3120974b32b4db30b99757de2cba800e59b95116f6a444856",
+      "size_bytes": 1231
+    },
+    {
+      "path": "validation/static_validation.v0.1.2.json",
+      "sha256": "d3044ebdb1ed0c9142bbc737800128dd88ada750542b3e1143c782213a9cb270",
+      "size_bytes": 1901
+    },
+    {
+      "path": "validation/version_output.txt",
+      "sha256": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+      "size_bytes": 6
+    }
+  ],
+  "generated_at": "2026-07-19T17:46:51Z",
+  "manifest_version": "1.0.0",
+  "package_name": "best_buds_cultivator_weight_station",
+  "version": "0.1.2"
+}

@@ -1,0 +1,13 @@
+{
+  "alice_terminal_receipt_gate": "pass",
+  "automatic_capture": "pass",
+  "data_root": "/tmp/tmpz58r67vs",
+  "hash_chain": "pass",
+  "local_write_failure_prevents_success_beep": "pass",
+  "manual_capture": "pass",
+  "no_success_before_alice_receipt_validation": "pass",
+  "records": 2,
+  "status": "pass",
+  "total_net_g": 305.0,
+  "truth_class": "simulator"
+}

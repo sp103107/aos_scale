@@ -1,0 +1,157 @@
+{
+  "$id": "https://bestbuds.local/contracts/pipeline/stage_definition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_mutations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "commands": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "argv": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "evidence_class": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "timeout_seconds": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "argv"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entrypoint": {
+      "additionalProperties": false,
+      "properties": {
+        "arguments": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "module": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "module",
+        "arguments"
+      ],
+      "type": "object"
+    },
+    "expected_artifacts": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "failure_classes": {
+      "items": {
+        "enum": [
+          "FAIL",
+          "BLOCKED",
+          "NOT_RUN",
+          "WAITING_FOR_EXTERNAL_ACTION"
+        ]
+      },
+      "type": "array"
+    },
+    "forbidden_mutations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "inputs": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "next_stage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pass_conditions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "preconditions": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "purpose": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "receipt_path": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "requires": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "stage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "stage_id",
+    "version",
+    "purpose",
+    "requires",
+    "entrypoint",
+    "preconditions",
+    "inputs",
+    "commands",
+    "allowed_mutations",
+    "forbidden_mutations",
+    "expected_artifacts",
+    "pass_conditions",
+    "failure_classes",
+    "receipt_path",
+    "next_stage"
+  ],
+  "title": "Stage Definition",
+  "type": "object"
+}

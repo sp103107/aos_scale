@@ -1,0 +1,37 @@
+{
+  "added": [
+    "frontend polish",
+    "stage contracts",
+    "Python stage runner",
+    "Cursor wrappers",
+    "runtime evidence posture",
+    "surface entry mesh"
+  ],
+  "arc": "Windows-first operator application",
+  "completed_at": "2026-07-24T04:35:23Z",
+  "episode_id": "episode_0008_v0.1.7",
+  "generated_at": "2026-07-24T03:58:53Z",
+  "next_episode": "UNO R3/HX711 physical scale bring-up",
+  "phase": "rc3c11_frontend_polish_stage_bootstrap_and_final_drift_concordance",
+  "sequence": 8,
+  "source_truth": [
+    "best_buds_cultivator_weight_station_v0_1_6.zip",
+    "Runtime bump.pdf"
+  ],
+  "status": "completed",
+  "validation_not_proved": [
+    "native Windows/PySide runtime",
+    "physical hardware",
+    "firmware compile/upload",
+    "production readiness"
+  ],
+  "validation_proved": [
+    "177 automated tests",
+    "60 JSON schemas",
+    "11/11 cursor-ready stages",
+    "Tk fallback runtime render",
+    "Debian package build and extracted-runtime smoke",
+    "naming and current-surface concordance"
+  ],
+  "version": "0.1.7"
+}

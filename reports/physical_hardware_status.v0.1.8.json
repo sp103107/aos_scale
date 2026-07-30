@@ -1,0 +1,23 @@
+{
+  "calibration_proven": false,
+  "connected": false,
+  "firmware_uploaded": false,
+  "next_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "non_claims": [
+    "Operator-reported availability is not physical execution evidence."
+  ],
+  "physical_barcode_loop_proven": false,
+  "repeatability_proven": false,
+  "reported_available": [
+    "UNO R3 compatible controller",
+    "HX711 amplifier modules",
+    "10 kg hooked load cell",
+    "breadboards"
+  ],
+  "serial_protocol_proven": false,
+  "status": "NOT_RUN",
+  "tare_proven": false,
+  "version": "0.1.8",
+  "wired": false,
+  "zero_proven": false
+}

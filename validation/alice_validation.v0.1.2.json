@@ -1,0 +1,12 @@
+{
+  "evidence_statement_examples_validated": 2,
+  "examples_validated": 10,
+  "non_claim_enforcement": "pass",
+  "persistence_truth": "pass",
+  "state_action_matrix": "pass",
+  "status": "pass",
+  "structured_response_examples_validated": 8,
+  "terminal_receipt_ui_gate": "pass",
+  "truth_class_separation": "pass",
+  "version": "0.1.2"
+}

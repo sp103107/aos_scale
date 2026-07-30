@@ -1,0 +1,13 @@
+{
+  "version": "0.1.3",
+  "runtime": "Python 3.11+",
+  "authoritative_store": "append-only JSONL",
+  "application_controller": "app/best_buds_weight_station/application_controller.py",
+  "capture_state_machine": "app/best_buds_weight_station/state_machine.py",
+  "run_management": "app/best_buds_weight_station/run_manager.py",
+  "device_service": "app/best_buds_weight_station/device_service.py",
+  "scale_control": "app/best_buds_weight_station/scale_control.py",
+  "canonical_actions": "app/best_buds_weight_station/actions.py",
+  "remote_adapters_default": "disabled",
+  "alice_terminal_receipt_gate": true
+}

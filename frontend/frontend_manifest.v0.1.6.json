@@ -1,0 +1,49 @@
+{
+  "accessibility": [
+    "large_weight_display",
+    "large_controls",
+    "keyboard_shortcuts",
+    "text_status",
+    "no_critical_color_only_indicator",
+    "state_gated_controls",
+    "operator_safe_errors"
+  ],
+  "entry": "app/best_buds_weight_station/pyside_frontend.py",
+  "evidence_boundary": "source_and_simulator_scripted_runtime_only_windows_native_not_run_physical_not_run",
+  "fallback_entry": "app/best_buds_weight_station/production_ui.py",
+  "fallback_framework": "Tk",
+  "generated_at": "2026-07-23T20:25:21Z",
+  "implemented_dialogs": [
+    "new_run",
+    "scale_setup",
+    "container_tare",
+    "guided_calibration"
+  ],
+  "launchers": [
+    "launch_best_buds.bat",
+    "launch_best_buds.ps1",
+    "launch_best_buds.sh",
+    "launch_simulator.bat",
+    "launch_simulator.ps1",
+    "launch_simulator.sh"
+  ],
+  "primary_controls": [
+    "new_run",
+    "resume_last_run",
+    "load_run",
+    "scale_setup_connect",
+    "zero_scale",
+    "container_tare",
+    "confirm_record",
+    "cancel_current_item",
+    "calibrate_scale",
+    "finish_run",
+    "recover_run",
+    "export_report"
+  ],
+  "primary_framework": "PySide6",
+  "primary_platform": "Windows 10/11",
+  "runtime_facade": "app/best_buds_weight_station/operator_runtime.py",
+  "secondary_platform": "Linux",
+  "version": "0.1.6"
+}

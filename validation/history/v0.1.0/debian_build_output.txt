@@ -1,0 +1,1 @@
+/mnt/data/best_buds_cultivator_weight_station_v0_1_0/dist/debian/best-buds-weight-station_0.1.0_amd64.deb

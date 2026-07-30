@@ -1,0 +1,88 @@
+{
+  "graph_version": "1.1.0",
+  "lanes": [
+    {
+      "lane": "repository-inspection",
+      "requires": []
+    },
+    {
+      "lane": "development-hygiene",
+      "requires": [
+        "repository-inspection"
+      ]
+    },
+    {
+      "lane": "software",
+      "requires": [
+        "development-hygiene"
+      ]
+    },
+    {
+      "lane": "agent-entrypoint",
+      "requires": [
+        "software"
+      ]
+    },
+    {
+      "lane": "software-dry-run",
+      "requires": [
+        "agent-entrypoint"
+      ]
+    },
+    {
+      "lane": "recovery-matrix",
+      "requires": [
+        "software-dry-run"
+      ]
+    },
+    {
+      "lane": "frontend-smoke",
+      "requires": [
+        "recovery-matrix"
+      ]
+    },
+    {
+      "lane": "packaging-preflight",
+      "requires": [
+        "frontend-smoke"
+      ]
+    },
+    {
+      "lane": "firmware",
+      "requires": [
+        "packaging-preflight"
+      ]
+    },
+    {
+      "lane": "serial",
+      "requires": [
+        "firmware"
+      ]
+    },
+    {
+      "lane": "zero-tare",
+      "requires": [
+        "serial"
+      ]
+    },
+    {
+      "lane": "calibration",
+      "requires": [
+        "zero-tare"
+      ]
+    },
+    {
+      "lane": "physical-loop",
+      "requires": [
+        "calibration"
+      ]
+    },
+    {
+      "lane": "release-packaging",
+      "requires": [
+        "physical-loop"
+      ]
+    }
+  ],
+  "package_version": "0.1.5"
+}

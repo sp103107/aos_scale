@@ -1,0 +1,41 @@
+{
+  "phases": [
+    {
+      "phase": "rc0_initial_application_build",
+      "status": "preserved_complete"
+    },
+    {
+      "phase": "rc1_alice_response_agent_implementation_and_truth_hardening",
+      "status": "preserved_complete"
+    },
+    {
+      "phase": "rc1a_alice_terminal_receipt_ui_flow_and_evidence_hygiene_hardening",
+      "status": "preserved_complete"
+    },
+    {
+      "phase": "rc2_core_operator_loop_crash_safe_frontend_and_device_control",
+      "status": "implemented_and_validated"
+    },
+    {
+      "phase": "rc3_physical_scale_integration_and_local_control_bridge",
+      "status": "next"
+    },
+    {
+      "phase": "rc4_uno_q_hybrid_runtime_and_standalone_station_adapter",
+      "status": "planned"
+    },
+    {
+      "phase": "rc5_bluetooth_wifi_transport_adapters_and_remote_command_governance",
+      "status": "planned"
+    },
+    {
+      "phase": "rc6_windows_native_packaging_and_cross_platform_operator_validation",
+      "status": "planned"
+    },
+    {
+      "phase": "rc7_integrated_field_release_candidate",
+      "status": "planned_for_0.2.0"
+    }
+  ],
+  "version": "0.1.3"
+}

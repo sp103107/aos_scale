@@ -1,0 +1,61 @@
+{
+  "package_name": "best_buds_cultivator_weight_station",
+  "stages": [
+    {
+      "path": "pipeline/stages/00_repository_preflight.json",
+      "stage_id": "00_repository_preflight",
+      "version": "0.1.9"
+    },
+    {
+      "path": "pipeline/stages/10_naming_concordance.json",
+      "stage_id": "10_naming_concordance",
+      "version": "0.1.9"
+    },
+    {
+      "path": "pipeline/stages/20_launcher_validation.json",
+      "stage_id": "20_launcher_validation",
+      "version": "0.1.9"
+    },
+    {
+      "path": "pipeline/stages/30_frontend_runtime_validation.json",
+      "stage_id": "30_frontend_runtime_validation",
+      "version": "0.1.9"
+    },
+    {
+      "path": "pipeline/stages/40_operator_workflow_validation.json",
+      "stage_id": "40_operator_workflow_validation",
+      "version": "0.1.9"
+    },
+    {
+      "path": "pipeline/stages/50_scripted_scale_validation.json",
+      "stage_id": "50_scripted_scale_validation",
+      "version": "0.1.9"
+    },
+    {
+      "path": "pipeline/stages/60_zero_tare_calibration_validation.json",
+      "stage_id": "60_zero_tare_calibration_validation",
+      "version": "0.1.9"
+    },
+    {
+      "path": "pipeline/stages/70_recovery_validation.json",
+      "stage_id": "70_recovery_validation",
+      "version": "0.1.9"
+    },
+    {
+      "path": "pipeline/stages/80_windows_source_validation.json",
+      "stage_id": "80_windows_source_validation",
+      "version": "0.1.9"
+    },
+    {
+      "path": "pipeline/stages/90_context_manifest_validation.json",
+      "stage_id": "90_context_manifest_validation",
+      "version": "0.1.9"
+    },
+    {
+      "path": "pipeline/stages/100_cursor_handoff.json",
+      "stage_id": "100_cursor_handoff",
+      "version": "0.1.9"
+    }
+  ],
+  "version": "0.1.9"
+}

@@ -1,0 +1,15 @@
+{
+  "current_focus": "LLM validation harness and drift profiles for Cursor physical integration",
+  "generated_at": "2026-07-22T20:55:00Z",
+  "next_phase": "rc3b_hardware_inventory_and_wiring_contract",
+  "non_claims": [
+    "Physical hardware execution not run in this environment."
+  ],
+  "record_type": "working_set_update",
+  "source_artifacts": [
+    "best_buds_cultivator_weight_station_v0_1_3.zip"
+  ],
+  "status": "pass",
+  "update_seq": 5,
+  "version": "0.1.4"
+}

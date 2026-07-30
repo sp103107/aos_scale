@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-07-21T03:18:01Z",
+  "non_claims": [
+    "No physical UNO success unless executed.",
+    "No physical HX711 success unless executed.",
+    "No physical load-cell success unless executed.",
+    "No physical calibration or hanging-load success unless executed.",
+    "No legal-for-trade certification.",
+    "No firmware compile pass without Arduino AVR toolchain evidence.",
+    "No native Windows pass without native Windows execution evidence.",
+    "No UNO Q runtime claim.",
+    "No Bluetooth activation claim.",
+    "No Wi-Fi activation claim.",
+    "No physical-button activation claim; only a local test adapter is validated.",
+    "No Metrc integration or seed-to-sale replacement.",
+    "No production-readiness claim or release seal.",
+    "No Context Module runtime-execution claim.",
+    "No Google Drive upload claim without returned connector metadata."
+  ],
+  "production_ready": false,
+  "release_seal": false,
+  "status": "pass_claims_bounded",
+  "truth_classes": {
+    "bluetooth_wifi": "NOT_RUN",
+    "debian": "NATIVE_PLATFORM_PASS",
+    "firmware_compile": "BLOCKED",
+    "physical_device": "NOT_RUN",
+    "simulator": "SIMULATOR_PASS",
+    "source_and_contracts": "SOURCE_PRESENT",
+    "tests": "UNIT_TEST_PASS",
+    "tk_ui": "UI_SMOKE_PASS",
+    "uno_q": "NOT_RUN",
+    "windows": "BLOCKED"
+  },
+  "version": "0.1.3"
+}

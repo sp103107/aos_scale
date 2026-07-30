@@ -1,0 +1,83 @@
+{
+  "claims": [
+    {
+      "claim": "source_core_tests",
+      "evidence": [
+        "validation/pytest_output.txt"
+      ],
+      "status": "pass",
+      "test_count": 17
+    },
+    {
+      "claim": "simulator_workflow",
+      "evidence": [
+        "validation/persistent_simulator_self_test.json",
+        "validation/fixtures/sessions/SELFTEST-SESSION/records.jsonl"
+      ],
+      "status": "pass",
+      "truth_class": "simulator"
+    },
+    {
+      "claim": "append_only_outputs_and_reports",
+      "evidence": [
+        "validation/schema_and_export_validation.json",
+        "validation/fixtures/sessions/SELFTEST-SESSION/records.xlsx",
+        "validation/fixtures/sessions/SELFTEST-SESSION/reports/harvest_run_report.xlsx"
+      ],
+      "status": "pass",
+      "truth_class": "simulator_fixture"
+    },
+    {
+      "claim": "source_ui_launch",
+      "evidence": [
+        "validation/source_ui_smoke.txt"
+      ],
+      "status": "pass_tk_fallback_xvfb"
+    },
+    {
+      "claim": "debian_package",
+      "evidence": [
+        "reports/debian_packaging_receipt.v0.1.0.json"
+      ],
+      "status": "pass_native_debian"
+    },
+    {
+      "claim": "windows_native_executable",
+      "evidence": [
+        "reports/windows_packaging_receipt.v0.1.0.json"
+      ],
+      "status": "blocked_no_native_windows_runner"
+    },
+    {
+      "claim": "firmware_compile",
+      "evidence": [
+        "reports/firmware_compile_receipt.v0.1.0.json"
+      ],
+      "status": "blocked_toolchain_unavailable"
+    },
+    {
+      "claim": "physical_uno_hx711_load_cell",
+      "evidence": [],
+      "status": "blocked_no_physical_hardware"
+    },
+    {
+      "claim": "legal_for_trade",
+      "status": "not_claimed"
+    },
+    {
+      "claim": "metrc_or_seed_to_sale",
+      "status": "not_claimed"
+    },
+    {
+      "claim": "production_ready",
+      "status": "not_claimed"
+    },
+    {
+      "claim": "release_seal",
+      "status": "not_claimed"
+    }
+  ],
+  "generated_at": "2026-07-19T15:40:04Z",
+  "overall_status": "partial_pass_required_windows_and_hardware_gates_blocked",
+  "version": "0.1.0"
+}

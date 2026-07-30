@@ -1,0 +1,16 @@
+{
+  "after": {
+    "bat_operator": 4,
+    "ps1_operator": 4,
+    "sh_operator": 4
+  },
+  "before": {
+    "bat": 0,
+    "ps1_build_only": 1,
+    "sh_operator": 0
+  },
+  "native_windows_execution": "NOT_RUN",
+  "source_version": "0.1.5",
+  "status": "closed_in_v0.1.6",
+  "version": "0.1.6"
+}

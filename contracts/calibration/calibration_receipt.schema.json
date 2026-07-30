@@ -1,0 +1,65 @@
+{
+  "$id": "https://bestbuds.local/schemas/calibration_receipt.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_factor": {
+      "type": "number"
+    },
+    "calibration_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "created_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "device_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "firmware_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "operator_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "proposed_factor": {
+      "type": "number"
+    },
+    "raw_readings": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "reference_weight_g": {
+      "type": "number"
+    },
+    "truth_class": {
+      "enum": [
+        "simulator",
+        "physical_hardware"
+      ]
+    }
+  },
+  "required": [
+    "calibration_id",
+    "created_at",
+    "operator_id",
+    "device_id",
+    "firmware_version",
+    "reference_weight_g",
+    "raw_readings",
+    "proposed_factor",
+    "accepted_factor",
+    "metrics"
+  ],
+  "title": "Calibration Receipt",
+  "type": "object"
+}

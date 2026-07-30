@@ -1,0 +1,195 @@
+{
+  "$schema": "https://aos.local/schemas/application_execution_hardening_addendum.v1.json",
+  "addendum_id": "best_buds_cultivator_weight_station.execution_hardening.v0.1.1",
+  "package_name": "best_buds_cultivator_weight_station",
+  "version": "0.1.1",
+  "generated_at": "2026-07-19T15:05:06Z",
+  "applies_to": {
+    "contract_pack": "best_buds_cultivator_weight_station.contract_pack.v0.1.0",
+    "initial_repo_version": "0.1.0",
+    "source_artifact_hashes": {
+      "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c",
+      "best_buds_cultivator_weight_station_contract_pack_v0_1_0.json": "da69715c8621e1267f59e8c70a5f51a955385aee63783b062ad14c7d7aa9f672",
+      "best_buds_cultivator_weight_station_requirements_and_prompt_pack_v0_1_0.docx": "f8013887059db1797faa7e166e6f4e411e321546941a2a8e2af9f0d2f86f641d",
+      "best_buds_cultivator_weight_station_harvest_alice_sublayer_prompt_v0_1_0.md": "c567568130ad22bcdd486d68bab28c3a1f94024569c03088637c59cf31d5c4b5",
+      "best_buds_cultivator_weight_station_frontend_manifest_v0_1_0.json": "19ccecaa24cbec41a15260e2c4a75064fd0675d559ac0fc5a8b9907460486b37",
+      "best_buds_cultivator_weight_station_backend_manifest_v0_1_0.json": "24e1cf015374d02b8279de324d972a6a3a659734edd2c9355211dc8827d34c4d",
+      "best_buds_cultivator_weight_station_new_context_kickoff_prompt.md": "7ea515e5fcb4c671035cb0ebae4fe84356b50e3eeb2e745b523959cf2947e4b9",
+      "best_buds_cultivator_weight_station_system_compatibility_companion_prompt.md": "59c563dde12321a54cd7360481f1f37f0c34355b7f20f5bfb4b873d488a375d5"
+    }
+  },
+  "bump_interpretation": {
+    "scope": "full_repo",
+    "initial_build": true,
+    "external_release_artifact": "best_buds_cultivator_weight_station_v0_1_0.zip",
+    "no_detached_phase_archives": true
+  },
+  "release_blocking_gates": [
+    {
+      "gate_id": "GATE-LOCAL-COMMIT",
+      "title": "Transactional local commit before success feedback",
+      "requirements": [
+        "Append JSONL event and fsync where supported",
+        "Write individual record JSON",
+        "Update session checkpoint or manifest atomically",
+        "Only then emit success beep and RECORD_SAVED state",
+        "Failure injection proves no false success acknowledgement"
+      ]
+    },
+    {
+      "gate_id": "GATE-EVIDENCE-BOUNDARY",
+      "title": "Simulated and physical evidence separation",
+      "requirements": [
+        "Simulator receipts use simulator truth class",
+        "Physical hardware claims require UNO/HX711/load-cell evidence",
+        "Packaging build does not imply hardware pass",
+        "UI smoke test does not imply production deployment"
+      ]
+    },
+    {
+      "gate_id": "GATE-WINDOWS-EXE",
+      "title": "Native Windows executable",
+      "requirements": [
+        "Build on a Windows runner or Windows host",
+        "Produce a real PE executable",
+        "Run version/self-test command",
+        "Record OS, architecture, Python, dependency, command, exit code and SHA-256",
+        "Include executable or zipped one-folder distribution in final release"
+      ]
+    },
+    {
+      "gate_id": "GATE-DEBIAN-DEB",
+      "title": "Native Debian package",
+      "requirements": [
+        "Build on Debian or a declared compatible Debian environment",
+        "Produce a valid .deb package",
+        "Inspect package metadata",
+        "Install in an isolated test environment where feasible",
+        "Run version/self-test command",
+        "Record environment, command, result and SHA-256"
+      ]
+    },
+    {
+      "gate_id": "GATE-DUAL-DELIVERY",
+      "title": "Chat and Google Drive delivery",
+      "requirements": [
+        "Create final full-repo ZIP",
+        "Create checksums",
+        "Expose chat download links",
+        "Find or create one Drive project folder without duplicating moved folders",
+        "Upload repo ZIP, Windows artifact, Debian artifact, checksums and validation report",
+        "Verify Drive metadata after upload",
+        "If connector upload fails, report exact failure and preserve chat downloads"
+      ]
+    }
+  ],
+  "native_packaging_strategy": {
+    "windows": {
+      "required": true,
+      "artifact_patterns": [
+        "dist/windows/BestBudsWeightStation.exe",
+        "dist/windows/BestBudsWeightStation-Setup.exe",
+        "dist/windows/BestBudsWeightStation-windows-x64.zip"
+      ],
+      "preferred": "PyInstaller one-folder build containing BestBudsWeightStation.exe",
+      "optional_installer": "Inno Setup or equivalent",
+      "must_build_on": "Windows",
+      "smoke_commands": [
+        "BestBudsWeightStation.exe --version",
+        "BestBudsWeightStation.exe --self-test --simulator"
+      ]
+    },
+    "debian": {
+      "required": true,
+      "artifact_pattern": "dist/debian/best-buds-weight-station_<version>_amd64.deb",
+      "preferred": "dpkg-deb or a deterministic Debian packaging toolchain",
+      "must_build_on": "Debian or explicitly declared Debian-compatible environment",
+      "smoke_commands": [
+        "dpkg-deb --info <package>",
+        "best-buds-weight-station --version",
+        "QT_QPA_PLATFORM=offscreen best-buds-weight-station --self-test --simulator"
+      ]
+    },
+    "macos": {
+      "required": false,
+      "status": "best_effort_source_only",
+      "must_not_block": true
+    }
+  },
+  "ci_release_pipeline": {
+    "required": true,
+    "jobs": [
+      "validate-source",
+      "test-linux",
+      "build-debian",
+      "test-windows",
+      "build-windows",
+      "assemble-release"
+    ],
+    "artifact_integrity": [
+      "SHA-256 manifests",
+      "build receipts",
+      "dependency/license inventory",
+      "secret scan",
+      "ZIP membership validation"
+    ],
+    "prohibited": [
+      "Renaming a non-Windows binary to .exe",
+      "Claiming a .deb without package inspection",
+      "Cross-compiling with unsupported PyInstaller workflow and calling it native",
+      "Claiming launch success without executing a smoke command"
+    ]
+  },
+  "security_hardening": [
+    "No credentials or access tokens in repo, logs, example configs or release artifacts",
+    "All remote adapters disabled by default",
+    "Local data root permission preflight before run start",
+    "Envelope payload validation before routing",
+    "Idempotency checks for record commands",
+    "Append-only correction and void events",
+    "Barcode, operator note and imported spreadsheet cells treated as untrusted input",
+    "Formula injection protection in CSV/XLSX exports",
+    "Path traversal prevention for session and export names",
+    "Bounded serial-line length and malformed-message rejection",
+    "Crash recovery from JSONL and checkpoint",
+    "Dependency and license inventory",
+    "Secret and generated-binary scan before release"
+  ],
+  "performance_and_reliability": {
+    "operator_latency_targets": {
+      "barcode_to_waiting_for_weight_ms": 150,
+      "stable_weight_to_local_commit_ms": 500,
+      "post_commit_ui_reset_ms": 250
+    },
+    "constraints": [
+      "Remote sync never blocks the weighing loop",
+      "Spreadsheet update failure becomes pending-sync receipt",
+      "Serial reads occur off the UI thread",
+      "Report compilation cannot mutate authoritative events",
+      "Long-running exports expose progress and cancellation"
+    ]
+  },
+  "required_release_artifacts": [
+    "best_buds_cultivator_weight_station_v0_1_0.zip",
+    "best_buds_cultivator_weight_station_v0_1_0.zip.sha256",
+    "Windows executable or Windows one-folder ZIP containing the executable",
+    "Windows packaging receipt",
+    "Debian .deb installer",
+    "Debian packaging receipt",
+    "firmware source and compile receipt",
+    "validation report",
+    "dependency and license inventory",
+    "Drive delivery receipt or explicit connector-failure report"
+  ],
+  "non_claims": [
+    "No physical hardware pass without actual board/load-cell evidence",
+    "No legal-for-trade certification",
+    "No seed-to-sale replacement",
+    "No Metrc integration without provider receipts",
+    "No Windows package pass without Windows execution",
+    "No Debian package pass without package inspection and smoke evidence",
+    "No Drive upload success without returned Drive metadata",
+    "No production seal",
+    "macOS remains optional"
+  ]
+}

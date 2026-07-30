@@ -1,0 +1,50 @@
+{
+  "accessibility": [
+    "keyboard_navigation",
+    "large_controls",
+    "text_and_icon_status",
+    "no_color_only_critical_state",
+    "HiDPI"
+  ],
+  "alice_guidance_panel": {
+    "raw_stack_traces": false,
+    "source": "typed_application_state_and_receipts",
+    "visible_fields": [
+      "operator_message",
+      "truth_class",
+      "required_action",
+      "blocking_reason",
+      "evidence_summary"
+    ]
+  },
+  "entry": "app/best_buds_weight_station/ui.py",
+  "framework": "PySide6",
+  "operator_screen_visible_fields": [
+    "connection",
+    "run",
+    "operator",
+    "cultivar",
+    "barcode",
+    "gross",
+    "tare",
+    "net",
+    "stability",
+    "mode",
+    "last_saved",
+    "record_count",
+    "total_weight",
+    "storage_status",
+    "error_banner"
+  ],
+  "screens": [
+    "harvest_setup",
+    "capture",
+    "calibration",
+    "records",
+    "exceptions",
+    "reports",
+    "diagnostics",
+    "about"
+  ],
+  "version": "0.1.1"
+}

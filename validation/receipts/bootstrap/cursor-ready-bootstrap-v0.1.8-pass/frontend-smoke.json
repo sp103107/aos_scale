@@ -1,0 +1,40 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/validate_frontend_runtime_truth.py"
+      ],
+      "duration_seconds": 1.833,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"checks\": {\n    \"alice_state_refresh\": true,\n    \"background_worker\": true,\n    \"barcode_keyboard_path\": true,\n    \"barcode_labeled\": true,\n    \"calibration_dialog\": true,\n    \"dead_contract_stubs_removed\": true,\n    \"no_synthetic_physical_zero\": true,\n    \"physical_warning_not_success\": true,\n    \"pyside_primary\": true,\n    \"scale_setup_dialog\": true,\n    \"scale_setup_not_placeholder\": true,\n    \"shared_action_layout\": true,\n    \"tare_dialog\": true,\n    \"windows_first_paths\": true,\n    \"worker_shutdown\": true\n  },\n  \"failures\": [],\n  \"status\": \"PASS\"\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/validate_frontend_polish_v018.py"
+      ],
+      "duration_seconds": 1.882,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"checks\": {\n    \"advanced_menus\": true,\n    \"barcode_focus\": true,\n    \"barcode_label_pyside\": true,\n    \"barcode_label_tk\": true,\n    \"dead_contract_stubs_removed\": true,\n    \"generated_egg_info_absent\": true,\n    \"layout_contract_declared\": true,\n    \"manifest_runtime_truth\": true,\n    \"non_overlapping_actions\": true,\n    \"physical_warning_pyside\": true,\n    \"physical_warning_tk\": true,\n    \"seven_actions\": true,\n    \"simulator_badge\": true,\n    \"tokens_aligned\": true,\n    \"version\": true\n  },\n  \"failures\": [],\n  \"physical_hardware\": \"NOT_RUN\",\n  \"pyside_runtime\": \"NOT_RUN_DEPENDENCY_UNAVAILABLE\",\n  \"status\": \"PASS\",\n  \"tk_runtime\": \"SEPARATE_SMOKE_REQUIRED\",\n  \"version\": \"0.1.8\"\n}\n"
+    }
+  ],
+  "created_at": "2026-07-29T18:19:59Z",
+  "data": {
+    "native_windows_runtime": "NOT_RUN",
+    "pyside6_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+    "render_evidence": "reports/frontend_render_evidence.v0.1.8.json",
+    "tk_runtime": "PASS"
+  },
+  "evidence_refs": [],
+  "lane": "frontend-smoke",
+  "next_action": null,
+  "profile": "operator-ready",
+  "reason_code": "FRONTEND_RENDER_EVIDENCE_VALIDATED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

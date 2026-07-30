@@ -1,0 +1,88 @@
+{
+  "$id": "https://bestbuds.local/schemas/frontend_render_evidence.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_hashes": {
+      "type": "object"
+    },
+    "artifact_paths": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "claim_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "claim_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "command_or_action": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "execution_posture": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "exit_code_or_result": {},
+    "finished_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "judge_verdict": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "result": {
+      "enum": [
+        "pass",
+        "fail",
+        "blocked",
+        "not_run",
+        "warn"
+      ]
+    },
+    "started_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "validator_result": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "evidence_id",
+    "claim_type",
+    "execution_posture",
+    "result"
+  ],
+  "title": "Frontend Render Evidence",
+  "type": "object"
+}

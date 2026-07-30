@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "archive_type": "preliminary_structure_validation_for_final_deterministic_rebuild",
+  "zip_root": "best_buds_cultivator_weight_station_v0_1_0",
+  "entry_count": 164,
+  "required_paths_missing": [],
+  "forbidden_entries": [],
+  "preliminary_sha256": "08971924759b4353cc647e8c55c6466bbe42f16a8eefdaee712394a65ffd22bd",
+  "note": "The final ZIP is rebuilt after this report and the final file manifest are inserted; an external sidecar revalidates the final bytes."
+}

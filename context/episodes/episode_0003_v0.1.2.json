@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-07-19T17:43:29Z",
+  "episode_id": "bbws-episode-0003",
+  "immutable": true,
+  "record_type": "episode_checkpoint",
+  "summary": "Full-repository bump closing Alice terminal receipt/UI progression drift, duplicate evidence gaps, Tk cancellation, and current evidence-version hygiene.",
+  "version": "0.1.2"
+}

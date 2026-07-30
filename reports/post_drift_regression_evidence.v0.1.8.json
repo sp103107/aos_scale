@@ -1,0 +1,27 @@
+{
+  "artifact_hashes": {
+    "validation/reports/post_drift_regression.v0.1.8.log": "ecf57d762b443151696ef4727347520d0d5715719bac1e0cd93caddf627ffa61"
+  },
+  "artifact_paths": [
+    "validation/reports/post_drift_regression.v0.1.8.log"
+  ],
+  "claim_id": "final-label-render-and-validator-regression",
+  "claim_type": "runtime_execution_pass",
+  "command_or_action": "pytest frontend polish, frontend contract, and Alice response tests after final label/render concordance correction",
+  "evidence_id": "post-drift-regression-v0.1.8",
+  "execution_posture": "real_execution_allowed",
+  "exit_code_or_result": 0,
+  "finished_at": "2026-07-29T18:38:35Z",
+  "judge_verdict": "PASS_WITHIN_AFFECTED_SCOPE",
+  "non_claims": [
+    "This selected regression supplements, but does not replace, the preceding 183-test full-suite receipt.",
+    "No native Windows or physical hardware claim."
+  ],
+  "started_at": "2026-07-29T18:38:35Z",
+  "status": "PASS",
+  "stderr_path_or_inline_summary": "stderr redirected to test log",
+  "stdout_path_or_inline_summary": "validation/reports/post_drift_regression.v0.1.8.log",
+  "test_count": 16,
+  "validator_path": "pytest selected regression",
+  "validator_result": "PASS"
+}

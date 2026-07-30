@@ -1,0 +1,42 @@
+{
+  "findings": [
+    {
+      "after": "IMPLEMENTED",
+      "before": "NOT_PRESENT",
+      "surface": "root operator launchers"
+    },
+    {
+      "after": "IMPLEMENTED",
+      "before": "PLACEHOLDER",
+      "surface": "Scale Setup"
+    },
+    {
+      "after": "IMPLEMENTED_SCRIPTED_TESTED",
+      "before": "NOT_PRESENT",
+      "surface": "physical reading worker"
+    },
+    {
+      "after": "DEVICE_ACQUIRED_NO_SYNTHETIC_PAYLOAD",
+      "before": "SIMULATOR_ONLY_SYNTHETIC_READINGS",
+      "surface": "physical-mode zero callback"
+    },
+    {
+      "after": "IMPLEMENTED",
+      "before": "NOT_REACHABLE_FROM_UI",
+      "surface": "container tare capture"
+    },
+    {
+      "after": "IMPLEMENTED",
+      "before": "NOT_PRESENT",
+      "surface": "calibration wizard"
+    },
+    {
+      "after": "SYNCHRONIZED_AFTER_DEVICE_ACTIONS",
+      "before": "POSSIBLE_MISMATCH",
+      "surface": "Alice and application status"
+    }
+  ],
+  "source_version": "0.1.5",
+  "status": "closed_in_v0.1.6",
+  "version": "0.1.6"
+}

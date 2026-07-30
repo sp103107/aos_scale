@@ -1,0 +1,10 @@
+{
+  "application_name": "Best Buds Cultivator Weight Station",
+  "executable_name": "BestBudsWeightStation.exe",
+  "primary_platform": "Windows 10/11 x64",
+  "default_data_root": "%LOCALAPPDATA%\\BestBudsWeightStation\\runs",
+  "normal_operation_requires_administrator": false,
+  "serial_baud": 115200,
+  "primary_frontend": "PySide6",
+  "fallback_frontend": "Tk"
+}

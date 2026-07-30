@@ -1,0 +1,14 @@
+{
+  "authoritative_storage": "append_only_jsonl",
+  "canonical_serial_path": [
+    "PySerialTransport",
+    "DeviceService",
+    "ScaleReadingWorker",
+    "reading.ingest"
+  ],
+  "legacy_adapter": "serial_adapter.py",
+  "legacy_status": "compatibility_only",
+  "package_name": "best_buds_cultivator_weight_station",
+  "stage_runner": "best_buds_weight_station.stage_runner",
+  "version": "0.1.7"
+}

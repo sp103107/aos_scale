@@ -1,0 +1,8 @@
+{
+  "compatibility_policy": "allowed_only_when_explicitly_labeled",
+  "current_surface_count": 16,
+  "historical_immutable_count": 14,
+  "issues": [],
+  "status": "PASS",
+  "version": "0.1.7"
+}

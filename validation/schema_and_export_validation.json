@@ -1,0 +1,8 @@
+{
+  "alice_evidence_examples": 2,
+  "alice_structured_examples": 8,
+  "examples_total": 10,
+  "schema_count": 30,
+  "status": "pass",
+  "version": "0.1.2"
+}

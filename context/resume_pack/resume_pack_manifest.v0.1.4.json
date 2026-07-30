@@ -1,0 +1,12 @@
+{
+  "continuation_handoff": "context/resume_pack/CONTINUATION_HANDOFF_PROMPT.v0.1.4.md",
+  "current_internal_phase": "rc3a_llm_validation_harness_and_drift_profiles",
+  "episode": "context/episodes/episode_0005_v0.1.4.json",
+  "generated_at": "2026-07-22T20:55:00Z",
+  "ledger": "context/ledger/ledger.jsonl",
+  "next_internal_phase": "rc3b_hardware_inventory_and_wiring_contract",
+  "record_type": "resume_pack_manifest",
+  "status": "pass",
+  "version": "0.1.4",
+  "working_set": "context/working_set/working_set_update_0005.json"
+}

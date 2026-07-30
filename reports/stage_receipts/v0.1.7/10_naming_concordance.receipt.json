@@ -1,0 +1,33 @@
+{
+  "artifacts": [
+    "reports/drift_concordance_report.v0.1.7.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "scripts/validate_drift_concordance_v017.py"
+      ],
+      "duration_s": 0.536,
+      "evidence_class": "static_validation_pass",
+      "exit_code": 0,
+      "finished_at": "2026-07-24T04:27:27Z",
+      "started_at": "2026-07-24T04:27:27Z",
+      "stderr": "",
+      "stdout": "{\n  \"compatibility_policy\": \"allowed_only_when_explicitly_labeled\",\n  \"current_surface_count\": 16,\n  \"historical_immutable_count\": 14,\n  \"issues\": [],\n  \"status\": \"PASS\",\n  \"version\": \"0.1.7\"\n}\n"
+    }
+  ],
+  "evidence_class": "runtime_execution_pass",
+  "finished_at": "2026-07-24T04:27:27Z",
+  "next_stage": "20_launcher_validation",
+  "non_claims": [
+    "Physical UNO R3, HX711, load-cell, and native Windows execution are not proven by this stage."
+  ],
+  "receipt_id": "release-v0.1.7-bg-10_naming_concordance",
+  "run_id": "release-v0.1.7-bg",
+  "stage_id": "10_naming_concordance",
+  "started_at": "2026-07-24T04:27:27Z",
+  "status": "PASS",
+  "version": "0.1.7",
+  "warnings": []
+}

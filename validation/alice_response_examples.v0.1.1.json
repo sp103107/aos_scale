@@ -1,0 +1,287 @@
+{
+  "automatic_commit": {
+    "allowed_actions": [
+      "scan_barcode",
+      "open_record",
+      "open_run_summary"
+    ],
+    "blocked_actions": [],
+    "command_proposal": null,
+    "correlation_id": null,
+    "evidence_refs": [
+      {
+        "evidence_type": "jsonl_event",
+        "reference": "event-000042"
+      },
+      {
+        "evidence_type": "individual_record",
+        "reference": "records/000042.json"
+      },
+      {
+        "evidence_type": "checkpoint",
+        "reference": "42"
+      },
+      {
+        "evidence_type": "hash_chain",
+        "reference": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      {
+        "evidence_type": "commit_receipt",
+        "reference": "commit-000042"
+      }
+    ],
+    "non_claims": [],
+    "operator_message": "Record BB-HR-2026-0719-A-000042 saved locally. Net weight: 1200.0 g. Scan the next container.",
+    "required_action": {
+      "action_type": "scan_barcode",
+      "details": {},
+      "label": null,
+      "required": true
+    },
+    "response_id": "alice-response-8e239b63-4f53-4034-91c0-b6c57a63caff",
+    "response_version": "1.0.0",
+    "session_id": null,
+    "severity": "info",
+    "state": "RECORD_SAVED",
+    "timestamp": "2026-07-19T16:53:30Z",
+    "truth_class": "RECEIPT_CONFIRMED"
+  },
+  "duplicate": {
+    "allowed_actions": [
+      "scan_barcode",
+      "open_record",
+      "open_run_summary"
+    ],
+    "blocked_actions": [
+      "repeat_non_idempotent_command"
+    ],
+    "command_proposal": null,
+    "correlation_id": null,
+    "evidence_refs": [
+      {
+        "evidence_type": "original_commit_receipt",
+        "reference": "commit-000042"
+      }
+    ],
+    "non_claims": [],
+    "operator_message": "This command was already committed as record BB-HR-2026-0719-A-000042. No second record was created.",
+    "required_action": {
+      "action_type": "scan_barcode",
+      "details": {},
+      "label": null,
+      "required": true
+    },
+    "response_id": "alice-response-0347a83d-f3e1-4107-bcb7-78ce3ddc7f90",
+    "response_version": "1.0.0",
+    "session_id": null,
+    "severity": "info",
+    "state": "WAITING_FOR_BARCODE",
+    "timestamp": "2026-07-19T16:53:30Z",
+    "truth_class": "RECEIPT_CONFIRMED"
+  },
+  "firmware_blocked": {
+    "compile": "BLOCKED",
+    "physical_hardware": "NOT_RUN",
+    "source": "SOURCE_PRESENT",
+    "statement": "Firmware source is present, but compilation is blocked because the Arduino AVR toolchain is unavailable in this environment."
+  },
+  "jsonl_failure": {
+    "allowed_actions": [
+      "follow_recovery_instruction",
+      "open_diagnostics",
+      "cancel_session"
+    ],
+    "blocked_actions": [
+      "success_beep",
+      "advance_to_next_barcode",
+      "repeat_capture_without_review"
+    ],
+    "command_proposal": null,
+    "correlation_id": null,
+    "evidence_refs": [],
+    "non_claims": [],
+    "operator_message": "The weight was not saved. Authoritative local storage failed. Keep the container on the scale and contact the station administrator.",
+    "required_action": {
+      "action_type": "follow_recovery_instruction",
+      "details": {},
+      "label": null,
+      "required": true
+    },
+    "response_id": "alice-response-a42a7f02-7770-41e5-acc1-8affd5a6a676",
+    "response_version": "1.0.0",
+    "session_id": null,
+    "severity": "critical",
+    "state": "ERROR",
+    "timestamp": "2026-07-19T16:53:30Z",
+    "truth_class": "FAIL"
+  },
+  "manual_confirm": {
+    "allowed_actions": [
+      "confirm_and_continue",
+      "cancel_capture",
+      "review_capture"
+    ],
+    "blocked_actions": [],
+    "command_proposal": null,
+    "correlation_id": null,
+    "evidence_refs": [],
+    "non_claims": [],
+    "operator_message": "Weight is stable at 1200.0 g net. Review the barcode, cultivar, tare, and container, then select Confirm & Continue.",
+    "required_action": {
+      "action_type": "confirm_and_continue",
+      "details": {},
+      "label": null,
+      "required": true
+    },
+    "response_id": "alice-response-b7027623-5c7d-448a-8ef1-68876fee2500",
+    "response_version": "1.0.0",
+    "session_id": null,
+    "severity": "info",
+    "state": "MANUAL_CONFIRM",
+    "timestamp": "2026-07-19T16:53:30Z",
+    "truth_class": "PENDING"
+  },
+  "missing_cultivar": {
+    "allowed_actions": [
+      "register_cultivar",
+      "review_run_manifest",
+      "cancel_session"
+    ],
+    "blocked_actions": [
+      "start_capture"
+    ],
+    "command_proposal": null,
+    "correlation_id": null,
+    "evidence_refs": [],
+    "non_claims": [],
+    "operator_message": "The harvest run cannot begin until at least one cultivar is registered.",
+    "required_action": {
+      "action_type": "register_cultivar",
+      "details": {},
+      "label": null,
+      "required": true
+    },
+    "response_id": "alice-response-4f46622f-8b54-43b6-84e8-1854a68c501b",
+    "response_version": "1.0.0",
+    "session_id": null,
+    "severity": "warning",
+    "state": "SESSION_SETUP",
+    "timestamp": "2026-07-19T16:53:30Z",
+    "truth_class": "BLOCKED"
+  },
+  "restart_recovery": {
+    "allowed_actions": [
+      "review_run_summary",
+      "start_capture",
+      "open_recovery_details"
+    ],
+    "blocked_actions": [],
+    "command_proposal": null,
+    "correlation_id": null,
+    "evidence_refs": [
+      {
+        "evidence_type": "recovery_receipt",
+        "reference": "recovery-1"
+      }
+    ],
+    "non_claims": [
+      "No in-memory-only or uncommitted weight was restored."
+    ],
+    "operator_message": "The session was recovered from the authoritative event ledger. 1 checkpoint was rebuilt. No uncommitted weight was restored.",
+    "required_action": {
+      "action_type": "review_run_summary",
+      "details": {},
+      "label": null,
+      "required": true
+    },
+    "response_id": "alice-response-24afdfbb-3f99-4fb9-86d3-7a73959ed715",
+    "response_version": "1.0.0",
+    "session_id": null,
+    "severity": "info",
+    "state": "SESSION_READY",
+    "timestamp": "2026-07-19T16:53:30Z",
+    "truth_class": "RECEIPT_CONFIRMED"
+  },
+  "serial_disconnect": {
+    "allowed_actions": [
+      "reconnect_device",
+      "open_diagnostics",
+      "cancel_session"
+    ],
+    "blocked_actions": [
+      "success_beep",
+      "advance_to_next_barcode"
+    ],
+    "command_proposal": null,
+    "correlation_id": null,
+    "evidence_refs": [],
+    "non_claims": [],
+    "operator_message": "The scale connection was lost before the record was committed. The weight was not saved. Reconnect the device and re-establish a stable reading.",
+    "required_action": {
+      "action_type": "reconnect_device",
+      "details": {},
+      "label": null,
+      "required": true
+    },
+    "response_id": "alice-response-24c8b852-c90d-45a8-aed1-583c7c41e6c6",
+    "response_version": "1.0.0",
+    "session_id": null,
+    "severity": "error",
+    "state": "DISCONNECTED",
+    "timestamp": "2026-07-19T16:53:30Z",
+    "truth_class": "FAIL"
+  },
+  "simulator_vs_physical": {
+    "statement": "Automatic and manual capture passed with the serial simulator. No physical UNO R3, HX711, load cell, calibration, or hanging-load test was performed.",
+    "truth_class": "SIMULATOR_PASS"
+  },
+  "xlsx_pending": {
+    "allowed_actions": [
+      "scan_barcode",
+      "open_record",
+      "open_run_summary"
+    ],
+    "blocked_actions": [],
+    "command_proposal": null,
+    "correlation_id": null,
+    "evidence_refs": [
+      {
+        "evidence_type": "jsonl_event",
+        "reference": "event-000042"
+      },
+      {
+        "evidence_type": "individual_record",
+        "reference": "records/000042.json"
+      },
+      {
+        "evidence_type": "checkpoint",
+        "reference": "42"
+      },
+      {
+        "evidence_type": "hash_chain",
+        "reference": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      {
+        "evidence_type": "commit_receipt",
+        "reference": "commit-000042"
+      }
+    ],
+    "non_claims": [
+      "Spreadsheet continuation is not authoritative."
+    ],
+    "operator_message": "The authoritative local record was saved. The spreadsheet update is pending and will be retried. Scan the next container.",
+    "required_action": {
+      "action_type": "scan_barcode",
+      "details": {},
+      "label": null,
+      "required": true
+    },
+    "response_id": "alice-response-7a01bc5c-6678-4dda-8ab4-3ae6a503af01",
+    "response_version": "1.0.0",
+    "session_id": null,
+    "severity": "info",
+    "state": "RECORD_SAVED",
+    "timestamp": "2026-07-19T16:53:30Z",
+    "truth_class": "RECEIPT_CONFIRMED"
+  }
+}

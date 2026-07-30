@@ -1,0 +1,8 @@
+{
+  "external_package": false,
+  "phase": "rc3c3_run_workspace_file_and_crash_resume_frontend",
+  "physical_hardware_claimed": false,
+  "status": "implemented",
+  "summary": "Exposed durable run creation, load, resume, finish, export, and recovery workflows.",
+  "version": "0.1.6"
+}

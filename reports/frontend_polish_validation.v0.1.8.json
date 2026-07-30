@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "advanced_menus": true,
+    "barcode_focus": true,
+    "barcode_label_pyside": true,
+    "barcode_label_tk": true,
+    "dead_contract_stubs_removed": true,
+    "generated_egg_info_absent": true,
+    "layout_contract_declared": true,
+    "manifest_barcode_label": true,
+    "manifest_runtime_truth": true,
+    "non_overlapping_actions": true,
+    "physical_warning_pyside": true,
+    "physical_warning_tk": true,
+    "seven_actions": true,
+    "simulator_badge": true,
+    "tk_render_evidence": true,
+    "tokens_aligned": true,
+    "version": true
+  },
+  "failures": [],
+  "physical_hardware": "NOT_RUN",
+  "pyside_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+  "status": "PASS",
+  "tk_runtime": "PASS_LINUX_XVFB_MANUAL_AND_AUTOMATIC",
+  "version": "0.1.8"
+}

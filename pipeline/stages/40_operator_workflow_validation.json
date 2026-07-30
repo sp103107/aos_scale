@@ -1,0 +1,67 @@
+{
+  "allowed_mutations": [
+    "validation/receipts/stages/**",
+    "validation/checkpoints/**",
+    "validation/reports/**"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "scripts/run_v018_operator_acceptance.py"
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "required": true,
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_operator_runtime.py"
+      ],
+      "evidence_class": "runtime_execution_pass",
+      "required": true,
+      "timeout_seconds": 120
+    }
+  ],
+  "entrypoint": {
+    "arguments": [
+      "run",
+      "--stage",
+      "40_operator_workflow_validation"
+    ],
+    "module": "best_buds_weight_station.stage_runner"
+  },
+  "expected_artifacts": [
+    "reports/operator_workflow_validation.v0.1.9.json"
+  ],
+  "failure_classes": [
+    "FAIL",
+    "BLOCKED",
+    "NOT_RUN"
+  ],
+  "forbidden_mutations": [
+    "context/episodes/episode_0001_v0.1.0.json",
+    "context/ledger/ledger.jsonl:historical_lines",
+    "manifests/historical_release_manifests"
+  ],
+  "inputs": [],
+  "next_stage": "50_scripted_scale_validation",
+  "pass_conditions": [
+    "all required commands exit 0",
+    "receipt schema validates"
+  ],
+  "preconditions": [],
+  "purpose": "Execute simulator-backed operator workflows through OperatorRuntime.",
+  "receipt_path": "validation/receipts/stages/40_operator_workflow_validation.latest.json",
+  "requires": [
+    "30_frontend_runtime_validation"
+  ],
+  "stage_id": "40_operator_workflow_validation",
+  "version": "0.1.9"
+}

@@ -1,0 +1,22 @@
+{
+  "artifact_hashes": {},
+  "artifact_paths": [],
+  "claim_id": "uno_firmware_compile",
+  "claim_type": "runtime_execution_pass",
+  "command_or_action": "scripts/build_firmware.sh",
+  "evidence_id": "firmware-compile-v0.1.8",
+  "execution_posture": "real_execution_allowed",
+  "exit_code_or_result": 3,
+  "finished_at": "2026-07-29T17:21:53Z",
+  "judge_verdict": "BLOCKED_DEPENDENCY_UNAVAILABLE",
+  "non_claims": [
+    "No firmware compile pass.",
+    "No firmware upload pass.",
+    "No physical UNO execution."
+  ],
+  "started_at": "2026-07-29T17:21:53Z",
+  "stderr_path_or_inline_summary": "",
+  "stdout_path_or_inline_summary": "arduino-cli unavailable",
+  "validator_path": "scripts/build_firmware.sh",
+  "validator_result": "BLOCKED"
+}

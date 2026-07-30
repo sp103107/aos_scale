@@ -1,0 +1,20 @@
+{
+  "non_claims": [
+    "Does not claim native Windows, PySide6 runtime, or physical hardware execution."
+  ],
+  "purpose": "Revalidate stages affected by final barcode-label, render-evidence, and manifest concordance corrections.",
+  "run_id": "post-drift-v0.1.8",
+  "stages": [
+    {
+      "stage_id": "10_naming_concordance",
+      "status": "PASS"
+    },
+    {
+      "stage_id": "30_frontend_runtime_validation",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "validated_at": "2026-07-29T18:39:56Z",
+  "version": "0.1.8"
+}

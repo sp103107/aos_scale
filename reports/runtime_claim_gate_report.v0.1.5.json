@@ -1,0 +1,21 @@
+{
+  "allowed_claims": [
+    "159 automated tests pass",
+    "prehardware coding-agent bootstrap passes",
+    "automatic and manual simulator loops pass",
+    "native Debian package passes"
+  ],
+  "blocked_claims": [
+    "firmware compile/upload",
+    "physical serial/HX711/zero/tare/calibration/weighing",
+    "Windows-native execution",
+    "Bluetooth/Wi-Fi runtime",
+    "UNO Q runtime",
+    "production readiness",
+    "release seal"
+  ],
+  "generated_at": "2026-07-23T03:07:37Z",
+  "software_claim_boundary": "unit tests, software-only dry run, recovery matrix, Tk Xvfb smoke, isolated Python install, native Debian package",
+  "status": "pass",
+  "version": "0.1.5"
+}

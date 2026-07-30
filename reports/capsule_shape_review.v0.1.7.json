@@ -1,0 +1,7 @@
+{
+  "full_repo_shape": true,
+  "pod_manifest": "pods/best_buds_weight_station_pod_manifest.v0.1.7.json",
+  "runtime_activation": "NOT_CLAIMED",
+  "status": "PASS",
+  "version": "0.1.7"
+}

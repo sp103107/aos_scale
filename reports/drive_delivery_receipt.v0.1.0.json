@@ -1,0 +1,29 @@
+{
+  "binary_file_upload": {
+    "attempted_file": "reports/validation_report.v0.1.0.json",
+    "error": "file_uri must be a connector file reference object returned by a fetch/upload action.",
+    "status": "blocked_connector_file_reference_required"
+  },
+  "delivered_binary_files": [],
+  "folder": {
+    "creation_status": "pass",
+    "id": "1o7vVFOM0f23DyiI56aAx9mI9n4EDTUN9",
+    "title": "Best Buds Cultivator Weight Station",
+    "url": "https://drive.google.com/drive/folders/1o7vVFOM0f23DyiI56aAx9mI9n4EDTUN9"
+  },
+  "generated_at": "2026-07-19T15:42:11Z",
+  "non_claim": "No repository ZIP, Debian package, checksum, or raw validation file upload to Google Drive is claimed. Direct sandbox downloads are the authoritative binary delivery for this run.",
+  "planned_binary_files": [
+    "best_buds_cultivator_weight_station_v0_1_0.zip",
+    "best_buds_cultivator_weight_station_v0_1_0.zip.sha256",
+    "best-buds-weight-station_0.1.0_amd64.deb"
+  ],
+  "receipt_document": {
+    "creation_and_move_status": "pass",
+    "id": "14-AwW7rB8lv3KWnvYFOgU713afEnUTlJcOnxsUy_X1o",
+    "parent_folder_id": "1o7vVFOM0f23DyiI56aAx9mI9n4EDTUN9",
+    "title": "Best Buds Cultivator Weight Station \u2014 Delivery Receipt v0.1.0",
+    "url": "https://docs.google.com/document/d/14-AwW7rB8lv3KWnvYFOgU713afEnUTlJcOnxsUy_X1o/edit?usp=drivesdk"
+  },
+  "status": "partial_folder_and_receipt_created_binary_upload_blocked"
+}

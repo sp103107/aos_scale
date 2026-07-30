@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bestbuds.local/schemas/software_dry_run_result.v1.json",
+  "title": "Best Buds software-only dry-run result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status", "version", "evidence_class", "automatic_loop", "manual_loop",
+    "calibration", "canonical_button_mapping", "bluetooth_boundary",
+    "wifi_boundary", "physical_device", "firmware_upload", "uno_q", "non_claims"
+  ],
+  "properties": {
+    "status": {"const": "PASS"},
+    "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "evidence_class": {"const": "SIMULATOR_PASS"},
+    "automatic_loop": {"type": "object"},
+    "manual_loop": {"type": "object"},
+    "calibration": {"type": "object"},
+    "canonical_button_mapping": {"type": "object"},
+    "bluetooth_boundary": {"const": "VALIDATED_DISABLED_NOT_RUN"},
+    "wifi_boundary": {"const": "VALIDATED_DISABLED_NOT_RUN"},
+    "physical_device": {"const": "NOT_RUN"},
+    "firmware_upload": {"const": "NOT_RUN"},
+    "uno_q": {"const": "NOT_RUN"},
+    "non_claims": {"type": "array", "items": {"type": "string"}}
+  }
+}

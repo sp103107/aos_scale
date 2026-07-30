@@ -1,0 +1,12 @@
+{
+  "version": "0.1.9",
+  "status": "PASS",
+  "artifact": "dist/debian/best-buds-weight-station_0.1.9_amd64.deb",
+  "sha256": "2b0acb181cd8ffc6ce16fa890637ccb71efd7276df2c566a162715e1960825dd",
+  "package_metadata": [
+    "Package: best-buds-weight-station",
+    "Version: 0.1.9",
+    "Architecture: amd64"
+  ],
+  "physical_hardware": "NOT_RUN"
+}

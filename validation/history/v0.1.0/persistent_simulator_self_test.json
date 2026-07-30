@@ -1,0 +1,11 @@
+{
+  "automatic_capture": "pass",
+  "data_root": "validation/fixtures",
+  "hash_chain": "pass",
+  "local_write_failure_prevents_success_beep": "pass",
+  "manual_capture": "pass",
+  "records": 2,
+  "status": "pass",
+  "total_net_g": 305.0,
+  "truth_class": "simulator"
+}

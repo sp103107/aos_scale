@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-07-21T03:18:01Z",
+  "next_phase": "rc3_physical_scale_integration_and_local_control_bridge",
+  "not_proven": [
+    "DELIVERED",
+    "WIRED",
+    "COMPILED",
+    "CALIBRATED",
+    "PHYSICAL_DEVICE_PASS"
+  ],
+  "ordered_hardware": [
+    {
+      "item": "10 kg straight-bar load cell with hooks",
+      "status": "ORDERED"
+    },
+    {
+      "item": "HX711 amplifier modules",
+      "quantity": 3,
+      "status": "ORDERED"
+    },
+    {
+      "item": "breadboards",
+      "status": "ORDERED"
+    }
+  ],
+  "physical_device_pass": false,
+  "status": "NOT_RUN",
+  "truth_class": "NOT_RUN",
+  "version": "0.1.3"
+}

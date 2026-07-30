@@ -1,0 +1,44 @@
+{
+  "bump_scope": "full_repo",
+  "canonical_serial_path": "PySerialTransport -> DeviceService -> ScaleReadingWorker",
+  "claim_gate_required": true,
+  "current_phase": "rc3c12_final_polish_and_drift_review",
+  "cursor_ready_bootstrap": "python -m best_buds_weight_station.bootstrap --profile cursor-ready",
+  "entrypoints": [
+    "launch_best_buds.bat",
+    "launch_best_buds.ps1",
+    "launch_best_buds.sh",
+    "cursor_bootstrap.bat",
+    "cursor_bootstrap.ps1",
+    "cursor_bootstrap.sh",
+    "best-buds-weight-station",
+    "best-buds-weight-station-bootstrap",
+    "best-buds-weight-station-stage",
+    "python -m best_buds_weight_station.stage_runner"
+  ],
+  "evidence_required": true,
+  "execution_posture": "real_execution_allowed",
+  "fallback_frontend": "Tk",
+  "generated_at": "2026-07-29T17:17:48Z",
+  "legacy_serial_adapter": "serial_adapter.py compatibility only",
+  "next_phase": "rc3d_uno_r3_hx711_physical_scale_bringup",
+  "non_claims": [
+    "No native Windows/PySide runtime pass without Windows evidence.",
+    "No physical scale, firmware, calibration, or load test pass.",
+    "No production-ready or release-seal claim."
+  ],
+  "package_name": "best_buds_cultivator_weight_station",
+  "primary_frontend": "PySide6",
+  "primary_platform": "windows_10_11_x64",
+  "purpose": "cultivation_weight_station",
+  "secondary_platform": "linux",
+  "validation_profiles": [
+    "development",
+    "prehardware",
+    "operator-ready",
+    "cursor-ready",
+    "integration",
+    "release"
+  ],
+  "version": "0.1.9"
+}

@@ -1,0 +1,48 @@
+{
+  "$id": "https://bestbuds.local/schemas/correction_event.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "created_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "correction",
+        "void"
+      ]
+    },
+    "operator_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "original_record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "replacement_record_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "event_type",
+    "event_id",
+    "original_record_id",
+    "reason",
+    "created_at"
+  ],
+  "title": "Correction Event",
+  "type": "object"
+}

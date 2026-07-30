@@ -1,0 +1,6 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://bestbuds.local/contracts/device/device_status.schema.json",
+  "type":"object","required":["connected","mode","protocol_validated","streaming","stale","truth_class"],
+  "properties":{"connected":{"type":"boolean"},"mode":{"enum":["physical_serial","serial_simulator"]},"port":{"type":["string","null"]},"protocol_validated":{"type":"boolean"},"streaming":{"type":"boolean"},"device_id":{"type":["string","null"]},"firmware_version":{"type":["string","null"]},"calibration_factor":{"type":["number","null"]},"unit":{"const":"g"},"last_reading_at":{"type":["number","null"]},"stale":{"type":"boolean"},"disconnect_reason":{"type":["string","null"]},"truth_class":{"type":"string"}},"additionalProperties":false
+}

@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "claim_boundaries": "bounded",
+    "context_alignment": {
+      "events": 48,
+      "latest": 48
+    },
+    "forbidden_detached_paths": "absent",
+    "json_parse": 219,
+    "jsonl_parse": 50,
+    "llm_harness": {
+      "firmware": "BLOCKED",
+      "inspect": "pass",
+      "prepare": "PASS"
+    },
+    "manifest_hashes": 471,
+    "prior_state_preserved": 6,
+    "python_compile_import": {
+      "harness": "ValidationHarness"
+    },
+    "required_paths": 18,
+    "schemas": 48,
+    "test_suite": 149,
+    "version_alignment": "0.1.4",
+    "yaml_parse": 1
+  },
+  "errors": [],
+  "status": "pass",
+  "version": "0.1.4"
+}

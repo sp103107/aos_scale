@@ -1,0 +1,33 @@
+{
+  "artifact_hashes": {
+    "reports/artifacts/operator_ui_smoke.v0.1.8.png": "582deecb288111e52815e6a5970fbeac9da813a3ea81f81258d3f0a91da286bf"
+  },
+  "artifact_paths": [
+    "reports/artifacts/operator_ui_smoke.v0.1.8.png"
+  ],
+  "claim_id": "frontend-render-pass-tk-fallback-v0.1.8",
+  "claim_type": "frontend_render_pass",
+  "command_or_action": "Tk fallback simulator launch under Xvfb; manual and automatic --ui-smoke; 1280x960 screenshot capture",
+  "evidence_id": "frontend-render-v0.1.8-tk-xvfb",
+  "execution_posture": "real_execution_allowed",
+  "exit_code_or_result": {
+    "automatic_ui_smoke": 0,
+    "manual_ui_smoke": 0,
+    "screenshot_capture": 0
+  },
+  "finished_at": "2026-07-29T18:35:34Z",
+  "judge_verdict": "TK_FALLBACK_RENDER_PASS",
+  "non_claims": [
+    "No PySide6 runtime pass.",
+    "No native Windows render pass.",
+    "No physical-scale render or hardware pass."
+  ],
+  "primary_frontend_source": "PySide6 Windows-first",
+  "rendered_frontend": "Tk fallback on Linux/Xvfb",
+  "started_at": "2026-07-29T17:33:00Z",
+  "status": "PASS",
+  "stderr_path_or_inline_summary": "No application error; terminal clear emitted a non-blocking TERM warning in one smoke wrapper.",
+  "stdout_path_or_inline_summary": "Current Tk simulator runtime rendered at 1280x960; all seven routine actions are visible without overlap; the barcode field is labeled PLANT OR CONTAINER BARCODE; simulator mode and physical non-claim remain explicit.",
+  "validator_path": "scripts/validate_frontend_polish_v018.py",
+  "validator_result": "PASS"
+}

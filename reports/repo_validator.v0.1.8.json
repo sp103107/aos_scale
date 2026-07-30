@@ -1,0 +1,47 @@
+{
+  "checks": {
+    "claims": {
+      "physical": "NOT_RUN",
+      "production_ready": false,
+      "release_seal": false,
+      "runtime_scope": "authorized_local_software_only",
+      "windows_native": "NOT_RUN"
+    },
+    "context": {
+      "episode": "episode_0009_v0.1.8",
+      "ledger_events": 120,
+      "working_set": 9
+    },
+    "forbidden": "ABSENT",
+    "generated_hygiene": "PASS",
+    "json": 452,
+    "jsonl": 145,
+    "manifest": "DEFERRED_TO_FINAL_PACKAGE_GATE",
+    "phase_matrix": {
+      "phase_count": 17,
+      "unique_phase_count": 17
+    },
+    "python_compile": "PASS",
+    "required": 36,
+    "schemas": 60,
+    "tests": 183,
+    "validators": {
+      "validate_cursor_handoff_v018.py": "PASS",
+      "validate_cursor_ready_v018.py": "PASS",
+      "validate_drift_concordance_v018.py": "PASS",
+      "validate_frontend_polish_v018.py": "PASS",
+      "validate_frontend_runtime_truth.py": "PASS",
+      "validate_launchers.py": "PASS",
+      "validate_windows_source.py": "PASS"
+    },
+    "versions": {
+      "current_surfaces": 16,
+      "version": "0.1.8"
+    },
+    "yaml": 1
+  },
+  "errors": [],
+  "package_name": "best_buds_cultivator_weight_station",
+  "status": "PASS",
+  "version": "0.1.8"
+}

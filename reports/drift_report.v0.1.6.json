@@ -1,0 +1,27 @@
+{
+  "current_surface": {
+    "DEBIAN_INSTALL": "pass",
+    "README": "pass",
+    "SYSTEM_STATE_CURRENT": "pass",
+    "VERSION": "pass",
+    "WINDOWS_BUILD": "pass",
+    "backend_manifest": "pass",
+    "context_alignment": "pass",
+    "entrypoints": "pass",
+    "frontend_manifest": "pass",
+    "launcher_names": "pass",
+    "phase_matrix": "pass",
+    "pyproject": "pass",
+    "python_version_module": "pass"
+  },
+  "generated_at": "2026-07-23T20:48:35Z",
+  "next_internal_phase": "rc3c11_final_naming_and_drift_concordance_pass",
+  "preserved_historical_versions": "allowed_and_not_rewritten",
+  "status": "pass_current_surface_with_declared_external_source_gap",
+  "unresolved_source_drift": {
+    "artifact": "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip",
+    "expected_sha256": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c",
+    "status": "unavailable_no_concordance_claim"
+  },
+  "version": "0.1.6"
+}

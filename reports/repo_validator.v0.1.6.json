@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "claim_boundaries": "pass",
+    "context_events": 76,
+    "frontend_truth": "pass",
+    "launchers": "pass",
+    "manifest_hashes": "pass_expected_after_final_generation",
+    "operator_acceptance": "pass",
+    "prior_state_preserved": "pass",
+    "required_paths": 51,
+    "schemas": 51,
+    "tests": 169,
+    "version_alignment": "pass",
+    "windows_source": "pass"
+  },
+  "generated_at": "2026-07-23T20:48:35Z",
+  "manifest_file_count": 614,
+  "status": "pass",
+  "version": "0.1.6"
+}

@@ -1,0 +1,11 @@
+{
+  "compiled_at": "2026-07-19T15:36:01Z",
+  "cultivar_totals": {
+    "Test Cultivar": 305.0
+  },
+  "record_count": 2,
+  "records_sha256": "faaa24d8db98dfbe4f039638a73465716cb0403d9145d5f2a11fab3861f0b72a",
+  "report_id": "harvest-report-SELFTEST-SESSION",
+  "session_id": "SELFTEST-SESSION",
+  "total_net_g": 305.0
+}

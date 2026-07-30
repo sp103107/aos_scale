@@ -1,0 +1,25 @@
+{
+  "artifact_hashes": {
+    "dist/debian/best-buds-weight-station_0.1.8_amd64.deb": "b29936c42fccd5aa0fe689c1677a8c60cb60ec5247bd8b3e3d10d73ab40eafc7"
+  },
+  "artifact_paths": [
+    "dist/debian/best-buds-weight-station_0.1.8_amd64.deb"
+  ],
+  "claim_id": "debian_native_package",
+  "claim_type": "runtime_execution_pass",
+  "command_or_action": "scripts/build_debian.sh; dpkg-deb metadata/extraction; extracted-tree version, 11-stage list, simulator self-test, and Tk manual/automatic Xvfb smoke",
+  "evidence_id": "debian-package-v0.1.8",
+  "execution_posture": "real_execution_allowed",
+  "exit_code_or_result": "PASS",
+  "finished_at": "2026-07-29T18:42:23Z",
+  "judge_verdict": "DEBIAN_PACKAGE_PASS",
+  "non_claims": [
+    "No native Windows package pass.",
+    "No physical serial, UNO, HX711, or load-cell pass."
+  ],
+  "started_at": "2026-07-29T18:42:23Z",
+  "stderr_path_or_inline_summary": "",
+  "stdout_path_or_inline_summary": "Final package built as 0.1.8 amd64 with python3-tk, python3-serial, python3-jsonschema, and python3-pytest; extracted version and 11-stage catalog passed; simulator self-test passed; Tk manual and automatic smoke passed on the validated build lane.",
+  "validator_path": "dpkg-deb and extracted-runtime smoke",
+  "validator_result": "PASS"
+}

@@ -1,0 +1,145 @@
+{
+  "checks": [
+    {
+      "check": "Existing and Alice test suite",
+      "count": 47,
+      "evidence": "validation/pytest_output.v0.1.2.txt",
+      "status": "pass"
+    },
+    {
+      "check": "Alice authority boundary",
+      "evidence": "reports/alice_authority_validation.v0.1.2.json",
+      "status": "pass"
+    },
+    {
+      "check": "Alice structured response schemas",
+      "count": 8,
+      "evidence": "contracts/alice/",
+      "status": "pass"
+    },
+    {
+      "check": "All robust examples against applicable schemas",
+      "count": 10,
+      "evidence": "validation/alice_validation.v0.1.2.json",
+      "status": "pass"
+    },
+    {
+      "check": "Automatic terminal result reaches Alice before feedback",
+      "evidence": "tests/alice/test_alice_terminal_ui_flow.py",
+      "status": "pass"
+    },
+    {
+      "check": "Manual terminal result reaches Alice before feedback",
+      "evidence": "tests/alice/test_alice_terminal_ui_flow.py",
+      "status": "pass"
+    },
+    {
+      "check": "Backend emits no terminal success before Alice",
+      "evidence": "tests/test_state_machine.py",
+      "status": "pass"
+    },
+    {
+      "check": "Duplicate original receipt required",
+      "evidence": "tests/alice/test_alice_terminal_ui_flow.py",
+      "status": "pass"
+    },
+    {
+      "check": "Tk Cancel Capture binding and state-machine cancellation",
+      "evidence": "app/best_buds_weight_station/ui.py; tests/test_state_machine.py",
+      "status": "pass"
+    },
+    {
+      "check": "JSONL/individual JSON/checkpoint failure injection",
+      "evidence": "tests/alice/test_alice_persistence_truth.py",
+      "status": "pass"
+    },
+    {
+      "check": "Spreadsheet pending after local commit",
+      "evidence": "tests/alice/test_alice_receipt_interpretation.py",
+      "status": "pass"
+    },
+    {
+      "check": "Recovery from authoritative JSONL",
+      "evidence": "tests/alice/test_alice_recovery.py",
+      "status": "pass"
+    },
+    {
+      "check": "Simulator automatic/manual capture",
+      "evidence": "validation/simulator_self_test.v0.1.2.json",
+      "status": "pass",
+      "truth_class": "SIMULATOR_PASS"
+    },
+    {
+      "check": "Source UI smoke manual/automatic",
+      "evidence": "validation/source_ui_smoke_manual.v0.1.2.txt; validation/source_ui_smoke_automatic.v0.1.2.txt",
+      "status": "pass"
+    },
+    {
+      "check": "Native Debian package build/install/version/self-test/UI",
+      "evidence": "reports/debian_packaging_receipt.v0.1.2.json",
+      "status": "pass"
+    },
+    {
+      "check": "Native Windows executable",
+      "evidence": "reports/windows_packaging_receipt.v0.1.2.json",
+      "status": "blocked",
+      "truth_class": "BLOCKED"
+    },
+    {
+      "check": "Firmware source",
+      "evidence": "reports/firmware_compile_receipt.v0.1.2.json",
+      "status": "present",
+      "truth_class": "SOURCE_PRESENT"
+    },
+    {
+      "check": "Firmware compile",
+      "evidence": "reports/firmware_compile_receipt.v0.1.2.json",
+      "status": "blocked",
+      "truth_class": "BLOCKED"
+    },
+    {
+      "check": "Physical UNO/HX711/load cell",
+      "status": "not_run",
+      "truth_class": "NOT_RUN"
+    },
+    {
+      "check": "Context Working Set/Episode/Ledger/Resume Pack",
+      "evidence": "context/context_validation_report.v0.1.2.json",
+      "status": "pass"
+    },
+    {
+      "check": "Evidence version hygiene",
+      "evidence": "validation/EVIDENCE_VERSION_INDEX.v0.1.2.json",
+      "status": "pass"
+    },
+    {
+      "check": "Source drift",
+      "evidence": "reports/drift_report.v0.1.2.json",
+      "status": "warn"
+    }
+  ],
+  "generated_at": "2026-07-19T17:46:51Z",
+  "non_claims": [
+    "No physical UNO R3 success.",
+    "No physical HX711 success.",
+    "No physical load-cell success.",
+    "No calibration certification or legal-for-trade certification.",
+    "No firmware compile pass without compiler evidence.",
+    "No native Windows execution pass without Windows evidence.",
+    "No Metrc integration or seed-to-sale replacement.",
+    "No production-readiness claim or release seal.",
+    "No remote adapter activation without execution evidence.",
+    "No Context Module runtime-execution claim.",
+    "No Google Drive binary upload claim without returned Drive metadata."
+  ],
+  "status": "pass_core_with_blocked_required_release_gates",
+  "summary": {
+    "alice_contract_count": 8,
+    "alice_evidence_examples": 2,
+    "alice_structured_examples": 8,
+    "full_repo_bump": true,
+    "schema_count": 30,
+    "test_count": 47
+  },
+  "version": "0.1.2"
+}

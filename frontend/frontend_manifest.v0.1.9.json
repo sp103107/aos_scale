@@ -1,0 +1,42 @@
+{
+  "advanced_surfaces": [
+    "run_management",
+    "scale_setup",
+    "calibration",
+    "diagnostics",
+    "recovery",
+    "exports"
+  ],
+  "barcode_surface": {
+    "enter_submit": true,
+    "label": "PLANT OR CONTAINER BARCODE",
+    "scanner_hint": true
+  },
+  "design_tokens": "frontend/design_tokens.v0.1.9.json",
+  "fallback_frontend": "Tk",
+  "generated_at": "2026-07-29T18:25:11Z",
+  "layout_contract": "app/best_buds_weight_station/operator_surface.py",
+  "package_name": "best_buds_cultivator_weight_station",
+  "physical_serial_badge": "TESTING_REQUIRED",
+  "primary_frontend": "PySide6",
+  "pyside_native_runtime": "NOT_RUN",
+  "routine_action_count": 7,
+  "routine_actions": [
+    "start_resume",
+    "connect_scale",
+    "zero",
+    "set_tare",
+    "confirm_record",
+    "cancel",
+    "finish_run"
+  ],
+  "runtime_evidence": {
+    "native_windows": "NOT_RUN",
+    "physical_scale": "NOT_RUN",
+    "pyside6": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+    "tk_fallback": "PASS_LINUX_XVFB_MANUAL_AND_AUTOMATIC"
+  },
+  "theme": "frontend/themes/windows_light.qss",
+  "tk_runtime": "PASS",
+  "version": "0.1.9"
+}

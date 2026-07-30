@@ -1,0 +1,27 @@
+{
+  "artifact_hashes": {},
+  "artifact_paths": [
+    "packaging/windows/best_buds_weight_station.spec",
+    "packaging/windows/build_windows.ps1",
+    "launch_best_buds.bat",
+    "launch_best_buds.ps1"
+  ],
+  "claim_id": "windows_native_runtime",
+  "claim_type": "runtime_execution_pass",
+  "command_or_action": "Windows packaging source validation on Linux host",
+  "evidence_id": "windows-runtime-v0.1.7",
+  "execution_posture": "real_execution_allowed",
+  "exit_code_or_result": "NOT_RUN",
+  "finished_at": "2026-07-24T04:35:23Z",
+  "judge_verdict": "NATIVE_RUNTIME_NOT_RUN",
+  "non_claims": [
+    "No Windows executable build pass.",
+    "No native Windows UI pass.",
+    "No PySide6 runtime pass."
+  ],
+  "started_at": "2026-07-24T04:35:23Z",
+  "stderr_path_or_inline_summary": "No Windows host or native PySide6 runtime was available.",
+  "stdout_path_or_inline_summary": "Batch, PowerShell, PyInstaller, install, verify, and uninstall source surfaces validated statically.",
+  "validator_path": "scripts/validate_windows_source.py",
+  "validator_result": "WINDOWS_SOURCE_PRESENT"
+}

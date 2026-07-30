@@ -1,0 +1,8 @@
+{
+  "external_package": false,
+  "phase": "rc3c8_windows_packaging_and_linux_parity",
+  "physical_hardware_claimed": false,
+  "status": "implemented",
+  "summary": "Implemented Windows build/verify/install/uninstall source and Linux launch parity.",
+  "version": "0.1.6"
+}

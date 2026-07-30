@@ -1,0 +1,39 @@
+{
+  "blocking_gates": [],
+  "commands_executed": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/run_v018_operator_acceptance.py"
+      ],
+      "duration_seconds": 6.056,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"automatic\": {\n    \"pass\": true,\n    \"record_id\": \"9636924c-884f-4912-8fa0-21c135c8c9ad\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"manual\": {\n    \"calibration_truth_class\": \"SIMULATOR_PASS\",\n    \"pass\": true,\n    \"record_id\": \"9094e853-2779-4ff7-81c1-39348d2a3c6e\",\n    \"state\": \"WAITING_FOR_BARCODE\",\n    \"truth_class\": \"RECEIPT_CONFIRMED\"\n  },\n  \"physical_device\": \"NOT_RUN\",\n  \"status\": \"PASS\",\n  \"version\": \"0.1.8\",\n  \"windows_native_runtime\": \"NOT_RUN\"\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python3",
+        "scripts/validate_frontend_runtime_truth.py"
+      ],
+      "duration_seconds": 2.183,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"checks\": {\n    \"alice_state_refresh\": true,\n    \"background_worker\": true,\n    \"barcode_keyboard_path\": true,\n    \"barcode_labeled\": true,\n    \"calibration_dialog\": true,\n    \"dead_contract_stubs_removed\": true,\n    \"no_synthetic_physical_zero\": true,\n    \"physical_warning_not_success\": true,\n    \"pyside_primary\": true,\n    \"scale_setup_dialog\": true,\n    \"scale_setup_not_placeholder\": true,\n    \"shared_action_layout\": true,\n    \"tare_dialog\": true,\n    \"windows_first_paths\": true,\n    \"worker_shutdown\": true\n  },\n  \"failures\": [],\n  \"status\": \"PASS\"\n}\n"
+    }
+  ],
+  "created_at": "2026-07-29T18:11:53Z",
+  "data": {
+    "automatic": "SIMULATOR_PASS",
+    "manual": "SIMULATOR_PASS",
+    "physical_device": "NOT_RUN"
+  },
+  "evidence_refs": [],
+  "lane": "operator-runtime",
+  "next_action": null,
+  "profile": "operator-ready",
+  "reason_code": "OPERATOR_RUNTIME_PASSED",
+  "required_action": null,
+  "status": "PASS",
+  "warnings": []
+}

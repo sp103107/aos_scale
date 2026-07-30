@@ -1,0 +1,6 @@
+{
+  "activation_claimed": false,
+  "adapter": "serial_barcode",
+  "blocking_capture": false,
+  "status": "future"
+}

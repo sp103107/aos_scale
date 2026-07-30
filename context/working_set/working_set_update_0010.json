@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "update_seq": 10,
+  "version": "0.1.9",
+  "phase": "rc3c13_core_process_closure_and_final_cursor_hardening",
+  "status": "complete",
+  "source_artifact": "best_buds_cultivator_weight_station_v0_1_8.zip",
+  "source_sha256": "71d336f3f0f8fbed9dcc04e804cc1c0da38349316c93fd8f400604ec54218e63",
+  "added": [
+    "core process audit",
+    "resume last-record restoration",
+    "current drift concordance"
+  ],
+  "non_claims": [
+    "physical hardware not run",
+    "native Windows runtime not run"
+  ]
+}

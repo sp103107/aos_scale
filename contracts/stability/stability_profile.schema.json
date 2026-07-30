@@ -1,0 +1,50 @@
+{
+  "$id": "https://bestbuds.local/schemas/stability_profile.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "max_spread_g": {
+      "type": "number"
+    },
+    "max_stddev_g": {
+      "type": "number"
+    },
+    "maximum_weight_g": {
+      "type": "number"
+    },
+    "minimum_samples": {
+      "minimum": 2,
+      "type": "integer"
+    },
+    "minimum_weight_g": {
+      "type": "number"
+    },
+    "profile_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "settle_ms": {
+      "type": "integer"
+    },
+    "timeout_ms": {
+      "type": "integer"
+    },
+    "window_size": {
+      "minimum": 2,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "profile_id",
+    "window_size",
+    "minimum_samples",
+    "max_spread_g",
+    "max_stddev_g",
+    "settle_ms",
+    "minimum_weight_g",
+    "maximum_weight_g",
+    "timeout_ms"
+  ],
+  "title": "Stability Profile",
+  "type": "object"
+}

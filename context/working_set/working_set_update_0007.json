@@ -1,0 +1,38 @@
+{
+  "blocked": [
+    "native Windows executable build and runtime receipt",
+    "Arduino AVR firmware compile and upload",
+    "physical UNO R3/HX711/load-cell execution",
+    "final deep naming and drift concordance pass"
+  ],
+  "completed": [
+    "preserved complete v0.1.5 repository",
+    "implemented Windows-first PySide6 operator application",
+    "implemented Linux PySide6 parity and Tk fallback",
+    "added BAT PowerShell and shell launch surfaces",
+    "implemented platform-aware data paths",
+    "implemented background reading worker and scripted device flow",
+    "implemented Scale Setup, live tare capture, and calibration wizard",
+    "added operator-ready LLM bootstrap profile",
+    "added Windows packaging source and runtime-truth validators"
+  ],
+  "context_runtime_execution_claimed": false,
+  "current_focus": "Windows-first operator application, cross-platform launchers, real scale setup, background reading worker, zero/tare/calibration UI, and runtime-truth validation",
+  "generated_at": "2026-07-23T20:48:35Z",
+  "next_phase": "rc3c11_final_naming_and_drift_concordance_pass",
+  "non_claims": [
+    "No native Windows runtime pass.",
+    "No physical hardware pass.",
+    "No firmware compile or upload pass."
+  ],
+  "record_type": "working_set_update",
+  "source_artifacts": [
+    "best_buds_cultivator_weight_station_v0_1_5.zip"
+  ],
+  "source_hashes": {
+    "best_buds_cultivator_weight_station_v0_1_5.zip": "8811681331e47272930c93cf0c8bccdf1438fdaa62aeb827fe1582e16bc420ae"
+  },
+  "status": "pass",
+  "update_seq": 7,
+  "version": "0.1.6"
+}

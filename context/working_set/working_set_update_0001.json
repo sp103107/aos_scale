@@ -1,0 +1,33 @@
+{
+  "blocked": [
+    "native Windows executable and smoke receipt",
+    "Arduino firmware compile toolchain",
+    "physical UNO/HX711/load-cell calibration evidence"
+  ],
+  "completed": [
+    "contracts",
+    "firmware source",
+    "backend core",
+    "desktop UI source with Tk fallback",
+    "simulator and test suite",
+    "append-only JSON/JSONL/CSV/XLSX outputs",
+    "deterministic reports",
+    "AoS envelopes",
+    "native Debian package build/install/smoke",
+    "release validation and evidence reports"
+  ],
+  "created_at": "2026-07-19T15:25:41Z",
+  "debian_status": "pass_native_debian",
+  "drive_status": "partial_folder_and_receipt_created_binary_upload_blocked",
+  "focus": "initial complete application repository",
+  "package_name": "best_buds_cultivator_weight_station",
+  "record_type": "working_set_update",
+  "source_hashes": {
+    "best_buds_cultivator_weight_station_context_kickoff_pack_v0_1_1.zip": "abbe1863f2566f739fc2155704a47de550f39046083586c9be7f3869c0a1f12d",
+    "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip_expected": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c"
+  },
+  "update_seq": 1,
+  "updated_at": "2026-07-19T15:42:11Z",
+  "validation_status": "pass_core_with_blocked_required_release_gates",
+  "version": "0.1.0"
+}

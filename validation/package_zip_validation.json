@@ -1,0 +1,13 @@
+{
+  "archive_type": "preliminary_structure_and_crc_validation_before_current_report_inclusion",
+  "detached_phase_archive_inside_repo": false,
+  "full_repo_shape": true,
+  "member_count": 305,
+  "note": "The final external package validation is generated after this report is included and the archive is rebuilt.",
+  "single_root": [
+    "best_buds_cultivator_weight_station_v0_1_2"
+  ],
+  "status": "pass",
+  "version": "0.1.2",
+  "zip_crc": "pass"
+}

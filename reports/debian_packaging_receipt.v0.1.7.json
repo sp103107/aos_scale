@@ -1,0 +1,25 @@
+{
+  "artifact_hashes": {
+    "dist/debian/best-buds-weight-station_0.1.7_amd64.deb": "ff886a2a051f6287db901c78391d963794ce163c9cd366570fef116e13ccb8d6"
+  },
+  "artifact_paths": [
+    "dist/debian/best-buds-weight-station_0.1.7_amd64.deb"
+  ],
+  "claim_id": "debian_native_package",
+  "claim_type": "runtime_execution_pass",
+  "command_or_action": "scripts/build_debian.sh; dpkg-deb metadata/extraction; installed-tree stage list and simulator self-test",
+  "evidence_id": "debian-package-v0.1.7",
+  "execution_posture": "real_execution_allowed",
+  "exit_code_or_result": "PASS",
+  "finished_at": "2026-07-24T04:35:23Z",
+  "judge_verdict": "DEBIAN_PACKAGE_PASS",
+  "non_claims": [
+    "No native Windows package pass.",
+    "No physical serial or load-cell pass."
+  ],
+  "started_at": "2026-07-24T04:35:23Z",
+  "stderr_path_or_inline_summary": "",
+  "stdout_path_or_inline_summary": "Package built as 0.1.7 amd64; dependency metadata includes python3-tk, python3-serial, python3-jsonschema, and python3-pytest; extracted stage catalog reported 11 stages; simulator self-test passed.",
+  "validator_path": "dpkg-deb and extracted-runtime smoke",
+  "validator_result": "PASS"
+}

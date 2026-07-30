@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "advanced_menus": true,
+    "advanced_not_main_grid": true,
+    "barcode_focus": true,
+    "design_tokens": true,
+    "operator_language": true,
+    "primary_weight_hierarchy": true,
+    "pyside_main_actions": true,
+    "simulator_badge": true,
+    "status_consistency": true,
+    "tk_fallback_polished": true
+  },
+  "failures": [],
+  "pyside_runtime": "NOT_RUN",
+  "status": "PASS",
+  "tk_runtime": "SEPARATE_SMOKE_REQUIRED",
+  "version": "0.1.7"
+}

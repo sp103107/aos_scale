@@ -1,0 +1,8 @@
+{
+  "external_package": false,
+  "phase": "rc3c2_pyside6_operator_shell_and_runtime_state_truth",
+  "physical_hardware_claimed": false,
+  "status": "implemented",
+  "summary": "Implemented PySide6 primary operator window and synchronized state/Alice truth.",
+  "version": "0.1.6"
+}

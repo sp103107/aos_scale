@@ -1,0 +1,33 @@
+{
+  "authoritative_test_log_packaging": "PASS_INCLUDED_BY_PACKAGE_POLICY",
+  "automated_tests": 183,
+  "cursor_ready_bootstrap": "PASS_WITH_WARNINGS",
+  "debian_package": "DEBIAN_PACKAGE_PASS",
+  "debian_sha256": null,
+  "final_frontend_recheck": "PASS_14",
+  "firmware_compile": "BLOCKED_ARDUINO_CLI_UNAVAILABLE",
+  "frontend_render": "TK_FALLBACK_RENDER_PASS",
+  "generated_at": null,
+  "json_schemas": 60,
+  "manifest": "PASS_SOURCE_MANIFEST_GATE",
+  "package_name": "best_buds_cultivator_weight_station",
+  "physical_hardware": "NOT_RUN",
+  "post_drift_regression": "PASS_16",
+  "production_ready": false,
+  "pyside6_runtime": "NOT_RUN_DEPENDENCY_UNAVAILABLE",
+  "release_seal": false,
+  "repo_validator": "PASS",
+  "stage_count": 11,
+  "stage_plan_status": "PASS",
+  "stage_verdicts": [
+    "CURSOR_READY",
+    "OPERATOR_SOFTWARE_READY",
+    "PHYSICAL_HARDWARE_NOT_RUN",
+    "WINDOWS_NATIVE_RUNTIME_NOT_RUN"
+  ],
+  "status": "PASS",
+  "validated_at": "2026-07-29T18:45:09Z",
+  "version": "0.1.8",
+  "windows_native_runtime": "NOT_RUN",
+  "zip_package": "EXTERNAL_ZIP_GATE_REQUIRED"
+}

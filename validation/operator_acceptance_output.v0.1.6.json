@@ -1,0 +1,485 @@
+{
+  "automatic_frontend_runtime": {
+    "pass": true,
+    "snapshot": {
+      "alice_message": "Record 41d31c0d-1182-4b67-b1d7-3a31a9fbbe3f saved locally. Net weight: 1250.0 g. Scan the next container.",
+      "alice_required_action": "scan_barcode",
+      "alice_truth_class": "RECEIPT_CONFIRMED",
+      "capture_mode": "automatic",
+      "container_id": "HOOK-SLING",
+      "cultivar": "Acceptance Cultivar",
+      "device": {
+        "calibration_factor": 103.2,
+        "connected": true,
+        "device_id": "SIM-UNO-001",
+        "disconnect_reason": null,
+        "firmware_version": "0.1.6-sim",
+        "last_reading_at": 4538.226796086,
+        "mode": "serial_simulator",
+        "port": "SIMULATOR",
+        "protocol_validated": true,
+        "stale": false,
+        "streaming": true,
+        "truth_class": "SIMULATOR_PASS",
+        "unit": "g"
+      },
+      "last_saved": {
+        "barcode_normalized": "AUTO-PLANT-001",
+        "barcode_raw": "AUTO-PLANT-001",
+        "calibration_id": "SIM-CAL-001",
+        "capture_mode": "automatic",
+        "captured_at": "2026-07-23T20:47:27Z",
+        "container_id": "HOOK-SLING",
+        "cultivar_id": "CV-001",
+        "cultivar_normalized_name": "Acceptance Cultivar",
+        "cultivar_raw_name": "Acceptance Cultivar",
+        "device_id": "SIM-UNO-001",
+        "duplicate_status": "none",
+        "event_id": "99af70f2-e6df-4564-b194-5f5d2393ec9c",
+        "event_type": "weight_record",
+        "evidence_truth_class": "simulator",
+        "facility_id": "BEST-BUDS",
+        "firmware_version": "0.1.6-sim",
+        "gross_g": 1350.0,
+        "idempotency_key": "V016-AUTO-690c615c:1:AUTO-PLANT-001",
+        "net_g": 1250.0,
+        "operator_id": "OPERATOR-ACCEPTANCE",
+        "operator_note": null,
+        "previous_record_hash": null,
+        "raw_adc_value": 139320,
+        "record_hash": "580157ced8a0e01bbc6daa47aaab9fbbdc6f0e765fbeb40dc145d45fa3d8b6cc",
+        "record_id": "41d31c0d-1182-4b67-b1d7-3a31a9fbbe3f",
+        "record_status": "accepted",
+        "run_id": "V016-AUTO",
+        "sample_count": 6,
+        "sequence": 1,
+        "session_id": "V016-AUTO-690c615c",
+        "source": "serial_simulator",
+        "stability_metrics": {
+          "spread_g": 0.0,
+          "stddev_g": 0.0
+        },
+        "stability_profile_id": "standard_hanging_grams",
+        "station_id": "WEIGHT-STATION-01",
+        "tare_g": 100.0
+      },
+      "net_g": 1250.0,
+      "operator_id": "OPERATOR-ACCEPTANCE",
+      "operator_state": "READY TO SCAN",
+      "raw_value": 139320,
+      "run_id": "V016-AUTO",
+      "state": "WAITING_FOR_BARCODE",
+      "tare_g": 100.0,
+      "version": "0.1.6",
+      "weight_g": 1350.0,
+      "worker_error": null,
+      "worker_running": true
+    },
+    "submitted": {
+      "action_id": "77bf56dc-6073-4117-a86f-f725a1813c0c",
+      "action_type": "barcode.submit",
+      "created_at": "2026-07-23T20:47:27Z",
+      "data": {
+        "alice_response": {
+          "allowed_actions": [
+            "keep_load_still",
+            "cancel_capture",
+            "reconnect_device"
+          ],
+          "blocked_actions": [],
+          "command_proposal": null,
+          "correlation_id": null,
+          "evidence_refs": [],
+          "non_claims": [],
+          "operator_message": "Keep the load centered and still while the weight stabilizes.",
+          "required_action": {
+            "action_type": "keep_load_still",
+            "details": {},
+            "label": null,
+            "required": true
+          },
+          "response_id": "alice-response-7866bf83-a696-45a4-8e4a-0b3ca1a8837f",
+          "response_version": "1.0.0",
+          "session_id": "V016-AUTO-690c615c",
+          "severity": "info",
+          "state": "WAITING_FOR_STABLE_WEIGHT",
+          "timestamp": "2026-07-23T20:47:27Z",
+          "truth_class": "PENDING"
+        }
+      },
+      "message": "Barcode accepted; waiting for a stable load",
+      "state": "WAITING_FOR_STABLE_WEIGHT",
+      "status": "accepted",
+      "terminal": false,
+      "truth_class": "PENDING"
+    },
+    "tare": {
+      "action_id": "a528fea2-6889-4aad-82b1-bf832cf1cedf",
+      "action_type": "scale.container_tare.capture",
+      "created_at": "2026-07-23T20:47:26Z",
+      "data": {
+        "alice_response": {
+          "allowed_actions": [
+            "scan_barcode",
+            "barcode.submit",
+            "scale.zero",
+            "scale.container_tare.set",
+            "scale.container_tare.capture",
+            "scale.calibration.start",
+            "run.finish",
+            "open_run_summary"
+          ],
+          "blocked_actions": [],
+          "command_proposal": null,
+          "correlation_id": null,
+          "evidence_refs": [],
+          "non_claims": [],
+          "operator_message": "Scan the next container barcode.",
+          "required_action": {
+            "action_type": "scan_barcode",
+            "details": {},
+            "label": null,
+            "required": true
+          },
+          "response_id": "alice-response-8b9bc398-1d66-409b-b559-f0e6017b2bab",
+          "response_version": "1.0.0",
+          "session_id": "V016-AUTO-690c615c",
+          "severity": "info",
+          "state": "WAITING_FOR_BARCODE",
+          "timestamp": "2026-07-23T20:47:26Z",
+          "truth_class": "PASS"
+        },
+        "physical_device_pass": false,
+        "tare_record": {
+          "container_id": "HOOK-SLING",
+          "created_at": "2026-07-23T20:47:26Z",
+          "operator_id": "OPERATOR-ACCEPTANCE",
+          "source": "captured_stable_weight",
+          "tare_g": 100.0,
+          "tare_id": "tare-875b3ddd-61f5-44b1-ab73-172e4bcc5888",
+          "truth_class": "SIMULATOR_PASS"
+        }
+      },
+      "message": "Stable container tare captured and saved",
+      "state": "WAITING_FOR_BARCODE",
+      "status": "completed",
+      "terminal": true,
+      "truth_class": "SIMULATOR_PASS"
+    }
+  },
+  "manual_and_calibration_runtime": {
+    "accepted": {
+      "action_id": "89902af2-edac-42ab-8109-36292410c0f0",
+      "action_type": "scale.calibration.accept",
+      "created_at": "2026-07-23T20:47:29Z",
+      "data": {
+        "calibration_receipt": {
+          "accepted_factor": 103.2,
+          "calibration_session_id": "cal-03c629be-f9d6-4934-b833-9a4b6f36294c",
+          "created_at": "2026-07-23T20:47:29Z",
+          "device_id": "SIM-UNO-001",
+          "non_claims": [
+            "No legal-for-trade certification is claimed.",
+            "No physical calibration pass is claimed without physical evidence."
+          ],
+          "operator_id": "OPERATOR-ACCEPTANCE",
+          "physical_device_pass": false,
+          "proposal": {
+            "accepted": false,
+            "calibration_session_id": "cal-03c629be-f9d6-4934-b833-9a4b6f36294c",
+            "created_at": "2026-07-23T20:47:29Z",
+            "error_g": 0.0,
+            "loaded_raw_mean": 206400.0,
+            "predicted_weight_g": 2000.0,
+            "proposed_factor": 103.2,
+            "raw_spread": 0.0,
+            "reference_weight_g": 2000.0,
+            "relative_error_percent": 0.0,
+            "zero_raw_mean": 0.0
+          },
+          "receipt_id": "calibration-f6450441-58cc-4027-9363-54d39332857d",
+          "status": "accepted",
+          "test_result": {
+            "error_g": 0.0,
+            "non_claim": "This is not legal-for-trade certification.",
+            "passed_local_tolerance": true,
+            "raw_spread": 0.0,
+            "raw_stddev": 0.0,
+            "reference_weight_g": 2000.0,
+            "relative_error_percent": 0.0,
+            "test_weight_g": 2000.0,
+            "truth_class": "SIMULATOR_PASS"
+          },
+          "truth_class": "SIMULATOR_PASS"
+        },
+        "physical_device_pass": false
+      },
+      "message": "Calibration factor accepted by the connected test device",
+      "state": "WAITING_FOR_BARCODE",
+      "status": "completed",
+      "terminal": true,
+      "truth_class": "SIMULATOR_PASS"
+    },
+    "confirmed": {
+      "action_id": "f32c964f-83a1-488d-8b17-95d794196830",
+      "action_type": "capture.confirm",
+      "created_at": "2026-07-23T20:47:28Z",
+      "data": {
+        "alice_response": {
+          "allowed_actions": [
+            "scan_barcode",
+            "open_record",
+            "open_run_summary"
+          ],
+          "blocked_actions": [],
+          "command_proposal": null,
+          "correlation_id": "f32c964f-83a1-488d-8b17-95d794196830",
+          "evidence_refs": [
+            {
+              "evidence_type": "jsonl_event",
+              "reference": "f19a1959-b7fb-4694-9435-08e1e1cd7dc0"
+            },
+            {
+              "evidence_type": "individual_record",
+              "reference": "/tmp/bbws-v016-operator-4wfrm0hs/manual/sessions/V016-MANUAL-14fc133b/records/000001_84858ed5-acf4-4c87-b1b7-3ea0cd502768.json"
+            },
+            {
+              "evidence_type": "checkpoint",
+              "reference": "1"
+            },
+            {
+              "evidence_type": "hash_chain",
+              "reference": "bfe5ee99f7ff9c3d3e8022299dcf5c07968385e1b8030dad82ea3a88ee42dcdf"
+            },
+            {
+              "evidence_type": "commit_receipt",
+              "reference": "f7640c01-f323-428a-92de-7e41d389c265"
+            }
+          ],
+          "non_claims": [],
+          "operator_message": "Record 84858ed5-acf4-4c87-b1b7-3ea0cd502768 saved locally. Net weight: 1500.0 g. Scan the next container.",
+          "required_action": {
+            "action_type": "scan_barcode",
+            "details": {},
+            "label": null,
+            "required": true
+          },
+          "response_id": "alice-response-3ae43f0a-85d6-47f8-a168-668554190185",
+          "response_version": "1.0.0",
+          "session_id": "V016-MANUAL-14fc133b",
+          "severity": "info",
+          "state": "RECORD_SAVED",
+          "timestamp": "2026-07-23T20:47:28Z",
+          "truth_class": "RECEIPT_CONFIRMED"
+        },
+        "backend_result": {
+          "authoritative_paths": [
+            "/tmp/bbws-v016-operator-4wfrm0hs/manual/sessions/V016-MANUAL-14fc133b/records.jsonl",
+            "/tmp/bbws-v016-operator-4wfrm0hs/manual/sessions/V016-MANUAL-14fc133b/records/000001_84858ed5-acf4-4c87-b1b7-3ea0cd502768.json",
+            "/tmp/bbws-v016-operator-4wfrm0hs/manual/sessions/V016-MANUAL-14fc133b/session_snapshot.json"
+          ],
+          "checkpoint_version": 1,
+          "committed_at": "2026-07-23T20:47:28Z",
+          "derivative_status": {
+            "csv": "updated",
+            "xlsx": "updated"
+          },
+          "individual_record_path": "/tmp/bbws-v016-operator-4wfrm0hs/manual/sessions/V016-MANUAL-14fc133b/records/000001_84858ed5-acf4-4c87-b1b7-3ea0cd502768.json",
+          "jsonl_event_id": "f19a1959-b7fb-4694-9435-08e1e1cd7dc0",
+          "local_commit": true,
+          "net_g": 1500.0,
+          "receipt_id": "f7640c01-f323-428a-92de-7e41d389c265",
+          "record_hash": "bfe5ee99f7ff9c3d3e8022299dcf5c07968385e1b8030dad82ea3a88ee42dcdf",
+          "record_id": "84858ed5-acf4-4c87-b1b7-3ea0cd502768",
+          "status": "committed"
+        },
+        "feedback": "success",
+        "record": {
+          "barcode_normalized": "MANUAL-PLANT-001",
+          "barcode_raw": "MANUAL-PLANT-001",
+          "calibration_id": "SIM-CAL-001",
+          "capture_mode": "manual",
+          "captured_at": "2026-07-23T20:47:28Z",
+          "container_id": "DEFAULT",
+          "cultivar_id": "CV-001",
+          "cultivar_normalized_name": "Acceptance Cultivar",
+          "cultivar_raw_name": "Acceptance Cultivar",
+          "device_id": "SIM-UNO-001",
+          "duplicate_status": "none",
+          "event_id": "f19a1959-b7fb-4694-9435-08e1e1cd7dc0",
+          "event_type": "weight_record",
+          "evidence_truth_class": "simulator",
+          "facility_id": "BEST-BUDS",
+          "firmware_version": "0.1.6-sim",
+          "gross_g": 1500.0,
+          "idempotency_key": "V016-MANUAL-14fc133b:1:MANUAL-PLANT-001",
+          "net_g": 1500.0,
+          "operator_id": "OPERATOR-ACCEPTANCE",
+          "operator_note": null,
+          "previous_record_hash": null,
+          "raw_adc_value": null,
+          "record_hash": "bfe5ee99f7ff9c3d3e8022299dcf5c07968385e1b8030dad82ea3a88ee42dcdf",
+          "record_id": "84858ed5-acf4-4c87-b1b7-3ea0cd502768",
+          "record_status": "accepted",
+          "run_id": "V016-MANUAL",
+          "sample_count": 6,
+          "sequence": 1,
+          "session_id": "V016-MANUAL-14fc133b",
+          "source": "serial_simulator",
+          "stability_metrics": {
+            "spread_g": 0.0,
+            "stddev_g": 0.0
+          },
+          "stability_profile_id": "standard_hanging_grams",
+          "station_id": "WEIGHT-STATION-01",
+          "tare_g": 0.0
+        }
+      },
+      "message": "Record 84858ed5-acf4-4c87-b1b7-3ea0cd502768 saved locally. Net weight: 1500.0 g. Scan the next container.",
+      "state": "WAITING_FOR_BARCODE",
+      "status": "completed",
+      "terminal": true,
+      "truth_class": "RECEIPT_CONFIRMED"
+    },
+    "pass": true,
+    "proposal": {
+      "action_id": "10385a4f-d4bc-4f48-a125-f15e382e5278",
+      "action_type": "scale.calibration.sample",
+      "created_at": "2026-07-23T20:47:29Z",
+      "data": {
+        "physical_device_pass": false,
+        "proposal": {
+          "accepted": false,
+          "calibration_session_id": "cal-03c629be-f9d6-4934-b833-9a4b6f36294c",
+          "created_at": "2026-07-23T20:47:29Z",
+          "error_g": 0.0,
+          "loaded_raw_mean": 206400.0,
+          "predicted_weight_g": 2000.0,
+          "proposed_factor": 103.2,
+          "raw_spread": 0.0,
+          "reference_weight_g": 2000.0,
+          "relative_error_percent": 0.0,
+          "zero_raw_mean": 0.0
+        }
+      },
+      "message": "Calibration factor proposal calculated",
+      "state": "WAITING_FOR_BARCODE",
+      "status": "completed",
+      "terminal": true,
+      "truth_class": "UNIT_TEST_PASS"
+    },
+    "snapshot": {
+      "alice_message": "Record 84858ed5-acf4-4c87-b1b7-3ea0cd502768 saved locally. Net weight: 1500.0 g. Scan the next container.",
+      "alice_required_action": "scan_barcode",
+      "alice_truth_class": "RECEIPT_CONFIRMED",
+      "capture_mode": "manual",
+      "container_id": "DEFAULT",
+      "cultivar": "Acceptance Cultivar",
+      "device": {
+        "calibration_factor": 103.2,
+        "connected": true,
+        "device_id": "SIM-UNO-001",
+        "disconnect_reason": null,
+        "firmware_version": "0.1.6-sim",
+        "last_reading_at": 4540.312790816,
+        "mode": "serial_simulator",
+        "port": "SIMULATOR",
+        "protocol_validated": true,
+        "stale": false,
+        "streaming": true,
+        "truth_class": "SIMULATOR_PASS",
+        "unit": "g"
+      },
+      "last_saved": {
+        "barcode_normalized": "MANUAL-PLANT-001",
+        "barcode_raw": "MANUAL-PLANT-001",
+        "calibration_id": "SIM-CAL-001",
+        "capture_mode": "manual",
+        "captured_at": "2026-07-23T20:47:28Z",
+        "container_id": "DEFAULT",
+        "cultivar_id": "CV-001",
+        "cultivar_normalized_name": "Acceptance Cultivar",
+        "cultivar_raw_name": "Acceptance Cultivar",
+        "device_id": "SIM-UNO-001",
+        "duplicate_status": "none",
+        "event_id": "f19a1959-b7fb-4694-9435-08e1e1cd7dc0",
+        "event_type": "weight_record",
+        "evidence_truth_class": "simulator",
+        "facility_id": "BEST-BUDS",
+        "firmware_version": "0.1.6-sim",
+        "gross_g": 1500.0,
+        "idempotency_key": "V016-MANUAL-14fc133b:1:MANUAL-PLANT-001",
+        "net_g": 1500.0,
+        "operator_id": "OPERATOR-ACCEPTANCE",
+        "operator_note": null,
+        "previous_record_hash": null,
+        "raw_adc_value": null,
+        "record_hash": "bfe5ee99f7ff9c3d3e8022299dcf5c07968385e1b8030dad82ea3a88ee42dcdf",
+        "record_id": "84858ed5-acf4-4c87-b1b7-3ea0cd502768",
+        "record_status": "accepted",
+        "run_id": "V016-MANUAL",
+        "sample_count": 6,
+        "sequence": 1,
+        "session_id": "V016-MANUAL-14fc133b",
+        "source": "serial_simulator",
+        "stability_metrics": {
+          "spread_g": 0.0,
+          "stddev_g": 0.0
+        },
+        "stability_profile_id": "standard_hanging_grams",
+        "station_id": "WEIGHT-STATION-01",
+        "tare_g": 0.0
+      },
+      "net_g": 2000.0,
+      "operator_id": "OPERATOR-ACCEPTANCE",
+      "operator_state": "READY TO SCAN",
+      "raw_value": 206400,
+      "run_id": "V016-MANUAL",
+      "state": "WAITING_FOR_BARCODE",
+      "tare_g": 0.0,
+      "version": "0.1.6",
+      "weight_g": 2000.0,
+      "worker_error": null,
+      "worker_running": true
+    },
+    "tested": {
+      "action_id": "76223612-85a1-4c40-bf23-1c7733db21f0",
+      "action_type": "scale.calibration.test",
+      "created_at": "2026-07-23T20:47:29Z",
+      "data": {
+        "calibration_test": {
+          "error_g": 0.0,
+          "non_claim": "This is not legal-for-trade certification.",
+          "passed_local_tolerance": true,
+          "raw_spread": 0.0,
+          "raw_stddev": 0.0,
+          "reference_weight_g": 2000.0,
+          "relative_error_percent": 0.0,
+          "test_weight_g": 2000.0,
+          "truth_class": "SIMULATOR_PASS"
+        },
+        "physical_device_pass": false
+      },
+      "message": "Proposed calibration factor tested",
+      "state": "WAITING_FOR_BARCODE",
+      "status": "completed",
+      "terminal": true,
+      "truth_class": "SIMULATOR_PASS"
+    },
+    "zero_samples": {
+      "action_id": "a495d8ee-b832-4f16-835d-de8a37d58319",
+      "action_type": "scale.calibration.sample",
+      "created_at": "2026-07-23T20:47:28Z",
+      "data": {},
+      "message": "Zero-load calibration samples accepted",
+      "state": "WAITING_FOR_BARCODE",
+      "status": "completed",
+      "terminal": true,
+      "truth_class": "UNIT_TEST_PASS"
+    }
+  },
+  "physical_device": "NOT_RUN",
+  "status": "PASS",
+  "version": "0.1.6",
+  "windows_native_runtime": "NOT_RUN"
+}

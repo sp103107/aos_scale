@@ -1,0 +1,8 @@
+{
+  "external_package": false,
+  "phase": "rc3c6_zero_tare_and_calibration_operator_workflows",
+  "physical_hardware_claimed": false,
+  "status": "implemented",
+  "summary": "Implemented device-backed zero, known/captured tare, and multi-step calibration operator flows.",
+  "version": "0.1.6"
+}

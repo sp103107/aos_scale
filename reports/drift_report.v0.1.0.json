@@ -1,0 +1,12 @@
+{
+  "drift": [
+    {
+      "expected_sha256": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c",
+      "handling": "Preserved expected hash; used checksum-valid kickoff bundle and fetched Drive source transcript; did not claim full source concordance.",
+      "item": "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip",
+      "observed": "not mounted, not indexed in File Library, and not found by exact Drive filename search"
+    }
+  ],
+  "generated_at": "2026-07-19T15:25:41Z",
+  "status": "warn"
+}

@@ -1,0 +1,18 @@
+{
+  "blocking_gates": [
+    "software"
+  ],
+  "commands_executed": [],
+  "created_at": "2026-07-22T20:54:06Z",
+  "data": {},
+  "evidence_refs": [
+    "validation/receipts/firmware.latest.json"
+  ],
+  "lane": "firmware",
+  "next_action": "Pass prerequisites: software",
+  "profile": "integration",
+  "reason_code": "PREREQUISITE_NOT_PASSED",
+  "required_action": null,
+  "status": "BLOCKED",
+  "warnings": []
+}

@@ -1,0 +1,29 @@
+{
+  "artifact_hashes": {
+    "validation/reports/pytest_full_suite.v0.1.8.log": "82482b52e11ca0f3e28ee92e286a78b081f628422f0026ab2cef161ff7303b54"
+  },
+  "artifact_paths": [
+    "validation/reports/pytest_full_suite.v0.1.8.log"
+  ],
+  "claim_id": "software-test-suite-v0.1.8",
+  "claim_type": "runtime_execution_pass",
+  "command_or_action": "python -m pytest -q -p no:cacheprovider",
+  "evidence_id": "pytest-full-suite-v0.1.8",
+  "execution_posture": "real_execution_allowed",
+  "exit_code_or_result": 0,
+  "finished_at": "2026-07-29T18:15:46Z",
+  "judge_verdict": "PASS_WITHIN_SOFTWARE_SCOPE",
+  "non_claims": [
+    "No native Windows execution.",
+    "No physical hardware execution.",
+    "No production-readiness or release-seal claim."
+  ],
+  "scope_note": "The 183-test full suite completed before the final manifest-label and render-evidence concordance correction. The 16 affected frontend, contract, and Alice tests were rerun afterward and passed; see reports/post_drift_regression_evidence.v0.1.8.json.",
+  "started_at": "2026-07-29T17:43:00Z",
+  "status": "PASS",
+  "stderr_path_or_inline_summary": "stderr redirected to stdout log",
+  "stdout_path_or_inline_summary": "validation/reports/pytest_full_suite.v0.1.8.log",
+  "test_count": 183,
+  "validator_path": "pytest",
+  "validator_result": "PASS"
+}

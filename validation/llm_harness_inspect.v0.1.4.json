@@ -1,0 +1,107 @@
+{
+  "capabilities": {
+    "modules": {
+      "jsonschema": true,
+      "openpyxl": true,
+      "pytest": true,
+      "serial": false,
+      "yaml": true
+    },
+    "platform": {
+      "machine": "x86_64",
+      "release": "6.12.13",
+      "system": "Linux"
+    },
+    "python": {
+      "available": true,
+      "executable": "/opt/pyvenv/bin/python3",
+      "version": "3.13.5"
+    },
+    "repo_root": "/mnt/data/best_buds_cultivator_weight_station_v0_1_4",
+    "serial_port_probe_error": null,
+    "serial_ports": [],
+    "tools": {
+      "arduino_cli": {
+        "available": false,
+        "path": null,
+        "version": null
+      },
+      "dpkg_deb": {
+        "available": true,
+        "exit_code": 0,
+        "path": "/usr/bin/dpkg-deb",
+        "version": "Debian 'dpkg-deb' package archive backend version 1.22.22 (amd64)."
+      },
+      "git": {
+        "available": true,
+        "exit_code": 0,
+        "path": "/usr/bin/git",
+        "version": "git version 2.47.3"
+      }
+    }
+  },
+  "drift": {
+    "issues": [],
+    "status": "clean",
+    "version": "0.1.4"
+  },
+  "graph": {
+    "graph_version": "1.0.0",
+    "lanes": [
+      {
+        "lane": "repository-inspection",
+        "requires": []
+      },
+      {
+        "lane": "development-hygiene",
+        "requires": [
+          "repository-inspection"
+        ]
+      },
+      {
+        "lane": "software",
+        "requires": [
+          "development-hygiene"
+        ]
+      },
+      {
+        "lane": "firmware",
+        "requires": [
+          "software"
+        ]
+      },
+      {
+        "lane": "serial",
+        "requires": [
+          "firmware"
+        ]
+      },
+      {
+        "lane": "zero-tare",
+        "requires": [
+          "serial"
+        ]
+      },
+      {
+        "lane": "calibration",
+        "requires": [
+          "zero-tare"
+        ]
+      },
+      {
+        "lane": "physical-loop",
+        "requires": [
+          "calibration"
+        ]
+      },
+      {
+        "lane": "release-packaging",
+        "requires": [
+          "physical-loop"
+        ]
+      }
+    ],
+    "package_version": "0.1.4"
+  },
+  "version": "0.1.4"
+}

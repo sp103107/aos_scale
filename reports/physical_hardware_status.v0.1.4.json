@@ -1,0 +1,37 @@
+{
+  "availability_basis": "operator_report",
+  "available_hardware": [
+    {
+      "item": "10 kg straight-bar load cell with hooks",
+      "status": "AVAILABLE_REPORTED_BY_OPERATOR"
+    },
+    {
+      "item": "HX711 amplifier modules",
+      "quantity": 3,
+      "status": "AVAILABLE_REPORTED_BY_OPERATOR"
+    },
+    {
+      "item": "breadboards",
+      "status": "AVAILABLE_REPORTED_BY_OPERATOR"
+    }
+  ],
+  "generated_at": "2026-07-22T21:10:00Z",
+  "next_phase": "rc3b_hardware_inventory_and_wiring_contract",
+  "not_proven": [
+    "INDEPENDENT_INVENTORY",
+    "WIRED",
+    "FIRMWARE_COMPILED",
+    "FIRMWARE_UPLOADED",
+    "SERIAL_PROTOCOL_PASS",
+    "ZERO_PASS",
+    "TARE_PASS",
+    "CALIBRATED",
+    "REPEATABILITY_PASS",
+    "HANGING_LOAD_PASS",
+    "PHYSICAL_BARCODE_LOOP_PASS"
+  ],
+  "physical_device_pass": false,
+  "status": "NOT_RUN",
+  "truth_class": "NOT_RUN",
+  "version": "0.1.4"
+}

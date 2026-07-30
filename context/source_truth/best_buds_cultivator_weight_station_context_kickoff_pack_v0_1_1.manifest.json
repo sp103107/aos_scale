@@ -1,0 +1,27 @@
+{
+  "package_name": "best_buds_cultivator_weight_station_context_kickoff_pack",
+  "version": "0.1.1",
+  "generated_at": "2026-07-19T15:05:06Z",
+  "files": [
+    {
+      "name": "best_buds_cultivator_weight_station_execution_hardening_addendum_v0_1_1.json",
+      "sha256": "675548d76ebaf116e22c1ed827abbe7313c1e8a94c7dcda4f05b8d44077e5121",
+      "size_bytes": 8309
+    },
+    {
+      "name": "best_buds_cultivator_weight_station_new_context_build_kickoff_prompt_v0_1_1.md",
+      "sha256": "8dcb51d9f0185784d25332c9aea5a48ef9d1c8bad6d000280d19d230ff58a013",
+      "size_bytes": 18533
+    }
+  ],
+  "source_artifact_hashes": {
+    "best_buds_cultivator_weight_station_contract_bundle_v0_1_0.zip": "dfeeae41b0f787dec65b656c354aadc18c1a09edb41ff910eab8671e22ebad5c",
+    "best_buds_cultivator_weight_station_contract_pack_v0_1_0.json": "da69715c8621e1267f59e8c70a5f51a955385aee63783b062ad14c7d7aa9f672",
+    "best_buds_cultivator_weight_station_requirements_and_prompt_pack_v0_1_0.docx": "f8013887059db1797faa7e166e6f4e411e321546941a2a8e2af9f0d2f86f641d",
+    "best_buds_cultivator_weight_station_harvest_alice_sublayer_prompt_v0_1_0.md": "c567568130ad22bcdd486d68bab28c3a1f94024569c03088637c59cf31d5c4b5",
+    "best_buds_cultivator_weight_station_frontend_manifest_v0_1_0.json": "19ccecaa24cbec41a15260e2c4a75064fd0675d559ac0fc5a8b9907460486b37",
+    "best_buds_cultivator_weight_station_backend_manifest_v0_1_0.json": "24e1cf015374d02b8279de324d972a6a3a659734edd2c9355211dc8827d34c4d",
+    "best_buds_cultivator_weight_station_new_context_kickoff_prompt.md": "7ea515e5fcb4c671035cb0ebae4fe84356b50e3eeb2e745b523959cf2947e4b9",
+    "best_buds_cultivator_weight_station_system_compatibility_companion_prompt.md": "59c563dde12321a54cd7360481f1f37f0c34355b7f20f5bfb4b873d488a375d5"
+  }
+}

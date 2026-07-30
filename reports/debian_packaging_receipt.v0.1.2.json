@@ -1,0 +1,45 @@
+{
+  "artifact": {
+    "path": "dist/debian/best-buds-weight-station_0.1.2_amd64.deb",
+    "sha256": "0a79e752326add399cfaebf6278ad1d6173265f7c18f325e54b15b2e47ee6283",
+    "size_bytes": 166684
+  },
+  "commands": [
+    "./scripts/build_debian.sh",
+    "dpkg-deb --info dist/debian/best-buds-weight-station_0.1.2_amd64.deb",
+    "dpkg -i dist/debian/best-buds-weight-station_0.1.2_amd64.deb",
+    "best-buds-weight-station --version",
+    "best-buds-weight-station --self-test --simulator",
+    "xvfb-run -a best-buds-weight-station --simulator --capture-mode manual --ui-smoke",
+    "xvfb-run -a best-buds-weight-station --simulator --capture-mode automatic --ui-smoke"
+  ],
+  "environment": {
+    "architecture": "amd64",
+    "dpkg_deb": "1.22.22",
+    "os": "Debian GNU/Linux 13 (trixie)",
+    "python": "3.13.5"
+  },
+  "evidence": [
+    "validation/debian_build_output.v0.1.2.txt",
+    "validation/debian_dpkg_info.v0.1.2.txt",
+    "validation/debian_contents.v0.1.2.txt",
+    "validation/debian_native_build_install_smoke.v0.1.2.log"
+  ],
+  "generated_at": "2026-07-19T17:46:51Z",
+  "non_claims": [
+    "Debian package success does not prove Windows execution, firmware compilation, physical hardware, calibration, production readiness, or release seal."
+  ],
+  "receipt_type": "native_debian_packaging",
+  "results": {
+    "alice_ui_smoke_automatic": "pass",
+    "alice_ui_smoke_manual": "pass",
+    "build": "pass",
+    "install": "pass",
+    "package_inspection": "pass",
+    "simulator_self_test": "pass",
+    "version": "0.1.2"
+  },
+  "status": "pass",
+  "truth_class": "PASS",
+  "version": "0.1.2"
+}

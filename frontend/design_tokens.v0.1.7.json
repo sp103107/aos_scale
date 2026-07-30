@@ -1,0 +1,56 @@
+{
+  "colors": {
+    "background": "#F5F7FA",
+    "blocked": "#7A271A",
+    "border": "#CBD4DD",
+    "brand": "#1E6B52",
+    "brand_hover": "#185A45",
+    "danger": "#B42318",
+    "focus": "#1B69D2",
+    "muted": "#5C6975",
+    "simulator": "#8A4B08",
+    "success": "#218739",
+    "surface": "#FFFFFF",
+    "surface_alt": "#EEF2F6",
+    "text": "#17212B",
+    "warning": "#B7791F"
+  },
+  "layout": {
+    "main_action_count": 7,
+    "minimum_height": 720,
+    "minimum_width": 1024,
+    "supported_reference": "1366x768"
+  },
+  "operator_language": {
+    "ERROR": "Not saved",
+    "LOCAL_COMMIT_PENDING": "Saving record",
+    "MANUAL_CONFIRM": "Weight stable - confirm record",
+    "RECORD_SAVED": "Saved safely",
+    "RECOVERY_REQUIRED": "Recovery required",
+    "RUN_FINISHED": "Run finished",
+    "WAITING_FOR_BARCODE": "Ready to scan",
+    "WAITING_FOR_STABLE_WEIGHT": "Waiting for a stable weight",
+    "WEIGHING": "Weighing plant"
+  },
+  "platform_priority": [
+    "windows_pyside6",
+    "linux_pyside6",
+    "linux_tk_fallback"
+  ],
+  "spacing": {
+    "lg": 18,
+    "md": 12,
+    "sm": 8,
+    "xl": 24,
+    "xs": 4
+  },
+  "typography": {
+    "body_px": 14,
+    "button_px": 15,
+    "family": "Segoe UI",
+    "status_px": 19,
+    "title_px": 28,
+    "weight_px": 72
+  },
+  "version": "0.1.7"
+}
