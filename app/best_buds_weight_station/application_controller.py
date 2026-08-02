@@ -160,7 +160,9 @@ class ApplicationController:
             self.last_alice_response = response.to_dict()
             detail = f"{type(exc).__name__}: {exc}"
             message = response.operator_message or detail
-            if detail not in message:
+            # Keep casual operator text clean; stash tech detail in data only.
+            generic = "the requested operation could not be completed"
+            if detail not in message and message.strip().lower().startswith(generic):
                 message = f"{message} ({detail})"
             return self._result(
                 request,
@@ -174,14 +176,44 @@ class ApplicationController:
                 },
             )
 
+    def _scale_session_dir(self) -> Path:
+        if self.loaded_run is not None:
+            return self.loaded_run.store.session_dir
+        path = self.settings_store.config_dir / "maintenance_scale"
+        path.mkdir(parents=True, exist_ok=True)
+        return path
+
+    def _bind_scale_service(self) -> None:
+        """Attach ScaleControlService whenever a validated device is connected."""
+        if not self.device or not self.device.status.connected:
+            self.scale = None
+            return
+        self.scale = ScaleControlService(self.device, self._scale_session_dir())
+
+    def _require_scale(self) -> ScaleControlService:
+        if not self.device or not self.device.status.connected or not self.scale:
+            raise InvalidActionState(
+                "Connect the scale first (Scale → Scale Setup → Connect), wait for live readings, then try again."
+            )
+        return self.scale
+
     def _install_loaded_run(self, loaded: LoadedRun) -> None:
         self.loaded_run = loaded
         self.machine = CaptureMachine(loaded.store, StabilityProfile(settle_ms=0), beep=self.beep)
         self.scale = None
+        # Keep an already-connected USB/simulator scale bound without forcing reconnect.
+        if self.device and self.device.status.connected:
+            self._bind_scale_service()
+            self.machine.connect()
+            if self.machine.state != State.RECOVERY_REQUIRED:
+                self.machine.start_session(loaded.definition.capture_mode)
+            self.loaded_run.store.context.device_id = self.device.status.device_id or self.device.status.port
+            self.loaded_run.store.context.firmware_version = self.device.status.firmware_version or "unknown"
         rows = [row for row in parse_jsonl(loaded.store.records_path) if row.get("event_type") == "weight_record"]
         self.last_record = rows[-1] if rows else None
         context = {"cultivar_roster": loaded.definition.cultivars}
-        self.last_alice_response = self.agent.respond(State.DISCONNECTED.value, context=context, session_id=loaded.store.context.session_id).to_dict()
+        start_state = State.WAITING_FOR_BARCODE.value if self.scale else State.DISCONNECTED.value
+        self.last_alice_response = self.agent.respond(start_state, context=context, session_id=loaded.store.context.session_id).to_dict()
 
     def _run_new(self, request: ActionRequest) -> ActionResult:
         if self.loaded_run and self.loaded_run.store.sequence > 0:
@@ -273,6 +305,7 @@ class ApplicationController:
             raise
         if not simulator:
             self.settings_store.update(serial_port=port, baud_rate=baud)
+        self._bind_scale_service()
         if setup_only:
             response = self._refresh_alice_for_state(context={"device_status": status.to_dict()})
             truth = "SIMULATOR_PASS" if simulator else "SOURCE_PRESENT"
@@ -280,7 +313,7 @@ class ApplicationController:
                 request,
                 "completed",
                 truth,
-                "Scale connection and protocol validation completed (setup mode; create or load a run before recording weights)",
+                "Scale connected. You can calibrate now, or start a harvest run when ready to record plants.",
                 {
                     "device_status": status.to_dict(),
                     "baud_rate": baud,
@@ -294,7 +327,6 @@ class ApplicationController:
         self.loaded_run.store.context.firmware_version = status.firmware_version or "unknown"
         self.loaded_run.store.context.evidence_truth_class = "simulator" if simulator else "SOURCE_PRESENT"
         self.machine.connect()
-        self.scale = ScaleControlService(self.device, self.loaded_run.store.session_dir)
         if self.machine.state != State.RECOVERY_REQUIRED:
             self.machine.start_session(self.loaded_run.definition.capture_mode)
         response = self._refresh_alice_for_state(context={"device_status": status.to_dict()})
@@ -310,6 +342,8 @@ class ApplicationController:
     def _device_disconnect(self, request: ActionRequest) -> ActionResult:
         if self.device:
             self.device.disconnect(reason="operator_request")
+        self.device = None
+        self.scale = None
         if self.machine:
             self.machine.disconnect()
         response = self._refresh_alice_for_state() if self.loaded_run else None
@@ -335,10 +369,11 @@ class ApplicationController:
         if not self.device:
             raise InvalidActionState("no prior scale connection is available")
         status = self.device.reconnect(max_attempts=int(request.payload.get("max_attempts", 2)))
-        if self.machine:
+        self._bind_scale_service()
+        if self.machine and self.loaded_run:
             self.machine.connect()
             if self.machine.state != State.RECOVERY_REQUIRED:
-                self.machine.start_session(self.loaded_run.definition.capture_mode)  # type: ignore[union-attr]
+                self.machine.start_session(self.loaded_run.definition.capture_mode)
         response = self._refresh_alice_for_state(context={"device_status": status.to_dict()})
         return self._result(request, "completed", status.truth_class, "Scale reconnected and protocol validated", {"device_status": status.to_dict(), "alice_response": response})
 
@@ -421,62 +456,81 @@ class ApplicationController:
         return self._result(request, "completed", "UNIT_TEST_PASS", "Uncommitted current-item state was cleared", {"committed_records_unchanged": True})
 
     def _scale_zero(self, request: ActionRequest) -> ActionResult:
-        self._require_maintenance_ready()
-        assert self.scale
+        self._require_scale_maintenance(allow_without_run=True)
+        scale = self._require_scale()
         provided = request.payload.get("readings_g")
         values = [float(value) for value in provided] if provided is not None else None
-        receipt = self.scale.zero_scale(values)
+        receipt = scale.zero_scale(values)
         response = self._refresh_alice_for_state(context={"maintenance_result": "zeroed"})
-        return self._result(request, "completed", receipt.truth_class, "Scale zero command acknowledged and near-zero stability validated", {"zero_receipt": receipt.__dict__, "physical_device_pass": False, "alice_response": response})
+        return self._result(
+            request,
+            "completed",
+            receipt.truth_class,
+            "Scale zeroed. Keep the pan empty — live weight should read near 0 g.",
+            {"zero_receipt": receipt.__dict__, "physical_device_pass": False, "alice_response": response},
+        )
 
     def _tare_set(self, request: ActionRequest) -> ActionResult:
         self._require_run()
-        assert self.scale and self.loaded_run
-        record = self.scale.set_known_tare(str(request.payload["container_id"]), float(request.payload["tare_g"]), self.loaded_run.definition.operator_id)
+        scale = self._require_scale()
+        assert self.loaded_run
+        record = scale.set_known_tare(str(request.payload["container_id"]), float(request.payload["tare_g"]), self.loaded_run.definition.operator_id)
         self.loaded_run.store.context.container_id = record.container_id
         self.loaded_run.store.context.tare_g = record.tare_g
         response = self._refresh_alice_for_state(context={"tare_g": record.tare_g})
         return self._result(request, "completed", record.truth_class, "Known container tare saved", {"tare_record": record.__dict__, "alice_response": response})
 
     def _tare_capture(self, request: ActionRequest) -> ActionResult:
-        self._require_maintenance_ready()
-        assert self.scale and self.loaded_run
-        record = self.scale.capture_tare(str(request.payload["container_id"]), request.payload["readings_g"], self.loaded_run.definition.operator_id)
+        self._require_scale_maintenance(allow_without_run=False)
+        scale = self._require_scale()
+        assert self.loaded_run
+        record = scale.capture_tare(str(request.payload["container_id"]), request.payload["readings_g"], self.loaded_run.definition.operator_id)
         self.loaded_run.store.context.container_id = record.container_id
         self.loaded_run.store.context.tare_g = record.tare_g
         response = self._refresh_alice_for_state(context={"tare_g": record.tare_g})
         return self._result(request, "completed", record.truth_class, "Stable container tare captured and saved", {"tare_record": record.__dict__, "physical_device_pass": False, "alice_response": response})
 
     def _calibration_start(self, request: ActionRequest) -> ActionResult:
-        self._require_run()
-        assert self.scale and self.machine and self.loaded_run
-        session_id = self.scale.start_calibration(
-            active_capture=self.machine.state in _ACTIVE_CAPTURE_STATES and self.machine.state != State.WAITING_FOR_BARCODE,
-            operator_id=self.loaded_run.definition.operator_id,
+        self._require_scale_maintenance(allow_without_run=True)
+        scale = self._require_scale()
+        active_capture = bool(
+            self.machine
+            and self.machine.state in _ACTIVE_CAPTURE_STATES
+            and self.machine.state != State.WAITING_FOR_BARCODE
+        )
+        operator_id = (
+            self.loaded_run.definition.operator_id
+            if self.loaded_run
+            else str(request.payload.get("operator_id") or "maintenance")
+        )
+        session_id = scale.start_calibration(
+            active_capture=active_capture,
+            operator_id=operator_id,
             maintenance_authorized=bool(request.payload.get("maintenance_authorized")),
         )
         return self._result(request, "completed", "UNIT_TEST_PASS", "Calibration workflow started", {"calibration_session_id": session_id, "physical_device_pass": False})
 
     def _calibration_sample(self, request: ActionRequest) -> ActionResult:
-        assert self.scale
-        self.scale.add_calibration_samples(
+        scale = self._require_scale()
+        scale.add_calibration_samples(
             str(request.payload["kind"]),
             request.payload["samples"],
             reference_weight_g=request.payload.get("reference_weight_g"),
         )
         if request.payload["kind"] == "loaded":
-            proposal = self.scale.calculate_calibration()
+            proposal = scale.calculate_calibration()
             return self._result(request, "completed", "UNIT_TEST_PASS", "Calibration factor proposal calculated", {"proposal": proposal.__dict__, "physical_device_pass": False})
         return self._result(request, "completed", "UNIT_TEST_PASS", "Zero-load calibration samples accepted", {})
 
     def _calibration_test(self, request: ActionRequest) -> ActionResult:
-        assert self.scale
-        result = self.scale.test_calibration(request.payload["samples"])
-        return self._result(request, "completed", result["truth_class"], "Proposed calibration factor tested", {"calibration_test": result, "physical_device_pass": False})
+        scale = self._require_scale()
+        result = scale.test_calibration(request.payload["samples"])
+        message = result.get("operator_summary") or "Proposed calibration factor tested"
+        return self._result(request, "completed", result["truth_class"], message, {"calibration_test": result, "physical_device_pass": False})
 
     def _calibration_accept(self, request: ActionRequest) -> ActionResult:
-        assert self.scale
-        receipt = self.scale.accept_calibration(
+        scale = self._require_scale()
+        receipt = scale.accept_calibration(
             maintenance_authorized=bool(request.payload.get("maintenance_authorized")),
             second_confirmation=bool(request.payload.get("second_confirmation")),
         )
@@ -485,8 +539,8 @@ class ApplicationController:
         return self._result(request, "completed", receipt["truth_class"], "Calibration factor accepted by the connected test device", {"calibration_receipt": receipt, "physical_device_pass": False})
 
     def _calibration_cancel(self, request: ActionRequest) -> ActionResult:
-        assert self.scale
-        return self._result(request, "completed", "UNIT_TEST_PASS", "Calibration workflow cancelled", self.scale.cancel_calibration())
+        scale = self._require_scale()
+        return self._result(request, "completed", "UNIT_TEST_PASS", "Calibration workflow cancelled", scale.cancel_calibration())
 
     def _recover(self, request: ActionRequest) -> ActionResult:
         self._require_run()
@@ -519,7 +573,15 @@ class ApplicationController:
         self._require_run()
         assert self.loaded_run
         result = self.run_manager.export(self.loaded_run, request.payload["destination"])
-        return self._result(request, "completed", "UNIT_TEST_PASS", "Non-authoritative export completed", result)
+        paths = result.get("paths") or []
+        summary = ", ".join(Path(path).name for path in paths) if paths else "no files"
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"Export completed ({summary}). Reports are handoff copies — session JSONL remains authoritative.",
+            result,
+        )
 
     def _open_scale_setup(self, request: ActionRequest) -> ActionResult:
         ports = [item.__dict__ for item in DeviceService.discover_ports()]
@@ -541,9 +603,11 @@ class ApplicationController:
             raise InvalidActionState("the station is not ready for a barcode")
 
     def _require_maintenance_ready(self) -> None:
-        self._require_run()
-        if not self.device or not self.scale or not self.device.status.connected:
-            raise InvalidActionState("connect a validated scale service first")
-        assert self.machine
-        if self.machine.state in _ACTIVE_CAPTURE_STATES and self.machine.state != State.WAITING_FOR_BARCODE:
-            raise InvalidActionState("maintenance action is blocked during active capture")
+        self._require_scale_maintenance(allow_without_run=False)
+
+    def _require_scale_maintenance(self, *, allow_without_run: bool) -> None:
+        if not allow_without_run:
+            self._require_run()
+        self._require_scale()
+        if self.machine and self.machine.state in _ACTIVE_CAPTURE_STATES and self.machine.state != State.WAITING_FOR_BARCODE:
+            raise InvalidActionState("Finish or cancel the current plant first, then try again.")

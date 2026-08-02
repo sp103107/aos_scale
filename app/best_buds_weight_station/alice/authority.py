@@ -71,13 +71,52 @@ def validate_truth_class(value: str) -> str:
 
 
 def operator_safe_error(error: Any) -> str:
-    text = str(error).strip().lower()
-    if "malformed serial" in text or "raw:" in text or "hx711 test" in text:
+    raw = str(error).strip()
+    text = raw.lower()
+    # Pass through already operator-facing controller/scale messages.
+    if raw and (
+        type(error).__name__ == "InvalidActionState"
+        or "measured" in text
+        or "calibration was not saved" in text
+        or "connect the scale first" in text
+        or "keep the same" in text
+        or "wait until" in text
+    ):
+        return raw
+    if "local tolerance" in text or "calibration test did not pass" in text:
+        return (
+            "Calibration test did not match the reference mass closely enough. "
+            "Keep the same verified mass on the pan, wait for it to settle, then run Test again. "
+            "Calibration was not saved."
+        )
+    if "connect a validated scale" in text or "connect a scale before" in text:
+        return "Connect the scale first (Scale → Scale Setup → Connect), wait for live readings, then try again."
+    if "no run is loaded" in text:
+        return "Start or resume a harvest run first when recording plants. Maintenance calibration can run after the scale is connected."
+    if "at least three live" in text:
+        return "Wait until the live weight is updating, then capture samples again."
+    if "zero stability" in text:
+        return (
+            "Zero needs a steady empty pan. Remove everything, wait a second for the number to settle, "
+            "then press ZERO again."
+        )
+    # True wrong-firmware sketches (raw HX711 dumpers) — not stream/command interleave.
+    if "hx711 test" in text or "raw hx711 test sketch" in text or (
+        "malformed serial" in text and text.strip().startswith("malformed serial line from raw")
+    ):
         return (
             "The scale replied, but it is not running the weight-station firmware. "
             "In Arduino IDE, upload firmware/elegoo_uno_r3_hx711/best_buds_scale_firmware.ino, "
             "close Serial Monitor, then reconnect at 115200."
         )
+    if "malformed serial" in text or "set_cal" in text or "calibration factor was not acknowledged" in text:
+        return (
+            "The scale was still streaming while saving calibration, so the reply got mixed up. "
+            "Try Accept again (the app now pauses live readings first). "
+            "If it keeps failing, Disconnect → Connect, re-run Test, then Accept."
+        )
+    if "calibration rejected" in text:
+        return "The scale rejected the calibration factor. Re-run Guided Calibration from Start, then Accept again."
     if "serial" in text or "disconnect" in text or "permission" in text or "access is denied" in text:
         return "The scale connection is unavailable. Close Serial Monitor, reconnect the USB cable, and try again."
     if "jsonl" in text or "append" in text or "storage" in text:
@@ -88,7 +127,9 @@ def operator_safe_error(error: Any) -> str:
         return "The individual record file could not be completed. Keep the item in place and start recovery review."
     if "duplicate idempotency" in text:
         return "This command was already processed. Review the original receipt before taking another action."
-    return "The requested operation could not be completed. Review station status or contact an administrator."
+    if type(error).__name__ == "AssertionError":
+        return "Connect the scale first (Scale → Scale Setup → Connect), then try again."
+    return "The requested operation could not be completed. Check the on-screen next step and try again."
 
 
 def redact_operator_payload(value: Any) -> Any:

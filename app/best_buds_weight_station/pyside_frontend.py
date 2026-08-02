@@ -118,6 +118,9 @@ class NewRunDialog(QDialog):
         })
         if result["status"] == "completed":
             self.accept()
+            parent = self.parent()
+            if isinstance(parent, MainWindow):
+                parent.maybe_suggest_calibration()
         else:
             _show_result(self, result)
 
@@ -251,44 +254,66 @@ class TareDialog(QDialog):
         except Exception as exc: QMessageBox.warning(self, "Tare capture blocked", str(exc))
 
 
+class ScannerTestDialog(QDialog):
+    """Quick check that a USB/Bluetooth HID keyboard-wedge scanner reaches the app."""
+
+    def __init__(self, parent: QWidget | None = None):
+        super().__init__(parent)
+        self.setWindowTitle("Test Barcode Scanner")
+        self.resize(520, 220)
+        layout = QVBoxLayout(self)
+        tip = QLabel(
+            "Scan any barcode now with a USB or Bluetooth scanner in keyboard mode "
+            "(or type a code and press Enter)."
+        )
+        tip.setWordWrap(True)
+        layout.addWidget(tip)
+        self.field = QLineEdit()
+        self.field.setObjectName("barcodeInput")
+        self.field.setPlaceholderText("Waiting for scan…")
+        self.field.returnPressed.connect(self._accepted_scan)
+        layout.addWidget(self.field)
+        self.status = QLabel("No scan yet.")
+        layout.addWidget(self.status)
+        buttons = QDialogButtonBox(QDialogButtonBox.Close)
+        buttons.rejected.connect(self.reject)
+        layout.addWidget(buttons)
+        QTimer.singleShot(0, self.field.setFocus)
+
+    def _accepted_scan(self) -> None:
+        value = self.field.text().strip()
+        if not value:
+            self.status.setText("Empty scan. Try again.")
+            return
+        QMessageBox.information(self, "Scanner OK", f"Scanner OK — received:\n{value}")
+        self.accept()
+
+
 class CalibrationDialog(QDialog):
-    """Step-by-step guided calibration with operator-facing instructions."""
+    """Step-by-step guided calibration with casual employee instructions."""
 
     STEPS = {
         "before": (
-            "Before you start: Connect the scale, start or resume a run, empty the pan, and enter the "
-            "verified reference mass (grams) below. This is maintenance calibration only — not legal-for-trade."
+            "Connect the scale first. A harvest run is optional for calibration. "
+            "Empty the pan, enter your verified reference mass (grams) below, then follow steps 1–5."
         ),
-        "start": (
-            "Step 1 — Start: Begins a maintenance calibration session. Do not scan plant barcodes until this "
-            "walkthrough is finished or cancelled."
-        ),
-        "zero": (
-            "Step 2 — Zero samples: Keep the pan empty (no container, no reference mass). Wait until live "
-            "readings are updating, then click Capture Zero Raw Samples. Samples use raw HX711 values from the live buffer."
-        ),
-        "loaded": (
-            "Step 3 — Loaded samples: Place the verified reference mass on the empty pan. Wait for settle, "
-            "confirm the Reference weight (g) matches the physical mass, then click Capture Loaded Raw Samples."
-        ),
-        "test": (
-            "Step 4 — Test: Keep the reference mass on the pan (or re-place it), then click Test Proposed Factor. "
-            "Review the proposed factor and error percent in the output panel before accepting."
-        ),
-        "accept": (
-            "Step 5 — Accept: Confirm to write the factor to the device (SET_CAL). After accept, live weight should "
-            "read near the reference mass in real grams."
-        ),
-        "after": (
-            "After calibration: Empty the pan → press ZERO → optional container SET TARE → resume normal scanning. "
-            "Large swings labeled as grams before accept were uncalibrated raw counts."
-        ),
+        "start": "Step 1 — Start calibration. Do not scan plants until you finish or cancel.",
+        "zero": "Step 2 — Empty pan only (no mass). Wait for live weight, then Capture empty samples.",
+        "loaded": "Step 3 — Place the verified mass on the pan. Confirm grams match, wait to settle, Capture loaded samples.",
+        "test": "Step 4 — Keep the same mass on the pan. Press Test. You need Pass before Accept.",
+        "accept": "Step 5 — Accept writes the factor to the scale. Then empty pan → ZERO.",
+        "after": "Done. Empty the pan → ZERO → optional SET TARE → resume scanning. Large wild numbers before Accept were uncalibrated.",
         "cancelled": "Calibration cancelled. You can start again when ready.",
+        "failed_test": (
+            "Test did not pass — calibration was not saved. Large negative numbers can remain until a successful Accept. "
+            "Keep the same mass on, wait, run Test again."
+        ),
     }
 
     def __init__(self, runtime: OperatorRuntime, parent: QWidget | None = None):
         super().__init__(parent)
         self.runtime = runtime
+        self._test_passed = False
         self.setWindowTitle("Guided Scale Calibration")
         self.resize(780, 640)
         layout = QVBoxLayout(self)
@@ -299,28 +324,40 @@ class CalibrationDialog(QDialog):
         self.instructions.setStyleSheet("background:#F7FAFC;border:1px solid #D9E2EC;padding:12px;border-radius:8px;")
         layout.addWidget(self.instructions)
 
-        warning = QLabel("Maintenance workflow. No legal-for-trade certification is implied. Use a verified reference mass.")
+        warning = QLabel("Maintenance only — not legal-for-trade. Use a verified reference mass.")
         warning.setWordWrap(True)
         warning.setStyleSheet("color:#8A4B08;font-weight:600")
         layout.addWidget(warning)
 
         form = QFormLayout()
-        self.reference = QDoubleSpinBox(); self.reference.setRange(1.0, 10000.0); self.reference.setDecimals(3); self.reference.setValue(2000.0)
+        default_ref = float(getattr(runtime.controller.settings, "default_reference_weight_g", 2000.0) or 2000.0)
+        self.reference = QDoubleSpinBox(); self.reference.setRange(1.0, 10000.0); self.reference.setDecimals(3); self.reference.setValue(default_ref)
         self.samples = QSpinBox(); self.samples.setRange(3, 32); self.samples.setValue(8)
         form.addRow("Reference weight (g)", self.reference)
         form.addRow("Live sample count", self.samples)
         layout.addLayout(form)
 
+        self.summary = QLabel("")
+        self.summary.setWordWrap(True)
+        self.summary.setStyleSheet("font-weight:700;padding:8px;")
+        layout.addWidget(self.summary)
+
         grid = QGridLayout()
+        self.accept_btn = QPushButton("5. Accept (after Test Pass)")
+        self.accept_btn.setEnabled(False)
+        self.accept_btn.clicked.connect(self.accept_factor)
         actions = [
-            ("1. Start Maintenance Calibration", self.start, 0, 0),
-            ("2. Capture Zero Raw Samples", self.zero_samples, 0, 1),
-            ("3. Capture Loaded Raw Samples", self.loaded_samples, 1, 0),
-            ("4. Test Proposed Factor", self.test_factor, 1, 1),
-            ("5. Accept with Second Confirmation", self.accept_factor, 2, 0),
-            ("Cancel Calibration", self.cancel_calibration, 2, 1),
+            ("1. Start", self.start, 0, 0),
+            ("2. Capture empty samples", self.zero_samples, 0, 1),
+            ("3. Capture loaded samples", self.loaded_samples, 1, 0),
+            ("4. Test", self.test_factor, 1, 1),
+            (None, None, 2, 0),
+            ("Cancel", self.cancel_calibration, 2, 1),
         ]
         for text, callback, r, c in actions:
+            if text is None:
+                grid.addWidget(self.accept_btn, r, c)
+                continue
             button = QPushButton(text); button.clicked.connect(callback); grid.addWidget(button, r, c)
         layout.addLayout(grid)
         self.output = QPlainTextEdit(); self.output.setReadOnly(True); layout.addWidget(self.output)
@@ -338,6 +375,9 @@ class CalibrationDialog(QDialog):
             self.set_step(next_step)
 
     def start(self) -> None:
+        self._test_passed = False
+        self.accept_btn.setEnabled(False)
+        self.summary.setText("")
         self.set_step("start")
         self.write(self.runtime.start_calibration(), next_step="zero")
 
@@ -351,8 +391,10 @@ class CalibrationDialog(QDialog):
     def loaded_samples(self) -> None:
         self.set_step("loaded")
         try:
+            ref = float(self.reference.value())
+            self.runtime.controller.settings_store.update(default_reference_weight_g=ref)
             self.write(
-                self.runtime.add_calibration_loaded_samples(self.reference.value(), self.samples.value()),
+                self.runtime.add_calibration_loaded_samples(ref, self.samples.value()),
                 next_step="test",
             )
         except Exception as exc:
@@ -361,16 +403,44 @@ class CalibrationDialog(QDialog):
     def test_factor(self) -> None:
         self.set_step("test")
         try:
-            self.write(self.runtime.test_calibration(self.samples.value()), next_step="accept")
+            result = self.runtime.test_calibration(self.samples.value())
+            test = (result.get("data") or {}).get("calibration_test") or {}
+            summary = test.get("operator_summary") or result.get("message") or ""
+            self.summary.setText(summary)
+            self._test_passed = bool(test.get("passed_local_tolerance"))
+            self.accept_btn.setEnabled(self._test_passed)
+            next_step = "accept" if self._test_passed else "failed_test"
+            self.write(result, next_step=next_step)
+            if not self._test_passed:
+                QMessageBox.warning(self, "Test did not pass", summary or result.get("message", "Run Test again."))
         except Exception as exc:
+            self._test_passed = False
+            self.accept_btn.setEnabled(False)
             QMessageBox.warning(self, "Test unavailable", str(exc))
 
     def accept_factor(self) -> None:
+        if not self._test_passed:
+            QMessageBox.warning(
+                self,
+                "Not ready",
+                "Run Test until you see Pass first. Calibration is not saved until Accept succeeds.",
+            )
+            return
         self.set_step("accept")
-        if QMessageBox.question(self, "Confirm calibration", "Apply the proposed factor to the connected device?") == QMessageBox.Yes:
-            self.write(self.runtime.accept_calibration(), next_step="after")
+        if QMessageBox.question(self, "Confirm calibration", "Save this calibration to the scale?") == QMessageBox.Yes:
+            result = self.runtime.accept_calibration()
+            self.write(result, next_step="after")
+            if result.get("status") in {"failed", "blocked"}:
+                self._test_passed = False
+                self.accept_btn.setEnabled(False)
+                self.summary.setText(
+                    (result.get("message") or "")
+                    + " Large numbers can stay wrong until calibration is saved, then press ZERO."
+                )
 
     def cancel_calibration(self) -> None:
+        self._test_passed = False
+        self.accept_btn.setEnabled(False)
         self.write(self.runtime.cancel_calibration(), next_step="cancelled")
 
 
@@ -383,6 +453,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.runtime = runtime
         self.simulator_requested = simulator
+        self._calibration_open = False
         self.setWindowTitle(f"Best Buds Cultivator Weight Station v{__version__}")
         self.resize(1180, 820)
         self.setMinimumSize(1024, 720)
@@ -451,9 +522,19 @@ class MainWindow(QMainWindow):
         self.barcode.setAccessibleName("Plant barcode")
         self.barcode.setAccessibleDescription("Scan or type a plant barcode and press Enter")
         self.barcode.returnPressed.connect(self.submit_barcode)
-        barcode_hint = QLabel("Barcode scanners normally submit automatically with Enter.")
+        barcode_row = QHBoxLayout()
+        barcode_row.addWidget(self.barcode, 1)
+        self.auto_id_btn = QPushButton("Use auto ID")
+        self.auto_id_btn.clicked.connect(self.use_auto_plant_id)
+        barcode_row.addWidget(self.auto_id_btn)
+        test_scan_btn = QPushButton("Test Scanner")
+        test_scan_btn.clicked.connect(self.test_scanner)
+        barcode_row.addWidget(test_scan_btn)
+        barcode_hint = QLabel("USB or Bluetooth scanner in keyboard mode — or type and press Enter.")
         barcode_hint.setStyleSheet("color:#5C6975;font-size:12px")
-        barcode_layout.addWidget(barcode_label); barcode_layout.addWidget(self.barcode); barcode_layout.addWidget(barcode_hint)
+        barcode_layout.addWidget(barcode_label)
+        barcode_layout.addLayout(barcode_row)
+        barcode_layout.addWidget(barcode_hint)
         layout.addWidget(barcode_card)
 
         actions = QGridLayout(); actions.setHorizontalSpacing(10); actions.setVerticalSpacing(10)
@@ -513,6 +594,7 @@ class MainWindow(QMainWindow):
         self._add_menu_action(scale_menu, "Zero Scale", self.zero_scale, "Ctrl+Z")
         self._add_menu_action(scale_menu, "Container Tare...", self.container_tare, "Ctrl+T")
         self._add_menu_action(scale_menu, "Guided Calibration...", self.calibrate)
+        self._add_menu_action(scale_menu, "Test Scanner...", self.test_scanner)
         scale_menu.addSeparator()
         self._add_menu_action(scale_menu, "Diagnostics", self.diagnostics)
 
@@ -536,8 +618,11 @@ class MainWindow(QMainWindow):
         s = self.runtime.snapshot(); device = s["device"]
         self.status.setText(s["operator_state"].title())
         self.weight.setText(f"{s['weight_g']:,.3f} g")
-        if s.get("weight_uncalibrated"):
-            self.weight_hint.setText("Uncalibrated raw — open Scale → Guided Calibration with a verified reference mass.")
+        if s.get("warn_on_uncalibrated_weight") and s.get("weight_uncalibrated"):
+            self.weight_hint.setText(
+                "Uncalibrated — open Scale → Guided Calibration with a verified mass. "
+                "Large wild numbers are normal until calibration is saved, then press ZERO."
+            )
         else:
             self.weight_hint.setText("")
         self.fields["RUN"].setText(s["run_id"] or "—")
@@ -547,7 +632,17 @@ class MainWindow(QMainWindow):
         self.fields["TARE"].setText(f"{s['tare_g']:,.3f} g")
         self.fields["NET"].setText(f"{s['net_g']:,.3f} g")
         record = s["last_saved"]
-        self.last_saved.setText(f"Saved safely: {record['record_id']} - {record['net_g']:.3f} g" if record else "No plant has been saved in this run.")
+        if record:
+            csv_note = ""
+            run = self.runtime.controller.loaded_run
+            if run and (run.store.session_dir / "records.csv").exists():
+                csv_note = f" • CSV: {run.store.session_dir / 'records.csv'}"
+            self.last_saved.setText(
+                f"Saved: {record.get('barcode_raw', record.get('record_id'))} — "
+                f"{float(record['net_g']):.3f} g net. Scan next plant.{csv_note}"
+            )
+        else:
+            self.last_saved.setText("No plant has been saved in this run yet. Scan a barcode, weigh, then Confirm & Record.")
         self.alice_message.setText(str(s["alice_message"]))
 
         mode = device.get("mode") or "none"
@@ -575,15 +670,45 @@ class MainWindow(QMainWindow):
             self.statusBar().showMessage("Scale disconnected • open Scale Setup to connect")
 
         state=s["state"]; ready=state=="WAITING_FOR_BARCODE"; connected=bool(device.get("connected"))
-        self.barcode.setEnabled(ready)
-        if ready and not self.barcode.hasFocus(): self.barcode.setFocus()
+        self.barcode.setEnabled(ready and not self._calibration_open)
+        self.auto_id_btn.setEnabled(ready and not self._calibration_open and not bool(s.get("barcode_required_for_capture", True)))
+        self.auto_id_btn.setVisible(not bool(s.get("barcode_required_for_capture", True)))
+        if ready and not self._calibration_open and not self.barcode.hasFocus():
+            self.barcode.setFocus()
         self.buttons["START / RESUME"].setEnabled(state in {"NO_RUN", "RUN_FINISHED", "DEVICE_READY", "WAITING_FOR_BARCODE"})
         self.buttons["CONNECT SCALE"].setEnabled(state not in self.CAPTURE_STATES)
-        self.buttons["ZERO"].setEnabled(connected and state in {"WAITING_FOR_BARCODE", "DEVICE_READY"})
+        # Zero is maintenance: allowed whenever the scale is connected (run optional).
+        self.buttons["ZERO"].setEnabled(connected and state not in self.CAPTURE_STATES)
         self.buttons["SET TARE"].setEnabled(connected and state in {"WAITING_FOR_BARCODE", "DEVICE_READY"})
         self.buttons["CONFIRM & RECORD"].setEnabled(state == "MANUAL_CONFIRM")
         self.buttons["CANCEL"].setEnabled(state in self.CAPTURE_STATES)
         self.buttons["FINISH RUN"].setEnabled(bool(s["run_id"]) and state not in {"LOCAL_COMMIT_PENDING"})
+
+    def maybe_suggest_calibration(self) -> None:
+        snap = self.runtime.snapshot()
+        if not snap.get("suggest_calibration_on_new_run"):
+            return
+        if not snap.get("device", {}).get("connected"):
+            QMessageBox.information(
+                self,
+                "Next step",
+                "Run started. Connect the scale (Scale Setup), then consider Guided Calibration before weighing plants.",
+            )
+            return
+        if not snap.get("weight_uncalibrated"):
+            return
+        box = QMessageBox(self)
+        box.setWindowTitle("Calibrate scale?")
+        box.setText(
+            "The scale looks uncalibrated (readings may look like huge or negative numbers). "
+            "Calibrate now with a verified mass?"
+        )
+        calibrate = box.addButton("Calibrate now", QMessageBox.AcceptRole)
+        skip = box.addButton("Skip for now", QMessageBox.RejectRole)
+        box.setDefaultButton(skip)
+        box.exec()
+        if box.clickedButton() is calibrate:
+            self.calibrate()
 
     def start_resume(self) -> None:
         if self.runtime.controller.loaded_run: self.resume_run()
@@ -607,22 +732,73 @@ class MainWindow(QMainWindow):
         except Exception as exc:
             QMessageBox.warning(self, "Zero failed", str(exc))
     def container_tare(self) -> None: TareDialog(self.runtime, self).exec()
-    def calibrate(self) -> None: CalibrationDialog(self.runtime, self).exec()
+    def calibrate(self) -> None:
+        self._calibration_open = True
+        try:
+            CalibrationDialog(self.runtime, self).exec()
+        finally:
+            self._calibration_open = False
+    def test_scanner(self) -> None:
+        ScannerTestDialog(self).exec()
+    def use_auto_plant_id(self) -> None:
+        if self.runtime.controller.settings.barcode_required_for_capture:
+            QMessageBox.information(
+                self,
+                "Barcode required",
+                "This station requires a scanned or typed barcode. Ask an admin to turn off "
+                "barcode_required_for_capture in settings for casual/demo mode.",
+            )
+            return
+        value = self.runtime.next_auto_plant_id()
+        self.barcode.setText(value)
+        self.submit_barcode()
     def submit_barcode(self) -> None:
+        if self._calibration_open:
+            QMessageBox.information(self, "Finish calibration first", "Finish or cancel Guided Calibration before scanning plants.")
+            return
         value=self.barcode.text().strip()
         if not value: return
         result=self.runtime.submit_barcode(value)
         if result.get("status") in {"failed", "blocked"}: _show_result(self,result)
         else: self.barcode.clear()
-    def confirm_record(self) -> None: _show_result(self, self.runtime.dispatch("capture.confirm"))
+    def confirm_record(self) -> None:
+        result = self.runtime.dispatch("capture.confirm")
+        if result.get("status") == "completed":
+            record = (result.get("data") or {}).get("record") or self.runtime.controller.last_record or {}
+            net = record.get("net_g")
+            barcode = record.get("barcode_raw") or record.get("record_id") or "plant"
+            msg = result.get("message") or "Record saved."
+            if net is not None:
+                msg = f"Saved {barcode}: {float(net):.3f} g net.\nScan the next plant when ready."
+            run = self.runtime.controller.loaded_run
+            if run and (run.store.session_dir / "records.csv").exists():
+                msg += f"\n\nCSV updated:\n{run.store.session_dir / 'records.csv'}"
+            QMessageBox.information(self, "Plant saved", msg)
+        else:
+            _show_result(self, result)
+
     def cancel_item(self) -> None: _show_result(self, self.runtime.dispatch("capture.cancel"))
     def recover(self) -> None: _show_result(self, self.runtime.dispatch("state.recover"))
     def finish_run(self) -> None:
         if QMessageBox.question(self,"Finish Run","Finish the current run? Committed records remain immutable.")==QMessageBox.Yes:
             _show_result(self,self.runtime.dispatch("run.finish"))
     def export_report(self) -> None:
-        path=QFileDialog.getExistingDirectory(self,"Export Report To",str(self.runtime.paths.exports))
-        if path: _show_result(self,self.runtime.dispatch("report.export",{"destination":path}),success_title="Export completed")
+        path = QFileDialog.getExistingDirectory(self, "Export Report To", str(self.runtime.paths.exports))
+        if not path:
+            return
+        result = self.runtime.dispatch("report.export", {"destination": path})
+        if result.get("status") == "completed":
+            paths = (result.get("data") or {}).get("paths") or []
+            listing = "\n".join(paths) if paths else path
+            QMessageBox.information(
+                self,
+                "Export completed",
+                "Handoff files written (CSV / XLSX / DOCX / JSON):\n\n"
+                f"{listing}\n\n"
+                "Session JSONL remains the authoritative ledger.",
+            )
+        else:
+            _show_result(self, result, success_title="Export completed")
     def diagnostics(self) -> None:
         QMessageBox.information(self,"Diagnostics",json.dumps(self.runtime.snapshot(),indent=2,sort_keys=True,default=str))
     def about(self) -> None:

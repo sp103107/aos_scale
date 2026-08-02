@@ -405,9 +405,24 @@ class DeviceService:
     def set_calibration(self, factor: float) -> dict[str, Any]:
         if not isinstance(factor, (int, float)) or factor == 0 or abs(float(factor)) > 1e12:
             raise ValueError("invalid calibration factor")
+        # Live STREAM_ON weight lines interleave with A,SET_CAL,OK and corrupt the parser.
+        if self.status.streaming:
+            try:
+                self.stop_stream()
+            except Exception:
+                self.status.streaming = False
+        self._flush_input()
+        self.sleep(0.1)
         self._send(f"SET_CAL,{float(factor):.8f}")
-        message = self._read()
-        if message.get("kind") != "A":
+        message = self._read_expected(kinds={"A", "E"}, attempts=max(self.handshake_attempts, 16))
+        if message.get("kind") == "E":
+            fields = message.get("fields") or []
+            code = fields[0] if fields else "DEVICE_ERROR"
+            raise DeviceProtocolError(f"calibration rejected: {code}")
+        fields = message.get("fields") or []
+        # Firmware: A,SET_CAL,OK — simulator legacy: A,CAL_SET
+        token = str(fields[0]) if fields else ""
+        if token not in {"SET_CAL", "CAL_SET", "OK", "CAL"}:
             raise DeviceProtocolError("calibration factor was not acknowledged")
         return message
 

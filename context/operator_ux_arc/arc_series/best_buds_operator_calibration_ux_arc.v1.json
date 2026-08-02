@@ -1,0 +1,27 @@
+{
+  "schema": "aos.arc_series_blueprint.v1",
+  "series_id": "BBWS-CALUX",
+  "title": "Best Buds Weight Station Operator Calibration UX",
+  "version": "0.1.0",
+  "runtime_claimed": false,
+  "implementation_target": "C:\\best_buds_cultivator_weight_station_v0_1_9",
+  "m_drive_write_authorized": false,
+  "season": {
+    "id": "S01",
+    "title": "Operator soft-path calibration and scanner UX",
+    "episodes": [
+      {"id": "E01", "title": "Context freeze", "status": "completed"},
+      {"id": "E02", "title": "Scale bind fix", "status": "completed"},
+      {"id": "E03", "title": "Cal without run", "status": "completed"},
+      {"id": "E04", "title": "Soft suggest + casual UI", "status": "completed"},
+      {"id": "E04b", "title": "Test/Accept clarity", "status": "completed"},
+      {"id": "E04c", "title": "Barcode / scanner soft path", "status": "completed"},
+      {"id": "E05", "title": "Settings + verify", "status": "completed"}
+    ]
+  },
+  "non_claims": [
+    "Not legal-for-trade certification.",
+    "Soft suggest is not calibrated truth.",
+    "HID scanner test is not BLE/SPP protocol support."
+  ]
+}

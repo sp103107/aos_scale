@@ -26,6 +26,12 @@ class AppSettings:
     simulator_enabled: bool = False
     bluetooth_enabled: bool = False
     wifi_enabled: bool = False
+    # Soft operator UX (fail-closed only for breaking function elsewhere).
+    suggest_calibration_on_new_run: bool = True
+    require_calibration_before_capture: bool = False
+    warn_on_uncalibrated_weight: bool = True
+    default_reference_weight_g: float = 2000.0
+    barcode_required_for_capture: bool = True
     updated_at: str = ""
 
     def validate(self) -> None:

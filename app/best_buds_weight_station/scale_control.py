@@ -90,18 +90,26 @@ class ScaleControlService:
             self.device.tare()
         except DeviceProtocolError:
             tare_ok = False
+        # Brief settle after firmware TARE so DOUT/stream are not mid-conversion.
+        self.device.sleep(0.2)
         values = [float(value) for value in readings_g] if readings_g is not None else []
         if not values:
             values = [float(self.device.read_weight()["weight_g"]) for _ in range(sample_count)]
         mean, spread, _ = self._metrics(values)
-        invert = mean < -1.0
+        # Invert only for large negative baselines (uncalibrated raw counts). After a
+        # good SET_CAL, empty-pan residuals are small — do not flip polarity on noise.
+        cal = self.device.status.calibration_factor
+        calibrated = cal is not None and abs(float(cal) - 1.0) >= 1e-6
+        invert = mean < -1.0 and abs(mean) >= 100.0
         if invert:
             values = [-value for value in values]
             mean = -mean
-        # Relative tolerance only when baseline is huge (uncalibrated raw counts).
-        # Near-zero simulator samples still use the tight absolute tolerance.
+        # Relative tolerance when baseline is huge (uncalibrated raw counts).
+        # Near-zero calibrated pans get a slightly wider absolute band for hang noise.
         if abs(mean) > 10.0:
             effective_tol = max(float(tolerance_g), (0.002 * abs(mean)) + 5.0)
+        elif calibrated and abs(mean) < 50.0:
+            effective_tol = max(float(tolerance_g), 2.5)
         else:
             effective_tol = float(tolerance_g)
         self.device.set_host_zero_offset(mean, invert_sign=invert)
@@ -124,11 +132,15 @@ class ScaleControlService:
                 "host_zero_offset_g": self.device.host_zero_offset_g,
                 "invert_weight_sign": self.device.invert_weight_sign,
                 "baseline_mean_g": qgram(mean),
+                "calibrated_path": calibrated,
             },
         )
         if status != "zeroed":
             self.device.clear_host_zero()
-            raise ValueError("zero stability validation failed")
+            raise ValueError(
+                "zero stability validation failed: empty pan is still moving. "
+                "Remove everything, wait for settle, then press ZERO again."
+            )
         return receipt
 
     def set_known_tare(self, container_id: str, tare_g: float, operator_id: str) -> TareRecord:
@@ -238,29 +250,53 @@ class ScaleControlService:
         mean, spread, stddev = self._metrics(raw_samples)
         weight = (mean - float(proposal["zero_raw_mean"])) / float(proposal["proposed_factor"])
         reference = float(proposal["reference_weight_g"])
+        tol = max(1.0, reference * 0.01)
+        passed = abs(weight - reference) <= tol
         result = {
             "test_weight_g": qgram(weight),
             "reference_weight_g": reference,
             "error_g": qgram(weight - reference),
             "relative_error_percent": round(abs(weight - reference) / reference * 100.0, 6),
+            "tolerance_g": qgram(tol),
             "raw_spread": spread,
             "raw_stddev": stddev,
-            "passed_local_tolerance": abs(weight - reference) <= max(1.0, reference * 0.01),
+            "passed_local_tolerance": passed,
             "truth_class": "SIMULATOR_PASS" if self.device.mode.value == "serial_simulator" else "UNIT_TEST_PASS",
             "non_claim": "This is not legal-for-trade certification.",
+            "operator_summary": (
+                f"Measured ~{qgram(weight)} g vs reference {reference} g (need within {qgram(tol)} g). "
+                + (
+                    "Pass — you can Accept."
+                    if passed
+                    else "Fail — keep the same mass on the pan, wait for settle, run Test again. Calibration was not saved."
+                )
+            ),
         }
         self.active_calibration["test_result"] = result
-        self.active_calibration["stage"] = "acceptance_ready"
+        # Only advance to Accept when the local check passed (avoids dead-end Accept clicks).
+        self.active_calibration["stage"] = "acceptance_ready" if passed else "test_ready"
         return result
 
     def accept_calibration(self, *, maintenance_authorized: bool, second_confirmation: bool) -> dict[str, Any]:
         if not self.active_calibration or self.active_calibration.get("stage") != "acceptance_ready":
-            raise RuntimeError("calibration is not ready for acceptance")
+            test = (self.active_calibration or {}).get("test_result") or {}
+            if test and not test.get("passed_local_tolerance"):
+                raise ValueError(
+                    test.get("operator_summary")
+                    or (
+                        "Calibration test did not match closely enough. Keep the same mass on the pan, "
+                        "wait for settle, run Test again. Calibration was not saved."
+                    )
+                )
+            raise RuntimeError("Run Test successfully before Accept. Calibration is not ready yet.")
         if not maintenance_authorized or not second_confirmation:
             raise PermissionError("maintenance authorization and second confirmation are required")
         test = self.active_calibration["test_result"]
         if not test["passed_local_tolerance"]:
-            raise ValueError("calibration test did not pass local tolerance")
+            raise ValueError(
+                test.get("operator_summary")
+                or "Calibration test did not pass local tolerance. Calibration was not saved."
+            )
         proposal = self.active_calibration["proposal"]
         self.device.set_calibration(float(proposal["proposed_factor"]))
         status = self.device.read_status()

@@ -1,0 +1,28 @@
+{
+  "series_id": "BBWS-CALUX",
+  "season": "S01",
+  "version": "0.1.0",
+  "updated_at": "2026-08-01T16:10:00Z",
+  "runtime_claimed": false,
+  "implementation_target": "C:\\best_buds_cultivator_weight_station_v0_1_9",
+  "m_drive_write_authorized": false,
+  "completed_episodes": ["E01", "E02", "E03", "E04", "E04b", "E04c", "E05"],
+  "verification": {
+    "pytest": "tests/test_operator_ux_soft_path.py + test_scale_control.py + test_operator_runtime.py PASS",
+    "physical_device_pass": false
+  },
+  "delivered": [
+    "ScaleControlService bound on setup-only connect and re-bound on run install",
+    "Calibration and Zero without harvest run",
+    "Test must Pass before Accept; operator_summary with measured vs reference",
+    "Soft calibrate suggest on new run; casual Guided Calibration copy",
+    "Test Scanner dialog; optional Use auto ID when barcode_required_for_capture=false",
+    "No barcode focus steal while Guided Calibration is open"
+  ],
+  "next_safe_action": "Operator smoke on physical USB scale: Connect → Guided Calibration → Test Pass → Accept → ZERO. Optional: settings barcode_required_for_capture=false for auto ID.",
+  "non_claims": [
+    "Not legal-for-trade certification.",
+    "Soft suggest is not calibrated truth.",
+    "HID scanner test is not BLE/SPP protocol support."
+  ]
+}

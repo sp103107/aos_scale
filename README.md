@@ -51,6 +51,8 @@ FINISH RUN
 
 The current screen includes a labeled barcode capture card, a large weight display, gross/tare/net values, cultivar and container context, last-safe-save confirmation, Alice's next action, and an explicit simulator or physical-testing badge. Calibration, diagnostics, recovery, exports, and serial engineering details remain in menus or dedicated dialogs.
 
+Each saved plant updates session `records.csv` / `records.xlsx`. **Run → Export Report…** writes handoff **CSV, XLSX, DOCX, and JSON** (non-authoritative). See [`docs/RECORDING_AND_EXPORT_RUNBOOK.md`](docs/RECORDING_AND_EXPORT_RUNBOOK.md).
+
 ## Launch
 
 Windows primary:

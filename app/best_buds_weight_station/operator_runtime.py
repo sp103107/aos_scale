@@ -5,6 +5,7 @@ import threading
 import time
 from collections import deque
 from dataclasses import asdict, dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Iterable
 
@@ -205,6 +206,12 @@ class OperatorRuntime:
     def submit_barcode(self, barcode: str) -> dict[str, Any]:
         return self.dispatch("barcode.submit", {"barcode": barcode.strip()})
 
+    def next_auto_plant_id(self) -> str:
+        """Generate a local plant id when barcode hardware is optional/off."""
+        stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+        self._auto_plant_seq = getattr(self, "_auto_plant_seq", 0) + 1
+        return f"AUTO-{stamp}-{self._auto_plant_seq:03d}"
+
     def zero_scale(self) -> dict[str, Any]:
         # Deliberately omit readings. The controller must acquire them from the
         # connected device after issuing TARE. Simulator evidence remains explicit.
@@ -266,10 +273,27 @@ class OperatorRuntime:
         return self.dispatch("scale.calibration.test", {"samples": raw})
 
     def accept_calibration(self) -> dict[str, Any]:
-        return self.dispatch("scale.calibration.accept", {
-            "maintenance_authorized": True,
-            "second_confirmation": True,
-        })
+        # Pause the live reader so SET_CAL/STATUS are not mixed with stream weight lines.
+        was_running = self.worker.running
+        if was_running:
+            self.worker.stop(stop_stream=True)
+            time.sleep(0.2)
+        result: dict[str, Any] = {"status": "failed", "message": "scale.calibration.accept did not run"}
+        try:
+            result = self.dispatch("scale.calibration.accept", {
+                "maintenance_authorized": True,
+                "second_confirmation": True,
+            })
+            if result.get("status") == "completed":
+                self.buffer.clear()
+                self.last_worker_error = None
+        finally:
+            if self.controller.device and self.controller.device.status.connected:
+                try:
+                    self.worker.start()
+                except Exception as exc:
+                    self.last_worker_error = f"{type(exc).__name__}: {exc}"
+        return result
 
     def cancel_calibration(self) -> dict[str, Any]:
         return self.dispatch("scale.calibration.cancel")
@@ -293,6 +317,7 @@ class OperatorRuntime:
         required_action = response.get("required_action") or {}
         tare_g = context.tare_g if context else 0.0
         cal = controller.device.status.calibration_factor if controller.device else None
+        settings = controller.settings
         weight_uncalibrated = bool(cal is not None and abs(float(cal) - 1.0) < 1e-6)
         return {
             "version": __import__("best_buds_weight_station.version", fromlist=["__version__"]).__version__,
@@ -310,11 +335,16 @@ class OperatorRuntime:
             "raw_value": latest.raw_value if latest else None,
             "net_g": display_weight - tare_g,
             "weight_uncalibrated": weight_uncalibrated,
+            "suggest_calibration_on_new_run": bool(settings.suggest_calibration_on_new_run),
+            "warn_on_uncalibrated_weight": bool(settings.warn_on_uncalibrated_weight),
+            "barcode_required_for_capture": bool(settings.barcode_required_for_capture),
+            "default_reference_weight_g": float(settings.default_reference_weight_g),
             "last_saved": controller.last_record,
             "device": controller.device.status.to_dict() if controller.device else {"connected": False, "mode": None},
             "worker_running": self.worker.running,
             "worker_error": self.last_worker_error,
             "capture_mode": definition.capture_mode if definition else controller.settings.capture_mode,
+            "scale_service_bound": controller.scale is not None,
         }
 
     def close(self) -> None:

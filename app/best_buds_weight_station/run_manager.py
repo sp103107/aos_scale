@@ -208,7 +208,28 @@ class RunManager:
         destination_path = Path(destination).expanduser().resolve()
         destination_path.mkdir(parents=True, exist_ok=True)
         report = compile_report(loaded.store.session_dir)
-        source = Path(report["json_path"])
-        target = destination_path / source.name
-        target.write_bytes(source.read_bytes())
-        return {"status": "exported", "authoritative": False, "path": str(target), "report": report}
+        copied: list[str] = []
+        for artifact_path in (report.get("artifacts") or {}).values():
+            source = Path(artifact_path)
+            if not source.exists():
+                continue
+            target = destination_path / source.name
+            target.write_bytes(source.read_bytes())
+            copied.append(str(target))
+        # Also copy live session ledgers used during recording (CSV/XLSX append path).
+        for name in ("records.csv", "records.xlsx"):
+            source = loaded.store.session_dir / name
+            if not source.exists():
+                continue
+            target = destination_path / name
+            target.write_bytes(source.read_bytes())
+            copied.append(str(target))
+        primary = copied[0] if copied else str(destination_path)
+        return {
+            "status": "exported",
+            "authoritative": False,
+            "path": primary,
+            "paths": copied,
+            "destination": str(destination_path),
+            "report": report,
+        }

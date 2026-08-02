@@ -22,8 +22,8 @@ Operator and developer requirements for Best Buds Cultivator Weight Station (`ao
 | Scale interface | USB serial (UNO-class board + HX711 load-cell amp running Best Buds protocol firmware) |
 | Port | Free COM port (close Arduino Serial Monitor and other apps that hold the port) |
 | Baud | **115200** default (9600 supported for compatibility) |
-| Barcode | Optional USB keyboard-wedge / HID scanner (types into the barcode field + Enter) |
-| Calibration | Verified reference mass recommended before trusting displayed grams |
+| Barcode | Optional USB or Bluetooth **HID keyboard-wedge** scanner (types into the field + Enter). Use **Scale → Test Scanner**. Bluetooth SPP/BLE GATT scanners are out of scope. |
+| Calibration | Verified reference mass recommended before trusting displayed grams; Guided Calibration works after Connect even without a harvest run |
 
 ## Source / developer install (any supported OS)
 
