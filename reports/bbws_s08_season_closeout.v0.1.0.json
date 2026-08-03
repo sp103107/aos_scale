@@ -1,0 +1,32 @@
+{
+  "season_id": "S08",
+  "slug": "crash_resume",
+  "milestone": "M08",
+  "title": "Crash/resume operator polish",
+  "status": "complete",
+  "closed_at": "2026-08-03T20:45:06Z",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "baseline_freeze": "v0.1.9-rc2",
+  "artifacts": [
+    "context\\episodes\\S08E01_crash_resume.json",
+    "context\\episodes\\S08E02_crash_resume.json",
+    "context\\episodes\\S08E03_crash_resume.json",
+    "context\\episodes\\S08E04_crash_resume.json",
+    "context\\episodes\\S08E05_crash_resume.json",
+    "context\\episodes\\S08E06_crash_resume.json",
+    "context\\episodes\\S08E07_crash_resume.json",
+    "context\\episodes\\S08E08_crash_resume.json",
+    "context\\episodes\\S08E09_crash_resume.json"
+  ],
+  "notes": "Crash/resume: recover rebuilds CSV; soft rebuild when recovery not required",
+  "next_season": "S09",
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "github_push_point": true
+}
