@@ -1,0 +1,9 @@
+{
+  "episode_id": "S05E03",
+  "season_id": "S05",
+  "slug": "export_quality",
+  "status": "complete",
+  "updated_at": "2026-08-03T20:45:05Z",
+  "runtime_claimed": false,
+  "notes": "BBWS SR1 S05E03 executed in harvest-operator series pass"
+}

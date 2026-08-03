@@ -8,12 +8,14 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
 from openpyxl import Workbook
 
+from .spreadsheet import HEADERS, row_for
 from .storage import atomic_json, canonical, parse_jsonl
 
 
@@ -25,6 +27,14 @@ def _accepted_rows(session_dir: Path) -> list[dict[str, Any]]:
     ]
     rows.sort(key=lambda row: row["sequence"])
     return rows
+
+
+def plain_export_stem(run_id: str | None, session_id: str) -> str:
+    """Windows-safe plain filename stem (no spaces-as-noise; keep underscores)."""
+    raw = (run_id or session_id or "harvest").strip()
+    cleaned = re.sub(r"[^\w.\-]+", "_", raw, flags=re.UNICODE)
+    cleaned = cleaned.strip("._") or "harvest"
+    return cleaned[:80]
 
 
 def _write_docx(path: Path, report: dict[str, Any], rows: list[dict[str, Any]]) -> None:
@@ -43,6 +53,7 @@ def _write_docx(path: Path, report: dict[str, Any], rows: list[dict[str, Any]]) 
 
     doc.add_paragraph(f"Report ID: {report['report_id']}")
     doc.add_paragraph(f"Session ID: {report['session_id']}")
+    doc.add_paragraph(f"Run ID: {report.get('run_id', '')}")
     doc.add_paragraph(f"Compiled at: {report['compiled_at']}")
     doc.add_paragraph(f"Record count: {report['record_count']}")
     doc.add_paragraph(f"Total net weight: {report['total_net_g']} g")
@@ -92,9 +103,13 @@ def compile_report(session_dir: str | Path) -> dict[str, Any]:
         by_cultivar[str(row["cultivar_normalized_name"])] += float(row["net_g"])
     source_hash = hashlib.sha256(("\n".join(canonical(row) for row in rows) + "\n").encode()).hexdigest()
     compiled_at = max([str(row["captured_at"]) for row in rows], default="1970-01-01T00:00:00Z")
+    run_id = str(rows[0]["run_id"]) if rows else directory.name
+    session_id = str(rows[0]["session_id"]) if rows else directory.name
+    stem = plain_export_stem(run_id, session_id)
     report: dict[str, Any] = {
-        "report_id": f"harvest-report-{rows[0]['session_id'] if rows else directory.name}",
-        "session_id": rows[0]["session_id"] if rows else directory.name,
+        "report_id": f"harvest-report-{session_id}",
+        "session_id": session_id,
+        "run_id": run_id,
         "record_count": len(rows),
         "total_net_g": total,
         "cultivar_totals": {key: round(value, 3) for key, value in sorted(by_cultivar.items())},
@@ -104,24 +119,36 @@ def compile_report(session_dir: str | Path) -> dict[str, Any]:
         "non_claims": [
             "Non-authoritative operator handoff report.",
             "Authoritative truth remains session JSONL and individual record files.",
+            "Not legal-for-trade / metrology certification.",
         ],
     }
 
     out = directory / "reports"
     out.mkdir(exist_ok=True)
+    # Keep legacy names for in-session reports + plain filename aliases for handoff.
     json_path = out / "harvest_run_report.json"
-    csv_path = out / "harvest_run_report.csv"
-    xlsx_path = out / "harvest_run_report.xlsx"
-    docx_path = out / "harvest_run_report.docx"
+    summary_csv_path = out / "harvest_run_report.csv"
+    plants_csv_path = out / f"{stem}_plants.csv"
+    xlsx_path = out / f"{stem}_harvest.xlsx"
+    docx_path = out / f"{stem}_harvest.docx"
+    # Also write stable aliases used by older callers.
+    legacy_xlsx = out / "harvest_run_report.xlsx"
+    legacy_docx = out / "harvest_run_report.docx"
 
     atomic_json(json_path, report)
 
-    with csv_path.open("w", newline="", encoding="utf-8") as handle:
+    with summary_csv_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.writer(handle)
         writer.writerow(["cultivar", "net_g"])
         for cultivar, net in report["cultivar_totals"].items():
             writer.writerow([cultivar, net])
         writer.writerow(["TOTAL", total])
+
+    with plants_csv_path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(HEADERS)
+        for row in rows:
+            writer.writerow(row_for(row))
 
     workbook = Workbook()
     sheet = workbook.active
@@ -131,29 +158,69 @@ def compile_report(session_dir: str | Path) -> dict[str, Any]:
         sheet.append([cultivar, net])
     sheet.append(["TOTAL", total])
     detail = workbook.create_sheet("Records")
-    detail.append(["sequence", "barcode_raw", "cultivar", "gross_g", "tare_g", "net_g", "record_id"])
+    detail.append(list(HEADERS))
     for row in rows:
-        detail.append(
-            [
-                row.get("sequence"),
-                row.get("barcode_raw"),
-                row.get("cultivar_normalized_name"),
-                row.get("gross_g"),
-                row.get("tare_g"),
-                row.get("net_g"),
-                row.get("record_id"),
-            ]
-        )
+        detail.append(row_for(row))
     workbook.save(xlsx_path)
+    workbook.save(legacy_xlsx)
 
     _write_docx(docx_path, report, rows)
+    _write_docx(legacy_docx, report, rows)
 
     artifacts = {
         "json": str(json_path.resolve()),
-        "csv": str(csv_path.resolve()),
+        "csv_summary": str(summary_csv_path.resolve()),
+        "csv_plants": str(plants_csv_path.resolve()),
+        "csv": str(plants_csv_path.resolve()),
         "xlsx": str(xlsx_path.resolve()),
         "docx": str(docx_path.resolve()),
+        "xlsx_legacy": str(legacy_xlsx.resolve()),
+        "docx_legacy": str(legacy_docx.resolve()),
     }
     report["artifacts"] = artifacts
     report["json_path"] = artifacts["json"]
+    report["export_stem"] = stem
     return report
+
+
+def reconcile_export_to_jsonl(session_dir: str | Path) -> dict[str, Any]:
+    """Gate export derivatives against authoritative JSONL (counts, cultivar totals, SHA)."""
+    directory = Path(session_dir)
+    rows = _accepted_rows(directory)
+    report = compile_report(directory)
+    csv_path = Path(report["artifacts"]["csv_plants"])
+    csv_rows = 0
+    if csv_path.exists():
+        with csv_path.open(encoding="utf-8", newline="") as handle:
+            reader = csv.DictReader(handle)
+            csv_rows = sum(1 for _ in reader)
+    count_ok = csv_rows == len(rows)
+    cultivar_ok = True
+    by_cultivar: dict[str, float] = defaultdict(float)
+    for row in rows:
+        by_cultivar[str(row["cultivar_normalized_name"])] += float(row["net_g"])
+    for key, value in report["cultivar_totals"].items():
+        if round(by_cultivar.get(key, 0.0), 3) != round(float(value), 3):
+            cultivar_ok = False
+            break
+    sha_ok = report["records_sha256"] == hashlib.sha256(
+        ("\n".join(canonical(row) for row in rows) + "\n").encode()
+    ).hexdigest()
+    status = "pass" if count_ok and cultivar_ok and sha_ok else "fail"
+    receipt = {
+        "gate": "export_jsonl_reconcile",
+        "status": status,
+        "session_id": report["session_id"],
+        "jsonl_count": len(rows),
+        "csv_plant_count": csv_rows,
+        "count_ok": count_ok,
+        "cultivar_totals_ok": cultivar_ok,
+        "records_sha256": report["records_sha256"],
+        "sha_ok": sha_ok,
+        "authoritative": "records.jsonl",
+        "non_claims": report["non_claims"],
+    }
+    out = directory / "reports" / "reconcile_receipt.json"
+    atomic_json(out, receipt)
+    receipt["receipt_path"] = str(out.resolve())
+    return receipt

@@ -1,0 +1,32 @@
+{
+  "season_id": "S05",
+  "slug": "export_quality",
+  "milestone": "M05",
+  "title": "Export quality",
+  "status": "complete",
+  "closed_at": "2026-08-03T20:45:05Z",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "baseline_freeze": "v0.1.9-rc2",
+  "artifacts": [
+    "context\\episodes\\S05E01_export_quality.json",
+    "context\\episodes\\S05E02_export_quality.json",
+    "context\\episodes\\S05E03_export_quality.json",
+    "context\\episodes\\S05E04_export_quality.json",
+    "context\\episodes\\S05E05_export_quality.json",
+    "context\\episodes\\S05E06_export_quality.json",
+    "context\\episodes\\S05E07_export_quality.json",
+    "context\\episodes\\S05E08_export_quality.json",
+    "context\\episodes\\S05E09_export_quality.json"
+  ],
+  "notes": "Plain plant CSV/XLSX/DOCX export filenames and full-plant handoff",
+  "next_season": "S06",
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "github_push_point": true
+}
