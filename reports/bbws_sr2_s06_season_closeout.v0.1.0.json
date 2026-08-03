@@ -1,0 +1,31 @@
+{
+  "season_id": "S06",
+  "slug": "tk_export_reconcile",
+  "milestone": "M06",
+  "title": "Tk export reconcile",
+  "status": "complete",
+  "closed_at": "2026-08-03T23:27:28Z",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "artifacts": [
+    "context\\episodes\\SR2_S06E01_tk_export_reconcile.json",
+    "context\\episodes\\SR2_S06E02_tk_export_reconcile.json",
+    "context\\episodes\\SR2_S06E03_tk_export_reconcile.json",
+    "context\\episodes\\SR2_S06E04_tk_export_reconcile.json",
+    "context\\episodes\\SR2_S06E05_tk_export_reconcile.json",
+    "context\\episodes\\SR2_S06E06_tk_export_reconcile.json",
+    "context\\episodes\\SR2_S06E07_tk_export_reconcile.json",
+    "context\\episodes\\SR2_S06E08_tk_export_reconcile.json",
+    "context\\episodes\\SR2_S06E09_tk_export_reconcile.json"
+  ],
+  "notes": "Tk export + reconcile",
+  "next_season": "S07",
+  "runtime_claimed": false,
+  "github_push_point": true,
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}

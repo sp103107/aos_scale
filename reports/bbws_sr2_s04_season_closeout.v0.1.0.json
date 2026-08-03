@@ -1,0 +1,31 @@
+{
+  "season_id": "S04",
+  "slug": "tk_sticky_strain",
+  "milestone": "M04",
+  "title": "Tk sticky strain",
+  "status": "complete",
+  "closed_at": "2026-08-03T23:27:27Z",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "artifacts": [
+    "context\\episodes\\SR2_S04E01_tk_sticky_strain.json",
+    "context\\episodes\\SR2_S04E02_tk_sticky_strain.json",
+    "context\\episodes\\SR2_S04E03_tk_sticky_strain.json",
+    "context\\episodes\\SR2_S04E04_tk_sticky_strain.json",
+    "context\\episodes\\SR2_S04E05_tk_sticky_strain.json",
+    "context\\episodes\\SR2_S04E06_tk_sticky_strain.json",
+    "context\\episodes\\SR2_S04E07_tk_sticky_strain.json",
+    "context\\episodes\\SR2_S04E08_tk_sticky_strain.json",
+    "context\\episodes\\SR2_S04E09_tk_sticky_strain.json"
+  ],
+  "notes": "Tk sticky strain",
+  "next_season": "S05",
+  "runtime_claimed": false,
+  "github_push_point": true,
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}

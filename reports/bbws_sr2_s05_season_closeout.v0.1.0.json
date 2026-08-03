@@ -1,0 +1,31 @@
+{
+  "season_id": "S05",
+  "slug": "tk_csv_recover",
+  "milestone": "M05",
+  "title": "Tk CSV recover",
+  "status": "complete",
+  "closed_at": "2026-08-03T23:27:27Z",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "artifacts": [
+    "context\\episodes\\SR2_S05E01_tk_csv_recover.json",
+    "context\\episodes\\SR2_S05E02_tk_csv_recover.json",
+    "context\\episodes\\SR2_S05E03_tk_csv_recover.json",
+    "context\\episodes\\SR2_S05E04_tk_csv_recover.json",
+    "context\\episodes\\SR2_S05E05_tk_csv_recover.json",
+    "context\\episodes\\SR2_S05E06_tk_csv_recover.json",
+    "context\\episodes\\SR2_S05E07_tk_csv_recover.json",
+    "context\\episodes\\SR2_S05E08_tk_csv_recover.json",
+    "context\\episodes\\SR2_S05E09_tk_csv_recover.json"
+  ],
+  "notes": "Tk CSV rebuild / pending_sync / recover",
+  "next_season": "S06",
+  "runtime_claimed": false,
+  "github_push_point": true,
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}
