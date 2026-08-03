@@ -1,0 +1,227 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.governance_light.v1",
+  "arc_id": "S09_governance_light",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "title": "Light governance",
+  "milestone": "M09",
+  "focus": "Void/note, cal id on record, operator id clarity",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "models.py",
+    "storage.py",
+    "pyside_frontend.py"
+  ],
+  "episodes": [
+    {
+      "id": "S09E01",
+      "title": "Intent freeze: light governance",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: light governance",
+      "authorized_scope": [
+        "models.py",
+        "storage.py",
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E02",
+      "title": "Operator id clarity on records",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Operator id clarity on records",
+      "authorized_scope": [
+        "models.py",
+        "storage.py",
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E03",
+      "title": "Calibration id stamp on capture",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Calibration id stamp on capture",
+      "authorized_scope": [
+        "models.py",
+        "storage.py",
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E04",
+      "title": "Void/note field support",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Void/note field support",
+      "authorized_scope": [
+        "models.py",
+        "storage.py",
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E05",
+      "title": "UI for note/void soft path",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "UI for note/void soft path",
+      "authorized_scope": [
+        "models.py",
+        "storage.py",
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E06",
+      "title": "CSV columns for governance fields",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "CSV columns for governance fields",
+      "authorized_scope": [
+        "models.py",
+        "storage.py",
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E07",
+      "title": "Governance field verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Governance field verify",
+      "authorized_scope": [
+        "models.py",
+        "storage.py",
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E08",
+      "title": "Non-claim: not Metrc compliance",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Non-claim: not Metrc compliance",
+      "authorized_scope": [
+        "models.py",
+        "storage.py",
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E09",
+      "title": "S09 receipt pack",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S09 receipt pack",
+      "authorized_scope": [
+        "models.py",
+        "storage.py",
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E10",
+      "title": "M09 season closeout + push plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M09 season closeout + push plan",
+      "authorized_scope": [
+        "models.py",
+        "storage.py",
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_s09_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T20:45:06Z"
+}

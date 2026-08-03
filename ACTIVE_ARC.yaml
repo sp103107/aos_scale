@@ -1,0 +1,15 @@
+# BBWS SR1 live pointer — product owns truth (Arc Launcher cited, not mutated)
+series_id: BBWS_SR1_harvest_operator_loop
+series_version: 0.1.0
+season_id: S10
+season_slug: package_smoke_closeout
+episode_id: S10E10
+milestone: M10
+status: series_complete
+baseline_freeze: v0.1.9-rc2
+prequel_arc: context/operator_ux_arc
+doctrine_source: C:/aos_arc_launcher_v0_4_21
+updated_at: 2026-08-03T20:45:06Z
+runtime_claimed: false
+next_action: Series complete — load closeout report
+last_closed_season: S10

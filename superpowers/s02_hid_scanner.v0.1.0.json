@@ -1,0 +1,216 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.hid_scanner.v1",
+  "arc_id": "S02_hid_scanner",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "title": "HID scanner integration",
+  "milestone": "M02",
+  "focus": "Focus ownership, Test Scanner receipts, require-barcode policy",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "pyside_frontend.py",
+    "settings.py"
+  ],
+  "episodes": [
+    {
+      "id": "S02E01",
+      "title": "Intent freeze: HID wedge only",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: HID wedge only",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E02",
+      "title": "Focus ownership for plant ID field",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Focus ownership for plant ID field",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E03",
+      "title": "Test Scanner receipt path",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Test Scanner receipt path",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E04",
+      "title": "barcode_required_for_capture soft policy",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "barcode_required_for_capture soft policy",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E05",
+      "title": "Scanner blocked / empty scan UX",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Scanner blocked / empty scan UX",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E06",
+      "title": "Settings surface for barcode policy",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Settings surface for barcode policy",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E07",
+      "title": "HID regression without BLE/SPP",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "HID regression without BLE/SPP",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E08",
+      "title": "Manual plant ID still allowed when policy off",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Manual plant ID still allowed when policy off",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E09",
+      "title": "S02 receipt pack",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S02 receipt pack",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E10",
+      "title": "M02 season closeout + push plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M02 season closeout + push plan",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_s02_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T20:45:04Z"
+}

@@ -1,0 +1,227 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.export_reconcile_gates.v1",
+  "arc_id": "S06_export_reconcile_gates",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "title": "Export \u2194 JSONL reconcile gates",
+  "milestone": "M06",
+  "focus": "Counts, cultivar totals, SHA receipts",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "reports.py",
+    "scripts/",
+    "tests/"
+  ],
+  "episodes": [
+    {
+      "id": "S06E01",
+      "title": "Intent freeze: reconcile gates",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: reconcile gates",
+      "authorized_scope": [
+        "reports.py",
+        "scripts/",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S06E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S06E02",
+      "title": "Count gate JSONL vs CSV",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Count gate JSONL vs CSV",
+      "authorized_scope": [
+        "reports.py",
+        "scripts/",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S06E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S06E03",
+      "title": "Cultivar total gate",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Cultivar total gate",
+      "authorized_scope": [
+        "reports.py",
+        "scripts/",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S06E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S06E04",
+      "title": "SHA receipt for export bundle",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "SHA receipt for export bundle",
+      "authorized_scope": [
+        "reports.py",
+        "scripts/",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S06E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S06E05",
+      "title": "CLI/script reconcile entry",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "CLI/script reconcile entry",
+      "authorized_scope": [
+        "reports.py",
+        "scripts/",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S06E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S06E06",
+      "title": "UI surface for reconcile fail",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "UI surface for reconcile fail",
+      "authorized_scope": [
+        "reports.py",
+        "scripts/",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S06E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S06E07",
+      "title": "Passing fixture gate",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Passing fixture gate",
+      "authorized_scope": [
+        "reports.py",
+        "scripts/",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S06E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S06E08",
+      "title": "Intentional mismatch fail gate",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Intentional mismatch fail gate",
+      "authorized_scope": [
+        "reports.py",
+        "scripts/",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S06E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S06E09",
+      "title": "S06 receipt pack",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S06 receipt pack",
+      "authorized_scope": [
+        "reports.py",
+        "scripts/",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S06E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S06E10",
+      "title": "M06 season closeout + push plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M06 season closeout + push plan",
+      "authorized_scope": [
+        "reports.py",
+        "scripts/",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S06E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_s06_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T20:45:05Z"
+}

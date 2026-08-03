@@ -1,0 +1,216 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.field_e2e.v1",
+  "arc_id": "S07_field_e2e",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "title": "Physical field E2E",
+  "milestone": "M07",
+  "focus": "scan\u2192weigh\u2192record\u2192CSV evidence receipts; metrology non-claim",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "docs/",
+    "reports/"
+  ],
+  "episodes": [
+    {
+      "id": "S07E01",
+      "title": "Intent freeze: field E2E runbook",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: field E2E runbook",
+      "authorized_scope": [
+        "docs/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S07E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S07E02",
+      "title": "Field runbook document",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Field runbook document",
+      "authorized_scope": [
+        "docs/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S07E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S07E03",
+      "title": "Evidence receipt schema",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Evidence receipt schema",
+      "authorized_scope": [
+        "docs/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S07E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S07E04",
+      "title": "Simulated field path with simulator",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Simulated field path with simulator",
+      "authorized_scope": [
+        "docs/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S07E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S07E05",
+      "title": "CSV proof after simulated harvest",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "CSV proof after simulated harvest",
+      "authorized_scope": [
+        "docs/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S07E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S07E06",
+      "title": "Non-claims stamp on field receipts",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Non-claims stamp on field receipts",
+      "authorized_scope": [
+        "docs/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S07E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S07E07",
+      "title": "Simulator E2E verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Simulator E2E verify",
+      "authorized_scope": [
+        "docs/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S07E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S07E08",
+      "title": "Operator checklist verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Operator checklist verify",
+      "authorized_scope": [
+        "docs/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S07E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S07E09",
+      "title": "S07 receipt pack",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S07 receipt pack",
+      "authorized_scope": [
+        "docs/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S07E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S07E10",
+      "title": "M07 season closeout + push plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M07 season closeout + push plan",
+      "authorized_scope": [
+        "docs/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S07E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_s07_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T20:45:05Z"
+}

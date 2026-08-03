@@ -1,0 +1,47 @@
+{
+  "pack_id": "BBWS_SR1_resume",
+  "version": "0.1.0",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "updated_at": "2026-08-03T20:45:06Z",
+  "active": {
+    "season_id": "S10",
+    "episode_id": "S10E10",
+    "milestone": "M10",
+    "status": "series_complete"
+  },
+  "baseline_freeze": "v0.1.9-rc2",
+  "prequel": "context/operator_ux_arc",
+  "load_order": [
+    "ACTIVE_ARC.yaml",
+    "context/resume_pack/BBWS_SR1_resume.v0.1.0.json",
+    "cursor/BBWS_SR1_HARVEST_OPERATOR_LOOP_SERIES_MAP.v0.1.0.md",
+    "superpowers/s01_recording_polish.v0.1.0.json",
+    "next episode S01E01"
+  ],
+  "completed_seasons": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10"
+  ],
+  "decision_locks": {
+    "strain_default": "sticky_until_changed",
+    "scanner": "hid_keyboard_wedge_only",
+    "csv_law": "session_jsonl_authoritative",
+    "push_cadence": "season_closeout_only"
+  },
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "continuation_handoff": "kickoff_prompts/BBWS_SR1_HUMAN_CHAT_KICKOFF.md"
+}

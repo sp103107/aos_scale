@@ -1,0 +1,238 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.sticky_strain.v1",
+  "arc_id": "S03_sticky_strain",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "title": "Sticky strain for scan groups",
+  "milestone": "M03",
+  "focus": "Active strain UI; mid-run change; CSV cultivar stamps",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "pyside_frontend.py",
+    "run_manager.py",
+    "storage.py",
+    "spreadsheet.py"
+  ],
+  "episodes": [
+    {
+      "id": "S03E01",
+      "title": "Intent freeze: sticky until changed",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: sticky until changed",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "run_manager.py",
+        "storage.py",
+        "spreadsheet.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S03E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S03E02",
+      "title": "Active strain model on run context",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Active strain model on run context",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "run_manager.py",
+        "storage.py",
+        "spreadsheet.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S03E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S03E03",
+      "title": "Main-surface active strain display",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Main-surface active strain display",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "run_manager.py",
+        "storage.py",
+        "spreadsheet.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S03E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S03E04",
+      "title": "Mid-run change strain control",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Mid-run change strain control",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "run_manager.py",
+        "storage.py",
+        "spreadsheet.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S03E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S03E05",
+      "title": "Stamp cultivar on each capture",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Stamp cultivar on each capture",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "run_manager.py",
+        "storage.py",
+        "spreadsheet.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S03E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S03E06",
+      "title": "CSV cultivar column truth",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "CSV cultivar column truth",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "run_manager.py",
+        "storage.py",
+        "spreadsheet.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S03E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S03E07",
+      "title": "Strain group continuity verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Strain group continuity verify",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "run_manager.py",
+        "storage.py",
+        "spreadsheet.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S03E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S03E08",
+      "title": "Mid-run change splits groups correctly",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Mid-run change splits groups correctly",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "run_manager.py",
+        "storage.py",
+        "spreadsheet.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S03E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S03E09",
+      "title": "S03 receipt pack",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S03 receipt pack",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "run_manager.py",
+        "storage.py",
+        "spreadsheet.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S03E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S03E10",
+      "title": "M03 season closeout + push plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M03 season closeout + push plan",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "run_manager.py",
+        "storage.py",
+        "spreadsheet.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S03E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_s03_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T20:45:04Z"
+}

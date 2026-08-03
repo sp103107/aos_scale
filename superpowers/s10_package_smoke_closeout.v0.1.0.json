@@ -1,0 +1,227 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.package_smoke_closeout.v1",
+  "arc_id": "S10_package_smoke_closeout",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "title": "Windows package smoke + series closeout",
+  "milestone": "M10",
+  "focus": "Packaging smoke + series closeout + GitHub prerelease tag",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "packaging/",
+    "docs/",
+    "VERSION"
+  ],
+  "episodes": [
+    {
+      "id": "S10E01",
+      "title": "Intent freeze: package smoke + series end",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: package smoke + series end",
+      "authorized_scope": [
+        "packaging/",
+        "docs/",
+        "VERSION"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E02",
+      "title": "Package entry smoke checklist",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Package entry smoke checklist",
+      "authorized_scope": [
+        "packaging/",
+        "docs/",
+        "VERSION"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E03",
+      "title": "VERSION / tag policy lock",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "VERSION / tag policy lock",
+      "authorized_scope": [
+        "packaging/",
+        "docs/",
+        "VERSION"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E04",
+      "title": "Installer smoke notes",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Installer smoke notes",
+      "authorized_scope": [
+        "packaging/",
+        "docs/",
+        "VERSION"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E05",
+      "title": "Series non-claims final stamp",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Series non-claims final stamp",
+      "authorized_scope": [
+        "packaging/",
+        "docs/",
+        "VERSION"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E06",
+      "title": "Resume pack series-complete",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Resume pack series-complete",
+      "authorized_scope": [
+        "packaging/",
+        "docs/",
+        "VERSION"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E07",
+      "title": "Smoke verify (dev entry)",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Smoke verify (dev entry)",
+      "authorized_scope": [
+        "packaging/",
+        "docs/",
+        "VERSION"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E08",
+      "title": "Series map complete stamp",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Series map complete stamp",
+      "authorized_scope": [
+        "packaging/",
+        "docs/",
+        "VERSION"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E09",
+      "title": "S10 receipt pack",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S10 receipt pack",
+      "authorized_scope": [
+        "packaging/",
+        "docs/",
+        "VERSION"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E10",
+      "title": "M10 series closeout + tag plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M10 series closeout + tag plan",
+      "authorized_scope": [
+        "packaging/",
+        "docs/",
+        "VERSION"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_s10_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T20:45:06Z"
+}

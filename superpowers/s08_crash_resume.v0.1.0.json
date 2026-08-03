@@ -1,0 +1,227 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.crash_resume.v1",
+  "arc_id": "S08_crash_resume",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "title": "Crash/resume operator polish",
+  "milestone": "M08",
+  "focus": "Storage recovery UX after interrupt",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "storage.py",
+    "pyside_frontend.py",
+    "settings.py"
+  ],
+  "episodes": [
+    {
+      "id": "S08E01",
+      "title": "Intent freeze: crash/resume polish",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: crash/resume polish",
+      "authorized_scope": [
+        "storage.py",
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E02",
+      "title": "Recent-run resume messaging",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Recent-run resume messaging",
+      "authorized_scope": [
+        "storage.py",
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E03",
+      "title": "Partial JSONL recovery UX",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Partial JSONL recovery UX",
+      "authorized_scope": [
+        "storage.py",
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E04",
+      "title": "pending_sync after crash",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "pending_sync after crash",
+      "authorized_scope": [
+        "storage.py",
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E05",
+      "title": "CSV rebuild after resume",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "CSV rebuild after resume",
+      "authorized_scope": [
+        "storage.py",
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E06",
+      "title": "Alice guidance on resume",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Alice guidance on resume",
+      "authorized_scope": [
+        "storage.py",
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E07",
+      "title": "Crash fixture verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Crash fixture verify",
+      "authorized_scope": [
+        "storage.py",
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E08",
+      "title": "Clean resume verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Clean resume verify",
+      "authorized_scope": [
+        "storage.py",
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E09",
+      "title": "S08 receipt pack",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S08 receipt pack",
+      "authorized_scope": [
+        "storage.py",
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E10",
+      "title": "M08 season closeout + push plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M08 season closeout + push plan",
+      "authorized_scope": [
+        "storage.py",
+        "pyside_frontend.py",
+        "settings.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_s08_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T20:45:06Z"
+}

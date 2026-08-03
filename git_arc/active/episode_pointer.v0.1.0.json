@@ -1,0 +1,6 @@
+{
+  "episode_id": "S10E10",
+  "status": "series_complete",
+  "commit_plan": "episode checkpoints are local context only; no mid-episode push",
+  "updated_at": "2026-08-03T20:45:06Z"
+}

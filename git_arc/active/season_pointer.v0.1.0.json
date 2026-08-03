@@ -1,0 +1,9 @@
+{
+  "season_id": "S10",
+  "slug": "package_smoke_closeout",
+  "milestone": "M10",
+  "commit_plan": "Commit S10 slice after E10 closeout (done at 2026-08-03T20:45:06Z)",
+  "push_plan": "git push origin HEAD after season closeout receipt",
+  "last_closed_season": "S10",
+  "updated_at": "2026-08-03T20:45:06Z"
+}

@@ -1,0 +1,14 @@
+{
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "branch_plan": "main",
+  "remote_plan": "origin",
+  "push_policy": "after_season_closeout_only",
+  "auto_push": false,
+  "baseline_tag": "v0.1.9-rc2",
+  "planned_tags": [
+    "v0.1.9-bbws-s05",
+    "v0.1.9-bbws-s07",
+    "bbws-sr1-complete"
+  ],
+  "updated_at": "2026-08-03T20:38:55Z"
+}

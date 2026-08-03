@@ -1,0 +1,105 @@
+{
+  "blueprint_type": "series",
+  "blueprint_id": "BBWS_SR1_harvest_operator_loop",
+  "parent_series_id": "BBWS_CALUX_operator_ux",
+  "parent_arc_id": "context/operator_ux_arc",
+  "series_goal": "Harvest-operator loop after v0.1.9-rc2 freeze: recording polish \u2192 HID scanner \u2192 sticky strain \u2192 CSV/export truth \u2192 field/governance/package closeout.",
+  "runtime_claimed": false,
+  "version": "0.1.0",
+  "shape": "10 seasons \u00d7 10 episodes = 100",
+  "baseline_freeze": "v0.1.9-rc2",
+  "strain_default": "sticky_until_changed",
+  "scanner_policy": "hid_keyboard_wedge_only",
+  "csv_law": "session_jsonl_authoritative",
+  "github_push_cadence": "after_each_season_closeout",
+  "seasons": [
+    {
+      "season_id": "S01_recording_polish",
+      "title": "Harvest recording polish",
+      "milestone": "M01",
+      "episode_count": 10,
+      "focus": "Confirm/Cancel pacing, saved copy, duplicate/blocked UX",
+      "superpower_ref": "superpowers/s01_recording_polish.v0.1.0.json"
+    },
+    {
+      "season_id": "S02_hid_scanner",
+      "title": "HID scanner integration",
+      "milestone": "M02",
+      "episode_count": 10,
+      "focus": "Focus ownership, Test Scanner receipts, require-barcode policy",
+      "superpower_ref": "superpowers/s02_hid_scanner.v0.1.0.json"
+    },
+    {
+      "season_id": "S03_sticky_strain",
+      "title": "Sticky strain for scan groups",
+      "milestone": "M03",
+      "episode_count": 10,
+      "focus": "Active strain UI; mid-run change; CSV cultivar stamps",
+      "superpower_ref": "superpowers/s03_sticky_strain.v0.1.0.json"
+    },
+    {
+      "season_id": "S04_csv_recording_truth",
+      "title": "CSV recording truth",
+      "milestone": "M04",
+      "episode_count": 10,
+      "focus": "Row proof, rebuild-from-JSONL, pending_sync UX",
+      "superpower_ref": "superpowers/s04_csv_recording_truth.v0.1.0.json"
+    },
+    {
+      "season_id": "S05_export_quality",
+      "title": "Export quality",
+      "milestone": "M05",
+      "episode_count": 10,
+      "focus": "Full-plant CSV handoff, DOCX/XLSX polish, plain filenames",
+      "superpower_ref": "superpowers/s05_export_quality.v0.1.0.json"
+    },
+    {
+      "season_id": "S06_export_reconcile_gates",
+      "title": "Export \u2194 JSONL reconcile gates",
+      "milestone": "M06",
+      "episode_count": 10,
+      "focus": "Counts, cultivar totals, SHA receipts",
+      "superpower_ref": "superpowers/s06_export_reconcile_gates.v0.1.0.json"
+    },
+    {
+      "season_id": "S07_field_e2e",
+      "title": "Physical field E2E",
+      "milestone": "M07",
+      "episode_count": 10,
+      "focus": "scan\u2192weigh\u2192record\u2192CSV evidence receipts; metrology non-claim",
+      "superpower_ref": "superpowers/s07_field_e2e.v0.1.0.json"
+    },
+    {
+      "season_id": "S08_crash_resume",
+      "title": "Crash/resume operator polish",
+      "milestone": "M08",
+      "episode_count": 10,
+      "focus": "Storage recovery UX after interrupt",
+      "superpower_ref": "superpowers/s08_crash_resume.v0.1.0.json"
+    },
+    {
+      "season_id": "S09_governance_light",
+      "title": "Light governance",
+      "milestone": "M09",
+      "episode_count": 10,
+      "focus": "Void/note, cal id on record, operator id clarity",
+      "superpower_ref": "superpowers/s09_governance_light.v0.1.0.json"
+    },
+    {
+      "season_id": "S10_package_smoke_closeout",
+      "title": "Windows package smoke + series closeout",
+      "milestone": "M10",
+      "episode_count": 10,
+      "focus": "Packaging smoke + series closeout + GitHub prerelease tag",
+      "superpower_ref": "superpowers/s10_package_smoke_closeout.v0.1.0.json"
+    }
+  ],
+  "total_episodes": 100,
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}

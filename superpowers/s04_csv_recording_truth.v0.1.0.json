@@ -1,0 +1,216 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.csv_recording_truth.v1",
+  "arc_id": "S04_csv_recording_truth",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "title": "CSV recording truth",
+  "milestone": "M04",
+  "focus": "Row proof, rebuild-from-JSONL, pending_sync UX",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "spreadsheet.py",
+    "storage.py"
+  ],
+  "episodes": [
+    {
+      "id": "S04E01",
+      "title": "Intent freeze: JSONL authoritative",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: JSONL authoritative",
+      "authorized_scope": [
+        "spreadsheet.py",
+        "storage.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S04E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S04E02",
+      "title": "CSV row field proof matrix",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "CSV row field proof matrix",
+      "authorized_scope": [
+        "spreadsheet.py",
+        "storage.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S04E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S04E03",
+      "title": "Rebuild CSV from session JSONL",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Rebuild CSV from session JSONL",
+      "authorized_scope": [
+        "spreadsheet.py",
+        "storage.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S04E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S04E04",
+      "title": "pending_sync operator UX",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "pending_sync operator UX",
+      "authorized_scope": [
+        "spreadsheet.py",
+        "storage.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S04E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S04E05",
+      "title": "Append vs rebuild safety",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Append vs rebuild safety",
+      "authorized_scope": [
+        "spreadsheet.py",
+        "storage.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S04E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S04E06",
+      "title": "Cultivar + barcode columns locked",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Cultivar + barcode columns locked",
+      "authorized_scope": [
+        "spreadsheet.py",
+        "storage.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S04E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S04E07",
+      "title": "Rebuild smoke on fixture session",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Rebuild smoke on fixture session",
+      "authorized_scope": [
+        "spreadsheet.py",
+        "storage.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S04E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S04E08",
+      "title": "Corrupt/missing CSV recovery path",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Corrupt/missing CSV recovery path",
+      "authorized_scope": [
+        "spreadsheet.py",
+        "storage.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S04E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S04E09",
+      "title": "S04 receipt pack",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S04 receipt pack",
+      "authorized_scope": [
+        "spreadsheet.py",
+        "storage.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S04E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S04E10",
+      "title": "M04 season closeout + push plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M04 season closeout + push plan",
+      "authorized_scope": [
+        "spreadsheet.py",
+        "storage.py"
+      ],
+      "forbidden_scope": [
+        "BLE/SPP/camera scanner activation",
+        "metrology certification claims",
+        "Arc Launcher M: drive mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S04E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_s04_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T20:45:04Z"
+}
