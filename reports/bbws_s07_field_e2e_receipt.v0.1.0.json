@@ -1,0 +1,30 @@
+{
+  "receipt_type": "field_e2e_simulator",
+  "status": "pass",
+  "session_dir": "C:\\Users\\sp103\\AppData\\Local\\Temp\\bbws_sr1_smoke_defptzga\\sessions\\BBWS-SR1-SMOKE-36af171c",
+  "record_count": 3,
+  "scanner_transport": "hid_keyboard_wedge",
+  "path": "scan\u2192weigh\u2192record\u2192csv\u2192reconcile",
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Simulator evidence is not physical metrology proof"
+  ],
+  "reconcile": {
+    "gate": "export_jsonl_reconcile",
+    "status": "pass",
+    "session_id": "BBWS-SR1-SMOKE-36af171c",
+    "jsonl_count": 2,
+    "csv_plant_count": 2,
+    "count_ok": true,
+    "cultivar_totals_ok": true,
+    "records_sha256": "3c77b536547a785cd11d49b187568fa2d133068770e6861ebc00985f83134622",
+    "sha_ok": true,
+    "authoritative": "records.jsonl",
+    "non_claims": [
+      "Non-authoritative operator handoff report.",
+      "Authoritative truth remains session JSONL and individual record files.",
+      "Not legal-for-trade / metrology certification."
+    ],
+    "receipt_path": "C:\\Users\\sp103\\AppData\\Local\\Temp\\bbws_sr1_smoke_defptzga\\sessions\\BBWS-SR1-SMOKE-36af171c\\reports\\reconcile_receipt.json"
+  }
+}

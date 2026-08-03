@@ -1,0 +1,9 @@
+{
+  "episode_id": "S07E06",
+  "season_id": "S07",
+  "slug": "field_e2e",
+  "status": "complete",
+  "updated_at": "2026-08-03T20:45:05Z",
+  "runtime_claimed": false,
+  "notes": "BBWS SR1 S07E06 executed in harvest-operator series pass"
+}

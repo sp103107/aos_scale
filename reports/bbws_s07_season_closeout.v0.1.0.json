@@ -1,0 +1,34 @@
+{
+  "season_id": "S07",
+  "slug": "field_e2e",
+  "milestone": "M07",
+  "title": "Physical field E2E",
+  "status": "complete",
+  "closed_at": "2026-08-03T20:45:05Z",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "baseline_freeze": "v0.1.9-rc2",
+  "artifacts": [
+    "docs/FIELD_E2E_RUNBOOK.md",
+    "reports/bbws_s07_field_e2e_receipt.v0.1.0.json",
+    "context\\episodes\\S07E01_field_e2e.json",
+    "context\\episodes\\S07E02_field_e2e.json",
+    "context\\episodes\\S07E03_field_e2e.json",
+    "context\\episodes\\S07E04_field_e2e.json",
+    "context\\episodes\\S07E05_field_e2e.json",
+    "context\\episodes\\S07E06_field_e2e.json",
+    "context\\episodes\\S07E07_field_e2e.json",
+    "context\\episodes\\S07E08_field_e2e.json",
+    "context\\episodes\\S07E09_field_e2e.json"
+  ],
+  "notes": "Field E2E runbook + simulator evidence receipt",
+  "next_season": "S08",
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "github_push_point": true
+}
