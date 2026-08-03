@@ -1,0 +1,226 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.sr2.display_unit_uis.v1",
+  "arc_id": "SR2_S08_display_unit_uis",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "title": "Display unit in PySide + Tk",
+  "milestone": "M08",
+  "focus": "Weight/tare/net/cal entry use display unit",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "pyside_frontend.py",
+    "production_ui.py"
+  ],
+  "episodes": [
+    {
+      "id": "S08E01",
+      "title": "Intent freeze: dual-UI display unit",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: dual-UI display unit",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E02",
+      "title": "PySide weight labels",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "PySide weight labels",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E03",
+      "title": "Tk weight labels",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Tk weight labels",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E04",
+      "title": "Settings picker both UIs",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Settings picker both UIs",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E05",
+      "title": "Cal reference convert to grams",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Cal reference convert to grams",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E06",
+      "title": "Tare known-value convert",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Tare known-value convert",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E07",
+      "title": "PySide display verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "PySide display verify",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E08",
+      "title": "Tk display verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Tk display verify",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E09",
+      "title": "S08 receipt + M08 tag plan",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S08 receipt + M08 tag plan",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S08E10",
+      "title": "M08 season closeout + push plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M08 season closeout + push plan",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S08E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_sr2_s08_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T23:27:29Z"
+}

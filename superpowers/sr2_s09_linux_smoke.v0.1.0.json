@@ -1,0 +1,237 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.sr2.linux_smoke.v1",
+  "arc_id": "SR2_S09_linux_smoke",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "title": "Linux launchers + Xvfb Tk smoke",
+  "milestone": "M09",
+  "focus": "Source launch docs + smoke script/receipt",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "launch_best_buds.sh",
+    "docs/DEBIAN_INSTALL.md",
+    "scripts/"
+  ],
+  "episodes": [
+    {
+      "id": "S09E01",
+      "title": "Intent freeze: Linux secondary",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: Linux secondary",
+      "authorized_scope": [
+        "launch_best_buds.sh",
+        "docs/DEBIAN_INSTALL.md",
+        "scripts/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E02",
+      "title": "Launcher notes refresh",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Launcher notes refresh",
+      "authorized_scope": [
+        "launch_best_buds.sh",
+        "docs/DEBIAN_INSTALL.md",
+        "scripts/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E03",
+      "title": "Debian install notes",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Debian install notes",
+      "authorized_scope": [
+        "launch_best_buds.sh",
+        "docs/DEBIAN_INSTALL.md",
+        "scripts/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E04",
+      "title": "Xvfb Tk smoke script",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Xvfb Tk smoke script",
+      "authorized_scope": [
+        "launch_best_buds.sh",
+        "docs/DEBIAN_INSTALL.md",
+        "scripts/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E05",
+      "title": "Smoke receipt schema",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Smoke receipt schema",
+      "authorized_scope": [
+        "launch_best_buds.sh",
+        "docs/DEBIAN_INSTALL.md",
+        "scripts/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E06",
+      "title": "Windows note: Linux not claimed",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Windows note: Linux not claimed",
+      "authorized_scope": [
+        "launch_best_buds.sh",
+        "docs/DEBIAN_INSTALL.md",
+        "scripts/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E07",
+      "title": "Script dry-run verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Script dry-run verify",
+      "authorized_scope": [
+        "launch_best_buds.sh",
+        "docs/DEBIAN_INSTALL.md",
+        "scripts/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E08",
+      "title": "Non-claims verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Non-claims verify",
+      "authorized_scope": [
+        "launch_best_buds.sh",
+        "docs/DEBIAN_INSTALL.md",
+        "scripts/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E09",
+      "title": "S09 receipt pack",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S09 receipt pack",
+      "authorized_scope": [
+        "launch_best_buds.sh",
+        "docs/DEBIAN_INSTALL.md",
+        "scripts/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S09E10",
+      "title": "M09 season closeout + push plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M09 season closeout + push plan",
+      "authorized_scope": [
+        "launch_best_buds.sh",
+        "docs/DEBIAN_INSTALL.md",
+        "scripts/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S09E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_sr2_s09_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T23:27:29Z"
+}

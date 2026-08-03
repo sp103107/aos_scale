@@ -1,0 +1,209 @@
+{
+  "manifest_type": "series_map",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "version": "0.1.0",
+  "generated_at": "2026-08-03T22:15:13Z",
+  "blueprint_ref": "arc_lifecycle/blueprints/series_bbws_sr2_tk_linux_display_units.v0.1.0.json",
+  "cursor_map_ref": "cursor/BBWS_SR2_TK_LINUX_DISPLAY_UNITS_SERIES_MAP.v0.1.0.md",
+  "active_arc_ref": "ACTIVE_ARC.yaml",
+  "resume_pack_ref": "context/resume_pack/BBWS_SR2_resume.v0.1.0.json",
+  "seasons": [
+    {
+      "season_id": "S01",
+      "slug": "tk_gap_audit",
+      "milestone": "M01",
+      "title": "Tk/Linux gap audit vs PySide SR1",
+      "superpower": "superpowers/sr2_s01_tk_gap_audit.v0.1.0.json",
+      "episodes": [
+        "S01E01",
+        "S01E02",
+        "S01E03",
+        "S01E04",
+        "S01E05",
+        "S01E06",
+        "S01E07",
+        "S01E08",
+        "S01E09",
+        "S01E10"
+      ]
+    },
+    {
+      "season_id": "S02",
+      "slug": "tk_recording_polish",
+      "milestone": "M02",
+      "title": "Tk recording polish parity",
+      "superpower": "superpowers/sr2_s02_tk_recording_polish.v0.1.0.json",
+      "episodes": [
+        "S02E01",
+        "S02E02",
+        "S02E03",
+        "S02E04",
+        "S02E05",
+        "S02E06",
+        "S02E07",
+        "S02E08",
+        "S02E09",
+        "S02E10"
+      ]
+    },
+    {
+      "season_id": "S03",
+      "slug": "tk_hid_scanner",
+      "milestone": "M03",
+      "title": "Tk HID scanner + barcode policy",
+      "superpower": "superpowers/sr2_s03_tk_hid_scanner.v0.1.0.json",
+      "episodes": [
+        "S03E01",
+        "S03E02",
+        "S03E03",
+        "S03E04",
+        "S03E05",
+        "S03E06",
+        "S03E07",
+        "S03E08",
+        "S03E09",
+        "S03E10"
+      ]
+    },
+    {
+      "season_id": "S04",
+      "slug": "tk_sticky_strain",
+      "milestone": "M04",
+      "title": "Tk sticky strain parity",
+      "superpower": "superpowers/sr2_s04_tk_sticky_strain.v0.1.0.json",
+      "episodes": [
+        "S04E01",
+        "S04E02",
+        "S04E03",
+        "S04E04",
+        "S04E05",
+        "S04E06",
+        "S04E07",
+        "S04E08",
+        "S04E09",
+        "S04E10"
+      ]
+    },
+    {
+      "season_id": "S05",
+      "slug": "tk_csv_recover",
+      "milestone": "M05",
+      "title": "Tk CSV rebuild / pending_sync / recover",
+      "superpower": "superpowers/sr2_s05_tk_csv_recover.v0.1.0.json",
+      "episodes": [
+        "S05E01",
+        "S05E02",
+        "S05E03",
+        "S05E04",
+        "S05E05",
+        "S05E06",
+        "S05E07",
+        "S05E08",
+        "S05E09",
+        "S05E10"
+      ]
+    },
+    {
+      "season_id": "S06",
+      "slug": "tk_export_reconcile",
+      "milestone": "M06",
+      "title": "Tk export + reconcile",
+      "superpower": "superpowers/sr2_s06_tk_export_reconcile.v0.1.0.json",
+      "episodes": [
+        "S06E01",
+        "S06E02",
+        "S06E03",
+        "S06E04",
+        "S06E05",
+        "S06E06",
+        "S06E07",
+        "S06E08",
+        "S06E09",
+        "S06E10"
+      ]
+    },
+    {
+      "season_id": "S07",
+      "slug": "display_unit_core",
+      "milestone": "M07",
+      "title": "Display-unit core",
+      "superpower": "superpowers/sr2_s07_display_unit_core.v0.1.0.json",
+      "episodes": [
+        "S07E01",
+        "S07E02",
+        "S07E03",
+        "S07E04",
+        "S07E05",
+        "S07E06",
+        "S07E07",
+        "S07E08",
+        "S07E09",
+        "S07E10"
+      ]
+    },
+    {
+      "season_id": "S08",
+      "slug": "display_unit_uis",
+      "milestone": "M08",
+      "title": "Display unit in PySide + Tk",
+      "superpower": "superpowers/sr2_s08_display_unit_uis.v0.1.0.json",
+      "episodes": [
+        "S08E01",
+        "S08E02",
+        "S08E03",
+        "S08E04",
+        "S08E05",
+        "S08E06",
+        "S08E07",
+        "S08E08",
+        "S08E09",
+        "S08E10"
+      ]
+    },
+    {
+      "season_id": "S09",
+      "slug": "linux_smoke",
+      "milestone": "M09",
+      "title": "Linux launchers + Xvfb Tk smoke",
+      "superpower": "superpowers/sr2_s09_linux_smoke.v0.1.0.json",
+      "episodes": [
+        "S09E01",
+        "S09E02",
+        "S09E03",
+        "S09E04",
+        "S09E05",
+        "S09E06",
+        "S09E07",
+        "S09E08",
+        "S09E09",
+        "S09E10"
+      ]
+    },
+    {
+      "season_id": "S10",
+      "slug": "dual_ui_closeout",
+      "milestone": "M10",
+      "title": "Dual-UI regression + series closeout",
+      "superpower": "superpowers/sr2_s10_dual_ui_closeout.v0.1.0.json",
+      "episodes": [
+        "S10E01",
+        "S10E02",
+        "S10E03",
+        "S10E04",
+        "S10E05",
+        "S10E06",
+        "S10E07",
+        "S10E08",
+        "S10E09",
+        "S10E10"
+      ]
+    }
+  ],
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}

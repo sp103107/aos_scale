@@ -1,0 +1,104 @@
+{
+  "blueprint_type": "series",
+  "blueprint_id": "BBWS_SR2_tk_linux_display_units",
+  "parent_series_id": "BBWS_SR1_harvest_operator_loop",
+  "parent_arc_id": "bbws-sr1-complete",
+  "series_goal": "Tk/Linux operator parity with SR1 features plus display-unit selection (g/kg/lb) while keeping grams authoritative in JSONL.",
+  "runtime_claimed": false,
+  "version": "0.1.0",
+  "shape": "10 seasons \u00d7 10 episodes = 100",
+  "units_law": "display_only",
+  "tk_law": "secondary_fallback_shared_runtime",
+  "linux_law": "source_plus_xvfb_smoke_no_new_gui_installer",
+  "github_push_cadence": "after_each_season_closeout",
+  "seasons": [
+    {
+      "season_id": "S01_tk_gap_audit",
+      "title": "Tk/Linux gap audit vs PySide SR1",
+      "milestone": "M01",
+      "episode_count": 10,
+      "focus": "Freeze parity matrix; no feature inventing",
+      "superpower_ref": "superpowers/sr2_s01_tk_gap_audit.v0.1.0.json"
+    },
+    {
+      "season_id": "S02_tk_recording_polish",
+      "title": "Tk recording polish parity",
+      "milestone": "M02",
+      "episode_count": 10,
+      "focus": "Confirm pacing, duplicate warning, cancel\u2192focus",
+      "superpower_ref": "superpowers/sr2_s02_tk_recording_polish.v0.1.0.json"
+    },
+    {
+      "season_id": "S03_tk_hid_scanner",
+      "title": "Tk HID scanner + barcode policy",
+      "milestone": "M03",
+      "episode_count": 10,
+      "focus": "Test Scanner receipts; barcode policy settings",
+      "superpower_ref": "superpowers/sr2_s03_tk_hid_scanner.v0.1.0.json"
+    },
+    {
+      "season_id": "S04_tk_sticky_strain",
+      "title": "Tk sticky strain parity",
+      "milestone": "M04",
+      "episode_count": 10,
+      "focus": "Change Strain + active banner",
+      "superpower_ref": "superpowers/sr2_s04_tk_sticky_strain.v0.1.0.json"
+    },
+    {
+      "season_id": "S05_tk_csv_recover",
+      "title": "Tk CSV rebuild / pending_sync / recover",
+      "milestone": "M05",
+      "episode_count": 10,
+      "focus": "Rebuild and soft recover paths in Tk",
+      "superpower_ref": "superpowers/sr2_s05_tk_csv_recover.v0.1.0.json"
+    },
+    {
+      "season_id": "S06_tk_export_reconcile",
+      "title": "Tk export + reconcile",
+      "milestone": "M06",
+      "episode_count": 10,
+      "focus": "Export handoff + reconcile gate messaging",
+      "superpower_ref": "superpowers/sr2_s06_tk_export_reconcile.v0.1.0.json"
+    },
+    {
+      "season_id": "S07_display_unit_core",
+      "title": "Display-unit core",
+      "milestone": "M07",
+      "episode_count": 10,
+      "focus": "g/kg/lb display setting; grams stored",
+      "superpower_ref": "superpowers/sr2_s07_display_unit_core.v0.1.0.json"
+    },
+    {
+      "season_id": "S08_display_unit_uis",
+      "title": "Display unit in PySide + Tk",
+      "milestone": "M08",
+      "episode_count": 10,
+      "focus": "Weight/tare/net/cal entry use display unit",
+      "superpower_ref": "superpowers/sr2_s08_display_unit_uis.v0.1.0.json"
+    },
+    {
+      "season_id": "S09_linux_smoke",
+      "title": "Linux launchers + Xvfb Tk smoke",
+      "milestone": "M09",
+      "episode_count": 10,
+      "focus": "Source launch docs + smoke script/receipt",
+      "superpower_ref": "superpowers/sr2_s09_linux_smoke.v0.1.0.json"
+    },
+    {
+      "season_id": "S10_dual_ui_closeout",
+      "title": "Dual-UI regression + series closeout",
+      "milestone": "M10",
+      "episode_count": 10,
+      "focus": "Parity matrix complete + bbws-sr2-complete tag",
+      "superpower_ref": "superpowers/sr2_s10_dual_ui_closeout.v0.1.0.json"
+    }
+  ],
+  "total_episodes": 100,
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}

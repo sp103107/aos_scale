@@ -1,0 +1,215 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.sr2.tk_recording_polish.v1",
+  "arc_id": "SR2_S02_tk_recording_polish",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "title": "Tk recording polish parity",
+  "milestone": "M02",
+  "focus": "Confirm pacing, duplicate warning, cancel\u2192focus",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "production_ui.py"
+  ],
+  "episodes": [
+    {
+      "id": "S02E01",
+      "title": "Intent freeze: Tk recording polish",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: Tk recording polish",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E02",
+      "title": "Soft confirm status pacing",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Soft confirm status pacing",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E03",
+      "title": "Duplicate warning path",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Duplicate warning path",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E04",
+      "title": "Cancel clears barcode + focus",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Cancel clears barcode + focus",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E05",
+      "title": "Empty barcode blocked copy",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Empty barcode blocked copy",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E06",
+      "title": "Saved copy with cultivar",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Saved copy with cultivar",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E07",
+      "title": "Manual capture verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Manual capture verify",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E08",
+      "title": "Focus reclaim verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Focus reclaim verify",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E09",
+      "title": "S02 receipt pack",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S02 receipt pack",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S02E10",
+      "title": "M02 season closeout + push plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M02 season closeout + push plan",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S02E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_sr2_s02_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T23:27:04Z"
+}

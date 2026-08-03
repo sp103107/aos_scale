@@ -1,0 +1,226 @@
+{
+  "version": "0.1.0",
+  "schema_version": "bbws.sr2.dual_ui_closeout.v1",
+  "arc_id": "SR2_S10_dual_ui_closeout",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "title": "Dual-UI regression + series closeout",
+  "milestone": "M10",
+  "focus": "Parity matrix complete + bbws-sr2-complete tag",
+  "runtime_claimed": false,
+  "primary_surfaces": [
+    "reports/",
+    "context/resume_pack/"
+  ],
+  "episodes": [
+    {
+      "id": "S10E01",
+      "title": "Intent freeze: series end",
+      "kind": "context",
+      "status": "complete",
+      "objective": "Intent freeze: series end",
+      "authorized_scope": [
+        "reports/",
+        "context/resume_pack/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E02",
+      "title": "Dual-UI regression matrix",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Dual-UI regression matrix",
+      "authorized_scope": [
+        "reports/",
+        "context/resume_pack/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E03",
+      "title": "Series closeout report",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Series closeout report",
+      "authorized_scope": [
+        "reports/",
+        "context/resume_pack/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E04",
+      "title": "Resume pack series_complete",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Resume pack series_complete",
+      "authorized_scope": [
+        "reports/",
+        "context/resume_pack/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E05",
+      "title": "Tag policy lock",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Tag policy lock",
+      "authorized_scope": [
+        "reports/",
+        "context/resume_pack/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E06",
+      "title": "Final non-claims stamp",
+      "kind": "implement",
+      "status": "complete",
+      "objective": "Final non-claims stamp",
+      "authorized_scope": [
+        "reports/",
+        "context/resume_pack/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E07",
+      "title": "Smoke verify",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Smoke verify",
+      "authorized_scope": [
+        "reports/",
+        "context/resume_pack/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E08",
+      "title": "Map complete stamp",
+      "kind": "verify",
+      "status": "complete",
+      "objective": "Map complete stamp",
+      "authorized_scope": [
+        "reports/",
+        "context/resume_pack/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E09",
+      "title": "S10 receipt pack",
+      "kind": "receipt",
+      "status": "complete",
+      "objective": "S10 receipt pack",
+      "authorized_scope": [
+        "reports/",
+        "context/resume_pack/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false
+    },
+    {
+      "id": "S10E10",
+      "title": "M10 series closeout + tag plan",
+      "kind": "closeout",
+      "status": "complete",
+      "objective": "M10 series closeout + tag plan",
+      "authorized_scope": [
+        "reports/",
+        "context/resume_pack/"
+      ],
+      "forbidden_scope": [
+        "firmware SET_UNIT kg/lb",
+        "rename CSV *_g columns",
+        "BLE/SPP scanner",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "acceptance": "S10E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "runtime_claimed": false,
+      "evidence_ref": "reports/bbws_sr2_s10_season_closeout.v0.1.0.json"
+    }
+  ],
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "season_status": "complete",
+  "closed_at": "2026-08-03T23:27:29Z"
+}

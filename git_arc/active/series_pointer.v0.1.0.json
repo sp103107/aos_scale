@@ -1,14 +1,13 @@
 {
-  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
   "branch_plan": "main",
   "remote_plan": "origin",
   "push_policy": "after_season_closeout_only",
   "auto_push": false,
-  "baseline_tag": "v0.1.9-rc2",
+  "parent_tag": "bbws-sr1-complete",
   "planned_tags": [
-    "v0.1.9-bbws-s05",
-    "v0.1.9-bbws-s07",
-    "bbws-sr1-complete"
+    "v0.1.9-bbws-sr2-s08",
+    "bbws-sr2-complete"
   ],
-  "updated_at": "2026-08-03T20:38:55Z"
+  "updated_at": "2026-08-03T22:15:13Z"
 }
