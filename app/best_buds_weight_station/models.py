@@ -58,6 +58,7 @@ class CaptureCommand:
     raw_adc_value: int | None = None
     duplicate_status: str = 'none'
     operator_note: str | None = None
+    void_status: str = 'none'
     source: str = 'serial_simulator'
     idempotency_key: str | None = None
 

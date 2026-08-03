@@ -1,0 +1,32 @@
+{
+  "season_id": "S01",
+  "slug": "recording_polish",
+  "milestone": "M01",
+  "title": "Harvest recording polish",
+  "status": "complete",
+  "closed_at": "2026-08-03T20:45:03Z",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "baseline_freeze": "v0.1.9-rc2",
+  "artifacts": [
+    "context\\episodes\\S01E01_recording_polish.json",
+    "context\\episodes\\S01E02_recording_polish.json",
+    "context\\episodes\\S01E03_recording_polish.json",
+    "context\\episodes\\S01E04_recording_polish.json",
+    "context\\episodes\\S01E05_recording_polish.json",
+    "context\\episodes\\S01E06_recording_polish.json",
+    "context\\episodes\\S01E07_recording_polish.json",
+    "context\\episodes\\S01E08_recording_polish.json",
+    "context\\episodes\\S01E09_recording_polish.json"
+  ],
+  "notes": "Recording polish: soft confirm pacing, duplicate warning, cancel focus restore",
+  "next_season": "S02",
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "github_push_point": true
+}

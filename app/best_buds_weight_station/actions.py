@@ -35,9 +35,13 @@ class ActionType(str, Enum):
     READING_INGEST = "reading.ingest"
     CAPTURE_CONFIRM = "capture.confirm"
     CAPTURE_CANCEL = "capture.cancel"
+    RUN_SET_ACTIVE_CULTIVAR = "run.set_active_cultivar"
+    SETTINGS_BARCODE_POLICY_SET = "settings.barcode_policy.set"
+    SPREADSHEET_REBUILD = "spreadsheet.rebuild"
     STATE_RECOVER = "state.recover"
     STATE_FLUSH = "state.flush"
     REPORT_EXPORT = "report.export"
+    REPORT_RECONCILE = "report.reconcile"
     UI_OPEN_SCALE_SETUP = "ui.open_scale_setup"
 
 

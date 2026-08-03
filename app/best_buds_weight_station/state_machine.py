@@ -107,12 +107,12 @@ class CaptureMachine:
         self.state = State.MANUAL_CONFIRM
         return result
 
-    def confirm(self, raw=None):
+    def confirm(self, raw=None, *, operator_note=None, void_status='none'):
         if self.state != State.MANUAL_CONFIRM:
             raise RuntimeError('not awaiting confirmation')
-        return self._commit(raw)
+        return self._commit(raw, operator_note=operator_note, void_status=void_status)
 
-    def _commit(self, raw):
+    def _commit(self, raw, *, operator_note=None, void_status='none'):
         self.state = State.LOCAL_COMMIT_PENDING
         try:
             record, receipt = self.store.commit(
@@ -123,6 +123,8 @@ class CaptureMachine:
                     {'spread_g': self.stable.spread_g, 'stddev_g': self.stable.stddev_g},
                     self.mode,
                     raw_adc_value=raw,
+                    operator_note=operator_note,
+                    void_status=void_status or 'none',
                     idempotency_key=self.capture_idempotency_key,
                 )
             )

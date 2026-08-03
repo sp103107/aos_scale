@@ -255,16 +255,17 @@ class TareDialog(QDialog):
 
 
 class ScannerTestDialog(QDialog):
-    """Quick check that a USB/Bluetooth HID keyboard-wedge scanner reaches the app."""
+    """Quick check that a USB HID keyboard-wedge scanner reaches the app (no BLE/SPP)."""
 
-    def __init__(self, parent: QWidget | None = None):
+    def __init__(self, parent: QWidget | None = None, *, runtime: OperatorRuntime | None = None):
         super().__init__(parent)
+        self.runtime = runtime
         self.setWindowTitle("Test Barcode Scanner")
-        self.resize(520, 220)
+        self.resize(520, 240)
         layout = QVBoxLayout(self)
         tip = QLabel(
-            "Scan any barcode now with a USB or Bluetooth scanner in keyboard mode "
-            "(or type a code and press Enter)."
+            "Scan any barcode now with a USB HID keyboard-wedge scanner "
+            "(or type a code and press Enter). BLE/SPP/camera are not used in this series."
         )
         tip.setWordWrap(True)
         layout.addWidget(tip)
@@ -273,7 +274,7 @@ class ScannerTestDialog(QDialog):
         self.field.setPlaceholderText("Waiting for scan…")
         self.field.returnPressed.connect(self._accepted_scan)
         layout.addWidget(self.field)
-        self.status = QLabel("No scan yet.")
+        self.status = QLabel("No scan yet. Click here / keep focus in this field before scanning.")
         layout.addWidget(self.status)
         buttons = QDialogButtonBox(QDialogButtonBox.Close)
         buttons.rejected.connect(self.reject)
@@ -283,10 +284,91 @@ class ScannerTestDialog(QDialog):
     def _accepted_scan(self) -> None:
         value = self.field.text().strip()
         if not value:
-            self.status.setText("Empty scan. Try again.")
+            self.status.setText("Empty scan blocked. Focus this field and try again.")
             return
+        receipt = {
+            "receipt_type": "hid_scanner_test",
+            "status": "pass",
+            "barcode_sample": value,
+            "transport": "hid_keyboard_wedge",
+            "non_claims": ["HID wedge only — not BLE/SPP barcode protocol"],
+        }
+        if self.runtime is not None:
+            out = Path(self.runtime.controller.settings.data_root) / "scanner_test_receipts"
+            out.mkdir(parents=True, exist_ok=True)
+            path = out / f"scanner_test_{value[:32].replace('/', '_')}.json"
+            path.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+            receipt["path"] = str(path)
+        self.status.setText(f"Scanner OK — received: {value}")
         QMessageBox.information(self, "Scanner OK", f"Scanner OK — received:\n{value}")
         self.accept()
+
+
+class ChangeStrainDialog(QDialog):
+    """Sticky active strain until the operator changes it again."""
+
+    def __init__(self, runtime: OperatorRuntime, parent: QWidget | None = None):
+        super().__init__(parent)
+        self.runtime = runtime
+        self.setWindowTitle("Change Active Strain")
+        form = QFormLayout(self)
+        current = runtime.snapshot().get("cultivar") or ""
+        tip = QLabel(
+            "New scans use this strain until you change it again. "
+            "This is operator sticky strain — not Metrc compliance."
+        )
+        tip.setWordWrap(True)
+        form.addRow(tip)
+        self.cultivar = QLineEdit(str(current))
+        form.addRow("Active strain / cultivar", self.cultivar)
+        buttons = QDialogButtonBox(QDialogButtonBox.Save | QDialogButtonBox.Cancel)
+        buttons.accepted.connect(self.apply)
+        buttons.rejected.connect(self.reject)
+        form.addRow(buttons)
+
+    def apply(self) -> None:
+        name = self.cultivar.text().strip()
+        if not name:
+            QMessageBox.warning(self, "Missing strain", "Enter a strain / cultivar name.")
+            return
+        result = self.runtime.dispatch("run.set_active_cultivar", {"name": name})
+        if result.get("status") == "completed":
+            self.accept()
+        else:
+            _show_result(self, result)
+
+
+class StationSettingsDialog(QDialog):
+    """Light station settings for barcode policy (HID path)."""
+
+    def __init__(self, runtime: OperatorRuntime, parent: QWidget | None = None):
+        super().__init__(parent)
+        self.runtime = runtime
+        self.setWindowTitle("Station Settings")
+        form = QFormLayout(self)
+        self.require_barcode = QComboBox()
+        self.require_barcode.addItems(["required (scan/type barcode)", "optional (auto ID allowed)"])
+        required = bool(runtime.controller.settings.barcode_required_for_capture)
+        self.require_barcode.setCurrentIndex(0 if required else 1)
+        form.addRow("Plant barcode policy", self.require_barcode)
+        hint = QLabel("Scanners: USB HID keyboard-wedge only this series.")
+        hint.setStyleSheet("color:#5C6975")
+        form.addRow(hint)
+        buttons = QDialogButtonBox(QDialogButtonBox.Save | QDialogButtonBox.Cancel)
+        buttons.accepted.connect(self.save)
+        buttons.rejected.connect(self.reject)
+        form.addRow(buttons)
+
+    def save(self) -> None:
+        required = self.require_barcode.currentIndex() == 0
+        result = self.runtime.dispatch(
+            "settings.barcode_policy.set",
+            {"barcode_required_for_capture": required},
+        )
+        if result.get("status") == "completed":
+            self.accept()
+        else:
+            _show_result(self, result)
 
 
 class CalibrationDialog(QDialog):
@@ -492,18 +574,30 @@ class MainWindow(QMainWindow):
         metrics = QFrame(); metrics.setObjectName("card")
         grid = QGridLayout(metrics); grid.setContentsMargins(16, 12, 16, 12); grid.setHorizontalSpacing(20); grid.setVerticalSpacing(8)
         self.fields: dict[str, QLabel] = {}
-        for idx, key in enumerate(("RUN", "CULTIVAR", "CONTAINER", "GROSS", "TARE", "NET")):
+        for idx, key in enumerate(("RUN", "CULTIVAR", "OPERATOR", "CONTAINER", "GROSS", "TARE", "NET", "CAL ID")):
             label = QLabel(key.title()); label.setStyleSheet("font-weight:600;color:#5C6975")
             value = QLabel("—"); value.setObjectName("metricValue"); value.setTextInteractionFlags(Qt.TextSelectableByMouse)
-            row, col = divmod(idx, 3)
+            row, col = divmod(idx, 4)
             grid.addWidget(label, row * 2, col)
             grid.addWidget(value, row * 2 + 1, col)
             self.fields[key] = value
         layout.addWidget(metrics)
 
+        strain_row = QHBoxLayout()
+        self.active_strain_banner = QLabel("Active strain: —")
+        self.active_strain_banner.setStyleSheet("font-weight:700;color:#1E6B52;padding:6px 0")
+        change_strain_btn = QPushButton("Change Strain")
+        change_strain_btn.clicked.connect(self.change_strain)
+        strain_row.addWidget(self.active_strain_banner, 1)
+        strain_row.addWidget(change_strain_btn)
+        layout.addLayout(strain_row)
+
         self.last_saved = QLabel("No plant has been saved in this run.")
         self.last_saved.setObjectName("lastSaved")
         layout.addWidget(self.last_saved)
+        self.pending_sync_label = QLabel("")
+        self.pending_sync_label.setStyleSheet("color:#8A4B08;font-weight:600")
+        layout.addWidget(self.pending_sync_label)
 
         alice_card = QFrame(); alice_card.setObjectName("card")
         alice_layout = QVBoxLayout(alice_card); alice_layout.setContentsMargins(14, 10, 14, 10)
@@ -530,12 +624,20 @@ class MainWindow(QMainWindow):
         test_scan_btn = QPushButton("Test Scanner")
         test_scan_btn.clicked.connect(self.test_scanner)
         barcode_row.addWidget(test_scan_btn)
-        barcode_hint = QLabel("USB or Bluetooth scanner in keyboard mode — or type and press Enter.")
+        barcode_hint = QLabel("USB HID keyboard-wedge scanner — keep focus here before scanning, or type and press Enter.")
         barcode_hint.setStyleSheet("color:#5C6975;font-size:12px")
         barcode_layout.addWidget(barcode_label)
         barcode_layout.addLayout(barcode_row)
         barcode_layout.addWidget(barcode_hint)
         layout.addWidget(barcode_card)
+        note_row = QHBoxLayout()
+        self.operator_note = QLineEdit()
+        self.operator_note.setPlaceholderText("Optional note for next Confirm (governance light)")
+        self.void_next = QComboBox()
+        self.void_next.addItems(["void: none", "void: mark void"])
+        note_row.addWidget(self.operator_note, 1)
+        note_row.addWidget(self.void_next)
+        layout.addLayout(note_row)
 
         actions = QGridLayout(); actions.setHorizontalSpacing(10); actions.setVerticalSpacing(10)
         action_callbacks = {
@@ -585,7 +687,10 @@ class MainWindow(QMainWindow):
         self._add_menu_action(run_menu, "Resume Last Run", self.resume_run, "Ctrl+R")
         self._add_menu_action(run_menu, "Load Run...", self.load_run, "Ctrl+L")
         run_menu.addSeparator()
+        self._add_menu_action(run_menu, "Change Active Strain...", self.change_strain)
         self._add_menu_action(run_menu, "Recover Run", self.recover)
+        self._add_menu_action(run_menu, "Rebuild CSV from JSONL", self.rebuild_csv)
+        self._add_menu_action(run_menu, "Reconcile Export ↔ JSONL", self.reconcile_export)
         self._add_menu_action(run_menu, "Export Report...", self.export_report)
         self._add_menu_action(run_menu, "Finish Run", self.finish_run)
 
@@ -597,6 +702,9 @@ class MainWindow(QMainWindow):
         self._add_menu_action(scale_menu, "Test Scanner...", self.test_scanner)
         scale_menu.addSeparator()
         self._add_menu_action(scale_menu, "Diagnostics", self.diagnostics)
+
+        settings_menu = self.menuBar().addMenu("Settings")
+        self._add_menu_action(settings_menu, "Station Settings...", self.station_settings)
 
         help_menu = self.menuBar().addMenu("Help")
         self._add_menu_action(help_menu, "About", self.about)
@@ -627,22 +735,35 @@ class MainWindow(QMainWindow):
             self.weight_hint.setText("")
         self.fields["RUN"].setText(s["run_id"] or "—")
         self.fields["CULTIVAR"].setText(s["cultivar"] or "—")
+        self.fields["OPERATOR"].setText(s.get("operator_id") or "—")
         self.fields["CONTAINER"].setText(s["container_id"] or "—")
         self.fields["GROSS"].setText(f"{s['weight_g']:,.3f} g")
         self.fields["TARE"].setText(f"{s['tare_g']:,.3f} g")
         self.fields["NET"].setText(f"{s['net_g']:,.3f} g")
+        self.fields["CAL ID"].setText(s.get("calibration_id") or "—")
+        self.active_strain_banner.setText(f"Active strain (sticky): {s['cultivar'] or '—'}")
         record = s["last_saved"]
         if record:
             csv_note = ""
             run = self.runtime.controller.loaded_run
             if run and (run.store.session_dir / "records.csv").exists():
                 csv_note = f" • CSV: {run.store.session_dir / 'records.csv'}"
+            dup = record.get("duplicate_status")
+            dup_note = " • duplicate barcode warning" if dup and dup != "none" else ""
+            cultivar = record.get("cultivar_normalized_name") or s.get("cultivar") or ""
             self.last_saved.setText(
                 f"Saved: {record.get('barcode_raw', record.get('record_id'))} — "
-                f"{float(record['net_g']):.3f} g net. Scan next plant.{csv_note}"
+                f"{float(record['net_g']):.3f} g net ({cultivar}). Ready for next scan.{dup_note}{csv_note}"
             )
         else:
             self.last_saved.setText("No plant has been saved in this run yet. Scan a barcode, weigh, then Confirm & Record.")
+        pending = int(s.get("pending_sync_count") or 0)
+        if pending:
+            self.pending_sync_label.setText(
+                f"CSV/XLSX sync pending for {pending} record(s). Run → Rebuild CSV from JSONL (JSONL stays authoritative)."
+            )
+        else:
+            self.pending_sync_label.setText("")
         self.alice_message.setText(str(s["alice_message"]))
 
         mode = device.get("mode") or "none"
@@ -673,8 +794,11 @@ class MainWindow(QMainWindow):
         self.barcode.setEnabled(ready and not self._calibration_open)
         self.auto_id_btn.setEnabled(ready and not self._calibration_open and not bool(s.get("barcode_required_for_capture", True)))
         self.auto_id_btn.setVisible(not bool(s.get("barcode_required_for_capture", True)))
-        if ready and not self._calibration_open and not self.barcode.hasFocus():
-            self.barcode.setFocus()
+        # Focus ownership: reclaim barcode focus only when ready and no modal owns focus.
+        active = QApplication.activeModalWidget()
+        if ready and not self._calibration_open and active is None and not self.barcode.hasFocus():
+            if not self.operator_note.hasFocus():
+                self.barcode.setFocus()
         self.buttons["START / RESUME"].setEnabled(state in {"NO_RUN", "RUN_FINISHED", "DEVICE_READY", "WAITING_FOR_BARCODE"})
         self.buttons["CONNECT SCALE"].setEnabled(state not in self.CAPTURE_STATES)
         # Zero is maintenance: allowed whenever the scale is connected (run optional).
@@ -739,14 +863,26 @@ class MainWindow(QMainWindow):
         finally:
             self._calibration_open = False
     def test_scanner(self) -> None:
-        ScannerTestDialog(self).exec()
+        ScannerTestDialog(self, runtime=self.runtime).exec()
+    def change_strain(self) -> None:
+        if not self.runtime.controller.loaded_run:
+            QMessageBox.information(self, "No run", "Start or resume a run before changing strain.")
+            return
+        ChangeStrainDialog(self.runtime, self).exec()
+    def station_settings(self) -> None:
+        StationSettingsDialog(self.runtime, self).exec()
+    def rebuild_csv(self) -> None:
+        _show_result(self, self.runtime.dispatch("spreadsheet.rebuild"), success_title="CSV rebuilt")
+    def reconcile_export(self) -> None:
+        result = self.runtime.dispatch("report.reconcile")
+        _show_result(self, result, success_title="Reconcile pass")
     def use_auto_plant_id(self) -> None:
         if self.runtime.controller.settings.barcode_required_for_capture:
             QMessageBox.information(
                 self,
                 "Barcode required",
-                "This station requires a scanned or typed barcode. Ask an admin to turn off "
-                "barcode_required_for_capture in settings for casual/demo mode.",
+                "This station requires a scanned or typed barcode. Open Settings → Station Settings "
+                "to allow auto ID for casual/demo mode.",
             )
             return
         value = self.runtime.next_auto_plant_id()
@@ -757,28 +893,67 @@ class MainWindow(QMainWindow):
             QMessageBox.information(self, "Finish calibration first", "Finish or cancel Guided Calibration before scanning plants.")
             return
         value=self.barcode.text().strip()
-        if not value: return
+        if not value:
+            self.statusBar().showMessage("Empty barcode blocked — scan or type a plant ID, then press Enter.")
+            return
         result=self.runtime.submit_barcode(value)
-        if result.get("status") in {"failed", "blocked"}: _show_result(self,result)
-        else: self.barcode.clear()
+        if result.get("status") in {"failed", "blocked"}:
+            _show_result(self, result)
+        else:
+            self.barcode.clear()
+            self.statusBar().showMessage(f"Barcode accepted: {value} — place plant and wait for stable weight.")
     def confirm_record(self) -> None:
-        result = self.runtime.dispatch("capture.confirm")
+        note = self.operator_note.text().strip() or None
+        void_status = "void" if self.void_next.currentIndex() == 1 else "none"
+        result = self.runtime.dispatch(
+            "capture.confirm",
+            {"operator_note": note, "void_status": void_status},
+        )
         if result.get("status") == "completed":
             record = (result.get("data") or {}).get("record") or self.runtime.controller.last_record or {}
-            net = record.get("net_g")
-            barcode = record.get("barcode_raw") or record.get("record_id") or "plant"
+            feedback = (result.get("data") or {}).get("feedback")
             msg = result.get("message") or "Record saved."
-            if net is not None:
-                msg = f"Saved {barcode}: {float(net):.3f} g net.\nScan the next plant when ready."
             run = self.runtime.controller.loaded_run
             if run and (run.store.session_dir / "records.csv").exists():
-                msg += f"\n\nCSV updated:\n{run.store.session_dir / 'records.csv'}"
-            QMessageBox.information(self, "Plant saved", msg)
+                msg += f" CSV: {run.store.session_dir / 'records.csv'}"
+            # Soft pacing: status + last_saved carry the proof; modal only on duplicate warning.
+            self.statusBar().showMessage(msg)
+            self.operator_note.clear()
+            self.void_next.setCurrentIndex(0)
+            self.barcode.clear()
+            QTimer.singleShot(0, self.barcode.setFocus)
+            if feedback == "warning":
+                QMessageBox.warning(self, "Saved with duplicate warning", msg)
         else:
             _show_result(self, result)
 
-    def cancel_item(self) -> None: _show_result(self, self.runtime.dispatch("capture.cancel"))
-    def recover(self) -> None: _show_result(self, self.runtime.dispatch("state.recover"))
+    def cancel_item(self) -> None:
+        result = self.runtime.dispatch("capture.cancel")
+        self.barcode.clear()
+        self.statusBar().showMessage(result.get("message") or "Cancelled — scan again when ready.")
+        QTimer.singleShot(0, self.barcode.setFocus)
+        if result.get("status") in {"failed", "blocked"}:
+            _show_result(self, result)
+    def recover(self) -> None:
+        result = self.runtime.dispatch("state.recover")
+        if result.get("status") == "completed":
+            receipt = (result.get("data") or {}).get("recovery_receipt") or {}
+            msg = result.get("message") or "Recovered."
+            if receipt.get("spreadsheet_rebuild"):
+                msg += f"\nCSV rebuilt: {receipt['spreadsheet_rebuild'].get('rebuilt_rows')} rows."
+            QMessageBox.information(self, "Recovered", msg)
+        else:
+            # Soft path: allow rebuild even when machine is not in RECOVERY_REQUIRED.
+            rebuild = self.runtime.dispatch("spreadsheet.rebuild")
+            if rebuild.get("status") == "completed":
+                QMessageBox.information(
+                    self,
+                    "CSV rebuilt",
+                    (rebuild.get("message") or "CSV rebuilt from JSONL.")
+                    + "\n\nIf the run was interrupted, resume and continue scanning.",
+                )
+            else:
+                _show_result(self, result)
     def finish_run(self) -> None:
         if QMessageBox.question(self,"Finish Run","Finish the current run? Committed records remain immutable.")==QMessageBox.Yes:
             _show_result(self,self.runtime.dispatch("run.finish"))
@@ -790,15 +965,18 @@ class MainWindow(QMainWindow):
         if result.get("status") == "completed":
             paths = (result.get("data") or {}).get("paths") or []
             listing = "\n".join(paths) if paths else path
+            reconcile = self.runtime.dispatch("report.reconcile")
+            gate = ((reconcile.get("data") or {}).get("reconcile") or {}).get("status", "n/a")
             QMessageBox.information(
                 self,
                 "Export completed",
-                "Handoff files written (CSV / XLSX / DOCX / JSON):\n\n"
+                "Handoff files written (plain plant CSV / XLSX / DOCX / JSON):\n\n"
                 f"{listing}\n\n"
+                f"Reconcile gate: {gate}\n"
                 "Session JSONL remains the authoritative ledger.",
             )
         else:
-            _show_result(self, result, success_title="Export completed")
+            _show_result(self, result)
     def diagnostics(self) -> None:
         QMessageBox.information(self,"Diagnostics",json.dumps(self.runtime.snapshot(),indent=2,sort_keys=True,default=str))
     def about(self) -> None:

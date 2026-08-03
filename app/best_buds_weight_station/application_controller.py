@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any, Callable
 
@@ -147,9 +148,13 @@ class ApplicationController:
             ActionType.READING_INGEST.value: self._reading_ingest,
             ActionType.CAPTURE_CONFIRM.value: self._capture_confirm,
             ActionType.CAPTURE_CANCEL.value: self._capture_cancel,
+            ActionType.RUN_SET_ACTIVE_CULTIVAR.value: self._set_active_cultivar,
+            ActionType.SETTINGS_BARCODE_POLICY_SET.value: self._set_barcode_policy,
+            ActionType.SPREADSHEET_REBUILD.value: self._rebuild_spreadsheet,
             ActionType.STATE_RECOVER.value: self._recover,
             ActionType.STATE_FLUSH.value: self._flush,
             ActionType.REPORT_EXPORT.value: self._export,
+            ActionType.REPORT_RECONCILE.value: self._reconcile,
             ActionType.UI_OPEN_SCALE_SETUP.value: self._open_scale_setup,
         }
         try:
@@ -274,6 +279,75 @@ class ApplicationController:
         if self.machine:
             self.machine.mode = mode
         return self._result(request, "completed", "UNIT_TEST_PASS", "Capture mode updated", {"capture_mode": settings.capture_mode})
+
+    def _set_barcode_policy(self, request: ActionRequest) -> ActionResult:
+        required = bool(request.payload.get("barcode_required_for_capture", True))
+        settings = self.settings_store.update(barcode_required_for_capture=required)
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            "Barcode policy updated (HID keyboard-wedge scanners only this series).",
+            {"barcode_required_for_capture": settings.barcode_required_for_capture},
+        )
+
+    def _set_active_cultivar(self, request: ActionRequest) -> ActionResult:
+        self._require_run()
+        assert self.loaded_run and self.machine
+        if self.machine.state in _ACTIVE_CAPTURE_STATES and self.machine.state != State.WAITING_FOR_BARCODE:
+            raise InvalidActionState("finish or cancel the current plant before changing strain")
+        name = str(request.payload.get("name") or "").strip()
+        cultivar_id = str(request.payload.get("cultivar_id") or "").strip()
+        if not name:
+            raise ValueError("cultivar name is required")
+        if not cultivar_id:
+            slug = re.sub(r"[^A-Za-z0-9]+", "-", name).strip("-").upper()[:24] or "CV"
+            cultivar_id = f"CV-{slug}"
+        result = self.loaded_run.store.set_active_cultivar(cultivar_id=cultivar_id, name=name)
+        # Keep LoadedRun.definition roster aligned with sticky active strain.
+        self.loaded_run.definition.cultivars = [
+            {"cultivar_id": cultivar_id, "name": name},
+            *[
+                item
+                for item in self.loaded_run.definition.cultivars
+                if str(item.get("cultivar_id")) != cultivar_id
+            ],
+        ]
+        response = self._refresh_alice_for_state(context={"active_cultivar": name})
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"Active strain set to {name}. Scans use this strain until you change it.",
+            {"active_cultivar": result, "alice_response": response},
+        )
+
+    def _rebuild_spreadsheet(self, request: ActionRequest) -> ActionResult:
+        self._require_run()
+        assert self.loaded_run
+        rebuilt = self.loaded_run.store.rebuild_spreadsheets()
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"CSV/XLSX rebuilt from JSONL ({rebuilt.get('rebuilt_rows', 0)} rows).",
+            {"rebuild": rebuilt},
+        )
+
+    def _reconcile(self, request: ActionRequest) -> ActionResult:
+        self._require_run()
+        assert self.loaded_run
+        from .reports import reconcile_export_to_jsonl
+
+        receipt = reconcile_export_to_jsonl(self.loaded_run.store.session_dir)
+        status = "completed" if receipt.get("status") == "pass" else "failed"
+        return self._result(
+            request,
+            status,
+            "UNIT_TEST_PASS" if status == "completed" else "BLOCKED",
+            f"Export↔JSONL reconcile {receipt.get('status')}.",
+            {"reconcile": receipt},
+        )
 
     def _device_discover(self, request: ActionRequest) -> ActionResult:
         ports = [item.__dict__ for item in DeviceService.discover_ports()]
@@ -416,7 +490,13 @@ class ApplicationController:
     def _capture_confirm(self, request: ActionRequest) -> ActionResult:
         self._require_run()
         assert self.machine
-        terminal = self.machine.confirm(raw=request.payload.get("raw_value"))
+        note = request.payload.get("operator_note")
+        void_status = str(request.payload.get("void_status") or "none")
+        terminal = self.machine.confirm(
+            raw=request.payload.get("raw_value"),
+            operator_note=str(note).strip() if note else None,
+            void_status=void_status,
+        )
         return self._process_terminal(request, terminal)
 
     def _process_terminal(self, request: ActionRequest, terminal: Any) -> ActionResult:
@@ -429,6 +509,8 @@ class ApplicationController:
         else:
             record, receipt = terminal
             backend_result = receipt.to_dict()
+            if record and str(record.get("duplicate_status")) not in {"", "none", "None"}:
+                feedback = "warning"
         response = self.agent.respond(
             State.LOCAL_COMMIT_PENDING.value,
             backend_result=backend_result,
@@ -442,7 +524,18 @@ class ApplicationController:
         self.machine.complete_terminal_result(feedback)
         if record is not None:
             self.last_record = record
-        return self._result(request, "completed", response.truth_class.value, response.operator_message, {
+        message = response.operator_message
+        if record is not None:
+            barcode = record.get("barcode_raw") or record.get("record_id")
+            net = record.get("net_g")
+            cultivar = record.get("cultivar_normalized_name") or ""
+            message = f"Saved {barcode}: {float(net):.3f} g net ({cultivar}). Scan the next plant."
+            if feedback == "warning":
+                message = f"Saved with duplicate barcode warning — {message}"
+            pending = self.loaded_run.store.pending_sync_count()
+            if pending:
+                message += f" CSV sync pending ({pending}). Use Recover/Rebuild CSV if needed."
+        return self._result(request, "completed", response.truth_class.value, message, {
             "record": record,
             "backend_result": backend_result,
             "alice_response": self.last_alice_response,
@@ -453,7 +546,15 @@ class ApplicationController:
         self._require_run()
         assert self.machine
         self.machine.cancel_capture()
-        return self._result(request, "completed", "UNIT_TEST_PASS", "Uncommitted current-item state was cleared", {"committed_records_unchanged": True})
+        response = self._refresh_alice_for_state(context={"capture_cancelled": True})
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            "Current plant cancelled — not saved. Scan again when ready.",
+            {"committed_records_unchanged": True, "alice_response": response},
+            terminal=True,
+        )
 
     def _scale_zero(self, request: ActionRequest) -> ActionResult:
         self._require_scale_maintenance(allow_without_run=True)
