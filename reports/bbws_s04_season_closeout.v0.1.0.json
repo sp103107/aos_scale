@@ -1,0 +1,32 @@
+{
+  "season_id": "S04",
+  "slug": "csv_recording_truth",
+  "milestone": "M04",
+  "title": "CSV recording truth",
+  "status": "complete",
+  "closed_at": "2026-08-03T20:45:04Z",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "baseline_freeze": "v0.1.9-rc2",
+  "artifacts": [
+    "context\\episodes\\S04E01_csv_recording_truth.json",
+    "context\\episodes\\S04E02_csv_recording_truth.json",
+    "context\\episodes\\S04E03_csv_recording_truth.json",
+    "context\\episodes\\S04E04_csv_recording_truth.json",
+    "context\\episodes\\S04E05_csv_recording_truth.json",
+    "context\\episodes\\S04E06_csv_recording_truth.json",
+    "context\\episodes\\S04E07_csv_recording_truth.json",
+    "context\\episodes\\S04E08_csv_recording_truth.json",
+    "context\\episodes\\S04E09_csv_recording_truth.json"
+  ],
+  "notes": "CSV rebuild-from-JSONL, header lock, pending_sync UX",
+  "next_season": "S05",
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "github_push_point": true
+}

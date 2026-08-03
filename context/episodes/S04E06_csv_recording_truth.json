@@ -1,0 +1,9 @@
+{
+  "episode_id": "S04E06",
+  "season_id": "S04",
+  "slug": "csv_recording_truth",
+  "status": "complete",
+  "updated_at": "2026-08-03T20:45:04Z",
+  "runtime_claimed": false,
+  "notes": "BBWS SR1 S04E06 executed in harvest-operator series pass"
+}
