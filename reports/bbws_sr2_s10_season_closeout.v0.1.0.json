@@ -1,0 +1,35 @@
+{
+  "season_id": "S10",
+  "slug": "dual_ui_closeout",
+  "milestone": "M10",
+  "title": "Dual-UI series closeout",
+  "status": "complete",
+  "closed_at": "2026-08-03T23:27:29Z",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "artifacts": [
+    "docs/DUAL_UI_REGRESSION_MATRIX.md",
+    "docs/BBWS_SR2_ARTIFACTS.md",
+    "context\\episodes\\SR2_S10E01_dual_ui_closeout.json",
+    "context\\episodes\\SR2_S10E02_dual_ui_closeout.json",
+    "context\\episodes\\SR2_S10E03_dual_ui_closeout.json",
+    "context\\episodes\\SR2_S10E04_dual_ui_closeout.json",
+    "context\\episodes\\SR2_S10E05_dual_ui_closeout.json",
+    "context\\episodes\\SR2_S10E06_dual_ui_closeout.json",
+    "context\\episodes\\SR2_S10E07_dual_ui_closeout.json",
+    "context\\episodes\\SR2_S10E08_dual_ui_closeout.json",
+    "context\\episodes\\SR2_S10E09_dual_ui_closeout.json"
+  ],
+  "notes": "Dual-UI closeout",
+  "next_season": null,
+  "runtime_claimed": false,
+  "github_push_point": true,
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "series_status": "complete",
+  "series_tag_plan": "bbws-sr2-complete"
+}

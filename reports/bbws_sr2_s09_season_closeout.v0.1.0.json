@@ -1,0 +1,34 @@
+{
+  "season_id": "S09",
+  "slug": "linux_smoke",
+  "milestone": "M09",
+  "title": "Linux smoke",
+  "status": "complete",
+  "closed_at": "2026-08-03T23:27:29Z",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "artifacts": [
+    "scripts/bbws_sr2_xvfb_tk_smoke.sh",
+    "docs/DEBIAN_INSTALL.md",
+    "reports/bbws_sr2_s09_linux_smoke_receipt.v0.1.0.json",
+    "context\\episodes\\SR2_S09E01_linux_smoke.json",
+    "context\\episodes\\SR2_S09E02_linux_smoke.json",
+    "context\\episodes\\SR2_S09E03_linux_smoke.json",
+    "context\\episodes\\SR2_S09E04_linux_smoke.json",
+    "context\\episodes\\SR2_S09E05_linux_smoke.json",
+    "context\\episodes\\SR2_S09E06_linux_smoke.json",
+    "context\\episodes\\SR2_S09E07_linux_smoke.json",
+    "context\\episodes\\SR2_S09E08_linux_smoke.json",
+    "context\\episodes\\SR2_S09E09_linux_smoke.json"
+  ],
+  "notes": "Linux smoke script + Debian notes",
+  "next_season": "S10",
+  "runtime_claimed": false,
+  "github_push_point": true,
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}

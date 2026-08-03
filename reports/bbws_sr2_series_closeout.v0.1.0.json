@@ -1,0 +1,29 @@
+{
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "status": "complete",
+  "shape": "10 seasons x 10 episodes = 100",
+  "parent_series": "BBWS_SR1_harvest_operator_loop",
+  "tag_plan": "bbws-sr2-complete",
+  "m08_tag_plan": "v0.1.9-bbws-sr2-s08",
+  "units_law": "display_only_g_kg_lb_storage_grams",
+  "season_closeouts": [
+    "reports/bbws_sr2_s01_season_closeout.v0.1.0.json",
+    "reports/bbws_sr2_s02_season_closeout.v0.1.0.json",
+    "reports/bbws_sr2_s03_season_closeout.v0.1.0.json",
+    "reports/bbws_sr2_s04_season_closeout.v0.1.0.json",
+    "reports/bbws_sr2_s05_season_closeout.v0.1.0.json",
+    "reports/bbws_sr2_s06_season_closeout.v0.1.0.json",
+    "reports/bbws_sr2_s07_season_closeout.v0.1.0.json",
+    "reports/bbws_sr2_s08_season_closeout.v0.1.0.json",
+    "reports/bbws_sr2_s09_season_closeout.v0.1.0.json",
+    "reports/bbws_sr2_s10_season_closeout.v0.1.0.json"
+  ],
+  "runtime_claimed": false,
+  "non_claims": [
+    "Display lb/kg != legal-for-trade / NTEP",
+    "Tk parity != Windows packaging seal",
+    "Linux smoke != Debian production guarantee",
+    "Display unit != changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "receipt_type": "bbws_sr2_xvfb_tk_smoke",
+  "status": "skipped_non_linux_host",
+  "detail": "script_present_host_is_Windows",
+  "compiled_at": "2026-08-03T23:27:03Z",
+  "non_claims": [
+    "Linux smoke \u2260 Debian production guarantee",
+    "Tk parity \u2260 Windows packaging seal"
+  ]
+}
