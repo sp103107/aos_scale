@@ -18,6 +18,8 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--data-root")
     p.add_argument("--compile-report")
     p.add_argument("--ui-smoke", action="store_true")
+    p.add_argument("--smoke", action="store_true", help="alias for --ui-smoke")
+    p.add_argument("--ui", choices=("auto", "pyside", "tk"), default="auto")
     p.add_argument("--capture-mode", choices=("automatic", "manual"), default="manual")
     return p
 
@@ -41,9 +43,15 @@ def main(argv: list[str] | None = None) -> int:
         except Exception as exc:
             print(str(exc), file=sys.stderr)
             return 1
+    smoke = bool(args.ui_smoke or args.smoke)
     try:
+        if args.ui == "tk":
+            from .production_ui import launch_tk
+
+            return int(launch_tk(args.data_root, args.simulator, smoke, args.capture_mode) or 0)
         from .ui import launch
-        return int(launch(args.data_root, args.simulator, args.ui_smoke, args.capture_mode) or 0)
+
+        return int(launch(args.data_root, args.simulator, smoke, args.capture_mode) or 0)
     except Exception as exc:
         print(f"Launch failed: {type(exc).__name__}: {exc}", file=sys.stderr)
         return 2

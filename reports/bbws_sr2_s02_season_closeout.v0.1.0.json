@@ -1,0 +1,31 @@
+{
+  "season_id": "S02",
+  "slug": "tk_recording_polish",
+  "milestone": "M02",
+  "title": "Tk recording polish",
+  "status": "complete",
+  "closed_at": "2026-08-03T23:27:04Z",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "artifacts": [
+    "context\\episodes\\SR2_S02E01_tk_recording_polish.json",
+    "context\\episodes\\SR2_S02E02_tk_recording_polish.json",
+    "context\\episodes\\SR2_S02E03_tk_recording_polish.json",
+    "context\\episodes\\SR2_S02E04_tk_recording_polish.json",
+    "context\\episodes\\SR2_S02E05_tk_recording_polish.json",
+    "context\\episodes\\SR2_S02E06_tk_recording_polish.json",
+    "context\\episodes\\SR2_S02E07_tk_recording_polish.json",
+    "context\\episodes\\SR2_S02E08_tk_recording_polish.json",
+    "context\\episodes\\SR2_S02E09_tk_recording_polish.json"
+  ],
+  "notes": "Tk recording polish parity",
+  "next_season": "S03",
+  "runtime_claimed": false,
+  "github_push_point": true,
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}

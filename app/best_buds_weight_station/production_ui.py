@@ -1,12 +1,19 @@
+"""Production operator UI entry: PySide6 primary, Tk secondary fallback.
+
+BBWS SR2 brings Tk to SR1 feature parity and wires display units (g/kg/lb).
+Authoritative storage remains grams via OperatorRuntime / JSONL.
+"""
 from __future__ import annotations
 
 import json
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 from .application_controller import ApplicationController
 from .operator_runtime import OperatorRuntime
 from .operator_surface import ROUTINE_ACTION_LAYOUT
+from .units import display_to_grams, format_weight, unit_label
 from .version import __version__
 
 KEYBOARD_SHORTCUTS = {
@@ -79,7 +86,6 @@ class ProductionViewModel:
         return "none" if not record else f"{record['record_id']} - {record['net_g']:.3f} g"
 
 
-
 def launch(data_root: str | None = None, simulator: bool = False, smoke: bool = False, capture_mode: str = "manual") -> int:
     runtime = OperatorRuntime(data_root, capture_mode=capture_mode)
     try:
@@ -89,16 +95,22 @@ def launch(data_root: str | None = None, simulator: bool = False, smoke: bool = 
     return launch_pyside(runtime, simulator=simulator, smoke=smoke)
 
 
+def launch_tk(data_root: str | None = None, simulator: bool = False, smoke: bool = False, capture_mode: str = "manual") -> int:
+    """Force Tk fallback (Linux smoke / operator preference)."""
+    runtime = OperatorRuntime(data_root, capture_mode=capture_mode)
+    return _launch_tk(runtime, simulator=simulator, smoke=smoke)
+
+
 def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int:
-    """Secondary fallback UI. It shares the same runtime and truth gates as PySide6."""
+    """Secondary fallback UI. Shares the same runtime and truth gates as PySide6."""
 
     import tkinter as tk
     from tkinter import filedialog, messagebox, simpledialog, ttk
 
     root = tk.Tk()
     root.title(f"Best Buds Cultivator Weight Station v{__version__} - Tk fallback")
-    root.geometry("1120x850")
-    root.minsize(1024, 760)
+    root.geometry("1120x920")
+    root.minsize(1024, 800)
     root.configure(bg="#F5F7FA")
 
     style = ttk.Style(root)
@@ -106,7 +118,6 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         style.theme_use("clam")
     except tk.TclError:
         pass
-    style.configure("Card.TFrame", background="#FFFFFF", relief="solid", borderwidth=1)
     style.configure("Primary.TButton", font=("Segoe UI", 12, "bold"), padding=(14, 12))
     style.configure("Action.TButton", font=("Segoe UI", 11, "bold"), padding=(12, 10))
     style.configure("Danger.TButton", font=("Segoe UI", 11, "bold"), padding=(12, 10))
@@ -131,18 +142,27 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     metrics = tk.Frame(shell, bg="#FFFFFF", highlightbackground="#CBD4DD", highlightthickness=1)
     metrics.pack(fill="x", pady=8)
     metric_values: dict[str, tk.Label] = {}
-    for idx, key in enumerate(("RUN", "CULTIVAR", "CONTAINER", "GROSS", "TARE", "NET")):
-        col = idx % 3
-        row = (idx // 3) * 2
+    for idx, key in enumerate(("RUN", "CULTIVAR", "OPERATOR", "CONTAINER", "GROSS", "TARE", "NET", "CAL ID")):
+        col = idx % 4
+        row = (idx // 4) * 2
         tk.Label(metrics, text=key.title(), font=("Segoe UI", 9, "bold"), bg="#FFFFFF", fg="#5C6975").grid(row=row, column=col, sticky="w", padx=14, pady=(8, 0))
         value = tk.Label(metrics, text="-", font=("Segoe UI", 15, "bold"), bg="#FFFFFF", fg="#17212B", anchor="w")
         value.grid(row=row + 1, column=col, sticky="ew", padx=14, pady=(0, 8))
         metric_values[key] = value
-    for col in range(3):
+    for col in range(4):
         metrics.grid_columnconfigure(col, weight=1)
 
+    strain_row = tk.Frame(shell, bg="#F5F7FA")
+    strain_row.pack(fill="x")
+    active_strain = tk.Label(strain_row, text="Active strain (sticky): —", font=("Segoe UI", 11, "bold"), bg="#F5F7FA", fg="#1E6B52", anchor="w")
+    active_strain.pack(side="left", fill="x", expand=True)
+    change_strain_btn = ttk.Button(strain_row, text="Change Strain")
+    change_strain_btn.pack(side="right")
+
     last_saved = tk.Label(shell, text="No plant has been saved in this run.", font=("Segoe UI", 11, "bold"), bg="#E7F6EC", fg="#176B2C", anchor="w", padx=12, pady=8)
-    last_saved.pack(fill="x")
+    last_saved.pack(fill="x", pady=(6, 0))
+    pending_sync = tk.Label(shell, text="", font=("Segoe UI", 10, "bold"), bg="#F5F7FA", fg="#8A4B08", anchor="w")
+    pending_sync.pack(fill="x")
 
     alice_card = tk.Frame(shell, bg="#FFFFFF", highlightbackground="#CBD4DD", highlightthickness=1)
     alice_card.pack(fill="x", pady=8)
@@ -152,24 +172,18 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
 
     barcode_card = tk.Frame(shell, bg="#FFFFFF", highlightbackground="#CBD4DD", highlightthickness=1)
     barcode_card.pack(fill="x", pady=(0, 8))
-    tk.Label(
-        barcode_card,
-        text="PLANT OR CONTAINER BARCODE",
-        font=("Segoe UI", 9, "bold"),
-        bg="#FFFFFF",
-        fg="#5C6975",
-    ).pack(anchor="w", padx=12, pady=(8, 2))
-    barcode = tk.Entry(
-        barcode_card,
-        font=("Segoe UI", 18),
-        relief="solid",
-        bd=1,
-        name="barcode_input",
-    )
-    barcode.pack(fill="x", padx=12, ipady=8)
+    tk.Label(barcode_card, text="PLANT OR CONTAINER BARCODE", font=("Segoe UI", 9, "bold"), bg="#FFFFFF", fg="#5C6975").pack(anchor="w", padx=12, pady=(8, 2))
+    barcode_row = tk.Frame(barcode_card, bg="#FFFFFF")
+    barcode_row.pack(fill="x", padx=12)
+    barcode = tk.Entry(barcode_row, font=("Segoe UI", 18), relief="solid", bd=1, name="barcode_input")
+    barcode.pack(side="left", fill="x", expand=True, ipady=8)
+    auto_id_btn = ttk.Button(barcode_row, text="Use auto ID")
+    auto_id_btn.pack(side="left", padx=(6, 0))
+    test_scan_btn = ttk.Button(barcode_row, text="Test Scanner")
+    test_scan_btn.pack(side="left", padx=(6, 0))
     barcode_hint = tk.Label(
         barcode_card,
-        text="Scan or type the barcode, then press Enter.",
+        text="USB HID keyboard-wedge — keep focus here before scanning, or type and press Enter.",
         font=("Segoe UI", 9),
         bg="#FFFFFF",
         fg="#5C6975",
@@ -177,14 +191,26 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     )
     barcode_hint.pack(fill="x", padx=12, pady=(4, 8))
 
+    note_row = tk.Frame(shell, bg="#F5F7FA")
+    note_row.pack(fill="x", pady=(0, 6))
+    operator_note = tk.Entry(note_row, font=("Segoe UI", 11))
+    operator_note.insert(0, "")
+    operator_note.pack(side="left", fill="x", expand=True, ipady=4)
+    void_var = tk.StringVar(value="void: none")
+    void_box = ttk.Combobox(note_row, textvariable=void_var, values=["void: none", "void: mark void"], state="readonly", width=16)
+    void_box.pack(side="left", padx=(6, 0))
+
     controls = tk.Frame(shell, bg="#F5F7FA")
     controls.pack(fill="x")
     status_line = tk.Label(shell, text="Scale disconnected", font=("Segoe UI", 9), bg="#F5F7FA", fg="#5C6975", anchor="w")
     status_line.pack(fill="x", pady=(8, 0))
 
-    def show_result(result: dict[str, Any]) -> None:
+    def show_result(result: dict[str, Any], *, success_title: str = "Completed") -> None:
         if result.get("status") in {"failed", "blocked"}:
             messagebox.showwarning("Action not completed", result.get("message", "Action failed"), parent=root)
+        elif result.get("terminal", True) and result.get("status") == "completed" and success_title:
+            # Soft path: most successes use status_line; keep modal only when asked.
+            pass
 
     def new_run() -> None:
         run_id = simpledialog.askstring("New Run", "Harvest-run ID", parent=root)
@@ -216,6 +242,104 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         path = filedialog.askopenfilename(title="Load Run", filetypes=[("Session manifest", "session_manifest.json"), ("JSON", "*.json")], parent=root)
         if path:
             show_result(runtime.dispatch("run.load", {"selection": path}))
+
+    def change_strain() -> None:
+        if not runtime.controller.loaded_run:
+            messagebox.showinfo("No run", "Start or resume a run before changing strain.", parent=root)
+            return
+        current = runtime.snapshot().get("cultivar") or ""
+        name = simpledialog.askstring(
+            "Change Active Strain",
+            "Active strain / cultivar (sticky until changed).\nNot Metrc compliance.",
+            initialvalue=str(current),
+            parent=root,
+        )
+        if not name or not name.strip():
+            return
+        result = runtime.dispatch("run.set_active_cultivar", {"name": name.strip()})
+        if result.get("status") != "completed":
+            show_result(result)
+        else:
+            status_line.config(text=result.get("message") or "Active strain updated.")
+
+    def station_settings() -> None:
+        win = tk.Toplevel(root)
+        win.title("Station Settings")
+        win.geometry("480x220")
+        body = ttk.Frame(win, padding=12)
+        body.pack(fill="both", expand=True)
+        required = bool(runtime.controller.settings.barcode_required_for_capture)
+        barcode_policy = tk.StringVar(value="required" if required else "optional")
+        display = tk.StringVar(value=str(getattr(runtime.controller.settings, "display_unit", "g") or "g"))
+        ttk.Label(body, text="Plant barcode policy").grid(row=0, column=0, sticky="w", pady=6)
+        ttk.Combobox(body, textvariable=barcode_policy, values=["required", "optional"], state="readonly").grid(row=0, column=1, sticky="ew")
+        ttk.Label(body, text="Display unit (storage stays g)").grid(row=1, column=0, sticky="w", pady=6)
+        ttk.Combobox(body, textvariable=display, values=["g", "kg", "lb"], state="readonly").grid(row=1, column=1, sticky="ew")
+        ttk.Label(body, text="HID keyboard-wedge only. Display lb/kg is not legal-for-trade.").grid(row=2, column=0, columnspan=2, sticky="w", pady=8)
+
+        def save() -> None:
+            runtime.dispatch("settings.barcode_policy.set", {"barcode_required_for_capture": barcode_policy.get() == "required"})
+            result = runtime.dispatch("settings.display_unit.set", {"display_unit": display.get()})
+            if result.get("status") != "completed":
+                show_result(result)
+            else:
+                win.destroy()
+
+        ttk.Button(body, text="Save", command=save).grid(row=3, column=0, pady=10)
+        ttk.Button(body, text="Cancel", command=win.destroy).grid(row=3, column=1, pady=10)
+        body.grid_columnconfigure(1, weight=1)
+
+    def test_scanner() -> None:
+        win = tk.Toplevel(root)
+        win.title("Test Barcode Scanner")
+        win.geometry("520x220")
+        tip = tk.Label(
+            win,
+            text="Scan with a USB HID keyboard-wedge (or type and press Enter). BLE/SPP/camera not used.",
+            wraplength=480,
+            justify="left",
+        )
+        tip.pack(padx=12, pady=10, fill="x")
+        field = tk.Entry(win, font=("Segoe UI", 16))
+        field.pack(fill="x", padx=12, ipady=6)
+        status_lbl = tk.Label(win, text="No scan yet. Keep focus in this field.")
+        status_lbl.pack(padx=12, pady=6)
+
+        def accepted(_event=None) -> None:
+            value = field.get().strip()
+            if not value:
+                status_lbl.config(text="Empty scan blocked. Try again.")
+                return
+            receipt = {
+                "receipt_type": "hid_scanner_test",
+                "status": "pass",
+                "barcode_sample": value,
+                "transport": "hid_keyboard_wedge",
+                "ui": "tk",
+                "non_claims": ["HID wedge only — not BLE/SPP"],
+            }
+            out = Path(runtime.controller.settings.data_root) / "scanner_test_receipts"
+            out.mkdir(parents=True, exist_ok=True)
+            path = out / f"scanner_test_{value[:32].replace('/', '_')}.json"
+            path.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+            messagebox.showinfo("Scanner OK", f"Scanner OK — received:\n{value}", parent=win)
+            win.destroy()
+
+        field.bind("<Return>", accepted)
+        field.focus_set()
+
+    def use_auto_id() -> None:
+        if runtime.controller.settings.barcode_required_for_capture:
+            messagebox.showinfo(
+                "Barcode required",
+                "This station requires a scanned or typed barcode. Open Settings → Station Settings to allow auto ID.",
+                parent=root,
+            )
+            return
+        value = runtime.next_auto_plant_id()
+        barcode.delete(0, "end")
+        barcode.insert(0, value)
+        submit()
 
     def scale_setup() -> None:
         win = tk.Toplevel(root)
@@ -267,7 +391,10 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
 
     def zero() -> None:
         try:
-            show_result(runtime.zero_scale())
+            result = runtime.zero_scale()
+            status_line.config(text=result.get("message") or "Scale zeroed.")
+            if result.get("status") in {"failed", "blocked"}:
+                show_result(result)
         except Exception as exc:
             messagebox.showwarning("Zero failed", str(exc), parent=root)
 
@@ -282,11 +409,13 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
             if choice:
                 result = runtime.capture_container_tare(container)
             else:
-                value = simpledialog.askfloat("Known Tare", "Tare in grams", minvalue=0.0, maxvalue=10000.0, parent=root)
+                du = unit_label(runtime.snapshot().get("display_unit") or "g")
+                value = simpledialog.askfloat("Known Tare", f"Tare in {du} (stored as grams)", minvalue=0.0, parent=root)
                 if value is None:
                     return
-                result = runtime.set_known_tare(container, value)
+                result = runtime.set_known_tare(container, display_to_grams(value, du))
             show_result(result)
+            status_line.config(text=result.get("message") or "Tare saved.")
         except Exception as exc:
             messagebox.showwarning("Tare failed", str(exc), parent=root)
 
@@ -294,19 +423,19 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         win = tk.Toplevel(root)
         win.title("Guided Calibration")
         win.geometry("820x620")
-        reference = tk.DoubleVar(value=2000.0)
+        du = unit_label(runtime.snapshot().get("display_unit") or "g")
+        default_g = float(runtime.controller.settings.default_reference_weight_g)
+        reference = tk.DoubleVar(value=display_to_grams(default_g, "g") if du == "g" else (default_g / 1000.0 if du == "kg" else default_g / 453.59237))
+        # Show default in display unit
+        from .units import grams_to_display
+
+        reference.set(grams_to_display(default_g, du))
         steps = (
-            "Before you start: Connect the scale, start/resume a run, empty the pan, enter a verified reference mass. "
-            "Not legal-for-trade.\n"
-            "1 Start — begin maintenance calibration; do not scan plants mid-flow.\n"
-            "2 Zero samples — pan empty; wait for live readings; capture raw zero samples.\n"
-            "3 Loaded samples — place the reference mass; reference (g) must match; capture raw loaded samples.\n"
-            "4 Test — keep/re-place reference mass; review proposed factor and error %.\n"
-            "5 Accept — second confirmation writes SET_CAL; live weight should near the reference in grams.\n"
-            "After — empty pan → ZERO → optional SET TARE → normal scanning."
+            f"Connect the scale. Enter verified reference mass in {du} (converted to grams for the device).\n"
+            "Not legal-for-trade. 1 Start → 2 Zero samples → 3 Loaded samples → 4 Test → 5 Accept → ZERO."
         )
         tk.Label(win, text=steps, font=("Segoe UI", 10), justify="left", wraplength=780, anchor="w").pack(padx=10, pady=8, fill="x")
-        tk.Label(win, text="Maintenance workflow - not legal-for-trade certification.", font=("Segoe UI", 11, "bold"), wraplength=760, fg="#8A4B08").pack(padx=10, pady=4)
+        tk.Label(win, text=f"Reference mass ({du})", font=("Segoe UI", 11, "bold")).pack(padx=10, anchor="w")
         tk.Entry(win, textvariable=reference, font=("Segoe UI", 12)).pack(fill="x", padx=10)
         output = tk.Text(win, height=18, width=92, font=("Consolas", 9))
         output.pack(fill="both", expand=True, padx=10, pady=10)
@@ -319,12 +448,16 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
             except Exception as exc:
                 messagebox.showwarning("Calibration step blocked", str(exc), parent=win)
 
+        def loaded() -> dict[str, Any]:
+            grams = display_to_grams(float(reference.get()), du)
+            return runtime.add_calibration_loaded_samples(grams)
+
         row = tk.Frame(win)
         row.pack(fill="x", padx=8, pady=6)
         for text, fn in [
             ("1 Start", runtime.start_calibration),
             ("2 Zero samples", runtime.add_calibration_zero_samples),
-            ("3 Loaded samples", lambda: runtime.add_calibration_loaded_samples(reference.get())),
+            ("3 Loaded samples", loaded),
             ("4 Test", runtime.test_calibration),
             ("5 Accept", runtime.accept_calibration),
             ("Cancel", runtime.cancel_calibration),
@@ -341,16 +474,86 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     def submit(event=None) -> None:
         value = barcode.get().strip()
         if not value:
+            status_line.config(text="Empty barcode blocked — scan or type a plant ID, then press Enter.")
             return
         result = runtime.submit_barcode(value)
-        show_result(result)
-        if result.get("status") not in {"failed", "blocked"}:
+        if result.get("status") in {"failed", "blocked"}:
+            show_result(result)
+        else:
             barcode.delete(0, "end")
+            status_line.config(text=f"Barcode accepted: {value} — place plant and wait for stable weight.")
+
+    def confirm_record() -> None:
+        note = operator_note.get().strip() or None
+        void_status = "void" if void_var.get().endswith("void") and "mark" in void_var.get() else "none"
+        result = runtime.dispatch("capture.confirm", {"operator_note": note, "void_status": void_status})
+        if result.get("status") == "completed":
+            feedback = (result.get("data") or {}).get("feedback")
+            msg = result.get("message") or "Record saved."
+            status_line.config(text=msg)
+            operator_note.delete(0, "end")
+            void_var.set("void: none")
+            barcode.delete(0, "end")
+            barcode.focus_set()
+            if feedback == "warning":
+                messagebox.showwarning("Saved with duplicate warning", msg, parent=root)
+        else:
+            show_result(result)
+
+    def cancel_item() -> None:
+        result = runtime.dispatch("capture.cancel")
+        barcode.delete(0, "end")
+        status_line.config(text=result.get("message") or "Cancelled — scan again when ready.")
+        barcode.focus_set()
+        if result.get("status") in {"failed", "blocked"}:
+            show_result(result)
+
+    def rebuild_csv() -> None:
+        result = runtime.dispatch("spreadsheet.rebuild")
+        status_line.config(text=result.get("message") or "CSV rebuild finished.")
+        if result.get("status") in {"failed", "blocked"}:
+            show_result(result)
+
+    def reconcile_export() -> None:
+        result = runtime.dispatch("report.reconcile")
+        status_line.config(text=result.get("message") or "Reconcile finished.")
+        if result.get("status") != "completed":
+            show_result(result)
+        else:
+            messagebox.showinfo("Reconcile pass", result.get("message") or "pass", parent=root)
+
+    def recover() -> None:
+        result = runtime.dispatch("state.recover")
+        if result.get("status") == "completed":
+            receipt = (result.get("data") or {}).get("recovery_receipt") or {}
+            msg = result.get("message") or "Recovered."
+            if receipt.get("spreadsheet_rebuild"):
+                msg += f"\nCSV rebuilt: {receipt['spreadsheet_rebuild'].get('rebuilt_rows')} rows."
+            messagebox.showinfo("Recovered", msg, parent=root)
+        else:
+            rebuild = runtime.dispatch("spreadsheet.rebuild")
+            if rebuild.get("status") == "completed":
+                messagebox.showinfo("CSV rebuilt", (rebuild.get("message") or "CSV rebuilt from JSONL.") + "\n\nResume and continue scanning.", parent=root)
+            else:
+                show_result(result)
 
     def export_report() -> None:
         path = filedialog.askdirectory(title="Export Report", initialdir=str(runtime.paths.exports), parent=root)
-        if path:
-            show_result(runtime.dispatch("report.export", {"destination": path}))
+        if not path:
+            return
+        result = runtime.dispatch("report.export", {"destination": path})
+        if result.get("status") == "completed":
+            paths = (result.get("data") or {}).get("paths") or []
+            listing = "\n".join(paths) if paths else path
+            reconcile = runtime.dispatch("report.reconcile")
+            gate = ((reconcile.get("data") or {}).get("reconcile") or {}).get("status", "n/a")
+            messagebox.showinfo(
+                "Export completed",
+                f"Handoff files written:\n\n{listing}\n\nReconcile gate: {gate}\nSession JSONL remains authoritative.",
+                parent=root,
+            )
+        else:
+            show_result(result)
 
     def finish() -> None:
         if messagebox.askyesno("Finish Run", "Finish the current run? Committed records remain immutable.", parent=root):
@@ -361,8 +564,8 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         "connect_scale": scale_setup,
         "zero_scale": zero,
         "set_tare": tare,
-        "confirm_record": lambda: show_result(runtime.dispatch("capture.confirm")),
-        "cancel_item": lambda: show_result(runtime.dispatch("capture.cancel")),
+        "confirm_record": confirm_record,
+        "cancel_item": cancel_item,
         "finish_run": finish,
     }
     style_names = {"primary": "Primary.TButton", "danger": "Danger.TButton", "default": "Action.TButton"}
@@ -374,13 +577,20 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     for col in range(4):
         controls.grid_columnconfigure(col, weight=1)
 
+    change_strain_btn.config(command=change_strain)
+    auto_id_btn.config(command=use_auto_id)
+    test_scan_btn.config(command=test_scanner)
+
     menubar = tk.Menu(root)
     run_menu = tk.Menu(menubar, tearoff=0)
     run_menu.add_command(label="New Run", command=new_run)
     run_menu.add_command(label="Resume Last Run", command=lambda: show_result(runtime.dispatch("run.resume")))
     run_menu.add_command(label="Load Run...", command=load_run)
     run_menu.add_separator()
-    run_menu.add_command(label="Recover Run", command=lambda: show_result(runtime.dispatch("state.recover")))
+    run_menu.add_command(label="Change Active Strain...", command=change_strain)
+    run_menu.add_command(label="Recover Run", command=recover)
+    run_menu.add_command(label="Rebuild CSV from JSONL", command=rebuild_csv)
+    run_menu.add_command(label="Reconcile Export ↔ JSONL", command=reconcile_export)
     run_menu.add_command(label="Export Report...", command=export_report)
     run_menu.add_command(label="Finish Run", command=finish)
     menubar.add_cascade(label="Run", menu=run_menu)
@@ -389,9 +599,13 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     scale_menu.add_command(label="Zero Scale", command=zero)
     scale_menu.add_command(label="Container Tare...", command=tare)
     scale_menu.add_command(label="Guided Calibration...", command=calibrate)
+    scale_menu.add_command(label="Test Scanner...", command=test_scanner)
     scale_menu.add_separator()
     scale_menu.add_command(label="Diagnostics", command=diagnostics)
     menubar.add_cascade(label="Scale", menu=scale_menu)
+    settings_menu = tk.Menu(menubar, tearoff=0)
+    settings_menu.add_command(label="Station Settings...", command=station_settings)
+    menubar.add_cascade(label="Settings", menu=settings_menu)
     root.config(menu=menubar)
 
     barcode.bind("<Return>", submit)
@@ -401,27 +615,47 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     root.bind("<Control-k>", lambda _e: scale_setup())
     root.bind("<Control-z>", lambda _e: zero())
     root.bind("<Control-t>", lambda _e: tare())
-    root.bind("<Escape>", lambda _e: show_result(runtime.dispatch("capture.cancel")))
+    root.bind("<Control-Return>", lambda _e: confirm_record())
+    root.bind("<Escape>", lambda _e: cancel_item())
 
     capture_states = {"BARCODE_CAPTURED", "WAITING_FOR_LOAD", "WEIGHING", "WAITING_FOR_STABLE_WEIGHT", "WEIGHT_STABLE", "MANUAL_CONFIRM"}
 
     def refresh() -> None:
         s = runtime.snapshot()
         d = s["device"]
+        du = unit_label(s.get("display_unit") or "g")
         status.config(text=s["operator_state"])
-        weight.config(text=f"{s['weight_g']:,.3f} g")
+        weight.config(text=format_weight(float(s["weight_g"]), du))
         if s.get("weight_uncalibrated"):
             weight_hint.config(text="Uncalibrated raw — open Scale → Guided Calibration with a verified reference mass.")
         else:
             weight_hint.config(text="")
         metric_values["RUN"].config(text=s["run_id"] or "-")
         metric_values["CULTIVAR"].config(text=s["cultivar"] or "-")
+        metric_values["OPERATOR"].config(text=s.get("operator_id") or "-")
         metric_values["CONTAINER"].config(text=s["container_id"] or "-")
-        metric_values["GROSS"].config(text=f"{s['weight_g']:,.3f} g")
-        metric_values["TARE"].config(text=f"{s['tare_g']:,.3f} g")
-        metric_values["NET"].config(text=f"{s['net_g']:,.3f} g")
+        metric_values["GROSS"].config(text=format_weight(float(s["weight_g"]), du))
+        metric_values["TARE"].config(text=format_weight(float(s["tare_g"]), du))
+        metric_values["NET"].config(text=format_weight(float(s["net_g"]), du))
+        metric_values["CAL ID"].config(text=s.get("calibration_id") or "-")
+        active_strain.config(text=f"Active strain (sticky): {s['cultivar'] or '—'}")
         record = s["last_saved"]
-        last_saved.config(text=f"Saved safely: {record['record_id']} - {record['net_g']:.3f} g" if record else "No plant has been saved in this run.")
+        if record:
+            cultivar = record.get("cultivar_normalized_name") or s.get("cultivar") or ""
+            dup = record.get("duplicate_status")
+            dup_note = " • duplicate barcode warning" if dup and dup != "none" else ""
+            last_saved.config(
+                text=(
+                    f"Saved: {record.get('barcode_raw', record.get('record_id'))} — "
+                    f"{format_weight(float(record['net_g']), du)} net ({cultivar}). Ready for next scan.{dup_note}"
+                )
+            )
+        else:
+            last_saved.config(text="No plant has been saved in this run yet. Scan, weigh, then Confirm & Record.")
+        pending = int(s.get("pending_sync_count") or 0)
+        pending_sync.config(
+            text=f"CSV/XLSX sync pending for {pending} record(s). Run → Rebuild CSV from JSONL." if pending else ""
+        )
         alice.config(text=s["alice_message"])
         mode = d.get("mode") or "none"
         if mode == "serial_simulator":
@@ -431,19 +665,27 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         else:
             mode_badge.config(text="NO SCALE CONNECTED", bg="#EEF2F6", fg="#5C6975")
         if mode == "serial_simulator":
-            footer_text = "Simulator connected • live readings active • physical scale not in use"
+            footer_text = f"Simulator • display {du} • storage g • physical scale not in use"
         elif d.get("connected"):
-            footer_text = f"Scale connected on {d.get('port') or 'selected port'} • readings {'active' if s['worker_running'] else 'stopped'} • physical testing evidence pending"
+            footer_text = f"Scale connected on {d.get('port') or 'selected port'} • display {du} • storage g"
         else:
-            footer_text = "Scale disconnected • open Scale Setup to connect"
-        status_line.config(text=footer_text)
+            footer_text = f"Scale disconnected • display {du} • open Scale Setup"
+        if not status_line.cget("text").startswith("Barcode accepted") and not status_line.cget("text").startswith("Saved"):
+            status_line.config(text=footer_text)
         state = s["state"]
         ready = state == "WAITING_FOR_BARCODE"
         barcode.config(state="normal" if ready else "disabled")
-        if ready and root.focus_get() is not barcode:
-            barcode.focus_set()
+        auto_id_btn.state(["!disabled"] if ready and not bool(s.get("barcode_required_for_capture", True)) else ["disabled"])
+        focused = root.focus_get()
+        if ready and focused not in {barcode, operator_note} and not isinstance(focused, (tk.Toplevel,)):
+            try:
+                if focused is None or str(focused).endswith("!barcode_input") is False:
+                    if focused != barcode:
+                        barcode.focus_set()
+            except tk.TclError:
+                barcode.focus_set()
         connected = bool(d.get("connected"))
-        buttons["ZERO"].state(["!disabled"] if connected and state in {"WAITING_FOR_BARCODE", "DEVICE_READY"} else ["disabled"])
+        buttons["ZERO"].state(["!disabled"] if connected and state not in capture_states else ["disabled"])
         buttons["SET TARE"].state(["!disabled"] if connected and state in {"WAITING_FOR_BARCODE", "DEVICE_READY"} else ["disabled"])
         buttons["CONFIRM & RECORD"].state(["!disabled"] if state == "MANUAL_CONFIRM" else ["disabled"])
         buttons["CANCEL"].state(["!disabled"] if state in capture_states else ["disabled"])

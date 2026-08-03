@@ -1,0 +1,31 @@
+{
+  "season_id": "S03",
+  "slug": "tk_hid_scanner",
+  "milestone": "M03",
+  "title": "Tk HID scanner",
+  "status": "complete",
+  "closed_at": "2026-08-03T23:27:04Z",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "artifacts": [
+    "context\\episodes\\SR2_S03E01_tk_hid_scanner.json",
+    "context\\episodes\\SR2_S03E02_tk_hid_scanner.json",
+    "context\\episodes\\SR2_S03E03_tk_hid_scanner.json",
+    "context\\episodes\\SR2_S03E04_tk_hid_scanner.json",
+    "context\\episodes\\SR2_S03E05_tk_hid_scanner.json",
+    "context\\episodes\\SR2_S03E06_tk_hid_scanner.json",
+    "context\\episodes\\SR2_S03E07_tk_hid_scanner.json",
+    "context\\episodes\\SR2_S03E08_tk_hid_scanner.json",
+    "context\\episodes\\SR2_S03E09_tk_hid_scanner.json"
+  ],
+  "notes": "Tk HID scanner + barcode policy + auto ID",
+  "next_season": "S04",
+  "runtime_claimed": false,
+  "github_push_point": true,
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}

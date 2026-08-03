@@ -1,0 +1,32 @@
+{
+  "season_id": "S01",
+  "slug": "tk_gap_audit",
+  "milestone": "M01",
+  "title": "Tk/Linux gap audit",
+  "status": "complete",
+  "closed_at": "2026-08-03T23:27:03Z",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "artifacts": [
+    "docs/BBWS_SR2_TK_GAP_MATRIX.md",
+    "context\\episodes\\SR2_S01E01_tk_gap_audit.json",
+    "context\\episodes\\SR2_S01E02_tk_gap_audit.json",
+    "context\\episodes\\SR2_S01E03_tk_gap_audit.json",
+    "context\\episodes\\SR2_S01E04_tk_gap_audit.json",
+    "context\\episodes\\SR2_S01E05_tk_gap_audit.json",
+    "context\\episodes\\SR2_S01E06_tk_gap_audit.json",
+    "context\\episodes\\SR2_S01E07_tk_gap_audit.json",
+    "context\\episodes\\SR2_S01E08_tk_gap_audit.json",
+    "context\\episodes\\SR2_S01E09_tk_gap_audit.json"
+  ],
+  "notes": "Gap matrix frozen vs PySide SR1",
+  "next_season": "S02",
+  "runtime_claimed": false,
+  "github_push_point": true,
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}
