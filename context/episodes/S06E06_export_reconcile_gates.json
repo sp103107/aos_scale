@@ -1,0 +1,9 @@
+{
+  "episode_id": "S06E06",
+  "season_id": "S06",
+  "slug": "export_reconcile_gates",
+  "status": "complete",
+  "updated_at": "2026-08-03T20:45:05Z",
+  "runtime_claimed": false,
+  "notes": "BBWS SR1 S06E06 executed in harvest-operator series pass"
+}

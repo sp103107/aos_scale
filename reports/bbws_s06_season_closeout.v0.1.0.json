@@ -1,0 +1,32 @@
+{
+  "season_id": "S06",
+  "slug": "export_reconcile_gates",
+  "milestone": "M06",
+  "title": "Export \u2194 JSONL reconcile gates",
+  "status": "complete",
+  "closed_at": "2026-08-03T20:45:05Z",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "baseline_freeze": "v0.1.9-rc2",
+  "artifacts": [
+    "context\\episodes\\S06E01_export_reconcile_gates.json",
+    "context\\episodes\\S06E02_export_reconcile_gates.json",
+    "context\\episodes\\S06E03_export_reconcile_gates.json",
+    "context\\episodes\\S06E04_export_reconcile_gates.json",
+    "context\\episodes\\S06E05_export_reconcile_gates.json",
+    "context\\episodes\\S06E06_export_reconcile_gates.json",
+    "context\\episodes\\S06E07_export_reconcile_gates.json",
+    "context\\episodes\\S06E08_export_reconcile_gates.json",
+    "context\\episodes\\S06E09_export_reconcile_gates.json"
+  ],
+  "notes": "Export\u2194JSONL reconcile gates (count, cultivar totals, SHA)",
+  "next_season": "S07",
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "github_push_point": true
+}
