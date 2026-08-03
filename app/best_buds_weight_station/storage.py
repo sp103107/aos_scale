@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from .models import CaptureCommand, CommitReceipt, RunContext, now_rfc3339, qgram
-from .spreadsheet import append_csv, append_xlsx
+from .spreadsheet import append_csv, append_xlsx, rebuild_spreadsheets_from_jsonl
 
 
 def canonical(obj: Any) -> str:
@@ -346,6 +346,7 @@ class SessionStore:
             "capture_mode": cmd.capture_mode,
             "duplicate_status": duplicate,
             "operator_note": cmd.operator_note,
+            "void_status": getattr(cmd, "void_status", None) or "none",
             "source": cmd.source,
             "record_status": "accepted",
             "previous_record_hash": self.previous_hash,
@@ -539,6 +540,15 @@ class SessionStore:
                 checkpoint_rebuilt = 1
             self._write_recent_pointer(last)
         receipts_rebuilt = self._synthesize_missing_receipts(rows)
+        spreadsheet_rebuild = rebuild_spreadsheets_from_jsonl(self.session_dir, rows)
+        pending_cleared = 0
+        if self.pending_dir.exists():
+            for pending in list(self.pending_dir.glob("*.json")):
+                try:
+                    pending.unlink()
+                    pending_cleared += 1
+                except OSError:
+                    pass
         receipt = {
             "receipt_id": f"recovery-{uuid.uuid4()}",
             "status": "recovered",
@@ -548,6 +558,8 @@ class SessionStore:
             "individual_records_rebuilt": rebuilt_records,
             "checkpoint_rebuilt_count": checkpoint_rebuilt,
             "commit_receipts_rebuilt": receipts_rebuilt,
+            "spreadsheet_rebuild": spreadsheet_rebuild,
+            "pending_sync_cleared": pending_cleared,
             "temporary_files_quarantined": quarantined_temps,
             "jsonl_tail_repair": tail,
             "last_committed_record_id": rows[-1]["record_id"] if rows else None,
@@ -586,3 +598,65 @@ class SessionStore:
             handle.flush()
             os.fsync(handle.fileno())
         return value
+
+    def pending_sync_count(self) -> int:
+        if not self.pending_dir.exists():
+            return 0
+        return sum(1 for _ in self.pending_dir.glob("*.json"))
+
+    def rebuild_spreadsheets(self) -> dict[str, Any]:
+        rows = parse_jsonl(self.records_path)
+        return rebuild_spreadsheets_from_jsonl(self.session_dir, rows)
+
+    def set_active_cultivar(self, *, cultivar_id: str, name: str) -> dict[str, Any]:
+        """Sticky active strain for subsequent captures until changed again."""
+        cultivar_id = cultivar_id.strip()
+        name = " ".join(name.split())
+        if not cultivar_id or not name:
+            raise ValueError("cultivar id and name are required")
+        self.context.cultivar_id = cultivar_id
+        self.context.cultivar_raw_name = name
+        self.context.cultivar_normalized_name = name
+        manifest = json.load(self.manifest_path.open(encoding="utf-8"))
+        context = dict(manifest.get("context") or {})
+        context.update(
+            {
+                "cultivar_id": cultivar_id,
+                "cultivar_raw_name": name,
+                "cultivar_normalized_name": name,
+            }
+        )
+        manifest["context"] = context
+        run_def = dict(manifest.get("run_definition") or {})
+        roster = list(run_def.get("cultivars") or [])
+        if not any(str(item.get("cultivar_id")) == cultivar_id for item in roster):
+            roster.append({"cultivar_id": cultivar_id, "name": name})
+        else:
+            roster = [
+                {"cultivar_id": cultivar_id, "name": name}
+                if str(item.get("cultivar_id")) == cultivar_id
+                else item
+                for item in roster
+            ]
+        # Keep active cultivar first so legacy readers that take [0] stay aligned.
+        roster = [item for item in roster if str(item.get("cultivar_id")) == cultivar_id] + [
+            item for item in roster if str(item.get("cultivar_id")) != cultivar_id
+        ]
+        run_def["cultivars"] = roster
+        manifest["run_definition"] = run_def
+        atomic_json(self.manifest_path, manifest)
+        event = self.append_event(
+            {
+                "event_type": "active_cultivar_changed",
+                "session_id": self.context.session_id,
+                "run_id": self.context.run_id,
+                "cultivar_id": cultivar_id,
+                "cultivar_raw_name": name,
+                "cultivar_normalized_name": name,
+            }
+        )
+        return {
+            "cultivar_id": cultivar_id,
+            "cultivar_raw_name": name,
+            "event_id": event["event_id"],
+        }
