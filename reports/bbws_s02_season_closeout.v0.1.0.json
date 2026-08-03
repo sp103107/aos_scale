@@ -1,0 +1,32 @@
+{
+  "season_id": "S02",
+  "slug": "hid_scanner",
+  "milestone": "M02",
+  "title": "HID scanner integration",
+  "status": "complete",
+  "closed_at": "2026-08-03T20:45:04Z",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "baseline_freeze": "v0.1.9-rc2",
+  "artifacts": [
+    "context\\episodes\\S02E01_hid_scanner.json",
+    "context\\episodes\\S02E02_hid_scanner.json",
+    "context\\episodes\\S02E03_hid_scanner.json",
+    "context\\episodes\\S02E04_hid_scanner.json",
+    "context\\episodes\\S02E05_hid_scanner.json",
+    "context\\episodes\\S02E06_hid_scanner.json",
+    "context\\episodes\\S02E07_hid_scanner.json",
+    "context\\episodes\\S02E08_hid_scanner.json",
+    "context\\episodes\\S02E09_hid_scanner.json"
+  ],
+  "notes": "HID scanner focus ownership, Test Scanner receipts, barcode policy settings UI",
+  "next_season": "S03",
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "github_push_point": true
+}
