@@ -1,0 +1,29 @@
+{
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "status": "complete",
+  "shape": "10 seasons × 10 episodes = 100",
+  "baseline_freeze": "v0.1.9-rc2",
+  "milestones": ["M01", "M02", "M03", "M04", "M05", "M06", "M07", "M08", "M09", "M10"],
+  "season_closeouts": [
+    "reports/bbws_s01_season_closeout.v0.1.0.json",
+    "reports/bbws_s02_season_closeout.v0.1.0.json",
+    "reports/bbws_s03_season_closeout.v0.1.0.json",
+    "reports/bbws_s04_season_closeout.v0.1.0.json",
+    "reports/bbws_s05_season_closeout.v0.1.0.json",
+    "reports/bbws_s06_season_closeout.v0.1.0.json",
+    "reports/bbws_s07_season_closeout.v0.1.0.json",
+    "reports/bbws_s08_season_closeout.v0.1.0.json",
+    "reports/bbws_s09_season_closeout.v0.1.0.json",
+    "reports/bbws_s10_season_closeout.v0.1.0.json"
+  ],
+  "tag_plan": "bbws-sr1-complete",
+  "version_policy": "Remain on product 0.1.9; series tag bbws-sr1-complete (no VERSION bump required)",
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX ≠ Metrc compliance",
+    "HID wedge ≠ BLE/SPP barcode protocol",
+    "Season push ≠ release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}

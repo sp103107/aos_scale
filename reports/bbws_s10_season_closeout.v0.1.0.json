@@ -1,0 +1,36 @@
+{
+  "season_id": "S10",
+  "slug": "package_smoke_closeout",
+  "milestone": "M10",
+  "title": "Windows package smoke + series closeout",
+  "status": "complete",
+  "closed_at": "2026-08-03T20:45:06Z",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "baseline_freeze": "v0.1.9-rc2",
+  "artifacts": [
+    "docs/PACKAGE_SMOKE_CHECKLIST.md",
+    "docs/BBWS_SR1_ARTIFACTS.md",
+    "context\\episodes\\S10E01_package_smoke_closeout.json",
+    "context\\episodes\\S10E02_package_smoke_closeout.json",
+    "context\\episodes\\S10E03_package_smoke_closeout.json",
+    "context\\episodes\\S10E04_package_smoke_closeout.json",
+    "context\\episodes\\S10E05_package_smoke_closeout.json",
+    "context\\episodes\\S10E06_package_smoke_closeout.json",
+    "context\\episodes\\S10E07_package_smoke_closeout.json",
+    "context\\episodes\\S10E08_package_smoke_closeout.json",
+    "context\\episodes\\S10E09_package_smoke_closeout.json"
+  ],
+  "notes": "Package smoke checklist + series closeout",
+  "next_season": null,
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "github_push_point": true,
+  "series_status": "complete",
+  "series_tag_plan": "bbws-sr1-complete"
+}
