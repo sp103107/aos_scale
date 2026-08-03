@@ -32,6 +32,7 @@ from PySide6.QtWidgets import (
 
 from .operator_runtime import OperatorRuntime
 from .operator_surface import ROUTINE_ACTION_LAYOUT
+from .units import display_to_grams, format_weight, grams_to_display, unit_label
 from .version import __version__
 
 
@@ -231,9 +232,12 @@ class TareDialog(QDialog):
         hint.setWordWrap(True)
         form.addRow(hint)
         self.container = QLineEdit("DEFAULT")
-        self.known = QDoubleSpinBox(); self.known.setRange(0.0, 10000.0); self.known.setDecimals(3)
+        self._display_unit = unit_label(runtime.snapshot().get("display_unit") or "g")
+        self.known = QDoubleSpinBox()
+        self.known.setRange(0.0, 100000.0)
+        self.known.setDecimals(4 if self._display_unit != "g" else 3)
         form.addRow("Container ID", self.container)
-        form.addRow("Known tare (g)", self.known)
+        form.addRow(f"Known tare ({self._display_unit})", self.known)
         row = QHBoxLayout()
         entered = QPushButton("Save Known Tare"); entered.clicked.connect(self.save_known)
         captured = QPushButton("Capture Empty Container from Live Scale"); captured.clicked.connect(self.capture_live)
@@ -247,7 +251,8 @@ class TareDialog(QDialog):
         if result.get("status") == "completed": self.accept()
 
     def save_known(self) -> None:
-        self.show_result(self.runtime.set_known_tare(self.container.text().strip(), self.known.value()))
+        grams = display_to_grams(float(self.known.value()), self._display_unit)
+        self.show_result(self.runtime.set_known_tare(self.container.text().strip(), grams))
 
     def capture_live(self) -> None:
         try: self.show_result(self.runtime.capture_container_tare(self.container.text().strip()))
@@ -339,7 +344,7 @@ class ChangeStrainDialog(QDialog):
 
 
 class StationSettingsDialog(QDialog):
-    """Light station settings for barcode policy (HID path)."""
+    """Light station settings for barcode policy and display unit."""
 
     def __init__(self, runtime: OperatorRuntime, parent: QWidget | None = None):
         super().__init__(parent)
@@ -351,8 +356,14 @@ class StationSettingsDialog(QDialog):
         required = bool(runtime.controller.settings.barcode_required_for_capture)
         self.require_barcode.setCurrentIndex(0 if required else 1)
         form.addRow("Plant barcode policy", self.require_barcode)
-        hint = QLabel("Scanners: USB HID keyboard-wedge only this series.")
+        self.display_unit = QComboBox()
+        self.display_unit.addItems(["g", "kg", "lb"])
+        current = unit_label(getattr(runtime.controller.settings, "display_unit", "g") or "g")
+        self.display_unit.setCurrentText(current)
+        form.addRow("Display unit (storage stays g)", self.display_unit)
+        hint = QLabel("Scanners: USB HID only. Display lb/kg is not legal-for-trade; JSONL stays grams.")
         hint.setStyleSheet("color:#5C6975")
+        hint.setWordWrap(True)
         form.addRow(hint)
         buttons = QDialogButtonBox(QDialogButtonBox.Save | QDialogButtonBox.Cancel)
         buttons.accepted.connect(self.save)
@@ -365,10 +376,17 @@ class StationSettingsDialog(QDialog):
             "settings.barcode_policy.set",
             {"barcode_required_for_capture": required},
         )
-        if result.get("status") == "completed":
+        if result.get("status") not in {"completed"}:
+            _show_result(self, result)
+            return
+        unit_result = self.runtime.dispatch(
+            "settings.display_unit.set",
+            {"display_unit": self.display_unit.currentText()},
+        )
+        if unit_result.get("status") == "completed":
             self.accept()
         else:
-            _show_result(self, result)
+            _show_result(self, unit_result)
 
 
 class CalibrationDialog(QDialog):
@@ -413,9 +431,13 @@ class CalibrationDialog(QDialog):
 
         form = QFormLayout()
         default_ref = float(getattr(runtime.controller.settings, "default_reference_weight_g", 2000.0) or 2000.0)
-        self.reference = QDoubleSpinBox(); self.reference.setRange(1.0, 10000.0); self.reference.setDecimals(3); self.reference.setValue(default_ref)
+        self._display_unit = unit_label(runtime.snapshot().get("display_unit") or "g")
+        self.reference = QDoubleSpinBox()
+        self.reference.setRange(0.001, 100000.0)
+        self.reference.setDecimals(4 if self._display_unit != "g" else 3)
+        self.reference.setValue(grams_to_display(default_ref, self._display_unit))
         self.samples = QSpinBox(); self.samples.setRange(3, 32); self.samples.setValue(8)
-        form.addRow("Reference weight (g)", self.reference)
+        form.addRow(f"Reference weight ({self._display_unit})", self.reference)
         form.addRow("Live sample count", self.samples)
         layout.addLayout(form)
 
@@ -473,10 +495,10 @@ class CalibrationDialog(QDialog):
     def loaded_samples(self) -> None:
         self.set_step("loaded")
         try:
-            ref = float(self.reference.value())
-            self.runtime.controller.settings_store.update(default_reference_weight_g=ref)
+            ref_g = display_to_grams(float(self.reference.value()), self._display_unit)
+            self.runtime.controller.settings_store.update(default_reference_weight_g=ref_g)
             self.write(
-                self.runtime.add_calibration_loaded_samples(ref, self.samples.value()),
+                self.runtime.add_calibration_loaded_samples(ref_g, self.samples.value()),
                 next_step="test",
             )
         except Exception as exc:
@@ -724,8 +746,9 @@ class MainWindow(QMainWindow):
 
     def refresh(self) -> None:
         s = self.runtime.snapshot(); device = s["device"]
+        du = unit_label(s.get("display_unit") or "g")
         self.status.setText(s["operator_state"].title())
-        self.weight.setText(f"{s['weight_g']:,.3f} g")
+        self.weight.setText(format_weight(float(s["weight_g"]), du))
         if s.get("warn_on_uncalibrated_weight") and s.get("weight_uncalibrated"):
             self.weight_hint.setText(
                 "Uncalibrated — open Scale → Guided Calibration with a verified mass. "
@@ -737,9 +760,9 @@ class MainWindow(QMainWindow):
         self.fields["CULTIVAR"].setText(s["cultivar"] or "—")
         self.fields["OPERATOR"].setText(s.get("operator_id") or "—")
         self.fields["CONTAINER"].setText(s["container_id"] or "—")
-        self.fields["GROSS"].setText(f"{s['weight_g']:,.3f} g")
-        self.fields["TARE"].setText(f"{s['tare_g']:,.3f} g")
-        self.fields["NET"].setText(f"{s['net_g']:,.3f} g")
+        self.fields["GROSS"].setText(format_weight(float(s["weight_g"]), du))
+        self.fields["TARE"].setText(format_weight(float(s["tare_g"]), du))
+        self.fields["NET"].setText(format_weight(float(s["net_g"]), du))
         self.fields["CAL ID"].setText(s.get("calibration_id") or "—")
         self.active_strain_banner.setText(f"Active strain (sticky): {s['cultivar'] or '—'}")
         record = s["last_saved"]
@@ -753,7 +776,7 @@ class MainWindow(QMainWindow):
             cultivar = record.get("cultivar_normalized_name") or s.get("cultivar") or ""
             self.last_saved.setText(
                 f"Saved: {record.get('barcode_raw', record.get('record_id'))} — "
-                f"{float(record['net_g']):.3f} g net ({cultivar}). Ready for next scan.{dup_note}{csv_note}"
+                f"{format_weight(float(record['net_g']), du)} net ({cultivar}). Ready for next scan.{dup_note}{csv_note}"
             )
         else:
             self.last_saved.setText("No plant has been saved in this run yet. Scan a barcode, weigh, then Confirm & Record.")

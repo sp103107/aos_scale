@@ -15,6 +15,7 @@ class ActionType(str, Enum):
     RUN_FINISH = "run.finish"
     SETTINGS_DATA_LOCATION_SET = "settings.data_location.set"
     SETTINGS_CAPTURE_MODE_SET = "settings.capture_mode.set"
+    SETTINGS_DISPLAY_UNIT_SET = "settings.display_unit.set"
     DEVICE_DISCOVER = "device.discover"
     DEVICE_CONNECT = "device.connect"
     DEVICE_DISCONNECT = "device.disconnect"

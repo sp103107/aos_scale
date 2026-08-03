@@ -1,0 +1,31 @@
+{
+  "season_id": "S08",
+  "slug": "display_unit_uis",
+  "milestone": "M08",
+  "title": "Display unit UIs",
+  "status": "complete",
+  "closed_at": "2026-08-03T23:27:29Z",
+  "series_id": "BBWS_SR2_tk_linux_display_units",
+  "artifacts": [
+    "context\\episodes\\SR2_S08E01_display_unit_uis.json",
+    "context\\episodes\\SR2_S08E02_display_unit_uis.json",
+    "context\\episodes\\SR2_S08E03_display_unit_uis.json",
+    "context\\episodes\\SR2_S08E04_display_unit_uis.json",
+    "context\\episodes\\SR2_S08E05_display_unit_uis.json",
+    "context\\episodes\\SR2_S08E06_display_unit_uis.json",
+    "context\\episodes\\SR2_S08E07_display_unit_uis.json",
+    "context\\episodes\\SR2_S08E08_display_unit_uis.json",
+    "context\\episodes\\SR2_S08E09_display_unit_uis.json"
+  ],
+  "notes": "PySide+Tk display unit wiring; M08 tag point",
+  "next_season": "S09",
+  "runtime_claimed": false,
+  "github_push_point": true,
+  "non_claims": [
+    "Display lb/kg \u2260 legal-for-trade / NTEP",
+    "Tk parity \u2260 Windows packaging seal",
+    "Linux smoke \u2260 Debian production guarantee",
+    "Display unit \u2260 changing authoritative ledger units",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ]
+}

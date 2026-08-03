@@ -32,6 +32,8 @@ class AppSettings:
     warn_on_uncalibrated_weight: bool = True
     default_reference_weight_g: float = 2000.0
     barcode_required_for_capture: bool = True
+    # Operator display unit only; storage/JSONL remains grams via unit="g".
+    display_unit: str = "g"
     updated_at: str = ""
 
     def validate(self) -> None:
@@ -40,7 +42,9 @@ class AppSettings:
         if self.baud_rate not in ALLOWED_BAUD_RATES:
             raise ValueError(f"unsupported baud rate {self.baud_rate}; allowed: {sorted(ALLOWED_BAUD_RATES)}")
         if self.unit != "g":
-            raise ValueError("only grams are supported in this release")
+            raise ValueError("only grams are supported for authoritative storage in this release")
+        if self.display_unit not in {"g", "kg", "lb"}:
+            raise ValueError("display_unit must be g, kg, or lb")
         if self.bluetooth_enabled or self.wifi_enabled:
             raise ValueError("remote transports are disabled by default in this release")
 

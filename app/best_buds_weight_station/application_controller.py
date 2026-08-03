@@ -128,6 +128,7 @@ class ApplicationController:
             ActionType.RUN_FINISH.value: self._run_finish,
             ActionType.SETTINGS_DATA_LOCATION_SET.value: self._set_data_location,
             ActionType.SETTINGS_CAPTURE_MODE_SET.value: self._set_capture_mode,
+            ActionType.SETTINGS_DISPLAY_UNIT_SET.value: self._set_display_unit,
             ActionType.DEVICE_DISCOVER.value: self._device_discover,
             ActionType.DEVICE_CONNECT.value: self._device_connect,
             ActionType.DEVICE_DISCONNECT.value: self._device_disconnect,
@@ -289,6 +290,19 @@ class ApplicationController:
             "UNIT_TEST_PASS",
             "Barcode policy updated (HID keyboard-wedge scanners only this series).",
             {"barcode_required_for_capture": settings.barcode_required_for_capture},
+        )
+
+    def _set_display_unit(self, request: ActionRequest) -> ActionResult:
+        from .units import normalize_display_unit
+
+        display_unit = normalize_display_unit(str(request.payload.get("display_unit", "g")))
+        settings = self.settings_store.update(display_unit=display_unit)
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"Display unit set to {display_unit}. Records remain in grams (not legal-for-trade).",
+            {"display_unit": settings.display_unit, "storage_unit": settings.unit},
         )
 
     def _set_active_cultivar(self, request: ActionRequest) -> ActionResult:

@@ -342,6 +342,8 @@ class OperatorRuntime:
             "warn_on_uncalibrated_weight": bool(settings.warn_on_uncalibrated_weight),
             "barcode_required_for_capture": bool(settings.barcode_required_for_capture),
             "default_reference_weight_g": float(settings.default_reference_weight_g),
+            "display_unit": getattr(settings, "display_unit", "g") or "g",
+            "storage_unit": settings.unit,
             "pending_sync_count": run.store.pending_sync_count() if run else 0,
             "last_saved": controller.last_record,
             "device": controller.device.status.to_dict() if controller.device else {"connected": False, "mode": None},
