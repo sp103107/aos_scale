@@ -1,0 +1,32 @@
+{
+  "season_id": "S09",
+  "slug": "governance_light",
+  "milestone": "M09",
+  "title": "Light governance",
+  "status": "complete",
+  "closed_at": "2026-08-03T20:45:06Z",
+  "series_id": "BBWS_SR1_harvest_operator_loop",
+  "baseline_freeze": "v0.1.9-rc2",
+  "artifacts": [
+    "context\\episodes\\S09E01_governance_light.json",
+    "context\\episodes\\S09E02_governance_light.json",
+    "context\\episodes\\S09E03_governance_light.json",
+    "context\\episodes\\S09E04_governance_light.json",
+    "context\\episodes\\S09E05_governance_light.json",
+    "context\\episodes\\S09E06_governance_light.json",
+    "context\\episodes\\S09E07_governance_light.json",
+    "context\\episodes\\S09E08_governance_light.json",
+    "context\\episodes\\S09E09_governance_light.json"
+  ],
+  "notes": "Governance light: operator/cal metrics, note+void on confirm, CSV columns",
+  "next_season": "S10",
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not legal-for-trade / metrology certification",
+    "Sticky strain UX \u2260 Metrc compliance",
+    "HID wedge \u2260 BLE/SPP barcode protocol",
+    "Season push \u2260 release seal / Authenticode",
+    "Arc Launcher not claimed as live runtime for Best Buds"
+  ],
+  "github_push_point": true
+}
