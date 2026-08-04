@@ -19,6 +19,7 @@ from PySide6.QtWidgets import (
     QHBoxLayout,
     QLabel,
     QLineEdit,
+    QListWidget,
     QMainWindow,
     QMessageBox,
     QPlainTextEdit,
@@ -596,6 +597,10 @@ class MainWindow(QMainWindow):
         self.weight_hint.setStyleSheet("color:#8A4B08;font-size:13px;font-weight:600")
         self.weight_hint.setWordWrap(True)
         layout.addWidget(self.weight_hint)
+        self.locked_weight_label = QLabel("")
+        self.locked_weight_label.setAlignment(Qt.AlignCenter)
+        self.locked_weight_label.setStyleSheet("color:#1E6B52;font-size:16px;font-weight:700")
+        layout.addWidget(self.locked_weight_label)
 
         metrics = QFrame(); metrics.setObjectName("card")
         grid = QGridLayout(metrics); grid.setContentsMargins(16, 12, 16, 12); grid.setHorizontalSpacing(20); grid.setVerticalSpacing(8)
@@ -647,14 +652,17 @@ class MainWindow(QMainWindow):
         self.auto_id_btn = QPushButton("Use auto ID")
         self.auto_id_btn.clicked.connect(self.use_auto_plant_id)
         barcode_row.addWidget(self.auto_id_btn)
-        test_scan_btn = QPushButton("Test Scanner")
-        test_scan_btn.clicked.connect(self.test_scanner)
-        barcode_row.addWidget(test_scan_btn)
-        barcode_hint = QLabel("USB HID keyboard-wedge scanner — keep focus here before scanning, or type and press Enter.")
+        scan_btn = QPushButton("Scan")
+        scan_btn.clicked.connect(self.focus_scan)
+        barcode_row.addWidget(scan_btn)
+        barcode_hint = QLabel("USB HID keyboard-wedge — press Scan (or click the field), then scan. Tag stays visible until Confirm.")
         barcode_hint.setStyleSheet("color:#5C6975;font-size:12px")
         barcode_layout.addWidget(barcode_label)
         barcode_layout.addLayout(barcode_row)
         barcode_layout.addWidget(barcode_hint)
+        self.active_barcode_banner = QLabel("Active plant: —")
+        self.active_barcode_banner.setStyleSheet("font-weight:700;color:#1B69D2;padding:4px 0")
+        barcode_layout.addWidget(self.active_barcode_banner)
         layout.addWidget(barcode_card)
         note_row = QHBoxLayout()
         self.operator_note = QLineEdit()
@@ -671,6 +679,7 @@ class MainWindow(QMainWindow):
             "connect_scale": self.scale_setup,
             "zero_scale": self.zero_scale,
             "set_tare": self.container_tare,
+            "lock_weight": self.lock_weight,
             "confirm_record": self.confirm_record,
             "cancel_item": self.cancel_item,
             "finish_run": self.finish_run,
@@ -683,6 +692,18 @@ class MainWindow(QMainWindow):
             actions.addWidget(button, spec.row, spec.column, 1, spec.columnspan)
             self.buttons[spec.label] = button
         layout.addLayout(actions)
+
+        log_card = QFrame(); log_card.setObjectName("card")
+        log_layout = QVBoxLayout(log_card); log_layout.setContentsMargins(14, 10, 14, 10)
+        log_header = QLabel("Run plant log (read-only)"); log_header.setStyleSheet("font-weight:700;color:#5C6975")
+        self.plant_log = QListWidget()
+        self.plant_log.setMinimumHeight(120)
+        self.plant_log.setMaximumHeight(180)
+        self.plant_log.setAccessibleName("Run plant log")
+        log_layout.addWidget(log_header)
+        log_layout.addWidget(self.plant_log)
+        layout.addWidget(log_card)
+
         self.setCentralWidget(central)
 
         self.device_status = QLabel("Scale disconnected")
@@ -692,6 +713,7 @@ class MainWindow(QMainWindow):
         shortcuts = {
             "Ctrl+N": self.new_run, "Ctrl+L": self.load_run, "Ctrl+R": self.start_resume,
             "Ctrl+K": self.scale_setup, "Ctrl+Z": self.zero_scale, "Ctrl+T": self.container_tare,
+            "Ctrl+Shift+L": self.lock_weight,
             "Ctrl+Enter": self.confirm_record, "Escape": self.cancel_item,
         }
         for shortcut, callback in shortcuts.items():
@@ -760,6 +782,19 @@ class MainWindow(QMainWindow):
             )
         else:
             self.weight_hint.setText("")
+        locked = s.get("locked_weight_g")
+        if locked is not None:
+            self.locked_weight_label.setText(f"Locked: {format_weight(float(locked), du)}")
+        else:
+            self.locked_weight_label.setText("")
+        active_bc = s.get("active_barcode")
+        if active_bc:
+            self.active_barcode_banner.setText(f"Active plant: {active_bc}")
+            if self.barcode.text().strip() != str(active_bc) and s["state"] in self.CAPTURE_STATES:
+                self.barcode.setText(str(active_bc))
+        else:
+            self.active_barcode_banner.setText("Active plant: —")
+        self._refresh_plant_log(s.get("recent_plants") or [], du)
         self.fields["RUN"].setText(s["run_id"] or "—")
         self.fields["CULTIVAR"].setText(s["cultivar"] or "—")
         self.fields["OPERATOR"].setText(s.get("operator_id") or "—")
@@ -831,9 +866,34 @@ class MainWindow(QMainWindow):
         # Zero is maintenance: allowed whenever the scale is connected (run optional).
         self.buttons["ZERO"].setEnabled(connected and state not in self.CAPTURE_STATES)
         self.buttons["SET TARE"].setEnabled(connected and state in {"WAITING_FOR_BARCODE", "DEVICE_READY"})
+        self.buttons["LOCK WEIGHT"].setEnabled(state == "WEIGHT_STABLE")
         self.buttons["CONFIRM & RECORD"].setEnabled(state == "MANUAL_CONFIRM")
         self.buttons["CANCEL"].setEnabled(state in self.CAPTURE_STATES)
         self.buttons["FINISH RUN"].setEnabled(bool(s["run_id"]) and state not in {"LOCAL_COMMIT_PENDING"})
+
+    def _refresh_plant_log(self, plants: list[dict[str, Any]], du: str) -> None:
+        lines: list[str] = []
+        for row in plants:
+            stamp = str(row.get("created_at") or "")[-8:]
+            barcode = row.get("barcode_raw") or row.get("record_id") or "?"
+            net = format_weight(float(row.get("net_g") or 0.0), du)
+            cultivar = row.get("cultivar_normalized_name") or ""
+            flags = []
+            if row.get("void_status") and row.get("void_status") != "none":
+                flags.append("void")
+            if row.get("duplicate_status") and row.get("duplicate_status") != "none":
+                flags.append("dup")
+            flag_txt = f" [{' '.join(flags)}]" if flags else ""
+            lines.append(f"{stamp}  {barcode}  {net}  {cultivar}{flag_txt}".rstrip())
+        current = [self.plant_log.item(i).text() for i in range(self.plant_log.count())]
+        if current == lines:
+            return
+        self.plant_log.clear()
+        if not lines:
+            self.plant_log.addItem("No plants saved in this run yet.")
+            return
+        for line in lines:
+            self.plant_log.addItem(line)
 
     def maybe_suggest_calibration(self) -> None:
         snap = self.runtime.snapshot()
@@ -891,6 +951,20 @@ class MainWindow(QMainWindow):
             self._calibration_open = False
     def test_scanner(self) -> None:
         ScannerTestDialog(self, runtime=self.runtime).exec()
+
+    def focus_scan(self) -> None:
+        """Main-row Scan: focus barcode field for HID wedge entry."""
+        self.barcode.setFocus()
+        self.barcode.selectAll()
+        self.statusBar().showMessage("Ready to scan — focus is in the plant barcode field.")
+
+    def lock_weight(self) -> None:
+        result = self.runtime.lock_weight()
+        if result.get("status") in {"failed", "blocked"}:
+            _show_result(self, result)
+        else:
+            self.statusBar().showMessage(result.get("message") or "Weight locked — Confirm & Record when ready.")
+
     def change_strain(self) -> None:
         if not self.runtime.controller.loaded_run:
             QMessageBox.information(self, "No run", "Start or resume a run before changing strain.")
@@ -927,8 +1001,11 @@ class MainWindow(QMainWindow):
         if result.get("status") in {"failed", "blocked"}:
             _show_result(self, result)
         else:
-            self.barcode.clear()
-            self.statusBar().showMessage(f"Barcode accepted: {value} — place plant and wait for stable weight.")
+            self.barcode.setText(value)
+            self.active_barcode_banner.setText(f"Active plant: {value}")
+            self.statusBar().showMessage(
+                f"Barcode accepted: {value} — place plant, wait for stable, then Lock weight."
+            )
     def confirm_record(self) -> None:
         note = self.operator_note.text().strip() or None
         void_status = "void" if self.void_next.currentIndex() == 1 else "none"
