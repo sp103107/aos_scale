@@ -3,6 +3,6 @@
   "slug": "series_closeout",
   "milestone": "M10",
   "commit_plan": "Series closeout complete",
-  "push_plan": "git push origin HEAD && git push origin bbws-sr5-complete",
-  "updated_at": "2026-08-04T22:00:00Z"
+  "push_plan": "git push origin HEAD && git push origin v2.0.0-rc1 bbws-sr6-complete",
+  "updated_at": "2026-08-04T23:30:00Z"
 }

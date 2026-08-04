@@ -1,0 +1,43 @@
+{
+  "pack_id": "BBWS_SR6_resume",
+  "version": "0.1.0",
+  "series_id": "BBWS_SR6_product_onboarding_release",
+  "updated_at": "2026-08-04T23:30:00Z",
+  "active": {
+    "season_id": "S10",
+    "episode_id": "S10E10",
+    "milestone": "M10",
+    "status": "series_complete"
+  },
+  "parent_series": "BBWS_SR5_run_artifact_polish",
+  "parent_tag": "bbws-sr5-complete",
+  "baseline_tag": "bbws-pre-sr6-onboarding-release",
+  "product_version": "2.0.0-rc1",
+  "completed_seasons": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10"
+  ],
+  "decision_locks": {
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "product_version": "2.0.0-rc1",
+    "source_zip": "without_dot_git",
+    "push_cadence": "series_closeout"
+  },
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine are documentation doctrine cites only",
+    "Coding-agent onboard entry is guidance/bootstrap routing, not a new capture runtime",
+    "Capture loop unchanged: scan → settle → lock → confirm → reset"
+  ],
+  "continuation_handoff": "kickoff_prompts/BBWS_SR6_HUMAN_CHAT_KICKOFF.md"
+}

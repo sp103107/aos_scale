@@ -1,12 +1,12 @@
 {
-  "series_id": "BBWS_SR5_run_artifact_polish",
+  "series_id": "BBWS_SR6_product_onboarding_release",
   "branch_plan": "main",
   "remote_plan": "origin",
   "push_policy": "after_series_closeout",
   "auto_push": false,
-  "parent_tag": "bbws-sr4-complete",
-  "baseline_tag": "bbws-pre-sr5-artifact-polish",
-  "planned_tags": ["bbws-sr5-complete"],
-  "completed_tag": "bbws-sr5-complete",
-  "updated_at": "2026-08-04T22:00:00Z"
+  "parent_tag": "bbws-sr5-complete",
+  "baseline_tag": "bbws-pre-sr6-onboarding-release",
+  "planned_tags": ["v2.0.0-rc1", "bbws-sr6-complete"],
+  "completed_tags": ["v2.0.0-rc1", "bbws-sr6-complete"],
+  "updated_at": "2026-08-04T23:30:00Z"
 }
