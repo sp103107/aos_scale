@@ -1,8 +1,8 @@
 {
-  "commit_plan": "Commit S01 scaffold/contract after E10 closeout",
-  "milestone": "M01",
-  "push_plan": "git push origin HEAD after series closeout",
-  "season_id": "S01",
-  "slug": "ux_contract_freeze",
-  "updated_at": "2026-08-04T02:11:14Z"
+  "season_id": "S10",
+  "slug": "series_closeout",
+  "milestone": "M10",
+  "commit_plan": "Series closeout complete",
+  "push_plan": "git push origin HEAD && git push origin bbws-sr4-complete",
+  "updated_at": "2026-08-04T21:30:00Z"
 }

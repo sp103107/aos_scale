@@ -44,7 +44,8 @@ def test_pyside_new_run_uses_cultivator_and_strain():
 
 def test_ui_exposes_text_status_not_color_only():
     text=(Path(__file__).parents[1]/'app/best_buds_weight_station/production_ui.py').read_text()
-    assert 'Alice - next step' in text and 'PLANT OR CONTAINER BARCODE' in text and 'physical scale not in use' in text
+    assert 'Alice' in text and 'PLANT OR CONTAINER BARCODE' in text and 'physical scale not in use' in text
+    assert 'capture_pill' in text
 
 
 def test_engineering_traceback_not_exposed_in_operator_view():

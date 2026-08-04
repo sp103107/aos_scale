@@ -1,8 +1,9 @@
-# BBWS SR3 Continuation Handoff
+# BBWS SR4 Continuation Handoff
 
-Updated: 2026-08-04T02:11:14Z
+Updated: 2026-08-04T21:30:00Z
 
-**Active:** S01 / S01E01 / M01  
-**Series:** BBWS_SR3_station_capture_ux
+**Active:** S10 / S10E10 / M10 — **series_complete**  
+**Series:** BBWS_SR4_operator_surface_polish  
+**Tag:** bbws-sr4-complete
 
-Load `ACTIVE_ARC.yaml` and `BBWS_SR3_resume.v0.1.0.json`, then execute the pointed episode.
+Next series when ready: **BBWS SR5** run artifact polish (CSV/XLSX/DOCX).

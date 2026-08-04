@@ -1,0 +1,43 @@
+{
+  "pack_id": "BBWS_SR4_resume",
+  "version": "0.1.0",
+  "series_id": "BBWS_SR4_operator_surface_polish",
+  "updated_at": "2026-08-04T21:30:00Z",
+  "active": {
+    "season_id": "S10",
+    "episode_id": "S10E10",
+    "milestone": "M10",
+    "status": "series_complete"
+  },
+  "parent_series": "BBWS_SR3_station_capture_ux",
+  "parent_tag": "bbws-sr3-complete",
+  "baseline_tag": "bbws-pre-sr4-polish",
+  "completed_seasons": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10"
+  ],
+  "decision_locks": {
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "polish_scope": "styles_labels_dialogs_only",
+    "salvage": "design_tokens_cite_only_no_react",
+    "push_cadence": "series_closeout",
+    "follow_on": "BBWS_SR5_run_artifact_polish"
+  },
+  "non_claims": [
+    "Salvage capsule is design reference only — no React import into BBWS",
+    "Visual polish is not legal-for-trade or Metrc compliance",
+    "Arc Launcher is cited doctrine, not mutated as Best Buds runtime",
+    "Status color aids must remain text-labeled (not color-only)",
+    "Capture loop unchanged: scan → settle → lock → confirm → reset",
+    "Run artifact polish (CSV/XLSX/DOCX) is BBWS SR5, not this series"
+  ],
+  "continuation_handoff": "kickoff_prompts/BBWS_SR4_HUMAN_CHAT_KICKOFF.md"
+}
