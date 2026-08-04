@@ -38,8 +38,8 @@ OPERATOR_STATE_LABELS = {
     "WAITING_FOR_LOAD": "Hang or place the plant",
     "WEIGHING": "Weighing plant",
     "WAITING_FOR_STABLE_WEIGHT": "Waiting for a stable weight",
-    "WEIGHT_STABLE": "Weight stable",
-    "MANUAL_CONFIRM": "Weight stable - confirm record",
+    "WEIGHT_STABLE": "Stable - lock weight",
+    "MANUAL_CONFIRM": "Locked - confirm record",
     "LOCAL_COMMIT_PENDING": "Saving record",
     "RECORD_SAVED": "Saved safely",
     "RECOVERY_REQUIRED": "Recovery required",
@@ -56,6 +56,7 @@ BUTTON_ACTIONS = {
     "set_container_tare": "scale.container_tare.set",
     "capture_container_tare": "scale.container_tare.capture",
     "calibrate_scale": "scale.calibration.start",
+    "lock_weight": "capture.weight.lock",
     "confirm_record": "capture.confirm",
     "cancel_item": "capture.cancel",
     "finish_run": "run.finish",
@@ -179,17 +180,26 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     barcode.pack(side="left", fill="x", expand=True, ipady=8)
     auto_id_btn = ttk.Button(barcode_row, text="Use auto ID")
     auto_id_btn.pack(side="left", padx=(6, 0))
-    test_scan_btn = ttk.Button(barcode_row, text="Test Scanner")
-    test_scan_btn.pack(side="left", padx=(6, 0))
+    scan_btn = ttk.Button(barcode_row, text="Scan")
+    scan_btn.pack(side="left", padx=(6, 0))
     barcode_hint = tk.Label(
         barcode_card,
-        text="USB HID keyboard-wedge — keep focus here before scanning, or type and press Enter.",
+        text="USB HID — press Scan, then scan. Tag stays visible until Confirm.",
         font=("Segoe UI", 9),
         bg="#FFFFFF",
         fg="#5C6975",
         anchor="w",
     )
-    barcode_hint.pack(fill="x", padx=12, pady=(4, 8))
+    barcode_hint.pack(fill="x", padx=12, pady=(4, 2))
+    active_barcode_banner = tk.Label(
+        barcode_card,
+        text="Active plant: —",
+        font=("Segoe UI", 11, "bold"),
+        bg="#FFFFFF",
+        fg="#1B69D2",
+        anchor="w",
+    )
+    active_barcode_banner.pack(fill="x", padx=12, pady=(0, 8))
 
     note_row = tk.Frame(shell, bg="#F5F7FA")
     note_row.pack(fill="x", pady=(0, 6))
@@ -202,6 +212,10 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
 
     controls = tk.Frame(shell, bg="#F5F7FA")
     controls.pack(fill="x")
+    locked_weight = tk.Label(shell, text="", font=("Segoe UI", 12, "bold"), bg="#F5F7FA", fg="#1E6B52", anchor="w")
+    locked_weight.pack(fill="x", pady=(4, 0))
+    plant_log = tk.Listbox(shell, height=6, font=("Consolas", 9))
+    plant_log.pack(fill="both", expand=False, pady=(6, 0))
     status_line = tk.Label(shell, text="Scale disconnected", font=("Segoe UI", 9), bg="#F5F7FA", fg="#5C6975", anchor="w")
     status_line.pack(fill="x", pady=(8, 0))
 
@@ -473,6 +487,18 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         text.pack(fill="both", expand=True)
         text.insert("1.0", json.dumps(runtime.snapshot(), indent=2, sort_keys=True, default=str))
 
+    def focus_scan() -> None:
+        barcode.focus_set()
+        barcode.selection_range(0, "end")
+        status_line.config(text="Ready to scan — focus is in the plant barcode field.")
+
+    def lock_weight() -> None:
+        result = runtime.lock_weight()
+        if result.get("status") in {"failed", "blocked"}:
+            show_result(result)
+        else:
+            status_line.config(text=result.get("message") or "Weight locked — Confirm & Record when ready.")
+
     def submit(event=None) -> None:
         value = barcode.get().strip()
         if not value:
@@ -483,7 +509,9 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
             show_result(result)
         else:
             barcode.delete(0, "end")
-            status_line.config(text=f"Barcode accepted: {value} — place plant and wait for stable weight.")
+            barcode.insert(0, value)
+            active_barcode_banner.config(text=f"Active plant: {value}")
+            status_line.config(text=f"Barcode accepted: {value} — place plant, wait for stable, then Lock weight.")
 
     def confirm_record() -> None:
         note = operator_note.get().strip() or None
@@ -566,6 +594,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         "connect_scale": scale_setup,
         "zero_scale": zero,
         "set_tare": tare,
+        "lock_weight": lock_weight,
         "confirm_record": confirm_record,
         "cancel_item": cancel_item,
         "finish_run": finish,
@@ -581,7 +610,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
 
     change_strain_btn.config(command=change_strain)
     auto_id_btn.config(command=use_auto_id)
-    test_scan_btn.config(command=test_scanner)
+    scan_btn.config(command=focus_scan)
 
     menubar = tk.Menu(root)
     run_menu = tk.Menu(menubar, tearoff=0)
@@ -618,6 +647,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     root.bind("<Control-z>", lambda _e: zero())
     root.bind("<Control-t>", lambda _e: tare())
     root.bind("<Control-Return>", lambda _e: confirm_record())
+    root.bind("<Control-Shift-L>", lambda _e: lock_weight())
     root.bind("<Escape>", lambda _e: cancel_item())
 
     capture_states = {"BARCODE_CAPTURED", "WAITING_FOR_LOAD", "WEIGHING", "WAITING_FOR_STABLE_WEIGHT", "WEIGHT_STABLE", "MANUAL_CONFIRM"}
@@ -632,6 +662,32 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
             weight_hint.config(text="Uncalibrated raw — open Scale → Guided Calibration with a verified reference mass.")
         else:
             weight_hint.config(text="")
+        locked = s.get("locked_weight_g")
+        locked_weight.config(text=f"Locked: {format_weight(float(locked), du)}" if locked is not None else "")
+        active_bc = s.get("active_barcode")
+        if active_bc:
+            active_barcode_banner.config(text=f"Active plant: {active_bc}")
+            if barcode.get().strip() != str(active_bc) and s["state"] in capture_states:
+                barcode.delete(0, "end")
+                barcode.insert(0, str(active_bc))
+        else:
+            active_barcode_banner.config(text="Active plant: —")
+        plants = s.get("recent_plants") or []
+        log_lines = []
+        for row in plants:
+            stamp = str(row.get("created_at") or "")[-8:]
+            bc = row.get("barcode_raw") or row.get("record_id") or "?"
+            net = format_weight(float(row.get("net_g") or 0.0), du)
+            cultivar = row.get("cultivar_normalized_name") or ""
+            log_lines.append(f"{stamp}  {bc}  {net}  {cultivar}".rstrip())
+        current = list(plant_log.get(0, "end"))
+        if current != log_lines:
+            plant_log.delete(0, "end")
+            if not log_lines:
+                plant_log.insert("end", "No plants saved in this run yet.")
+            else:
+                for line in log_lines:
+                    plant_log.insert("end", line)
         metric_values["RUN"].config(text=s["run_id"] or "-")
         metric_values["CULTIVAR"].config(text=s["cultivar"] or "-")
         metric_values["OPERATOR"].config(text=s.get("operator_id") or "-")
@@ -689,6 +745,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         connected = bool(d.get("connected"))
         buttons["ZERO"].state(["!disabled"] if connected and state not in capture_states else ["disabled"])
         buttons["SET TARE"].state(["!disabled"] if connected and state in {"WAITING_FOR_BARCODE", "DEVICE_READY"} else ["disabled"])
+        buttons["LOCK WEIGHT"].state(["!disabled"] if state == "WEIGHT_STABLE" else ["disabled"])
         buttons["CONFIRM & RECORD"].state(["!disabled"] if state == "MANUAL_CONFIRM" else ["disabled"])
         buttons["CANCEL"].state(["!disabled"] if state in capture_states else ["disabled"])
         root.after(100, refresh)
