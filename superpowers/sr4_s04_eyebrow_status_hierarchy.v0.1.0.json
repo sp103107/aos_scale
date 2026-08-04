@@ -1,0 +1,258 @@
+{
+  "arc_id": "SR4_S04_eyebrow_status_hierarchy",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/superpowers/next_ten_episodes_frontend_backend_polish.v0.4.36.json",
+    "C:/aos_arc_launcher_v0_4_21/superpowers/s50_operator_ux_graphics_hardening.v0.4.50.json"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S04E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E01",
+      "kind": "context",
+      "objective": "Intent freeze: hierarchy language",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: hierarchy language"
+    },
+    {
+      "acceptance": "S04E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E02",
+      "kind": "implement",
+      "objective": "Eyebrow on barcode/Alice/log",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Eyebrow on barcode/Alice/log"
+    },
+    {
+      "acceptance": "S04E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E03",
+      "kind": "implement",
+      "objective": "Status pill Ready/Stable/Locked/Saved",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Status pill Ready/Stable/Locked/Saved"
+    },
+    {
+      "acceptance": "S04E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E04",
+      "kind": "implement",
+      "objective": "Metric label hierarchy",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Metric label hierarchy"
+    },
+    {
+      "acceptance": "S04E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E05",
+      "kind": "implement",
+      "objective": "objectName hooks for styles",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "objectName hooks for styles"
+    },
+    {
+      "acceptance": "S04E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E06",
+      "kind": "implement",
+      "objective": "Keep accessibility text",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Keep accessibility text"
+    },
+    {
+      "acceptance": "S04E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E07",
+      "kind": "verify",
+      "objective": "Verify text not color-only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify text not color-only"
+    },
+    {
+      "acceptance": "S04E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E08",
+      "kind": "verify",
+      "objective": "Verify no state-machine change",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify no state-machine change"
+    },
+    {
+      "acceptance": "S04E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E09",
+      "kind": "receipt",
+      "objective": "S04 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S04 receipt pack"
+    },
+    {
+      "acceptance": "S04E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E10",
+      "kind": "closeout",
+      "objective": "M04 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M04 season closeout + push plan"
+    }
+  ],
+  "focus": "Eyebrows and text-labeled status pills on cards",
+  "milestone": "M04",
+  "non_claims": [
+    "Salvage capsule is design reference only \u2014 no React import into BBWS",
+    "Visual polish is not legal-for-trade or Metrc compliance",
+    "Arc Launcher is cited doctrine, not mutated as Best Buds runtime",
+    "Status color aids must remain text-labeled (not color-only)",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Run artifact polish (CSV/XLSX/DOCX) is BBWS SR5, not this series"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/pyside_frontend.py"
+  ],
+  "runtime_claimed": false,
+  "salvage_graphics_ref": "M:/SALVAGE/CAPSULES/front_end_graphics/aos_ks_frontend_flow_graphics_v0_1_43",
+  "schema_version": "bbws.sr4.eyebrow_status_hierarchy.v1",
+  "series_id": "BBWS_SR4_operator_surface_polish",
+  "title": "Eyebrow + status-pill hierarchy",
+  "version": "0.1.0"
+}

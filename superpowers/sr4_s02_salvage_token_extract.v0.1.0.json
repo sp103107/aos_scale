@@ -1,0 +1,269 @@
+{
+  "arc_id": "SR4_S02_salvage_token_extract",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/superpowers/next_ten_episodes_frontend_backend_polish.v0.4.36.json",
+    "C:/aos_arc_launcher_v0_4_21/superpowers/s50_operator_ux_graphics_hardening.v0.4.50.json"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S02E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "app/best_buds_weight_station/ui_tokens.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E01",
+      "kind": "context",
+      "objective": "Intent freeze: token names",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: token names"
+    },
+    {
+      "acceptance": "S02E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "app/best_buds_weight_station/ui_tokens.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E02",
+      "kind": "implement",
+      "objective": "Map salvage colors/radii",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Map salvage colors/radii"
+    },
+    {
+      "acceptance": "S02E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "app/best_buds_weight_station/ui_tokens.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E03",
+      "kind": "implement",
+      "objective": "Map eyebrow/pill/metric patterns",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Map eyebrow/pill/metric patterns"
+    },
+    {
+      "acceptance": "S02E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "app/best_buds_weight_station/ui_tokens.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E04",
+      "kind": "implement",
+      "objective": "Draft BBWS token table",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Draft BBWS token table"
+    },
+    {
+      "acceptance": "S02E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "app/best_buds_weight_station/ui_tokens.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E05",
+      "kind": "implement",
+      "objective": "Wire token constants module",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Wire token constants module"
+    },
+    {
+      "acceptance": "S02E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "app/best_buds_weight_station/ui_tokens.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E06",
+      "kind": "implement",
+      "objective": "Reject React import",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Reject React import"
+    },
+    {
+      "acceptance": "S02E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "app/best_buds_weight_station/ui_tokens.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E07",
+      "kind": "verify",
+      "objective": "Verify token coverage",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify token coverage"
+    },
+    {
+      "acceptance": "S02E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "app/best_buds_weight_station/ui_tokens.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E08",
+      "kind": "verify",
+      "objective": "Non-claim stamp tokens \u2260 Metrc",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Non-claim stamp tokens \u2260 Metrc"
+    },
+    {
+      "acceptance": "S02E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "app/best_buds_weight_station/ui_tokens.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E09",
+      "kind": "receipt",
+      "objective": "S02 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S02 receipt pack"
+    },
+    {
+      "acceptance": "S02E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "app/best_buds_weight_station/ui_tokens.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E10",
+      "kind": "closeout",
+      "objective": "M02 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M02 season closeout + push plan"
+    }
+  ],
+  "focus": "Colors, radius, eyebrow, pill, metric tokens from salvage CSS",
+  "milestone": "M02",
+  "non_claims": [
+    "Salvage capsule is design reference only \u2014 no React import into BBWS",
+    "Visual polish is not legal-for-trade or Metrc compliance",
+    "Arc Launcher is cited doctrine, not mutated as Best Buds runtime",
+    "Status color aids must remain text-labeled (not color-only)",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Run artifact polish (CSV/XLSX/DOCX) is BBWS SR5, not this series"
+  ],
+  "primary_surfaces": [
+    "docs/",
+    "app/best_buds_weight_station/ui_tokens.py"
+  ],
+  "runtime_claimed": false,
+  "salvage_graphics_ref": "M:/SALVAGE/CAPSULES/front_end_graphics/aos_ks_frontend_flow_graphics_v0_1_43",
+  "schema_version": "bbws.sr4.salvage_token_extract.v1",
+  "series_id": "BBWS_SR4_operator_surface_polish",
+  "title": "Extract BBWS design tokens from salvage",
+  "version": "0.1.0"
+}

@@ -1,0 +1,210 @@
+{
+  "active_arc_ref": "ACTIVE_ARC.yaml",
+  "blueprint_ref": "arc_lifecycle/blueprints/series_bbws_sr4_operator_surface_polish.v0.1.0.json",
+  "cursor_map_ref": "cursor/BBWS_SR4_OPERATOR_SURFACE_POLISH_SERIES_MAP.v0.1.0.md",
+  "generated_at": "2026-08-04T21:07:19Z",
+  "manifest_type": "series_map",
+  "non_claims": [
+    "Salvage capsule is design reference only \u2014 no React import into BBWS",
+    "Visual polish is not legal-for-trade or Metrc compliance",
+    "Arc Launcher is cited doctrine, not mutated as Best Buds runtime",
+    "Status color aids must remain text-labeled (not color-only)",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Run artifact polish (CSV/XLSX/DOCX) is BBWS SR5, not this series"
+  ],
+  "resume_pack_ref": "context/resume_pack/BBWS_SR4_resume.v0.1.0.json",
+  "seasons": [
+    {
+      "episodes": [
+        "S01E01",
+        "S01E02",
+        "S01E03",
+        "S01E04",
+        "S01E05",
+        "S01E06",
+        "S01E07",
+        "S01E08",
+        "S01E09",
+        "S01E10"
+      ],
+      "milestone": "M01",
+      "season_id": "S01",
+      "slug": "polish_contract_freeze",
+      "superpower": "superpowers/sr4_s01_polish_contract_freeze.v0.1.0.json",
+      "title": "Scaffold + polish contract freeze"
+    },
+    {
+      "episodes": [
+        "S02E01",
+        "S02E02",
+        "S02E03",
+        "S02E04",
+        "S02E05",
+        "S02E06",
+        "S02E07",
+        "S02E08",
+        "S02E09",
+        "S02E10"
+      ],
+      "milestone": "M02",
+      "season_id": "S02",
+      "slug": "salvage_token_extract",
+      "superpower": "superpowers/sr4_s02_salvage_token_extract.v0.1.0.json",
+      "title": "Extract BBWS design tokens from salvage"
+    },
+    {
+      "episodes": [
+        "S03E01",
+        "S03E02",
+        "S03E03",
+        "S03E04",
+        "S03E05",
+        "S03E06",
+        "S03E07",
+        "S03E08",
+        "S03E09",
+        "S03E10"
+      ],
+      "milestone": "M03",
+      "season_id": "S03",
+      "slug": "pyside_shell_tokens",
+      "superpower": "superpowers/sr4_s03_pyside_shell_tokens.v0.1.0.json",
+      "title": "Apply token sheet to PySide shell"
+    },
+    {
+      "episodes": [
+        "S04E01",
+        "S04E02",
+        "S04E03",
+        "S04E04",
+        "S04E05",
+        "S04E06",
+        "S04E07",
+        "S04E08",
+        "S04E09",
+        "S04E10"
+      ],
+      "milestone": "M04",
+      "season_id": "S04",
+      "slug": "eyebrow_status_hierarchy",
+      "superpower": "superpowers/sr4_s04_eyebrow_status_hierarchy.v0.1.0.json",
+      "title": "Eyebrow + status-pill hierarchy"
+    },
+    {
+      "episodes": [
+        "S05E01",
+        "S05E02",
+        "S05E03",
+        "S05E04",
+        "S05E05",
+        "S05E06",
+        "S05E07",
+        "S05E08",
+        "S05E09",
+        "S05E10"
+      ],
+      "milestone": "M05",
+      "season_id": "S05",
+      "slug": "scan_dialog_polish",
+      "superpower": "superpowers/sr4_s05_scan_dialog_polish.v0.1.0.json",
+      "title": "Scan capture dialog professional chrome"
+    },
+    {
+      "episodes": [
+        "S06E01",
+        "S06E02",
+        "S06E03",
+        "S06E04",
+        "S06E05",
+        "S06E06",
+        "S06E07",
+        "S06E08",
+        "S06E09",
+        "S06E10"
+      ],
+      "milestone": "M06",
+      "season_id": "S06",
+      "slug": "lock_receipt_polish",
+      "superpower": "superpowers/sr4_s06_lock_receipt_polish.v0.1.0.json",
+      "title": "Locked-weight + last-saved receipt language"
+    },
+    {
+      "episodes": [
+        "S07E01",
+        "S07E02",
+        "S07E03",
+        "S07E04",
+        "S07E05",
+        "S07E06",
+        "S07E07",
+        "S07E08",
+        "S07E09",
+        "S07E10"
+      ],
+      "milestone": "M07",
+      "season_id": "S07",
+      "slug": "log_dialog_polish",
+      "superpower": "superpowers/sr4_s07_log_dialog_polish.v0.1.0.json",
+      "title": "Plant log + run dialog chrome"
+    },
+    {
+      "episodes": [
+        "S08E01",
+        "S08E02",
+        "S08E03",
+        "S08E04",
+        "S08E05",
+        "S08E06",
+        "S08E07",
+        "S08E08",
+        "S08E09",
+        "S08E10"
+      ],
+      "milestone": "M08",
+      "season_id": "S08",
+      "slug": "tk_surface_parity",
+      "superpower": "superpowers/sr4_s08_tk_surface_parity.v0.1.0.json",
+      "title": "Tk visual parity"
+    },
+    {
+      "episodes": [
+        "S09E01",
+        "S09E02",
+        "S09E03",
+        "S09E04",
+        "S09E05",
+        "S09E06",
+        "S09E07",
+        "S09E08",
+        "S09E09",
+        "S09E10"
+      ],
+      "milestone": "M09",
+      "season_id": "S09",
+      "slug": "polish_verify_docs",
+      "superpower": "superpowers/sr4_s09_polish_verify_docs.v0.1.0.json",
+      "title": "Tests + dual-UI smoke + non-claims"
+    },
+    {
+      "episodes": [
+        "S10E01",
+        "S10E02",
+        "S10E03",
+        "S10E04",
+        "S10E05",
+        "S10E06",
+        "S10E07",
+        "S10E08",
+        "S10E09",
+        "S10E10"
+      ],
+      "milestone": "M10",
+      "season_id": "S10",
+      "slug": "series_closeout",
+      "superpower": "superpowers/sr4_s10_series_closeout.v0.1.0.json",
+      "title": "Series closeout + bbws-sr4-complete"
+    }
+  ],
+  "series_id": "BBWS_SR4_operator_surface_polish",
+  "version": "0.1.0"
+}

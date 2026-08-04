@@ -1,0 +1,291 @@
+{
+  "arc_id": "SR4_S01_polish_contract_freeze",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/superpowers/next_ten_episodes_frontend_backend_polish.v0.4.36.json",
+    "C:/aos_arc_launcher_v0_4_21/superpowers/s50_operator_ux_graphics_hardening.v0.4.50.json"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S01E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr4.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E01",
+      "kind": "context",
+      "objective": "Intent freeze: polish vs capture",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: polish vs capture"
+    },
+    {
+      "acceptance": "S01E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr4.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E02",
+      "kind": "context",
+      "objective": "Inventory salvage CSS tokens",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Inventory salvage CSS tokens"
+    },
+    {
+      "acceptance": "S01E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr4.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E03",
+      "kind": "context",
+      "objective": "Inventory PySide/Tk surfaces",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Inventory PySide/Tk surfaces"
+    },
+    {
+      "acceptance": "S01E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr4.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E04",
+      "kind": "implement",
+      "objective": "Write selection map receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write selection map receipt"
+    },
+    {
+      "acceptance": "S01E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr4.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E05",
+      "kind": "implement",
+      "objective": "Authorize S02\u2013S03 token scope",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S02\u2013S03 token scope"
+    },
+    {
+      "acceptance": "S01E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr4.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E06",
+      "kind": "implement",
+      "objective": "Authorize S04\u2013S07 surface scope",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S04\u2013S07 surface scope"
+    },
+    {
+      "acceptance": "S01E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr4.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E07",
+      "kind": "implement",
+      "objective": "Authorize S08 Tk parity scope",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S08 Tk parity scope"
+    },
+    {
+      "acceptance": "S01E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr4.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E08",
+      "kind": "verify",
+      "objective": "Verify no-workflow-change rule",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify no-workflow-change rule"
+    },
+    {
+      "acceptance": "S01E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr4.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E09",
+      "kind": "receipt",
+      "objective": "S01 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S01 receipt pack"
+    },
+    {
+      "acceptance": "S01E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr4.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "run artifact polish SR5",
+        "React import from salvage",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E10",
+      "kind": "closeout",
+      "objective": "M01 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M01 season closeout + push plan"
+    }
+  ],
+  "focus": "Freeze polish-vs-capture contract, salvage selection map, non-claims",
+  "milestone": "M01",
+  "non_claims": [
+    "Salvage capsule is design reference only \u2014 no React import into BBWS",
+    "Visual polish is not legal-for-trade or Metrc compliance",
+    "Arc Launcher is cited doctrine, not mutated as Best Buds runtime",
+    "Status color aids must remain text-labeled (not color-only)",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Run artifact polish (CSV/XLSX/DOCX) is BBWS SR5, not this series"
+  ],
+  "primary_surfaces": [
+    "ACTIVE_ARC.yaml",
+    "cursor/",
+    "docs/",
+    "scripts/scaffold_bbws_sr4.py"
+  ],
+  "runtime_claimed": false,
+  "salvage_graphics_ref": "M:/SALVAGE/CAPSULES/front_end_graphics/aos_ks_frontend_flow_graphics_v0_1_43",
+  "schema_version": "bbws.sr4.polish_contract_freeze.v1",
+  "series_id": "BBWS_SR4_operator_surface_polish",
+  "title": "Scaffold + polish contract freeze",
+  "version": "0.1.0"
+}

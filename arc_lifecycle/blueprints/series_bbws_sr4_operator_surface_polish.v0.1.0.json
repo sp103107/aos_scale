@@ -1,0 +1,110 @@
+{
+  "baseline_tag": "bbws-pre-sr4-polish",
+  "blueprint_id": "BBWS_SR4_operator_surface_polish",
+  "blueprint_type": "series",
+  "capture_law": "scan_settle_lock_confirm_reset",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/superpowers/next_ten_episodes_frontend_backend_polish.v0.4.36.json",
+    "C:/aos_arc_launcher_v0_4_21/superpowers/s50_operator_ux_graphics_hardening.v0.4.50.json"
+  ],
+  "github_push_cadence": "after_series_closeout",
+  "non_claims": [
+    "Salvage capsule is design reference only \u2014 no React import into BBWS",
+    "Visual polish is not legal-for-trade or Metrc compliance",
+    "Arc Launcher is cited doctrine, not mutated as Best Buds runtime",
+    "Status color aids must remain text-labeled (not color-only)",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Run artifact polish (CSV/XLSX/DOCX) is BBWS SR5, not this series"
+  ],
+  "parent_arc_id": "bbws-sr3-complete",
+  "parent_series_id": "BBWS_SR3_station_capture_ux",
+  "polish_law": "styles_labels_dialogs_only",
+  "runtime_claimed": false,
+  "salvage_graphics_ref": "M:/SALVAGE/CAPSULES/front_end_graphics/aos_ks_frontend_flow_graphics_v0_1_43",
+  "seasons": [
+    {
+      "episode_count": 10,
+      "focus": "Freeze polish-vs-capture contract, salvage selection map, non-claims",
+      "milestone": "M01",
+      "season_id": "S01_polish_contract_freeze",
+      "superpower_ref": "superpowers/sr4_s01_polish_contract_freeze.v0.1.0.json",
+      "title": "Scaffold + polish contract freeze"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Colors, radius, eyebrow, pill, metric tokens from salvage CSS",
+      "milestone": "M02",
+      "season_id": "S02_salvage_token_extract",
+      "superpower_ref": "superpowers/sr4_s02_salvage_token_extract.v0.1.0.json",
+      "title": "Extract BBWS design tokens from salvage"
+    },
+    {
+      "episode_count": 10,
+      "focus": "APP_STYLE: top bar, status, cards, buttons, scroll chrome",
+      "milestone": "M03",
+      "season_id": "S03_pyside_shell_tokens",
+      "superpower_ref": "superpowers/sr4_s03_pyside_shell_tokens.v0.1.0.json",
+      "title": "Apply token sheet to PySide shell"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Eyebrows and text-labeled status pills on cards",
+      "milestone": "M04",
+      "season_id": "S04_eyebrow_status_hierarchy",
+      "superpower_ref": "superpowers/sr4_s04_eyebrow_status_hierarchy.v0.1.0.json",
+      "title": "Eyebrow + status-pill hierarchy"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Capture-mode Scan dialog polish; Enter\u2192submit unchanged",
+      "milestone": "M05",
+      "season_id": "S05_scan_dialog_polish",
+      "superpower_ref": "superpowers/sr4_s05_scan_dialog_polish.v0.1.0.json",
+      "title": "Scan capture dialog professional chrome"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Metric/receipt presentation for lock and last-saved",
+      "milestone": "M06",
+      "season_id": "S06_lock_receipt_polish",
+      "superpower_ref": "superpowers/sr4_s06_lock_receipt_polish.v0.1.0.json",
+      "title": "Locked-weight + last-saved receipt language"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Plant log list + New Run / Change Strain dialog chrome",
+      "milestone": "M07",
+      "season_id": "S07_log_dialog_polish",
+      "superpower_ref": "superpowers/sr4_s07_log_dialog_polish.v0.1.0.json",
+      "title": "Plant log + run dialog chrome"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Tk colors, eyebrows, Scan dialog, metrics parity",
+      "milestone": "M08",
+      "season_id": "S08_tk_surface_parity",
+      "superpower_ref": "superpowers/sr4_s08_tk_surface_parity.v0.1.0.json",
+      "title": "Tk visual parity"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Style/contract tests and operator polish runbook",
+      "milestone": "M09",
+      "season_id": "S09_polish_verify_docs",
+      "superpower_ref": "superpowers/sr4_s09_polish_verify_docs.v0.1.0.json",
+      "title": "Tests + dual-UI smoke + non-claims"
+    },
+    {
+      "episode_count": 10,
+      "focus": "ACTIVE_ARC series_complete + tag + push",
+      "milestone": "M10",
+      "season_id": "S10_series_closeout",
+      "superpower_ref": "superpowers/sr4_s10_series_closeout.v0.1.0.json",
+      "title": "Series closeout + bbws-sr4-complete"
+    }
+  ],
+  "series_goal": "Polish Best Buds operator surface using salvage design tokens (eyebrow, status pills, metric hierarchy, dialog chrome) without changing capture workflow. Run-artifact polish deferred to SR5.",
+  "shape": "10 seasons \u00d7 10 episodes = 100",
+  "total_episodes": 100,
+  "version": "0.1.0"
+}
