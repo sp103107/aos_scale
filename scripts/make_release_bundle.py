@@ -1,12 +1,8 @@
 """
 Build a clean source zip for BBWS GitHub Release (no .git).
 
-Usage:
-  python scripts/make_release_bundle.py --version 2.0.0-rc1
-  python scripts/make_release_bundle.py --version 2.0.0-rc1 --ref v2.0.0-rc1
-
-If --ref is omitted, zips the current working tree (excluding .git).
-If --ref is set, clones that ref into a temp dir first.
+Preferred path: `git archive` from a local ref (Windows-safe).
+Fallback: copy working tree excluding .git / dist / caches.
 """
 from __future__ import annotations
 
@@ -41,64 +37,71 @@ def _sha256(path: Path) -> str:
 
 
 def _copy_tree(src: Path, dest: Path) -> None:
-    def ignore(directory: str, names: list[str]) -> set[str]:
+    def ignore(_directory: str, names: list[str]) -> set[str]:
         skipped = set()
         for name in names:
-            if name in EXCLUDE_DIR_NAMES:
-                skipped.add(name)
-            elif name.endswith(".pyc"):
+            if name in EXCLUDE_DIR_NAMES or name.endswith(".pyc"):
                 skipped.add(name)
         return skipped
 
     shutil.copytree(src, dest, ignore=ignore)
 
 
-def _zip_dir(source_dir: Path, zip_path: Path) -> None:
+def _archive_ref(ref: str, zip_path: Path) -> None:
     zip_path.parent.mkdir(parents=True, exist_ok=True)
     if zip_path.exists():
         zip_path.unlink()
-    base = zip_path.with_suffix("")
-    shutil.make_archive(str(base), "zip", root_dir=str(source_dir))
+    prefix = f"BestBudsWeightStation-{ref.lstrip('v')}/"
+    subprocess.run(
+        [
+            "git",
+            "-C",
+            str(ROOT),
+            "archive",
+            "--format=zip",
+            f"--prefix={prefix}",
+            "-o",
+            str(zip_path),
+            ref,
+        ],
+        check=True,
+    )
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Make BBWS source release zip without .git")
     parser.add_argument("--version", default="2.0.0-rc1")
-    parser.add_argument("--ref", help="Git ref to clone (tag/commit). Default: current tree.")
-    parser.add_argument("--remote", default="https://github.com/sp103107/aos_scale.git")
+    parser.add_argument("--ref", help="Git ref to archive (tag/commit). Default: HEAD working tree copy.")
     args = parser.parse_args()
 
     version = args.version
     out_dir = ROOT / "dist" / "releases"
-    zip_name = f"BestBudsWeightStation-source-v{version}.zip"
-    zip_path = out_dir / zip_name
+    zip_path = out_dir / f"BestBudsWeightStation-source-v{version}.zip"
     receipt_path = ROOT / "reports" / f"release_bundle_receipt.v{version}.json"
+    method = "git_archive" if args.ref else "working_tree_copy"
 
-    windows_note = "not_attempted"
-    with tempfile.TemporaryDirectory(prefix="bbws-release-") as tmp:
-        work = Path(tmp) / f"BestBudsWeightStation-{version}"
-        if args.ref:
-            subprocess.run(
-                ["git", "clone", "--depth", "1", "--branch", args.ref, args.remote, str(work)],
-                check=True,
-            )
-            # Remove .git from clone before zip
-            git_dir = work / ".git"
-            if git_dir.exists():
-                shutil.rmtree(git_dir)
-        else:
+    if args.ref:
+        _archive_ref(args.ref, zip_path)
+    else:
+        with tempfile.TemporaryDirectory(prefix="bbws-release-") as tmp:
+            work = Path(tmp) / f"BestBudsWeightStation-{version}"
             _copy_tree(ROOT, work)
-        _zip_dir(work, zip_path)
+            zip_path.parent.mkdir(parents=True, exist_ok=True)
+            if zip_path.exists():
+                zip_path.unlink()
+            base = zip_path.with_suffix("")
+            shutil.make_archive(str(base), "zip", root_dir=str(work))
 
     digest = _sha256(zip_path)
     receipt = {
         "receipt_type": "bbws_release_source_bundle",
         "version": version,
         "ref": args.ref or "working_tree",
+        "method": method,
         "zip_path": str(zip_path.resolve()),
         "sha256": digest,
         "includes_dot_git": False,
-        "windows_binary": windows_note,
+        "windows_binary": "deferred_not_blocking",
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "non_claims": [
             "Source zip is not a legal-for-trade or Metrc artifact",
