@@ -14,6 +14,22 @@ from .application_controller import ApplicationController
 from .operator_runtime import OperatorRuntime
 from .operator_surface import ROUTINE_ACTION_LAYOUT
 from .run_manager import facility_id_from_cultivator
+from .ui_tokens import (
+    COLOR_ACTIVE_BARCODE,
+    COLOR_BG_APP,
+    COLOR_BG_CARD,
+    COLOR_BORDER,
+    COLOR_BORDER_STRONG,
+    COLOR_LOCKED,
+    COLOR_PRIMARY,
+    COLOR_SUCCESS_BG,
+    COLOR_SUCCESS_FG,
+    COLOR_TEXT,
+    COLOR_TEXT_MUTED,
+    COLOR_TEXT_STRONG,
+    COLOR_WARN_FG,
+    capture_pill_label,
+)
 from .units import display_to_grams, format_weight, unit_label
 from .version import __version__
 
@@ -114,7 +130,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     root.title(f"Best Buds Cultivator Weight Station v{__version__} - Tk fallback")
     root.geometry("1120x920")
     root.minsize(1024, 800)
-    root.configure(bg="#F3F6F8")
+    root.configure(bg=COLOR_BG_APP)
 
     style = ttk.Style(root)
     try:
@@ -125,58 +141,150 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     style.configure("Action.TButton", font=("Segoe UI", 11, "bold"), padding=(12, 10))
     style.configure("Danger.TButton", font=("Segoe UI", 11, "bold"), padding=(12, 10))
 
-    shell = tk.Frame(root, bg="#F3F6F8")
+    shell = tk.Frame(root, bg=COLOR_BG_APP)
     shell.pack(fill="both", expand=True, padx=18, pady=14)
 
-    top = tk.Frame(shell, bg="#FFFFFF", highlightbackground="#D5DEE7", highlightthickness=1)
+    top = tk.Frame(shell, bg=COLOR_BG_CARD, highlightbackground=COLOR_BORDER, highlightthickness=1)
     top.pack(fill="x")
-    tk.Label(top, text="Best Buds Cultivator Weight Station", font=("Segoe UI", 22, "bold"), bg="#FFFFFF", fg="#122033").pack(side="left", padx=14, pady=10)
-    mode_badge = tk.Label(top, text="NO SCALE CONNECTED", font=("Segoe UI", 10, "bold"), bg="#EEF2F6", fg="#5C6975", padx=10, pady=5)
+    tk.Label(
+        top,
+        text="Best Buds Cultivator Weight Station",
+        font=("Segoe UI", 22, "bold"),
+        bg=COLOR_BG_CARD,
+        fg=COLOR_TEXT_STRONG,
+    ).pack(side="left", padx=14, pady=10)
+    mode_badge = tk.Label(
+        top,
+        text="NO SCALE CONNECTED",
+        font=("Segoe UI", 10, "bold"),
+        bg="#EEF2F6",
+        fg=COLOR_TEXT_MUTED,
+        padx=10,
+        pady=5,
+    )
     mode_badge.pack(side="right", padx=14, pady=10)
 
-    status = tk.Label(shell, text="No run started", font=("Segoe UI", 17, "bold"), bg="#FFFFFF", fg="#122033", anchor="w", padx=14, pady=10, highlightbackground="#D5DEE7", highlightthickness=1)
-    status.pack(fill="x", pady=(10, 8))
+    status_row = tk.Frame(shell, bg=COLOR_BG_APP)
+    status_row.pack(fill="x", pady=(10, 8))
+    status = tk.Label(
+        status_row,
+        text="No run started",
+        font=("Segoe UI", 17, "bold"),
+        bg=COLOR_BG_CARD,
+        fg=COLOR_TEXT_STRONG,
+        anchor="w",
+        padx=14,
+        pady=10,
+        highlightbackground=COLOR_BORDER,
+        highlightthickness=1,
+    )
+    status.pack(side="left", fill="x", expand=True)
+    capture_pill = tk.Label(
+        status_row,
+        text="Idle",
+        font=("Segoe UI", 10, "bold"),
+        bg="#EEF2F6",
+        fg=COLOR_TEXT_MUTED,
+        padx=10,
+        pady=6,
+    )
+    capture_pill.pack(side="right", padx=(8, 0))
 
-    weight = tk.Label(shell, text="0.000 g", font=("Segoe UI", 52, "bold"), bg="#FFFFFF", fg="#1A2330", padx=14, pady=16, highlightbackground="#1A2330", highlightthickness=2)
+    weight = tk.Label(
+        shell,
+        text="0.000 g",
+        font=("Segoe UI", 52, "bold"),
+        bg=COLOR_BG_CARD,
+        fg=COLOR_BORDER_STRONG,
+        padx=14,
+        pady=16,
+        highlightbackground=COLOR_BORDER_STRONG,
+        highlightthickness=2,
+    )
     weight.pack(fill="x")
-    weight_hint = tk.Label(shell, text="", font=("Segoe UI", 10, "bold"), bg="#FFFFFF", fg="#8A4B08", wraplength=900)
+    weight_hint = tk.Label(
+        shell, text="", font=("Segoe UI", 10, "bold"), bg=COLOR_BG_APP, fg=COLOR_WARN_FG, wraplength=900
+    )
     weight_hint.pack(fill="x", pady=(2, 0))
 
-    metrics = tk.Frame(shell, bg="#FFFFFF", highlightbackground="#D5DEE7", highlightthickness=1)
+    metrics = tk.Frame(shell, bg=COLOR_BG_CARD, highlightbackground=COLOR_BORDER, highlightthickness=1)
     metrics.pack(fill="x", pady=8)
     metric_values: dict[str, tk.Label] = {}
     for idx, key in enumerate(("RUN", "CULTIVATOR", "STRAIN", "OPERATOR", "CONTAINER", "GROSS", "TARE", "NET")):
         col = idx % 4
         row = (idx // 4) * 2
-        tk.Label(metrics, text=key.title(), font=("Segoe UI", 9, "bold"), bg="#FFFFFF", fg="#5C6975").grid(row=row, column=col, sticky="w", padx=14, pady=(8, 0))
-        value = tk.Label(metrics, text="-", font=("Segoe UI", 15, "bold"), bg="#FFFFFF", fg="#17212B", anchor="w")
+        tk.Label(
+            metrics, text=key, font=("Segoe UI", 9, "bold"), bg=COLOR_BG_CARD, fg=COLOR_TEXT_MUTED
+        ).grid(row=row, column=col, sticky="w", padx=14, pady=(8, 0))
+        value = tk.Label(metrics, text="-", font=("Segoe UI", 15, "bold"), bg=COLOR_BG_CARD, fg=COLOR_TEXT, anchor="w")
         value.grid(row=row + 1, column=col, sticky="ew", padx=14, pady=(0, 8))
         metric_values[key] = value
     for col in range(4):
         metrics.grid_columnconfigure(col, weight=1)
 
-    strain_row = tk.Frame(shell, bg="#F5F7FA")
+    strain_row = tk.Frame(shell, bg=COLOR_BG_APP)
     strain_row.pack(fill="x")
-    active_strain = tk.Label(strain_row, text="Active strain (sticky): —", font=("Segoe UI", 11, "bold"), bg="#F3F6F8", fg="#1B6B52", anchor="w")
+    active_strain = tk.Label(
+        strain_row,
+        text="Active strain (sticky): —",
+        font=("Segoe UI", 11, "bold"),
+        bg=COLOR_BG_APP,
+        fg=COLOR_PRIMARY,
+        anchor="w",
+    )
     active_strain.pack(side="left", fill="x", expand=True)
     change_strain_btn = ttk.Button(strain_row, text="Change Strain")
     change_strain_btn.pack(side="right")
 
-    last_saved = tk.Label(shell, text="No plant has been saved in this run.", font=("Segoe UI", 11, "bold"), bg="#E7F6EC", fg="#176B2C", anchor="w", padx=12, pady=8)
+    last_saved = tk.Label(
+        shell,
+        text="No plant has been saved in this run.",
+        font=("Segoe UI", 11, "bold"),
+        bg=COLOR_SUCCESS_BG,
+        fg=COLOR_SUCCESS_FG,
+        anchor="w",
+        padx=12,
+        pady=8,
+    )
     last_saved.pack(fill="x", pady=(6, 0))
-    pending_sync = tk.Label(shell, text="", font=("Segoe UI", 10, "bold"), bg="#F5F7FA", fg="#8A4B08", anchor="w")
+    pending_sync = tk.Label(
+        shell, text="", font=("Segoe UI", 10, "bold"), bg=COLOR_BG_APP, fg=COLOR_WARN_FG, anchor="w"
+    )
     pending_sync.pack(fill="x")
 
-    alice_card = tk.Frame(shell, bg="#FFFFFF", highlightbackground="#CBD4DD", highlightthickness=1)
+    alice_card = tk.Frame(shell, bg=COLOR_BG_CARD, highlightbackground=COLOR_BORDER, highlightthickness=1)
     alice_card.pack(fill="x", pady=8)
-    tk.Label(alice_card, text="Alice - next step", font=("Segoe UI", 10, "bold"), bg="#FFFFFF", fg="#5C6975").pack(anchor="w", padx=12, pady=(8, 2))
-    alice = tk.Label(alice_card, text="Start a new run or resume the last run.", justify="left", anchor="w", wraplength=1020, font=("Segoe UI", 13, "bold"), bg="#FFFFFF", fg="#17212B", padx=12, pady=8)
+    tk.Label(
+        alice_card,
+        text="Alice — next step",
+        font=("Segoe UI", 9, "bold"),
+        bg=COLOR_BG_CARD,
+        fg=COLOR_TEXT_MUTED,
+    ).pack(anchor="w", padx=12, pady=(8, 2))
+    alice = tk.Label(
+        alice_card,
+        text="Start a new run or resume the last run.",
+        justify="left",
+        anchor="w",
+        wraplength=1020,
+        font=("Segoe UI", 13, "bold"),
+        bg=COLOR_BG_CARD,
+        fg=COLOR_TEXT,
+        padx=12,
+        pady=8,
+    )
     alice.pack(fill="x")
 
-    barcode_card = tk.Frame(shell, bg="#FFFFFF", highlightbackground="#CBD4DD", highlightthickness=1)
+    barcode_card = tk.Frame(shell, bg=COLOR_BG_CARD, highlightbackground=COLOR_BORDER, highlightthickness=1)
     barcode_card.pack(fill="x", pady=(0, 8))
-    tk.Label(barcode_card, text="PLANT OR CONTAINER BARCODE", font=("Segoe UI", 9, "bold"), bg="#FFFFFF", fg="#5C6975").pack(anchor="w", padx=12, pady=(8, 2))
-    barcode_row = tk.Frame(barcode_card, bg="#FFFFFF")
+    tk.Label(
+        barcode_card,
+        text="PLANT OR CONTAINER BARCODE",
+        font=("Segoe UI", 9, "bold"),
+        bg=COLOR_BG_CARD,
+        fg=COLOR_TEXT_MUTED,
+    ).pack(anchor="w", padx=12, pady=(8, 2))
+    barcode_row = tk.Frame(barcode_card, bg=COLOR_BG_CARD)
     barcode_row.pack(fill="x", padx=12)
     barcode = tk.Entry(barcode_row, font=("Segoe UI", 18), relief="solid", bd=1, name="barcode_input")
     barcode.pack(side="left", fill="x", expand=True, ipady=8)
@@ -188,8 +296,8 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         barcode_card,
         text="USB HID — press Scan, then scan. Tag stays visible until Confirm.",
         font=("Segoe UI", 9),
-        bg="#FFFFFF",
-        fg="#5C6975",
+        bg=COLOR_BG_CARD,
+        fg=COLOR_TEXT_MUTED,
         anchor="w",
     )
     barcode_hint.pack(fill="x", padx=12, pady=(4, 2))
@@ -197,13 +305,13 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         barcode_card,
         text="Active plant: —",
         font=("Segoe UI", 11, "bold"),
-        bg="#FFFFFF",
-        fg="#1B69D2",
+        bg=COLOR_BG_CARD,
+        fg=COLOR_ACTIVE_BARCODE,
         anchor="w",
     )
     active_barcode_banner.pack(fill="x", padx=12, pady=(0, 8))
 
-    note_row = tk.Frame(shell, bg="#F5F7FA")
+    note_row = tk.Frame(shell, bg=COLOR_BG_APP)
     note_row.pack(fill="x", pady=(0, 6))
     operator_note = tk.Entry(note_row, font=("Segoe UI", 11))
     operator_note.insert(0, "")
@@ -212,13 +320,34 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     void_box = ttk.Combobox(note_row, textvariable=void_var, values=["void: none", "void: mark void"], state="readonly", width=16)
     void_box.pack(side="left", padx=(6, 0))
 
-    controls = tk.Frame(shell, bg="#F5F7FA")
+    controls = tk.Frame(shell, bg=COLOR_BG_APP)
     controls.pack(fill="x")
-    locked_weight = tk.Label(shell, text="", font=("Segoe UI", 12, "bold"), bg="#F5F7FA", fg="#1E6B52", anchor="w")
+    locked_weight = tk.Label(
+        shell, text="", font=("Segoe UI", 22, "bold"), bg=COLOR_BG_APP, fg=COLOR_LOCKED, anchor="w"
+    )
     locked_weight.pack(fill="x", pady=(4, 0))
-    plant_log = tk.Listbox(shell, height=6, font=("Consolas", 9))
-    plant_log.pack(fill="both", expand=False, pady=(6, 0))
-    status_line = tk.Label(shell, text="Scale disconnected", font=("Segoe UI", 9), bg="#F5F7FA", fg="#5C6975", anchor="w")
+    tk.Label(
+        shell,
+        text="RUN PLANT LOG (READ-ONLY)",
+        font=("Segoe UI", 9, "bold"),
+        bg=COLOR_BG_APP,
+        fg=COLOR_TEXT_MUTED,
+        anchor="w",
+    ).pack(fill="x", pady=(8, 0))
+    plant_log = tk.Listbox(
+        shell,
+        height=6,
+        font=("Consolas", 9),
+        bg="#FAFBFC",
+        fg=COLOR_TEXT,
+        highlightbackground=COLOR_BORDER,
+        highlightthickness=1,
+        relief="flat",
+    )
+    plant_log.pack(fill="both", expand=False, pady=(4, 0))
+    status_line = tk.Label(
+        shell, text="Scale disconnected", font=("Segoe UI", 9), bg=COLOR_BG_APP, fg=COLOR_TEXT_MUTED, anchor="w"
+    )
     status_line.pack(fill="x", pady=(8, 0))
 
     def show_result(result: dict[str, Any], *, success_title: str = "Completed") -> None:
@@ -502,18 +631,35 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
             return
         win = tk.Toplevel(root)
         win.title("Scan Plant Barcode")
-        win.geometry("520x220")
+        win.configure(bg=COLOR_BG_APP)
+        win.geometry("520x260")
+        tk.Label(
+            win,
+            text="SCAN CAPTURE",
+            font=("Segoe UI", 9, "bold"),
+            bg=COLOR_BG_APP,
+            fg=COLOR_TEXT_MUTED,
+            anchor="w",
+        ).pack(padx=12, pady=(12, 2), fill="x")
         tip = tk.Label(
             win,
             text="Scan the plant tag now. Press Enter to accept and copy it into the station.",
             wraplength=480,
             justify="left",
+            bg=COLOR_BG_APP,
+            fg=COLOR_TEXT,
         )
-        tip.pack(padx=12, pady=10, fill="x")
-        field = tk.Entry(win, font=("Segoe UI", 16))
-        field.pack(fill="x", padx=12, ipady=6)
-        status_lbl = tk.Label(win, text="Waiting for barcode scanner input…")
-        status_lbl.pack(padx=12, pady=6)
+        tip.pack(padx=12, pady=6, fill="x")
+        field = tk.Entry(win, font=("Segoe UI", 18), relief="solid", bd=1)
+        field.pack(fill="x", padx=12, ipady=8)
+        status_lbl = tk.Label(
+            win,
+            text="Waiting for barcode scanner input…",
+            font=("Segoe UI", 10, "bold"),
+            bg=COLOR_BG_APP,
+            fg=COLOR_TEXT,
+        )
+        status_lbl.pack(padx=12, pady=8)
 
         def accepted(_event=None) -> None:
             value = field.get().strip()
@@ -700,7 +846,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         else:
             weight_hint.config(text="")
         locked = s.get("locked_weight_g")
-        locked_weight.config(text=f"Locked: {format_weight(float(locked), du)}" if locked is not None else "")
+        locked_weight.config(text=f"Locked  {format_weight(float(locked), du)}" if locked is not None else "")
         active_bc = s.get("active_barcode")
         if active_bc:
             active_barcode_banner.config(text=f"Active plant: {active_bc}")
@@ -754,6 +900,14 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
             text=f"CSV/XLSX sync pending for {pending} record(s). Run → Rebuild CSV from JSONL." if pending else ""
         )
         alice.config(text=s["alice_message"])
+        pill_text = capture_pill_label(s["state"])
+        if s["state"] == "WAITING_FOR_BARCODE" and record:
+            pill_text = "Saved"
+            capture_pill.config(text=pill_text, bg=COLOR_SUCCESS_BG, fg=COLOR_SUCCESS_FG)
+        elif s["state"] in {"WEIGHT_STABLE", "MANUAL_CONFIRM", "RECORD_SAVED"}:
+            capture_pill.config(text=pill_text, bg=COLOR_SUCCESS_BG, fg=COLOR_SUCCESS_FG)
+        else:
+            capture_pill.config(text=pill_text, bg="#EEF2F6", fg=COLOR_TEXT_MUTED)
         mode = d.get("mode") or "none"
         if mode == "serial_simulator":
             mode_badge.config(text="SIMULATOR MODE - NO PHYSICAL SCALE", bg="#FFF1D6", fg="#8A4B08")
