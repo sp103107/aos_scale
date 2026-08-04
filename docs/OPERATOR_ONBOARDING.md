@@ -1,0 +1,121 @@
+# Operator Onboarding — Best Buds Weight Station
+
+**runtime_claimed:** false  
+**audience:** harvest-station operator  
+**product_version:** `2.0.0-rc1`  
+**template cite:** KS structured onboarding (salvage cite-only)
+
+## Flow map
+
+```text
+Launch
+→ New Run (Cultivator + Strain)
+→ Connect Scale
+→ Guided Calibration (verified mass)
+→ ZERO → optional SET TARE
+→ [Scan → settle → Lock → Confirm] × plants
+→ Export Report / Reconcile
+→ Finish Run
+```
+
+## If you feel lost
+
+> **Ask:** Do I have a run started? Is the scale connected? Am I calibrated?  
+> **Next action:** Read the Alice “next step” card on the main screen — it names the current action.
+
+---
+
+## Mission
+
+Weigh plants into a local harvest run with barcodes, keep an honest locked weight before confirm, and export handoff files without claiming Metrc or legal-for-trade status.
+
+---
+
+## 1. Launch
+
+> **Next action:** Double-click `launch_best_buds.bat` (or PowerShell `launch_best_buds.ps1`).
+
+Simulator without hardware: `launch_simulator.bat`.
+
+---
+
+## 2. New run — Cultivator vs Strain
+
+| Field | Meaning |
+|-------|---------|
+| **Cultivator** | Company / grower (maps to facility id) |
+| **Strain** | Sticky plant strain for scans until you Change Strain |
+
+> **Common confusion:** Cultivator is not the plant strain. Strain is sticky per run until changed.
+
+> **Next action:** Run → New Run → fill Harvest-run ID, Operator, Cultivator, Strain → save.
+
+---
+
+## 3. Connect scale and calibrate
+
+> **Next action:** Scale → Scale Setup → pick COM port @ 115200 → Connect.
+
+> **Next action:** Scale → Guided Calibration with a **verified** reference mass. Then empty pan → **ZERO**.
+
+> **Common confusion:** Large wild numbers before calibration are normal. Do not treat them as trade weight.
+
+---
+
+## 4. Capture loop (do not skip Lock)
+
+```text
+Scan (or type barcode + Enter)
+→ Place / hang plant → wait until Stable
+→ Lock weight
+→ Confirm & Record
+→ Ready for next scan
+```
+
+> **Next action:** Press **Scan** to open the capture window when Ready; Enter submits the tag.
+
+> **Common confusion:** Confirm stays disabled until the weight is **Locked**. That is intentional.
+
+Barcode stays visible until Confirm. Cancel clears the in-progress plant.
+
+---
+
+## 5. Plant log and last saved
+
+The run plant log shows recent confirmed plants (read-only). Last-saved receipt confirms the prior plant.
+
+> **Common confusion:** The plant log is **not** a Metrc plant list.
+
+---
+
+## 6. Export and reconcile
+
+> **Next action:** Run → Export Report… → choose a folder.
+
+Handoffs include CSV, XLSX, DOCX, JSON, and `handoff_bundle_manifest.json`.
+
+> **Next action:** Run → Reconcile Export ↔ JSONL — expect **pass**.
+
+**Authoritative truth:** session `records.jsonl`. Exports are non-authoritative.
+
+---
+
+## 7. Finish
+
+> **Next action:** Finish Run when the session is complete. Committed records remain immutable.
+
+---
+
+## Non-claims
+
+- Not legal-for-trade / Metrc compliance
+- Not production-sealed weighing certification
+- JSONL remains authoritative; handoffs are derivatives
+- HID Scan is keyboard-wedge focus — not BLE/SPP scanner protocol
+
+## Related
+
+- [START_HERE.md](../START_HERE.md)
+- [INTENDED_USER.md](INTENDED_USER.md)
+- [BBWS_SR5_ARTIFACT_POLISH_RUNBOOK.md](BBWS_SR5_ARTIFACT_POLISH_RUNBOOK.md)
+- [RECORDING_AND_EXPORT_RUNBOOK.md](RECORDING_AND_EXPORT_RUNBOOK.md)
