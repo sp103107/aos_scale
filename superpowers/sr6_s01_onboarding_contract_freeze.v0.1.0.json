@@ -1,0 +1,251 @@
+{
+  "arc_id": "SR6_S01_onboarding_contract_freeze",
+  "doctrine_cite": [
+    "M:/SALVAGE/CAPSULES/aos_knowledge_stack_rc_v5_0_0/docs/onboarding/_STRUCTURED_ONBOARDING_TEMPLATE.md",
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10/docs/BOOK_ENTRYPOINTS.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S01E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr6.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E01",
+      "kind": "context",
+      "objective": "Intent freeze: onboarding vs capture",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: onboarding vs capture"
+    },
+    {
+      "acceptance": "S01E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr6.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E02",
+      "kind": "context",
+      "objective": "Inventory human doc gaps",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Inventory human doc gaps"
+    },
+    {
+      "acceptance": "S01E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr6.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E03",
+      "kind": "context",
+      "objective": "Inventory agent entry gaps",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Inventory agent entry gaps"
+    },
+    {
+      "acceptance": "S01E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr6.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E04",
+      "kind": "implement",
+      "objective": "Write contract freeze receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write contract freeze receipt"
+    },
+    {
+      "acceptance": "S01E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr6.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E05",
+      "kind": "implement",
+      "objective": "Authorize S02\u2013S04 human docs",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S02\u2013S04 human docs"
+    },
+    {
+      "acceptance": "S01E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr6.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E06",
+      "kind": "implement",
+      "objective": "Authorize S05 agent entry",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S05 agent entry"
+    },
+    {
+      "acceptance": "S01E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr6.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E07",
+      "kind": "implement",
+      "objective": "Authorize S06\u2013S10 release scope",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S06\u2013S10 release scope"
+    },
+    {
+      "acceptance": "S01E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr6.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E08",
+      "kind": "verify",
+      "objective": "Verify non-claims stamped",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify non-claims stamped"
+    },
+    {
+      "acceptance": "S01E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr6.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E09",
+      "kind": "receipt",
+      "objective": "S01 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S01 receipt pack"
+    },
+    {
+      "acceptance": "S01E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr6.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E10",
+      "kind": "closeout",
+      "objective": "M01 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M01 season closeout + push plan"
+    }
+  ],
+  "focus": "Freeze docs/release contract and non-claims",
+  "milestone": "M01",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine are documentation doctrine cites only",
+    "Coding-agent onboard entry is guidance/bootstrap routing, not a new capture runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "primary_surfaces": [
+    "ACTIVE_ARC.yaml",
+    "cursor/",
+    "docs/",
+    "scripts/scaffold_bbws_sr6.py"
+  ],
+  "product_version_target": "2.0.0-rc1",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr6.onboarding_contract_freeze.v1",
+  "series_id": "BBWS_SR6_product_onboarding_release",
+  "title": "Scaffold + onboarding/release contract freeze",
+  "version": "0.1.0"
+}

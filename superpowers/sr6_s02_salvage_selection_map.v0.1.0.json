@@ -1,0 +1,218 @@
+{
+  "arc_id": "SR6_S02_salvage_selection_map",
+  "doctrine_cite": [
+    "M:/SALVAGE/CAPSULES/aos_knowledge_stack_rc_v5_0_0/docs/onboarding/_STRUCTURED_ONBOARDING_TEMPLATE.md",
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10/docs/BOOK_ENTRYPOINTS.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S02E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/BBWS_SR6_SELECTION_MAP.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E01",
+      "kind": "context",
+      "objective": "Intent freeze: cite-only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: cite-only"
+    },
+    {
+      "acceptance": "S02E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/BBWS_SR6_SELECTION_MAP.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E02",
+      "kind": "implement",
+      "objective": "Map KS structured onboarding template",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Map KS structured onboarding template"
+    },
+    {
+      "acceptance": "S02E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/BBWS_SR6_SELECTION_MAP.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E03",
+      "kind": "implement",
+      "objective": "Map Book Spine entrypoints",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Map Book Spine entrypoints"
+    },
+    {
+      "acceptance": "S02E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/BBWS_SR6_SELECTION_MAP.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E04",
+      "kind": "implement",
+      "objective": "Map publication readiness cites",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Map publication readiness cites"
+    },
+    {
+      "acceptance": "S02E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/BBWS_SR6_SELECTION_MAP.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E05",
+      "kind": "implement",
+      "objective": "Draft BBWS target table",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Draft BBWS target table"
+    },
+    {
+      "acceptance": "S02E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/BBWS_SR6_SELECTION_MAP.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E06",
+      "kind": "implement",
+      "objective": "Reject salvage runtime import",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Reject salvage runtime import"
+    },
+    {
+      "acceptance": "S02E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/BBWS_SR6_SELECTION_MAP.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E07",
+      "kind": "verify",
+      "objective": "Verify selection coverage",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify selection coverage"
+    },
+    {
+      "acceptance": "S02E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/BBWS_SR6_SELECTION_MAP.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E08",
+      "kind": "verify",
+      "objective": "Verify non-claims",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify non-claims"
+    },
+    {
+      "acceptance": "S02E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/BBWS_SR6_SELECTION_MAP.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E09",
+      "kind": "receipt",
+      "objective": "S02 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S02 receipt pack"
+    },
+    {
+      "acceptance": "S02E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/BBWS_SR6_SELECTION_MAP.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E10",
+      "kind": "closeout",
+      "objective": "M02 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M02 season closeout + push plan"
+    }
+  ],
+  "focus": "Map onboarding/entrypoint cites to BBWS docs",
+  "milestone": "M02",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine are documentation doctrine cites only",
+    "Coding-agent onboard entry is guidance/bootstrap routing, not a new capture runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "primary_surfaces": [
+    "docs/BBWS_SR6_SELECTION_MAP.md"
+  ],
+  "product_version_target": "2.0.0-rc1",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr6.salvage_selection_map.v1",
+  "series_id": "BBWS_SR6_product_onboarding_release",
+  "title": "Salvage selection map KS + Book Spine",
+  "version": "0.1.0"
+}

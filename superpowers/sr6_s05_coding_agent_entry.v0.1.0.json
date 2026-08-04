@@ -1,0 +1,229 @@
+{
+  "arc_id": "SR6_S05_coding_agent_entry",
+  "doctrine_cite": [
+    "M:/SALVAGE/CAPSULES/aos_knowledge_stack_rc_v5_0_0/docs/onboarding/_STRUCTURED_ONBOARDING_TEMPLATE.md",
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10/docs/BOOK_ENTRYPOINTS.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S05E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE_CODING_AGENT.md",
+        "app/best_buds_weight_station/onboard.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E01",
+      "kind": "context",
+      "objective": "Intent freeze: guidance only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: guidance only"
+    },
+    {
+      "acceptance": "S05E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE_CODING_AGENT.md",
+        "app/best_buds_weight_station/onboard.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E02",
+      "kind": "implement",
+      "objective": "Write START_HERE_CODING_AGENT.md",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write START_HERE_CODING_AGENT.md"
+    },
+    {
+      "acceptance": "S05E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE_CODING_AGENT.md",
+        "app/best_buds_weight_station/onboard.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E03",
+      "kind": "implement",
+      "objective": "Implement onboard.py CLI",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Implement onboard.py CLI"
+    },
+    {
+      "acceptance": "S05E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE_CODING_AGENT.md",
+        "app/best_buds_weight_station/onboard.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E04",
+      "kind": "implement",
+      "objective": "Print version and key paths",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Print version and key paths"
+    },
+    {
+      "acceptance": "S05E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE_CODING_AGENT.md",
+        "app/best_buds_weight_station/onboard.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E05",
+      "kind": "implement",
+      "objective": "Point to bootstrap cursor-ready",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Point to bootstrap cursor-ready"
+    },
+    {
+      "acceptance": "S05E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE_CODING_AGENT.md",
+        "app/best_buds_weight_station/onboard.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E06",
+      "kind": "implement",
+      "objective": "Forbidden scopes list",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Forbidden scopes list"
+    },
+    {
+      "acceptance": "S05E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE_CODING_AGENT.md",
+        "app/best_buds_weight_station/onboard.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E07",
+      "kind": "verify",
+      "objective": "Verify module entry",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify module entry"
+    },
+    {
+      "acceptance": "S05E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE_CODING_AGENT.md",
+        "app/best_buds_weight_station/onboard.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E08",
+      "kind": "verify",
+      "objective": "Verify no capture mutation",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify no capture mutation"
+    },
+    {
+      "acceptance": "S05E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE_CODING_AGENT.md",
+        "app/best_buds_weight_station/onboard.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E09",
+      "kind": "receipt",
+      "objective": "S05 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S05 receipt pack"
+    },
+    {
+      "acceptance": "S05E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE_CODING_AGENT.md",
+        "app/best_buds_weight_station/onboard.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E10",
+      "kind": "closeout",
+      "objective": "M05 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M05 season closeout + push plan"
+    }
+  ],
+  "focus": "Agent front door and Python document router",
+  "milestone": "M05",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine are documentation doctrine cites only",
+    "Coding-agent onboard entry is guidance/bootstrap routing, not a new capture runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "primary_surfaces": [
+    "START_HERE_CODING_AGENT.md",
+    "app/best_buds_weight_station/onboard.py"
+  ],
+  "product_version_target": "2.0.0-rc1",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr6.coding_agent_entry.v1",
+  "series_id": "BBWS_SR6_product_onboarding_release",
+  "title": "Coding-agent START HERE + onboard.py",
+  "version": "0.1.0"
+}

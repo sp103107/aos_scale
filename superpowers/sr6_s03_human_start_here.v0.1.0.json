@@ -1,0 +1,229 @@
+{
+  "arc_id": "SR6_S03_human_start_here",
+  "doctrine_cite": [
+    "M:/SALVAGE/CAPSULES/aos_knowledge_stack_rc_v5_0_0/docs/onboarding/_STRUCTURED_ONBOARDING_TEMPLATE.md",
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10/docs/BOOK_ENTRYPOINTS.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S03E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE.md",
+        "docs/INTENDED_USER.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E01",
+      "kind": "context",
+      "objective": "Intent freeze: operator front door",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: operator front door"
+    },
+    {
+      "acceptance": "S03E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE.md",
+        "docs/INTENDED_USER.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E02",
+      "kind": "implement",
+      "objective": "Write START_HERE.md",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write START_HERE.md"
+    },
+    {
+      "acceptance": "S03E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE.md",
+        "docs/INTENDED_USER.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E03",
+      "kind": "implement",
+      "objective": "Write INTENDED_USER.md",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write INTENDED_USER.md"
+    },
+    {
+      "acceptance": "S03E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE.md",
+        "docs/INTENDED_USER.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E04",
+      "kind": "implement",
+      "objective": "Link launchers and runbooks",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Link launchers and runbooks"
+    },
+    {
+      "acceptance": "S03E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE.md",
+        "docs/INTENDED_USER.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E05",
+      "kind": "implement",
+      "objective": "Stamp JSONL authority",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Stamp JSONL authority"
+    },
+    {
+      "acceptance": "S03E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE.md",
+        "docs/INTENDED_USER.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E06",
+      "kind": "implement",
+      "objective": "Stamp non-claims",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Stamp non-claims"
+    },
+    {
+      "acceptance": "S03E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE.md",
+        "docs/INTENDED_USER.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E07",
+      "kind": "verify",
+      "objective": "Verify one-page readability",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify one-page readability"
+    },
+    {
+      "acceptance": "S03E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE.md",
+        "docs/INTENDED_USER.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E08",
+      "kind": "verify",
+      "objective": "Verify no Metrc claim",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify no Metrc claim"
+    },
+    {
+      "acceptance": "S03E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE.md",
+        "docs/INTENDED_USER.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E09",
+      "kind": "receipt",
+      "objective": "S03 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S03 receipt pack"
+    },
+    {
+      "acceptance": "S03E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "START_HERE.md",
+        "docs/INTENDED_USER.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E10",
+      "kind": "closeout",
+      "objective": "M03 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M03 season closeout + push plan"
+    }
+  ],
+  "focus": "Root START_HERE and INTENDED_USER docs",
+  "milestone": "M03",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine are documentation doctrine cites only",
+    "Coding-agent onboard entry is guidance/bootstrap routing, not a new capture runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "primary_surfaces": [
+    "START_HERE.md",
+    "docs/INTENDED_USER.md"
+  ],
+  "product_version_target": "2.0.0-rc1",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr6.human_start_here.v1",
+  "series_id": "BBWS_SR6_product_onboarding_release",
+  "title": "Human START_HERE + intended user",
+  "version": "0.1.0"
+}
