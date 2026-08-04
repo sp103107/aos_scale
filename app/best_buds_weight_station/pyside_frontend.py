@@ -35,94 +35,28 @@ from PySide6.QtWidgets import (
 from .operator_runtime import OperatorRuntime
 from .operator_surface import ROUTINE_ACTION_LAYOUT
 from .run_manager import facility_id_from_cultivator
+from .ui_tokens import (
+    COLOR_ACTIVE_BARCODE,
+    COLOR_PRIMARY,
+    COLOR_WARN_BG,
+    COLOR_WARN_BORDER,
+    COLOR_WARN_FG,
+    build_pyside_stylesheet,
+    capture_pill_label,
+)
 from .units import display_to_grams, format_weight, grams_to_display, unit_label
 from .version import __version__
 
 
-APP_STYLE = """
-QWidget { color: #1A2330; font-family: "Segoe UI", "Segoe UI Variable", sans-serif; font-size: 14px; }
-QMainWindow, QDialog { background: #F3F6F8; }
-QFrame#topBar, QFrame#card, QGroupBox {
-  background: #FFFFFF;
-  border: 1px solid #D5DEE7;
-  border-radius: 10px;
-}
-QLabel#appTitle { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; color: #122033; }
-QLabel#modeBadge {
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 12px;
-  background: #EEF2F6;
-  color: #5C6975;
-}
-QLabel#statusBanner {
-  font-size: 18px;
-  font-weight: 700;
-  padding: 12px 16px;
-  background: #FFFFFF;
-  border: 1px solid #D5DEE7;
-  border-radius: 10px;
-  color: #122033;
-}
-QLabel#weightDisplay {
-  font-size: 72px;
-  font-weight: 800;
-  padding: 18px;
-  background: #FFFFFF;
-  border: 2px solid #1A2330;
-  border-radius: 12px;
-  letter-spacing: -1px;
-}
-QLabel#metricValue { font-size: 18px; font-weight: 700; color: #122033; }
-QLabel#instruction { font-size: 16px; font-weight: 600; color: #1A2330; }
-QLabel#lastSaved {
-  color: #14532D;
-  font-weight: 700;
-  padding: 10px 12px;
-  background: #E8F7EE;
-  border: 1px solid #C6E7D2;
-  border-radius: 8px;
-}
-QLineEdit#barcodeInput {
-  min-height: 52px;
-  font-size: 20px;
-  padding: 4px 12px;
-  border: 2px solid #D5DEE7;
-  border-radius: 8px;
-  background: #FFFFFF;
-}
-QLineEdit#barcodeInput:focus { border-color: #1B69D2; }
-QPushButton {
-  min-height: 44px;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 6px 14px;
-  border: 1px solid #B8C4D0;
-  border-radius: 8px;
-  background: #FFFFFF;
-}
-QPushButton:hover { background: #F0F4F8; }
-QPushButton#primaryAction {
-  min-height: 58px;
-  font-size: 16px;
-  color: #FFFFFF;
-  background: #1B6B52;
-  border-color: #1B6B52;
-}
-QPushButton#primaryAction:hover { background: #185F49; }
-QPushButton#dangerAction { color: #B42318; border-color: #E0B4AF; }
-QPushButton:disabled { color: #8A969F; background: #EDF0F2; border-color: #E1E6EB; }
-QMenuBar { background: #FFFFFF; border-bottom: 1px solid #D5DEE7; padding: 2px 4px; }
-QStatusBar { background: #FFFFFF; border-top: 1px solid #D5DEE7; color: #5C6975; }
-QListWidget {
-  border: 1px solid #D5DEE7;
-  border-radius: 8px;
-  background: #FAFBFC;
-  padding: 4px;
-}
-QScrollArea { background: transparent; border: none; }
-"""
+# SR4: stylesheet from salvage-aligned tokens (see docs/BBWS_SR4_DESIGN_TOKENS.md)
+APP_STYLE = build_pyside_stylesheet()
+
+
+def _eyebrow(text: str) -> QLabel:
+    """Uppercase section eyebrow — salvage card language, text-labeled."""
+    label = QLabel(text)
+    label.setObjectName("eyebrow")
+    return label
 
 
 def _show_result(parent: QWidget, result: dict[str, Any], *, success_title: str = "Completed") -> None:
@@ -136,8 +70,10 @@ class NewRunDialog(QDialog):
     def __init__(self, runtime: OperatorRuntime, parent: QWidget | None = None):
         super().__init__(parent)
         self.runtime = runtime
+        self.setObjectName("polishDialog")
         self.setWindowTitle("New Harvest Run")
         form = QFormLayout(self)
+        form.addRow(_eyebrow("New harvest run"))
         self.run_id = QLineEdit()
         self.operator_id = QLineEdit()
         self.cultivator = QLineEdit("Best Buds")
@@ -157,7 +93,7 @@ class NewRunDialog(QDialog):
         form.addRow("Run data folder", folder)
         hint = QLabel("Cultivator is the company/grower. Strain is the sticky plant strain for scans.")
         hint.setWordWrap(True)
-        hint.setStyleSheet("color:#5C6975")
+        hint.setObjectName("dialogTip")
         form.addRow(hint)
         buttons = QDialogButtonBox(QDialogButtonBox.Save | QDialogButtonBox.Cancel)
         buttons.accepted.connect(self.create_run); buttons.rejected.connect(self.reject)
@@ -354,9 +290,12 @@ class ScannerTestDialog(QDialog):
         self.runtime = runtime
         self.capture = capture
         self.accepted_barcode: str | None = None
+        self.setObjectName("polishDialog")
         self.setWindowTitle("Scan Plant Barcode" if capture else "Test Barcode Scanner")
-        self.resize(520, 240)
+        self.resize(520, 260)
         layout = QVBoxLayout(self)
+        layout.setSpacing(10)
+        layout.addWidget(_eyebrow("Scan capture" if capture else "Scanner test"))
         tip = QLabel(
             (
                 "Scan the plant tag now. The barcode will be copied into the "
@@ -369,13 +308,16 @@ class ScannerTestDialog(QDialog):
             )
         )
         tip.setWordWrap(True)
+        tip.setObjectName("dialogTip")
         layout.addWidget(tip)
         self.field = QLineEdit()
         self.field.setObjectName("barcodeInput")
         self.field.setPlaceholderText("Waiting for scan…")
+        self.field.setAccessibleName("Scan capture barcode field")
         self.field.returnPressed.connect(self._accepted_scan)
         layout.addWidget(self.field)
         self.status = QLabel("Waiting for barcode scanner input…")
+        self.status.setObjectName("dialogStatus")
         layout.addWidget(self.status)
         buttons = QDialogButtonBox(QDialogButtonBox.Close)
         buttons.rejected.connect(self.reject)
@@ -416,14 +358,17 @@ class ChangeStrainDialog(QDialog):
     def __init__(self, runtime: OperatorRuntime, parent: QWidget | None = None):
         super().__init__(parent)
         self.runtime = runtime
+        self.setObjectName("polishDialog")
         self.setWindowTitle("Change Active Strain")
         form = QFormLayout(self)
+        form.addRow(_eyebrow("Active strain"))
         current = runtime.snapshot().get("strain") or runtime.snapshot().get("cultivar") or ""
         tip = QLabel(
             "New scans use this strain until you change it again. "
             "This is operator sticky strain — not Metrc compliance."
         )
         tip.setWordWrap(True)
+        tip.setObjectName("dialogTip")
         form.addRow(tip)
         self.strain = QLineEdit(str(current))
         form.addRow("Active strain", self.strain)
@@ -682,10 +627,17 @@ class MainWindow(QMainWindow):
         top_layout.addWidget(title); top_layout.addStretch(1); top_layout.addWidget(self.mode_badge)
         layout.addWidget(top)
 
+        status_row = QHBoxLayout()
         self.status = QLabel("No run started")
         self.status.setObjectName("statusBanner")
         self.status.setAccessibleName("Current station status")
-        layout.addWidget(self.status)
+        self.capture_pill = QLabel("Idle")
+        self.capture_pill.setObjectName("statusPill")
+        self.capture_pill.setAccessibleName("Capture status")
+        self.capture_pill.setProperty("pill", "ready")
+        status_row.addWidget(self.status, 1)
+        status_row.addWidget(self.capture_pill)
+        layout.addLayout(status_row)
 
         self.weight = QLabel("0.000 g")
         self.weight.setObjectName("weightDisplay")
@@ -694,12 +646,13 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.weight, 2)
         self.weight_hint = QLabel("")
         self.weight_hint.setAlignment(Qt.AlignCenter)
-        self.weight_hint.setStyleSheet("color:#8A4B08;font-size:13px;font-weight:600")
+        self.weight_hint.setStyleSheet(f"color:{COLOR_WARN_FG};font-size:13px;font-weight:600")
         self.weight_hint.setWordWrap(True)
         layout.addWidget(self.weight_hint)
         self.locked_weight_label = QLabel("")
+        self.locked_weight_label.setObjectName("lockedMetric")
         self.locked_weight_label.setAlignment(Qt.AlignCenter)
-        self.locked_weight_label.setStyleSheet("color:#1E6B52;font-size:16px;font-weight:700")
+        self.locked_weight_label.setAccessibleName("Locked weight")
         layout.addWidget(self.locked_weight_label)
 
         metrics = QFrame(); metrics.setObjectName("card")
@@ -708,7 +661,7 @@ class MainWindow(QMainWindow):
         for idx, key in enumerate(
             ("RUN", "CULTIVATOR", "STRAIN", "OPERATOR", "CONTAINER", "GROSS", "TARE", "NET")
         ):
-            label = QLabel(key.title()); label.setStyleSheet("font-weight:600;color:#5C6975;font-size:12px")
+            label = QLabel(key); label.setObjectName("metricLabel")
             value = QLabel("—"); value.setObjectName("metricValue"); value.setTextInteractionFlags(Qt.TextSelectableByMouse)
             row, col = divmod(idx, 4)
             grid.addWidget(label, row * 2, col)
@@ -718,7 +671,7 @@ class MainWindow(QMainWindow):
 
         strain_row = QHBoxLayout()
         self.active_strain_banner = QLabel("Active strain: —")
-        self.active_strain_banner.setStyleSheet("font-weight:700;color:#1B6B52;padding:6px 0")
+        self.active_strain_banner.setStyleSheet(f"font-weight:700;color:{COLOR_PRIMARY};padding:6px 0")
         change_strain_btn = QPushButton("Change Strain")
         change_strain_btn.clicked.connect(self.change_strain)
         strain_row.addWidget(self.active_strain_banner, 1)
@@ -727,22 +680,23 @@ class MainWindow(QMainWindow):
 
         self.last_saved = QLabel("No plant has been saved in this run.")
         self.last_saved.setObjectName("lastSaved")
+        self.last_saved.setAccessibleName("Last saved plant receipt")
         layout.addWidget(self.last_saved)
         self.pending_sync_label = QLabel("")
-        self.pending_sync_label.setStyleSheet("color:#8A4B08;font-weight:600")
+        self.pending_sync_label.setStyleSheet(f"color:{COLOR_WARN_FG};font-weight:600")
         layout.addWidget(self.pending_sync_label)
 
         alice_card = QFrame(); alice_card.setObjectName("card")
         alice_layout = QVBoxLayout(alice_card); alice_layout.setContentsMargins(14, 10, 14, 10)
-        alice_header = QLabel("Alice - next step"); alice_header.setStyleSheet("font-weight:700;color:#5C6975")
+        alice_layout.addWidget(_eyebrow("Alice — next step"))
         self.alice_message = QLabel("Start a new run or resume the last run.")
         self.alice_message.setObjectName("instruction"); self.alice_message.setWordWrap(True)
-        alice_layout.addWidget(alice_header); alice_layout.addWidget(self.alice_message)
+        alice_layout.addWidget(self.alice_message)
         layout.addWidget(alice_card)
 
         barcode_card = QFrame(); barcode_card.setObjectName("card")
         barcode_layout = QVBoxLayout(barcode_card); barcode_layout.setContentsMargins(14, 10, 14, 10); barcode_layout.setSpacing(4)
-        barcode_label = QLabel("PLANT OR CONTAINER BARCODE"); barcode_label.setStyleSheet("font-weight:700;color:#5C6975")
+        barcode_layout.addWidget(_eyebrow("Plant or container barcode"))
         self.barcode = QLineEdit()
         self.barcode.setObjectName("barcodeInput")
         self.barcode.setPlaceholderText("Scan or type the barcode, then press Enter")
@@ -761,12 +715,11 @@ class MainWindow(QMainWindow):
             "Press Scan to open the scanner window. The accepted tag stays "
             "visible here until Confirm."
         )
-        barcode_hint.setStyleSheet("color:#5C6975;font-size:12px")
-        barcode_layout.addWidget(barcode_label)
+        barcode_hint.setObjectName("dialogTip")
         barcode_layout.addLayout(barcode_row)
         barcode_layout.addWidget(barcode_hint)
         self.active_barcode_banner = QLabel("Active plant: —")
-        self.active_barcode_banner.setStyleSheet("font-weight:700;color:#1B69D2;padding:4px 0")
+        self.active_barcode_banner.setStyleSheet(f"font-weight:700;color:{COLOR_ACTIVE_BARCODE};padding:4px 0")
         barcode_layout.addWidget(self.active_barcode_banner)
         layout.addWidget(barcode_card)
         note_row = QHBoxLayout()
@@ -800,12 +753,12 @@ class MainWindow(QMainWindow):
 
         log_card = QFrame(); log_card.setObjectName("card")
         log_layout = QVBoxLayout(log_card); log_layout.setContentsMargins(14, 10, 14, 10)
-        log_header = QLabel("Run plant log (read-only)"); log_header.setStyleSheet("font-weight:700;color:#5C6975")
+        log_layout.addWidget(_eyebrow("Run plant log (read-only)"))
         self.plant_log = QListWidget()
         self.plant_log.setMinimumHeight(120)
         self.plant_log.setMaximumHeight(180)
         self.plant_log.setAccessibleName("Run plant log")
-        log_layout.addWidget(log_header)
+        self.plant_log.setObjectName("plantLog")
         log_layout.addWidget(self.plant_log)
         layout.addWidget(log_card)
 
@@ -896,7 +849,7 @@ class MainWindow(QMainWindow):
             self.weight_hint.setText("")
         locked = s.get("locked_weight_g")
         if locked is not None:
-            self.locked_weight_label.setText(f"Locked: {format_weight(float(locked), du)}")
+            self.locked_weight_label.setText(f"Locked  {format_weight(float(locked), du)}")
         else:
             self.locked_weight_label.setText("")
         active_bc = s.get("active_barcode")
@@ -941,14 +894,19 @@ class MainWindow(QMainWindow):
         else:
             self.pending_sync_label.setText("")
         self.alice_message.setText(str(s["alice_message"]))
+        self._refresh_capture_pill(s["state"], bool(record))
 
         mode = device.get("mode") or "none"
+        warn_pill = (
+            f"background:{COLOR_WARN_BG};color:{COLOR_WARN_FG};border:1px solid {COLOR_WARN_BORDER};"
+            "padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px"
+        )
         if mode == "serial_simulator":
             self.mode_badge.setText("SIMULATOR MODE - NO PHYSICAL SCALE")
-            self.mode_badge.setStyleSheet("background:#FFF1D6;color:#8A4B08;border:1px solid #D69E2E;padding:5px 10px;border-radius:10px;font-weight:700")
+            self.mode_badge.setStyleSheet(warn_pill)
         elif device.get("connected"):
             self.mode_badge.setText("PHYSICAL SERIAL - TESTING REQUIRED")
-            self.mode_badge.setStyleSheet("background:#FFF1D6;color:#8A4B08;border:1px solid #D69E2E;padding:5px 10px;border-radius:10px;font-weight:700")
+            self.mode_badge.setStyleSheet(warn_pill)
         else:
             self.mode_badge.setText("NO SCALE CONNECTED")
             self.mode_badge.setStyleSheet("")
@@ -985,6 +943,29 @@ class MainWindow(QMainWindow):
         self.buttons["CONFIRM & RECORD"].setEnabled(state == "MANUAL_CONFIRM")
         self.buttons["CANCEL"].setEnabled(state in self.CAPTURE_STATES)
         self.buttons["FINISH RUN"].setEnabled(bool(s["run_id"]) and state not in {"LOCAL_COMMIT_PENDING"})
+
+    def _refresh_capture_pill(self, state: str, has_saved: bool) -> None:
+        """Text-labeled capture status pill (Ready / Stable / Locked / Saved)."""
+        label = capture_pill_label(state)
+        if state == "WAITING_FOR_BARCODE" and has_saved:
+            label = "Saved"
+            pill = "saved"
+        elif state == "MANUAL_CONFIRM":
+            pill = "locked"
+        elif state == "WEIGHT_STABLE":
+            pill = "stable"
+        elif state == "RECORD_SAVED":
+            pill = "saved"
+        elif state in {"WAITING_FOR_LOAD", "WEIGHING", "WAITING_FOR_STABLE_WEIGHT"}:
+            pill = "warn"
+        else:
+            pill = "ready"
+        self.capture_pill.setText(label)
+        self.capture_pill.setProperty("pill", pill)
+        self.capture_pill.setToolTip(f"Capture status: {label} ({state})")
+        # Force QSS property refresh
+        self.capture_pill.style().unpolish(self.capture_pill)
+        self.capture_pill.style().polish(self.capture_pill)
 
     def _refresh_plant_log(self, plants: list[dict[str, Any]], du: str) -> None:
         lines: list[str] = []
@@ -1213,7 +1194,8 @@ class MainWindow(QMainWindow):
             f"Best Buds Cultivator Weight Station v{__version__}\n"
             "Harvest weight capture for cultivators.\n"
             "Authoritative records stay in local session JSONL.\n"
-            "Not legal-for-trade certification.",
+            "Operator surface polish uses design tokens (cite-only).\n"
+            "Not legal-for-trade or Metrc compliance.",
         )
     def closeEvent(self,event:QCloseEvent)->None:
         self.runtime.close(); event.accept()
