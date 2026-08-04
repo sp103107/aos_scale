@@ -17,6 +17,13 @@ RUN_SCHEMA_VERSION = "1.0.0"
 _IDENTIFIER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$")
 
 
+def facility_id_from_cultivator(name: str) -> str:
+    """Map operator Cultivator label to a valid facility_id (JSONL-stable key)."""
+    cleaned = re.sub(r"[^A-Za-z0-9._:-]+", "-", (name or "").strip())
+    cleaned = cleaned.strip("-._:") or "BEST-BUDS"
+    return cleaned[:128]
+
+
 @dataclass
 class RunDefinition:
     run_id: str

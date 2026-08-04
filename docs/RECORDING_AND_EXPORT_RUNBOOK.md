@@ -24,7 +24,8 @@ CSV / XLSX are derivatives for operators (pending_sync if a spreadsheet write fa
 | File | Purpose |
 |------|---------|
 | `records.csv` / `records.xlsx` | Live session ledger copies |
-| `harvest_run_report.csv` | Cultivar totals |
+| `harvest_run_report.csv` | Strain totals |
+| `*_plants.csv` / `records.csv` | Plant rows with `cultivator` + `strain` columns |
 | `harvest_run_report.xlsx` | Summary + record sheet |
 | `harvest_run_report.docx` | Printable Word summary |
 | `harvest_run_report.json` | Machine-readable summary |

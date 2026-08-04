@@ -489,7 +489,14 @@ class OperatorRuntime:
             "operator_id": context.operator_id if context else None,
             "cultivar": (context.cultivar_raw_name if context else None)
             or (definition.cultivars[0]["name"] if definition and definition.cultivars else None),
+            "strain": (context.cultivar_normalized_name if context else None)
+            or (context.cultivar_raw_name if context else None)
+            or (definition.cultivars[0]["name"] if definition and definition.cultivars else None),
             "cultivar_id": context.cultivar_id if context else None,
+            "cultivator": (context.facility_id if context else None)
+            or (definition.facility_id if definition else None),
+            "facility_id": (context.facility_id if context else None)
+            or (definition.facility_id if definition else None),
             "calibration_id": context.calibration_id if context else None,
             "container_id": context.container_id if context else None,
             "tare_g": tare_g,

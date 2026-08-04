@@ -1,6 +1,12 @@
 """Session spreadsheet derivatives (CSV / XLSX).
 
 Authoritative truth remains session JSONL. CSV/XLSX are rebuildable handoffs.
+
+Operator-facing columns:
+- cultivator ← facility_id (company / grower)
+- strain ← cultivar_normalized_name (sticky strain)
+
+Internal JSONL still uses cultivar_* for strain and facility_id for cultivator.
 """
 from __future__ import annotations
 
@@ -18,6 +24,8 @@ HEADERS = [
     "captured_at",
     "barcode_raw",
     "barcode_normalized",
+    "cultivator",
+    "strain",
     "cultivar_raw_name",
     "cultivar_normalized_name",
     "run_id",
@@ -44,7 +52,13 @@ def safe_cell(value: Any) -> Any:
 
 
 def row_for(record: dict[str, Any]) -> list[Any]:
-    return [safe_cell(record.get(h, "")) for h in HEADERS]
+    """Build one spreadsheet row; derive cultivator/strain from stable JSONL keys."""
+    strain = record.get("cultivar_normalized_name") or record.get("cultivar_raw_name") or ""
+    cultivator = record.get("facility_id") or record.get("cultivator") or ""
+    enriched = dict(record)
+    enriched.setdefault("strain", strain)
+    enriched.setdefault("cultivator", cultivator)
+    return [safe_cell(enriched.get(h, "")) for h in HEADERS]
 
 
 def append_csv(path: Path, record: dict[str, Any]) -> None:

@@ -62,11 +62,11 @@ def _write_docx(path: Path, report: dict[str, Any], rows: list[dict[str, Any]]) 
         "Authoritative truth is the local session JSONL ledger."
     )
 
-    doc.add_heading("Cultivar totals", level=1)
+    doc.add_heading("Strain totals", level=1)
     table = doc.add_table(rows=1, cols=2)
     table.style = "Table Grid"
     header = table.rows[0].cells
-    header[0].text = "Cultivar"
+    header[0].text = "Strain"
     header[1].text = "Net g"
     for cultivar, net in report["cultivar_totals"].items():
         cells = table.add_row().cells
@@ -77,18 +77,21 @@ def _write_docx(path: Path, report: dict[str, Any], rows: list[dict[str, Any]]) 
     total_row[1].text = f"{report['total_net_g']}"
 
     doc.add_heading("Plant records", level=1)
-    detail = doc.add_table(rows=1, cols=6)
+    detail = doc.add_table(rows=1, cols=7)
     detail.style = "Table Grid"
-    for idx, name in enumerate(("Seq", "Barcode", "Cultivar", "Gross g", "Tare g", "Net g")):
+    for idx, name in enumerate(
+        ("Seq", "Barcode", "Cultivator", "Strain", "Gross g", "Tare g", "Net g")
+    ):
         detail.rows[0].cells[idx].text = name
     for row in rows:
         cells = detail.add_row().cells
         cells[0].text = str(row.get("sequence", ""))
         cells[1].text = str(row.get("barcode_raw", ""))
-        cells[2].text = str(row.get("cultivar_normalized_name", ""))
-        cells[3].text = str(row.get("gross_g", ""))
-        cells[4].text = str(row.get("tare_g", ""))
-        cells[5].text = str(row.get("net_g", ""))
+        cells[2].text = str(row.get("facility_id", ""))
+        cells[3].text = str(row.get("cultivar_normalized_name", ""))
+        cells[4].text = str(row.get("gross_g", ""))
+        cells[5].text = str(row.get("tare_g", ""))
+        cells[6].text = str(row.get("net_g", ""))
 
     path.parent.mkdir(parents=True, exist_ok=True)
     doc.save(path)
@@ -139,7 +142,7 @@ def compile_report(session_dir: str | Path) -> dict[str, Any]:
 
     with summary_csv_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.writer(handle)
-        writer.writerow(["cultivar", "net_g"])
+        writer.writerow(["strain", "net_g"])
         for cultivar, net in report["cultivar_totals"].items():
             writer.writerow([cultivar, net])
         writer.writerow(["TOTAL", total])
@@ -153,7 +156,7 @@ def compile_report(session_dir: str | Path) -> dict[str, Any]:
     workbook = Workbook()
     sheet = workbook.active
     sheet.title = "Summary"
-    sheet.append(["Cultivar", "Net g"])
+    sheet.append(["Strain", "Net g"])
     for cultivar, net in report["cultivar_totals"].items():
         sheet.append([cultivar, net])
     sheet.append(["TOTAL", total])
