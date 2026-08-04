@@ -29,6 +29,17 @@ def test_ui_source_has_real_callbacks_and_dominant_weight():
         assert callback in text
     assert '_LegacyCallbackNamesForContract' not in text
     assert 'font=("Segoe UI", 52' in text and 'SIMULATOR MODE - NO PHYSICAL SCALE' in text
+    assert 'Cultivator (company/grower)' in text
+    assert 'Strain' in text
+    assert 'CULTIVATOR' in text and 'STRAIN' in text
+
+
+def test_pyside_new_run_uses_cultivator_and_strain():
+    text = (Path(__file__).parents[1] / 'app/best_buds_weight_station/pyside_frontend.py').read_text(encoding='utf-8')
+    assert 'form.addRow("Cultivator"' in text
+    assert 'form.addRow("Strain"' in text
+    assert 'facility_id_from_cultivator' in text
+    assert '"CULTIVATOR"' in text and '"STRAIN"' in text
 
 
 def test_ui_exposes_text_status_not_color_only():

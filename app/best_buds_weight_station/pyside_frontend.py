@@ -24,6 +24,7 @@ from PySide6.QtWidgets import (
     QMessageBox,
     QPlainTextEdit,
     QPushButton,
+    QScrollArea,
     QSpinBox,
     QDoubleSpinBox,
     QStackedWidget,
@@ -33,30 +34,94 @@ from PySide6.QtWidgets import (
 
 from .operator_runtime import OperatorRuntime
 from .operator_surface import ROUTINE_ACTION_LAYOUT
+from .run_manager import facility_id_from_cultivator
 from .units import display_to_grams, format_weight, grams_to_display, unit_label
 from .version import __version__
 
 
 APP_STYLE = """
-QWidget { color: #17212B; font-family: "Segoe UI"; font-size: 14px; }
-QMainWindow, QDialog { background: #F5F7FA; }
-QFrame#topBar, QFrame#card, QGroupBox { background: #FFFFFF; border: 1px solid #CBD4DD; border-radius: 8px; }
-QLabel#appTitle { font-size: 28px; font-weight: 700; }
-QLabel#modeBadge { padding: 5px 10px; border-radius: 10px; font-weight: 700; background: #EEF2F6; }
-QLabel#statusBanner { font-size: 19px; font-weight: 700; padding: 12px 16px; background: #FFFFFF; border: 2px solid #CBD4DD; border-radius: 8px; }
-QLabel#weightDisplay { font-size: 72px; font-weight: 800; padding: 18px; background: #FFFFFF; border: 2px solid #17212B; border-radius: 10px; }
-QLabel#metricValue { font-size: 20px; font-weight: 700; }
-QLabel#instruction { font-size: 17px; font-weight: 600; }
-QLabel#lastSaved { color: #176B2C; font-weight: 700; padding: 8px; background: #E7F6EC; border-radius: 6px; }
-QLineEdit#barcodeInput { min-height: 52px; font-size: 20px; padding: 4px 10px; border: 2px solid #CBD4DD; border-radius: 6px; }
+QWidget { color: #1A2330; font-family: "Segoe UI", "Segoe UI Variable", sans-serif; font-size: 14px; }
+QMainWindow, QDialog { background: #F3F6F8; }
+QFrame#topBar, QFrame#card, QGroupBox {
+  background: #FFFFFF;
+  border: 1px solid #D5DEE7;
+  border-radius: 10px;
+}
+QLabel#appTitle { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; color: #122033; }
+QLabel#modeBadge {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+  background: #EEF2F6;
+  color: #5C6975;
+}
+QLabel#statusBanner {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 12px 16px;
+  background: #FFFFFF;
+  border: 1px solid #D5DEE7;
+  border-radius: 10px;
+  color: #122033;
+}
+QLabel#weightDisplay {
+  font-size: 72px;
+  font-weight: 800;
+  padding: 18px;
+  background: #FFFFFF;
+  border: 2px solid #1A2330;
+  border-radius: 12px;
+  letter-spacing: -1px;
+}
+QLabel#metricValue { font-size: 18px; font-weight: 700; color: #122033; }
+QLabel#instruction { font-size: 16px; font-weight: 600; color: #1A2330; }
+QLabel#lastSaved {
+  color: #14532D;
+  font-weight: 700;
+  padding: 10px 12px;
+  background: #E8F7EE;
+  border: 1px solid #C6E7D2;
+  border-radius: 8px;
+}
+QLineEdit#barcodeInput {
+  min-height: 52px;
+  font-size: 20px;
+  padding: 4px 12px;
+  border: 2px solid #D5DEE7;
+  border-radius: 8px;
+  background: #FFFFFF;
+}
 QLineEdit#barcodeInput:focus { border-color: #1B69D2; }
-QPushButton { min-height: 44px; font-size: 14px; font-weight: 600; padding: 6px 14px; border: 1px solid #AAB7C3; border-radius: 6px; background: #FFFFFF; }
-QPushButton:hover { background: #EEF2F6; }
-QPushButton#primaryAction { min-height: 58px; font-size: 16px; color: #FFFFFF; background: #1E6B52; border-color: #1E6B52; }
-QPushButton#dangerAction { color: #B42318; border-color: #DCA7A2; }
-QPushButton:disabled { color: #8A969F; background: #EDF0F2; }
-QMenuBar { background: #FFFFFF; border-bottom: 1px solid #CBD4DD; }
-QStatusBar { background: #FFFFFF; border-top: 1px solid #CBD4DD; }
+QPushButton {
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border: 1px solid #B8C4D0;
+  border-radius: 8px;
+  background: #FFFFFF;
+}
+QPushButton:hover { background: #F0F4F8; }
+QPushButton#primaryAction {
+  min-height: 58px;
+  font-size: 16px;
+  color: #FFFFFF;
+  background: #1B6B52;
+  border-color: #1B6B52;
+}
+QPushButton#primaryAction:hover { background: #185F49; }
+QPushButton#dangerAction { color: #B42318; border-color: #E0B4AF; }
+QPushButton:disabled { color: #8A969F; background: #EDF0F2; border-color: #E1E6EB; }
+QMenuBar { background: #FFFFFF; border-bottom: 1px solid #D5DEE7; padding: 2px 4px; }
+QStatusBar { background: #FFFFFF; border-top: 1px solid #D5DEE7; color: #5C6975; }
+QListWidget {
+  border: 1px solid #D5DEE7;
+  border-radius: 8px;
+  background: #FAFBFC;
+  padding: 4px;
+}
+QScrollArea { background: transparent; border: none; }
 """
 
 
@@ -75,7 +140,8 @@ class NewRunDialog(QDialog):
         form = QFormLayout(self)
         self.run_id = QLineEdit()
         self.operator_id = QLineEdit()
-        self.cultivar = QLineEdit()
+        self.cultivator = QLineEdit("Best Buds")
+        self.strain = QLineEdit()
         self.container = QLineEdit("DEFAULT")
         self.mode = QComboBox(); self.mode.addItems(["manual", "automatic"])
         self.data_root = QLineEdit(runtime.controller.settings.data_root)
@@ -84,10 +150,15 @@ class NewRunDialog(QDialog):
         folder = QHBoxLayout(); folder.addWidget(self.data_root); folder.addWidget(choose)
         form.addRow("Harvest-run ID", self.run_id)
         form.addRow("Operator ID", self.operator_id)
-        form.addRow("Cultivar", self.cultivar)
+        form.addRow("Cultivator", self.cultivator)
+        form.addRow("Strain", self.strain)
         form.addRow("Container ID", self.container)
         form.addRow("Capture mode", self.mode)
         form.addRow("Run data folder", folder)
+        hint = QLabel("Cultivator is the company/grower. Strain is the sticky plant strain for scans.")
+        hint.setWordWrap(True)
+        hint.setStyleSheet("color:#5C6975")
+        form.addRow(hint)
         buttons = QDialogButtonBox(QDialogButtonBox.Save | QDialogButtonBox.Cancel)
         buttons.accepted.connect(self.create_run); buttons.rejected.connect(self.reject)
         form.addRow(buttons)
@@ -98,15 +169,24 @@ class NewRunDialog(QDialog):
             self.data_root.setText(path)
 
     def create_run(self) -> None:
-        if not self.run_id.text().strip() or not self.operator_id.text().strip() or not self.cultivar.text().strip():
-            QMessageBox.warning(self, "Missing information", "Run ID, operator ID, and cultivar are required.")
+        if (
+            not self.run_id.text().strip()
+            or not self.operator_id.text().strip()
+            or not self.cultivator.text().strip()
+            or not self.strain.text().strip()
+        ):
+            QMessageBox.warning(
+                self,
+                "Missing information",
+                "Run ID, operator ID, cultivator, and strain are required.",
+            )
             return
         definition = {
             "run_id": self.run_id.text().strip(),
             "operator_id": self.operator_id.text().strip(),
-            "facility_id": "BEST-BUDS",
+            "facility_id": facility_id_from_cultivator(self.cultivator.text()),
             "station_id": "WEIGHT-STATION-01",
-            "cultivars": [{"cultivar_id": "CV-001", "name": self.cultivar.text().strip()}],
+            "cultivars": [{"cultivar_id": "CV-001", "name": self.strain.text().strip()}],
             "capture_mode": self.mode.currentText(),
             "unit": "g",
             "container_id": self.container.text().strip() or "DEFAULT",
@@ -263,15 +343,30 @@ class TareDialog(QDialog):
 class ScannerTestDialog(QDialog):
     """Quick check that a USB HID keyboard-wedge scanner reaches the app (no BLE/SPP)."""
 
-    def __init__(self, parent: QWidget | None = None, *, runtime: OperatorRuntime | None = None):
+    def __init__(
+        self,
+        parent: QWidget | None = None,
+        *,
+        runtime: OperatorRuntime | None = None,
+        capture: bool = False,
+    ):
         super().__init__(parent)
         self.runtime = runtime
-        self.setWindowTitle("Test Barcode Scanner")
+        self.capture = capture
+        self.accepted_barcode: str | None = None
+        self.setWindowTitle("Scan Plant Barcode" if capture else "Test Barcode Scanner")
         self.resize(520, 240)
         layout = QVBoxLayout(self)
         tip = QLabel(
-            "Scan any barcode now with a USB HID keyboard-wedge scanner "
-            "(or type a code and press Enter). BLE/SPP/camera are not used in this series."
+            (
+                "Scan the plant tag now. The barcode will be copied into the "
+                "station and accepted when you press Enter."
+            )
+            if capture
+            else (
+                "Scan any barcode now with a USB HID keyboard-wedge scanner "
+                "(or type a code and press Enter). BLE/SPP/camera are not used."
+            )
         )
         tip.setWordWrap(True)
         layout.addWidget(tip)
@@ -280,7 +375,7 @@ class ScannerTestDialog(QDialog):
         self.field.setPlaceholderText("Waiting for scan…")
         self.field.returnPressed.connect(self._accepted_scan)
         layout.addWidget(self.field)
-        self.status = QLabel("No scan yet. Click here / keep focus in this field before scanning.")
+        self.status = QLabel("Waiting for barcode scanner input…")
         layout.addWidget(self.status)
         buttons = QDialogButtonBox(QDialogButtonBox.Close)
         buttons.rejected.connect(self.reject)
@@ -291,6 +386,11 @@ class ScannerTestDialog(QDialog):
         value = self.field.text().strip()
         if not value:
             self.status.setText("Empty scan blocked. Focus this field and try again.")
+            return
+        if self.capture:
+            self.accepted_barcode = value
+            self.status.setText(f"Barcode received: {value}")
+            self.accept()
             return
         receipt = {
             "receipt_type": "hid_scanner_test",
@@ -318,24 +418,24 @@ class ChangeStrainDialog(QDialog):
         self.runtime = runtime
         self.setWindowTitle("Change Active Strain")
         form = QFormLayout(self)
-        current = runtime.snapshot().get("cultivar") or ""
+        current = runtime.snapshot().get("strain") or runtime.snapshot().get("cultivar") or ""
         tip = QLabel(
             "New scans use this strain until you change it again. "
             "This is operator sticky strain — not Metrc compliance."
         )
         tip.setWordWrap(True)
         form.addRow(tip)
-        self.cultivar = QLineEdit(str(current))
-        form.addRow("Active strain / cultivar", self.cultivar)
+        self.strain = QLineEdit(str(current))
+        form.addRow("Active strain", self.strain)
         buttons = QDialogButtonBox(QDialogButtonBox.Save | QDialogButtonBox.Cancel)
         buttons.accepted.connect(self.apply)
         buttons.rejected.connect(self.reject)
         form.addRow(buttons)
 
     def apply(self) -> None:
-        name = self.cultivar.text().strip()
+        name = self.strain.text().strip()
         if not name:
-            QMessageBox.warning(self, "Missing strain", "Enter a strain / cultivar name.")
+            QMessageBox.warning(self, "Missing strain", "Enter a strain name.")
             return
         result = self.runtime.dispatch("run.set_active_cultivar", {"name": name})
         if result.get("status") == "completed":
@@ -605,8 +705,10 @@ class MainWindow(QMainWindow):
         metrics = QFrame(); metrics.setObjectName("card")
         grid = QGridLayout(metrics); grid.setContentsMargins(16, 12, 16, 12); grid.setHorizontalSpacing(20); grid.setVerticalSpacing(8)
         self.fields: dict[str, QLabel] = {}
-        for idx, key in enumerate(("RUN", "CULTIVAR", "OPERATOR", "CONTAINER", "GROSS", "TARE", "NET", "CAL ID")):
-            label = QLabel(key.title()); label.setStyleSheet("font-weight:600;color:#5C6975")
+        for idx, key in enumerate(
+            ("RUN", "CULTIVATOR", "STRAIN", "OPERATOR", "CONTAINER", "GROSS", "TARE", "NET")
+        ):
+            label = QLabel(key.title()); label.setStyleSheet("font-weight:600;color:#5C6975;font-size:12px")
             value = QLabel("—"); value.setObjectName("metricValue"); value.setTextInteractionFlags(Qt.TextSelectableByMouse)
             row, col = divmod(idx, 4)
             grid.addWidget(label, row * 2, col)
@@ -616,7 +718,7 @@ class MainWindow(QMainWindow):
 
         strain_row = QHBoxLayout()
         self.active_strain_banner = QLabel("Active strain: —")
-        self.active_strain_banner.setStyleSheet("font-weight:700;color:#1E6B52;padding:6px 0")
+        self.active_strain_banner.setStyleSheet("font-weight:700;color:#1B6B52;padding:6px 0")
         change_strain_btn = QPushButton("Change Strain")
         change_strain_btn.clicked.connect(self.change_strain)
         strain_row.addWidget(self.active_strain_banner, 1)
@@ -652,10 +754,13 @@ class MainWindow(QMainWindow):
         self.auto_id_btn = QPushButton("Use auto ID")
         self.auto_id_btn.clicked.connect(self.use_auto_plant_id)
         barcode_row.addWidget(self.auto_id_btn)
-        scan_btn = QPushButton("Scan")
-        scan_btn.clicked.connect(self.focus_scan)
-        barcode_row.addWidget(scan_btn)
-        barcode_hint = QLabel("USB HID keyboard-wedge — press Scan (or click the field), then scan. Tag stays visible until Confirm.")
+        self.scan_btn = QPushButton("Scan")
+        self.scan_btn.clicked.connect(self.open_scan_dialog)
+        barcode_row.addWidget(self.scan_btn)
+        barcode_hint = QLabel(
+            "Press Scan to open the scanner window. The accepted tag stays "
+            "visible here until Confirm."
+        )
         barcode_hint.setStyleSheet("color:#5C6975;font-size:12px")
         barcode_layout.addWidget(barcode_label)
         barcode_layout.addLayout(barcode_row)
@@ -704,7 +809,14 @@ class MainWindow(QMainWindow):
         log_layout.addWidget(self.plant_log)
         layout.addWidget(log_card)
 
-        self.setCentralWidget(central)
+        central.setMinimumWidth(980)
+        central.setMinimumHeight(layout.sizeHint().height())
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setFrameShape(QFrame.NoFrame)
+        scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        scroll.setWidget(central)
+        self.setCentralWidget(scroll)
 
         self.device_status = QLabel("Scale disconnected")
         self.statusBar().addPermanentWidget(self.device_status, 1)
@@ -762,7 +874,7 @@ class MainWindow(QMainWindow):
             definition = {
                 "run_id": "SIMULATOR-UI-RUN", "operator_id": "SIMULATOR-OPERATOR",
                 "facility_id": "BEST-BUDS", "station_id": "WEIGHT-STATION-01",
-                "cultivars": [{"cultivar_id": "CV-001", "name": "Simulator Cultivar"}],
+                "cultivars": [{"cultivar_id": "CV-001", "name": "Simulator Strain"}],
                 "capture_mode": self.runtime.controller.settings.capture_mode,
                 "unit": "g", "container_id": "DEFAULT", "tare_g": 0.0, "maximum_capacity_g": 10000.0,
             }
@@ -796,14 +908,16 @@ class MainWindow(QMainWindow):
             self.active_barcode_banner.setText("Active plant: —")
         self._refresh_plant_log(s.get("recent_plants") or [], du)
         self.fields["RUN"].setText(s["run_id"] or "—")
-        self.fields["CULTIVAR"].setText(s["cultivar"] or "—")
+        self.fields["CULTIVATOR"].setText(s.get("cultivator") or s.get("facility_id") or "—")
+        self.fields["STRAIN"].setText(s.get("strain") or s.get("cultivar") or "—")
         self.fields["OPERATOR"].setText(s.get("operator_id") or "—")
         self.fields["CONTAINER"].setText(s["container_id"] or "—")
         self.fields["GROSS"].setText(format_weight(float(s["weight_g"]), du))
         self.fields["TARE"].setText(format_weight(float(s["tare_g"]), du))
         self.fields["NET"].setText(format_weight(float(s["net_g"]), du))
-        self.fields["CAL ID"].setText(s.get("calibration_id") or "—")
-        self.active_strain_banner.setText(f"Active strain (sticky): {s['cultivar'] or '—'}")
+        self.active_strain_banner.setText(
+            f"Active strain (sticky): {s.get('strain') or s.get('cultivar') or '—'}"
+        )
         record = s["last_saved"]
         if record:
             csv_note = ""
@@ -812,10 +926,10 @@ class MainWindow(QMainWindow):
                 csv_note = f" • CSV: {run.store.session_dir / 'records.csv'}"
             dup = record.get("duplicate_status")
             dup_note = " • duplicate barcode warning" if dup and dup != "none" else ""
-            cultivar = record.get("cultivar_normalized_name") or s.get("cultivar") or ""
+            strain = record.get("cultivar_normalized_name") or s.get("strain") or s.get("cultivar") or ""
             self.last_saved.setText(
                 f"Saved: {record.get('barcode_raw', record.get('record_id'))} — "
-                f"{format_weight(float(record['net_g']), du)} net ({cultivar}). Ready for next scan.{dup_note}{csv_note}"
+                f"{format_weight(float(record['net_g']), du)} net ({strain}). Ready for next scan.{dup_note}{csv_note}"
             )
         else:
             self.last_saved.setText("No plant has been saved in this run yet. Scan a barcode, weigh, then Confirm & Record.")
@@ -854,6 +968,7 @@ class MainWindow(QMainWindow):
 
         state=s["state"]; ready=state=="WAITING_FOR_BARCODE"; connected=bool(device.get("connected"))
         self.barcode.setEnabled(ready and not self._calibration_open)
+        self.scan_btn.setEnabled(ready and not self._calibration_open)
         self.auto_id_btn.setEnabled(ready and not self._calibration_open and not bool(s.get("barcode_required_for_capture", True)))
         self.auto_id_btn.setVisible(not bool(s.get("barcode_required_for_capture", True)))
         # Focus ownership: reclaim barcode focus only when ready and no modal owns focus.
@@ -952,8 +1067,16 @@ class MainWindow(QMainWindow):
     def test_scanner(self) -> None:
         ScannerTestDialog(self, runtime=self.runtime).exec()
 
+    def open_scan_dialog(self) -> None:
+        """Capture one HID barcode visibly, then submit it to the active run."""
+        dialog = ScannerTestDialog(self, capture=True)
+        if dialog.exec() != QDialog.Accepted or not dialog.accepted_barcode:
+            return
+        self.barcode.setText(dialog.accepted_barcode)
+        self.submit_barcode()
+
     def focus_scan(self) -> None:
-        """Main-row Scan: focus barcode field for HID wedge entry."""
+        """Legacy helper: focus barcode field for HID wedge entry."""
         self.barcode.setFocus()
         self.barcode.selectAll()
         self.statusBar().showMessage("Ready to scan — focus is in the plant barcode field.")
@@ -1084,7 +1207,14 @@ class MainWindow(QMainWindow):
     def diagnostics(self) -> None:
         QMessageBox.information(self,"Diagnostics",json.dumps(self.runtime.snapshot(),indent=2,sort_keys=True,default=str))
     def about(self) -> None:
-        QMessageBox.information(self,"About",f"Best Buds Cultivator Weight Station v{__version__}\nWindows-first PySide6 operator application.\nPhysical scale and native Windows runtime require evidence before claims.")
+        QMessageBox.information(
+            self,
+            "About",
+            f"Best Buds Cultivator Weight Station v{__version__}\n"
+            "Harvest weight capture for cultivators.\n"
+            "Authoritative records stay in local session JSONL.\n"
+            "Not legal-for-trade certification.",
+        )
     def closeEvent(self,event:QCloseEvent)->None:
         self.runtime.close(); event.accept()
 

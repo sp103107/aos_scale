@@ -13,8 +13,10 @@ from typing import Any
 from .application_controller import ApplicationController
 from .operator_runtime import OperatorRuntime
 from .operator_surface import ROUTINE_ACTION_LAYOUT
+from .run_manager import facility_id_from_cultivator
 from .units import display_to_grams, format_weight, unit_label
 from .version import __version__
+
 
 KEYBOARD_SHORTCUTS = {
     "Ctrl+N": "new_run",
@@ -112,7 +114,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     root.title(f"Best Buds Cultivator Weight Station v{__version__} - Tk fallback")
     root.geometry("1120x920")
     root.minsize(1024, 800)
-    root.configure(bg="#F5F7FA")
+    root.configure(bg="#F3F6F8")
 
     style = ttk.Style(root)
     try:
@@ -123,27 +125,27 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     style.configure("Action.TButton", font=("Segoe UI", 11, "bold"), padding=(12, 10))
     style.configure("Danger.TButton", font=("Segoe UI", 11, "bold"), padding=(12, 10))
 
-    shell = tk.Frame(root, bg="#F5F7FA")
+    shell = tk.Frame(root, bg="#F3F6F8")
     shell.pack(fill="both", expand=True, padx=18, pady=14)
 
-    top = tk.Frame(shell, bg="#FFFFFF", highlightbackground="#CBD4DD", highlightthickness=1)
+    top = tk.Frame(shell, bg="#FFFFFF", highlightbackground="#D5DEE7", highlightthickness=1)
     top.pack(fill="x")
-    tk.Label(top, text="Best Buds Cultivator Weight Station", font=("Segoe UI", 24, "bold"), bg="#FFFFFF", fg="#17212B").pack(side="left", padx=14, pady=10)
+    tk.Label(top, text="Best Buds Cultivator Weight Station", font=("Segoe UI", 22, "bold"), bg="#FFFFFF", fg="#122033").pack(side="left", padx=14, pady=10)
     mode_badge = tk.Label(top, text="NO SCALE CONNECTED", font=("Segoe UI", 10, "bold"), bg="#EEF2F6", fg="#5C6975", padx=10, pady=5)
     mode_badge.pack(side="right", padx=14, pady=10)
 
-    status = tk.Label(shell, text="No run started", font=("Segoe UI", 17, "bold"), bg="#FFFFFF", fg="#17212B", anchor="w", padx=14, pady=10, highlightbackground="#CBD4DD", highlightthickness=1)
+    status = tk.Label(shell, text="No run started", font=("Segoe UI", 17, "bold"), bg="#FFFFFF", fg="#122033", anchor="w", padx=14, pady=10, highlightbackground="#D5DEE7", highlightthickness=1)
     status.pack(fill="x", pady=(10, 8))
 
-    weight = tk.Label(shell, text="0.000 g", font=("Segoe UI", 52, "bold"), bg="#FFFFFF", fg="#17212B", padx=14, pady=16, highlightbackground="#17212B", highlightthickness=2)
+    weight = tk.Label(shell, text="0.000 g", font=("Segoe UI", 52, "bold"), bg="#FFFFFF", fg="#1A2330", padx=14, pady=16, highlightbackground="#1A2330", highlightthickness=2)
     weight.pack(fill="x")
     weight_hint = tk.Label(shell, text="", font=("Segoe UI", 10, "bold"), bg="#FFFFFF", fg="#8A4B08", wraplength=900)
     weight_hint.pack(fill="x", pady=(2, 0))
 
-    metrics = tk.Frame(shell, bg="#FFFFFF", highlightbackground="#CBD4DD", highlightthickness=1)
+    metrics = tk.Frame(shell, bg="#FFFFFF", highlightbackground="#D5DEE7", highlightthickness=1)
     metrics.pack(fill="x", pady=8)
     metric_values: dict[str, tk.Label] = {}
-    for idx, key in enumerate(("RUN", "CULTIVAR", "OPERATOR", "CONTAINER", "GROSS", "TARE", "NET", "CAL ID")):
+    for idx, key in enumerate(("RUN", "CULTIVATOR", "STRAIN", "OPERATOR", "CONTAINER", "GROSS", "TARE", "NET")):
         col = idx % 4
         row = (idx // 4) * 2
         tk.Label(metrics, text=key.title(), font=("Segoe UI", 9, "bold"), bg="#FFFFFF", fg="#5C6975").grid(row=row, column=col, sticky="w", padx=14, pady=(8, 0))
@@ -155,7 +157,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
 
     strain_row = tk.Frame(shell, bg="#F5F7FA")
     strain_row.pack(fill="x")
-    active_strain = tk.Label(strain_row, text="Active strain (sticky): —", font=("Segoe UI", 11, "bold"), bg="#F5F7FA", fg="#1E6B52", anchor="w")
+    active_strain = tk.Label(strain_row, text="Active strain (sticky): —", font=("Segoe UI", 11, "bold"), bg="#F3F6F8", fg="#1B6B52", anchor="w")
     active_strain.pack(side="left", fill="x", expand=True)
     change_strain_btn = ttk.Button(strain_row, text="Change Strain")
     change_strain_btn.pack(side="right")
@@ -229,15 +231,16 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     def new_run() -> None:
         run_id = simpledialog.askstring("New Run", "Harvest-run ID", parent=root)
         operator = simpledialog.askstring("New Run", "Operator ID", parent=root)
-        cultivar = simpledialog.askstring("New Run", "Cultivar", parent=root)
-        if not all((run_id, operator, cultivar)):
+        cultivator = simpledialog.askstring("New Run", "Cultivator (company/grower)", initialvalue="Best Buds", parent=root)
+        strain = simpledialog.askstring("New Run", "Strain", parent=root)
+        if not all((run_id, operator, cultivator, strain)):
             return
         definition = {
             "run_id": run_id.strip(),
             "operator_id": operator.strip(),
-            "facility_id": "BEST-BUDS",
+            "facility_id": facility_id_from_cultivator(cultivator),
             "station_id": "WEIGHT-STATION-01",
-            "cultivars": [{"cultivar_id": "CV-001", "name": cultivar.strip()}],
+            "cultivars": [{"cultivar_id": "CV-001", "name": strain.strip()}],
             "capture_mode": runtime.controller.settings.capture_mode,
             "unit": "g",
             "container_id": "DEFAULT",
@@ -261,10 +264,10 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         if not runtime.controller.loaded_run:
             messagebox.showinfo("No run", "Start or resume a run before changing strain.", parent=root)
             return
-        current = runtime.snapshot().get("cultivar") or ""
+        current = runtime.snapshot().get("strain") or runtime.snapshot().get("cultivar") or ""
         name = simpledialog.askstring(
             "Change Active Strain",
-            "Active strain / cultivar (sticky until changed).\nNot Metrc compliance.",
+            "Active strain (sticky until changed).\nNot Metrc compliance.",
             initialvalue=str(current),
             parent=root,
         )
@@ -492,6 +495,40 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         barcode.selection_range(0, "end")
         status_line.config(text="Ready to scan — focus is in the plant barcode field.")
 
+    def open_scan_dialog() -> None:
+        """Tk Scan: popup capture window, then submit into the main barcode field."""
+        if runtime.controller.state != "WAITING_FOR_BARCODE":
+            status_line.config(text="Start or resume a run before scanning.")
+            return
+        win = tk.Toplevel(root)
+        win.title("Scan Plant Barcode")
+        win.geometry("520x220")
+        tip = tk.Label(
+            win,
+            text="Scan the plant tag now. Press Enter to accept and copy it into the station.",
+            wraplength=480,
+            justify="left",
+        )
+        tip.pack(padx=12, pady=10, fill="x")
+        field = tk.Entry(win, font=("Segoe UI", 16))
+        field.pack(fill="x", padx=12, ipady=6)
+        status_lbl = tk.Label(win, text="Waiting for barcode scanner input…")
+        status_lbl.pack(padx=12, pady=6)
+
+        def accepted(_event=None) -> None:
+            value = field.get().strip()
+            if not value:
+                status_lbl.config(text="Empty scan blocked. Try again.")
+                return
+            barcode.config(state="normal")
+            barcode.delete(0, "end")
+            barcode.insert(0, value)
+            win.destroy()
+            submit()
+
+        field.bind("<Return>", accepted)
+        field.focus_set()
+
     def lock_weight() -> None:
         result = runtime.lock_weight()
         if result.get("status") in {"failed", "blocked"}:
@@ -610,7 +647,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
 
     change_strain_btn.config(command=change_strain)
     auto_id_btn.config(command=use_auto_id)
-    scan_btn.config(command=focus_scan)
+    scan_btn.config(command=open_scan_dialog)
 
     menubar = tk.Menu(root)
     run_menu = tk.Menu(menubar, tearoff=0)
@@ -689,23 +726,25 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
                 for line in log_lines:
                     plant_log.insert("end", line)
         metric_values["RUN"].config(text=s["run_id"] or "-")
-        metric_values["CULTIVAR"].config(text=s["cultivar"] or "-")
+        metric_values["CULTIVATOR"].config(text=s.get("cultivator") or s.get("facility_id") or "-")
+        metric_values["STRAIN"].config(text=s.get("strain") or s.get("cultivar") or "-")
         metric_values["OPERATOR"].config(text=s.get("operator_id") or "-")
         metric_values["CONTAINER"].config(text=s["container_id"] or "-")
         metric_values["GROSS"].config(text=format_weight(float(s["weight_g"]), du))
         metric_values["TARE"].config(text=format_weight(float(s["tare_g"]), du))
         metric_values["NET"].config(text=format_weight(float(s["net_g"]), du))
-        metric_values["CAL ID"].config(text=s.get("calibration_id") or "-")
-        active_strain.config(text=f"Active strain (sticky): {s['cultivar'] or '—'}")
+        active_strain.config(
+            text=f"Active strain (sticky): {s.get('strain') or s.get('cultivar') or '—'}"
+        )
         record = s["last_saved"]
         if record:
-            cultivar = record.get("cultivar_normalized_name") or s.get("cultivar") or ""
+            strain_name = record.get("cultivar_normalized_name") or s.get("strain") or s.get("cultivar") or ""
             dup = record.get("duplicate_status")
             dup_note = " • duplicate barcode warning" if dup and dup != "none" else ""
             last_saved.config(
                 text=(
                     f"Saved: {record.get('barcode_raw', record.get('record_id'))} — "
-                    f"{format_weight(float(record['net_g']), du)} net ({cultivar}). Ready for next scan.{dup_note}"
+                    f"{format_weight(float(record['net_g']), du)} net ({strain_name}). Ready for next scan.{dup_note}"
                 )
             )
         else:
@@ -733,6 +772,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         state = s["state"]
         ready = state == "WAITING_FOR_BARCODE"
         barcode.config(state="normal" if ready else "disabled")
+        scan_btn.state(["!disabled"] if ready else ["disabled"])
         auto_id_btn.state(["!disabled"] if ready and not bool(s.get("barcode_required_for_capture", True)) else ["disabled"])
         focused = root.focus_get()
         if ready and focused not in {barcode, operator_note} and not isinstance(focused, (tk.Toplevel,)):
@@ -761,7 +801,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
             "operator_id": "SIMULATOR-OPERATOR",
             "facility_id": "BEST-BUDS",
             "station_id": "WEIGHT-STATION-01",
-            "cultivars": [{"cultivar_id": "CV-001", "name": "Simulator Cultivar"}],
+            "cultivars": [{"cultivar_id": "CV-001", "name": "Simulator Strain"}],
             "capture_mode": runtime.controller.settings.capture_mode,
             "unit": "g",
             "container_id": "DEFAULT",
