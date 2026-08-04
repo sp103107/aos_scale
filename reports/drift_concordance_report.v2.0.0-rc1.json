@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "code": "VERSION_PY_OK",
+      "path": "C:/best_buds_cultivator_weight_station_v0_1_9/app/best_buds_weight_station/version.py"
+    },
+    {
+      "code": "PYPROJECT_VERSION_OK",
+      "path": "pyproject.toml"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "README.md"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "START_HERE.md"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "START_HERE_CODING_AGENT.md"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "docs/RELEASE_CANDIDATE.md"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "docs/OPERATOR_ONBOARDING.md"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "docs/INTENDED_USER.md"
+    },
+    {
+      "code": "ONBOARD_MODULE_OK",
+      "path": "C:/best_buds_cultivator_weight_station_v0_1_9/app/best_buds_weight_station/onboard.py"
+    },
+    {
+      "code": "VERSION_FILE_OK",
+      "path": "VERSION"
+    }
+  ],
+  "gate": "drift_concordance_v200_rc1",
+  "generated_at": "2026-08-04T23:29:25Z",
+  "issues": [],
+  "non_claims": [
+    "Archival v0.1.9 manifests are not rewritten by this gate",
+    "Not legal-for-trade / Metrc compliance"
+  ],
+  "product_version": "2.0.0-rc1",
+  "pyproject_version": "2.0.0rc1",
+  "status": "pass"
+}

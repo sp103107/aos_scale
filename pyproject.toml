@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "best-buds-cultivator-weight-station"
-version = "0.1.9"
+version = "2.0.0rc1"
 description = "Local-first barcode-driven cultivation weight station"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -21,6 +21,7 @@ dev = ["pytest>=8", "jsonschema>=4", "PyYAML>=6"]
 best-buds-weight-station = "best_buds_weight_station.cli:main"
 best-buds-weight-station-validation = "best_buds_weight_station.validation.cli:main"
 best-buds-weight-station-bootstrap = "best_buds_weight_station.bootstrap:main"
+best-buds-weight-station-onboard = "best_buds_weight_station.onboard:main"
 best-buds-weight-station-stage = "best_buds_weight_station.stage_runner.cli:main"
 
 [project.gui-scripts]

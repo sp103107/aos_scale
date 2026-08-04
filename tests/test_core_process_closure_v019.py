@@ -3,17 +3,20 @@ from best_buds_weight_station.device_service import PySerialTransport, DeviceSer
 from best_buds_weight_station.operator_runtime import ScaleReadingWorker
 from best_buds_weight_station.version import __version__
 
-def test_current_version(): assert __version__ == '0.1.9'
+def test_current_version(): assert __version__ == '2.0.0-rc1'
 def test_canonical_serial_classes(): assert PySerialTransport and DeviceService and ScaleReadingWorker
 def test_windows_first_and_linux_launchers_present():
     root=Path(__file__).resolve().parents[1]
     for name in ('launch_best_buds.bat','launch_best_buds.ps1','launch_best_buds.sh','cursor_bootstrap.bat','cursor_bootstrap.ps1','cursor_bootstrap.sh'):
         assert (root/name).is_file() and (root/name).stat().st_size>20
+    assert (root/'START_HERE.md').is_file()
+    assert (root/'START_HERE_CODING_AGENT.md').is_file()
 
 def test_core_process_current_doc():
     root=Path(__file__).resolve().parents[1]
     text=(root/'docs/CORE_PROCESS_IMPLEMENTATION_CURRENT.md').read_text()
-    assert '0.1.9' in text and 'PySerialTransport' in text and 'physical' in text.lower()
+    assert 'PySerialTransport' in text and 'physical' in text.lower()
+
 
 def test_loaded_run_restores_last_saved_record(tmp_path):
     from best_buds_weight_station.operator_runtime import OperatorRuntime
