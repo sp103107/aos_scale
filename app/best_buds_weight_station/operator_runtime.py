@@ -250,16 +250,120 @@ class OperatorRuntime:
     def start_calibration(self) -> dict[str, Any]:
         return self.dispatch("scale.calibration.start", {"maintenance_authorized": True})
 
+    @staticmethod
+    def _series_stable(values: list[float], *, role: str = "loaded", unit: str = "raw") -> bool:
+        """True when a series looks settled (not still climbing after place)."""
+        if len(values) < 5:
+            return False
+        spread = max(values) - min(values)
+        center = statistics.median(values)
+        mid = len(values) // 2
+        trend = abs(statistics.median(values[mid:]) - statistics.median(values[:mid]))
+        if unit == "weight_g":
+            # Live display grams — catch the slow 1–2 g crawl operators still see.
+            if role == "zero":
+                return spread <= 3.0 and trend <= 1.5
+            return spread <= max(2.0, 0.02 * abs(center)) and trend <= 1.0
+        if role == "zero":
+            limit = max(abs(center) * 0.02, 300.0)
+            trend_limit = max(abs(center) * 0.01, 150.0)
+            return spread <= limit and trend <= trend_limit
+        # Loaded / Test raw: tight enough that mid-settle 100 g captures fail.
+        limit = max(abs(center) * 0.01, 40.0)
+        trend_limit = max(abs(center) * 0.005, 15.0)
+        return spread <= limit and trend <= trend_limit
+
+    @classmethod
+    def _raw_window_stable(cls, raw: list[float], *, role: str = "loaded") -> bool:
+        return cls._series_stable(raw, role=role, unit="raw")
+
+    def collect_raw_samples(
+        self,
+        sample_count: int = 8,
+        *,
+        clear_first: bool = True,
+        settle_s: float = 0.8,
+        timeout_s: float = 10.0,
+        target_raw: float | None = None,
+        target_band: float | None = None,
+        require_stable: bool = True,
+        role: str = "loaded",
+        stable_hold_s: float = 1.0,
+    ) -> list[float]:
+        """Collect fresh raw readings for calibration after the pan looks settled.
+
+        Clearing avoids reusing Loaded leftovers during Test. Waiting for a stable
+        (non-trending) window avoids mid-settle Loaded captures (~2× Test errors).
+        """
+        if clear_first:
+            self.buffer.clear()
+            time.sleep(max(0.0, settle_s))
+        deadline = time.time() + max(1.0, timeout_s)
+        stable_since: float | None = None
+        raw: list[float] = []
+        hold_s = 0.5 if role == "zero" else max(0.75, stable_hold_s)
+        while time.time() < deadline:
+            # Longer lookback for trend so a slow climb cannot hide in 8 samples.
+            lookback = max(sample_count, 12)
+            recent = self.buffer.recent(lookback)
+            raw = [float(item.raw_value) for item in recent if item.raw_value is not None]
+            weights = [float(item.weight_g) for item in recent]
+            if len(raw) < sample_count:
+                time.sleep(0.05)
+                continue
+            window = raw[-sample_count:]
+            trend_window = raw[-lookback:]
+            near_target = True
+            if target_raw is not None:
+                center = statistics.median(window)
+                band = float(target_band) if target_band is not None else max(abs(float(target_raw)) * 0.04, 40.0)
+                near_target = abs(center - float(target_raw)) <= band
+            stable = True
+            if require_stable:
+                stable = self._raw_window_stable(window, role=role) and self._raw_window_stable(
+                    trend_window, role=role
+                )
+                # When live weight looks like real grams (not raw-count chaos), require
+                # the display series to stop climbing too — matches what operators watch.
+                if stable and weights:
+                    w_center = statistics.median(weights[-sample_count:])
+                    if abs(w_center) < 20000:
+                        stable = self._series_stable(weights[-lookback:], role=role, unit="weight_g")
+            if stable and near_target:
+                if stable_since is None:
+                    stable_since = time.time()
+                if time.time() - stable_since >= hold_s:
+                    return window
+            else:
+                stable_since = None
+            time.sleep(0.05)
+        if len(raw) >= 3:
+            window = raw[-min(len(raw), sample_count) :]
+            if target_raw is not None:
+                center = statistics.median(window)
+                band = float(target_band) if target_band is not None else max(abs(float(target_raw)) * 0.04, 40.0)
+                if abs(center - float(target_raw)) > band:
+                    raise RuntimeError(
+                        "calibration samples do not match the Loaded pan level — "
+                        "leave the SAME verified mass on the pan, wait until the live number "
+                        "stops climbing, then run Test again"
+                    )
+            if require_stable and not self._raw_window_stable(window, role=role):
+                raise RuntimeError(
+                    "calibration needs a steadier pan — live weight is still changing. "
+                    "Wait until the number stops climbing, then capture again"
+                )
+            return window
+        raise RuntimeError("at least three live raw readings are required — wait for the live weight stream")
+
     def add_calibration_zero_samples(self, sample_count: int = 8) -> dict[str, Any]:
-        raw = [float(item.raw_value) for item in self.buffer.recent(sample_count) if item.raw_value is not None]
-        if len(raw) < 3:
-            raise RuntimeError("at least three live raw readings are required")
+        raw = self.collect_raw_samples(sample_count, role="zero", settle_s=0.5, stable_hold_s=0.5)
         return self.dispatch("scale.calibration.sample", {"kind": "zero", "samples": raw})
 
     def add_calibration_loaded_samples(self, reference_weight_g: float, sample_count: int = 8) -> dict[str, Any]:
-        raw = [float(item.raw_value) for item in self.buffer.recent(sample_count) if item.raw_value is not None]
-        if len(raw) < 3:
-            raise RuntimeError("at least three live raw readings are required")
+        # Light references (100 g) need a longer hold — mid-settle looks quiet for a moment.
+        hold = 1.4 if float(reference_weight_g) <= 250.0 else 1.0
+        raw = self.collect_raw_samples(sample_count, role="loaded", stable_hold_s=hold, timeout_s=12.0)
         return self.dispatch("scale.calibration.sample", {
             "kind": "loaded",
             "samples": raw,
@@ -267,9 +371,28 @@ class OperatorRuntime:
         })
 
     def test_calibration(self, sample_count: int = 8) -> dict[str, Any]:
-        raw = [float(item.raw_value) for item in self.buffer.recent(sample_count) if item.raw_value is not None]
-        if len(raw) < 3:
-            raise RuntimeError("at least three live raw readings are required")
+        # Re-sample after clear, preferring the same raw level as Loaded (mass still on).
+        target_raw = None
+        target_band = None
+        scale = getattr(self.controller, "scale", None)
+        proposal = ((getattr(scale, "active_calibration", None) or {}).get("proposal") or {})
+        if proposal.get("loaded_raw_mean") is not None:
+            target_raw = float(proposal["loaded_raw_mean"])
+            zero_raw = float(proposal.get("zero_raw_mean") or 0.0)
+            reference = float(proposal.get("reference_weight_g") or 0.0) or 1.0
+            delta = abs(target_raw - zero_raw)
+            # Keep in sync with ScaleControlService.calibration_test_tolerance_g.
+            tol = max(5.0, reference * 0.05) if reference <= 250.0 else max(2.0, reference * 0.01)
+            # Band in raw counts must map to less than the gram Test tolerance.
+            # Old floor of 40 counts caused ~12 g errors on light 100 g cals.
+            target_band = max(5.0, 0.75 * tol * delta / max(reference, 1e-9))
+        raw = self.collect_raw_samples(
+            sample_count,
+            role="loaded",
+            target_raw=target_raw,
+            target_band=target_band,
+            stable_hold_s=1.0,
+        )
         return self.dispatch("scale.calibration.test", {"samples": raw})
 
     def accept_calibration(self) -> dict[str, Any]:

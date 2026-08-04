@@ -423,19 +423,17 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         win = tk.Toplevel(root)
         win.title("Guided Calibration")
         win.geometry("820x620")
-        du = unit_label(runtime.snapshot().get("display_unit") or "g")
+        # Calibration reference is always grams — avoids kg/lb display-unit mixups.
         default_g = float(runtime.controller.settings.default_reference_weight_g)
-        reference = tk.DoubleVar(value=display_to_grams(default_g, "g") if du == "g" else (default_g / 1000.0 if du == "kg" else default_g / 453.59237))
-        # Show default in display unit
-        from .units import grams_to_display
-
-        reference.set(grams_to_display(default_g, du))
+        reference = tk.DoubleVar(value=default_g)
         steps = (
-            f"Connect the scale. Enter verified reference mass in {du} (converted to grams for the device).\n"
-            "Not legal-for-trade. 1 Start → 2 Zero samples → 3 Loaded samples → 4 Test → 5 Accept → ZERO."
+            "Connect the scale. Enter verified reference mass in GRAMS "
+            "(even if the main screen display unit is kg/lb).\n"
+            "Not legal-for-trade. Leave the same mass on from Loaded through Test.\n"
+            "1 Start → 2 Zero samples → 3 Loaded samples → 4 Test → 5 Accept → ZERO."
         )
         tk.Label(win, text=steps, font=("Segoe UI", 10), justify="left", wraplength=780, anchor="w").pack(padx=10, pady=8, fill="x")
-        tk.Label(win, text=f"Reference mass ({du})", font=("Segoe UI", 11, "bold")).pack(padx=10, anchor="w")
+        tk.Label(win, text="Reference mass (g) — must match mass on pan", font=("Segoe UI", 11, "bold")).pack(padx=10, anchor="w")
         tk.Entry(win, textvariable=reference, font=("Segoe UI", 12)).pack(fill="x", padx=10)
         output = tk.Text(win, height=18, width=92, font=("Consolas", 9))
         output.pack(fill="both", expand=True, padx=10, pady=10)
@@ -445,11 +443,15 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
                 result = fn()
                 output.delete("1.0", "end")
                 output.insert("1.0", json.dumps(result, indent=2, sort_keys=True, default=str))
+                test = (result.get("data") or {}).get("calibration_test") or {}
+                summary = test.get("operator_summary") or ""
+                if summary and not test.get("passed_local_tolerance", True):
+                    messagebox.showwarning("Test did not pass", summary, parent=win)
             except Exception as exc:
                 messagebox.showwarning("Calibration step blocked", str(exc), parent=win)
 
         def loaded() -> dict[str, Any]:
-            grams = display_to_grams(float(reference.get()), du)
+            grams = float(reference.get())
             return runtime.add_calibration_loaded_samples(grams)
 
         row = tk.Frame(win)

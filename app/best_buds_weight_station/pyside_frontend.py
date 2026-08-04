@@ -395,18 +395,20 @@ class CalibrationDialog(QDialog):
     STEPS = {
         "before": (
             "Connect the scale first. A harvest run is optional for calibration. "
-            "Empty the pan, enter your verified reference mass (grams) below, then follow steps 1–5."
+            "Empty the pan, enter your verified reference mass in GRAMS below, then follow steps 1–5. "
+            "Calibration always uses grams (even if the main screen display unit is kg/lb)."
         ),
         "start": "Step 1 — Start calibration. Do not scan plants until you finish or cancel.",
         "zero": "Step 2 — Empty pan only (no mass). Wait for live weight, then Capture empty samples.",
-        "loaded": "Step 3 — Place the verified mass on the pan. Confirm grams match, wait to settle, Capture loaded samples.",
-        "test": "Step 4 — Keep the same mass on the pan. Press Test. You need Pass before Accept.",
+        "loaded": "Step 3 — Place the verified mass on the pan. For light weights (100 g), wait extra until the live number fully stops climbing — then Capture loaded. Reference must match that mass in grams.",
+        "test": "Step 4 — Leave the SAME mass on the pan (do not remove it). Wait one beat, press Test. Pass is required before Accept.",
         "accept": "Step 5 — Accept writes the factor to the scale. Then empty pan → ZERO.",
         "after": "Done. Empty the pan → ZERO → optional SET TARE → resume scanning. Large wild numbers before Accept were uncalibrated.",
         "cancelled": "Calibration cancelled. You can start again when ready.",
         "failed_test": (
-            "Test did not pass — calibration was not saved. Large negative numbers can remain until a successful Accept. "
-            "Keep the same mass on, wait, run Test again."
+            "Test did not pass — calibration was not saved. "
+            "Most common cause: the reference mass was not on the pan during Test. "
+            "Put the same mass back on, wait, run Test again."
         ),
     }
 
@@ -431,13 +433,14 @@ class CalibrationDialog(QDialog):
 
         form = QFormLayout()
         default_ref = float(getattr(runtime.controller.settings, "default_reference_weight_g", 2000.0) or 2000.0)
-        self._display_unit = unit_label(runtime.snapshot().get("display_unit") or "g")
+        # Calibration reference is always grams — avoids kg/lb display-unit mixups.
+        self._display_unit = "g"
         self.reference = QDoubleSpinBox()
-        self.reference.setRange(0.001, 100000.0)
-        self.reference.setDecimals(4 if self._display_unit != "g" else 3)
-        self.reference.setValue(grams_to_display(default_ref, self._display_unit))
+        self.reference.setRange(1.0, 100000.0)
+        self.reference.setDecimals(3)
+        self.reference.setValue(default_ref)
         self.samples = QSpinBox(); self.samples.setRange(3, 32); self.samples.setValue(8)
-        form.addRow(f"Reference weight ({self._display_unit})", self.reference)
+        form.addRow("Reference weight (g) — must match mass on pan", self.reference)
         form.addRow("Live sample count", self.samples)
         layout.addLayout(form)
 
@@ -495,7 +498,7 @@ class CalibrationDialog(QDialog):
     def loaded_samples(self) -> None:
         self.set_step("loaded")
         try:
-            ref_g = display_to_grams(float(self.reference.value()), self._display_unit)
+            ref_g = float(self.reference.value())
             self.runtime.controller.settings_store.update(default_reference_weight_g=ref_g)
             self.write(
                 self.runtime.add_calibration_loaded_samples(ref_g, self.samples.value()),
@@ -507,6 +510,7 @@ class CalibrationDialog(QDialog):
     def test_factor(self) -> None:
         self.set_step("test")
         try:
+            # Runtime clears the buffer and waits for fresh stream samples.
             result = self.runtime.test_calibration(self.samples.value())
             test = (result.get("data") or {}).get("calibration_test") or {}
             summary = test.get("operator_summary") or result.get("message") or ""

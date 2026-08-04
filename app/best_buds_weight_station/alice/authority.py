@@ -95,10 +95,15 @@ def operator_safe_error(error: Any) -> str:
         return "Start or resume a harvest run first when recording plants. Maintenance calibration can run after the scale is connected."
     if "at least three live" in text:
         return "Wait until the live weight is updating, then capture samples again."
+    if "steadier pan" in text or "do not match the loaded pan" in text:
+        return raw
     if "zero stability" in text:
+        # Prefer the detailed scale_control message when it already explains spread vs limit.
+        if "swung" in text and "limit" in text:
+            return raw
         return (
-            "Zero needs a steady empty pan. Remove everything, wait a second for the number to settle, "
-            "then press ZERO again."
+            "Zero needs a steady empty pan. The main live number is averaged, so it can look calm "
+            "while ZERO still sees device noise. Leave the pan empty, wait 2 seconds, press ZERO again."
         )
     # True wrong-firmware sketches (raw HX711 dumpers) — not stream/command interleave.
     if "hx711 test" in text or "raw hx711 test sketch" in text or (
