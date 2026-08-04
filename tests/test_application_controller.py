@@ -21,7 +21,9 @@ def test_automatic_barcode_to_record_loop(tmp_path):
 
 def test_manual_loop_waits_for_confirmation(tmp_path):
     c=controller(tmp_path,'manual'); c.dispatch(ActionRequest('barcode.submit',{'barcode':'PLANT-M'})); feed_stable(c)
-    assert c.state=='MANUAL_CONFIRM' and c.loaded_run.store.sequence==0 and not c.feedback_events
+    assert c.state=='WEIGHT_STABLE' and c.loaded_run.store.sequence==0 and not c.feedback_events
+    lock=c.dispatch(ActionRequest('capture.weight.lock'))
+    assert lock.status=='completed' and c.state=='MANUAL_CONFIRM'
     result=c.dispatch(ActionRequest('capture.confirm'))
     assert result.truth_class=='RECEIPT_CONFIRMED' and c.loaded_run.store.sequence==1
 
@@ -51,7 +53,7 @@ def test_spreadsheet_failure_does_not_invalidate_local_commit(tmp_path):
     c=controller(tmp_path,'automatic'); c.loaded_run.store.fail_step='xlsx_export'
     c.dispatch(ActionRequest('barcode.submit',{'barcode':'XLSX'})); result=feed_stable(c)
     assert result.truth_class=='RECEIPT_CONFIRMED' and result.data['backend_result']['derivative_status']['xlsx']=='pending_sync'
-    assert 'spreadsheet update is pending' in result.message.lower()
+    assert 'csv sync pending' in result.message.lower() or 'spreadsheet update is pending' in result.message.lower()
 
 
 def test_remote_action_cache_is_idempotent(tmp_path):

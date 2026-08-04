@@ -25,7 +25,10 @@ def test_loaded_run_restores_last_saved_record(tmp_path):
     while len(rt.buffer.recent(8))<8 and time.time()<end: time.sleep(.05)
     rt.submit_barcode('PLANT-1')
     end=time.time()+3
-    while rt.controller.state!='MANUAL_CONFIRM' and time.time()<end: time.sleep(.05)
+    while rt.controller.state!='WEIGHT_STABLE' and time.time()<end: time.sleep(.05)
+    assert rt.controller.state=='WEIGHT_STABLE'
+    rt.dispatch('capture.weight.lock')
+    assert rt.controller.state=='MANUAL_CONFIRM'
     rt.dispatch('capture.confirm'); record_id=rt.snapshot()['last_saved']['record_id']; rt.close()
     resumed=OperatorRuntime(tmp_path/'run',capture_mode='manual')
     resumed.dispatch('run.resume')

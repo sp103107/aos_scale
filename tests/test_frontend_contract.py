@@ -10,7 +10,7 @@ def test_required_operator_states_have_simple_labels():
 
 
 def test_main_buttons_are_large_action_surface():
-    required={'start_resume','connect_scale','zero_scale','set_container_tare','confirm_record','cancel_item','finish_run'}
+    required={'start_resume','connect_scale','zero_scale','set_container_tare','lock_weight','confirm_record','cancel_item','finish_run'}
     assert required.issubset(BUTTON_ACTIONS)
 
 
@@ -52,4 +52,4 @@ def test_routine_action_layout_has_no_overlaps():
     for action in ROUTINE_ACTION_LAYOUT:
         cells.extend((action.row, column) for column in range(action.column, action.column + action.columnspan))
     assert len(cells) == len(set(cells))
-    assert len(ROUTINE_ACTION_LAYOUT) == 7
+    assert len(ROUTINE_ACTION_LAYOUT) == 8

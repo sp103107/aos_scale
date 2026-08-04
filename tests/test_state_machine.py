@@ -31,6 +31,8 @@ def test_auto_and_manual_require_terminal_completion(tmp_path):
     machine.scan('b')
     for value in [20, 20.1, 20]:
         machine.reading(value)
+    assert machine.state == State.WEIGHT_STABLE
+    machine.lock_weight()
     assert machine.state == State.MANUAL_CONFIRM
     result = machine.confirm()
     assert isinstance(result, tuple)

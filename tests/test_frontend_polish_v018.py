@@ -19,8 +19,9 @@ def test_barcode_surface_is_labeled_in_both_frontends():
     pyside_source = (ROOT / "app/best_buds_weight_station/pyside_frontend.py").read_text()
     assert "PLANT OR CONTAINER BARCODE" in tk_source
     assert "PLANT OR CONTAINER BARCODE" in pyside_source
-    assert "Scan or type the barcode" in tk_source
-    assert "Scan or type the barcode" in pyside_source
+    assert 'text="Scan"' in tk_source
+    assert 'QPushButton("Scan")' in pyside_source
+    assert "Active plant" in tk_source and "Active plant" in pyside_source
 
 
 def test_physical_serial_pending_state_is_not_success_colored():
@@ -35,7 +36,7 @@ def test_physical_serial_pending_state_is_not_success_colored():
 def test_shared_routine_layout_is_complete_and_non_overlapping():
     assert [item.action_id for item in ROUTINE_ACTION_LAYOUT] == [
         "start_resume", "connect_scale", "zero_scale", "set_tare",
-        "confirm_record", "cancel_item", "finish_run",
+        "lock_weight", "confirm_record", "cancel_item", "finish_run",
     ]
     occupied = set()
     for item in ROUTINE_ACTION_LAYOUT:

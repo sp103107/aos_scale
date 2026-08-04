@@ -40,6 +40,7 @@ def test_manual_terminal_result_reaches_alice_before_feedback(tmp_path):
     machine.scan('MANUAL-1')
     for value in [100.0, 100.1, 100.0]:
         machine.reading(value)
+    machine.lock_weight()
     result = machine.confirm()
     assert machine.state == State.RECORD_SAVED and beeps == []
     response, record, advanced = process_terminal_result(machine, agent, result, session_id='S')
