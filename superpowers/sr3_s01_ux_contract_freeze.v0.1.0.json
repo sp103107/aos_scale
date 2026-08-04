@@ -1,0 +1,243 @@
+{
+  "arc_id": "SR3_S01_ux_contract_freeze",
+  "episodes": [
+    {
+      "acceptance": "S01E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E01",
+      "kind": "context",
+      "objective": "Intent freeze: scan lock confirm loop",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: scan lock confirm loop"
+    },
+    {
+      "acceptance": "S01E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E02",
+      "kind": "context",
+      "objective": "Inventory PySide capture surfaces",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Inventory PySide capture surfaces"
+    },
+    {
+      "acceptance": "S01E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E03",
+      "kind": "context",
+      "objective": "Inventory Tk capture surfaces",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Inventory Tk capture surfaces"
+    },
+    {
+      "acceptance": "S01E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E04",
+      "kind": "implement",
+      "objective": "Write UX contract receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write UX contract receipt"
+    },
+    {
+      "acceptance": "S01E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E05",
+      "kind": "implement",
+      "objective": "Authorize S02 barcode/scan scope",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S02 barcode/scan scope"
+    },
+    {
+      "acceptance": "S01E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E06",
+      "kind": "implement",
+      "objective": "Authorize S03\u2013S04 lock-weight scope",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S03\u2013S04 lock-weight scope"
+    },
+    {
+      "acceptance": "S01E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E07",
+      "kind": "implement",
+      "objective": "Authorize S05 plant-log scope",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S05 plant-log scope"
+    },
+    {
+      "acceptance": "S01E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E08",
+      "kind": "verify",
+      "objective": "Verify non-claims stamped",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify non-claims stamped"
+    },
+    {
+      "acceptance": "S01E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E09",
+      "kind": "receipt",
+      "objective": "S01 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S01 receipt pack"
+    },
+    {
+      "acceptance": "S01E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E10",
+      "kind": "closeout",
+      "objective": "M01 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M01 season closeout + push plan"
+    }
+  ],
+  "focus": "Freeze capture loop contract and non-claims",
+  "milestone": "M01",
+  "non_claims": [
+    "Lock weight is not a legal-for-trade hold decision",
+    "Plant log is not a Metrc plant list",
+    "Scan button is HID focus only \u2014 not BLE/SPP scanner protocol",
+    "Arc Launcher is cited doctrine, not mutated as live Best Buds runtime"
+  ],
+  "primary_surfaces": [
+    "ACTIVE_ARC.yaml",
+    "cursor/",
+    "docs/"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr3.ux_contract_freeze.v1",
+  "series_id": "BBWS_SR3_station_capture_ux",
+  "title": "Scaffold + UX contract freeze",
+  "version": "0.1.0"
+}

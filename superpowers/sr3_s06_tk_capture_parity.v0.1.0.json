@@ -1,0 +1,221 @@
+{
+  "arc_id": "SR3_S06_tk_capture_parity",
+  "episodes": [
+    {
+      "acceptance": "S06E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S06E01",
+      "kind": "context",
+      "objective": "Intent freeze: Tk shared runtime",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: Tk shared runtime"
+    },
+    {
+      "acceptance": "S06E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S06E02",
+      "kind": "implement",
+      "objective": "Tk barcode persistence",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tk barcode persistence"
+    },
+    {
+      "acceptance": "S06E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S06E03",
+      "kind": "implement",
+      "objective": "Tk Scan focus button",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tk Scan focus button"
+    },
+    {
+      "acceptance": "S06E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S06E04",
+      "kind": "implement",
+      "objective": "Tk Lock weight button",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tk Lock weight button"
+    },
+    {
+      "acceptance": "S06E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S06E05",
+      "kind": "implement",
+      "objective": "Tk recent plants list",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tk recent plants list"
+    },
+    {
+      "acceptance": "S06E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S06E06",
+      "kind": "implement",
+      "objective": "Tk confirm/cancel clear",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tk confirm/cancel clear"
+    },
+    {
+      "acceptance": "S06E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S06E07",
+      "kind": "verify",
+      "objective": "Tk loop verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tk loop verify"
+    },
+    {
+      "acceptance": "S06E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S06E08",
+      "kind": "verify",
+      "objective": "Non-claim stamp",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Non-claim stamp"
+    },
+    {
+      "acceptance": "S06E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S06E09",
+      "kind": "receipt",
+      "objective": "S06 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S06 receipt pack"
+    },
+    {
+      "acceptance": "S06E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "production_ui.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S06E10",
+      "kind": "closeout",
+      "objective": "M06 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M06 season closeout + push plan"
+    }
+  ],
+  "focus": "Barcode stay, Scan, Lock, short log in Tk",
+  "milestone": "M06",
+  "non_claims": [
+    "Lock weight is not a legal-for-trade hold decision",
+    "Plant log is not a Metrc plant list",
+    "Scan button is HID focus only \u2014 not BLE/SPP scanner protocol",
+    "Arc Launcher is cited doctrine, not mutated as live Best Buds runtime"
+  ],
+  "primary_surfaces": [
+    "production_ui.py"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr3.tk_capture_parity.v1",
+  "series_id": "BBWS_SR3_station_capture_ux",
+  "title": "Tk parity for capture UX loop",
+  "version": "0.1.0"
+}

@@ -1,8 +1,8 @@
 {
-  "season_id": "S10",
-  "slug": "dual_ui_closeout",
-  "milestone": "M10",
-  "last_closed_season": "S10",
-  "push_plan": "git push origin HEAD after season closeout",
-  "updated_at": "2026-08-03T23:27:29Z"
+  "commit_plan": "Commit S01 scaffold/contract after E10 closeout",
+  "milestone": "M01",
+  "push_plan": "git push origin HEAD after series closeout",
+  "season_id": "S01",
+  "slug": "ux_contract_freeze",
+  "updated_at": "2026-08-04T02:11:14Z"
 }

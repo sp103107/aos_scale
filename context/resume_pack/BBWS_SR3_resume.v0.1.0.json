@@ -1,0 +1,27 @@
+{
+  "active": {
+    "episode_id": "S01E01",
+    "milestone": "M01",
+    "season_id": "S01",
+    "status": "ready_to_execute"
+  },
+  "completed_seasons": [],
+  "continuation_handoff": "kickoff_prompts/BBWS_SR3_HUMAN_CHAT_KICKOFF.md",
+  "decision_locks": {
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "plant_log": "read_only_last_50_from_jsonl",
+    "push_cadence": "series_closeout",
+    "scan_button": "focus_barcode_hid_wedge"
+  },
+  "non_claims": [
+    "Lock weight is not a legal-for-trade hold decision",
+    "Plant log is not a Metrc plant list",
+    "Scan button is HID focus only \u2014 not BLE/SPP scanner protocol",
+    "Arc Launcher is cited doctrine, not mutated as live Best Buds runtime"
+  ],
+  "pack_id": "BBWS_SR3_resume",
+  "parent_series": "BBWS_SR2_tk_linux_display_units",
+  "series_id": "BBWS_SR3_station_capture_ux",
+  "updated_at": "2026-08-04T02:11:14Z",
+  "version": "0.1.0"
+}

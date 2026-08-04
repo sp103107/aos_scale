@@ -1,17 +1,17 @@
-# BBWS SR2 live pointer — product owns truth (Arc Launcher cited, not mutated)
-series_id: BBWS_SR2_tk_linux_display_units
+# BBWS SR3 live pointer — product owns truth (Arc Launcher cited, not mutated)
+series_id: BBWS_SR3_station_capture_ux
 series_version: 0.1.0
 season_id: S10
-season_slug: dual_ui_closeout
+season_slug: series_closeout
 episode_id: S10E10
 milestone: M10
 status: series_complete
-parent_series_id: BBWS_SR1_harvest_operator_loop
-parent_tag: bbws-sr1-complete
+parent_series_id: BBWS_SR2_tk_linux_display_units
+parent_tag: bbws-sr2-complete
 baseline_freeze: v0.1.9-rc2
 doctrine_source: C:/aos_arc_launcher_v0_4_21
-updated_at: 2026-08-03T23:27:29Z
+updated_at: 2026-08-04T02:22:00Z
 runtime_claimed: false
-units_law: display_only_g_kg_lb_storage_grams
-next_action: Series complete — load SR2 closeout report
+capture_law: scan_settle_lock_confirm_reset
+next_action: Series complete — begin BBWS SR4 run artifact polish when ready
 last_closed_season: S10

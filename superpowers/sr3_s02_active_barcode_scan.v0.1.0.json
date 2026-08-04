@@ -1,0 +1,221 @@
+{
+  "arc_id": "SR3_S02_active_barcode_scan",
+  "episodes": [
+    {
+      "acceptance": "S02E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E01",
+      "kind": "context",
+      "objective": "Intent freeze: barcode persistence",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: barcode persistence"
+    },
+    {
+      "acceptance": "S02E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E02",
+      "kind": "implement",
+      "objective": "Keep barcode after accept",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Keep barcode after accept"
+    },
+    {
+      "acceptance": "S02E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E03",
+      "kind": "implement",
+      "objective": "Clear barcode on confirm/cancel only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Clear barcode on confirm/cancel only"
+    },
+    {
+      "acceptance": "S02E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E04",
+      "kind": "implement",
+      "objective": "Main-row Scan focuses barcode",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Main-row Scan focuses barcode"
+    },
+    {
+      "acceptance": "S02E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E05",
+      "kind": "implement",
+      "objective": "Test Scanner menu-only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Test Scanner menu-only"
+    },
+    {
+      "acceptance": "S02E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E06",
+      "kind": "implement",
+      "objective": "Active barcode banner copy",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Active barcode banner copy"
+    },
+    {
+      "acceptance": "S02E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E07",
+      "kind": "verify",
+      "objective": "Scan focus verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Scan focus verify"
+    },
+    {
+      "acceptance": "S02E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E08",
+      "kind": "verify",
+      "objective": "Clear-on-confirm verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Clear-on-confirm verify"
+    },
+    {
+      "acceptance": "S02E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E09",
+      "kind": "receipt",
+      "objective": "S02 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S02 receipt pack"
+    },
+    {
+      "acceptance": "S02E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E10",
+      "kind": "closeout",
+      "objective": "M02 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M02 season closeout + push plan"
+    }
+  ],
+  "focus": "Keep scanned tag visible; Scan focuses field",
+  "milestone": "M02",
+  "non_claims": [
+    "Lock weight is not a legal-for-trade hold decision",
+    "Plant log is not a Metrc plant list",
+    "Scan button is HID focus only \u2014 not BLE/SPP scanner protocol",
+    "Arc Launcher is cited doctrine, not mutated as live Best Buds runtime"
+  ],
+  "primary_surfaces": [
+    "pyside_frontend.py"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr3.active_barcode_scan.v1",
+  "series_id": "BBWS_SR3_station_capture_ux",
+  "title": "Active barcode stay + Scan button",
+  "version": "0.1.0"
+}

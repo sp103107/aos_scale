@@ -1,0 +1,243 @@
+{
+  "arc_id": "SR3_S10_series_closeout",
+  "episodes": [
+    {
+      "acceptance": "S10E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E01",
+      "kind": "context",
+      "objective": "Intent freeze: closeout only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: closeout only"
+    },
+    {
+      "acceptance": "S10E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E02",
+      "kind": "implement",
+      "objective": "Season ledger complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Season ledger complete"
+    },
+    {
+      "acceptance": "S10E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E03",
+      "kind": "implement",
+      "objective": "Closeout report",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Closeout report"
+    },
+    {
+      "acceptance": "S10E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E04",
+      "kind": "implement",
+      "objective": "ACTIVE_ARC series_complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "ACTIVE_ARC series_complete"
+    },
+    {
+      "acceptance": "S10E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E05",
+      "kind": "implement",
+      "objective": "Tag bbws-sr3-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tag bbws-sr3-complete"
+    },
+    {
+      "acceptance": "S10E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E06",
+      "kind": "implement",
+      "objective": "Push origin HEAD + tags",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Push origin HEAD + tags"
+    },
+    {
+      "acceptance": "S10E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E07",
+      "kind": "verify",
+      "objective": "Remote tag verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Remote tag verify"
+    },
+    {
+      "acceptance": "S10E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E08",
+      "kind": "verify",
+      "objective": "Pointer verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Pointer verify"
+    },
+    {
+      "acceptance": "S10E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E09",
+      "kind": "receipt",
+      "objective": "S10 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S10 receipt pack"
+    },
+    {
+      "acceptance": "S10E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E10",
+      "kind": "closeout",
+      "objective": "M10 series closeout",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M10 series closeout"
+    }
+  ],
+  "focus": "ACTIVE_ARC series_complete + tag + push",
+  "milestone": "M10",
+  "non_claims": [
+    "Lock weight is not a legal-for-trade hold decision",
+    "Plant log is not a Metrc plant list",
+    "Scan button is HID focus only \u2014 not BLE/SPP scanner protocol",
+    "Arc Launcher is cited doctrine, not mutated as live Best Buds runtime"
+  ],
+  "primary_surfaces": [
+    "ACTIVE_ARC.yaml",
+    "reports/",
+    "git_arc/"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr3.series_closeout.v1",
+  "series_id": "BBWS_SR3_station_capture_ux",
+  "title": "Series closeout + bbws-sr3-complete",
+  "version": "0.1.0"
+}

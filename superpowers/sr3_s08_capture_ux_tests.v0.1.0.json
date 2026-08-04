@@ -1,0 +1,221 @@
+{
+  "arc_id": "SR3_S08_capture_ux_tests",
+  "episodes": [
+    {
+      "acceptance": "S08E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E01",
+      "kind": "context",
+      "objective": "Intent freeze: test matrix",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: test matrix"
+    },
+    {
+      "acceptance": "S08E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E02",
+      "kind": "implement",
+      "objective": "Lock before confirm test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Lock before confirm test"
+    },
+    {
+      "acceptance": "S08E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E03",
+      "kind": "implement",
+      "objective": "Auto mode still auto-records",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Auto mode still auto-records"
+    },
+    {
+      "acceptance": "S08E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E04",
+      "kind": "implement",
+      "objective": "Recent plants snapshot test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Recent plants snapshot test"
+    },
+    {
+      "acceptance": "S08E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E05",
+      "kind": "implement",
+      "objective": "Cancel from WEIGHT_STABLE test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Cancel from WEIGHT_STABLE test"
+    },
+    {
+      "acceptance": "S08E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E06",
+      "kind": "implement",
+      "objective": "Light UI contract notes",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Light UI contract notes"
+    },
+    {
+      "acceptance": "S08E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E07",
+      "kind": "verify",
+      "objective": "Pytest green verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Pytest green verify"
+    },
+    {
+      "acceptance": "S08E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E08",
+      "kind": "verify",
+      "objective": "Regression smoke verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Regression smoke verify"
+    },
+    {
+      "acceptance": "S08E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E09",
+      "kind": "receipt",
+      "objective": "S08 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S08 receipt pack"
+    },
+    {
+      "acceptance": "S08E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E10",
+      "kind": "closeout",
+      "objective": "M08 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M08 season closeout + push plan"
+    }
+  ],
+  "focus": "State lock, barcode persistence, recent list",
+  "milestone": "M08",
+  "non_claims": [
+    "Lock weight is not a legal-for-trade hold decision",
+    "Plant log is not a Metrc plant list",
+    "Scan button is HID focus only \u2014 not BLE/SPP scanner protocol",
+    "Arc Launcher is cited doctrine, not mutated as live Best Buds runtime"
+  ],
+  "primary_surfaces": [
+    "tests/"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr3.capture_ux_tests.v1",
+  "series_id": "BBWS_SR3_station_capture_ux",
+  "title": "Tests for lock gate and plant log",
+  "version": "0.1.0"
+}

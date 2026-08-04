@@ -1,0 +1,254 @@
+{
+  "arc_id": "SR3_S03_lock_weight_runtime",
+  "episodes": [
+    {
+      "acceptance": "S03E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "state_machine.py",
+        "application_controller.py",
+        "actions.py",
+        "operator_runtime.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E01",
+      "kind": "context",
+      "objective": "Intent freeze: lock before confirm",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: lock before confirm"
+    },
+    {
+      "acceptance": "S03E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "state_machine.py",
+        "application_controller.py",
+        "actions.py",
+        "operator_runtime.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E02",
+      "kind": "implement",
+      "objective": "Manual stable stops at WEIGHT_STABLE",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Manual stable stops at WEIGHT_STABLE"
+    },
+    {
+      "acceptance": "S03E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "state_machine.py",
+        "application_controller.py",
+        "actions.py",
+        "operator_runtime.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E03",
+      "kind": "implement",
+      "objective": "Add capture.weight.lock action",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Add capture.weight.lock action"
+    },
+    {
+      "acceptance": "S03E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "state_machine.py",
+        "application_controller.py",
+        "actions.py",
+        "operator_runtime.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E04",
+      "kind": "implement",
+      "objective": "Wire controller + runtime lock",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Wire controller + runtime lock"
+    },
+    {
+      "acceptance": "S03E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "state_machine.py",
+        "application_controller.py",
+        "actions.py",
+        "operator_runtime.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E05",
+      "kind": "implement",
+      "objective": "Cancel from WEIGHT_STABLE",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Cancel from WEIGHT_STABLE"
+    },
+    {
+      "acceptance": "S03E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "state_machine.py",
+        "application_controller.py",
+        "actions.py",
+        "operator_runtime.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E06",
+      "kind": "implement",
+      "objective": "Alice authority copy for lock",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Alice authority copy for lock"
+    },
+    {
+      "acceptance": "S03E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "state_machine.py",
+        "application_controller.py",
+        "actions.py",
+        "operator_runtime.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E07",
+      "kind": "verify",
+      "objective": "Lock gate unit verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Lock gate unit verify"
+    },
+    {
+      "acceptance": "S03E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "state_machine.py",
+        "application_controller.py",
+        "actions.py",
+        "operator_runtime.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E08",
+      "kind": "verify",
+      "objective": "Auto mode unchanged verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Auto mode unchanged verify"
+    },
+    {
+      "acceptance": "S03E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "state_machine.py",
+        "application_controller.py",
+        "actions.py",
+        "operator_runtime.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E09",
+      "kind": "receipt",
+      "objective": "S03 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S03 receipt pack"
+    },
+    {
+      "acceptance": "S03E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "state_machine.py",
+        "application_controller.py",
+        "actions.py",
+        "operator_runtime.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E10",
+      "kind": "closeout",
+      "objective": "M03 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M03 season closeout + push plan"
+    }
+  ],
+  "focus": "WEIGHT_STABLE until capture.weight.lock",
+  "milestone": "M03",
+  "non_claims": [
+    "Lock weight is not a legal-for-trade hold decision",
+    "Plant log is not a Metrc plant list",
+    "Scan button is HID focus only \u2014 not BLE/SPP scanner protocol",
+    "Arc Launcher is cited doctrine, not mutated as live Best Buds runtime"
+  ],
+  "primary_surfaces": [
+    "state_machine.py",
+    "application_controller.py",
+    "actions.py",
+    "operator_runtime.py"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr3.lock_weight_runtime.v1",
+  "series_id": "BBWS_SR3_station_capture_ux",
+  "title": "Lock weight state machine + action",
+  "version": "0.1.0"
+}

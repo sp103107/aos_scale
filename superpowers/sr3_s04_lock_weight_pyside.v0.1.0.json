@@ -1,0 +1,232 @@
+{
+  "arc_id": "SR3_S04_lock_weight_pyside",
+  "episodes": [
+    {
+      "acceptance": "S04E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E01",
+      "kind": "context",
+      "objective": "Intent freeze: Lock then Confirm",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: Lock then Confirm"
+    },
+    {
+      "acceptance": "S04E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E02",
+      "kind": "implement",
+      "objective": "Add Lock weight action button",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Add Lock weight action button"
+    },
+    {
+      "acceptance": "S04E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E03",
+      "kind": "implement",
+      "objective": "Enable Lock only in WEIGHT_STABLE",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Enable Lock only in WEIGHT_STABLE"
+    },
+    {
+      "acceptance": "S04E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E04",
+      "kind": "implement",
+      "objective": "Confirm only in MANUAL_CONFIRM",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Confirm only in MANUAL_CONFIRM"
+    },
+    {
+      "acceptance": "S04E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E05",
+      "kind": "implement",
+      "objective": "Show locked weight display unit",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Show locked weight display unit"
+    },
+    {
+      "acceptance": "S04E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E06",
+      "kind": "implement",
+      "objective": "Clear lock UI after confirm",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Clear lock UI after confirm"
+    },
+    {
+      "acceptance": "S04E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E07",
+      "kind": "verify",
+      "objective": "Button enable matrix verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Button enable matrix verify"
+    },
+    {
+      "acceptance": "S04E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E08",
+      "kind": "verify",
+      "objective": "Cancel clears lock UI verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Cancel clears lock UI verify"
+    },
+    {
+      "acceptance": "S04E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E09",
+      "kind": "receipt",
+      "objective": "S04 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S04 receipt pack"
+    },
+    {
+      "acceptance": "S04E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "pyside_frontend.py",
+        "operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "run artifact polish SR4",
+        "firmware SET_UNIT kg/lb",
+        "BLE/SPP scanner",
+        "Metrc sync",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E10",
+      "kind": "closeout",
+      "objective": "M04 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M04 season closeout + push plan"
+    }
+  ],
+  "focus": "Lock button + locked readout + Confirm gate",
+  "milestone": "M04",
+  "non_claims": [
+    "Lock weight is not a legal-for-trade hold decision",
+    "Plant log is not a Metrc plant list",
+    "Scan button is HID focus only \u2014 not BLE/SPP scanner protocol",
+    "Arc Launcher is cited doctrine, not mutated as live Best Buds runtime"
+  ],
+  "primary_surfaces": [
+    "pyside_frontend.py",
+    "operator_surface.py"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr3.lock_weight_pyside.v1",
+  "series_id": "BBWS_SR3_station_capture_ux",
+  "title": "Lock weight PySide UI",
+  "version": "0.1.0"
+}

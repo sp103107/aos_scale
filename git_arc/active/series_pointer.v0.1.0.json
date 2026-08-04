@@ -1,13 +1,12 @@
 {
-  "series_id": "BBWS_SR2_tk_linux_display_units",
-  "branch_plan": "main",
-  "remote_plan": "origin",
-  "push_policy": "after_season_closeout_only",
   "auto_push": false,
-  "parent_tag": "bbws-sr1-complete",
+  "branch_plan": "main",
+  "parent_tag": "bbws-sr2-complete",
   "planned_tags": [
-    "v0.1.9-bbws-sr2-s08",
-    "bbws-sr2-complete"
+    "bbws-sr3-complete"
   ],
-  "updated_at": "2026-08-03T22:15:13Z"
+  "push_policy": "after_series_closeout",
+  "remote_plan": "origin",
+  "series_id": "BBWS_SR3_station_capture_ux",
+  "updated_at": "2026-08-04T02:11:14Z"
 }

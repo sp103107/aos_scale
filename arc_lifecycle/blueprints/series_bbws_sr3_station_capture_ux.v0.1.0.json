@@ -1,0 +1,101 @@
+{
+  "blueprint_id": "BBWS_SR3_station_capture_ux",
+  "blueprint_type": "series",
+  "capture_law": "scan_settle_lock_confirm_reset",
+  "github_push_cadence": "after_series_closeout",
+  "non_claims": [
+    "Lock weight is not a legal-for-trade hold decision",
+    "Plant log is not a Metrc plant list",
+    "Scan button is HID focus only \u2014 not BLE/SPP scanner protocol",
+    "Arc Launcher is cited doctrine, not mutated as live Best Buds runtime"
+  ],
+  "parent_arc_id": "bbws-sr2-complete",
+  "parent_series_id": "BBWS_SR2_tk_linux_display_units",
+  "runtime_claimed": false,
+  "seasons": [
+    {
+      "episode_count": 10,
+      "focus": "Freeze capture loop contract and non-claims",
+      "milestone": "M01",
+      "season_id": "S01_ux_contract_freeze",
+      "superpower_ref": "superpowers/sr3_s01_ux_contract_freeze.v0.1.0.json",
+      "title": "Scaffold + UX contract freeze"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Keep scanned tag visible; Scan focuses field",
+      "milestone": "M02",
+      "season_id": "S02_active_barcode_scan",
+      "superpower_ref": "superpowers/sr3_s02_active_barcode_scan.v0.1.0.json",
+      "title": "Active barcode stay + Scan button"
+    },
+    {
+      "episode_count": 10,
+      "focus": "WEIGHT_STABLE until capture.weight.lock",
+      "milestone": "M03",
+      "season_id": "S03_lock_weight_runtime",
+      "superpower_ref": "superpowers/sr3_s03_lock_weight_runtime.v0.1.0.json",
+      "title": "Lock weight state machine + action"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Lock button + locked readout + Confirm gate",
+      "milestone": "M04",
+      "season_id": "S04_lock_weight_pyside",
+      "superpower_ref": "superpowers/sr3_s04_lock_weight_pyside.v0.1.0.json",
+      "title": "Lock weight PySide UI"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Last 50 commits read-only list",
+      "milestone": "M05",
+      "season_id": "S05_plant_run_log",
+      "superpower_ref": "superpowers/sr3_s05_plant_run_log.v0.1.0.json",
+      "title": "Run plant log PySide"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Barcode stay, Scan, Lock, short log in Tk",
+      "milestone": "M06",
+      "season_id": "S06_tk_capture_parity",
+      "superpower_ref": "superpowers/sr3_s06_tk_capture_parity.v0.1.0.json",
+      "title": "Tk parity for capture UX loop"
+    },
+    {
+      "episode_count": 10,
+      "focus": "active_barcode, locked_weight_g, recent_plants",
+      "milestone": "M07",
+      "season_id": "S07_snapshot_fields",
+      "superpower_ref": "superpowers/sr3_s07_snapshot_fields.v0.1.0.json",
+      "title": "Snapshot fields for capture UX"
+    },
+    {
+      "episode_count": 10,
+      "focus": "State lock, barcode persistence, recent list",
+      "milestone": "M08",
+      "season_id": "S08_capture_ux_tests",
+      "superpower_ref": "superpowers/sr3_s08_capture_ux_tests.v0.1.0.json",
+      "title": "Tests for lock gate and plant log"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Operator docs for new loop",
+      "milestone": "M09",
+      "season_id": "S09_docs_nonclaims",
+      "superpower_ref": "superpowers/sr3_s09_docs_nonclaims.v0.1.0.json",
+      "title": "Runbook + dual-UI note + non-claims"
+    },
+    {
+      "episode_count": 10,
+      "focus": "ACTIVE_ARC series_complete + tag + push",
+      "milestone": "M10",
+      "season_id": "S10_series_closeout",
+      "superpower_ref": "superpowers/sr3_s10_series_closeout.v0.1.0.json",
+      "title": "Series closeout + bbws-sr3-complete"
+    }
+  ],
+  "series_goal": "Harvest station capture UX: keep scanned barcode visible, Scan focus, Lock weight then Confirm, run plant log; Tk parity; grams still authoritative.",
+  "shape": "10 seasons \u00d7 10 episodes = 100",
+  "total_episodes": 100,
+  "version": "0.1.0"
+}

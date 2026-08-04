@@ -1,0 +1,208 @@
+{
+  "active_arc_ref": "ACTIVE_ARC.yaml",
+  "blueprint_ref": "arc_lifecycle/blueprints/series_bbws_sr3_station_capture_ux.v0.1.0.json",
+  "cursor_map_ref": "cursor/BBWS_SR3_STATION_CAPTURE_UX_SERIES_MAP.v0.1.0.md",
+  "generated_at": "2026-08-04T02:11:14Z",
+  "manifest_type": "series_map",
+  "non_claims": [
+    "Lock weight is not a legal-for-trade hold decision",
+    "Plant log is not a Metrc plant list",
+    "Scan button is HID focus only \u2014 not BLE/SPP scanner protocol",
+    "Arc Launcher is cited doctrine, not mutated as live Best Buds runtime"
+  ],
+  "resume_pack_ref": "context/resume_pack/BBWS_SR3_resume.v0.1.0.json",
+  "seasons": [
+    {
+      "episodes": [
+        "S01E01",
+        "S01E02",
+        "S01E03",
+        "S01E04",
+        "S01E05",
+        "S01E06",
+        "S01E07",
+        "S01E08",
+        "S01E09",
+        "S01E10"
+      ],
+      "milestone": "M01",
+      "season_id": "S01",
+      "slug": "ux_contract_freeze",
+      "superpower": "superpowers/sr3_s01_ux_contract_freeze.v0.1.0.json",
+      "title": "Scaffold + UX contract freeze"
+    },
+    {
+      "episodes": [
+        "S02E01",
+        "S02E02",
+        "S02E03",
+        "S02E04",
+        "S02E05",
+        "S02E06",
+        "S02E07",
+        "S02E08",
+        "S02E09",
+        "S02E10"
+      ],
+      "milestone": "M02",
+      "season_id": "S02",
+      "slug": "active_barcode_scan",
+      "superpower": "superpowers/sr3_s02_active_barcode_scan.v0.1.0.json",
+      "title": "Active barcode stay + Scan button"
+    },
+    {
+      "episodes": [
+        "S03E01",
+        "S03E02",
+        "S03E03",
+        "S03E04",
+        "S03E05",
+        "S03E06",
+        "S03E07",
+        "S03E08",
+        "S03E09",
+        "S03E10"
+      ],
+      "milestone": "M03",
+      "season_id": "S03",
+      "slug": "lock_weight_runtime",
+      "superpower": "superpowers/sr3_s03_lock_weight_runtime.v0.1.0.json",
+      "title": "Lock weight state machine + action"
+    },
+    {
+      "episodes": [
+        "S04E01",
+        "S04E02",
+        "S04E03",
+        "S04E04",
+        "S04E05",
+        "S04E06",
+        "S04E07",
+        "S04E08",
+        "S04E09",
+        "S04E10"
+      ],
+      "milestone": "M04",
+      "season_id": "S04",
+      "slug": "lock_weight_pyside",
+      "superpower": "superpowers/sr3_s04_lock_weight_pyside.v0.1.0.json",
+      "title": "Lock weight PySide UI"
+    },
+    {
+      "episodes": [
+        "S05E01",
+        "S05E02",
+        "S05E03",
+        "S05E04",
+        "S05E05",
+        "S05E06",
+        "S05E07",
+        "S05E08",
+        "S05E09",
+        "S05E10"
+      ],
+      "milestone": "M05",
+      "season_id": "S05",
+      "slug": "plant_run_log",
+      "superpower": "superpowers/sr3_s05_plant_run_log.v0.1.0.json",
+      "title": "Run plant log PySide"
+    },
+    {
+      "episodes": [
+        "S06E01",
+        "S06E02",
+        "S06E03",
+        "S06E04",
+        "S06E05",
+        "S06E06",
+        "S06E07",
+        "S06E08",
+        "S06E09",
+        "S06E10"
+      ],
+      "milestone": "M06",
+      "season_id": "S06",
+      "slug": "tk_capture_parity",
+      "superpower": "superpowers/sr3_s06_tk_capture_parity.v0.1.0.json",
+      "title": "Tk parity for capture UX loop"
+    },
+    {
+      "episodes": [
+        "S07E01",
+        "S07E02",
+        "S07E03",
+        "S07E04",
+        "S07E05",
+        "S07E06",
+        "S07E07",
+        "S07E08",
+        "S07E09",
+        "S07E10"
+      ],
+      "milestone": "M07",
+      "season_id": "S07",
+      "slug": "snapshot_fields",
+      "superpower": "superpowers/sr3_s07_snapshot_fields.v0.1.0.json",
+      "title": "Snapshot fields for capture UX"
+    },
+    {
+      "episodes": [
+        "S08E01",
+        "S08E02",
+        "S08E03",
+        "S08E04",
+        "S08E05",
+        "S08E06",
+        "S08E07",
+        "S08E08",
+        "S08E09",
+        "S08E10"
+      ],
+      "milestone": "M08",
+      "season_id": "S08",
+      "slug": "capture_ux_tests",
+      "superpower": "superpowers/sr3_s08_capture_ux_tests.v0.1.0.json",
+      "title": "Tests for lock gate and plant log"
+    },
+    {
+      "episodes": [
+        "S09E01",
+        "S09E02",
+        "S09E03",
+        "S09E04",
+        "S09E05",
+        "S09E06",
+        "S09E07",
+        "S09E08",
+        "S09E09",
+        "S09E10"
+      ],
+      "milestone": "M09",
+      "season_id": "S09",
+      "slug": "docs_nonclaims",
+      "superpower": "superpowers/sr3_s09_docs_nonclaims.v0.1.0.json",
+      "title": "Runbook + dual-UI note + non-claims"
+    },
+    {
+      "episodes": [
+        "S10E01",
+        "S10E02",
+        "S10E03",
+        "S10E04",
+        "S10E05",
+        "S10E06",
+        "S10E07",
+        "S10E08",
+        "S10E09",
+        "S10E10"
+      ],
+      "milestone": "M10",
+      "season_id": "S10",
+      "slug": "series_closeout",
+      "superpower": "superpowers/sr3_s10_series_closeout.v0.1.0.json",
+      "title": "Series closeout + bbws-sr3-complete"
+    }
+  ],
+  "series_id": "BBWS_SR3_station_capture_ux",
+  "version": "0.1.0"
+}
