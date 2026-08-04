@@ -1,20 +1,21 @@
-# BBWS SR4 live pointer — product owns truth (Arc Launcher cited, not mutated)
-series_id: BBWS_SR4_operator_surface_polish
+# BBWS SR5 live pointer — product owns truth (salvage / Arc Launcher cited, not mutated)
+series_id: BBWS_SR5_run_artifact_polish
 series_version: 0.1.0
 season_id: S10
 season_slug: series_closeout
 episode_id: S10E10
 milestone: M10
 status: series_complete
-parent_series_id: BBWS_SR3_station_capture_ux
-parent_tag: bbws-sr3-complete
-baseline_tag: bbws-pre-sr4-polish
+parent_series_id: BBWS_SR4_operator_surface_polish
+parent_tag: bbws-sr4-complete
+baseline_tag: bbws-pre-sr5-artifact-polish
 baseline_freeze: v0.1.9-rc2
 doctrine_source: C:/aos_arc_launcher_v0_4_21
-salvage_graphics_ref: M:/SALVAGE/CAPSULES/front_end_graphics/aos_ks_frontend_flow_graphics_v0_1_43
-updated_at: 2026-08-04T21:30:00Z
+book_spine_ref: M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10
+output_response_ref: M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_output_response_meta_pack_v1_5_0
+updated_at: 2026-08-04T22:00:00Z
 runtime_claimed: false
 capture_law: scan_settle_lock_confirm_reset
-polish_law: styles_labels_dialogs_only
-next_action: Series complete — begin BBWS SR5 run artifact polish when ready
+artifact_law: handoff_polish_jsonl_authoritative
+next_action: Series complete — next BBWS series TBD when ready
 last_closed_season: S10

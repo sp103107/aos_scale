@@ -1,0 +1,42 @@
+{
+  "pack_id": "BBWS_SR5_resume",
+  "version": "0.1.0",
+  "series_id": "BBWS_SR5_run_artifact_polish",
+  "updated_at": "2026-08-04T22:00:00Z",
+  "active": {
+    "season_id": "S10",
+    "episode_id": "S10E10",
+    "milestone": "M10",
+    "status": "series_complete"
+  },
+  "parent_series": "BBWS_SR4_operator_surface_polish",
+  "parent_tag": "bbws-sr4-complete",
+  "baseline_tag": "bbws-pre-sr5-artifact-polish",
+  "completed_seasons": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10"
+  ],
+  "decision_locks": {
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "artifact_scope": "handoff_polish_jsonl_authoritative",
+    "salvage": "book_spine_output_response_cite_only",
+    "push_cadence": "series_closeout"
+  },
+  "non_claims": [
+    "Handoff artifacts are non-authoritative; JSONL remains truth",
+    "Not legal-for-trade or Metrc compliance",
+    "Book Spine / Output Response / Arc Launcher are cite-only",
+    "Salvage is not imported as a spreadsheet runtime",
+    "Capture loop unchanged: scan → settle → lock → confirm → reset",
+    "Do not drop cultivator/strain CSV columns"
+  ],
+  "continuation_handoff": "kickoff_prompts/BBWS_SR5_HUMAN_CHAT_KICKOFF.md"
+}

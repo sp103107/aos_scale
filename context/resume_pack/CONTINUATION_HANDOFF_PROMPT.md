@@ -1,9 +1,9 @@
-# BBWS SR4 Continuation Handoff
+# BBWS SR5 Continuation Handoff
 
-Updated: 2026-08-04T21:30:00Z
+Updated: 2026-08-04T22:00:00Z
 
 **Active:** S10 / S10E10 / M10 — **series_complete**  
-**Series:** BBWS_SR4_operator_surface_polish  
-**Tag:** bbws-sr4-complete
+**Series:** BBWS_SR5_run_artifact_polish  
+**Tag:** bbws-sr5-complete
 
-Next series when ready: **BBWS SR5** run artifact polish (CSV/XLSX/DOCX).
+Next BBWS series TBD when ready.
