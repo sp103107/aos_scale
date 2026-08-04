@@ -1,0 +1,109 @@
+{
+  "artifact_law": "handoff_polish_jsonl_authoritative",
+  "baseline_tag": "bbws-pre-sr5-artifact-polish",
+  "blueprint_id": "BBWS_SR5_run_artifact_polish",
+  "blueprint_type": "series",
+  "capture_law": "scan_settle_lock_confirm_reset",
+  "doctrine_cite": [
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10",
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_output_response_meta_pack_v1_5_0"
+  ],
+  "github_push_cadence": "after_series_closeout",
+  "non_claims": [
+    "Handoff artifacts are non-authoritative; JSONL remains truth",
+    "Not legal-for-trade or Metrc compliance",
+    "Book Spine / Output Response / Arc Launcher are cite-only",
+    "Salvage is not imported as a spreadsheet runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Do not drop cultivator/strain CSV columns"
+  ],
+  "parent_arc_id": "bbws-sr4-complete",
+  "parent_series_id": "BBWS_SR4_operator_surface_polish",
+  "runtime_claimed": false,
+  "seasons": [
+    {
+      "episode_count": 10,
+      "focus": "Freeze artifact-vs-JSONL contract, non-claims, series map",
+      "milestone": "M01",
+      "season_id": "S01_artifact_contract_freeze",
+      "superpower_ref": "superpowers/sr5_s01_artifact_contract_freeze.v0.1.0.json",
+      "title": "Scaffold + artifact polish contract freeze"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Map salvage export patterns to BBWS report targets",
+      "milestone": "M02",
+      "season_id": "S02_salvage_selection_map",
+      "superpower_ref": "superpowers/sr5_s02_salvage_selection_map.v0.1.0.json",
+      "title": "Salvage selection map Book Spine + Output Response"
+    },
+    {
+      "episode_count": 10,
+      "focus": "UTF-8 plants CSV + clearer strain summary CSV",
+      "milestone": "M03",
+      "season_id": "S03_csv_handoff_polish",
+      "superpower_ref": "superpowers/sr5_s03_csv_handoff_polish.v0.1.0.json",
+      "title": "CSV plants + summary handoff polish"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Header style, freeze panes, widths, NonClaims sheet",
+      "milestone": "M04",
+      "season_id": "S04_xlsx_handoff_polish",
+      "superpower_ref": "superpowers/sr5_s04_xlsx_handoff_polish.v0.1.0.json",
+      "title": "XLSX Summary/Records/NonClaims polish"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Cover block, cultivator/strain tables, non-claim footer",
+      "milestone": "M05",
+      "season_id": "S05_docx_handoff_polish",
+      "superpower_ref": "superpowers/sr5_s05_docx_handoff_polish.v0.1.0.json",
+      "title": "DOCX cover + tables + footer polish"
+    },
+    {
+      "episode_count": 10,
+      "focus": "reports/handoff_bundle_manifest.json listing artifacts",
+      "milestone": "M06",
+      "season_id": "S06_handoff_bundle_manifest",
+      "superpower_ref": "superpowers/sr5_s06_handoff_bundle_manifest.v0.1.0.json",
+      "title": "Handoff bundle manifest JSON"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Keep JSONL gate; extend receipt with bundle path",
+      "milestone": "M07",
+      "season_id": "S07_reconcile_receipt_polish",
+      "superpower_ref": "superpowers/sr5_s07_reconcile_receipt_polish.v0.1.0.json",
+      "title": "Reconcile receipt polish"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Docs for polished handoff artifacts",
+      "milestone": "M08",
+      "season_id": "S08_artifact_docs",
+      "superpower_ref": "superpowers/sr5_s08_artifact_docs.v0.1.0.json",
+      "title": "Operator runbook + export smoke notes"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Automated polish contract tests",
+      "milestone": "M09",
+      "season_id": "S09_artifact_verify",
+      "superpower_ref": "superpowers/sr5_s09_artifact_verify.v0.1.0.json",
+      "title": "Tests for CSV/XLSX/DOCX/manifest contracts"
+    },
+    {
+      "episode_count": 10,
+      "focus": "ACTIVE_ARC series_complete + tag + push",
+      "milestone": "M10",
+      "season_id": "S10_series_closeout",
+      "superpower_ref": "superpowers/sr5_s10_series_closeout.v0.1.0.json",
+      "title": "Series closeout + bbws-sr5-complete"
+    }
+  ],
+  "series_goal": "Polish Best Buds run handoff artifacts (CSV/XLSX/DOCX) and write a handoff bundle manifest without changing JSONL authority or capture loop.",
+  "shape": "10 seasons \u00d7 10 episodes = 100",
+  "total_episodes": 100,
+  "version": "0.1.0"
+}

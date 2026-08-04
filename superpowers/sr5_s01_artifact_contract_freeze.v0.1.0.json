@@ -1,0 +1,270 @@
+{
+  "arc_id": "SR5_S01_artifact_contract_freeze",
+  "doctrine_cite": [
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10",
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_output_response_meta_pack_v1_5_0"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S01E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr5.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E01",
+      "kind": "context",
+      "objective": "Intent freeze: polish vs authority",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: polish vs authority"
+    },
+    {
+      "acceptance": "S01E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr5.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E02",
+      "kind": "context",
+      "objective": "Inventory current CSV/XLSX/DOCX surfaces",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Inventory current CSV/XLSX/DOCX surfaces"
+    },
+    {
+      "acceptance": "S01E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr5.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E03",
+      "kind": "context",
+      "objective": "Inventory Book Spine export cites",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Inventory Book Spine export cites"
+    },
+    {
+      "acceptance": "S01E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr5.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E04",
+      "kind": "implement",
+      "objective": "Write contract freeze receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write contract freeze receipt"
+    },
+    {
+      "acceptance": "S01E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr5.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E05",
+      "kind": "implement",
+      "objective": "Authorize S02 selection map scope",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S02 selection map scope"
+    },
+    {
+      "acceptance": "S01E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr5.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E06",
+      "kind": "implement",
+      "objective": "Authorize S03\u2013S05 format polish scope",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S03\u2013S05 format polish scope"
+    },
+    {
+      "acceptance": "S01E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr5.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E07",
+      "kind": "implement",
+      "objective": "Authorize S06\u2013S07 bundle/reconcile scope",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S06\u2013S07 bundle/reconcile scope"
+    },
+    {
+      "acceptance": "S01E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr5.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E08",
+      "kind": "verify",
+      "objective": "Verify JSONL authority rule",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify JSONL authority rule"
+    },
+    {
+      "acceptance": "S01E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr5.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E09",
+      "kind": "receipt",
+      "objective": "S01 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S01 receipt pack"
+    },
+    {
+      "acceptance": "S01E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "docs/",
+        "scripts/scaffold_bbws_sr5.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S01E10",
+      "kind": "closeout",
+      "objective": "M01 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M01 season closeout + push plan"
+    }
+  ],
+  "focus": "Freeze artifact-vs-JSONL contract, non-claims, series map",
+  "milestone": "M01",
+  "non_claims": [
+    "Handoff artifacts are non-authoritative; JSONL remains truth",
+    "Not legal-for-trade or Metrc compliance",
+    "Book Spine / Output Response / Arc Launcher are cite-only",
+    "Salvage is not imported as a spreadsheet runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Do not drop cultivator/strain CSV columns"
+  ],
+  "primary_surfaces": [
+    "ACTIVE_ARC.yaml",
+    "cursor/",
+    "docs/",
+    "scripts/scaffold_bbws_sr5.py"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr5.artifact_contract_freeze.v1",
+  "series_id": "BBWS_SR5_run_artifact_polish",
+  "title": "Scaffold + artifact polish contract freeze",
+  "version": "0.1.0"
+}

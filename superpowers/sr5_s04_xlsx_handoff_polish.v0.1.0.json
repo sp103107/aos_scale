@@ -1,0 +1,237 @@
+{
+  "arc_id": "SR5_S04_xlsx_handoff_polish",
+  "doctrine_cite": [
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10",
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_output_response_meta_pack_v1_5_0"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S04E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E01",
+      "kind": "context",
+      "objective": "Intent freeze: sheet layout only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: sheet layout only"
+    },
+    {
+      "acceptance": "S04E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E02",
+      "kind": "implement",
+      "objective": "Style header rows",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Style header rows"
+    },
+    {
+      "acceptance": "S04E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E03",
+      "kind": "implement",
+      "objective": "Freeze top row + column widths",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Freeze top row + column widths"
+    },
+    {
+      "acceptance": "S04E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E04",
+      "kind": "implement",
+      "objective": "Keep Summary and Records sheets",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Keep Summary and Records sheets"
+    },
+    {
+      "acceptance": "S04E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E05",
+      "kind": "implement",
+      "objective": "Add NonClaims sheet",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Add NonClaims sheet"
+    },
+    {
+      "acceptance": "S04E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E06",
+      "kind": "implement",
+      "objective": "Legacy alias xlsx unchanged path",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Legacy alias xlsx unchanged path"
+    },
+    {
+      "acceptance": "S04E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E07",
+      "kind": "verify",
+      "objective": "Verify HEADERS on Records",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify HEADERS on Records"
+    },
+    {
+      "acceptance": "S04E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E08",
+      "kind": "verify",
+      "objective": "Verify NonClaims text labels",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify NonClaims text labels"
+    },
+    {
+      "acceptance": "S04E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E09",
+      "kind": "receipt",
+      "objective": "S04 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S04 receipt pack"
+    },
+    {
+      "acceptance": "S04E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E10",
+      "kind": "closeout",
+      "objective": "M04 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M04 season closeout + push plan"
+    }
+  ],
+  "focus": "Header style, freeze panes, widths, NonClaims sheet",
+  "milestone": "M04",
+  "non_claims": [
+    "Handoff artifacts are non-authoritative; JSONL remains truth",
+    "Not legal-for-trade or Metrc compliance",
+    "Book Spine / Output Response / Arc Launcher are cite-only",
+    "Salvage is not imported as a spreadsheet runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Do not drop cultivator/strain CSV columns"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/reports.py"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr5.xlsx_handoff_polish.v1",
+  "series_id": "BBWS_SR5_run_artifact_polish",
+  "title": "XLSX Summary/Records/NonClaims polish",
+  "version": "0.1.0"
+}

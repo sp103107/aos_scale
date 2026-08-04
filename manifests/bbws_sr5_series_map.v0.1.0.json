@@ -1,0 +1,210 @@
+{
+  "active_arc_ref": "ACTIVE_ARC.yaml",
+  "blueprint_ref": "arc_lifecycle/blueprints/series_bbws_sr5_run_artifact_polish.v0.1.0.json",
+  "cursor_map_ref": "cursor/BBWS_SR5_RUN_ARTIFACT_POLISH_SERIES_MAP.v0.1.0.md",
+  "generated_at": "2026-08-04T21:53:56Z",
+  "manifest_type": "series_map",
+  "non_claims": [
+    "Handoff artifacts are non-authoritative; JSONL remains truth",
+    "Not legal-for-trade or Metrc compliance",
+    "Book Spine / Output Response / Arc Launcher are cite-only",
+    "Salvage is not imported as a spreadsheet runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Do not drop cultivator/strain CSV columns"
+  ],
+  "resume_pack_ref": "context/resume_pack/BBWS_SR5_resume.v0.1.0.json",
+  "seasons": [
+    {
+      "episodes": [
+        "S01E01",
+        "S01E02",
+        "S01E03",
+        "S01E04",
+        "S01E05",
+        "S01E06",
+        "S01E07",
+        "S01E08",
+        "S01E09",
+        "S01E10"
+      ],
+      "milestone": "M01",
+      "season_id": "S01",
+      "slug": "artifact_contract_freeze",
+      "superpower": "superpowers/sr5_s01_artifact_contract_freeze.v0.1.0.json",
+      "title": "Scaffold + artifact polish contract freeze"
+    },
+    {
+      "episodes": [
+        "S02E01",
+        "S02E02",
+        "S02E03",
+        "S02E04",
+        "S02E05",
+        "S02E06",
+        "S02E07",
+        "S02E08",
+        "S02E09",
+        "S02E10"
+      ],
+      "milestone": "M02",
+      "season_id": "S02",
+      "slug": "salvage_selection_map",
+      "superpower": "superpowers/sr5_s02_salvage_selection_map.v0.1.0.json",
+      "title": "Salvage selection map Book Spine + Output Response"
+    },
+    {
+      "episodes": [
+        "S03E01",
+        "S03E02",
+        "S03E03",
+        "S03E04",
+        "S03E05",
+        "S03E06",
+        "S03E07",
+        "S03E08",
+        "S03E09",
+        "S03E10"
+      ],
+      "milestone": "M03",
+      "season_id": "S03",
+      "slug": "csv_handoff_polish",
+      "superpower": "superpowers/sr5_s03_csv_handoff_polish.v0.1.0.json",
+      "title": "CSV plants + summary handoff polish"
+    },
+    {
+      "episodes": [
+        "S04E01",
+        "S04E02",
+        "S04E03",
+        "S04E04",
+        "S04E05",
+        "S04E06",
+        "S04E07",
+        "S04E08",
+        "S04E09",
+        "S04E10"
+      ],
+      "milestone": "M04",
+      "season_id": "S04",
+      "slug": "xlsx_handoff_polish",
+      "superpower": "superpowers/sr5_s04_xlsx_handoff_polish.v0.1.0.json",
+      "title": "XLSX Summary/Records/NonClaims polish"
+    },
+    {
+      "episodes": [
+        "S05E01",
+        "S05E02",
+        "S05E03",
+        "S05E04",
+        "S05E05",
+        "S05E06",
+        "S05E07",
+        "S05E08",
+        "S05E09",
+        "S05E10"
+      ],
+      "milestone": "M05",
+      "season_id": "S05",
+      "slug": "docx_handoff_polish",
+      "superpower": "superpowers/sr5_s05_docx_handoff_polish.v0.1.0.json",
+      "title": "DOCX cover + tables + footer polish"
+    },
+    {
+      "episodes": [
+        "S06E01",
+        "S06E02",
+        "S06E03",
+        "S06E04",
+        "S06E05",
+        "S06E06",
+        "S06E07",
+        "S06E08",
+        "S06E09",
+        "S06E10"
+      ],
+      "milestone": "M06",
+      "season_id": "S06",
+      "slug": "handoff_bundle_manifest",
+      "superpower": "superpowers/sr5_s06_handoff_bundle_manifest.v0.1.0.json",
+      "title": "Handoff bundle manifest JSON"
+    },
+    {
+      "episodes": [
+        "S07E01",
+        "S07E02",
+        "S07E03",
+        "S07E04",
+        "S07E05",
+        "S07E06",
+        "S07E07",
+        "S07E08",
+        "S07E09",
+        "S07E10"
+      ],
+      "milestone": "M07",
+      "season_id": "S07",
+      "slug": "reconcile_receipt_polish",
+      "superpower": "superpowers/sr5_s07_reconcile_receipt_polish.v0.1.0.json",
+      "title": "Reconcile receipt polish"
+    },
+    {
+      "episodes": [
+        "S08E01",
+        "S08E02",
+        "S08E03",
+        "S08E04",
+        "S08E05",
+        "S08E06",
+        "S08E07",
+        "S08E08",
+        "S08E09",
+        "S08E10"
+      ],
+      "milestone": "M08",
+      "season_id": "S08",
+      "slug": "artifact_docs",
+      "superpower": "superpowers/sr5_s08_artifact_docs.v0.1.0.json",
+      "title": "Operator runbook + export smoke notes"
+    },
+    {
+      "episodes": [
+        "S09E01",
+        "S09E02",
+        "S09E03",
+        "S09E04",
+        "S09E05",
+        "S09E06",
+        "S09E07",
+        "S09E08",
+        "S09E09",
+        "S09E10"
+      ],
+      "milestone": "M09",
+      "season_id": "S09",
+      "slug": "artifact_verify",
+      "superpower": "superpowers/sr5_s09_artifact_verify.v0.1.0.json",
+      "title": "Tests for CSV/XLSX/DOCX/manifest contracts"
+    },
+    {
+      "episodes": [
+        "S10E01",
+        "S10E02",
+        "S10E03",
+        "S10E04",
+        "S10E05",
+        "S10E06",
+        "S10E07",
+        "S10E08",
+        "S10E09",
+        "S10E10"
+      ],
+      "milestone": "M10",
+      "season_id": "S10",
+      "slug": "series_closeout",
+      "superpower": "superpowers/sr5_s10_series_closeout.v0.1.0.json",
+      "title": "Series closeout + bbws-sr5-complete"
+    }
+  ],
+  "series_id": "BBWS_SR5_run_artifact_polish",
+  "version": "0.1.0"
+}

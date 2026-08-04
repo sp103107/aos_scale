@@ -1,0 +1,237 @@
+{
+  "arc_id": "SR5_S08_artifact_docs",
+  "doctrine_cite": [
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10",
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_output_response_meta_pack_v1_5_0"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S08E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E01",
+      "kind": "context",
+      "objective": "Intent freeze: docs only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: docs only"
+    },
+    {
+      "acceptance": "S08E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E02",
+      "kind": "implement",
+      "objective": "BBWS_SR5_ARTIFACTS index",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "BBWS_SR5_ARTIFACTS index"
+    },
+    {
+      "acceptance": "S08E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E03",
+      "kind": "implement",
+      "objective": "Operator artifact polish runbook",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Operator artifact polish runbook"
+    },
+    {
+      "acceptance": "S08E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E04",
+      "kind": "implement",
+      "objective": "Export smoke checklist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Export smoke checklist"
+    },
+    {
+      "acceptance": "S08E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E05",
+      "kind": "implement",
+      "objective": "Non-claims page stamp",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Non-claims page stamp"
+    },
+    {
+      "acceptance": "S08E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E06",
+      "kind": "implement",
+      "objective": "Link selection map",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Link selection map"
+    },
+    {
+      "acceptance": "S08E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E07",
+      "kind": "verify",
+      "objective": "Docs consistency verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs consistency verify"
+    },
+    {
+      "acceptance": "S08E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E08",
+      "kind": "verify",
+      "objective": "No Metrc claim verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No Metrc claim verify"
+    },
+    {
+      "acceptance": "S08E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E09",
+      "kind": "receipt",
+      "objective": "S08 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S08 receipt pack"
+    },
+    {
+      "acceptance": "S08E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S08E10",
+      "kind": "closeout",
+      "objective": "M08 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M08 season closeout + push plan"
+    }
+  ],
+  "focus": "Docs for polished handoff artifacts",
+  "milestone": "M08",
+  "non_claims": [
+    "Handoff artifacts are non-authoritative; JSONL remains truth",
+    "Not legal-for-trade or Metrc compliance",
+    "Book Spine / Output Response / Arc Launcher are cite-only",
+    "Salvage is not imported as a spreadsheet runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Do not drop cultivator/strain CSV columns"
+  ],
+  "primary_surfaces": [
+    "docs/"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr5.artifact_docs.v1",
+  "series_id": "BBWS_SR5_run_artifact_polish",
+  "title": "Operator runbook + export smoke notes",
+  "version": "0.1.0"
+}

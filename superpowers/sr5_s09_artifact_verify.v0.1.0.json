@@ -1,0 +1,237 @@
+{
+  "arc_id": "SR5_S09_artifact_verify",
+  "doctrine_cite": [
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10",
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_output_response_meta_pack_v1_5_0"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S09E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E01",
+      "kind": "context",
+      "objective": "Intent freeze: test matrix",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: test matrix"
+    },
+    {
+      "acceptance": "S09E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E02",
+      "kind": "implement",
+      "objective": "CSV HEADERS + cultivator/strain test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "CSV HEADERS + cultivator/strain test"
+    },
+    {
+      "acceptance": "S09E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E03",
+      "kind": "implement",
+      "objective": "XLSX NonClaims sheet test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "XLSX NonClaims sheet test"
+    },
+    {
+      "acceptance": "S09E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E04",
+      "kind": "implement",
+      "objective": "DOCX non-claim text test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "DOCX non-claim text test"
+    },
+    {
+      "acceptance": "S09E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E05",
+      "kind": "implement",
+      "objective": "Bundle manifest test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bundle manifest test"
+    },
+    {
+      "acceptance": "S09E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E06",
+      "kind": "implement",
+      "objective": "Reconcile still passes test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Reconcile still passes test"
+    },
+    {
+      "acceptance": "S09E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E07",
+      "kind": "verify",
+      "objective": "Pytest green verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Pytest green verify"
+    },
+    {
+      "acceptance": "S09E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E08",
+      "kind": "verify",
+      "objective": "Reproducible compile verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Reproducible compile verify"
+    },
+    {
+      "acceptance": "S09E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E09",
+      "kind": "receipt",
+      "objective": "S09 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S09 receipt pack"
+    },
+    {
+      "acceptance": "S09E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E10",
+      "kind": "closeout",
+      "objective": "M09 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M09 season closeout + push plan"
+    }
+  ],
+  "focus": "Automated polish contract tests",
+  "milestone": "M09",
+  "non_claims": [
+    "Handoff artifacts are non-authoritative; JSONL remains truth",
+    "Not legal-for-trade or Metrc compliance",
+    "Book Spine / Output Response / Arc Launcher are cite-only",
+    "Salvage is not imported as a spreadsheet runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Do not drop cultivator/strain CSV columns"
+  ],
+  "primary_surfaces": [
+    "tests/"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr5.artifact_verify.v1",
+  "series_id": "BBWS_SR5_run_artifact_polish",
+  "title": "Tests for CSV/XLSX/DOCX/manifest contracts",
+  "version": "0.1.0"
+}

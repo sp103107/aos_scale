@@ -1,0 +1,237 @@
+{
+  "arc_id": "SR5_S07_reconcile_receipt_polish",
+  "doctrine_cite": [
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10",
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_output_response_meta_pack_v1_5_0"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S07E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E01",
+      "kind": "context",
+      "objective": "Intent freeze: gate unchanged",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: gate unchanged"
+    },
+    {
+      "acceptance": "S07E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E02",
+      "kind": "implement",
+      "objective": "Keep count/cultivar/SHA checks",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Keep count/cultivar/SHA checks"
+    },
+    {
+      "acceptance": "S07E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E03",
+      "kind": "implement",
+      "objective": "Add bundle path to receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Add bundle path to receipt"
+    },
+    {
+      "acceptance": "S07E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E04",
+      "kind": "implement",
+      "objective": "Stamp non_claims on receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Stamp non_claims on receipt"
+    },
+    {
+      "acceptance": "S07E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E05",
+      "kind": "implement",
+      "objective": "Ensure polished files still pass",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Ensure polished files still pass"
+    },
+    {
+      "acceptance": "S07E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E06",
+      "kind": "implement",
+      "objective": "Receipt path stable",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Receipt path stable"
+    },
+    {
+      "acceptance": "S07E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E07",
+      "kind": "verify",
+      "objective": "Verify pass on matching export",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify pass on matching export"
+    },
+    {
+      "acceptance": "S07E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E08",
+      "kind": "verify",
+      "objective": "Verify fail on count mismatch path",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify fail on count mismatch path"
+    },
+    {
+      "acceptance": "S07E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E09",
+      "kind": "receipt",
+      "objective": "S07 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S07 receipt pack"
+    },
+    {
+      "acceptance": "S07E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/reports.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E10",
+      "kind": "closeout",
+      "objective": "M07 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M07 season closeout + push plan"
+    }
+  ],
+  "focus": "Keep JSONL gate; extend receipt with bundle path",
+  "milestone": "M07",
+  "non_claims": [
+    "Handoff artifacts are non-authoritative; JSONL remains truth",
+    "Not legal-for-trade or Metrc compliance",
+    "Book Spine / Output Response / Arc Launcher are cite-only",
+    "Salvage is not imported as a spreadsheet runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Do not drop cultivator/strain CSV columns"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/reports.py"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr5.reconcile_receipt_polish.v1",
+  "series_id": "BBWS_SR5_run_artifact_polish",
+  "title": "Reconcile receipt polish",
+  "version": "0.1.0"
+}

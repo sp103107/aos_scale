@@ -1,0 +1,259 @@
+{
+  "arc_id": "SR5_S10_series_closeout",
+  "doctrine_cite": [
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10",
+    "M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_output_response_meta_pack_v1_5_0"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S10E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E01",
+      "kind": "context",
+      "objective": "Intent freeze: closeout only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: closeout only"
+    },
+    {
+      "acceptance": "S10E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E02",
+      "kind": "implement",
+      "objective": "Season ledger complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Season ledger complete"
+    },
+    {
+      "acceptance": "S10E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E03",
+      "kind": "implement",
+      "objective": "Closeout report",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Closeout report"
+    },
+    {
+      "acceptance": "S10E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E04",
+      "kind": "implement",
+      "objective": "ACTIVE_ARC series_complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "ACTIVE_ARC series_complete"
+    },
+    {
+      "acceptance": "S10E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E05",
+      "kind": "implement",
+      "objective": "Tag bbws-sr5-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tag bbws-sr5-complete"
+    },
+    {
+      "acceptance": "S10E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E06",
+      "kind": "implement",
+      "objective": "Push origin HEAD + tags",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Push origin HEAD + tags"
+    },
+    {
+      "acceptance": "S10E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E07",
+      "kind": "verify",
+      "objective": "Remote tag verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Remote tag verify"
+    },
+    {
+      "acceptance": "S10E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E08",
+      "kind": "verify",
+      "objective": "Pointer verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Pointer verify"
+    },
+    {
+      "acceptance": "S10E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E09",
+      "kind": "receipt",
+      "objective": "S10 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S10 receipt pack"
+    },
+    {
+      "acceptance": "S10E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "reports/",
+        "git_arc/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine mutation",
+        "JSONL authority changes",
+        "drop cultivator/strain CSV columns",
+        "Metrc sync",
+        "import salvage spreadsheet runtime",
+        "Arc Launcher / M: mutation",
+        "auto-push mid-episode"
+      ],
+      "id": "S10E10",
+      "kind": "closeout",
+      "objective": "M10 series closeout",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M10 series closeout"
+    }
+  ],
+  "focus": "ACTIVE_ARC series_complete + tag + push",
+  "milestone": "M10",
+  "non_claims": [
+    "Handoff artifacts are non-authoritative; JSONL remains truth",
+    "Not legal-for-trade or Metrc compliance",
+    "Book Spine / Output Response / Arc Launcher are cite-only",
+    "Salvage is not imported as a spreadsheet runtime",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Do not drop cultivator/strain CSV columns"
+  ],
+  "primary_surfaces": [
+    "ACTIVE_ARC.yaml",
+    "reports/",
+    "git_arc/"
+  ],
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr5.series_closeout.v1",
+  "series_id": "BBWS_SR5_run_artifact_polish",
+  "title": "Series closeout + bbws-sr5-complete",
+  "version": "0.1.0"
+}
