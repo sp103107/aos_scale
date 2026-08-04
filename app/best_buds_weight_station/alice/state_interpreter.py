@@ -17,7 +17,7 @@ STATE_INSTRUCTIONS: dict[str, tuple[str, TruthClass, Severity, str | None]] = {
     "WAITING_FOR_BARCODE": ("Scan the next plant or container barcode.", TruthClass.PASS, Severity.INFO, "scan_barcode"),
     "BARCODE_CAPTURED": ("Barcode captured. Place the container on the scale and keep it still.", TruthClass.PENDING, Severity.INFO, "keep_load_still"),
     "WAITING_FOR_STABLE_WEIGHT": ("Keep the load centered and still while the weight stabilizes.", TruthClass.PENDING, Severity.INFO, "keep_load_still"),
-    "WEIGHT_STABLE": ("Weight is stable. Review the capture before the record command is issued.", TruthClass.PENDING, Severity.INFO, "review_capture"),
+    "WEIGHT_STABLE": ("Weight is stable. Press Lock weight, then Confirm & Record.", TruthClass.PENDING, Severity.INFO, "lock_weight"),
     "AUTO_RECORD": ("The automatic record command is pending. Wait for the local commit receipt.", TruthClass.PENDING, Severity.INFO, "wait_for_commit_receipt"),
     "MANUAL_CONFIRM": ("Review the barcode, cultivar, tare, container, and stable weight, then select Confirm & Continue.", TruthClass.PENDING, Severity.INFO, "confirm_and_continue"),
     "LOCAL_COMMIT_PENDING": ("Local commit is pending. Do not remove the container until a terminal receipt is returned.", TruthClass.PENDING, Severity.WARNING, "wait_for_commit_receipt"),

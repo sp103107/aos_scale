@@ -34,6 +34,7 @@ class ActionType(str, Enum):
     SCALE_CALIBRATION_CANCEL = "scale.calibration.cancel"
     BARCODE_SUBMIT = "barcode.submit"
     READING_INGEST = "reading.ingest"
+    CAPTURE_WEIGHT_LOCK = "capture.weight.lock"
     CAPTURE_CONFIRM = "capture.confirm"
     CAPTURE_CANCEL = "capture.cancel"
     RUN_SET_ACTIVE_CULTIVAR = "run.set_active_cultivar"

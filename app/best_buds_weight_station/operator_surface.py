@@ -18,17 +18,18 @@ ROUTINE_ACTION_LAYOUT: tuple[RoutineActionSpec, ...] = (
     RoutineActionSpec("connect_scale", "CONNECT SCALE", 0, 1),
     RoutineActionSpec("zero_scale", "ZERO", 0, 2),
     RoutineActionSpec("set_tare", "SET TARE", 0, 3),
-    RoutineActionSpec("confirm_record", "CONFIRM & RECORD", 1, 0, 2, "primary"),
-    RoutineActionSpec("cancel_item", "CANCEL", 1, 2, 1, "danger"),
-    RoutineActionSpec("finish_run", "FINISH RUN", 1, 3),
+    RoutineActionSpec("lock_weight", "LOCK WEIGHT", 1, 0),
+    RoutineActionSpec("confirm_record", "CONFIRM & RECORD", 1, 1, 2, "primary"),
+    RoutineActionSpec("cancel_item", "CANCEL", 1, 3, 1, "danger"),
+    RoutineActionSpec("finish_run", "FINISH RUN", 2, 0, 2),
 )
 
 
 def validate_routine_action_layout() -> None:
     """Fail if two routine controls occupy the same grid cell."""
 
-    if len(ROUTINE_ACTION_LAYOUT) != 7:
-        raise ValueError("The routine operator surface must expose exactly seven actions.")
+    if len(ROUTINE_ACTION_LAYOUT) != 8:
+        raise ValueError("The routine operator surface must expose exactly eight actions.")
     occupied: dict[tuple[int, int], str] = {}
     for action in ROUTINE_ACTION_LAYOUT:
         if action.columnspan < 1:

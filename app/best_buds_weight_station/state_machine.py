@@ -104,8 +104,17 @@ class CaptureMachine:
         if self.mode == 'automatic':
             self.state = State.AUTO_RECORD
             return self._commit(raw)
-        self.state = State.MANUAL_CONFIRM
+        # Manual mode waits for explicit Lock weight before Confirm.
         return result
+
+    def lock_weight(self):
+        """Freeze the stable sample for manual Confirm (operator Lock weight)."""
+        if self.state != State.WEIGHT_STABLE:
+            raise RuntimeError('weight is not stable for lock')
+        if self.stable is None:
+            raise RuntimeError('no stable weight is available to lock')
+        self.state = State.MANUAL_CONFIRM
+        return self.stable
 
     def confirm(self, raw=None, *, operator_note=None, void_status='none'):
         if self.state != State.MANUAL_CONFIRM:

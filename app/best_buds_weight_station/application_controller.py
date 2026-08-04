@@ -79,8 +79,8 @@ class ApplicationController:
             "WAITING_FOR_LOAD": "WAITING FOR PLANT",
             "WEIGHING": "WEIGHING",
             "WAITING_FOR_STABLE_WEIGHT": "WEIGHING — WAITING FOR STABILITY",
-            "WEIGHT_STABLE": "WEIGHT STABLE",
-            "MANUAL_CONFIRM": "STABLE — CONFIRM & RECORD",
+            "WEIGHT_STABLE": "STABLE — LOCK WEIGHT",
+            "MANUAL_CONFIRM": "LOCKED — CONFIRM & RECORD",
             "LOCAL_COMMIT_PENDING": "RECORDING",
             "RECORD_SAVED": "SAVED",
             "RECOVERY_REQUIRED": "RECOVERY REQUIRED",
@@ -147,6 +147,7 @@ class ApplicationController:
             ActionType.SCALE_CALIBRATION_CANCEL.value: self._calibration_cancel,
             ActionType.BARCODE_SUBMIT.value: self._barcode_submit,
             ActionType.READING_INGEST.value: self._reading_ingest,
+            ActionType.CAPTURE_WEIGHT_LOCK.value: self._capture_weight_lock,
             ActionType.CAPTURE_CONFIRM.value: self._capture_confirm,
             ActionType.CAPTURE_CANCEL.value: self._capture_cancel,
             ActionType.RUN_SET_ACTIVE_CULTIVAR.value: self._set_active_cultivar,
@@ -500,6 +501,31 @@ class ApplicationController:
             self.last_alice_response = response
             return self._result(request, "accepted", "PENDING", "Weight sample processed", {"stable": bool(getattr(terminal, "stable", False)), "alice_response": response}, terminal=False)
         return self._process_terminal(request, terminal)
+
+    def _capture_weight_lock(self, request: ActionRequest) -> ActionResult:
+        self._require_run()
+        assert self.machine
+        try:
+            locked = self.machine.lock_weight()
+        except RuntimeError as exc:
+            return self._result(request, "failed", "UNIT_TEST_PASS", str(exc), {})
+        response = self._refresh_alice_for_state(
+            context={
+                "weight_locked": True,
+                "locked_weight_g": getattr(locked, "weight_g", None),
+            }
+        )
+        weight_g = float(getattr(locked, "weight_g", 0.0) or 0.0)
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"Weight locked at {weight_g:.3f} g — press Confirm & Record when ready.",
+            {
+                "locked_weight_g": weight_g,
+                "alice_response": response,
+            },
+        )
 
     def _capture_confirm(self, request: ActionRequest) -> ActionResult:
         self._require_run()

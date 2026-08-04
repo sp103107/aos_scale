@@ -29,7 +29,7 @@ ALLOWED_ACTIONS: dict[str, tuple[str, ...]] = {
     "WAITING_FOR_BARCODE": ("scan_barcode", "barcode.submit", "scale.zero", "scale.container_tare.set", "scale.container_tare.capture", "scale.calibration.start", "run.finish", "open_run_summary"),
     "BARCODE_CAPTURED": ("review_barcode", "cancel_capture"),
     "WAITING_FOR_STABLE_WEIGHT": ("keep_load_still", "cancel_capture", "reconnect_device"),
-    "WEIGHT_STABLE": ("record_automatic", "review_capture", "cancel_capture"),
+    "WEIGHT_STABLE": ("lock_weight", "capture.weight.lock", "review_capture", "cancel_capture", "capture.cancel"),
     "AUTO_RECORD": ("wait_for_commit_receipt", "cancel_if_supported"),
     "MANUAL_CONFIRM": ("confirm_and_continue", "capture.confirm", "capture.cancel", "review_capture"),
     "LOCAL_COMMIT_PENDING": ("wait_for_commit_receipt", "open_storage_status"),

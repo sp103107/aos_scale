@@ -206,6 +206,37 @@ class OperatorRuntime:
     def submit_barcode(self, barcode: str) -> dict[str, Any]:
         return self.dispatch("barcode.submit", {"barcode": barcode.strip()})
 
+    def lock_weight(self) -> dict[str, Any]:
+        return self.dispatch("capture.weight.lock", {})
+
+    def recent_plants(self, limit: int = 50) -> list[dict[str, Any]]:
+        """Newest-first weight records for the open run (read-only operator log)."""
+        run = self.controller.loaded_run
+        if not run:
+            return []
+        from .storage import parse_jsonl
+
+        rows = [
+            row
+            for row in parse_jsonl(run.store.records_path)
+            if row.get("event_type") == "weight_record"
+        ]
+        out: list[dict[str, Any]] = []
+        for row in reversed(rows[-max(1, limit) :]):
+            out.append(
+                {
+                    "record_id": row.get("record_id"),
+                    "barcode_raw": row.get("barcode_raw"),
+                    "created_at": row.get("created_at") or row.get("captured_at"),
+                    "net_g": row.get("net_g"),
+                    "gross_g": row.get("gross_g"),
+                    "cultivar_normalized_name": row.get("cultivar_normalized_name"),
+                    "void_status": row.get("void_status") or "none",
+                    "duplicate_status": row.get("duplicate_status") or "none",
+                }
+            )
+        return out
+
     def next_auto_plant_id(self) -> str:
         """Generate a local plant id when barcode hardware is optional/off."""
         stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
@@ -442,6 +473,11 @@ class OperatorRuntime:
         cal = controller.device.status.calibration_factor if controller.device else None
         settings = controller.settings
         weight_uncalibrated = bool(cal is not None and abs(float(cal) - 1.0) < 1e-6)
+        machine = controller.machine
+        active_barcode = getattr(machine, "barcode", None) if machine else None
+        locked_weight_g = None
+        if machine and controller.state == "MANUAL_CONFIRM" and getattr(machine, "stable", None) is not None:
+            locked_weight_g = float(machine.stable.weight_g)
         return {
             "version": __import__("best_buds_weight_station.version", fromlist=["__version__"]).__version__,
             "state": controller.state,
@@ -460,6 +496,9 @@ class OperatorRuntime:
             "weight_g": display_weight,
             "raw_value": latest.raw_value if latest else None,
             "net_g": display_weight - tare_g,
+            "active_barcode": active_barcode,
+            "locked_weight_g": locked_weight_g,
+            "recent_plants": self.recent_plants(50),
             "weight_uncalibrated": weight_uncalibrated,
             "suggest_calibration_on_new_run": bool(settings.suggest_calibration_on_new_run),
             "warn_on_uncalibrated_weight": bool(settings.warn_on_uncalibrated_weight),
