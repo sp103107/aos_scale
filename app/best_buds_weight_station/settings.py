@@ -85,7 +85,16 @@ class SettingsStore:
 
     def load(self) -> AppSettings:
         if not self.path.exists():
-            settings = AppSettings(updated_at=now_rfc3339())
+            # First run (no settings.json yet): seed data_root with the
+            # platform runs directory instead of the repo-relative
+            # "data/runtime" default, so a frozen/installed exe never writes
+            # run data relative to its install directory or cwd.
+            from .platform_paths import default_app_paths
+
+            settings = AppSettings(
+                data_root=str(default_app_paths().runs),
+                updated_at=now_rfc3339(),
+            )
             settings.validate()
             return settings
         data = json.load(self.path.open(encoding="utf-8"))
