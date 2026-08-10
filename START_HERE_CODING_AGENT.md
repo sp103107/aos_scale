@@ -67,6 +67,16 @@ Windows:
 - Not legal-for-trade / Metrc
 - Salvage cites are doctrine only
 
+## Local agent cockpit (optional, gitignored)
+
+If present on this machine (not shipped in RC source zips):
+
+```bash
+python _local_agent/kickoff.py
+```
+
+Paste prompt: `_local_agent/CODING_AGENT_KICKOFF.md`. Guidance only — same non-claims as product onboard.
+
 ## Related kickoffs
 
 - `kickoff_prompts/BBWS_SR6_HUMAN_CHAT_KICKOFF.md` (when SR6 active)

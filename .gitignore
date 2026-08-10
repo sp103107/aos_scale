@@ -45,3 +45,6 @@ dist/debian/
 # Arduino / editor leftovers
 *.hex
 .pio/
+
+# Local coding-agent cockpit (not for RC / source zip)
+_local_agent/
