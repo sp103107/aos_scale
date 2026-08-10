@@ -8,6 +8,13 @@
 #define MyAppPublisher "Best Buds / Avarachi Ventures"
 #define MyAppURL "https://github.com/sp103107/aos_scale"
 #define MyAppExeName "BestBudsWeightStation.exe"
+; Windows VersionInfo requires numeric a.b.c.d — strip any -rcN/-aN prerelease suffix.
+#define DashPos Pos("-", MyAppVersion)
+#if DashPos > 0
+  #define MyAppNumericVersion Copy(MyAppVersion, 1, DashPos - 1) + ".0"
+#else
+  #define MyAppNumericVersion MyAppVersion + ".0"
+#endif
 
 [Setup]
 AppId={{A8F3C2E1-9B47-4D6A-8E15-2C91F0A47B3D}
@@ -33,7 +40,7 @@ PrivilegesRequired=lowest
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 UninstallDisplayName={#MyAppName}
-VersionInfoVersion={#MyAppVersion}.0
+VersionInfoVersion={#MyAppNumericVersion}
 VersionInfoCompany={#MyAppPublisher}
 VersionInfoProductName={#MyAppName}
 

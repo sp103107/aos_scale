@@ -1,0 +1,29 @@
+{
+  "receipt": "windows_install_smoke",
+  "version": "2.0.0-rc2",
+  "platform": "windows-x64",
+  "performed_at": "2026-08-09T22:00:00-04:00 (approx, operator machine local time)",
+  "host": "developer workstation, Windows 11 (win32 10.0.26200), per-user install",
+  "artifacts": {
+    "setup_exe": "dist/windows/BestBudsWeightStation-Setup-v2.0.0-rc2.exe",
+    "zip": "dist/windows/BestBudsWeightStation-windows-x64-v2.0.0-rc2.zip",
+    "build_receipt": "dist/windows/windows_build_receipt.v2.0.0-rc2.json",
+    "inno_setup": "Inno Setup 6 (ISCC.exe, per-user winget install)",
+    "pyinstaller": "6.21.0"
+  },
+  "steps": [
+    {"step": "silent_install", "command": "Setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-", "result": "pass", "evidence": "exe + unins000.exe present under %LOCALAPPDATA%\\BestBudsWeightStation\\app"},
+    {"step": "version_smoke", "command": "BestBudsWeightStation.exe --version", "result": "pass", "evidence": "printed 2.0.0-rc2, exit 0"},
+    {"step": "simulator_self_test", "command": "BestBudsWeightStation.exe --self-test --simulator", "result": "pass", "evidence": "status pass, SIMULATOR_PASS, 2 records, 305.0 net_g, hash chain pass, exit 0"},
+    {"step": "gui_smoke", "command": "BestBudsWeightStation.exe --ui-smoke --simulator", "result": "pass", "evidence": "exit 0"},
+    {"step": "data_root_hygiene", "check": "first-run settings.json seeds data_root under %LOCALAPPDATA% (never install dir or cwd)", "result": "pass", "evidence": "config\\settings.json created under %LOCALAPPDATA%\\BestBudsWeightStation; data_root under LOCALAPPDATA: True"},
+    {"step": "silent_uninstall", "command": "unins000.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART", "result": "pass", "evidence": "app dir removed: True; run/config data preserved: True"}
+  ],
+  "non_claims": [
+    "Not Authenticode-signed.",
+    "Not legal-for-trade certification.",
+    "No production metrology claim.",
+    "No physical scale attached during this smoke (simulator backend)."
+  ],
+  "status": "pass"
+}

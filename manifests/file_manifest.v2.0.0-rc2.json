@@ -16,7 +16,7 @@
     "validation/reports/pytest* except pytest_full_suite.vNEXT.log",
     "*.pyc"
   ],
-  "file_count": 1250,
+  "file_count": 1251,
   "files": [
     {
       "path": ".github/workflows/release.yml",
@@ -255,8 +255,8 @@
     },
     {
       "path": "app/best_buds_weight_station/selftest.py",
-      "sha256": "9ef41addfe2a69f8bb81f552566c202ac799576c1eafd8fdbdc7fbffddac8bb0",
-      "size_bytes": 4390
+      "sha256": "d9ea2b6603cfc2b828279dc7d0bfe0b0c0d14fd6a0bac261e81fd4c06e8d3628",
+      "size_bytes": 4587
     },
     {
       "path": "app/best_buds_weight_station/serial_adapter.py",
@@ -2970,8 +2970,8 @@
     },
     {
       "path": "packaging/windows/BestBudsWeightStation.iss",
-      "sha256": "262df338f63467de75a637c9ca7638cba0b270fdf545975f9e1cf7ccb3c36ad8",
-      "size_bytes": 2305
+      "sha256": "331beff2ec346d08edd9a10f496d8774a57d2175887d5b665bf0529efe058d6c",
+      "size_bytes": 2596
     },
     {
       "path": "packaging/windows/BestBudsWeightStation.spec",
@@ -3027,6 +3027,11 @@
       "path": "packaging/windows/windows_build_blocked_receipt.v0.1.2.json",
       "sha256": "573dd082abf60df30d20d8aa197abbabce69cfb3b5c476dee867a14ef7446e0d",
       "size_bytes": 642
+    },
+    {
+      "path": "packaging/windows/windows_install_smoke_receipt.v2.0.0-rc2.json",
+      "sha256": "ba1a0b1396ccf218003a6ef23fb01555e5f53bfd18013f11b157f32190aa7a7e",
+      "size_bytes": 2016
     },
     {
       "path": "pipeline/plans/cursor_ready.v0.1.7.json",
@@ -6269,7 +6274,7 @@
       "size_bytes": 11
     }
   ],
-  "generated_at": "2026-08-10T02:52:14Z",
+  "generated_at": "2026-08-10T03:25:34Z",
   "manifest_version": "1.0.0",
   "package_name": "best_buds_cultivator_weight_station",
   "version": "2.0.0-rc2"

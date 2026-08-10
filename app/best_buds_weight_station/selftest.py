@@ -52,6 +52,10 @@ def run_self_test(data_root=None):
     machine.scan('BB-0002')
     for reading in stable_sequence(200.0):
         machine.reading(reading.weight_g, reading.raw_value, reading.ready)
+    # Capture law (SR3+): manual mode requires an explicit operator Lock
+    # between stable weight and Confirm & Record.
+    assert machine.state == State.WEIGHT_STABLE
+    machine.lock_weight()
     assert machine.state == State.MANUAL_CONFIRM
     saved2 = machine.confirm()
     assert beeps == ['success'] and machine.state == State.RECORD_SAVED
