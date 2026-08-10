@@ -1,0 +1,251 @@
+{
+  "arc_id": "SR7_S09_release_artifacts",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S09E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "scripts/make_release_bundle.py",
+        "dist/releases/",
+        "dist/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E01",
+      "kind": "context",
+      "objective": "Intent freeze: three-artifact release",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: three-artifact release"
+    },
+    {
+      "acceptance": "S09E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "scripts/make_release_bundle.py",
+        "dist/releases/",
+        "dist/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E02",
+      "kind": "implement",
+      "objective": "Tag v2.0.0-rc2 plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tag v2.0.0-rc2 plan"
+    },
+    {
+      "acceptance": "S09E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "scripts/make_release_bundle.py",
+        "dist/releases/",
+        "dist/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E03",
+      "kind": "implement",
+      "objective": "Build source zip from tag",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Build source zip from tag"
+    },
+    {
+      "acceptance": "S09E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "scripts/make_release_bundle.py",
+        "dist/releases/",
+        "dist/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E04",
+      "kind": "implement",
+      "objective": "Stage windows zip + Setup.exe",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Stage windows zip + Setup.exe"
+    },
+    {
+      "acceptance": "S09E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "scripts/make_release_bundle.py",
+        "dist/releases/",
+        "dist/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E05",
+      "kind": "implement",
+      "objective": "Write SHA256 receipts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write SHA256 receipts"
+    },
+    {
+      "acceptance": "S09E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "scripts/make_release_bundle.py",
+        "dist/releases/",
+        "dist/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E06",
+      "kind": "implement",
+      "objective": "Draft gh release notes",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Draft gh release notes"
+    },
+    {
+      "acceptance": "S09E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "scripts/make_release_bundle.py",
+        "dist/releases/",
+        "dist/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E07",
+      "kind": "verify",
+      "objective": "Verify artifacts exist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify artifacts exist"
+    },
+    {
+      "acceptance": "S09E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "scripts/make_release_bundle.py",
+        "dist/releases/",
+        "dist/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E08",
+      "kind": "verify",
+      "objective": "Verify receipts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify receipts"
+    },
+    {
+      "acceptance": "S09E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "scripts/make_release_bundle.py",
+        "dist/releases/",
+        "dist/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E09",
+      "kind": "receipt",
+      "objective": "S09 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S09 receipt pack"
+    },
+    {
+      "acceptance": "S09E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "scripts/make_release_bundle.py",
+        "dist/releases/",
+        "dist/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S09E10",
+      "kind": "closeout",
+      "objective": "M09 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M09 season closeout + push plan"
+    }
+  ],
+  "focus": "make_release_bundle source zip, staged Windows artifacts, SHA256 receipts",
+  "milestone": "M09",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Installer ships a USB bring-up product; calibration with a verified reference mass is required for accurate grams",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "primary_surfaces": [
+    "scripts/make_release_bundle.py",
+    "dist/releases/",
+    "dist/windows/",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc2",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr7.release_artifacts.v1",
+  "series_id": "BBWS_SR7_windows_installer_bringup",
+  "title": "Release artifacts: source zip + windows zip + Setup.exe",
+  "version": "0.1.0"
+}

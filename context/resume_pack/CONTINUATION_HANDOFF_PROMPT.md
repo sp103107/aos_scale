@@ -1,11 +1,9 @@
-# BBWS SR6 Continuation Handoff
+# BBWS SR7 Continuation Handoff
 
-Updated: 2026-08-04T23:30:00Z
+Updated: 2026-08-10T02:11:13Z
 
-**Active:** S10 / S10E10 / M10 — **series_complete**  
-**Series:** BBWS_SR6_product_onboarding_release  
-**Product:** 2.0.0-rc1  
-**Tags:** v2.0.0-rc1, bbws-sr6-complete
+**Active:** S01 / S01E01 / M01  
+**Series:** BBWS_SR7_windows_installer_bringup  
+**Product target:** 2.0.0-rc2
 
-Human door: `START_HERE.md`  
-Agent door: `START_HERE_CODING_AGENT.md`
+Load `ACTIVE_ARC.yaml` and `BBWS_SR7_resume.v0.1.0.json`, then execute the pointed episode.

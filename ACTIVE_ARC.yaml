@@ -1,20 +1,17 @@
-# BBWS SR6 live pointer — product owns truth (salvage cited, not mutated)
-series_id: BBWS_SR6_product_onboarding_release
+# BBWS SR7 live pointer — product owns truth (salvage cited, not mutated)
+series_id: BBWS_SR7_windows_installer_bringup
 series_version: 0.1.0
-season_id: S10
-season_slug: series_closeout
-episode_id: S10E10
-milestone: M10
-status: series_complete
-parent_series_id: BBWS_SR5_run_artifact_polish
-parent_tag: bbws-sr5-complete
-baseline_tag: bbws-pre-sr6-onboarding-release
-product_version: 2.0.0-rc1
+season_id: S01
+season_slug: installer_contract_freeze
+episode_id: S01E01
+milestone: M01
+status: active
+parent_series_id: BBWS_SR6_product_onboarding_release
+parent_tag: bbws-sr6-complete
+baseline_tag: bbws-pre-sr7-windows-installer
+product_version_target: 2.0.0-rc2
 doctrine_source: C:/aos_arc_launcher_v0_4_21
-ks_onboarding_ref: M:/SALVAGE/CAPSULES/aos_knowledge_stack_rc_v5_0_0/docs/onboarding/_STRUCTURED_ONBOARDING_TEMPLATE.md
-book_spine_ref: M:/SALVAGE/KNOWLEDGE/FOUNDATIONS/aos_book_spine_capsule_template_v0_1_10
-updated_at: 2026-08-04T23:30:00Z
+updated_at: 2026-08-10T02:11:13Z
 runtime_claimed: false
 capture_law: scan_settle_lock_confirm_reset
-next_action: Series complete — product RC 2.0.0-rc1 published
-last_closed_season: S10
+next_action: Execute S01E01 installer/release contract freeze

@@ -1,0 +1,33 @@
+{
+  "active": {
+    "episode_id": "S01E01",
+    "milestone": "M01",
+    "season_id": "S01",
+    "status": "ready_to_execute"
+  },
+  "baseline_tag": "bbws-pre-sr7-windows-installer",
+  "completed_seasons": [],
+  "continuation_handoff": "kickoff_prompts/BBWS_SR7_HUMAN_CHAT_KICKOFF.md",
+  "decision_locks": {
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "installer": "inno_setup_6_per_user_no_admin",
+    "product_version": "2.0.0-rc2",
+    "push_cadence": "series_closeout",
+    "source_zip": "without_dot_git"
+  },
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Installer ships a USB bring-up product; calibration with a verified reference mass is required for accurate grams",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "pack_id": "BBWS_SR7_resume",
+  "parent_series": "BBWS_SR6_product_onboarding_release",
+  "parent_tag": "bbws-sr6-complete",
+  "product_version_target": "2.0.0-rc2",
+  "series_id": "BBWS_SR7_windows_installer_bringup",
+  "updated_at": "2026-08-10T02:11:13Z",
+  "version": "0.1.0"
+}

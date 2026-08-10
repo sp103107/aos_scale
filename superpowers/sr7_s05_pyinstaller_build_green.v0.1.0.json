@@ -1,0 +1,240 @@
+{
+  "arc_id": "SR7_S05_pyinstaller_build_green",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S05E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/build_windows.ps1",
+        "packaging/windows/BestBudsWeightStation.spec",
+        "dist/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E01",
+      "kind": "context",
+      "objective": "Intent freeze: native build evidence",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: native build evidence"
+    },
+    {
+      "acceptance": "S05E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/build_windows.ps1",
+        "packaging/windows/BestBudsWeightStation.spec",
+        "dist/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E02",
+      "kind": "implement",
+      "objective": "Run packaging-critical pytest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Run packaging-critical pytest"
+    },
+    {
+      "acceptance": "S05E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/build_windows.ps1",
+        "packaging/windows/BestBudsWeightStation.spec",
+        "dist/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E03",
+      "kind": "implement",
+      "objective": "Run PyInstaller build",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Run PyInstaller build"
+    },
+    {
+      "acceptance": "S05E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/build_windows.ps1",
+        "packaging/windows/BestBudsWeightStation.spec",
+        "dist/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E04",
+      "kind": "implement",
+      "objective": "Fix build breaks if any",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Fix build breaks if any"
+    },
+    {
+      "acceptance": "S05E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/build_windows.ps1",
+        "packaging/windows/BestBudsWeightStation.spec",
+        "dist/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E05",
+      "kind": "verify",
+      "objective": "Run verify_windows.ps1",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Run verify_windows.ps1"
+    },
+    {
+      "acceptance": "S05E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/build_windows.ps1",
+        "packaging/windows/BestBudsWeightStation.spec",
+        "dist/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E06",
+      "kind": "implement",
+      "objective": "Produce windows zip",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Produce windows zip"
+    },
+    {
+      "acceptance": "S05E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/build_windows.ps1",
+        "packaging/windows/BestBudsWeightStation.spec",
+        "dist/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E07",
+      "kind": "implement",
+      "objective": "Write windows_build_receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write windows_build_receipt"
+    },
+    {
+      "acceptance": "S05E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/build_windows.ps1",
+        "packaging/windows/BestBudsWeightStation.spec",
+        "dist/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E08",
+      "kind": "verify",
+      "objective": "Verify exe launches --version",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify exe launches --version"
+    },
+    {
+      "acceptance": "S05E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/build_windows.ps1",
+        "packaging/windows/BestBudsWeightStation.spec",
+        "dist/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E09",
+      "kind": "receipt",
+      "objective": "S05 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S05 receipt pack"
+    },
+    {
+      "acceptance": "S05E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/build_windows.ps1",
+        "packaging/windows/BestBudsWeightStation.spec",
+        "dist/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S05E10",
+      "kind": "closeout",
+      "objective": "M05 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M05 season closeout + push plan"
+    }
+  ],
+  "focus": "build_windows.ps1 through exe, verify, zip",
+  "milestone": "M05",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Installer ships a USB bring-up product; calibration with a verified reference mass is required for accurate grams",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "primary_surfaces": [
+    "packaging/windows/build_windows.ps1",
+    "packaging/windows/BestBudsWeightStation.spec",
+    "dist/"
+  ],
+  "product_version_target": "2.0.0-rc2",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr7.pyinstaller_build_green.v1",
+  "series_id": "BBWS_SR7_windows_installer_bringup",
+  "title": "PyInstaller exe + zip build green",
+  "version": "0.1.0"
+}

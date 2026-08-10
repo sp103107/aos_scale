@@ -1,8 +1,8 @@
 {
-  "season_id": "S10",
-  "slug": "series_closeout",
-  "milestone": "M10",
-  "commit_plan": "Series closeout complete",
-  "push_plan": "git push origin HEAD && git push origin v2.0.0-rc1 bbws-sr6-complete",
-  "updated_at": "2026-08-04T23:30:00Z"
+  "commit_plan": "Commit S01 scaffold after E10 closeout",
+  "milestone": "M01",
+  "push_plan": "git push origin HEAD after series closeout",
+  "season_id": "S01",
+  "slug": "installer_contract_freeze",
+  "updated_at": "2026-08-10T02:11:13Z"
 }

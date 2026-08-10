@@ -1,0 +1,229 @@
+{
+  "arc_id": "SR7_S04_build_host_prep",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S04E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E01",
+      "kind": "context",
+      "objective": "Intent freeze: host tooling only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: host tooling only"
+    },
+    {
+      "acceptance": "S04E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E02",
+      "kind": "implement",
+      "objective": "Detect existing ISCC install",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Detect existing ISCC install"
+    },
+    {
+      "acceptance": "S04E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E03",
+      "kind": "implement",
+      "objective": "Install Inno Setup 6 via winget",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Install Inno Setup 6 via winget"
+    },
+    {
+      "acceptance": "S04E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E04",
+      "kind": "verify",
+      "objective": "Verify ISCC on PATH or default dir",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify ISCC on PATH or default dir"
+    },
+    {
+      "acceptance": "S04E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E05",
+      "kind": "implement",
+      "objective": "Prepare venv with desktop/serial/dev extras",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Prepare venv with desktop/serial/dev extras"
+    },
+    {
+      "acceptance": "S04E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E06",
+      "kind": "implement",
+      "objective": "Install PyInstaller in build env",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Install PyInstaller in build env"
+    },
+    {
+      "acceptance": "S04E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E07",
+      "kind": "implement",
+      "objective": "Write host prep receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write host prep receipt"
+    },
+    {
+      "acceptance": "S04E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E08",
+      "kind": "verify",
+      "objective": "Verify tooling receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify tooling receipt"
+    },
+    {
+      "acceptance": "S04E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E09",
+      "kind": "receipt",
+      "objective": "S04 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S04 receipt pack"
+    },
+    {
+      "acceptance": "S04E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S04E10",
+      "kind": "closeout",
+      "objective": "M04 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M04 season closeout + push plan"
+    }
+  ],
+  "focus": "Install/verify Inno Setup 6 and PyInstaller build env",
+  "milestone": "M04",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Installer ships a USB bring-up product; calibration with a verified reference mass is required for accurate grams",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "primary_surfaces": [
+    "packaging/windows/",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc2",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr7.build_host_prep.v1",
+  "series_id": "BBWS_SR7_windows_installer_bringup",
+  "title": "Build host prep (Inno Setup 6 + env)",
+  "version": "0.1.0"
+}

@@ -1,0 +1,262 @@
+{
+  "arc_id": "SR7_S02_run_lifecycle_ux_fixes",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S02E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/alice/authority.py",
+        "app/best_buds_weight_station/production_ui.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E01",
+      "kind": "context",
+      "objective": "Reproduce Finish Run dead-end with evidence",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Reproduce Finish Run dead-end with evidence"
+    },
+    {
+      "acceptance": "S02E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/alice/authority.py",
+        "app/best_buds_weight_station/production_ui.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E02",
+      "kind": "implement",
+      "objective": "Widen run.finish authority for idle states",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Widen run.finish authority for idle states"
+    },
+    {
+      "acceptance": "S02E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/alice/authority.py",
+        "app/best_buds_weight_station/production_ui.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E03",
+      "kind": "implement",
+      "objective": "Render RUN_FINISHED end state in refresh",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Render RUN_FINISHED end state in refresh"
+    },
+    {
+      "acceptance": "S02E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/alice/authority.py",
+        "app/best_buds_weight_station/production_ui.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E04",
+      "kind": "implement",
+      "objective": "Freeze main weight display while locked",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Freeze main weight display while locked"
+    },
+    {
+      "acceptance": "S02E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/alice/authority.py",
+        "app/best_buds_weight_station/production_ui.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E05",
+      "kind": "implement",
+      "objective": "Unfreeze display after confirm/cancel",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Unfreeze display after confirm/cancel"
+    },
+    {
+      "acceptance": "S02E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/alice/authority.py",
+        "app/best_buds_weight_station/production_ui.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E06",
+      "kind": "implement",
+      "objective": "Add Resume Run picker over run.load",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Add Resume Run picker over run.load"
+    },
+    {
+      "acceptance": "S02E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/alice/authority.py",
+        "app/best_buds_weight_station/production_ui.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E07",
+      "kind": "implement",
+      "objective": "Tk parity where cheap",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tk parity where cheap"
+    },
+    {
+      "acceptance": "S02E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/alice/authority.py",
+        "app/best_buds_weight_station/production_ui.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E08",
+      "kind": "verify",
+      "objective": "Contract tests for all three fixes",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Contract tests for all three fixes"
+    },
+    {
+      "acceptance": "S02E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/alice/authority.py",
+        "app/best_buds_weight_station/production_ui.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E09",
+      "kind": "receipt",
+      "objective": "S02 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S02 receipt pack"
+    },
+    {
+      "acceptance": "S02E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/alice/authority.py",
+        "app/best_buds_weight_station/production_ui.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S02E10",
+      "kind": "closeout",
+      "objective": "M02 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M02 season closeout + push plan"
+    }
+  ],
+  "focus": "Finish Run closeout, locked-weight display freeze, resume-run picker",
+  "milestone": "M02",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Installer ships a USB bring-up product; calibration with a verified reference mass is required for accurate grams",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/pyside_frontend.py",
+    "app/best_buds_weight_station/application_controller.py",
+    "app/best_buds_weight_station/alice/authority.py",
+    "app/best_buds_weight_station/production_ui.py",
+    "tests/"
+  ],
+  "product_version_target": "2.0.0-rc2",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr7.run_lifecycle_ux_fixes.v1",
+  "series_id": "BBWS_SR7_windows_installer_bringup",
+  "title": "Run lifecycle + capture display UX fixes",
+  "version": "0.1.0"
+}

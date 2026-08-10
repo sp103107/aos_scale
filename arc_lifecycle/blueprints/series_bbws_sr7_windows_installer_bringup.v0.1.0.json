@@ -1,0 +1,104 @@
+{
+  "baseline_tag": "bbws-pre-sr7-windows-installer",
+  "blueprint_id": "BBWS_SR7_windows_installer_bringup",
+  "blueprint_type": "series",
+  "github_push_cadence": "after_series_closeout",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Installer ships a USB bring-up product; calibration with a verified reference mass is required for accurate grams",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "parent_arc_id": "bbws-sr6-complete",
+  "parent_series_id": "BBWS_SR6_product_onboarding_release",
+  "product_version_target": "2.0.0-rc2",
+  "runtime_claimed": false,
+  "seasons": [
+    {
+      "episode_count": 10,
+      "focus": "Freeze SR7 scope: UX fixes, hygiene, installer, rc2 release",
+      "milestone": "M01",
+      "season_id": "S01_installer_contract_freeze",
+      "superpower_ref": "superpowers/sr7_s01_installer_contract_freeze.v0.1.0.json",
+      "title": "Scaffold + installer/release contract freeze"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Finish Run closeout, locked-weight display freeze, resume-run picker",
+      "milestone": "M02",
+      "season_id": "S02_run_lifecycle_ux_fixes",
+      "superpower_ref": "superpowers/sr7_s02_run_lifecycle_ux_fixes.v0.1.0.json",
+      "title": "Run lifecycle + capture display UX fixes"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Frozen-exe path truth and runtime COM enumeration only",
+      "milestone": "M03",
+      "season_id": "S03_path_device_hygiene",
+      "superpower_ref": "superpowers/sr7_s03_path_device_hygiene.v0.1.0.json",
+      "title": "Path + device install hygiene"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Install/verify Inno Setup 6 and PyInstaller build env",
+      "milestone": "M04",
+      "season_id": "S04_build_host_prep",
+      "superpower_ref": "superpowers/sr7_s04_build_host_prep.v0.1.0.json",
+      "title": "Build host prep (Inno Setup 6 + env)"
+    },
+    {
+      "episode_count": 10,
+      "focus": "build_windows.ps1 through exe, verify, zip",
+      "milestone": "M05",
+      "season_id": "S05_pyinstaller_build_green",
+      "superpower_ref": "superpowers/sr7_s05_pyinstaller_build_green.v0.1.0.json",
+      "title": "PyInstaller exe + zip build green"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Inno installer, per-user install, launch, uninstall preserves runs",
+      "milestone": "M06",
+      "season_id": "S06_installer_smoke",
+      "superpower_ref": "superpowers/sr7_s06_installer_smoke.v0.1.0.json",
+      "title": "Setup.exe build + install/uninstall smoke"
+    },
+    {
+      "episode_count": 10,
+      "focus": "version.py, VERSION, pyproject, iss, README, RC docs",
+      "milestone": "M07",
+      "season_id": "S07_version_bump_rc2",
+      "superpower_ref": "superpowers/sr7_s07_version_bump_rc2.v0.1.0.json",
+      "title": "Bump product version to 2.0.0-rc2"
+    },
+    {
+      "episode_count": 10,
+      "focus": "rc2 concordance validator, report, version-pinned tests",
+      "milestone": "M08",
+      "season_id": "S08_drift_concordance_rc2",
+      "superpower_ref": "superpowers/sr7_s08_drift_concordance_rc2.v0.1.0.json",
+      "title": "Drift concordance for 2.0.0-rc2"
+    },
+    {
+      "episode_count": 10,
+      "focus": "make_release_bundle source zip, staged Windows artifacts, SHA256 receipts",
+      "milestone": "M09",
+      "season_id": "S09_release_artifacts",
+      "superpower_ref": "superpowers/sr7_s09_release_artifacts.v0.1.0.json",
+      "title": "Release artifacts: source zip + windows zip + Setup.exe"
+    },
+    {
+      "episode_count": 10,
+      "focus": "gh release v2.0.0-rc2, tags, ACTIVE_ARC series_complete",
+      "milestone": "M10",
+      "season_id": "S10_series_closeout",
+      "superpower_ref": "superpowers/sr7_s10_series_closeout.v0.1.0.json",
+      "title": "GitHub Release + bbws-sr7-complete"
+    }
+  ],
+  "series_goal": "Run lifecycle/capture display UX fixes, frozen-exe path and device hygiene, native Windows exe + Inno Setup installer, product version 2.0.0-rc2, and GitHub Release with source zip, Windows zip, and Setup.exe.",
+  "shape": "10 seasons \u00d7 10 episodes = 100",
+  "total_episodes": 100,
+  "version": "0.1.0"
+}

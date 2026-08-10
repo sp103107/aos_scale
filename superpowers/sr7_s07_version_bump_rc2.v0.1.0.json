@@ -1,0 +1,273 @@
+{
+  "arc_id": "SR7_S07_version_bump_rc2",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S07E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/version.py",
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/BestBudsWeightStation.iss",
+        "README.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E01",
+      "kind": "context",
+      "objective": "Intent freeze: 2.0.0-rc2",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: 2.0.0-rc2"
+    },
+    {
+      "acceptance": "S07E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/version.py",
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/BestBudsWeightStation.iss",
+        "README.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E02",
+      "kind": "implement",
+      "objective": "Set __version__ and VERSION",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Set __version__ and VERSION"
+    },
+    {
+      "acceptance": "S07E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/version.py",
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/BestBudsWeightStation.iss",
+        "README.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E03",
+      "kind": "implement",
+      "objective": "Set pyproject 2.0.0rc2",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Set pyproject 2.0.0rc2"
+    },
+    {
+      "acceptance": "S07E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/version.py",
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/BestBudsWeightStation.iss",
+        "README.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E04",
+      "kind": "implement",
+      "objective": "Set iss fallback define",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Set iss fallback define"
+    },
+    {
+      "acceptance": "S07E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/version.py",
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/BestBudsWeightStation.iss",
+        "README.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E05",
+      "kind": "implement",
+      "objective": "Update README version surfaces",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Update README version surfaces"
+    },
+    {
+      "acceptance": "S07E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/version.py",
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/BestBudsWeightStation.iss",
+        "README.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E06",
+      "kind": "implement",
+      "objective": "Rewrite RELEASE_CANDIDATE for rc2",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Rewrite RELEASE_CANDIDATE for rc2"
+    },
+    {
+      "acceptance": "S07E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/version.py",
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/BestBudsWeightStation.iss",
+        "README.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E07",
+      "kind": "verify",
+      "objective": "Verify version print",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify version print"
+    },
+    {
+      "acceptance": "S07E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/version.py",
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/BestBudsWeightStation.iss",
+        "README.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E08",
+      "kind": "verify",
+      "objective": "Verify no stale rc1 claims",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify no stale rc1 claims"
+    },
+    {
+      "acceptance": "S07E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/version.py",
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/BestBudsWeightStation.iss",
+        "README.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E09",
+      "kind": "receipt",
+      "objective": "S07 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S07 receipt pack"
+    },
+    {
+      "acceptance": "S07E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/version.py",
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/BestBudsWeightStation.iss",
+        "README.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S07E10",
+      "kind": "closeout",
+      "objective": "M07 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M07 season closeout + push plan"
+    }
+  ],
+  "focus": "version.py, VERSION, pyproject, iss, README, RC docs",
+  "milestone": "M07",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Installer ships a USB bring-up product; calibration with a verified reference mass is required for accurate grams",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/version.py",
+    "VERSION",
+    "pyproject.toml",
+    "packaging/windows/BestBudsWeightStation.iss",
+    "README.md",
+    "docs/RELEASE_CANDIDATE.md"
+  ],
+  "product_version_target": "2.0.0-rc2",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr7.version_bump_rc2.v1",
+  "series_id": "BBWS_SR7_windows_installer_bringup",
+  "title": "Bump product version to 2.0.0-rc2",
+  "version": "0.1.0"
+}

@@ -1,0 +1,240 @@
+{
+  "arc_id": "SR7_S03_path_device_hygiene",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S03E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/platform_paths.py",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E01",
+      "kind": "context",
+      "objective": "Audit data_root default in frozen exe",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Audit data_root default in frozen exe"
+    },
+    {
+      "acceptance": "S03E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/platform_paths.py",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E02",
+      "kind": "context",
+      "objective": "Prove config/runs land under LOCALAPPDATA",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Prove config/runs land under LOCALAPPDATA"
+    },
+    {
+      "acceptance": "S03E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/platform_paths.py",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E03",
+      "kind": "implement",
+      "objective": "Fix relative data_root leak if proven",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Fix relative data_root leak if proven"
+    },
+    {
+      "acceptance": "S03E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/platform_paths.py",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E04",
+      "kind": "implement",
+      "objective": "Verify COM enumeration has no hardcoded port",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify COM enumeration has no hardcoded port"
+    },
+    {
+      "acceptance": "S03E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/platform_paths.py",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E05",
+      "kind": "implement",
+      "objective": "Driver notes FTDI/CH340 in docs",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Driver notes FTDI/CH340 in docs"
+    },
+    {
+      "acceptance": "S03E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/platform_paths.py",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E06",
+      "kind": "implement",
+      "objective": "Keep USB-serial-only transport law",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Keep USB-serial-only transport law"
+    },
+    {
+      "acceptance": "S03E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/platform_paths.py",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E07",
+      "kind": "verify",
+      "objective": "Verify dev-repo paths unchanged",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify dev-repo paths unchanged"
+    },
+    {
+      "acceptance": "S03E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/platform_paths.py",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E08",
+      "kind": "verify",
+      "objective": "Verify hygiene tests green",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify hygiene tests green"
+    },
+    {
+      "acceptance": "S03E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/platform_paths.py",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E09",
+      "kind": "receipt",
+      "objective": "S03 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S03 receipt pack"
+    },
+    {
+      "acceptance": "S03E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/platform_paths.py",
+        "docs/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode"
+      ],
+      "id": "S03E10",
+      "kind": "closeout",
+      "objective": "M03 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M03 season closeout + push plan"
+    }
+  ],
+  "focus": "Frozen-exe path truth and runtime COM enumeration only",
+  "milestone": "M03",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not production-sealed weighing certification",
+    "JSONL remains authoritative for records",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Installer ships a USB bring-up product; calibration with a verified reference mass is required for accurate grams",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/settings.py",
+    "app/best_buds_weight_station/platform_paths.py",
+    "docs/"
+  ],
+  "product_version_target": "2.0.0-rc2",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr7.path_device_hygiene.v1",
+  "series_id": "BBWS_SR7_windows_installer_bringup",
+  "title": "Path + device install hygiene",
+  "version": "0.1.0"
+}

@@ -1,12 +1,14 @@
 {
-  "series_id": "BBWS_SR6_product_onboarding_release",
-  "branch_plan": "main",
-  "remote_plan": "origin",
-  "push_policy": "after_series_closeout",
   "auto_push": false,
-  "parent_tag": "bbws-sr5-complete",
-  "baseline_tag": "bbws-pre-sr6-onboarding-release",
-  "planned_tags": ["v2.0.0-rc1", "bbws-sr6-complete"],
-  "completed_tags": ["v2.0.0-rc1", "bbws-sr6-complete"],
-  "updated_at": "2026-08-04T23:30:00Z"
+  "baseline_tag": "bbws-pre-sr7-windows-installer",
+  "branch_plan": "main",
+  "parent_tag": "bbws-sr6-complete",
+  "planned_tags": [
+    "v2.0.0-rc2",
+    "bbws-sr7-complete"
+  ],
+  "push_policy": "after_series_closeout",
+  "remote_plan": "origin",
+  "series_id": "BBWS_SR7_windows_installer_bringup",
+  "updated_at": "2026-08-10T02:11:13Z"
 }
