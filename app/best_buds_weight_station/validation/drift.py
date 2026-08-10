@@ -39,7 +39,8 @@ IMMUTABLE_PREFIXES = (
     "reports/validation_report.v0.1.4",
     "reports/validation_report.v0.1.5",
 )
-EXCLUDED_DIRS = {".git", ".pytest_cache", "__pycache__", "build", ".venv"}
+# Must stay concordant with scripts/generate_manifest.py EXCLUDED_DIRS.
+EXCLUDED_DIRS = {".git", ".pytest_cache", "__pycache__", "build", ".venv", "logs", "dist"}
 
 
 def _current_files(repo_root: Path, manifest_path: Path) -> set[str]:
@@ -48,7 +49,7 @@ def _current_files(repo_root: Path, manifest_path: Path) -> set[str]:
         if not path.is_file() or path == manifest_path:
             continue
         rel = path.relative_to(repo_root)
-        if any(part in EXCLUDED_DIRS for part in rel.parts):
+        if any(part in EXCLUDED_DIRS or part.endswith(".egg-info") for part in rel.parts):
             continue
         if rel.parts[:2] == ("data", "runtime") or rel.parts[:3] == ("validation", "receipts", "stages") or rel.parts[:2] == ("validation", "checkpoints") or (rel.parts[:2] == ("validation", "reports") and (rel.name.startswith("stage_plan.") or rel.name.startswith("pytest"))) or path.suffix == ".pyc":
             continue
@@ -83,10 +84,14 @@ def inspect(repo_root: Path) -> dict[str, Any]:
     issues: list[dict[str, Any]] = []
 
     pyproject_path = repo_root / "pyproject.toml"
+    # pyproject must use the PEP 440 normalized form (e.g. 2.0.0rc2 for 2.0.0-rc2).
+    pep440 = version.replace("-rc", "rc").replace("-a", "a").replace("-b", "b")
     if not pyproject_path.exists():
         issues.append({"code": "PYPROJECT_NOT_INSTALLED", "path": "pyproject.toml", "repairable": False, "scope": "installed_package"})
-    elif f'version = "{version}"' not in pyproject_path.read_text(encoding="utf-8"):
-        issues.append({"code": "PYPROJECT_VERSION_DRIFT", "path": "pyproject.toml", "repairable": True})
+    else:
+        pyproject_text = pyproject_path.read_text(encoding="utf-8")
+        if f'version = "{version}"' not in pyproject_text and f'version = "{pep440}"' not in pyproject_text:
+            issues.append({"code": "PYPROJECT_VERSION_DRIFT", "path": "pyproject.toml", "repairable": True})
 
     version_module = repo_root / "app/best_buds_weight_station/version.py"
     if not version_module.exists():

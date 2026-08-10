@@ -1,6 +1,6 @@
 # START HERE — Best Buds Cultivator Weight Station
 
-**Version:** `2.0.0-rc1`  
+**Version:** `2.0.0-rc2`  
 **Audience:** Harvest-station operators and supervisors  
 **Public repo:** [https://github.com/sp103107/aos_scale](https://github.com/sp103107/aos_scale)
 

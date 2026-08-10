@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json,os,stat,subprocess,sys
+import json,os,shutil,stat,subprocess,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 BASE=['launch_best_buds','launch_simulator','bootstrap_agent','run_validation','cursor_bootstrap','run_stage','resume_stage']
@@ -15,11 +15,17 @@ def main()->int:
   elif rel.endswith('.ps1'): markers=['$PSScriptRoot','scripts/launcher.py','$LASTEXITCODE']
   else:
    markers=['dirname','scripts/launcher.py','exec']
-   if not (path.stat().st_mode & stat.S_IXUSR): failures.append(f'not_executable:{rel}')
+   # POSIX executable bit is meaningless on Windows/NTFS; only enforce it on POSIX hosts.
+   if os.name!='nt' and not (path.stat().st_mode & stat.S_IXUSR): failures.append(f'not_executable:{rel}')
   for marker in markers:
    if marker not in text: failures.append(f'missing_marker:{rel}:{marker}')
+ sh=shutil.which('sh')
  for rel in [x for x in REQUIRED if x.endswith('.sh')]:
-  cp=subprocess.run(['sh','-n',str(ROOT/rel)],text=True,capture_output=True); results['shell_syntax'][rel]=cp.returncode
+  if not sh:
+   # No POSIX shell on this host (common on Windows without Git bash on PATH);
+   # skip syntax check rather than crash — markers above still validated.
+   results['shell_syntax'][rel]='skipped_no_sh'; continue
+  cp=subprocess.run([sh,'-n',str(ROOT/rel)],text=True,capture_output=True); results['shell_syntax'][rel]=cp.returncode
   if cp.returncode: failures.append(f'shell_syntax:{rel}:{cp.stderr.strip()}')
  for mode,args in [('launch',[]),('simulator',[]),('bootstrap',[]),('validation',[]),('stage',['list'])]:
   cp=subprocess.run([sys.executable,'scripts/launcher.py',mode,'--direct','--dry-run',*args],cwd=ROOT,text=True,capture_output=True,env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1'})

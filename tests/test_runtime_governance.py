@@ -5,7 +5,8 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def test_runtime_execution_posture_is_evidence_gated():
     state=json.loads((ROOT/'repo_release_state.json').read_text())
-    assert state['version']=='0.1.9'
+    # Release state tracks the live product version (drift repair keeps it aligned).
+    assert state['version']==(ROOT/'VERSION').read_text().strip()
     assert state['bump_scope']=='full_repo'
     assert state['execution_posture']=='real_execution_allowed'
     assert state['execution_authorized'] is True

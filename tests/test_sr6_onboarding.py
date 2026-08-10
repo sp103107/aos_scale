@@ -7,8 +7,8 @@ from best_buds_weight_station.version import __version__
 ROOT = Path(__file__).parents[1]
 
 
-def test_product_version_is_rc1():
-    assert __version__ == "2.0.0-rc1"
+def test_product_version_is_current_rc():
+    assert __version__ == "2.0.0-rc2"
 
 
 def test_start_here_doors_exist():
@@ -16,13 +16,14 @@ def test_start_here_doors_exist():
     assert (ROOT / "START_HERE_CODING_AGENT.md").exists()
     assert (ROOT / "docs" / "OPERATOR_ONBOARDING.md").exists()
     assert (ROOT / "docs" / "INTENDED_USER.md").exists()
-    assert "2.0.0-rc1" in (ROOT / "START_HERE.md").read_text(encoding="utf-8")
+    # Docs must stay concordant with the live product version.
+    assert __version__ in (ROOT / "START_HERE.md").read_text(encoding="utf-8")
 
 
 def test_onboard_guidance_runtime_not_claimed():
     guidance = build_guidance(ROOT)
     assert guidance["runtime_claimed"] is False
-    assert guidance["version"] == "2.0.0-rc1"
+    assert guidance["version"] == __version__
     assert (Path(guidance["repo_root"]) / "ACTIVE_ARC.yaml").exists()
     assert "ACTIVE_ARC.yaml" in guidance["load_order"][0]
 

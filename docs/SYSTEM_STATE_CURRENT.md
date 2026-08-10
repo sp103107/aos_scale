@@ -1,9 +1,9 @@
-# System State Current - v0.1.9
+# System State Current - v2.0.0-rc2
 
 ## Current truth
 
-- Full repository version: `0.1.9`
-- Current phase: `rc3c12_final_polish_and_drift_review`
+- Product version: `2.0.0-rc2`
+- Current phase: `sr7_windows_installer_bringup`
 - Execution posture: `real_execution_allowed` for safe local software lanes with evidence capture
 - Primary target: Windows 10/11 + PySide6
 - Secondary target: Linux + PySide6; Tk fallback

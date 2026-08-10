@@ -1,9 +1,21 @@
-# Release candidate notes — v2.0.0-rc1
+# Release candidate notes — v2.0.0-rc2
 
-**Tag intent:** first **product onboarding RC** after SR1–SR5 capability freeze.  
+**Tag intent:** **Windows installer RC** — run-lifecycle UX fixes plus a native
+exe + Setup.exe on top of the 2.0.0-rc1 onboarding RC.  
 **Not** a production seal or legal-for-trade release.
 
-## What this RC includes
+## New in rc2 (SR7)
+
+- Finish Run now closes out cleanly (works right after the last saved plant;
+  UI renders a clear RUN FINISHED state with an export door)
+- Locked weight freezes the main display until Confirm & Record or Cancel
+- Resume Run picker lists in-progress runs (PySide6 + Tk parity)
+- Install hygiene: first-run data root always resolves to per-user platform
+  paths (`%LOCALAPPDATA%`), never relative to the exe
+- Windows packaging: PyInstaller exe, zip, and Inno Setup 6 per-user
+  Setup.exe (no admin required); see `docs/WINDOWS_DEVICE_BRINGUP.md`
+
+## Carried from rc1
 
 - Windows-first PySide6 operator UI (Tk fallback)
 - Capture loop: Scan → settle → Lock → Confirm → reset

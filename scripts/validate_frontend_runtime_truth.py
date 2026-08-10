@@ -22,7 +22,8 @@ def main() -> int:
         "scale_setup_not_placeholder": "Scale Setup may be opened locally" not in controller,
         "alice_state_refresh": "_refresh_alice_for_state" in controller,
         "barcode_keyboard_path": "returnPressed.connect(self.submit_barcode)" in pyside,
-        "barcode_labeled": "PLANT OR CONTAINER BARCODE" in pyside and "PLANT OR CONTAINER BARCODE" in production,
+        # Case-insensitive: PySide uses an eyebrow label styled uppercase via QSS.
+        "barcode_labeled": "plant or container barcode" in pyside.lower() and "plant or container barcode" in production.lower(),
         "shared_action_layout": "ROUTINE_ACTION_LAYOUT" in pyside and "ROUTINE_ACTION_LAYOUT" in production,
         "physical_warning_not_success": "PHYSICAL SERIAL - TESTING REQUIRED" in pyside and "PHYSICAL SERIAL - TESTING REQUIRED" in production,
         "dead_contract_stubs_removed": "_LegacyCallbackNamesForContract" not in production,

@@ -1,3 +1,16 @@
+## 2.0.0-rc2 — Windows installer bring-up and run-lifecycle UX fixes (SR7)
+
+- Finish Run now completes from the post-save idle state and the UI renders a clear RUN FINISHED closeout with an export door.
+- The main weight display freezes at the locked value during Confirm & Record; live readings resume after confirm/cancel.
+- Added a Resume Run picker (PySide6 dialog + Tk parity) listing in-progress runs under the data root.
+- First-run data root now seeds from per-user platform paths so installed/frozen executables never write beside the exe.
+- Windows packaging: PyInstaller onedir exe, zip, and Inno Setup 6 per-user Setup.exe with build/install receipts.
+- Bumped product version surfaces to 2.0.0-rc2 with a new drift concordance gate; archival v0.1.9 artifacts unchanged.
+
+## 2.0.0-rc1 — Product onboarding release (SR6)
+
+- Human and coding-agent onboarding doors, drift concordance gate, and GitHub Release with clean source zip.
+
 ## 0.1.9 — Core-process closure and final Cursor hardening
 
 - Added a deterministic core-process audit covering launch surfaces, run lifecycle, automatic/manual capture, durable commit, recovery, zero, tare, calibration, canonical pyserial boundaries, stage orchestration, and non-claim enforcement.

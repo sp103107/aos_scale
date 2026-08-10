@@ -1,0 +1,10 @@
+{
+  "archival_surface_count": 16,
+  "compatibility_policy": "older references are allowed only in immutable history or explicit compatibility surfaces",
+  "current_surface_count": 8,
+  "historical_immutable_count": 16,
+  "issues": [],
+  "pipeline_version": "0.1.9",
+  "status": "PASS",
+  "version": "2.0.0-rc2"
+}

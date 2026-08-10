@@ -72,6 +72,13 @@ def _run_capture(root: Path, mode: str, barcode: str) -> dict[str, Any]:
         )
 
     if mode == "manual":
+        # Capture law (SR3+): manual mode requires an explicit operator Lock
+        # between stable weight and Confirm & Record.
+        if controller.state != "WEIGHT_STABLE":
+            raise RuntimeError(f"manual mode did not reach WEIGHT_STABLE: {controller.state}")
+        locked = controller.dispatch(ActionRequest("capture.weight.lock"))
+        if locked.status != "completed":
+            raise RuntimeError(f"capture.weight.lock failed: {locked.to_dict()}")
         if controller.state != "MANUAL_CONFIRM":
             raise RuntimeError(f"manual mode did not reach MANUAL_CONFIRM: {controller.state}")
         terminal = controller.dispatch(ActionRequest("capture.confirm"))
