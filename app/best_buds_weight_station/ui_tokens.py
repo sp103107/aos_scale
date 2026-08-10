@@ -61,6 +61,7 @@ CAPTURE_PILL_BY_STATE: dict[str, str] = {
     "WEIGHT_STABLE": "Stable",
     "MANUAL_CONFIRM": "Locked",
     "RECORD_SAVED": "Saved",
+    "RUN_FINISHED": "Finished",
 }
 
 

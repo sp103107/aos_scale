@@ -261,10 +261,14 @@ class ApplicationController:
     def _run_finish(self, request: ActionRequest) -> ActionResult:
         self._require_run()
         assert self.loaded_run and self.machine
-        if self.machine.state in _ACTIVE_CAPTURE_STATES and self.machine.state != State.WAITING_FOR_BARCODE:
+        # RECORD_SAVED is a committed terminal state — finishing right after the
+        # last saved plant is the normal operator flow, so it must not block.
+        blocked_states = _ACTIVE_CAPTURE_STATES - {State.RECORD_SAVED}
+        if self.machine.state in blocked_states:
             raise InvalidActionState("cancel or complete the current item before finishing the run")
         manifest = self.run_manager.finish(self.loaded_run)
         self.machine.state = State.RUN_FINISHED
+        self._refresh_alice_for_state()
         return self._result(request, "completed", "RECEIPT_CONFIRMED", "Run finished; prior records remain immutable", {"manifest": manifest})
 
     def _set_data_location(self, request: ActionRequest) -> ActionResult:

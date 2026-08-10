@@ -17,9 +17,9 @@ def test_design_tokens_and_fallback_are_aligned():
     tokens=json.loads((ROOT/'frontend/design_tokens.v0.1.8.json').read_text())
     assert tokens['layout']['main_action_count']==7
     assert tokens['platform_priority'][0]=='windows_pyside6'
-    fallback=(ROOT/'app/best_buds_weight_station/production_ui.py').read_text()
+    fallback=(ROOT/'app/best_buds_weight_station/production_ui.py').read_text(encoding='utf-8')
     assert 'SIMULATOR MODE - NO PHYSICAL SCALE' in fallback
-    assert 'Alice - next step' in fallback
+    assert 'Alice — next step' in fallback
 
 def test_canonical_serial_path_is_unambiguous():
     readme=(ROOT/'README.md').read_text()

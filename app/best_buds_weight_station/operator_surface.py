@@ -3,6 +3,18 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 
+def frozen_display_weight(weight_g: float, locked_weight_g: float | None) -> float:
+    """Weight for the main operator display.
+
+    While a capture is locked (MANUAL_CONFIRM), the big number must freeze at
+    the locked value until Confirm & Record or Cancel releases it; otherwise
+    the live reading shows. Display-only — capture law is unchanged.
+    """
+    if locked_weight_g is not None:
+        return float(locked_weight_g)
+    return float(weight_g)
+
+
 @dataclass(frozen=True)
 class RoutineActionSpec:
     action_id: str

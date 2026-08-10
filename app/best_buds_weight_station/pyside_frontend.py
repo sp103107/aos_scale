@@ -33,7 +33,7 @@ from PySide6.QtWidgets import (
 )
 
 from .operator_runtime import OperatorRuntime
-from .operator_surface import ROUTINE_ACTION_LAYOUT
+from .operator_surface import ROUTINE_ACTION_LAYOUT, frozen_display_weight
 from .run_manager import facility_id_from_cultivator
 from .ui_tokens import (
     COLOR_ACTIVE_BARCODE,
@@ -139,6 +139,78 @@ class NewRunDialog(QDialog):
             parent = self.parent()
             if isinstance(parent, MainWindow):
                 parent.maybe_suggest_calibration()
+        else:
+            _show_result(self, result)
+
+
+class ResumeRunDialog(QDialog):
+    """Pick an in-progress run under the data root and load it (run.load).
+
+    Lists unfinished sessions newest-first; the hidden file-dialog load
+    remains available via Browse… for runs stored elsewhere.
+    """
+
+    def __init__(self, runtime: OperatorRuntime, parent: QWidget | None = None):
+        super().__init__(parent)
+        self.runtime = runtime
+        self.setObjectName("polishDialog")
+        self.setWindowTitle("Resume Run")
+        self.resize(640, 420)
+        layout = QVBoxLayout(self)
+        layout.addWidget(_eyebrow("Runs in progress"))
+        self.sessions = runtime.controller.run_manager.list_sessions()
+        self.listing = QListWidget()
+        self.listing.setAccessibleName("Runs in progress")
+        for entry in self.sessions:
+            strain = f" — {entry['strain']}" if entry.get("strain") else ""
+            operator = f" — {entry['operator_id']}" if entry.get("operator_id") else ""
+            self.listing.addItem(f"{entry['run_id']}{strain}{operator} — {entry['status']}")
+        layout.addWidget(self.listing, 1)
+        if self.sessions:
+            self.listing.setCurrentRow(0)
+            hint = QLabel("Newest first. Select a run and press Resume. Finished runs are not listed.")
+        else:
+            hint = QLabel("No runs in progress under the current data folder. Start a new run or Browse… for one stored elsewhere.")
+        hint.setWordWrap(True)
+        hint.setObjectName("dialogTip")
+        layout.addWidget(hint)
+        buttons = QDialogButtonBox()
+        resume_btn = buttons.addButton("Resume", QDialogButtonBox.AcceptRole)
+        resume_btn.setEnabled(bool(self.sessions))
+        new_btn = buttons.addButton("New Run…", QDialogButtonBox.ActionRole)
+        browse_btn = buttons.addButton("Browse…", QDialogButtonBox.ActionRole)
+        buttons.addButton(QDialogButtonBox.Cancel)
+        buttons.accepted.connect(self.resume_selected)
+        buttons.rejected.connect(self.reject)
+        new_btn.clicked.connect(self.open_new_run)
+        browse_btn.clicked.connect(self.browse)
+        self.listing.itemDoubleClicked.connect(lambda _item: self.resume_selected())
+        layout.addWidget(buttons)
+
+    def resume_selected(self) -> None:
+        row = self.listing.currentRow()
+        if row < 0 or row >= len(self.sessions):
+            return
+        result = self.runtime.dispatch("run.load", {"selection": self.sessions[row]["manifest_path"]})
+        if result.get("status") == "completed":
+            self.accept()
+        else:
+            _show_result(self, result)
+
+    def open_new_run(self) -> None:
+        self.reject()
+        NewRunDialog(self.runtime, self.parent() if isinstance(self.parent(), QWidget) else None).exec()
+
+    def browse(self) -> None:
+        path, _ = QFileDialog.getOpenFileName(
+            self, "Load Existing Run", self.runtime.controller.settings.data_root,
+            "Session manifest (session_manifest.json);;JSON files (*.json)",
+        )
+        if not path:
+            return
+        result = self.runtime.dispatch("run.load", {"selection": path})
+        if result.get("status") == "completed":
+            self.accept()
         else:
             _show_result(self, result)
 
@@ -798,6 +870,7 @@ class MainWindow(QMainWindow):
         run_menu = self.menuBar().addMenu("Run")
         self._add_menu_action(run_menu, "New Run", self.new_run, "Ctrl+N")
         self._add_menu_action(run_menu, "Resume Last Run", self.resume_run, "Ctrl+R")
+        self._add_menu_action(run_menu, "Resume Run (Choose)...", self.choose_run)
         self._add_menu_action(run_menu, "Load Run...", self.load_run, "Ctrl+L")
         run_menu.addSeparator()
         self._add_menu_action(run_menu, "Change Active Strain...", self.change_strain)
@@ -839,18 +912,23 @@ class MainWindow(QMainWindow):
         s = self.runtime.snapshot(); device = s["device"]
         du = unit_label(s.get("display_unit") or "g")
         self.status.setText(s["operator_state"].title())
-        self.weight.setText(format_weight(float(s["weight_g"]), du))
-        if s.get("warn_on_uncalibrated_weight") and s.get("weight_uncalibrated"):
-            self.weight_hint.setText(
-                "Uncalibrated — open Scale → Guided Calibration with a verified mass. "
-                "Large wild numbers are normal until calibration is saved, then press ZERO."
-            )
-        else:
-            self.weight_hint.setText("")
         locked = s.get("locked_weight_g")
+        # While locked, the big display freezes at the locked value until
+        # Confirm & Record or Cancel releases it (display-only; capture law unchanged).
+        self.weight.setText(format_weight(frozen_display_weight(float(s["weight_g"]), locked), du))
         if locked is not None:
+            self.weight_hint.setText(
+                "Weight locked — Confirm & Record to save, or Cancel to release."
+            )
             self.locked_weight_label.setText(f"Locked  {format_weight(float(locked), du)}")
         else:
+            if s.get("warn_on_uncalibrated_weight") and s.get("weight_uncalibrated"):
+                self.weight_hint.setText(
+                    "Uncalibrated — open Scale → Guided Calibration with a verified mass. "
+                    "Large wild numbers are normal until calibration is saved, then press ZERO."
+                )
+            else:
+                self.weight_hint.setText("")
             self.locked_weight_label.setText("")
         active_bc = s.get("active_barcode")
         if active_bc:
@@ -872,7 +950,12 @@ class MainWindow(QMainWindow):
             f"Active strain (sticky): {s.get('strain') or s.get('cultivar') or '—'}"
         )
         record = s["last_saved"]
-        if record:
+        if s["state"] == "RUN_FINISHED":
+            self.last_saved.setText(
+                "Run finished — records are immutable. Export the report (Run → Export Report…) "
+                "or press START / RESUME for another run."
+            )
+        elif record:
             csv_note = ""
             run = self.runtime.controller.loaded_run
             if run and (run.store.session_dir / "records.csv").exists():
@@ -942,7 +1025,7 @@ class MainWindow(QMainWindow):
         self.buttons["LOCK WEIGHT"].setEnabled(state == "WEIGHT_STABLE")
         self.buttons["CONFIRM & RECORD"].setEnabled(state == "MANUAL_CONFIRM")
         self.buttons["CANCEL"].setEnabled(state in self.CAPTURE_STATES)
-        self.buttons["FINISH RUN"].setEnabled(bool(s["run_id"]) and state not in {"LOCAL_COMMIT_PENDING"})
+        self.buttons["FINISH RUN"].setEnabled(bool(s["run_id"]) and state not in {"LOCAL_COMMIT_PENDING", "RUN_FINISHED"})
 
     def _refresh_capture_pill(self, state: str, has_saved: bool) -> None:
         """Text-labeled capture status pill (Ready / Stable / Locked / Saved)."""
@@ -954,7 +1037,7 @@ class MainWindow(QMainWindow):
             pill = "locked"
         elif state == "WEIGHT_STABLE":
             pill = "stable"
-        elif state == "RECORD_SAVED":
+        elif state in {"RECORD_SAVED", "RUN_FINISHED"}:
             pill = "saved"
         elif state in {"WAITING_FOR_LOAD", "WEIGHING", "WAITING_FOR_STABLE_WEIGHT"}:
             pill = "warn"
@@ -1018,10 +1101,16 @@ class MainWindow(QMainWindow):
             self.calibrate()
 
     def start_resume(self) -> None:
-        if self.runtime.controller.loaded_run: self.resume_run()
-        else: self.new_run()
+        state = self.runtime.controller.state
+        if self.runtime.controller.loaded_run and state != "RUN_FINISHED":
+            self.resume_run()
+            return
+        # No active run (or the loaded run is finished): offer the in-progress
+        # picker; it falls through to New Run / Browse when nothing is listed.
+        self.choose_run()
     def new_run(self) -> None: NewRunDialog(self.runtime, self).exec()
     def resume_run(self) -> None: _show_result(self, self.runtime.dispatch("run.resume"))
+    def choose_run(self) -> None: ResumeRunDialog(self.runtime, self).exec()
     def load_run(self) -> None:
         path, _ = QFileDialog.getOpenFileName(self, "Load Existing Run", self.runtime.controller.settings.data_root, "Session manifest (session_manifest.json);;JSON files (*.json)")
         if path: _show_result(self, self.runtime.dispatch("run.load", {"selection": path}))
@@ -1164,7 +1253,7 @@ class MainWindow(QMainWindow):
                 _show_result(self, result)
     def finish_run(self) -> None:
         if QMessageBox.question(self,"Finish Run","Finish the current run? Committed records remain immutable.")==QMessageBox.Yes:
-            _show_result(self,self.runtime.dispatch("run.finish"))
+            _show_result(self,self.runtime.dispatch("run.finish"),success_title="Run Finished")
     def export_report(self) -> None:
         path = QFileDialog.getExistingDirectory(self, "Export Report To", str(self.runtime.paths.exports))
         if not path:

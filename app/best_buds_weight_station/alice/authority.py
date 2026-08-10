@@ -33,7 +33,7 @@ ALLOWED_ACTIONS: dict[str, tuple[str, ...]] = {
     "AUTO_RECORD": ("wait_for_commit_receipt", "cancel_if_supported"),
     "MANUAL_CONFIRM": ("confirm_and_continue", "capture.confirm", "capture.cancel", "review_capture"),
     "LOCAL_COMMIT_PENDING": ("wait_for_commit_receipt", "open_storage_status"),
-    "RECORD_SAVED": ("scan_barcode", "open_record", "open_run_summary"),
+    "RECORD_SAVED": ("scan_barcode", "open_record", "open_run_summary", "run.finish"),
     "RECOVERY_REQUIRED": ("recover_from_ledger", "open_recovery_details", "cancel_session"),
     "BLOCKED": ("resolve_blocking_condition", "open_diagnostics", "cancel_session"),
     "ERROR": ("follow_recovery_instruction", "open_diagnostics", "cancel_session"),

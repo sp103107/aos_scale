@@ -200,6 +200,47 @@ class RunManager:
         pointer = self.settings_store.read_recent_run()
         return self.load(pointer["session_manifest"])
 
+    def list_sessions(self, *, data_root: str | Path | None = None,
+                      include_finished: bool = False) -> list[dict[str, Any]]:
+        """List run sessions under the data root for the resume-run picker.
+
+        Returns newest-first entries with run identity, status, and the
+        session manifest path usable directly with the ``run.load`` action.
+        Unreadable manifests are skipped (never blocks the picker).
+        """
+        try:
+            root = self._root(data_root)
+        except (ValueError, OSError):
+            return []
+        sessions_dir = root / "sessions"
+        if not sessions_dir.is_dir():
+            return []
+        entries: list[dict[str, Any]] = []
+        for manifest_path in sessions_dir.glob("*/session_manifest.json"):
+            try:
+                manifest = json.load(manifest_path.open(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            status = str(manifest.get("status") or "active")
+            if not include_finished and status == "finished":
+                continue
+            definition = manifest.get("run_definition") or {}
+            context = manifest.get("context") or {}
+            records = manifest_path.parent / "records.jsonl"
+            freshest = records if records.exists() else manifest_path
+            entries.append({
+                "run_id": definition.get("run_id") or context.get("run_id") or manifest_path.parent.name,
+                "session_id": definition.get("session_id") or context.get("session_id") or manifest_path.parent.name,
+                "strain": context.get("cultivar_normalized_name") or context.get("cultivar_raw_name") or "",
+                "operator_id": definition.get("operator_id") or context.get("operator_id") or "",
+                "status": status,
+                "created_at": definition.get("created_at") or "",
+                "updated_at_epoch": freshest.stat().st_mtime,
+                "manifest_path": str(manifest_path),
+            })
+        entries.sort(key=lambda entry: entry["updated_at_epoch"], reverse=True)
+        return entries
+
     @staticmethod
     def _last_record_id(store: SessionStore) -> str | None:
         try:

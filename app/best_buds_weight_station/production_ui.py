@@ -378,11 +378,46 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         }
         show_result(runtime.dispatch("run.new", {"definition": definition, "data_root": runtime.controller.settings.data_root, "simulator": False}))
 
+    def choose_run() -> None:
+        """Tk parity for the Resume Run picker: list in-progress sessions."""
+        sessions = runtime.controller.run_manager.list_sessions()
+        if not sessions:
+            messagebox.showinfo(
+                "No runs in progress",
+                "No runs in progress under the current data folder. Start a new run or use Load Run...",
+                parent=root,
+            )
+            new_run()
+            return
+        win = tk.Toplevel(root)
+        win.title("Resume Run")
+        win.geometry("560x320")
+        tk.Label(win, text="Runs in progress (newest first) — finished runs are not listed").pack(anchor="w", padx=8, pady=(8, 2))
+        listing = tk.Listbox(win, height=10)
+        for entry in sessions:
+            strain = f" — {entry['strain']}" if entry.get("strain") else ""
+            listing.insert(tk.END, f"{entry['run_id']}{strain} — {entry['status']}")
+        listing.pack(fill="both", expand=True, padx=8, pady=4)
+        listing.selection_set(0)
+
+        def resume_selected() -> None:
+            picked = listing.curselection()
+            if not picked:
+                return
+            win.destroy()
+            show_result(runtime.dispatch("run.load", {"selection": sessions[picked[0]]["manifest_path"]}))
+
+        row = tk.Frame(win)
+        row.pack(fill="x", padx=8, pady=8)
+        ttk.Button(row, text="Resume", command=resume_selected).pack(side="left")
+        ttk.Button(row, text="Cancel", command=win.destroy).pack(side="right")
+        listing.bind("<Double-Button-1>", lambda _event: resume_selected())
+
     def start_resume() -> None:
-        if runtime.controller.loaded_run:
+        if runtime.controller.loaded_run and runtime.controller.state != "RUN_FINISHED":
             show_result(runtime.dispatch("run.resume"))
         else:
-            new_run()
+            choose_run()
 
     def load_run() -> None:
         path = filedialog.askopenfilename(title="Load Run", filetypes=[("Session manifest", "session_manifest.json"), ("JSON", "*.json")], parent=root)
@@ -799,6 +834,7 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     run_menu = tk.Menu(menubar, tearoff=0)
     run_menu.add_command(label="New Run", command=new_run)
     run_menu.add_command(label="Resume Last Run", command=lambda: show_result(runtime.dispatch("run.resume")))
+    run_menu.add_command(label="Resume Run (Choose)...", command=choose_run)
     run_menu.add_command(label="Load Run...", command=load_run)
     run_menu.add_separator()
     run_menu.add_command(label="Change Active Strain...", command=change_strain)
