@@ -1,0 +1,53 @@
+{
+  "receipt": "windows_upgrade_smoke",
+  "from_version": "2.0.0-rc2",
+  "to_version": "2.0.0-rc3",
+  "platform": "windows-x64",
+  "status": "pass",
+  "steps": [
+    {
+      "step": "silent_install_rc2_baseline",
+      "artifact": "dist/windows/BestBudsWeightStation-Setup-v2.0.0-rc2.exe",
+      "result": "pass",
+      "evidence": "--version printed 2.0.0-rc2"
+    },
+    {
+      "step": "write_data_marker",
+      "path": "%LOCALAPPDATA%/BestBudsWeightStation/config/upgrade_smoke_marker.txt",
+      "result": "pass"
+    },
+    {
+      "step": "silent_upgrade_install_rc3",
+      "artifact": "dist/windows/BestBudsWeightStation-Setup-v2.0.0-rc3.exe",
+      "result": "pass",
+      "evidence": "same AppId overwrite under %LOCALAPPDATA%/BestBudsWeightStation/app"
+    },
+    {
+      "step": "version_after_upgrade",
+      "command": "BestBudsWeightStation.exe --version",
+      "result": "pass",
+      "evidence": "printed 2.0.0-rc3"
+    },
+    {
+      "step": "simulator_self_test",
+      "command": "BestBudsWeightStation.exe --self-test --simulator",
+      "result": "pass",
+      "evidence": "status pass, SIMULATOR_PASS, exit 0"
+    },
+    {
+      "step": "data_preserved",
+      "result": "pass",
+      "evidence": "upgrade_smoke_marker.txt still present with pre-rc3-upgrade content"
+    },
+    {
+      "step": "scale_face_in_build_graph",
+      "result": "pass",
+      "evidence": "best_buds_weight_station.scale_face present in PyInstaller xref Analysis"
+    }
+  ],
+  "non_claims": [
+    "Not Authenticode-signed.",
+    "No in-app auto-update channel; upgrade is re-run of newer Setup.exe.",
+    "GUI Scale Face menu not clicked in this headless smoke (module bundled; operator verifies View → Scale Face)."
+  ]
+}
