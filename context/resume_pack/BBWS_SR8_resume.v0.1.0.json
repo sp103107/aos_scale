@@ -1,34 +1,53 @@
 {
+  "pack_id": "BBWS_SR8_resume",
+  "version": "0.1.0",
+  "series_id": "BBWS_SR8_scale_face_harvest_mode",
+  "updated_at": "2026-08-11T03:45:00Z",
   "active": {
-    "episode_id": "S01E01",
-    "milestone": "M01",
-    "season_id": "S01",
-    "status": "ready_to_execute"
+    "season_id": "S10",
+    "episode_id": "S10E10",
+    "milestone": "M10",
+    "status": "series_complete"
   },
+  "parent_series": "BBWS_SR7_windows_installer_bringup",
+  "parent_tag": "bbws-sr7-complete",
   "baseline_tag": "bbws-pre-sr8-scale-face",
-  "completed_seasons": [],
-  "continuation_handoff": "kickoff_prompts/BBWS_SR8_HUMAN_CHAT_KICKOFF.md",
+  "product_version_target": "2.0.0-rc3",
+  "product_version_shipped": "2.0.0-rc3",
+  "completed_seasons": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10"
+  ],
   "decision_locks": {
     "capture_loop": "scan_settle_lock_confirm_reset",
     "product_version": "2.0.0-rc3",
-    "push_cadence": "series_closeout",
+    "scale_face": "pyside_mode_harvest_setup_toggle",
     "routine_layout": "full_ui_eight_actions_unchanged",
-    "scale_face": "pyside_mode_harvest_setup_toggle"
+    "push_cadence": "series_closeout"
   },
   "non_claims": [
     "Not legal-for-trade / Metrc compliance",
     "Not a remote weighing server or separate Scale Face process",
     "Not collapsing Lock+Confirm in manual mode",
     "JSONL remains authoritative for records",
-    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Capture loop unchanged: scan → settle → lock → confirm → reset",
     "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
-    "Not claiming small 2\u20135\u2033 hardware support without a later series"
+    "Not claiming small 2–5″ hardware support without a later series"
   ],
-  "pack_id": "BBWS_SR8_resume",
-  "parent_series": "BBWS_SR7_windows_installer_bringup",
-  "parent_tag": "bbws-sr7-complete",
-  "product_version_target": "2.0.0-rc3",
-  "series_id": "BBWS_SR8_scale_face_harvest_mode",
-  "updated_at": "2026-08-11T03:39:48Z",
-  "version": "0.1.0"
+  "continuation_handoff": "kickoff_prompts/BBWS_SR8_HUMAN_CHAT_KICKOFF.md",
+  "shipped_surfaces": [
+    "app/best_buds_weight_station/scale_face.py",
+    "app/best_buds_weight_station/operator_surface.py",
+    "app/best_buds_weight_station/pyside_frontend.py",
+    "tests/test_sr8_scale_face.py",
+    "scripts/validate_drift_concordance_v200_rc3.py"
+  ]
 }

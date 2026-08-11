@@ -1,0 +1,19 @@
+{
+  "baseline_tag": "bbws-pre-sr8-scale-face",
+  "parent_tag": "bbws-sr7-complete",
+  "product_version": "2.0.0-rc3",
+  "receipt_id": "sr8_s10_series_closeout",
+  "runtime_claimed": false,
+  "season_id": "S10",
+  "series_id": "BBWS_SR8_scale_face_harvest_mode",
+  "status": "series_complete",
+  "tags": [
+    "v2.0.0-rc3",
+    "bbws-sr8-complete"
+  ],
+  "version": "0.1.0",
+  "verification": {
+    "drift_gate": "scripts/validate_drift_concordance_v200_rc3.py",
+    "pytest": "pass"
+  }
+}

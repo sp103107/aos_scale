@@ -1,17 +1,21 @@
 # BBWS SR8 live pointer — product owns truth (salvage cited, not mutated)
 series_id: BBWS_SR8_scale_face_harvest_mode
 series_version: 0.1.0
-season_id: S01
-season_slug: scale_face_contract_freeze
-episode_id: S01E01
-milestone: M01
-status: active
+season_id: S10
+season_slug: series_closeout
+episode_id: S10E10
+milestone: M10
+status: series_complete
 parent_series_id: BBWS_SR7_windows_installer_bringup
 parent_tag: bbws-sr7-complete
 baseline_tag: bbws-pre-sr8-scale-face
 product_version_target: 2.0.0-rc3
+product_version_shipped: 2.0.0-rc3
 doctrine_source: C:/aos_arc_launcher_v0_4_21
-updated_at: 2026-08-11T03:39:48Z
+updated_at: 2026-08-11T03:45:00Z
 runtime_claimed: false
 capture_law: scan_settle_lock_confirm_reset
-next_action: Execute S01E01 Scale Face contract freeze
+next_action: Series complete — Scale Face harvest mode shipped as 2.0.0-rc3
+completed_tags:
+  - v2.0.0-rc3
+  - bbws-sr8-complete

@@ -1,8 +1,8 @@
-# System State Current - v2.0.0-rc2
+# System State Current - v2.0.0-rc3
 
 ## Current truth
 
-- Product version: `2.0.0-rc2`
+- Product version: `2.0.0-rc3`
 - Current phase: `sr7_windows_installer_bringup`
 - Execution posture: `real_execution_allowed` for safe local software lanes with evidence capture
 - Primary target: Windows 10/11 + PySide6

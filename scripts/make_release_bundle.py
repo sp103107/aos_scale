@@ -70,7 +70,7 @@ def _archive_ref(ref: str, zip_path: Path) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Make BBWS source release zip without .git")
-    parser.add_argument("--version", default="2.0.0-rc2")
+    parser.add_argument("--version", default="2.0.0-rc3")
     parser.add_argument("--ref", help="Git ref to archive (tag/commit). Default: HEAD working tree copy.")
     args = parser.parse_args()
 

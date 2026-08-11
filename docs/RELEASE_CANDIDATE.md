@@ -1,61 +1,45 @@
-# Release candidate notes — v2.0.0-rc2
+# Release candidate notes — v2.0.0-rc3
 
-**Tag intent:** **Windows installer RC** — run-lifecycle UX fixes plus a native
-exe + Setup.exe on top of the 2.0.0-rc1 onboarding RC.  
+**Tag intent:** **Scale Face harvest-mode RC** — PySide Scale Face UI mode on top of
+the 2.0.0-rc2 Windows installer RC.  
 **Not** a production seal or legal-for-trade release.
 
-## New in rc2 (SR7)
+## New in rc3 (SR8)
 
-- Finish Run now closes out cleanly (works right after the last saved plant;
-  UI renders a clear RUN FINISHED state with an export door)
-- Locked weight freezes the main display until Confirm & Record or Cancel
-- Resume Run picker lists in-progress runs (PySide6 + Tk parity)
-- Install hygiene: first-run data root always resolves to per-user platform
-  paths (`%LOCALAPPDATA%`), never relative to the exe
-- Windows packaging: PyInstaller exe, zip, and Inno Setup 6 per-user
-  Setup.exe (no admin required); see `docs/WINDOWS_DEVICE_BRINGUP.md`
+- **Scale Face (Harvest)** mode: View → Scale Face (Harvest) or Ctrl+Shift+F
+- Harvest / SETUP segment toggle on one face (not a separate process)
+- Hero weight uses `frozen_display_weight` while locked; status pill + Alice one-liner
+- Barcode field + SCAN; last 1–3 saved records strip
+- HARVEST strip: ZERO · SET TARE · LOCK WEIGHT · CONFIRM & RECORD · CANCEL · compact START/RESUME
+- SETUP strip: CONNECT · ZERO · SET TARE · CALIBRATE (existing guided dialog) · TEST SCANNER
+- Esc / Exit Scale Face returns to the full desktop MainWindow
+- Full UI `ROUTINE_ACTION_LAYOUT` remains exactly eight actions
 
-## Carried from rc1
+## Carried from rc2
 
-- Windows-first PySide6 operator UI (Tk fallback)
+- Finish Run closeout + locked-weight display freeze + Resume Run picker
+- Install hygiene (LOCALAPPDATA data root) and Windows Setup.exe packaging
 - Capture loop: Scan → settle → Lock → Confirm → reset
-- Cultivator vs Strain on New Run and exports
-- Plant log (read-only last 50) and Scan capture dialog
-- Operator surface polish (SR4 design tokens)
-- Handoff artifacts: CSV / XLSX / DOCX / JSON + `handoff_bundle_manifest.json` (SR5)
-- Human doors: `START_HERE.md`, `docs/OPERATOR_ONBOARDING.md`, `docs/INTENDED_USER.md`
-- Coding-agent door: `START_HERE_CODING_AGENT.md` + `python -m best_buds_weight_station.onboard`
-- USB serial connect, Zero/Tare, Guided Calibration, simulator path
+- Operator onboarding doors and JSONL authority
 
 ## What this RC does **not** claim
 
 - No production-ready weighing seal
 - No legal-for-trade / NTEP / Weights & Measures certification
 - No Metrc sync or compliance
+- No remote/LAN weighing server
 - No guarantee that displayed grams are accurate until Guided Calibration with a verified reference mass
 
 ## Operator bring-up checklist
 
 1. Open [START_HERE.md](../START_HERE.md) or [OPERATOR_ONBOARDING.md](OPERATOR_ONBOARDING.md).
 2. Launch `launch_best_buds.bat`.
-3. New Run (Cultivator + Strain) → Connect Scale → Guided Calibration → ZERO.
-4. Scan → Lock → Confirm plants.
-5. Export Report → Reconcile Export ↔ JSONL.
+3. New Run → Connect Scale → Guided Calibration → ZERO.
+4. Optional: View → Scale Face (Harvest) for hang-side Lock/Confirm pacing.
+5. Capture plants; Export / Reconcile when done; Finish Run.
 
-## Coding agents
+## Related
 
-See [START_HERE_CODING_AGENT.md](../START_HERE_CODING_AGENT.md).
-
-```bash
-python -m best_buds_weight_station.onboard
-python -m best_buds_weight_station.bootstrap --profile cursor-ready
-```
-
-## License
-
-Personal / noncommercial: PolyForm Noncommercial 1.0.0 — `LICENSE`.  
-Commercial: separate paid license — `COMMERCIAL.md`.
-
-## Repository
-
-[https://github.com/sp103107/aos_scale](https://github.com/sp103107/aos_scale)
+- [BBWS_SR8_ARTIFACTS.md](BBWS_SR8_ARTIFACTS.md)
+- [WINDOWS_DEVICE_BRINGUP.md](WINDOWS_DEVICE_BRINGUP.md)
+- Drift gate: `scripts/validate_drift_concordance_v200_rc3.py`

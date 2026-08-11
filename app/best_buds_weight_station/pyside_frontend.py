@@ -35,6 +35,7 @@ from PySide6.QtWidgets import (
 from .operator_runtime import OperatorRuntime
 from .operator_surface import ROUTINE_ACTION_LAYOUT, frozen_display_weight
 from .run_manager import facility_id_from_cultivator
+from .scale_face import ScaleFaceWindow
 from .ui_tokens import (
     COLOR_ACTIVE_BARCODE,
     COLOR_PRIMARY,
@@ -680,6 +681,7 @@ class MainWindow(QMainWindow):
         self.runtime = runtime
         self.simulator_requested = simulator
         self._calibration_open = False
+        self._scale_face: ScaleFaceWindow | None = None
         self.setWindowTitle(f"Best Buds Cultivator Weight Station v{__version__}")
         self.resize(1180, 820)
         self.setMinimumSize(1024, 720)
@@ -852,6 +854,7 @@ class MainWindow(QMainWindow):
             "Ctrl+K": self.scale_setup, "Ctrl+Z": self.zero_scale, "Ctrl+T": self.container_tare,
             "Ctrl+Shift+L": self.lock_weight,
             "Ctrl+Enter": self.confirm_record, "Escape": self.cancel_item,
+            "Ctrl+Shift+F": self.open_scale_face,
         }
         for shortcut, callback in shortcuts.items():
             action = QAction(self); action.setShortcut(QKeySequence(shortcut)); action.triggered.connect(callback); self.addAction(action)
@@ -888,6 +891,9 @@ class MainWindow(QMainWindow):
         self._add_menu_action(scale_menu, "Test Scanner...", self.test_scanner)
         scale_menu.addSeparator()
         self._add_menu_action(scale_menu, "Diagnostics", self.diagnostics)
+
+        view_menu = self.menuBar().addMenu("View")
+        self._add_menu_action(view_menu, "Scale Face (Harvest)", self.open_scale_face, "Ctrl+Shift+F")
 
         settings_menu = self.menuBar().addMenu("Settings")
         self._add_menu_action(settings_menu, "Station Settings...", self.station_settings)
@@ -1099,6 +1105,13 @@ class MainWindow(QMainWindow):
         box.exec()
         if box.clickedButton() is calibrate:
             self.calibrate()
+
+    def open_scale_face(self) -> None:
+        """Enter Scale Face harvest mode (SR8); Esc / Exit returns here."""
+        if self._scale_face is None:
+            self._scale_face = ScaleFaceWindow(self)
+        self.hide()
+        self._scale_face.open_scale_face()
 
     def start_resume(self) -> None:
         state = self.runtime.controller.state

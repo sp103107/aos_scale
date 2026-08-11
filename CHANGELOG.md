@@ -1,3 +1,11 @@
+## 2.0.0-rc3 — Scale Face harvest mode (SR8)
+
+- Added PySide **Scale Face (Harvest)** mode (View → Scale Face / Ctrl+Shift+F) sharing OperatorRuntime and capture law.
+- Harvest/SETUP toggle: hang-side Lock/Confirm strip plus Connect/Zero/Tare/Calibrate/Test Scanner without leaving the face.
+- Hero weight freezes via `frozen_display_weight` while locked; barcode + SCAN and last 1–3 records strip on the face.
+- Full desktop `ROUTINE_ACTION_LAYOUT` remains eight actions; Esc exits Scale Face back to MainWindow.
+- Bumped product version surfaces to 2.0.0-rc3 with a new drift concordance gate; archival rc2 receipts unchanged.
+
 ## 2.0.0-rc2 — Windows installer bring-up and run-lifecycle UX fixes (SR7)
 
 - Finish Run now completes from the post-save idle state and the UI renders a clear RUN FINISHED closeout with an export door.

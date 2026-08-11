@@ -1,4 +1,4 @@
-# Windows Build - v2.0.0-rc2
+# Windows Build - v2.0.0-rc3
 
 Windows 10/11 x64 is the primary operator target. See [SYSTEM_REQUIREMENTS.md](SYSTEM_REQUIREMENTS.md) for hardware and OS requirements.
 

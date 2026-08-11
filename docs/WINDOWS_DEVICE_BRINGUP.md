@@ -1,6 +1,6 @@
 # Windows Device Bring-up Notes (USB Serial)
 
-**product_version_target:** `2.0.0-rc2` (BBWS SR7 S03)  
+**product_version_target:** `2.0.0-rc3` (BBWS SR7 S03)  
 **scope:** operator PC bring-up hygiene only — not legal-for-trade / Metrc.
 
 ## How the app finds the scale

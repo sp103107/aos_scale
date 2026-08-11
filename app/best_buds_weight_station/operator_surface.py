@@ -37,6 +37,38 @@ ROUTINE_ACTION_LAYOUT: tuple[RoutineActionSpec, ...] = (
 )
 
 
+# Scale Face harvest strip — separate from the full-UI 8-action grid so that
+# ROUTINE_ACTION_LAYOUT contract stays intact (BBWS SR8).
+SCALE_FACE_HARVEST_ACTIONS: tuple[RoutineActionSpec, ...] = (
+    RoutineActionSpec("zero_scale", "ZERO", 0, 0),
+    RoutineActionSpec("set_tare", "SET TARE", 0, 1),
+    RoutineActionSpec("lock_weight", "LOCK WEIGHT", 0, 2, emphasis="primary"),
+    RoutineActionSpec("confirm_record", "CONFIRM & RECORD", 0, 3, emphasis="primary"),
+    RoutineActionSpec("cancel_item", "CANCEL", 1, 0, emphasis="danger"),
+    RoutineActionSpec("start_resume", "START / RESUME", 1, 1, emphasis="default"),
+)
+
+
+# Scale Face SETUP strip — opens existing dialogs; does not reimplement calibration.
+SCALE_FACE_SETUP_ACTIONS: tuple[RoutineActionSpec, ...] = (
+    RoutineActionSpec("connect_scale", "CONNECT", 0, 0),
+    RoutineActionSpec("zero_scale", "ZERO", 0, 1),
+    RoutineActionSpec("set_tare", "SET TARE", 0, 2),
+    RoutineActionSpec("calibrate", "CALIBRATE", 0, 3),
+    RoutineActionSpec("test_scanner", "TEST SCANNER", 1, 0, 2),
+)
+
+
+def scale_face_harvest_action_ids() -> tuple[str, ...]:
+    """Stable harvest-mode action ids for Scale Face (presentation contract)."""
+    return tuple(spec.action_id for spec in SCALE_FACE_HARVEST_ACTIONS)
+
+
+def scale_face_setup_action_ids() -> tuple[str, ...]:
+    """Stable SETUP-mode action ids for Scale Face (presentation contract)."""
+    return tuple(spec.action_id for spec in SCALE_FACE_SETUP_ACTIONS)
+
+
 def validate_routine_action_layout() -> None:
     """Fail if two routine controls occupy the same grid cell."""
 

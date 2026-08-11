@@ -3,7 +3,7 @@ from best_buds_weight_station.device_service import PySerialTransport, DeviceSer
 from best_buds_weight_station.operator_runtime import ScaleReadingWorker
 from best_buds_weight_station.version import __version__
 
-def test_current_version(): assert __version__ == '2.0.0-rc2'
+def test_current_version(): assert __version__ == '2.0.0-rc3'
 def test_canonical_serial_classes(): assert PySerialTransport and DeviceService and ScaleReadingWorker
 def test_windows_first_and_linux_launchers_present():
     root=Path(__file__).resolve().parents[1]

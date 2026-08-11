@@ -9,11 +9,13 @@
 | Active arc | `ACTIVE_ARC.yaml` |
 | Series map | `cursor/BBWS_SR8_SCALE_FACE_HARVEST_MODE_SERIES_MAP.v0.1.0.md` |
 | Resume pack | `context/resume_pack/BBWS_SR8_resume.v0.1.0.json` |
-| Scale Face UI | `app/best_buds_weight_station/scale_face.py` |
+| Scale Face UI | `app/best_buds_weight_station/scale_face.py` (`ScaleFaceWindow`) |
 | Action helpers | `app/best_buds_weight_station/operator_surface.py` (`SCALE_FACE_*_ACTIONS`) |
-| Menu wiring | `app/best_buds_weight_station/pyside_frontend.py` |
+| Menu wiring | `app/best_buds_weight_station/pyside_frontend.py` — View → Scale Face (Harvest), Ctrl+Shift+F |
+| Operator note | `docs/OPERATOR_ONBOARDING.md` § Scale Face; `START_HERE.md` |
 | Contract tests | `tests/test_sr8_scale_face.py` |
 | Drift concordance | `scripts/validate_drift_concordance_v200_rc3.py` |
+| Contract freeze receipt | `reports/sr8_s01_scale_face_contract_freeze.v0.1.0.json` |
 
 ## Non-claims
 

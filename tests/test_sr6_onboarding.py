@@ -8,7 +8,7 @@ ROOT = Path(__file__).parents[1]
 
 
 def test_product_version_is_current_rc():
-    assert __version__ == "2.0.0-rc2"
+    assert __version__ == "2.0.0-rc3"
 
 
 def test_start_here_doors_exist():

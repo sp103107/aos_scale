@@ -1,6 +1,6 @@
 # START HERE — Best Buds Cultivator Weight Station
 
-**Version:** `2.0.0-rc2`  
+**Version:** `2.0.0-rc3`  
 **Audience:** Harvest-station operators and supervisors  
 **Public repo:** [https://github.com/sp103107/aos_scale](https://github.com/sp103107/aos_scale)
 
@@ -38,6 +38,8 @@ New Run (Cultivator + Strain)
 ```
 
 Full walkthrough: [docs/OPERATOR_ONBOARDING.md](docs/OPERATOR_ONBOARDING.md).
+
+**Scale Face (Windows PySide):** View → Scale Face (Harvest) or Ctrl+Shift+F for a large-weight harvest panel (Harvest/SETUP toggle). Esc returns to the full UI.
 
 ## Where truth lives
 

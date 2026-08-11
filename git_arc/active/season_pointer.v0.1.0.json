@@ -1,8 +1,9 @@
 {
-  "commit_plan": "Commit S01 scaffold after E10 closeout",
-  "milestone": "M01",
-  "push_plan": "git push origin HEAD --tags after series closeout",
-  "season_id": "S01",
-  "slug": "scale_face_contract_freeze",
-  "updated_at": "2026-08-11T03:39:48Z"
+  "season_id": "S10",
+  "slug": "series_closeout",
+  "milestone": "M10",
+  "status": "complete",
+  "commit_plan": "Commit SR8 implementation + rc3 closeout",
+  "push_plan": "git push origin main --tags",
+  "updated_at": "2026-08-11T03:45:00Z"
 }

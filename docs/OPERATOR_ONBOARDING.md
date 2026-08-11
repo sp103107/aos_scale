@@ -2,7 +2,7 @@
 
 **runtime_claimed:** false  
 **audience:** harvest-station operator  
-**product_version:** `2.0.0-rc2`  
+**product_version:** `2.0.0-rc3`  
 **template cite:** KS structured onboarding (salvage cite-only)
 
 ## Flow map
@@ -85,6 +85,21 @@ Barcode stays visible until Confirm. Cancel clears the in-progress plant.
 The run plant log shows recent confirmed plants (read-only). Last-saved receipt confirms the prior plant.
 
 > **Common confusion:** The plant log is **not** a Metrc plant list.
+
+---
+
+## 5b. Scale Face (Harvest mode)
+
+On Windows PySide, use **View → Scale Face (Harvest)** (or **Ctrl+Shift+F**) for a bench-scale panel: large weight, status pill, barcode + SCAN, and a compact action strip.
+
+| Toggle | What you get |
+|--------|----------------|
+| **HARVEST** | ZERO · SET TARE · LOCK WEIGHT · CONFIRM & RECORD · CANCEL · compact START/RESUME when needed |
+| **SETUP** | CONNECT · ZERO · SET TARE · CALIBRATE (opens Guided Calibration) · TEST SCANNER |
+
+Same capture law as the full UI: Scan → settle → Lock → Confirm. Esc or **Exit Scale Face** returns to the full desktop window. New Run details, Export, and plant-log tables stay on the full UI.
+
+> **Next action:** After a run is ready and the scale is connected, open Scale Face for hang-side Lock/Confirm pacing.
 
 ---
 
