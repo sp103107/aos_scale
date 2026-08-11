@@ -1,14 +1,14 @@
 {
   "auto_push": false,
-  "baseline_tag": "bbws-pre-sr7-windows-installer",
+  "baseline_tag": "bbws-pre-sr8-scale-face",
   "branch_plan": "main",
-  "parent_tag": "bbws-sr6-complete",
+  "parent_tag": "bbws-sr7-complete",
   "planned_tags": [
-    "v2.0.0-rc2",
-    "bbws-sr7-complete"
+    "v2.0.0-rc3",
+    "bbws-sr8-complete"
   ],
   "push_policy": "after_series_closeout",
   "remote_plan": "origin",
-  "series_id": "BBWS_SR7_windows_installer_bringup",
-  "updated_at": "2026-08-10T02:11:13Z"
+  "series_id": "BBWS_SR8_scale_face_harvest_mode",
+  "updated_at": "2026-08-11T03:39:48Z"
 }

@@ -1,0 +1,52 @@
+{
+  "acceptance": {
+    "capture_law": "scan_settle_lock_confirm_reset",
+    "harvest_actions": [
+      "zero_scale",
+      "set_tare",
+      "lock_weight",
+      "confirm_record",
+      "cancel_item",
+      "start_resume"
+    ],
+    "jsonl_authoritative": true,
+    "mode_not_separate_app": true,
+    "pyside_first": true,
+    "routine_layout_unchanged": 8,
+    "setup_actions": [
+      "connect_scale",
+      "zero_scale",
+      "set_tare",
+      "calibrate",
+      "test_scanner"
+    ],
+    "toggle": "HARVEST|SETUP"
+  },
+  "baseline_tag": "bbws-pre-sr8-scale-face",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not a remote weighing server or separate Scale Face process",
+    "Not collapsing Lock+Confirm in manual mode",
+    "JSONL remains authoritative for records",
+    "Capture loop unchanged: scan → settle → lock → confirm → reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not claiming small 2–5″ hardware support without a later series"
+  ],
+  "parent_tag": "bbws-sr7-complete",
+  "product_version_during_impl": "2.0.0-rc2",
+  "product_version_target": "2.0.0-rc3",
+  "receipt_id": "sr8_s01_scale_face_contract_freeze",
+  "runtime_claimed": false,
+  "season_id": "S01",
+  "series_id": "BBWS_SR8_scale_face_harvest_mode",
+  "status": "accepted",
+  "version": "0.1.0",
+  "wireframe": {
+    "alice": "one-liner muted",
+    "barcode": "field + SCAN",
+    "hero_weight": "frozen_display_weight while locked",
+    "recent": "last 1-3 records",
+    "status_pill": "ui_tokens capture pill",
+    "toggle": "HARVEST | SETUP"
+  }
+}

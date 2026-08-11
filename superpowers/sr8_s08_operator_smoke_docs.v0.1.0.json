@@ -1,0 +1,251 @@
+{
+  "arc_id": "SR8_S08_operator_smoke_docs",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S08E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/OPERATOR_ONBOARDING.md",
+        "START_HERE.md",
+        "docs/BBWS_SR8_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S08E01",
+      "kind": "context",
+      "objective": "Intent freeze: docs only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: docs only"
+    },
+    {
+      "acceptance": "S08E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/OPERATOR_ONBOARDING.md",
+        "START_HERE.md",
+        "docs/BBWS_SR8_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S08E02",
+      "kind": "implement",
+      "objective": "Add Scale Face section to OPERATOR_ONBOARDING",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Add Scale Face section to OPERATOR_ONBOARDING"
+    },
+    {
+      "acceptance": "S08E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/OPERATOR_ONBOARDING.md",
+        "START_HERE.md",
+        "docs/BBWS_SR8_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S08E03",
+      "kind": "implement",
+      "objective": "Brief note in START_HERE",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Brief note in START_HERE"
+    },
+    {
+      "acceptance": "S08E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/OPERATOR_ONBOARDING.md",
+        "START_HERE.md",
+        "docs/BBWS_SR8_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S08E04",
+      "kind": "implement",
+      "objective": "Update BBWS_SR8_ARTIFACTS if needed",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Update BBWS_SR8_ARTIFACTS if needed"
+    },
+    {
+      "acceptance": "S08E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/OPERATOR_ONBOARDING.md",
+        "START_HERE.md",
+        "docs/BBWS_SR8_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S08E05",
+      "kind": "implement",
+      "objective": "Document Harvest/SETUP toggle",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Document Harvest/SETUP toggle"
+    },
+    {
+      "acceptance": "S08E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/OPERATOR_ONBOARDING.md",
+        "START_HERE.md",
+        "docs/BBWS_SR8_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S08E06",
+      "kind": "implement",
+      "objective": "Document Esc exit",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Document Esc exit"
+    },
+    {
+      "acceptance": "S08E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/OPERATOR_ONBOARDING.md",
+        "START_HERE.md",
+        "docs/BBWS_SR8_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S08E07",
+      "kind": "verify",
+      "objective": "Verify docs mention Scale Face",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify docs mention Scale Face"
+    },
+    {
+      "acceptance": "S08E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/OPERATOR_ONBOARDING.md",
+        "START_HERE.md",
+        "docs/BBWS_SR8_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S08E08",
+      "kind": "verify",
+      "objective": "Verify non-claims preserved",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify non-claims preserved"
+    },
+    {
+      "acceptance": "S08E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/OPERATOR_ONBOARDING.md",
+        "START_HERE.md",
+        "docs/BBWS_SR8_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S08E09",
+      "kind": "receipt",
+      "objective": "S08 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S08 receipt pack"
+    },
+    {
+      "acceptance": "S08E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/OPERATOR_ONBOARDING.md",
+        "START_HERE.md",
+        "docs/BBWS_SR8_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S08E10",
+      "kind": "closeout",
+      "objective": "M08 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M08 season closeout + push plan"
+    }
+  ],
+  "focus": "Operator onboarding Scale Face section + START_HERE note",
+  "milestone": "M08",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not a remote weighing server or separate Scale Face process",
+    "Not collapsing Lock+Confirm in manual mode",
+    "JSONL remains authoritative for records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not claiming small 2\u20135\u2033 hardware support without a later series"
+  ],
+  "primary_surfaces": [
+    "docs/OPERATOR_ONBOARDING.md",
+    "START_HERE.md",
+    "docs/BBWS_SR8_ARTIFACTS.md"
+  ],
+  "product_version_target": "2.0.0-rc3",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr8.operator_smoke_docs.v1",
+  "series_id": "BBWS_SR8_scale_face_harvest_mode",
+  "title": "Operator smoke docs for Scale Face",
+  "version": "0.1.0"
+}

@@ -1,0 +1,273 @@
+{
+  "arc_id": "SR8_S01_scale_face_contract_freeze",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S01E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr8.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S01E01",
+      "kind": "context",
+      "objective": "Intent freeze: Scale Face is a UI mode",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: Scale Face is a UI mode"
+    },
+    {
+      "acceptance": "S01E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr8.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S01E02",
+      "kind": "context",
+      "objective": "Inventory Harvest vs SETUP action map",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Inventory Harvest vs SETUP action map"
+    },
+    {
+      "acceptance": "S01E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr8.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S01E03",
+      "kind": "context",
+      "objective": "Inventory PySide MainWindow refresh/gating",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Inventory PySide MainWindow refresh/gating"
+    },
+    {
+      "acceptance": "S01E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr8.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S01E04",
+      "kind": "implement",
+      "objective": "Write contract freeze receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write contract freeze receipt"
+    },
+    {
+      "acceptance": "S01E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr8.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S01E05",
+      "kind": "implement",
+      "objective": "Authorize S02 mode shell entry",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S02 mode shell entry"
+    },
+    {
+      "acceptance": "S01E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr8.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S01E06",
+      "kind": "implement",
+      "objective": "Authorize S03\u2013S06 face surfaces",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S03\u2013S06 face surfaces"
+    },
+    {
+      "acceptance": "S01E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr8.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S01E07",
+      "kind": "implement",
+      "objective": "Authorize S07\u2013S10 verify/docs/rc3",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S07\u2013S10 verify/docs/rc3"
+    },
+    {
+      "acceptance": "S01E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr8.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S01E08",
+      "kind": "verify",
+      "objective": "Verify non-claims stamped",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify non-claims stamped"
+    },
+    {
+      "acceptance": "S01E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr8.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S01E09",
+      "kind": "receipt",
+      "objective": "S01 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S01 receipt pack"
+    },
+    {
+      "acceptance": "S01E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr8.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S01E10",
+      "kind": "closeout",
+      "objective": "M01 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M01 season closeout + push plan"
+    }
+  ],
+  "focus": "Freeze: mode not app; Harvest/SETUP toggle; PySide-first; capture law locks",
+  "milestone": "M01",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not a remote weighing server or separate Scale Face process",
+    "Not collapsing Lock+Confirm in manual mode",
+    "JSONL remains authoritative for records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not claiming small 2\u20135\u2033 hardware support without a later series"
+  ],
+  "primary_surfaces": [
+    "ACTIVE_ARC.yaml",
+    "cursor/",
+    "scripts/scaffold_bbws_sr8.py",
+    "arc_lifecycle/blueprints/",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc3",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr8.scale_face_contract_freeze.v1",
+  "series_id": "BBWS_SR8_scale_face_harvest_mode",
+  "title": "Scaffold + Scale Face contract freeze",
+  "version": "0.1.0"
+}

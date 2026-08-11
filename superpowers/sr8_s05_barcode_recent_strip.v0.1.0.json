@@ -1,0 +1,240 @@
+{
+  "arc_id": "SR8_S05_barcode_recent_strip",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S05E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S05E01",
+      "kind": "context",
+      "objective": "Intent freeze: scan before weigh",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: scan before weigh"
+    },
+    {
+      "acceptance": "S05E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S05E02",
+      "kind": "implement",
+      "objective": "Barcode field + Enter submit",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Barcode field + Enter submit"
+    },
+    {
+      "acceptance": "S05E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S05E03",
+      "kind": "implement",
+      "objective": "SCAN opens existing scan dialog",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SCAN opens existing scan dialog"
+    },
+    {
+      "acceptance": "S05E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S05E04",
+      "kind": "implement",
+      "objective": "Last 1\u20133 records strip",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Last 1\u20133 records strip"
+    },
+    {
+      "acceptance": "S05E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S05E05",
+      "kind": "implement",
+      "objective": "Enable barcode only when Ready",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Enable barcode only when Ready"
+    },
+    {
+      "acceptance": "S05E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S05E06",
+      "kind": "implement",
+      "objective": "Keep plant-log table off the face",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Keep plant-log table off the face"
+    },
+    {
+      "acceptance": "S05E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S05E07",
+      "kind": "verify",
+      "objective": "Verify SCAN/submit path",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify SCAN/submit path"
+    },
+    {
+      "acceptance": "S05E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S05E08",
+      "kind": "verify",
+      "objective": "Verify recent strip updates after confirm",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify recent strip updates after confirm"
+    },
+    {
+      "acceptance": "S05E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S05E09",
+      "kind": "receipt",
+      "objective": "S05 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S05 receipt pack"
+    },
+    {
+      "acceptance": "S05E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S05E10",
+      "kind": "closeout",
+      "objective": "M05 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M05 season closeout + push plan"
+    }
+  ],
+  "focus": "Barcode field, SCAN, last 1\u20133 saved lines",
+  "milestone": "M05",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not a remote weighing server or separate Scale Face process",
+    "Not collapsing Lock+Confirm in manual mode",
+    "JSONL remains authoritative for records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not claiming small 2\u20135\u2033 hardware support without a later series"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/scale_face.py",
+    "app/best_buds_weight_station/pyside_frontend.py"
+  ],
+  "product_version_target": "2.0.0-rc3",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr8.barcode_recent_strip.v1",
+  "series_id": "BBWS_SR8_scale_face_harvest_mode",
+  "title": "Barcode field + recent records strip",
+  "version": "0.1.0"
+}

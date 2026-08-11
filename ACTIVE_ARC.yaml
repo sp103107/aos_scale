@@ -1,17 +1,17 @@
-# BBWS SR7 live pointer — product owns truth (salvage cited, not mutated)
-series_id: BBWS_SR7_windows_installer_bringup
+# BBWS SR8 live pointer — product owns truth (salvage cited, not mutated)
+series_id: BBWS_SR8_scale_face_harvest_mode
 series_version: 0.1.0
 season_id: S01
-season_slug: installer_contract_freeze
+season_slug: scale_face_contract_freeze
 episode_id: S01E01
 milestone: M01
 status: active
-parent_series_id: BBWS_SR6_product_onboarding_release
-parent_tag: bbws-sr6-complete
-baseline_tag: bbws-pre-sr7-windows-installer
-product_version_target: 2.0.0-rc2
+parent_series_id: BBWS_SR7_windows_installer_bringup
+parent_tag: bbws-sr7-complete
+baseline_tag: bbws-pre-sr8-scale-face
+product_version_target: 2.0.0-rc3
 doctrine_source: C:/aos_arc_launcher_v0_4_21
-updated_at: 2026-08-10T02:11:13Z
+updated_at: 2026-08-11T03:39:48Z
 runtime_claimed: false
 capture_law: scan_settle_lock_confirm_reset
-next_action: Execute S01E01 installer/release contract freeze
+next_action: Execute S01E01 Scale Face contract freeze

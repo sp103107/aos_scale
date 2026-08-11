@@ -1,0 +1,262 @@
+{
+  "arc_id": "SR8_S10_series_closeout",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S10E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S10E01",
+      "kind": "context",
+      "objective": "Intent freeze: closeout only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: closeout only"
+    },
+    {
+      "acceptance": "S10E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S10E02",
+      "kind": "implement",
+      "objective": "Mark ACTIVE_ARC series_complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Mark ACTIVE_ARC series_complete"
+    },
+    {
+      "acceptance": "S10E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S10E03",
+      "kind": "implement",
+      "objective": "Update resume pack + ledger",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Update resume pack + ledger"
+    },
+    {
+      "acceptance": "S10E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S10E04",
+      "kind": "implement",
+      "objective": "Tag v2.0.0-rc3",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tag v2.0.0-rc3"
+    },
+    {
+      "acceptance": "S10E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S10E05",
+      "kind": "implement",
+      "objective": "Tag bbws-sr8-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tag bbws-sr8-complete"
+    },
+    {
+      "acceptance": "S10E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S10E06",
+      "kind": "implement",
+      "objective": "Commit closeout artifacts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Commit closeout artifacts"
+    },
+    {
+      "acceptance": "S10E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S10E07",
+      "kind": "implement",
+      "objective": "Push origin main --tags",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Push origin main --tags"
+    },
+    {
+      "acceptance": "S10E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S10E08",
+      "kind": "verify",
+      "objective": "Verify remote tags",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify remote tags"
+    },
+    {
+      "acceptance": "S10E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S10E09",
+      "kind": "receipt",
+      "objective": "S10 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S10 receipt pack"
+    },
+    {
+      "acceptance": "S10E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S10E10",
+      "kind": "closeout",
+      "objective": "M10 series closeout",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M10 series closeout"
+    }
+  ],
+  "focus": "ACTIVE_ARC series_complete, resume/ledger, tag v2.0.0-rc3 + bbws-sr8-complete, push",
+  "milestone": "M10",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not a remote weighing server or separate Scale Face process",
+    "Not collapsing Lock+Confirm in manual mode",
+    "JSONL remains authoritative for records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not claiming small 2\u20135\u2033 hardware support without a later series"
+  ],
+  "primary_surfaces": [
+    "ACTIVE_ARC.yaml",
+    "context/",
+    "git_arc/",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc3",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr8.series_closeout.v1",
+  "series_id": "BBWS_SR8_scale_face_harvest_mode",
+  "title": "SR8 series closeout + tags",
+  "version": "0.1.0"
+}

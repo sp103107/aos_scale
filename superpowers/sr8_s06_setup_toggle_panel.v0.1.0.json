@@ -1,0 +1,240 @@
+{
+  "arc_id": "SR8_S06_setup_toggle_panel",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S06E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S06E01",
+      "kind": "context",
+      "objective": "Intent freeze: toggle swaps bottom row",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: toggle swaps bottom row"
+    },
+    {
+      "acceptance": "S06E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S06E02",
+      "kind": "implement",
+      "objective": "Add SCALE_FACE_SETUP_ACTIONS helper",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Add SCALE_FACE_SETUP_ACTIONS helper"
+    },
+    {
+      "acceptance": "S06E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S06E03",
+      "kind": "implement",
+      "objective": "Harvest/SETUP segment toggle",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Harvest/SETUP segment toggle"
+    },
+    {
+      "acceptance": "S06E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S06E04",
+      "kind": "implement",
+      "objective": "CONNECT \u2192 scale setup",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "CONNECT \u2192 scale setup"
+    },
+    {
+      "acceptance": "S06E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S06E05",
+      "kind": "implement",
+      "objective": "CALIBRATE opens existing guided cal dialog",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "CALIBRATE opens existing guided cal dialog"
+    },
+    {
+      "acceptance": "S06E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S06E06",
+      "kind": "implement",
+      "objective": "TEST SCANNER opens existing dialog",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "TEST SCANNER opens existing dialog"
+    },
+    {
+      "acceptance": "S06E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S06E07",
+      "kind": "verify",
+      "objective": "Verify no second window for SETUP strip",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify no second window for SETUP strip"
+    },
+    {
+      "acceptance": "S06E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S06E08",
+      "kind": "verify",
+      "objective": "Verify cal still uses CalibrationDialog",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify cal still uses CalibrationDialog"
+    },
+    {
+      "acceptance": "S06E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S06E09",
+      "kind": "receipt",
+      "objective": "S06 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S06 receipt pack"
+    },
+    {
+      "acceptance": "S06E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/operator_surface.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S06E10",
+      "kind": "closeout",
+      "objective": "M06 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M06 season closeout + push plan"
+    }
+  ],
+  "focus": "SETUP strip: Connect / Zero / Tare / Guided Calibration / Test Scanner",
+  "milestone": "M06",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not a remote weighing server or separate Scale Face process",
+    "Not collapsing Lock+Confirm in manual mode",
+    "JSONL remains authoritative for records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not claiming small 2\u20135\u2033 hardware support without a later series"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/scale_face.py",
+    "app/best_buds_weight_station/operator_surface.py"
+  ],
+  "product_version_target": "2.0.0-rc3",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr8.setup_toggle_panel.v1",
+  "series_id": "BBWS_SR8_scale_face_harvest_mode",
+  "title": "SETUP toggle panel",
+  "version": "0.1.0"
+}

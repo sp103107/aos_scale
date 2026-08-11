@@ -1,0 +1,251 @@
+{
+  "arc_id": "SR8_S02_mode_shell_entry",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S02E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S02E01",
+      "kind": "context",
+      "objective": "Intent freeze: shell only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: shell only"
+    },
+    {
+      "acceptance": "S02E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S02E02",
+      "kind": "implement",
+      "objective": "Add ScaleFaceWindow shell",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Add ScaleFaceWindow shell"
+    },
+    {
+      "acceptance": "S02E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S02E03",
+      "kind": "implement",
+      "objective": "Wire View menu + Ctrl+Shift+F",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Wire View menu + Ctrl+Shift+F"
+    },
+    {
+      "acceptance": "S02E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S02E04",
+      "kind": "implement",
+      "objective": "Share OperatorRuntime with MainWindow",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Share OperatorRuntime with MainWindow"
+    },
+    {
+      "acceptance": "S02E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S02E05",
+      "kind": "implement",
+      "objective": "Esc / Exit returns to MainWindow",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Esc / Exit returns to MainWindow"
+    },
+    {
+      "acceptance": "S02E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S02E06",
+      "kind": "implement",
+      "objective": "Fullscreen-friendly show path",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Fullscreen-friendly show path"
+    },
+    {
+      "acceptance": "S02E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S02E07",
+      "kind": "implement",
+      "objective": "Keep Tk full UI only (no Scale Face)",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Keep Tk full UI only (no Scale Face)"
+    },
+    {
+      "acceptance": "S02E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S02E08",
+      "kind": "verify",
+      "objective": "Verify entry/exit without capture mutation",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify entry/exit without capture mutation"
+    },
+    {
+      "acceptance": "S02E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S02E09",
+      "kind": "receipt",
+      "objective": "S02 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S02 receipt pack"
+    },
+    {
+      "acceptance": "S02E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_face.py",
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server"
+      ],
+      "id": "S02E10",
+      "kind": "closeout",
+      "objective": "M02 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M02 season closeout + push plan"
+    }
+  ],
+  "focus": "View \u2192 Scale Face (Harvest), shortcut, enter/exit shell; no capture changes",
+  "milestone": "M02",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Not a remote weighing server or separate Scale Face process",
+    "Not collapsing Lock+Confirm in manual mode",
+    "JSONL remains authoritative for records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not claiming small 2\u20135\u2033 hardware support without a later series"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/scale_face.py",
+    "app/best_buds_weight_station/pyside_frontend.py",
+    "tests/"
+  ],
+  "product_version_target": "2.0.0-rc3",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr8.mode_shell_entry.v1",
+  "series_id": "BBWS_SR8_scale_face_harvest_mode",
+  "title": "Scale Face mode shell entry/exit",
+  "version": "0.1.0"
+}
