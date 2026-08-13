@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-08-13T02:27:26Z",
+  "includes_dot_git": false,
+  "method": "git_archive",
+  "non_claims": [
+    "Source zip is not a legal-for-trade or Metrc artifact",
+    "Not a production seal"
+  ],
+  "receipt_type": "bbws_release_source_bundle",
+  "ref": "v2.0.0-rc4",
+  "sha256": "6df6eaa241cb9337858f13aea98ea1e009c22d37e9b48efbdfd1cbb42c0bc8d6",
+  "version": "2.0.0-rc4",
+  "windows_binary": "deferred_not_blocking",
+  "zip_path": "C:\\best_buds_cultivator_weight_station_v0_1_9\\dist\\releases\\BestBudsWeightStation-source-v2.0.0-rc4.zip"
+}

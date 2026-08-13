@@ -16,7 +16,7 @@
     "validation/reports/pytest* except pytest_full_suite.vNEXT.log",
     "*.pyc"
   ],
-  "file_count": 1307,
+  "file_count": 1308,
   "files": [
     {
       "path": ".github/workflows/release.yml",
@@ -32,11 +32,6 @@
       "path": "_local_agent/aos_primer.md",
       "sha256": "9a410911f607ba430054e1447cc1d3042539a3d02d436abc76620d6e08b17a36",
       "size_bytes": 1558
-    },
-    {
-      "path": "_local_agent/bump_rc4.py",
-      "sha256": "12c30351cf115ab0212a268188cdfc4b2370fc3cd32072e11bd66bc128be9a4a",
-      "size_bytes": 14366
     },
     {
       "path": "_local_agent/CODING_AGENT_KICKOFF.md",
@@ -3134,6 +3129,11 @@
       "size_bytes": 1779
     },
     {
+      "path": "packaging/windows/windows_upgrade_smoke_receipt.v2.0.0-rc4.json",
+      "sha256": "bb965480a68bd19487921c198f229d9b691f311607792ca6f289584d17174284",
+      "size_bytes": 2514
+    },
+    {
       "path": "pipeline/plans/cursor_ready.v0.1.7.json",
       "sha256": "33812fd33882597b75271e50c86e97ea0dd2513957d2bd30f8fc723984e913a8",
       "size_bytes": 850
@@ -4222,6 +4222,11 @@
       "path": "reports/release_bundle_receipt.v2.0.0-rc3.json",
       "sha256": "2965d85ab39b0851432e593118295280d45e5f14bdc36897207ab8584b85c688",
       "size_bytes": 583
+    },
+    {
+      "path": "reports/release_bundle_receipt.v2.0.0-rc4.json",
+      "sha256": "141eb31643470e4fcda2486aff490cc5d0fb3b38e09d89d074a9280d3101cee9",
+      "size_bytes": 575
     },
     {
       "path": "reports/repo_validator.v0.1.4.json",
@@ -6554,7 +6559,7 @@
       "size_bytes": 11
     }
   ],
-  "generated_at": "2026-08-13T02:14:44Z",
+  "generated_at": "2026-08-13T02:32:21Z",
   "manifest_version": "1.0.0",
   "package_name": "best_buds_cultivator_weight_station",
   "version": "2.0.0-rc4"

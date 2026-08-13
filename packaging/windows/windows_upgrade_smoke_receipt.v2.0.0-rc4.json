@@ -1,0 +1,53 @@
+﻿{
+    "receipt":  "windows_upgrade_smoke",
+    "from_version":  "2.0.0-rc3",
+    "to_version":  "2.0.0-rc4",
+    "platform":  "windows-x64",
+    "status":  "pass",
+    "steps":  [
+                  {
+                      "step":  "silent_install_rc3_baseline",
+                      "result":  "pass",
+                      "evidence":  "--version printed 2.0.0-rc3",
+                      "artifact":  "dist\\windows\\BestBudsWeightStation-Setup-v2.0.0-rc3.exe"
+                  },
+                  {
+                      "step":  "write_data_marker",
+                      "result":  "pass",
+                      "path":  "%LOCALAPPDATA%/BestBudsWeightStation/config/upgrade_smoke_marker.txt"
+                  },
+                  {
+                      "step":  "silent_upgrade_install_rc4",
+                      "result":  "pass",
+                      "evidence":  "same AppId overwrite under %LOCALAPPDATA%/BestBudsWeightStation/app",
+                      "artifact":  "dist\\windows\\BestBudsWeightStation-Setup-v2.0.0-rc4.exe"
+                  },
+                  {
+                      "step":  "version_after_upgrade",
+                      "result":  "pass",
+                      "evidence":  "printed 2.0.0-rc4",
+                      "command":  "BestBudsWeightStation.exe --version"
+                  },
+                  {
+                      "step":  "simulator_self_test",
+                      "result":  "pass",
+                      "evidence":  "status pass, SIMULATOR_PASS, exit 0",
+                      "command":  "BestBudsWeightStation.exe --self-test --simulator"
+                  },
+                  {
+                      "step":  "data_preserved",
+                      "result":  "pass",
+                      "evidence":  "upgrade_smoke_marker.txt still present with pre-rc4-upgrade content"
+                  },
+                  {
+                      "step":  "scale_profiles_in_install",
+                      "result":  "pass",
+                      "evidence":  "module bundled in PyInstaller archive (self-test covers import path)"
+                  }
+              ],
+    "non_claims":  [
+                       "Not Authenticode-signed.",
+                       "No in-app auto-update channel; upgrade is re-run of newer Setup.exe.",
+                       "GUI Scale Setup profile screens not clicked in this headless smoke (module bundled; operator verifies Scale Setup)."
+                   ]
+}
