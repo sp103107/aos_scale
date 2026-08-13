@@ -1,21 +1,18 @@
-# BBWS SR10 live pointer — product owns truth (salvage cited, not mutated)
-series_id: BBWS_SR10_calibration_handshake_integrity
+# BBWS SR11 live pointer — product owns truth (salvage cited, not mutated)
+series_id: BBWS_SR11_live_stream_quiet_window
 series_version: 0.1.0
-season_id: S10
-season_slug: release_and_closeout
-episode_id: S10E10
-milestone: M10
-status: series_complete
-parent_series_id: BBWS_SR9_scale_profile_stability_governance
-parent_tag: bbws-sr9-complete
-baseline_tag: bbws-pre-sr10-cal-handshake
-product_version_target: 2.0.0-rc5
-product_version_shipped: 2.0.0-rc5
+season_id: S01
+season_slug: scaffold_and_contract_freeze
+episode_id: S01E01
+milestone: M01
+status: active
+parent_series_id: BBWS_SR10_calibration_handshake_integrity
+parent_tag: bbws-sr10-complete
+baseline_tag: bbws-pre-sr11-stream-quiet
+product_version_target: 2.0.0-rc6
+product_version_during_impl: 2.0.0-rc5
 doctrine_source: C:/aos_arc_launcher_v0_4_21
-updated_at: 2026-08-13T16:00:00Z
+updated_at: 2026-08-13T16:08:12Z
 runtime_claimed: false
 capture_law: scan_settle_lock_confirm_reset
-next_action: Series complete — calibration handshake integrity shipped as 2.0.0-rc5
-completed_tags:
-  - v2.0.0-rc5
-  - bbws-sr10-complete
+next_action: Execute S01 scaffold + quiet-window contract freeze

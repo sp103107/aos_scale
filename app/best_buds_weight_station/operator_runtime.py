@@ -203,6 +203,73 @@ class OperatorRuntime:
     def stop_reading_worker(self) -> None:
         self.worker.stop(stop_stream=True)
 
+    def ensure_reading_worker(self) -> None:
+        """Start the live reader when a validated device is connected but idle.
+
+        Guided Cal sample collection and related flows need a running worker.
+        Clears ``last_worker_error`` only after a successful start.
+        """
+        device = self.controller.device
+        if not device or not device.status.connected:
+            return
+        if self.worker.running:
+            return
+        self.worker.start()
+        self.last_worker_error = None
+
+    def _with_quiet_profile_apply(
+        self,
+        fn: Callable[[], dict[str, Any]],
+        *,
+        clear_buffer: bool = True,
+    ) -> dict[str, Any]:
+        """Stop the live stream, run a profile-install action, then restart the worker.
+
+        Matches the Zero / Accept quiet-window pattern so SET_CAL / STATUS during
+        run.resume / run.load / run.new are not interleaved with weight lines.
+        """
+        if self.worker.running:
+            self.worker.stop(stop_stream=True)
+            time.sleep(0.35)
+        result: dict[str, Any] = {"status": "failed", "message": "quiet profile apply did not run"}
+        try:
+            result = fn()
+            if result.get("status") == "completed":
+                if clear_buffer:
+                    self.buffer.clear()
+                self.last_worker_error = None
+        finally:
+            if self.controller.device and self.controller.device.status.connected:
+                try:
+                    self.worker.start()
+                    if result.get("status") == "completed":
+                        self.last_worker_error = None
+                except Exception as exc:
+                    self.last_worker_error = f"{type(exc).__name__}: {exc}"
+        return result
+
+    def dispatch_run_install(self, action: str, payload: dict[str, Any] | None = None) -> dict[str, Any]:
+        """Dispatch run.new / run.load / run.resume with a quiet window when streaming.
+
+        Quiet window applies when a device is connected or the reading worker is
+        already running (same boundary as physical Resume after Connect).
+        """
+        payload = payload or {}
+        device = self.controller.device
+        connected = bool(device and device.status.connected)
+        if connected or self.worker.running:
+            return self._with_quiet_profile_apply(lambda: self.dispatch(action, payload))
+        return self.dispatch(action, payload)
+
+    def resume_run(self) -> dict[str, Any]:
+        return self.dispatch_run_install("run.resume", {})
+
+    def load_run(self, selection: str | Path) -> dict[str, Any]:
+        return self.dispatch_run_install("run.load", {"selection": str(selection)})
+
+    def new_run(self, payload: dict[str, Any]) -> dict[str, Any]:
+        return self.dispatch_run_install("run.new", payload)
+
     def submit_barcode(self, barcode: str) -> dict[str, Any]:
         return self.dispatch("barcode.submit", {"barcode": barcode.strip()})
 
@@ -279,6 +346,7 @@ class OperatorRuntime:
         return self.dispatch("scale.container_tare.capture", {"container_id": container_id, "readings_g": samples})
 
     def start_calibration(self) -> dict[str, Any]:
+        self.ensure_reading_worker()
         return self.dispatch("scale.calibration.start", {"maintenance_authorized": True})
 
     @staticmethod
@@ -326,6 +394,7 @@ class OperatorRuntime:
         Clearing avoids reusing Loaded leftovers during Test. Waiting for a stable
         (non-trending) window avoids mid-settle Loaded captures (~2× Test errors).
         """
+        self.ensure_reading_worker()
         if clear_first:
             self.buffer.clear()
             time.sleep(max(0.0, settle_s))

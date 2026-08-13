@@ -1,0 +1,108 @@
+{
+  "baseline_tag": "bbws-pre-sr11-stream-quiet",
+  "blueprint_id": "BBWS_SR11_live_stream_quiet_window",
+  "blueprint_type": "series",
+  "github_push_cadence": "after_series_closeout",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Quiet-window resume is operational integrity only \u2014 not certification"
+  ],
+  "parent_arc_id": "bbws-sr10-complete",
+  "parent_series_id": "BBWS_SR10_calibration_handshake_integrity",
+  "product_version_target": "2.0.0-rc6",
+  "runtime_claimed": false,
+  "seasons": [
+    {
+      "episode_count": 10,
+      "focus": "Freeze SR11 contract; baseline tag; Arc artifacts",
+      "milestone": "M01",
+      "season_id": "S01_scaffold_and_contract_freeze",
+      "superpower_ref": "superpowers/sr11_s01_scaffold_and_contract_freeze.v0.1.0.json",
+      "title": "Scaffold + contract freeze"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Stop worker before profile apply on run.resume / run.load / new-run-when-connected",
+      "milestone": "M02",
+      "season_id": "S02_quiet_resume_load",
+      "superpower_ref": "superpowers/sr11_s02_quiet_resume_load.v0.1.0.json",
+      "title": "Quiet window around resume/load"
+    },
+    {
+      "episode_count": 10,
+      "focus": "If STATUS factor matches active profile, install stability only",
+      "milestone": "M03",
+      "season_id": "S03_skip_redundant_set_cal",
+      "superpower_ref": "superpowers/sr11_s03_skip_redundant_set_cal.v0.1.0.json",
+      "title": "Skip redundant SET_CAL"
+    },
+    {
+      "episode_count": 10,
+      "focus": "ensure_reading_worker before collect_raw_samples / start_calibration",
+      "milestone": "M04",
+      "season_id": "S04_ensure_worker_for_cal",
+      "superpower_ref": "superpowers/sr11_s04_ensure_worker_for_cal.v0.1.0.json",
+      "title": "Ensure worker before Guided Cal samples"
+    },
+    {
+      "episode_count": 10,
+      "focus": "After quiet apply, restart worker and clear last_worker_error on success",
+      "milestone": "M05",
+      "season_id": "S05_restart_clear_error",
+      "superpower_ref": "superpowers/sr11_s05_restart_clear_error.v0.1.0.json",
+      "title": "Restart worker + clear error"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Resume under stream leaves worker running; skip SET_CAL when matched",
+      "milestone": "M06",
+      "season_id": "S06_scripted_quiet_tests",
+      "superpower_ref": "superpowers/sr11_s06_scripted_quiet_tests.v0.1.0.json",
+      "title": "Scripted quiet-window tests"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Connect \u2192 Resume \u2192 live grams \u2192 Guided Cal empty samples",
+      "milestone": "M07",
+      "season_id": "S07_physical_resume_cal_gate",
+      "superpower_ref": "superpowers/sr11_s07_physical_resume_cal_gate.v0.1.0.json",
+      "title": "Physical resume + Guided Cal gate"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Bring-up resume recovery; do not reopen stream under SET_CAL",
+      "milestone": "M08",
+      "season_id": "S08_docs_resume_recovery",
+      "superpower_ref": "superpowers/sr11_s08_docs_resume_recovery.v0.1.0.json",
+      "title": "Docs + resume recovery"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Version/drift/manifest; Setup/zip; rc5\u2192rc6 upgrade smoke \u2014 only after S07 pass",
+      "milestone": "M09",
+      "season_id": "S09_rc6_windows_packaging",
+      "superpower_ref": "superpowers/sr11_s09_rc6_windows_packaging.v0.1.0.json",
+      "title": "Bump to 2.0.0-rc6 + Windows packaging"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Docs/release, tag v2.0.0-rc6 + bbws-sr11-complete, push",
+      "milestone": "M10",
+      "season_id": "S10_release_and_closeout",
+      "superpower_ref": "superpowers/sr11_s10_release_and_closeout.v0.1.0.json",
+      "title": "SR11 series closeout + tags"
+    }
+  ],
+  "series_goal": "Stop Resume/Load from issuing SET_CAL under a live reading worker, restore live UI grams and Guided Cal samples, and close with 2.0.0-rc6 only after physical proof.",
+  "shape": "10 seasons \u00d7 10 episodes = 100",
+  "total_episodes": 100,
+  "version": "0.1.0"
+}

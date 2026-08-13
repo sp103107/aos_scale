@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 import uuid
 from pathlib import Path
@@ -93,7 +94,11 @@ class ApplicationController:
         return active.to_stability_profile()
 
     def _apply_active_scale_profile(self) -> dict[str, Any] | None:
-        """After STATUS: load active profile by device_id, apply SET_CAL, install stability."""
+        """After STATUS: load active profile by device_id, apply SET_CAL if needed, install stability.
+
+        When STATUS already reports a factor matching the active profile, skip SET_CAL
+        (SR11) and only install stability gates — avoids stream interleaving on Resume.
+        """
         if not self.device or not self.device.status.connected:
             return None
         device_id = self.device.status.device_id
@@ -107,7 +112,22 @@ class ApplicationController:
         if active is None:
             self.active_scale_profile = None
             return None
-        applied = self.device.apply_calibration_factor(float(active.calibration_factor))
+        status = self.device.read_status()
+        reported = float(status["calibration_factor"])
+        target = float(active.calibration_factor)
+        if math.isclose(reported, target, rel_tol=1e-5, abs_tol=1e-5):
+            stability = active.to_stability_profile()
+            if self.machine is not None:
+                self.machine.set_profile(stability)
+            self.active_scale_profile = active
+            return {
+                "profile_id": active.profile_id,
+                "device_id": active.device_id,
+                "calibration_factor": reported,
+                "stability_profile_id": stability.profile_id,
+                "set_cal_applied": False,
+            }
+        applied = self.device.apply_calibration_factor(target)
         stability = active.to_stability_profile()
         if self.machine is not None:
             self.machine.set_profile(stability)
@@ -117,6 +137,7 @@ class ApplicationController:
             "device_id": active.device_id,
             "calibration_factor": applied["calibration_factor"],
             "stability_profile_id": stability.profile_id,
+            "set_cal_applied": True,
         }
 
     def list_scale_profiles(self, *, include_archived: bool = False) -> list[dict[str, Any]]:

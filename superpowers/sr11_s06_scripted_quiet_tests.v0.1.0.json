@@ -1,0 +1,263 @@
+{
+  "arc_id": "SR11_S06_scripted_quiet_tests",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S06E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S06E01",
+      "kind": "context",
+      "objective": "Intent freeze: quiet tests",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: quiet tests"
+    },
+    {
+      "acceptance": "S06E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S06E02",
+      "kind": "implement",
+      "objective": "Resume under stream keeps worker",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Resume under stream keeps worker"
+    },
+    {
+      "acceptance": "S06E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S06E03",
+      "kind": "implement",
+      "objective": "Skip SET_CAL when factor matches",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Skip SET_CAL when factor matches"
+    },
+    {
+      "acceptance": "S06E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S06E04",
+      "kind": "implement",
+      "objective": "ensure_reading_worker restart test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "ensure_reading_worker restart test"
+    },
+    {
+      "acceptance": "S06E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S06E05",
+      "kind": "implement",
+      "objective": "Load path uses quiet window",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Load path uses quiet window"
+    },
+    {
+      "acceptance": "S06E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S06E06",
+      "kind": "verify",
+      "objective": "Run pytest green",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Run pytest green"
+    },
+    {
+      "acceptance": "S06E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S06E07",
+      "kind": "receipt",
+      "objective": "Write S06 test receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write S06 test receipt"
+    },
+    {
+      "acceptance": "S06E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S06E08",
+      "kind": "verify",
+      "objective": "Regression with SR10 handshake tests",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Regression with SR10 handshake tests"
+    },
+    {
+      "acceptance": "S06E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S06E09",
+      "kind": "receipt",
+      "objective": "S06 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S06 receipt pack"
+    },
+    {
+      "acceptance": "S06E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S06E10",
+      "kind": "closeout",
+      "objective": "M06 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M06 season closeout + push plan"
+    }
+  ],
+  "focus": "Resume under stream leaves worker running; skip SET_CAL when matched",
+  "milestone": "M06",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Quiet-window resume is operational integrity only \u2014 not certification"
+  ],
+  "primary_surfaces": [
+    "tests/",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc6",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr11.scripted_quiet_tests.v1",
+  "series_id": "BBWS_SR11_live_stream_quiet_window",
+  "title": "Scripted quiet-window tests",
+  "version": "0.1.0"
+}

@@ -49,6 +49,8 @@ Current flash target: **`0.1.5`** (`firmware/elegoo_uno_r3_hx711/best_buds_scale
 
 If Guided Calibration **Accept** fails with a leftover-reply / handshake message: Disconnect → Connect → re-run Test → Accept again. Host now matches ACKs by command and skips interleaved weight lines.
 
+If live grams freeze after **Resume** / Load Run (SR11): Disconnect → Connect to restart the reading worker. SR11 stops the live stream briefly around resume/load profile apply so SET_CAL/STATUS are not interleaved with weight lines; Disconnect→Connect remains the recovery if a freeze still appears.
+
 ## Scale identity + profile bring-up (SR9)
 
 1. Connect the scale in Scale Setup.

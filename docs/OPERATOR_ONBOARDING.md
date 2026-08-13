@@ -64,6 +64,8 @@ Simulator without hardware: `launch_simulator.bat`.
 
 > **Accept recovery (SR10):** If Accept reports a leftover reply / handshake timeout, Disconnect → Connect, re-run Test, then Accept. Firmware should be **0.1.5** (Scale Setup STATUS). Close Serial Monitor before retrying.
 
+> **Resume recovery (SR11):** If live grams freeze after **Resume** (or Load Run) while the scale stays connected, Disconnect → Connect to restart the stream. SR11 opens a quiet window around resume/load so profile apply should not leave the reader stuck — use Disconnect→Connect only if it still happens.
+
 > **Common confusion:** Large wild numbers before calibration are normal. Do not treat them as trade weight.
 
 > **Non-claim:** 100 g characterization is repeatability evidence only — not legal-for-trade certification. Profiles are local operational evidence; JSONL remains authoritative for plant weights.

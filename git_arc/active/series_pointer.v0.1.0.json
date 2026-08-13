@@ -1,13 +1,14 @@
 {
-  "series_id": "BBWS_SR10_calibration_handshake_integrity",
-  "branch_plan": "main",
-  "remote_plan": "origin",
-  "push_policy": "after_series_closeout",
   "auto_push": false,
-  "parent_tag": "bbws-sr9-complete",
-  "baseline_tag": "bbws-pre-sr10-cal-handshake",
-  "planned_tags": ["v2.0.0-rc5", "bbws-sr10-complete"],
-  "shipped_tags": ["v2.0.0-rc5", "bbws-sr10-complete"],
-  "status": "series_complete",
-  "updated_at": "2026-08-13T16:00:00Z"
+  "baseline_tag": "bbws-pre-sr11-stream-quiet",
+  "branch_plan": "main",
+  "parent_tag": "bbws-sr10-complete",
+  "planned_tags": [
+    "v2.0.0-rc6",
+    "bbws-sr11-complete"
+  ],
+  "push_policy": "after_series_closeout",
+  "remote_plan": "origin",
+  "series_id": "BBWS_SR11_live_stream_quiet_window",
+  "updated_at": "2026-08-13T16:08:12Z"
 }

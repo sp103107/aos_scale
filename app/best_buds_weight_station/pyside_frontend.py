@@ -133,7 +133,7 @@ class NewRunDialog(QDialog):
             "tare_g": 0.0,
             "maximum_capacity_g": 10000.0,
         }
-        result = self.runtime.dispatch("run.new", {
+        result = self.runtime.new_run({
             "definition": definition,
             "data_root": self.data_root.text().strip(),
             "simulator": False,
@@ -195,7 +195,7 @@ class ResumeRunDialog(QDialog):
         row = self.listing.currentRow()
         if row < 0 or row >= len(self.sessions):
             return
-        result = self.runtime.dispatch("run.load", {"selection": self.sessions[row]["manifest_path"]})
+        result = self.runtime.load_run(self.sessions[row]["manifest_path"])
         if result.get("status") == "completed":
             self.accept()
         else:
@@ -212,7 +212,7 @@ class ResumeRunDialog(QDialog):
         )
         if not path:
             return
-        result = self.runtime.dispatch("run.load", {"selection": path})
+        result = self.runtime.load_run(path)
         if result.get("status") == "completed":
             self.accept()
         else:
@@ -1204,7 +1204,7 @@ class MainWindow(QMainWindow):
                 "capture_mode": self.runtime.controller.settings.capture_mode,
                 "unit": "g", "container_id": "DEFAULT", "tare_g": 0.0, "maximum_capacity_g": 10000.0,
             }
-            self.runtime.dispatch("run.new", {"definition": definition, "data_root": self.runtime.controller.settings.data_root, "simulator": True})
+            self.runtime.new_run({"definition": definition, "data_root": self.runtime.controller.settings.data_root, "simulator": True})
         if not self.runtime.controller.device:
             self.runtime.connect_simulator(); self.runtime.simulator_set_weight(1250.0)
 
@@ -1421,11 +1421,11 @@ class MainWindow(QMainWindow):
         # picker; it falls through to New Run / Browse when nothing is listed.
         self.choose_run()
     def new_run(self) -> None: NewRunDialog(self.runtime, self).exec()
-    def resume_run(self) -> None: _show_result(self, self.runtime.dispatch("run.resume"))
+    def resume_run(self) -> None: _show_result(self, self.runtime.resume_run())
     def choose_run(self) -> None: ResumeRunDialog(self.runtime, self).exec()
     def load_run(self) -> None:
         path, _ = QFileDialog.getOpenFileName(self, "Load Existing Run", self.runtime.controller.settings.data_root, "Session manifest (session_manifest.json);;JSON files (*.json)")
-        if path: _show_result(self, self.runtime.dispatch("run.load", {"selection": path}))
+        if path: _show_result(self, self.runtime.load_run(path))
     def scale_setup(self) -> None: ScaleSetupDialog(self.runtime, self).exec()
     def zero_scale(self) -> None:
         try:

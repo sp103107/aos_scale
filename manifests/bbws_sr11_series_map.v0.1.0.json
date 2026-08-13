@@ -1,0 +1,214 @@
+{
+  "active_arc_ref": "ACTIVE_ARC.yaml",
+  "blueprint_ref": "arc_lifecycle/blueprints/series_bbws_sr11_live_stream_quiet_window.v0.1.0.json",
+  "cursor_map_ref": "cursor/BBWS_SR11_LIVE_STREAM_QUIET_WINDOW_SERIES_MAP.v0.1.0.md",
+  "generated_at": "2026-08-13T16:08:12Z",
+  "manifest_type": "series_map",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Quiet-window resume is operational integrity only \u2014 not certification"
+  ],
+  "resume_pack_ref": "context/resume_pack/BBWS_SR11_resume.v0.1.0.json",
+  "seasons": [
+    {
+      "episodes": [
+        "S01E01",
+        "S01E02",
+        "S01E03",
+        "S01E04",
+        "S01E05",
+        "S01E06",
+        "S01E07",
+        "S01E08",
+        "S01E09",
+        "S01E10"
+      ],
+      "milestone": "M01",
+      "season_id": "S01",
+      "slug": "scaffold_and_contract_freeze",
+      "superpower": "superpowers/sr11_s01_scaffold_and_contract_freeze.v0.1.0.json",
+      "title": "Scaffold + contract freeze"
+    },
+    {
+      "episodes": [
+        "S02E01",
+        "S02E02",
+        "S02E03",
+        "S02E04",
+        "S02E05",
+        "S02E06",
+        "S02E07",
+        "S02E08",
+        "S02E09",
+        "S02E10"
+      ],
+      "milestone": "M02",
+      "season_id": "S02",
+      "slug": "quiet_resume_load",
+      "superpower": "superpowers/sr11_s02_quiet_resume_load.v0.1.0.json",
+      "title": "Quiet window around resume/load"
+    },
+    {
+      "episodes": [
+        "S03E01",
+        "S03E02",
+        "S03E03",
+        "S03E04",
+        "S03E05",
+        "S03E06",
+        "S03E07",
+        "S03E08",
+        "S03E09",
+        "S03E10"
+      ],
+      "milestone": "M03",
+      "season_id": "S03",
+      "slug": "skip_redundant_set_cal",
+      "superpower": "superpowers/sr11_s03_skip_redundant_set_cal.v0.1.0.json",
+      "title": "Skip redundant SET_CAL"
+    },
+    {
+      "episodes": [
+        "S04E01",
+        "S04E02",
+        "S04E03",
+        "S04E04",
+        "S04E05",
+        "S04E06",
+        "S04E07",
+        "S04E08",
+        "S04E09",
+        "S04E10"
+      ],
+      "milestone": "M04",
+      "season_id": "S04",
+      "slug": "ensure_worker_for_cal",
+      "superpower": "superpowers/sr11_s04_ensure_worker_for_cal.v0.1.0.json",
+      "title": "Ensure worker before Guided Cal samples"
+    },
+    {
+      "episodes": [
+        "S05E01",
+        "S05E02",
+        "S05E03",
+        "S05E04",
+        "S05E05",
+        "S05E06",
+        "S05E07",
+        "S05E08",
+        "S05E09",
+        "S05E10"
+      ],
+      "milestone": "M05",
+      "season_id": "S05",
+      "slug": "restart_clear_error",
+      "superpower": "superpowers/sr11_s05_restart_clear_error.v0.1.0.json",
+      "title": "Restart worker + clear error"
+    },
+    {
+      "episodes": [
+        "S06E01",
+        "S06E02",
+        "S06E03",
+        "S06E04",
+        "S06E05",
+        "S06E06",
+        "S06E07",
+        "S06E08",
+        "S06E09",
+        "S06E10"
+      ],
+      "milestone": "M06",
+      "season_id": "S06",
+      "slug": "scripted_quiet_tests",
+      "superpower": "superpowers/sr11_s06_scripted_quiet_tests.v0.1.0.json",
+      "title": "Scripted quiet-window tests"
+    },
+    {
+      "episodes": [
+        "S07E01",
+        "S07E02",
+        "S07E03",
+        "S07E04",
+        "S07E05",
+        "S07E06",
+        "S07E07",
+        "S07E08",
+        "S07E09",
+        "S07E10"
+      ],
+      "milestone": "M07",
+      "season_id": "S07",
+      "slug": "physical_resume_cal_gate",
+      "superpower": "superpowers/sr11_s07_physical_resume_cal_gate.v0.1.0.json",
+      "title": "Physical resume + Guided Cal gate"
+    },
+    {
+      "episodes": [
+        "S08E01",
+        "S08E02",
+        "S08E03",
+        "S08E04",
+        "S08E05",
+        "S08E06",
+        "S08E07",
+        "S08E08",
+        "S08E09",
+        "S08E10"
+      ],
+      "milestone": "M08",
+      "season_id": "S08",
+      "slug": "docs_resume_recovery",
+      "superpower": "superpowers/sr11_s08_docs_resume_recovery.v0.1.0.json",
+      "title": "Docs + resume recovery"
+    },
+    {
+      "episodes": [
+        "S09E01",
+        "S09E02",
+        "S09E03",
+        "S09E04",
+        "S09E05",
+        "S09E06",
+        "S09E07",
+        "S09E08",
+        "S09E09",
+        "S09E10"
+      ],
+      "milestone": "M09",
+      "season_id": "S09",
+      "slug": "rc6_windows_packaging",
+      "superpower": "superpowers/sr11_s09_rc6_windows_packaging.v0.1.0.json",
+      "title": "Bump to 2.0.0-rc6 + Windows packaging"
+    },
+    {
+      "episodes": [
+        "S10E01",
+        "S10E02",
+        "S10E03",
+        "S10E04",
+        "S10E05",
+        "S10E06",
+        "S10E07",
+        "S10E08",
+        "S10E09",
+        "S10E10"
+      ],
+      "milestone": "M10",
+      "season_id": "S10",
+      "slug": "release_and_closeout",
+      "superpower": "superpowers/sr11_s10_release_and_closeout.v0.1.0.json",
+      "title": "SR11 series closeout + tags"
+    }
+  ],
+  "series_id": "BBWS_SR11_live_stream_quiet_window",
+  "version": "0.1.0"
+}

@@ -1,0 +1,318 @@
+{
+  "arc_id": "SR11_S09_rc6_windows_packaging",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S09E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "VERSION",
+        "app/best_buds_weight_station/version.py",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "reports/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S09E01",
+      "kind": "context",
+      "objective": "Intent freeze: 2.0.0-rc6 after physical pass",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: 2.0.0-rc6 after physical pass"
+    },
+    {
+      "acceptance": "S09E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "VERSION",
+        "app/best_buds_weight_station/version.py",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "reports/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S09E02",
+      "kind": "implement",
+      "objective": "Bump version surfaces",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bump version surfaces"
+    },
+    {
+      "acceptance": "S09E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "VERSION",
+        "app/best_buds_weight_station/version.py",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "reports/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S09E03",
+      "kind": "implement",
+      "objective": "Add drift script v200_rc6",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Add drift script v200_rc6"
+    },
+    {
+      "acceptance": "S09E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "VERSION",
+        "app/best_buds_weight_station/version.py",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "reports/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S09E04",
+      "kind": "implement",
+      "objective": "Build Setup + portable zip",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Build Setup + portable zip"
+    },
+    {
+      "acceptance": "S09E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "VERSION",
+        "app/best_buds_weight_station/version.py",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "reports/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S09E05",
+      "kind": "verify",
+      "objective": "rc5\u2192rc6 upgrade smoke",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "rc5\u2192rc6 upgrade smoke"
+    },
+    {
+      "acceptance": "S09E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "VERSION",
+        "app/best_buds_weight_station/version.py",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "reports/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S09E06",
+      "kind": "verify",
+      "objective": "Profile preservation check",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Profile preservation check"
+    },
+    {
+      "acceptance": "S09E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "VERSION",
+        "app/best_buds_weight_station/version.py",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "reports/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S09E07",
+      "kind": "implement",
+      "objective": "Regenerate file manifest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Regenerate file manifest"
+    },
+    {
+      "acceptance": "S09E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "VERSION",
+        "app/best_buds_weight_station/version.py",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "reports/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S09E08",
+      "kind": "implement",
+      "objective": "Leave archival rc5 receipts untouched",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Leave archival rc5 receipts untouched"
+    },
+    {
+      "acceptance": "S09E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "VERSION",
+        "app/best_buds_weight_station/version.py",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "reports/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S09E09",
+      "kind": "receipt",
+      "objective": "S09 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S09 receipt pack"
+    },
+    {
+      "acceptance": "S09E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "VERSION",
+        "app/best_buds_weight_station/version.py",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "reports/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc6 before S07 physical pass and S09",
+        "input-integrity bootstrap as this series"
+      ],
+      "id": "S09E10",
+      "kind": "closeout",
+      "objective": "M09 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M09 season closeout + push plan"
+    }
+  ],
+  "focus": "Version/drift/manifest; Setup/zip; rc5\u2192rc6 upgrade smoke \u2014 only after S07 pass",
+  "milestone": "M09",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Quiet-window resume is operational integrity only \u2014 not certification"
+  ],
+  "primary_surfaces": [
+    "VERSION",
+    "app/best_buds_weight_station/version.py",
+    "pyproject.toml",
+    "packaging/windows/",
+    "scripts/",
+    "reports/",
+    "manifests/"
+  ],
+  "product_version_target": "2.0.0-rc6",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr11.rc6_windows_packaging.v1",
+  "series_id": "BBWS_SR11_live_stream_quiet_window",
+  "title": "Bump to 2.0.0-rc6 + Windows packaging",
+  "version": "0.1.0"
+}
