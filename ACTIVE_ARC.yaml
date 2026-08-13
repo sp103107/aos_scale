@@ -1,10 +1,10 @@
 # BBWS SR11 live pointer — product owns truth (salvage cited, not mutated)
 series_id: BBWS_SR11_live_stream_quiet_window
 series_version: 0.1.0
-season_id: S01
-season_slug: scaffold_and_contract_freeze
-episode_id: S01E01
-milestone: M01
+season_id: S07
+season_slug: physical_resume_cal_gate
+episode_id: S07E01
+milestone: M07
 status: active
 parent_series_id: BBWS_SR10_calibration_handshake_integrity
 parent_tag: bbws-sr10-complete
@@ -12,7 +12,7 @@ baseline_tag: bbws-pre-sr11-stream-quiet
 product_version_target: 2.0.0-rc6
 product_version_during_impl: 2.0.0-rc5
 doctrine_source: C:/aos_arc_launcher_v0_4_21
-updated_at: 2026-08-13T16:08:12Z
+updated_at: 2026-08-13T16:22:32Z
 runtime_claimed: false
 capture_law: scan_settle_lock_confirm_reset
-next_action: Execute S01 scaffold + quiet-window contract freeze
+next_action: Physical COM5 gate — Connect→Resume→live grams→Guided Cal empty samples before rc6
