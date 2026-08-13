@@ -1,6 +1,6 @@
 # Windows Device Bring-up Notes (USB Serial)
 
-**product_version_target:** `2.0.0-rc4` (BBWS SR7 S03)  
+**product_version_target:** `2.0.0-rc5` (BBWS SR10)  
 **scope:** operator PC bring-up hygiene only — not legal-for-trade / Metrc.
 
 ## How the app finds the scale
@@ -37,6 +37,17 @@ the vendor driver only if no COM port appears after plugging in.
 - First run seeds the data folder to the platform runs directory — never
   relative to the exe or working directory.
 - Session JSONL remains the authoritative record; exports are handoffs.
+
+## Scale firmware flash (SR10)
+
+Current flash target: **`0.1.5`** (`firmware/elegoo_uno_r3_hx711/best_buds_scale_firmware.ino`).
+
+1. Close Best Buds Weight Station and Arduino Serial Monitor (COM port is exclusive).
+2. Upload the sketch to the Elegoo/Arduino UNO at **115200**.
+3. Reconnect in Scale Setup; STATUS must report firmware `0.1.5`.
+4. Flashing resets RAM calibration to `1.0` — Connect re-applies the active profile via `SET_CAL`, then press **ZERO**.
+
+If Guided Calibration **Accept** fails with a leftover-reply / handshake message: Disconnect → Connect → re-run Test → Accept again. Host now matches ACKs by command and skips interleaved weight lines.
 
 ## Scale identity + profile bring-up (SR9)
 

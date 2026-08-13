@@ -1,9 +1,8 @@
 {
-  "season_id": "S10",
-  "slug": "series_closeout",
-  "milestone": "M10",
-  "status": "complete",
-  "commit_plan": "Commit SR9 implementation + rc4 closeout",
-  "push_plan": "git push origin main --tags",
-  "updated_at": "2026-08-13T02:09:11Z"
+  "commit_plan": "Commit S01 scaffold after flash receipt",
+  "milestone": "M01",
+  "push_plan": "git push origin HEAD --tags after series closeout",
+  "season_id": "S01",
+  "slug": "scaffold_and_flash_014",
+  "updated_at": "2026-08-13T15:22:16Z"
 }

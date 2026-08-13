@@ -296,6 +296,55 @@ class DeviceService:
                 return message
         raise DeviceProtocolError(f"expected one of {sorted(kinds)}; got {last}")
 
+    def _read_ack(
+        self,
+        command: str,
+        *,
+        aliases: set[str] | None = None,
+        attempts: int | None = None,
+    ) -> dict[str, Any]:
+        """Read until an ACK whose first field matches ``command`` (or an alias).
+
+        Skips weight ``W`` lines and unmatched ``A`` replies (for example a leftover
+        ``A,STREAM_OFF,OK`` while waiting for ``A,SET_CAL,OK``). Returns ``E`` lines
+        immediately so callers can surface firmware rejection codes.
+        """
+        wanted = {str(command)}
+        if aliases:
+            wanted |= {str(a) for a in aliases}
+        remaining = self.handshake_attempts if attempts is None else attempts
+        remaining = max(remaining, 24)
+        last: dict[str, Any] | None = None
+        for _ in range(remaining):
+            try:
+                message = self._read()
+            except TimeoutError as exc:
+                raise DeviceProtocolError(
+                    f"matched ACK for {command} timed out after interleaving replies; last={last}"
+                ) from exc
+            last = message
+            kind = message.get("kind")
+            if kind == "W":
+                continue
+            if kind == "E":
+                return message
+            if kind != "A":
+                continue
+            fields = message.get("fields") or []
+            if not fields:
+                continue
+            token = str(fields[0])
+            if token in wanted:
+                return message
+            # Legacy sole-field OK (historical A,OK with no command token).
+            if token == "OK" and len(fields) == 1:
+                return message
+            # Unmatched ACK — keep waiting for the command we issued.
+            continue
+        raise DeviceProtocolError(
+            f"matched ACK for {command} timed out after interleaving replies; last={last}"
+        )
+
     def ping(self) -> dict[str, Any]:
         self._send("PING")
         message = self._read_expected(kinds={"A"})
@@ -340,15 +389,26 @@ class DeviceService:
     def start_stream(self) -> dict[str, Any]:
         self._flush_input()
         self._send("STREAM_ON")
-        response = self._read_expected(kinds={"A"}, attempts=max(self.handshake_attempts, 16))
+        response = self._read_ack("STREAM_ON", attempts=max(self.handshake_attempts, 16))
+        if response.get("kind") == "E":
+            fields = response.get("fields") or []
+            code = fields[0] if fields else "DEVICE_ERROR"
+            raise DeviceProtocolError(f"stream on rejected: {code}")
         self.status.streaming = True
         return response
 
     def stop_stream(self) -> dict[str, Any]:
         self._send("STREAM_OFF")
-        # While streaming, unread W lines may precede the ACK.
-        response = self._read_expected(kinds={"A"}, attempts=max(self.handshake_attempts, 24))
+        # While streaming, unread W lines and late ACKs may precede the STREAM_OFF ACK.
+        response = self._read_ack("STREAM_OFF", attempts=max(self.handshake_attempts, 32))
+        if response.get("kind") == "E":
+            fields = response.get("fields") or []
+            code = fields[0] if fields else "DEVICE_ERROR"
+            raise DeviceProtocolError(f"stream off rejected: {code}")
         self.status.streaming = False
+        self._flush_input()
+        # Extra quiet drain so a late W cannot steal the next command's ACK slot.
+        self.sleep(0.25)
         self._flush_input()
         return response
 
@@ -417,18 +477,18 @@ class DeviceService:
             except Exception:
                 self.status.streaming = False
         self._flush_input()
-        self.sleep(0.1)
+        self.sleep(0.25)
         self._send(f"SET_CAL,{float(factor):.8f}")
-        message = self._read_expected(kinds={"A", "E"}, attempts=max(self.handshake_attempts, 16))
+        # Firmware: A,SET_CAL,OK — simulator legacy: A,CAL_SET. Skip leftover STREAM_OFF ACKs.
+        message = self._read_ack(
+            "SET_CAL",
+            aliases={"CAL_SET", "CAL"},
+            attempts=max(self.handshake_attempts, 32),
+        )
         if message.get("kind") == "E":
             fields = message.get("fields") or []
             code = fields[0] if fields else "DEVICE_ERROR"
             raise DeviceProtocolError(f"calibration rejected: {code}")
-        fields = message.get("fields") or []
-        # Firmware: A,SET_CAL,OK — simulator legacy: A,CAL_SET
-        token = str(fields[0]) if fields else ""
-        if token not in {"SET_CAL", "CAL_SET", "OK", "CAL"}:
-            raise DeviceProtocolError("calibration factor was not acknowledged")
         return message
 
     @staticmethod
@@ -450,17 +510,13 @@ class DeviceService:
             except Exception:
                 self.status.streaming = False
         self._flush_input()
-        self.sleep(0.1)
+        self.sleep(0.25)
         self._send(f"SET_DEVICE_ID,{device_id}")
-        message = self._read_expected(kinds={"A", "E"}, attempts=max(self.handshake_attempts, 16))
+        message = self._read_ack("SET_DEVICE_ID", attempts=max(self.handshake_attempts, 32))
         if message.get("kind") == "E":
             fields = message.get("fields") or []
             code = fields[0] if fields else "DEVICE_ERROR"
             raise DeviceProtocolError(f"device id rejected: {code}")
-        fields = message.get("fields") or []
-        token = str(fields[0]) if fields else ""
-        if token not in {"SET_DEVICE_ID", "OK"}:
-            raise DeviceProtocolError("device id was not acknowledged")
         status = self.read_status()
         reported = str(status.get("device_id") or "")
         if reported != device_id:

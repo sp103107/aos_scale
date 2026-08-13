@@ -1,0 +1,18 @@
+{
+  "baud": 115200,
+  "calibration_factor": "1.000000",
+  "created_at": "2026-08-13T15:23:53Z",
+  "device_id": "BBWS-USB-001",
+  "expected_firmware": "0.1.4",
+  "firmware_version": "0.1.4",
+  "flashed_sketch": "firmware/elegoo_uno_r3_hx711/best_buds_scale_firmware.ino",
+  "note": "RAM calibration resets to 1.0 after flash; reconnect must re-apply profile SET_CAL",
+  "port": "COM5",
+  "receipt_id": "sr10_s01_firmware_flash_014",
+  "runtime_claimed": false,
+  "season_id": "S01",
+  "series_id": "BBWS_SR10_calibration_handshake_integrity",
+  "status": "accepted",
+  "status_line": "S,0.1.4,BBWS-USB-001,1.000000,g",
+  "unit": "g"
+}

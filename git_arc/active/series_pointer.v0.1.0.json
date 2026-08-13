@@ -1,19 +1,13 @@
 {
-  "series_id": "BBWS_SR9_scale_profile_stability_governance",
+  "series_id": "BBWS_SR10_calibration_handshake_integrity",
   "branch_plan": "main",
   "remote_plan": "origin",
   "push_policy": "after_series_closeout",
   "auto_push": false,
-  "parent_tag": "bbws-sr8-complete",
-  "baseline_tag": "bbws-pre-sr9-scale-profile",
-  "planned_tags": [
-    "v2.0.0-rc4",
-    "bbws-sr9-complete"
-  ],
-  "completed_tags": [
-    "v2.0.0-rc4",
-    "bbws-sr9-complete"
-  ],
+  "parent_tag": "bbws-sr9-complete",
+  "baseline_tag": "bbws-pre-sr10-cal-handshake",
+  "planned_tags": ["v2.0.0-rc5", "bbws-sr10-complete"],
+  "shipped_tags": ["v2.0.0-rc5", "bbws-sr10-complete"],
   "status": "series_complete",
-  "updated_at": "2026-08-13T02:09:11Z"
+  "updated_at": "2026-08-13T16:00:00Z"
 }

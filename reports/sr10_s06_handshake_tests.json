@@ -1,0 +1,10 @@
+{
+  "receipt_id": "sr10_s06_handshake_tests",
+  "series_id": "BBWS_SR10_calibration_handshake_integrity",
+  "season_id": "S06",
+  "status": "accepted",
+  "pytest": "tests/test_sr10_calibration_handshake.py tests/test_device_service.py",
+  "result": "passed",
+  "runtime_claimed": false,
+  "created_at": "2026-08-13T15:30:00Z"
+}

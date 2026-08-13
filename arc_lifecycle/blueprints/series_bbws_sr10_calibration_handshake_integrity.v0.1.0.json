@@ -1,0 +1,108 @@
+{
+  "baseline_tag": "bbws-pre-sr10-cal-handshake",
+  "blueprint_id": "BBWS_SR10_calibration_handshake_integrity",
+  "blueprint_type": "series",
+  "github_push_cadence": "after_series_closeout",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Matched-ACK handshake is operational integrity only \u2014 not certification"
+  ],
+  "parent_arc_id": "bbws-sr9-complete",
+  "parent_series_id": "BBWS_SR9_scale_profile_stability_governance",
+  "product_version_target": "2.0.0-rc5",
+  "runtime_claimed": false,
+  "seasons": [
+    {
+      "episode_count": 10,
+      "focus": "Freeze SR10 contract; baseline tag; flash 0.1.4; STATUS receipt",
+      "milestone": "M01",
+      "season_id": "S01_scaffold_and_flash_014",
+      "superpower_ref": "superpowers/sr10_s01_scaffold_and_flash_014.v0.1.0.json",
+      "title": "Scaffold + flash firmware 0.1.4"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Wait for A,SET_CAL / A,SET_DEVICE_ID / A,STREAM_OFF; skip W and unmatched A",
+      "milestone": "M02",
+      "season_id": "S02_matched_ack_reader",
+      "superpower_ref": "superpowers/sr10_s02_matched_ack_reader.v0.1.0.json",
+      "title": "Host matched-ACK reader"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Worker stays stopped through SET_CAL + STATUS verify; longer STREAM_OFF drain",
+      "milestone": "M03",
+      "season_id": "S03_quiet_accept_window",
+      "superpower_ref": "superpowers/sr10_s03_quiet_accept_window.v0.1.0.json",
+      "title": "Quiet Accept command window"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Split leftover ACK vs raw HX711 dump vs BAD_CAL \u2014 stop calling all streaming",
+      "milestone": "M04",
+      "season_id": "S04_alice_error_split",
+      "superpower_ref": "superpowers/sr10_s04_alice_error_split.v0.1.0.json",
+      "title": "Alice error message split"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Abort waitHx711Ready when Serial.available; bump protocol to 0.1.5",
+      "milestone": "M05",
+      "season_id": "S05_firmware_015_stream_interrupt",
+      "superpower_ref": "superpowers/sr10_s05_firmware_015_stream_interrupt.v0.1.0.json",
+      "title": "Firmware 0.1.5 stream interrupt"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Interleaved W + STREAM_OFF ACK then SET_CAL ACK must succeed",
+      "milestone": "M06",
+      "season_id": "S06_scripted_handshake_tests",
+      "superpower_ref": "superpowers/sr10_s06_scripted_handshake_tests.v0.1.0.json",
+      "title": "Scripted handshake regression tests"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Flash 0.1.5; Connect/profile apply; Guided Cal Accept; 100 g Confirm",
+      "milestone": "M07",
+      "season_id": "S07_physical_accept_characterize",
+      "superpower_ref": "superpowers/sr10_s07_physical_accept_characterize.v0.1.0.json",
+      "title": "Physical Accept + characterize"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Bring-up flash steps, SERIAL_PROTOCOL 0.1.5, Accept recovery copy",
+      "milestone": "M08",
+      "season_id": "S08_docs_and_operator_recovery",
+      "superpower_ref": "superpowers/sr10_s08_docs_and_operator_recovery.v0.1.0.json",
+      "title": "Docs + operator Accept recovery"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Version/drift/manifest; Setup/zip; rc4\u2192rc5 upgrade smoke",
+      "milestone": "M09",
+      "season_id": "S09_rc5_windows_packaging",
+      "superpower_ref": "superpowers/sr10_s09_rc5_windows_packaging.v0.1.0.json",
+      "title": "Bump to 2.0.0-rc5 + Windows packaging"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Docs/release, tag v2.0.0-rc5 + bbws-sr10-complete, push",
+      "milestone": "M10",
+      "season_id": "S10_release_and_closeout",
+      "superpower_ref": "superpowers/sr10_s10_release_and_closeout.v0.1.0.json",
+      "title": "SR10 series closeout + tags"
+    }
+  ],
+  "series_goal": "Fix Guided Calibration Accept failures caused by interleaved stream ACKs, align firmware to 0.1.4/0.1.5, split Alice error copy, and close with 2.0.0-rc5.",
+  "shape": "10 seasons \u00d7 10 episodes = 100",
+  "total_episodes": 100,
+  "version": "0.1.0"
+}

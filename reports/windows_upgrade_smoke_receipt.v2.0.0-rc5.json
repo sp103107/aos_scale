@@ -1,0 +1,55 @@
+﻿{
+    "receipt":  "windows_upgrade_smoke",
+    "from_version":  "2.0.0-rc4",
+    "to_version":  "2.0.0-rc5",
+    "platform":  "windows-x64",
+    "status":  "pass",
+    "steps":  [
+                  {
+                      "evidence":  "2.0.0-rc4",
+                      "step":  "silent_install_rc4_baseline",
+                      "result":  "pass",
+                      "installer_exit":  0,
+                      "artifact":  "dist\\windows\\BestBudsWeightStation-Setup-v2.0.0-rc4.exe"
+                  },
+                  {
+                      "step":  "write_data_marker",
+                      "result":  "pass",
+                      "path":  "%LOCALAPPDATA%/BestBudsWeightStation/config/upgrade_smoke_marker.txt"
+                  },
+                  {
+                      "evidence":  "same AppId overwrite under %LOCALAPPDATA%/BestBudsWeightStation/app",
+                      "step":  "silent_upgrade_install_rc5",
+                      "result":  "pass",
+                      "installer_exit":  0,
+                      "artifact":  "dist\\windows\\BestBudsWeightStation-Setup-v2.0.0-rc5.exe"
+                  },
+                  {
+                      "evidence":  "2.0.0-rc5",
+                      "step":  "version_after_upgrade",
+                      "result":  "pass",
+                      "command":  "BestBudsWeightStation.exe --version"
+                  },
+                  {
+                      "evidence":  "exit 0",
+                      "step":  "simulator_self_test",
+                      "result":  "pass",
+                      "command":  "BestBudsWeightStation.exe --self-test --simulator"
+                  },
+                  {
+                      "evidence":  "upgrade_smoke_marker.txt still present with pre-rc5-upgrade content",
+                      "step":  "data_preserved",
+                      "result":  "pass"
+                  },
+                  {
+                      "evidence":  "before=scale-profile-4e86cccb-42a9-4367-80bc-32aec6da894f.json,scale-profile-94373773-5b02-4e00-9ac6-ecca8c410a1a.json after=scale-profile-4e86cccb-42a9-4367-80bc-32aec6da894f.json,scale-profile-94373773-5b02-4e00-9ac6-ecca8c410a1a.json",
+                      "step":  "scale_profiles_preserved",
+                      "result":  "pass"
+                  }
+              ],
+    "non_claims":  [
+                       "Not Authenticode-signed.",
+                       "No in-app auto-update channel; upgrade is re-run of newer Setup.exe.",
+                       "GUI Guided Cal Accept / 100 g Confirm not clicked in this headless smoke (physical SET_CAL handshake verified separately)."
+                   ]
+}

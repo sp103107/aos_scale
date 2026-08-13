@@ -14,7 +14,7 @@ uint8_t commandLength = 0;
 bool streaming = false;
 bool scaleReady = false;
 float calibrationFactor = 1.0f;
-const char* firmwareVersion = "0.1.4";
+const char* firmwareVersion = "0.1.5";
 char deviceId[DEVICE_ID_MAX_LEN + 1];
 const unsigned long streamIntervalMs = 150;
 unsigned long lastStreamMs = 0;
@@ -82,6 +82,8 @@ void statusLine(){ Serial.print("S,");Serial.print(firmwareVersion);Serial.print
 bool waitHx711Ready(unsigned long timeoutMs){
   unsigned long start=millis();
   while((millis()-start)<timeoutMs){
+    // Abort wait so STREAM_OFF / SET_CAL can be processed instead of blocking on DOUT.
+    if(Serial.available()>0){return false;}
     if(scale.is_ready()){return true;}
     delay(2);
   }

@@ -1,0 +1,30 @@
+{
+  "applied_calibration_factor": 154.396667,
+  "baud": 115200,
+  "checks": {
+    "characterize_100g_confirm": "operator_followup_required",
+    "firmware_015": true,
+    "guided_cal_ui_accept": "operator_followup_required",
+    "profile_set_cal_after_stream": true,
+    "status_factor_matches_profile": true,
+    "stop_stream_matched_ack": true
+  },
+  "created_at": "2026-08-13T15:27:31Z",
+  "device_id": "BBWS-USB-001",
+  "firmware_version": "0.1.5",
+  "note": "Host matched-ACK SET_CAL verified on physical COM5 after flash 0.1.5. Guided Cal UI Accept + 100g Confirm still need operator with reference mass.",
+  "physical_device_pass": false,
+  "port": "COM5",
+  "receipt_id": "sr10_s07_physical_handshake",
+  "runtime_claimed": false,
+  "season_id": "S07",
+  "series_id": "BBWS_SR10_calibration_handshake_integrity",
+  "status": "accepted",
+  "status_after_apply": {
+    "calibration_factor": 154.396667,
+    "device_id": "BBWS-USB-001",
+    "firmware_version": "0.1.5",
+    "kind": "S",
+    "unit": "g"
+  }
+}

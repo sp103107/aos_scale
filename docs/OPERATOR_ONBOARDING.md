@@ -2,7 +2,7 @@
 
 **runtime_claimed:** false  
 **audience:** harvest-station operator  
-**product_version:** `2.0.0-rc4`  
+**product_version:** `2.0.0-rc5`  
 **template cite:** KS structured onboarding (salvage cite-only)
 
 ## Flow map
@@ -61,6 +61,8 @@ Simulator without hardware: `launch_simulator.bat`.
 > **Next action:** Scale → Guided Calibration with a **verified** reference mass. Then empty pan → **ZERO**.
 
 > **Next action (SR9):** After Accept, when prompted (or via Scale Setup → **Run 100 g Stability Test**), hang/place a verified **100 g** mass, review the recommendation, then **Confirm** to activate the hanging-load profile. Reconnect later loads that active profile automatically (`SET_CAL` + stability gates).
+
+> **Accept recovery (SR10):** If Accept reports a leftover reply / handshake timeout, Disconnect → Connect, re-run Test, then Accept. Firmware should be **0.1.5** (Scale Setup STATUS). Close Serial Monitor before retrying.
 
 > **Common confusion:** Large wild numbers before calibration are normal. Do not treat them as trade weight.
 

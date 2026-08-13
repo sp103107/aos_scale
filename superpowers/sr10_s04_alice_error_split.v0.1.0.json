@@ -1,0 +1,263 @@
+{
+  "arc_id": "SR10_S04_alice_error_split",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S04E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/alice/authority.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc5 before S09",
+        "input-integrity bootstrap as SR8/SR10"
+      ],
+      "id": "S04E01",
+      "kind": "context",
+      "objective": "Intent freeze: Alice copy split",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: Alice copy split"
+    },
+    {
+      "acceptance": "S04E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/alice/authority.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc5 before S09",
+        "input-integrity bootstrap as SR8/SR10"
+      ],
+      "id": "S04E02",
+      "kind": "implement",
+      "objective": "Leftover ACK / unmatched command message",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Leftover ACK / unmatched command message"
+    },
+    {
+      "acceptance": "S04E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/alice/authority.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc5 before S09",
+        "input-integrity bootstrap as SR8/SR10"
+      ],
+      "id": "S04E03",
+      "kind": "implement",
+      "objective": "Keep raw HX711 dump message",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Keep raw HX711 dump message"
+    },
+    {
+      "acceptance": "S04E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/alice/authority.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc5 before S09",
+        "input-integrity bootstrap as SR8/SR10"
+      ],
+      "id": "S04E04",
+      "kind": "implement",
+      "objective": "BAD_CAL / calibration rejected message",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "BAD_CAL / calibration rejected message"
+    },
+    {
+      "acceptance": "S04E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/alice/authority.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc5 before S09",
+        "input-integrity bootstrap as SR8/SR10"
+      ],
+      "id": "S04E05",
+      "kind": "implement",
+      "objective": "Drop blanket set_cal \u2192 streaming rewrite",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Drop blanket set_cal \u2192 streaming rewrite"
+    },
+    {
+      "acceptance": "S04E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/alice/authority.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc5 before S09",
+        "input-integrity bootstrap as SR8/SR10"
+      ],
+      "id": "S04E06",
+      "kind": "implement",
+      "objective": "Preserve serial/permission messages",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Preserve serial/permission messages"
+    },
+    {
+      "acceptance": "S04E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/alice/authority.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc5 before S09",
+        "input-integrity bootstrap as SR8/SR10"
+      ],
+      "id": "S04E07",
+      "kind": "implement",
+      "objective": "Add authority unit coverage",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Add authority unit coverage"
+    },
+    {
+      "acceptance": "S04E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/alice/authority.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc5 before S09",
+        "input-integrity bootstrap as SR8/SR10"
+      ],
+      "id": "S04E08",
+      "kind": "verify",
+      "objective": "Verify Alice mapping cases",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify Alice mapping cases"
+    },
+    {
+      "acceptance": "S04E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/alice/authority.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc5 before S09",
+        "input-integrity bootstrap as SR8/SR10"
+      ],
+      "id": "S04E09",
+      "kind": "receipt",
+      "objective": "S04 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S04 receipt pack"
+    },
+    {
+      "acceptance": "S04E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/alice/authority.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc5 before S09",
+        "input-integrity bootstrap as SR8/SR10"
+      ],
+      "id": "S04E10",
+      "kind": "closeout",
+      "objective": "M04 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M04 season closeout + push plan"
+    }
+  ],
+  "focus": "Split leftover ACK vs raw HX711 dump vs BAD_CAL \u2014 stop calling all streaming",
+  "milestone": "M04",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Matched-ACK handshake is operational integrity only \u2014 not certification"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/alice/authority.py",
+    "tests/"
+  ],
+  "product_version_target": "2.0.0-rc5",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr10.alice_error_split.v1",
+  "series_id": "BBWS_SR10_calibration_handshake_integrity",
+  "title": "Alice error message split",
+  "version": "0.1.0"
+}

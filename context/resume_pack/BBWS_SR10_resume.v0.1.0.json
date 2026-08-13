@@ -1,0 +1,40 @@
+{
+  "pack_id": "BBWS_SR10_resume",
+  "version": "0.1.0",
+  "series_id": "BBWS_SR10_calibration_handshake_integrity",
+  "updated_at": "2026-08-13T16:00:00Z",
+  "active": {
+    "season_id": "S10",
+    "episode_id": "S10E10",
+    "milestone": "M10",
+    "status": "series_complete"
+  },
+  "parent_series": "BBWS_SR9_scale_profile_stability_governance",
+  "parent_tag": "bbws-sr9-complete",
+  "baseline_tag": "bbws-pre-sr10-cal-handshake",
+  "product_version_target": "2.0.0-rc5",
+  "product_version_shipped": "2.0.0-rc5",
+  "completed_seasons": ["S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10"],
+  "decision_locks": {
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "product_version_target": "2.0.0-rc5",
+    "matched_ack": "SET_CAL_SET_DEVICE_ID_STREAM_OFF",
+    "firmware_target": "0.1.5",
+    "push_cadence": "series_closeout",
+    "input_integrity": "deferred_to_later_series"
+  },
+  "shipped_tags": ["v2.0.0-rc5", "bbws-sr10-complete"],
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan → settle → lock → confirm → reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Matched-ACK handshake is operational integrity only — not certification"
+  ],
+  "continuation_handoff": "kickoff_prompts/BBWS_SR10_HUMAN_CHAT_KICKOFF.md"
+}

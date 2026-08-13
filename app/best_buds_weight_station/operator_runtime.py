@@ -431,7 +431,8 @@ class OperatorRuntime:
         was_running = self.worker.running
         if was_running:
             self.worker.stop(stop_stream=True)
-            time.sleep(0.2)
+            # Longer quiet window than the worker's STREAM_OFF settle so leftover ACKs drain.
+            time.sleep(0.35)
         result: dict[str, Any] = {"status": "failed", "message": "scale.calibration.accept did not run"}
         try:
             result = self.dispatch("scale.calibration.accept", {
@@ -442,6 +443,7 @@ class OperatorRuntime:
                 self.buffer.clear()
                 self.last_worker_error = None
         finally:
+            # Restart streaming only after Accept (SET_CAL + STATUS verify) fully completes.
             if self.controller.device and self.controller.device.status.connected:
                 try:
                     self.worker.start()
@@ -459,7 +461,7 @@ class OperatorRuntime:
         was_running = self.worker.running
         if was_running:
             self.worker.stop(stop_stream=True)
-            time.sleep(0.2)
+            time.sleep(0.35)
         result: dict[str, Any] = {"status": "failed", "message": "scale.device_id.set did not run"}
         try:
             result = self.dispatch("scale.device_id.set", {"device_id": device_id})

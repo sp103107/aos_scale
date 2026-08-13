@@ -114,14 +114,30 @@ def operator_safe_error(error: Any) -> str:
             "In Arduino IDE, upload firmware/elegoo_uno_r3_hx711/best_buds_scale_firmware.ino, "
             "close Serial Monitor, then reconnect at 115200."
         )
-    if "malformed serial" in text or "set_cal" in text or "calibration factor was not acknowledged" in text:
+    # Leftover ACK / matched-ACK timeout (STREAM_OFF stealing SET_CAL slot) — SR10.
+    if (
+        "matched ack" in text
+        or "timed out after interleaving" in text
+        or "interleaving replies" in text
+    ):
         return (
-            "The scale was still streaming while saving calibration, so the reply got mixed up. "
-            "Try Accept again (the app now pauses live readings first). "
-            "If it keeps failing, Disconnect → Connect, re-run Test, then Accept."
+            "The scale sent a leftover reply while saving calibration, so the handshake timed out. "
+            "Try Accept again. If it keeps failing, Disconnect → Connect, re-run Test, then Accept."
         )
-    if "calibration rejected" in text:
+    if "calibration rejected" in text or "bad_cal" in text:
         return "The scale rejected the calibration factor. Re-run Guided Calibration from Start, then Accept again."
+    # Generic malformed serial (not raw HX711 dump) — still often stream interleave.
+    if "malformed serial" in text:
+        return (
+            "The scale reply could not be parsed while saving calibration. "
+            "Try Accept again. If it keeps failing, Disconnect → Connect, re-run Test, then Accept."
+        )
+    # Legacy wording still raised by older hosts — keep operator guidance.
+    if "calibration factor was not acknowledged" in text:
+        return (
+            "The scale did not confirm the calibration factor. "
+            "Try Accept again. If it keeps failing, Disconnect → Connect, re-run Test, then Accept."
+        )
     if "serial" in text or "disconnect" in text or "permission" in text or "access is denied" in text:
         return "The scale connection is unavailable. Close Serial Monitor, reconnect the USB cable, and try again."
     if "jsonl" in text or "append" in text or "storage" in text:
