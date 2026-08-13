@@ -10,12 +10,21 @@
 | Active arc | `ACTIVE_ARC.yaml` |
 | Series map | `cursor/BBWS_SR9_SCALE_PROFILE_STABILITY_GOVERNANCE_SERIES_MAP.v0.1.0.md` |
 | Resume pack | `context/resume_pack/BBWS_SR9_resume.v0.1.0.json` |
-| Scale profiles | `app/best_buds_weight_station/scale_profiles.py` |
+| Scale profiles module | `app/best_buds_weight_station/scale_profiles.py` |
+| Profile store (runtime) | `{config_dir}/scale_profiles/*.json` (atomic per-profile JSON) |
+| Characterization receipts | `{session_or_maintenance}/maintenance_receipts/characterization-*.json` |
 | Stability detector | `app/best_buds_weight_station/stability.py` |
 | Firmware identity | `firmware/elegoo_uno_r3_hx711/best_buds_scale_firmware.ino` |
 | Contract freeze | `reports/sr9_s01_contract_freeze.v0.1.0.json` |
-| Profile tests | `tests/test_sr9_scale_profiles.py` |
+| Profile store tests | `tests/test_sr9_scale_profiles.py` |
+| Controller profile tests | `tests/test_sr9_controller_profiles.py` |
 | Stability regression | `tests/test_sr9_stability_regression.py` |
+
+## Profile path notes
+
+- Host config directory comes from `SettingsStore` / platform paths (installed PCs use `%LOCALAPPDATA%\BestBudsWeightStation\...`).
+- Active profile is selected per `device_id`; reconnect applies `SET_CAL` and installs hanging-load stability into `CaptureMachine`.
+- Archived profiles remain on disk as local evidence — they are not deleted.
 
 ## Non-claims
 

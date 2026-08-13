@@ -38,7 +38,19 @@ the vendor driver only if no COM port appears after plugging in.
   relative to the exe or working directory.
 - Session JSONL remains the authoritative record; exports are handoffs.
 
+## Scale identity + profile bring-up (SR9)
+
+1. Connect the scale in Scale Setup.
+2. **Assign Device ID…** using `BBWS-SCALE-NNN` (or another `BBWS-…` board id). Device IDs must be unique on the floor.
+3. Run Guided Calibration with a verified reference mass, then **ZERO**.
+4. Run the **100 g Stability Test** (post-cal prompt or Scale Setup button). Review the recommendation, then **Confirm** to activate the profile.
+5. On later reconnect, the station loads the active profile for that `device_id` (applies calibration factor and hanging-load stability).
+
+Profiles live under `{config_dir}/scale_profiles/*.json`. They are local operational evidence only — not Metrc / legal-for-trade certification. Capture law is unchanged: scan → settle → lock → confirm → reset.
+
 ## Non-claims
 
 - Not legal-for-trade / Metrc compliance; not a production weighing seal.
 - Displayed grams require Guided Calibration with a verified reference mass.
+- 100 g characterization is repeatability evidence, not certification.
+- Scale profiles/receipts are local operational evidence; session JSONL remains authoritative.

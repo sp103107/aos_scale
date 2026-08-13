@@ -56,9 +56,15 @@ Simulator without hardware: `launch_simulator.bat`.
 
 > **Next action:** Scale → Scale Setup → pick COM port @ 115200 → Connect.
 
+> **Next action:** In Scale Setup, **Assign Device ID…** (example `BBWS-SCALE-001`). Unique IDs keep calibration + stability profiles bound to the right board.
+
 > **Next action:** Scale → Guided Calibration with a **verified** reference mass. Then empty pan → **ZERO**.
 
+> **Next action (SR9):** After Accept, when prompted (or via Scale Setup → **Run 100 g Stability Test**), hang/place a verified **100 g** mass, review the recommendation, then **Confirm** to activate the hanging-load profile. Reconnect later loads that active profile automatically (`SET_CAL` + stability gates).
+
 > **Common confusion:** Large wild numbers before calibration are normal. Do not treat them as trade weight.
+
+> **Non-claim:** 100 g characterization is repeatability evidence only — not legal-for-trade certification. Profiles are local operational evidence; JSONL remains authoritative for plant weights.
 
 ---
 

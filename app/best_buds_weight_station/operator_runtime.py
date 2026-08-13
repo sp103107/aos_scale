@@ -452,6 +452,88 @@ class OperatorRuntime:
     def cancel_calibration(self) -> dict[str, Any]:
         return self.dispatch("scale.calibration.cancel")
 
+    def list_scale_profiles(self, *, include_archived: bool = False) -> dict[str, Any]:
+        return self.dispatch("scale.profile.list", {"include_archived": include_archived})
+
+    def set_device_id(self, device_id: str) -> dict[str, Any]:
+        was_running = self.worker.running
+        if was_running:
+            self.worker.stop(stop_stream=True)
+            time.sleep(0.2)
+        result: dict[str, Any] = {"status": "failed", "message": "scale.device_id.set did not run"}
+        try:
+            result = self.dispatch("scale.device_id.set", {"device_id": device_id})
+        finally:
+            if self.controller.device and self.controller.device.status.connected:
+                try:
+                    self.worker.start()
+                except Exception as exc:
+                    self.last_worker_error = f"{type(exc).__name__}: {exc}"
+        return result
+
+    def collect_weight_samples(
+        self,
+        sample_count: int = 120,
+        *,
+        clear_first: bool = True,
+        settle_s: float = 0.5,
+        timeout_s: float = 30.0,
+    ) -> list[float]:
+        """Collect live weight samples for post-cal stability characterization."""
+        if clear_first:
+            self.buffer.clear()
+            time.sleep(max(0.0, settle_s))
+        deadline = time.time() + max(1.0, timeout_s)
+        while time.time() < deadline:
+            recent = self.buffer.recent(sample_count)
+            if len(recent) >= sample_count:
+                return [float(item.weight_g) for item in recent[-sample_count:]]
+            time.sleep(0.05)
+        recent = self.buffer.recent(sample_count)
+        samples = [float(item.weight_g) for item in recent]
+        if len(samples) < 12:
+            raise RuntimeError(
+                "not enough live weight samples for characterization — "
+                "place the 100 g mass and wait for the live stream"
+            )
+        return samples
+
+    def characterize_stability(
+        self,
+        samples: list[float] | None = None,
+        *,
+        sample_count: int = 120,
+        reference_weight_g: float = 100.0,
+    ) -> dict[str, Any]:
+        """Run 100 g characterization from buffer weights or explicit samples."""
+        if samples is None:
+            samples = self.collect_weight_samples(sample_count)
+        return self.dispatch(
+            "scale.calibration.characterize",
+            {
+                "samples": [float(value) for value in samples],
+                "reference_weight_g": float(reference_weight_g),
+            },
+        )
+
+    def confirm_stability_profile(
+        self,
+        *,
+        device_id: str,
+        stability: dict[str, Any],
+        name: str | None = None,
+        characterization_receipt_id: str | None = None,
+    ) -> dict[str, Any]:
+        payload: dict[str, Any] = {
+            "device_id": device_id,
+            "recommended_stability": stability,
+        }
+        if name:
+            payload["name"] = name
+        if characterization_receipt_id:
+            payload["characterization_receipt_id"] = characterization_receipt_id
+        return self.dispatch("scale.profile.confirm_stability", payload)
+
     def simulator_set_weight(self, weight_g: float) -> None:
         if not self.controller.device or self.controller.device.mode != DeviceMode.SERIAL_SIMULATOR:
             raise RuntimeError("simulator is not connected")

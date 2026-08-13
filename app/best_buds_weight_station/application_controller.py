@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+import uuid
 from pathlib import Path
 from typing import Any, Callable
 
@@ -11,7 +12,12 @@ from .device_service import DeviceMode, DeviceService, SimulatedFirmwareTranspor
 from .models import StabilityProfile, now_rfc3339
 from .run_manager import LoadedRun, RunDefinition, RunManager
 from .scale_control import ScaleControlService
-from .scale_profiles import ScaleProfile, ScaleProfileStore
+from .scale_profiles import (
+    ScaleProfile,
+    ScaleProfileStore,
+    ScaleStabilityParams,
+    validate_device_id,
+)
 from .settings import AppSettings, SettingsStore
 from .state_machine import CaptureMachine, State
 from .storage import atomic_json, parse_jsonl
@@ -115,7 +121,36 @@ class ApplicationController:
     def set_connected_device_id(self, device_id: str) -> dict[str, Any]:
         if not self.device or not self.device.status.connected:
             raise InvalidActionState("connect a scale before setting device id")
+        device_id = validate_device_id(device_id)
         return self.device.set_device_id(device_id)
+
+    def _upsert_calibration_profile(
+        self,
+        *,
+        device_id: str,
+        calibration_factor: float,
+        calibration_receipt_id: str | None,
+        firmware_version: str | None = None,
+    ) -> ScaleProfile:
+        """Create or update the active profile after a successful calibration accept."""
+        device_id = validate_device_id(device_id)
+        active = self._scale_profile_store.get_active_for_device(device_id)
+        if active is not None:
+            return self._scale_profile_store.update(
+                active.profile_id,
+                calibration_factor=float(calibration_factor),
+                calibration_receipt_id=calibration_receipt_id,
+                firmware_version=firmware_version or active.firmware_version,
+                status="active",
+            )
+        return self._scale_profile_store.create(
+            name=f"{device_id} profile",
+            device_id=device_id,
+            calibration_factor=float(calibration_factor),
+            calibration_receipt_id=calibration_receipt_id,
+            firmware_version=firmware_version,
+            activate=True,
+        )
 
     @property
     def state(self) -> str:
@@ -207,6 +242,13 @@ class ApplicationController:
             ActionType.SCALE_CALIBRATION_TEST.value: self._calibration_test,
             ActionType.SCALE_CALIBRATION_ACCEPT.value: self._calibration_accept,
             ActionType.SCALE_CALIBRATION_CANCEL.value: self._calibration_cancel,
+            ActionType.SCALE_DEVICE_ID_SET.value: self._scale_device_id_set,
+            ActionType.SCALE_PROFILE_LIST.value: self._scale_profile_list,
+            ActionType.SCALE_PROFILE_ACTIVATE.value: self._scale_profile_activate,
+            ActionType.SCALE_PROFILE_ARCHIVE.value: self._scale_profile_archive,
+            ActionType.SCALE_PROFILE_RENAME.value: self._scale_profile_rename,
+            ActionType.SCALE_CALIBRATION_CHARACTERIZE.value: self._calibration_characterize,
+            ActionType.SCALE_PROFILE_CONFIRM_STABILITY.value: self._scale_profile_confirm_stability,
             ActionType.BARCODE_SUBMIT.value: self._barcode_submit,
             ActionType.READING_INGEST.value: self._reading_ingest,
             ActionType.CAPTURE_WEIGHT_LOCK.value: self._capture_weight_lock,
@@ -765,11 +807,215 @@ class ApplicationController:
         )
         if self.loaded_run:
             self.loaded_run.store.context.calibration_id = receipt["receipt_id"]
-        return self._result(request, "completed", receipt["truth_class"], "Calibration factor accepted by the connected test device", {"calibration_receipt": receipt, "physical_device_pass": False})
+        profile_binding: dict[str, Any] | None = None
+        device_id = receipt.get("device_id") or (self.device.status.device_id if self.device else None)
+        try:
+            if device_id:
+                profile = self._upsert_calibration_profile(
+                    device_id=str(device_id),
+                    calibration_factor=float(receipt["accepted_factor"]),
+                    calibration_receipt_id=str(receipt["receipt_id"]),
+                    firmware_version=(
+                        self.device.status.firmware_version if self.device else None
+                    ),
+                )
+                self.active_scale_profile = profile
+                if self.machine is not None:
+                    self.machine.set_profile(profile.to_stability_profile())
+                profile_binding = profile.to_dict()
+        except ValueError:
+            # Non-BBWS device ids remain calibratable but are not profile-bound yet.
+            profile_binding = None
+        return self._result(
+            request,
+            "completed",
+            receipt["truth_class"],
+            "Calibration factor accepted by the connected test device",
+            {
+                "calibration_receipt": receipt,
+                "scale_profile": profile_binding,
+                "prompt_characterize": True,
+                "characterize_recommended": True,
+                "physical_device_pass": False,
+            },
+        )
 
     def _calibration_cancel(self, request: ActionRequest) -> ActionResult:
         scale = self._require_scale()
         return self._result(request, "completed", "UNIT_TEST_PASS", "Calibration workflow cancelled", scale.cancel_calibration())
+
+    def _scale_device_id_set(self, request: ActionRequest) -> ActionResult:
+        device_id = validate_device_id(str(request.payload.get("device_id") or ""))
+        assigned = self.set_connected_device_id(device_id)
+        profile_apply = self._apply_active_scale_profile()
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"Device id set to {device_id}",
+            {
+                "device_id": assigned.get("device_id"),
+                "device_status": assigned.get("status"),
+                "active_scale_profile": profile_apply,
+                "physical_device_pass": False,
+            },
+        )
+
+    def _scale_profile_list(self, request: ActionRequest) -> ActionResult:
+        include_archived = bool(request.payload.get("include_archived", False))
+        profiles = self.list_scale_profiles(include_archived=include_archived)
+        return self._result(
+            request,
+            "completed",
+            "SOURCE_PRESENT",
+            f"{len(profiles)} scale profile(s)",
+            {"profiles": profiles, "include_archived": include_archived},
+        )
+
+    def _scale_profile_activate(self, request: ActionRequest) -> ActionResult:
+        profile_id = str(request.payload.get("profile_id") or "")
+        if not profile_id:
+            raise ValueError("profile_id is required")
+        profile = self._scale_profile_store.activate(profile_id)
+        applied = None
+        if self.device and self.device.status.connected and self.device.status.device_id == profile.device_id:
+            applied = self._apply_active_scale_profile()
+        else:
+            self.active_scale_profile = profile
+            if self.machine is not None:
+                self.machine.set_profile(profile.to_stability_profile())
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"Activated profile {profile.name}",
+            {"profile": profile.to_dict(), "active_scale_profile": applied},
+        )
+
+    def _scale_profile_archive(self, request: ActionRequest) -> ActionResult:
+        profile_id = str(request.payload.get("profile_id") or "")
+        if not profile_id:
+            raise ValueError("profile_id is required")
+        profile = self._scale_profile_store.archive(profile_id)
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"Archived profile {profile.name}",
+            {"profile": profile.to_dict()},
+        )
+
+    def _scale_profile_rename(self, request: ActionRequest) -> ActionResult:
+        profile_id = str(request.payload.get("profile_id") or "")
+        name = str(request.payload.get("name") or "")
+        if not profile_id:
+            raise ValueError("profile_id is required")
+        profile = self._scale_profile_store.rename(profile_id, name)
+        if self.active_scale_profile and self.active_scale_profile.profile_id == profile.profile_id:
+            self.active_scale_profile = profile
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"Renamed profile to {profile.name}",
+            {"profile": profile.to_dict()},
+        )
+
+    def _calibration_characterize(self, request: ActionRequest) -> ActionResult:
+        """100 g hanging-load characterization → recommendation only (no auto-activate)."""
+        self._require_scale_maintenance(allow_without_run=True)
+        scale = self._require_scale()
+        samples = request.payload.get("samples")
+        if samples is None:
+            raise ValueError("characterization samples are required (buffer or payload)")
+        reference = float(request.payload.get("reference_weight_g") or 100.0)
+        characterization = scale.characterize_stability(
+            list(samples),
+            reference_weight_g=reference,
+        )
+        receipt_id = f"characterization-{uuid.uuid4()}"
+        receipt = {
+            "receipt_id": receipt_id,
+            "kind": "stability_characterization",
+            "created_at": now_rfc3339(),
+            "device_id": self.device.status.device_id if self.device else None,
+            "characterization": characterization,
+            "non_claim": characterization.get("non_claim"),
+            "truth_class": characterization.get("truth_class"),
+            "physical_device_pass": False,
+        }
+        atomic_json(self._scale_session_dir() / "maintenance_receipts" / f"{receipt_id}.json", receipt)
+        characterization = dict(characterization)
+        characterization["characterization_receipt_id"] = receipt_id
+        return self._result(
+            request,
+            "completed",
+            characterization.get("truth_class") or "UNIT_TEST_PASS",
+            "Stability characterization complete — confirm before activating a profile",
+            {
+                "characterization": characterization,
+                "characterization_receipt": receipt,
+                "recommended_stability": characterization.get("recommended_stability"),
+                "auto_activated": False,
+                "prompt_confirm_stability": True,
+                "physical_device_pass": False,
+            },
+        )
+
+    def _scale_profile_confirm_stability(self, request: ActionRequest) -> ActionResult:
+        """Operator-confirmed stability params → create/update active profile + install."""
+        device_id = validate_device_id(str(request.payload.get("device_id") or ""))
+        if not self.device or not self.device.status.connected:
+            raise InvalidActionState("connect a scale before confirming a stability profile")
+        status = self.device.read_status()
+        calibration_factor = float(status["calibration_factor"])
+        raw_stability = (
+            request.payload.get("stability")
+            or request.payload.get("recommended_stability")
+            or {}
+        )
+        if not isinstance(raw_stability, dict) or not raw_stability:
+            raise ValueError("recommended stability params are required")
+        stability = ScaleStabilityParams.from_dict(raw_stability)
+        name = str(request.payload.get("name") or "").strip() or f"{device_id} hanging"
+        characterization_receipt_id = request.payload.get("characterization_receipt_id")
+        active = self._scale_profile_store.get_active_for_device(device_id)
+        if active is not None:
+            profile = self._scale_profile_store.update(
+                active.profile_id,
+                name=name,
+                calibration_factor=calibration_factor,
+                stability=stability,
+                characterization_receipt_id=characterization_receipt_id
+                or active.characterization_receipt_id,
+                firmware_version=status.get("firmware_version") or active.firmware_version,
+                status="active",
+            )
+        else:
+            profile = self._scale_profile_store.create(
+                name=name,
+                device_id=device_id,
+                calibration_factor=calibration_factor,
+                stability=stability,
+                characterization_receipt_id=characterization_receipt_id,
+                firmware_version=status.get("firmware_version"),
+                activate=True,
+            )
+        self.active_scale_profile = profile
+        if self.machine is not None:
+            self.machine.set_profile(profile.to_stability_profile())
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"Stability profile confirmed for {device_id}",
+            {
+                "profile": profile.to_dict(),
+                "calibration_factor": calibration_factor,
+                "physical_device_pass": False,
+                "non_claim": "Characterization is repeatability evidence, not legal-for-trade certification.",
+            },
+        )
 
     def _recover(self, request: ActionRequest) -> ActionResult:
         self._require_run()

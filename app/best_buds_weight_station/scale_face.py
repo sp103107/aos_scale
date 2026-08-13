@@ -127,6 +127,12 @@ class ScaleFaceWindow(QMainWindow):
         self.alice_message.setAccessibleName("Alice next step")
         layout.addWidget(self.alice_message)
 
+        self.stability_reason_label = QLabel("")
+        self.stability_reason_label.setAlignment(Qt.AlignCenter)
+        self.stability_reason_label.setStyleSheet(f"color:{COLOR_TEXT_MUTED};font-size:12px")
+        self.stability_reason_label.setWordWrap(True)
+        layout.addWidget(self.stability_reason_label)
+
         barcode_row = QHBoxLayout()
         barcode_label = QLabel("BARCODE")
         barcode_label.setStyleSheet(f"color:{COLOR_TEXT_MUTED};font-weight:700;letter-spacing:1px")
@@ -301,6 +307,11 @@ class ScaleFaceWindow(QMainWindow):
         strain = s.get("strain") or s.get("cultivar") or "—"
         self.run_meta.setText(f"RUN {run_id}  ·  STRAIN {strain}")
         self.alice_message.setText(str(s.get("alice_message") or ""))
+        reason = s.get("stability_reason")
+        if s["state"] == "WAITING_FOR_STABLE_WEIGHT" and reason:
+            self.stability_reason_label.setText(f"Waiting for stable weight — {reason}")
+        else:
+            self.stability_reason_label.setText("")
         record = s.get("last_saved")
         self._refresh_capture_pill(s["state"], bool(record))
         self.recent_strip.setText(self._recent_lines(list(s.get("recent_plants") or []), du))

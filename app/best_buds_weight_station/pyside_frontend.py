@@ -17,9 +17,11 @@ from PySide6.QtWidgets import (
     QGridLayout,
     QGroupBox,
     QHBoxLayout,
+    QInputDialog,
     QLabel,
     QLineEdit,
     QListWidget,
+    QListWidgetItem,
     QMainWindow,
     QMessageBox,
     QPlainTextEdit,
@@ -36,6 +38,7 @@ from .operator_runtime import OperatorRuntime
 from .operator_surface import ROUTINE_ACTION_LAYOUT, frozen_display_weight
 from .run_manager import facility_id_from_cultivator
 from .scale_face import ScaleFaceWindow
+from .scale_profiles import validate_device_id
 from .ui_tokens import (
     COLOR_ACTIVE_BARCODE,
     COLOR_PRIMARY,
@@ -220,8 +223,10 @@ class ScaleSetupDialog(QDialog):
     def __init__(self, runtime: OperatorRuntime, parent: QWidget | None = None):
         super().__init__(parent)
         self.runtime = runtime
+        self._profiles: list[dict[str, Any]] = []
+        self._last_characterization: dict[str, Any] | None = None
         self.setWindowTitle("Scale Setup and Device Status")
-        self.resize(700, 560)
+        self.resize(760, 720)
         layout = QVBoxLayout(self)
         form = QFormLayout()
         self.mode = QComboBox(); self.mode.addItems(["Physical serial", "Simulator"])
@@ -253,14 +258,240 @@ class ScaleSetupDialog(QDialog):
         for text, callback, r, c in actions:
             button = QPushButton(text); button.clicked.connect(callback); row.addWidget(button, r, c)
         layout.addLayout(row)
+
+        identity = QGroupBox("Connected scale")
+        identity_form = QFormLayout(identity)
+        self.device_id_label = QLabel("—")
+        self.firmware_label = QLabel("—")
+        self.cal_factor_label = QLabel("—")
+        identity_form.addRow("Device ID", self.device_id_label)
+        identity_form.addRow("Firmware", self.firmware_label)
+        identity_form.addRow("Calibration factor", self.cal_factor_label)
+        assign_btn = QPushButton("Assign Device ID…")
+        assign_btn.clicked.connect(self.assign_device_id)
+        identity_form.addRow(assign_btn)
+        layout.addWidget(identity)
+
+        profiles_box = QGroupBox("Scale profiles")
+        profiles_layout = QVBoxLayout(profiles_box)
+        tip = QLabel(
+            "Profiles bind calibration + hanging-load stability per device ID. "
+            "Not legal-for-trade — local operational evidence only."
+        )
+        tip.setWordWrap(True)
+        tip.setObjectName("dialogTip")
+        profiles_layout.addWidget(tip)
+        self.profile_list = QListWidget()
+        self.profile_list.setMinimumHeight(140)
+        profiles_layout.addWidget(self.profile_list)
+        profile_row = QHBoxLayout()
+        for text, callback in (
+            ("Refresh", self.refresh_profiles),
+            ("Activate", self.activate_profile),
+            ("Archive", self.archive_profile),
+            ("Rename…", self.rename_profile),
+        ):
+            button = QPushButton(text)
+            button.clicked.connect(callback)
+            profile_row.addWidget(button)
+        profiles_layout.addLayout(profile_row)
+        char_row = QHBoxLayout()
+        self.characterize_btn = QPushButton("Run 100 g Stability Test")
+        self.characterize_btn.clicked.connect(self.run_stability_test)
+        self.confirm_btn = QPushButton("Confirm Stability Profile")
+        self.confirm_btn.setEnabled(False)
+        self.confirm_btn.clicked.connect(self.confirm_stability_profile)
+        char_row.addWidget(self.characterize_btn)
+        char_row.addWidget(self.confirm_btn)
+        profiles_layout.addLayout(char_row)
+        self.characterize_summary = QLabel("")
+        self.characterize_summary.setWordWrap(True)
+        self.characterize_summary.setStyleSheet("color:#486581;font-size:12px")
+        profiles_layout.addWidget(self.characterize_summary)
+        layout.addWidget(profiles_box)
+
         self.output = QPlainTextEdit(); self.output.setReadOnly(True)
         layout.addWidget(self.output)
         buttons = QDialogButtonBox(QDialogButtonBox.Close); buttons.rejected.connect(self.reject)
         layout.addWidget(buttons)
-        self.refresh_ports(); self.status()
+        self.refresh_ports(); self.status(); self.refresh_profiles()
 
     def write(self, payload: Any) -> None:
         self.output.setPlainText(json.dumps(payload, indent=2, sort_keys=True, default=str))
+
+    def _selected_profile(self) -> dict[str, Any] | None:
+        item = self.profile_list.currentItem()
+        if item is None:
+            return None
+        profile_id = item.data(Qt.UserRole)
+        for profile in self._profiles:
+            if profile.get("profile_id") == profile_id:
+                return profile
+        return None
+
+    def refresh_identity(self) -> None:
+        device = self.runtime.controller.device
+        status = device.status.to_dict() if device else {}
+        self.device_id_label.setText(str(status.get("device_id") or "—"))
+        self.firmware_label.setText(str(status.get("firmware_version") or "—"))
+        factor = status.get("calibration_factor")
+        self.cal_factor_label.setText(f"{float(factor):.8f}" if factor is not None else "—")
+
+    def refresh_profiles(self) -> None:
+        result = self.runtime.list_scale_profiles(include_archived=True)
+        self._profiles = list((result.get("data") or {}).get("profiles") or [])
+        self.profile_list.clear()
+        for profile in self._profiles:
+            text = (
+                f"{profile.get('name')}  |  {profile.get('device_id')}  |  "
+                f"{profile.get('status')}  |  factor={float(profile.get('calibration_factor') or 0):.6f}"
+            )
+            item = QListWidgetItem(text)
+            item.setData(Qt.UserRole, profile.get("profile_id"))
+            self.profile_list.addItem(item)
+        self.refresh_identity()
+        if result.get("status") not in {"failed", "blocked"}:
+            self.write(result)
+
+    def assign_device_id(self) -> None:
+        current = self.device_id_label.text().strip()
+        if current in {"", "—"}:
+            current = "BBWS-SCALE-001"
+        text, ok = QInputDialog.getText(
+            self,
+            "Assign Device ID",
+            "Device ID (BBWS-SCALE-NNN or BBWS-…):",
+            text=current if current != "—" else "BBWS-SCALE-001",
+        )
+        if not ok:
+            return
+        try:
+            device_id = validate_device_id(text)
+            result = self.runtime.set_device_id(device_id)
+            self.write(result)
+            if result.get("status") != "completed":
+                _show_result(self, result)
+            self.refresh_identity()
+            self.refresh_profiles()
+        except Exception as exc:
+            QMessageBox.warning(self, "Device ID not set", str(exc))
+
+    def activate_profile(self) -> None:
+        profile = self._selected_profile()
+        if not profile:
+            QMessageBox.information(self, "No selection", "Select a profile first.")
+            return
+        result = self.runtime.dispatch("scale.profile.activate", {"profile_id": profile["profile_id"]})
+        self.write(result)
+        _show_result(self, result, success_title="Profile activated")
+        self.refresh_profiles()
+
+    def archive_profile(self) -> None:
+        profile = self._selected_profile()
+        if not profile:
+            QMessageBox.information(self, "No selection", "Select a profile first.")
+            return
+        result = self.runtime.dispatch("scale.profile.archive", {"profile_id": profile["profile_id"]})
+        self.write(result)
+        if result.get("status") in {"failed", "blocked"}:
+            _show_result(self, result)
+        else:
+            QMessageBox.information(self, "Archived", result.get("message") or "Profile archived.")
+        self.refresh_profiles()
+
+    def rename_profile(self) -> None:
+        profile = self._selected_profile()
+        if not profile:
+            QMessageBox.information(self, "No selection", "Select a profile first.")
+            return
+        text, ok = QInputDialog.getText(
+            self,
+            "Rename profile",
+            "New name:",
+            text=str(profile.get("name") or ""),
+        )
+        if not ok:
+            return
+        result = self.runtime.dispatch(
+            "scale.profile.rename",
+            {"profile_id": profile["profile_id"], "name": text},
+        )
+        self.write(result)
+        _show_result(self, result, success_title="Renamed")
+        self.refresh_profiles()
+
+    def run_stability_test(self) -> None:
+        reply = QMessageBox.question(
+            self,
+            "100 g stability test",
+            "Place a verified 100 g mass on the scale and keep it still.\n"
+            "This collects live samples and recommends hanging-load thresholds.\n"
+            "It does not activate a profile until you Confirm.\n\n"
+            "Continue?",
+        )
+        if reply != QMessageBox.Yes:
+            return
+        try:
+            if self.mode.currentText() == "Simulator":
+                self.runtime.simulator_set_weight(100.0)
+            result = self.runtime.characterize_stability(sample_count=120, reference_weight_g=100.0)
+            self.write(result)
+            data = result.get("data") or {}
+            characterization = data.get("characterization") or {}
+            self._last_characterization = characterization
+            recommended = characterization.get("recommended_stability") or data.get("recommended_stability") or {}
+            passed = ((characterization.get("passed_local") or {}).get("overall"))
+            self.characterize_summary.setText(
+                f"Samples={characterization.get('sample_count')}  "
+                f"spread={characterization.get('baseline_trimmed_spread_g')} g  "
+                f"stddev={characterization.get('baseline_stddev_g')} g  "
+                f"recommend spread≤{recommended.get('max_spread_g')} / "
+                f"stddev≤{recommended.get('max_stddev_g')}  "
+                f"{'local pass' if passed else 'review metrics'} — Confirm to activate."
+            )
+            self.confirm_btn.setEnabled(bool(recommended) and result.get("status") == "completed")
+            if result.get("status") != "completed":
+                _show_result(self, result)
+        except Exception as exc:
+            self.confirm_btn.setEnabled(False)
+            QMessageBox.warning(self, "Characterization unavailable", str(exc))
+
+    def confirm_stability_profile(self) -> None:
+        characterization = self._last_characterization or {}
+        recommended = characterization.get("recommended_stability")
+        if not recommended:
+            QMessageBox.information(self, "Not ready", "Run the 100 g Stability Test first.")
+            return
+        device = self.runtime.controller.device
+        device_id = (device.status.device_id if device else None) or ""
+        try:
+            device_id = validate_device_id(str(device_id))
+        except ValueError:
+            QMessageBox.warning(
+                self,
+                "Device ID required",
+                "Assign a BBWS device ID before confirming a stability profile.",
+            )
+            return
+        name, ok = QInputDialog.getText(
+            self,
+            "Confirm stability profile",
+            "Profile name:",
+            text=f"{device_id} hanging",
+        )
+        if not ok:
+            return
+        result = self.runtime.confirm_stability_profile(
+            device_id=device_id,
+            stability=recommended,
+            name=name.strip() or f"{device_id} hanging",
+            characterization_receipt_id=characterization.get("characterization_receipt_id"),
+        )
+        self.write(result)
+        _show_result(self, result, success_title="Stability profile confirmed")
+        if result.get("status") == "completed":
+            self.confirm_btn.setEnabled(False)
+            self.refresh_profiles()
 
     def refresh_ports(self) -> None:
         result = self.runtime.dispatch("device.discover")
@@ -285,6 +516,8 @@ class ScaleSetupDialog(QDialog):
                 baud = int(self.baud.currentData() or self.baud.currentText())
                 result = self.runtime.connect_serial(port, baud)
             self.write(result)
+            self.refresh_identity()
+            self.refresh_profiles()
             if result.get("status") != "completed":
                 detail = result.get("data", {}).get("error_detail") or result.get("message") or "Connection failed"
                 QMessageBox.warning(self, "Connection failed", str(detail))
@@ -294,12 +527,14 @@ class ScaleSetupDialog(QDialog):
     def disconnect_device(self) -> None:
         try: self.write(self.runtime.disconnect())
         except Exception as exc: QMessageBox.warning(self, "Disconnect failed", str(exc))
+        self.refresh_identity()
 
     def ping(self) -> None:
         self.write(self.runtime.dispatch("device.ping"))
 
     def status(self) -> None:
         self.write(self.runtime.dispatch("device.status"))
+        self.refresh_identity()
 
     def apply_sim_weight(self) -> None:
         try:
@@ -664,6 +899,60 @@ class CalibrationDialog(QDialog):
                     (result.get("message") or "")
                     + " Large numbers can stay wrong until calibration is saved, then press ZERO."
                 )
+                return
+            data = result.get("data") or {}
+            if data.get("prompt_characterize") or data.get("characterize_recommended"):
+                ask = QMessageBox.question(
+                    self,
+                    "Stability characterization",
+                    "Run 100 g stability characterization now?\n"
+                    "Place a verified 100 g mass and keep it still. "
+                    "This recommends hanging-load thresholds — it does not certify the scale.",
+                )
+                if ask == QMessageBox.Yes:
+                    self._run_post_accept_characterize()
+
+    def _run_post_accept_characterize(self) -> None:
+        try:
+            char = self.runtime.characterize_stability(sample_count=120, reference_weight_g=100.0)
+            self.write(char)
+            if char.get("status") != "completed":
+                _show_result(self, char)
+                return
+            data = char.get("data") or {}
+            characterization = data.get("characterization") or {}
+            recommended = characterization.get("recommended_stability") or data.get("recommended_stability") or {}
+            confirm = QMessageBox.question(
+                self,
+                "Confirm stability profile?",
+                "Characterization finished. Activate the recommended hanging-load profile now?",
+            )
+            if confirm != QMessageBox.Yes or not recommended:
+                return
+            device = self.runtime.controller.device
+            device_id = device.status.device_id if device else None
+            if not device_id:
+                QMessageBox.warning(self, "Device ID required", "Assign a BBWS device ID in Scale Setup first.")
+                return
+            try:
+                device_id = validate_device_id(str(device_id))
+            except ValueError:
+                QMessageBox.warning(
+                    self,
+                    "Device ID required",
+                    "Assign a BBWS device ID in Scale Setup before confirming a stability profile.",
+                )
+                return
+            confirmed = self.runtime.confirm_stability_profile(
+                device_id=device_id,
+                stability=recommended,
+                name=f"{device_id} hanging",
+                characterization_receipt_id=characterization.get("characterization_receipt_id"),
+            )
+            self.write(confirmed)
+            _show_result(self, confirmed, success_title="Stability profile confirmed")
+        except Exception as exc:
+            QMessageBox.warning(self, "Characterization unavailable", str(exc))
 
     def cancel_calibration(self) -> None:
         self._test_passed = False
@@ -723,6 +1012,11 @@ class MainWindow(QMainWindow):
         self.weight_hint.setStyleSheet(f"color:{COLOR_WARN_FG};font-size:13px;font-weight:600")
         self.weight_hint.setWordWrap(True)
         layout.addWidget(self.weight_hint)
+        self.stability_reason_label = QLabel("")
+        self.stability_reason_label.setAlignment(Qt.AlignCenter)
+        self.stability_reason_label.setStyleSheet("color:#829AB1;font-size:12px")
+        self.stability_reason_label.setWordWrap(True)
+        layout.addWidget(self.stability_reason_label)
         self.locked_weight_label = QLabel("")
         self.locked_weight_label.setObjectName("lockedMetric")
         self.locked_weight_label.setAlignment(Qt.AlignCenter)
@@ -936,6 +1230,11 @@ class MainWindow(QMainWindow):
             else:
                 self.weight_hint.setText("")
             self.locked_weight_label.setText("")
+        reason = s.get("stability_reason")
+        if s["state"] == "WAITING_FOR_STABLE_WEIGHT" and reason:
+            self.stability_reason_label.setText(f"Waiting for stable weight — {reason}")
+        else:
+            self.stability_reason_label.setText("")
         active_bc = s.get("active_barcode")
         if active_bc:
             self.active_barcode_banner.setText(f"Active plant: {active_bc}")
