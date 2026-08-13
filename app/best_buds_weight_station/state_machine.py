@@ -62,6 +62,12 @@ class CaptureMachine:
         self.last_duplicate = None
         self.capture_idempotency_key = None
 
+    def set_profile(self, profile: StabilityProfile) -> None:
+        """Install a resolved StabilityProfile and rebuild the detector window."""
+        self.profile = profile
+        self.detector = StabilityDetector(self.profile)
+        self.detector.reset()
+
     def connect(self):
         self.state = State.RECOVERY_REQUIRED if self.store.recovery_required else State.DEVICE_READY
 

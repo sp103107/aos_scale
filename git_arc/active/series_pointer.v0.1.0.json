@@ -1,13 +1,14 @@
 {
-  "series_id": "BBWS_SR8_scale_face_harvest_mode",
-  "branch_plan": "main",
-  "remote_plan": "origin",
-  "push_policy": "after_series_closeout",
   "auto_push": false,
-  "parent_tag": "bbws-sr7-complete",
-  "baseline_tag": "bbws-pre-sr8-scale-face",
-  "planned_tags": ["v2.0.0-rc3", "bbws-sr8-complete"],
-  "completed_tags": ["v2.0.0-rc3", "bbws-sr8-complete"],
-  "status": "series_complete",
-  "updated_at": "2026-08-11T03:45:00Z"
+  "baseline_tag": "bbws-pre-sr9-scale-profile",
+  "branch_plan": "main",
+  "parent_tag": "bbws-sr8-complete",
+  "planned_tags": [
+    "v2.0.0-rc4",
+    "bbws-sr9-complete"
+  ],
+  "push_policy": "after_series_closeout",
+  "remote_plan": "origin",
+  "series_id": "BBWS_SR9_scale_profile_stability_governance",
+  "updated_at": "2026-08-13T01:54:38Z"
 }

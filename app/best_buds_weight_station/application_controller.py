@@ -11,6 +11,7 @@ from .device_service import DeviceMode, DeviceService, SimulatedFirmwareTranspor
 from .models import StabilityProfile, now_rfc3339
 from .run_manager import LoadedRun, RunDefinition, RunManager
 from .scale_control import ScaleControlService
+from .scale_profiles import ScaleProfile, ScaleProfileStore
 from .settings import AppSettings, SettingsStore
 from .state_machine import CaptureMachine, State
 from .storage import atomic_json, parse_jsonl
@@ -54,6 +55,67 @@ class ApplicationController:
         self.last_alice_response: dict[str, Any] | None = None
         self.last_record: dict[str, Any] | None = None
         self._action_cache: dict[str, ActionResult] = {}
+        self.active_scale_profile: ScaleProfile | None = None
+        self._scale_profile_store = ScaleProfileStore(self.settings_store.config_dir)
+
+    @property
+    def scale_profiles(self) -> ScaleProfileStore:
+        return self._scale_profile_store
+
+    def _default_stability_profile(self) -> StabilityProfile:
+        """Hanging-model settle hold; keep other StabilityProfile defaults until characterized."""
+        return StabilityProfile(settle_ms=1200)
+
+    def _resolve_stability_profile(self, device_id: str | None = None) -> StabilityProfile:
+        device_id = device_id or (self.device.status.device_id if self.device else None)
+        if not device_id:
+            return self._default_stability_profile()
+        try:
+            active = self._scale_profile_store.get_active_for_device(str(device_id))
+        except ValueError:
+            return self._default_stability_profile()
+        if active is None:
+            return self._default_stability_profile()
+        self.active_scale_profile = active
+        return active.to_stability_profile()
+
+    def _apply_active_scale_profile(self) -> dict[str, Any] | None:
+        """After STATUS: load active profile by device_id, apply SET_CAL, install stability."""
+        if not self.device or not self.device.status.connected:
+            return None
+        device_id = self.device.status.device_id
+        if not device_id:
+            return None
+        try:
+            active = self._scale_profile_store.get_active_for_device(str(device_id))
+        except ValueError:
+            # Non-BBWS simulator IDs are valid on the wire but not profile-bound yet.
+            return None
+        if active is None:
+            self.active_scale_profile = None
+            return None
+        applied = self.device.apply_calibration_factor(float(active.calibration_factor))
+        stability = active.to_stability_profile()
+        if self.machine is not None:
+            self.machine.set_profile(stability)
+        self.active_scale_profile = active
+        return {
+            "profile_id": active.profile_id,
+            "device_id": active.device_id,
+            "calibration_factor": applied["calibration_factor"],
+            "stability_profile_id": stability.profile_id,
+        }
+
+    def list_scale_profiles(self, *, include_archived: bool = False) -> list[dict[str, Any]]:
+        return [p.to_dict() for p in self._scale_profile_store.list_profiles(include_archived=include_archived)]
+
+    def archive_scale_profile(self, profile_id: str) -> dict[str, Any]:
+        return self._scale_profile_store.archive(profile_id).to_dict()
+
+    def set_connected_device_id(self, device_id: str) -> dict[str, Any]:
+        if not self.device or not self.device.status.connected:
+            raise InvalidActionState("connect a scale before setting device id")
+        return self.device.set_device_id(device_id)
 
     @property
     def state(self) -> str:
@@ -206,11 +268,15 @@ class ApplicationController:
 
     def _install_loaded_run(self, loaded: LoadedRun) -> None:
         self.loaded_run = loaded
-        self.machine = CaptureMachine(loaded.store, StabilityProfile(settle_ms=0), beep=self.beep)
+        profile = self._resolve_stability_profile()
+        self.machine = CaptureMachine(loaded.store, profile, beep=self.beep)
         self.scale = None
         # Keep an already-connected USB/simulator scale bound without forcing reconnect.
         if self.device and self.device.status.connected:
             self._bind_scale_service()
+            applied = self._apply_active_scale_profile()
+            if applied is None and self.machine is not None:
+                self.machine.set_profile(self._resolve_stability_profile())
             self.machine.connect()
             if self.machine.state != State.RECOVERY_REQUIRED:
                 self.machine.start_session(loaded.definition.capture_mode)
@@ -399,6 +465,7 @@ class ApplicationController:
         if not simulator:
             self.settings_store.update(serial_port=port, baud_rate=baud)
         self._bind_scale_service()
+        profile_apply = self._apply_active_scale_profile()
         if setup_only:
             response = self._refresh_alice_for_state(context={"device_status": status.to_dict()})
             truth = "SIMULATOR_PASS" if simulator else "SOURCE_PRESENT"
@@ -412,6 +479,7 @@ class ApplicationController:
                     "baud_rate": baud,
                     "setup_only": True,
                     "physical_device_pass": False,
+                    "active_scale_profile": profile_apply,
                     "alice_response": response,
                 },
             )
@@ -419,6 +487,8 @@ class ApplicationController:
         self.loaded_run.store.context.device_id = status.device_id or port
         self.loaded_run.store.context.firmware_version = status.firmware_version or "unknown"
         self.loaded_run.store.context.evidence_truth_class = "simulator" if simulator else "SOURCE_PRESENT"
+        if profile_apply is None:
+            self.machine.set_profile(self._resolve_stability_profile(status.device_id))
         self.machine.connect()
         if self.machine.state != State.RECOVERY_REQUIRED:
             self.machine.start_session(self.loaded_run.definition.capture_mode)
@@ -429,6 +499,7 @@ class ApplicationController:
             "baud_rate": baud,
             "setup_only": False,
             "physical_device_pass": False,
+            "active_scale_profile": profile_apply,
             "alice_response": response,
         })
 
@@ -463,12 +534,25 @@ class ApplicationController:
             raise InvalidActionState("no prior scale connection is available")
         status = self.device.reconnect(max_attempts=int(request.payload.get("max_attempts", 2)))
         self._bind_scale_service()
+        profile_apply = self._apply_active_scale_profile()
         if self.machine and self.loaded_run:
+            if profile_apply is None:
+                self.machine.set_profile(self._resolve_stability_profile(status.device_id))
             self.machine.connect()
             if self.machine.state != State.RECOVERY_REQUIRED:
                 self.machine.start_session(self.loaded_run.definition.capture_mode)
         response = self._refresh_alice_for_state(context={"device_status": status.to_dict()})
-        return self._result(request, "completed", status.truth_class, "Scale reconnected and protocol validated", {"device_status": status.to_dict(), "alice_response": response})
+        return self._result(
+            request,
+            "completed",
+            status.truth_class,
+            "Scale reconnected and protocol validated",
+            {
+                "device_status": status.to_dict(),
+                "active_scale_profile": profile_apply,
+                "alice_response": response,
+            },
+        )
 
     def _device_stream_start(self, request: ActionRequest) -> ActionResult:
         if not self.device or not self.device.status.connected:

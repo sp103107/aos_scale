@@ -478,6 +478,10 @@ class OperatorRuntime:
         locked_weight_g = None
         if machine and controller.state == "MANUAL_CONFIRM" and getattr(machine, "stable", None) is not None:
             locked_weight_g = float(machine.stable.weight_g)
+        last_stability = None
+        if machine and getattr(machine, "detector", None) is not None:
+            last_stability = getattr(machine.detector, "last_result", None)
+        active_profile = getattr(controller, "active_scale_profile", None)
         return {
             "version": __import__("best_buds_weight_station.version", fromlist=["__version__"]).__version__,
             "state": controller.state,
@@ -520,6 +524,15 @@ class OperatorRuntime:
             "worker_error": self.last_worker_error,
             "capture_mode": definition.capture_mode if definition else controller.settings.capture_mode,
             "scale_service_bound": controller.scale is not None,
+            "stability_reason": getattr(last_stability, "reason", None) if last_stability else None,
+            "stability_spread_g": getattr(last_stability, "spread_g", None) if last_stability else None,
+            "stability_stddev_g": getattr(last_stability, "stddev_g", None) if last_stability else None,
+            "stability_sample_count": getattr(last_stability, "sample_count", None) if last_stability else None,
+            "active_scale_profile_id": active_profile.profile_id if active_profile else None,
+            "active_device_id": (
+                (controller.device.status.device_id if controller.device else None)
+                or (active_profile.device_id if active_profile else None)
+            ),
         }
 
     def close(self) -> None:

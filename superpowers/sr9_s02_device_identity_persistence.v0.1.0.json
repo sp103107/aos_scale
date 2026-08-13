@@ -1,0 +1,263 @@
+{
+  "arc_id": "SR9_S02_device_identity_persistence",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S02E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "firmware/elegoo_uno_r3_hx711/",
+        "app/best_buds_weight_station/device_service.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S02E01",
+      "kind": "context",
+      "objective": "Intent freeze: unique board ID",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: unique board ID"
+    },
+    {
+      "acceptance": "S02E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "firmware/elegoo_uno_r3_hx711/",
+        "app/best_buds_weight_station/device_service.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S02E02",
+      "kind": "implement",
+      "objective": "EEPROM layout + load/save",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "EEPROM layout + load/save"
+    },
+    {
+      "acceptance": "S02E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "firmware/elegoo_uno_r3_hx711/",
+        "app/best_buds_weight_station/device_service.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S02E03",
+      "kind": "implement",
+      "objective": "SET_DEVICE_ID command + ack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SET_DEVICE_ID command + ack"
+    },
+    {
+      "acceptance": "S02E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "firmware/elegoo_uno_r3_hx711/",
+        "app/best_buds_weight_station/device_service.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S02E04",
+      "kind": "implement",
+      "objective": "Update SERIAL_PROTOCOL.md",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Update SERIAL_PROTOCOL.md"
+    },
+    {
+      "acceptance": "S02E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "firmware/elegoo_uno_r3_hx711/",
+        "app/best_buds_weight_station/device_service.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S02E05",
+      "kind": "implement",
+      "objective": "Host set_device_id + simulator",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Host set_device_id + simulator"
+    },
+    {
+      "acceptance": "S02E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "firmware/elegoo_uno_r3_hx711/",
+        "app/best_buds_weight_station/device_service.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S02E06",
+      "kind": "implement",
+      "objective": "Validate charset/length",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Validate charset/length"
+    },
+    {
+      "acceptance": "S02E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "firmware/elegoo_uno_r3_hx711/",
+        "app/best_buds_weight_station/device_service.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S02E07",
+      "kind": "implement",
+      "objective": "Collision handling at host",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Collision handling at host"
+    },
+    {
+      "acceptance": "S02E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "firmware/elegoo_uno_r3_hx711/",
+        "app/best_buds_weight_station/device_service.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S02E08",
+      "kind": "verify",
+      "objective": "Verify STATUS reports ID",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify STATUS reports ID"
+    },
+    {
+      "acceptance": "S02E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "firmware/elegoo_uno_r3_hx711/",
+        "app/best_buds_weight_station/device_service.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S02E09",
+      "kind": "receipt",
+      "objective": "S02 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S02 receipt pack"
+    },
+    {
+      "acceptance": "S02E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "firmware/elegoo_uno_r3_hx711/",
+        "app/best_buds_weight_station/device_service.py",
+        "tests/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S02E10",
+      "kind": "closeout",
+      "objective": "M02 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M02 season closeout + push plan"
+    }
+  ],
+  "focus": "SET_DEVICE_ID EEPROM persist, protocol docs, host validation",
+  "milestone": "M02",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server"
+  ],
+  "primary_surfaces": [
+    "firmware/elegoo_uno_r3_hx711/",
+    "app/best_buds_weight_station/device_service.py",
+    "tests/"
+  ],
+  "product_version_target": "2.0.0-rc4",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr9.device_identity_persistence.v1",
+  "series_id": "BBWS_SR9_scale_profile_stability_governance",
+  "title": "Firmware EEPROM device identity",
+  "version": "0.1.0"
+}

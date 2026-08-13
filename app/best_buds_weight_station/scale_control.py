@@ -10,6 +10,7 @@ from typing import Any, Iterable
 
 from .device_service import DeviceProtocolError, DeviceService
 from .models import now_rfc3339, qgram
+from .scale_profiles import recommend_stability_from_characterization
 from .storage import atomic_json, safe_component
 
 
@@ -424,6 +425,60 @@ class ScaleControlService:
         atomic_json(self.calibration_dir / f"{receipt['receipt_id']}.json", receipt)
         self.active_calibration = None
         return receipt
+
+    def characterize_stability(
+        self,
+        raw_or_weight_samples: list[float],
+        *,
+        reference_weight_g: float = 100.0,
+    ) -> dict[str, Any]:
+        """Post-cal hanging-load characterization → bounded recommended StabilityParams.
+
+        Uses trimmed robust center/spread/stddev and a p95-ish adjacent delta as the
+        trend proxy. Returns metrics, recommended params dict, and local pass flags.
+        Does not activate a profile — operator confirmation is required upstream.
+        """
+        samples = [float(value) for value in raw_or_weight_samples]
+        if len(samples) < 5:
+            raise ValueError("characterization requires at least 5 samples")
+        if any(not math.isfinite(value) for value in samples):
+            raise ValueError("samples must be finite")
+        center, spread, stddev = self._robust_center(samples)
+        deltas = [abs(samples[i] - samples[i - 1]) for i in range(1, len(samples))]
+        deltas_sorted = sorted(deltas)
+        if deltas_sorted:
+            index = min(len(deltas_sorted) - 1, max(0, int(math.ceil(0.95 * len(deltas_sorted)) - 1)))
+            p95_delta = float(deltas_sorted[index])
+        else:
+            p95_delta = 0.0
+        recommended = recommend_stability_from_characterization(
+            spread,
+            stddev,
+            p95_delta,
+            live_weight_g=float(reference_weight_g),
+        )
+        # Local pass: enough samples and metrics are usable (not wild empty-pan noise).
+        enough = len(samples) >= 12
+        near_reference = abs(center - float(reference_weight_g)) <= max(15.0, 0.2 * float(reference_weight_g))
+        passed = enough and near_reference and math.isfinite(spread) and math.isfinite(stddev)
+        return {
+            "sample_count": len(samples),
+            "reference_weight_g": float(reference_weight_g),
+            "baseline_center_g": qgram(center),
+            "baseline_trimmed_spread_g": qgram(spread),
+            "baseline_stddev_g": qgram(stddev),
+            "baseline_p95_delta_g": qgram(p95_delta),
+            "recommended_stability": asdict(recommended),
+            "passed_local": {
+                "enough_samples": enough,
+                "near_reference": near_reference,
+                "metrics_finite": math.isfinite(spread) and math.isfinite(stddev),
+                "overall": passed,
+            },
+            "truth_class": "SIMULATOR_PASS" if self.device.mode.value == "serial_simulator" else "UNIT_TEST_PASS",
+            "non_claim": "Characterization is repeatability evidence, not legal-for-trade certification.",
+            "created_at": now_rfc3339(),
+        }
 
     def cancel_calibration(self) -> dict[str, Any]:
         prior = self.active_calibration

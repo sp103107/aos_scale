@@ -1,10 +1,10 @@
-# BBWS SR8 Continuation Handoff
+# BBWS SR9 Continuation Handoff
 
-Updated: 2026-08-11T03:45:00Z
+Updated: 2026-08-13T01:54:38Z
 
-**Active:** S10 / S10E10 / M10 — **series_complete**  
-**Series:** BBWS_SR8_scale_face_harvest_mode  
-**Product shipped:** 2.0.0-rc3  
-**Tags:** `v2.0.0-rc3`, `bbws-sr8-complete`
+**Active:** S01 / S01E01 / M01  
+**Series:** BBWS_SR9_scale_profile_stability_governance  
+**Product target:** 2.0.0-rc4  
+**During impl:** 2.0.0-rc3
 
-Load `ACTIVE_ARC.yaml` and `BBWS_SR8_resume.v0.1.0.json`. Series is closed; start a new series only with a fresh baseline tag.
+Load `ACTIVE_ARC.yaml` and `BBWS_SR9_resume.v0.1.0.json`, then execute the pointed episode.

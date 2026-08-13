@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 import time
 from dataclasses import asdict, dataclass
 from enum import Enum
@@ -246,7 +247,11 @@ class DeviceService:
             raise ConnectionError("device is disconnected")
         if len(command) > 80 or "\n" in command or "\r" in command:
             raise ValueError("malformed command")
-        allowed = command in self.COMMANDS or command.startswith("SET_CAL,")
+        allowed = (
+            command in self.COMMANDS
+            or command.startswith("SET_CAL,")
+            or command.startswith("SET_DEVICE_ID,")
+        )
         if not allowed:
             raise ValueError("unsupported firmware command")
         try:
@@ -426,6 +431,51 @@ class DeviceService:
             raise DeviceProtocolError("calibration factor was not acknowledged")
         return message
 
+    @staticmethod
+    def validate_firmware_device_id(device_id: str) -> str:
+        """Validate SET_DEVICE_ID charset/length (firmware contract)."""
+        text = str(device_id or "").strip()
+        if not (3 <= len(text) <= 32):
+            raise ValueError("device_id must be 3-32 characters")
+        if any(c for c in text if not (c.isalnum() or c in {"_", "-"})):
+            raise ValueError("device_id may only contain [A-Za-z0-9_-]")
+        return text
+
+    def set_device_id(self, device_id: str) -> dict[str, Any]:
+        """Assign a unique board identity via SET_DEVICE_ID and refresh STATUS."""
+        device_id = self.validate_firmware_device_id(device_id)
+        if self.status.streaming:
+            try:
+                self.stop_stream()
+            except Exception:
+                self.status.streaming = False
+        self._flush_input()
+        self.sleep(0.1)
+        self._send(f"SET_DEVICE_ID,{device_id}")
+        message = self._read_expected(kinds={"A", "E"}, attempts=max(self.handshake_attempts, 16))
+        if message.get("kind") == "E":
+            fields = message.get("fields") or []
+            code = fields[0] if fields else "DEVICE_ERROR"
+            raise DeviceProtocolError(f"device id rejected: {code}")
+        fields = message.get("fields") or []
+        token = str(fields[0]) if fields else ""
+        if token not in {"SET_DEVICE_ID", "OK"}:
+            raise DeviceProtocolError("device id was not acknowledged")
+        status = self.read_status()
+        reported = str(status.get("device_id") or "")
+        if reported != device_id:
+            raise DeviceProtocolError("device did not report the assigned device id")
+        return {"ack": message, "status": status, "device_id": reported}
+
+    def apply_calibration_factor(self, factor: float) -> dict[str, Any]:
+        """SET_CAL then STATUS-verify the applied factor (profile reconnect path)."""
+        ack = self.set_calibration(factor)
+        status = self.read_status()
+        reported = float(status["calibration_factor"])
+        if not math.isclose(reported, float(factor), rel_tol=1e-5, abs_tol=1e-5):
+            raise DeviceProtocolError("device did not report the applied calibration factor")
+        return {"ack": ack, "status": status, "calibration_factor": reported}
+
     def is_stale(self) -> bool:
         last = self.status.last_reading_at
         self.status.stale = last is None or (self.clock() - last) > self.stale_after_s
@@ -509,6 +559,8 @@ class SimulatedFirmwareTransport:
         self.raw_value = 0
         self.device_ms = 0
         self.streaming = False
+        self.device_id = "SIM-UNO-001"
+        self.firmware_version = "0.1.8-sim"
 
     def open(self) -> None:
         self.is_open = True
@@ -528,7 +580,9 @@ class SimulatedFirmwareTransport:
         if line == "PING":
             self.queue.append("A,PONG\n")
         elif line == "STATUS":
-            self.queue.append(f"S,0.1.8-sim,SIM-UNO-001,{self.calibration_factor:.8f},{self.unit}\n")
+            self.queue.append(
+                f"S,{self.firmware_version},{self.device_id},{self.calibration_factor:.8f},{self.unit}\n"
+            )
         elif line == "TARE":
             self.weight_g = 0.0
             self.raw_value = 0
@@ -544,6 +598,15 @@ class SimulatedFirmwareTransport:
         elif line.startswith("SET_CAL,"):
             self.calibration_factor = float(line.split(",", 1)[1])
             self.queue.append("A,CAL_SET\n")
+        elif line.startswith("SET_DEVICE_ID,"):
+            candidate = line.split(",", 1)[1].strip()
+            try:
+                DeviceService.validate_firmware_device_id(candidate)
+            except ValueError:
+                self.queue.append("E,BAD_DEVICE_ID,id must be 3-32 chars [A-Za-z0-9_-]\n")
+            else:
+                self.device_id = candidate
+                self.queue.append("A,SET_DEVICE_ID,OK\n")
         elif line == "SET_UNIT,g":
             self.unit = "g"
             self.queue.append("A,UNIT_SET\n")

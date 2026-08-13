@@ -1,0 +1,263 @@
+{
+  "arc_id": "SR9_S04_calibration_profile_binding",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S04E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_control.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/device_service.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S04E01",
+      "kind": "context",
+      "objective": "Intent freeze: cal binds profile",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: cal binds profile"
+    },
+    {
+      "acceptance": "S04E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_control.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/device_service.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S04E02",
+      "kind": "implement",
+      "objective": "accept_calibration writes profile fields",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "accept_calibration writes profile fields"
+    },
+    {
+      "acceptance": "S04E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_control.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/device_service.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S04E03",
+      "kind": "implement",
+      "objective": "Reconnect load active by device_id",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Reconnect load active by device_id"
+    },
+    {
+      "acceptance": "S04E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_control.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/device_service.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S04E04",
+      "kind": "implement",
+      "objective": "apply_calibration_factor + STATUS verify",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "apply_calibration_factor + STATUS verify"
+    },
+    {
+      "acceptance": "S04E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_control.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/device_service.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S04E05",
+      "kind": "implement",
+      "objective": "Fail closed on verify mismatch",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Fail closed on verify mismatch"
+    },
+    {
+      "acceptance": "S04E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_control.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/device_service.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S04E06",
+      "kind": "implement",
+      "objective": "Require ZERO after apply",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Require ZERO after apply"
+    },
+    {
+      "acceptance": "S04E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_control.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/device_service.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S04E07",
+      "kind": "implement",
+      "objective": "Keep receipt API intact",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Keep receipt API intact"
+    },
+    {
+      "acceptance": "S04E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_control.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/device_service.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S04E08",
+      "kind": "verify",
+      "objective": "Verify reconnect reapply",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify reconnect reapply"
+    },
+    {
+      "acceptance": "S04E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_control.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/device_service.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S04E09",
+      "kind": "receipt",
+      "objective": "S04 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S04 receipt pack"
+    },
+    {
+      "acceptance": "S04E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "app/best_buds_weight_station/scale_control.py",
+        "app/best_buds_weight_station/application_controller.py",
+        "app/best_buds_weight_station/device_service.py"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc4 before S09"
+      ],
+      "id": "S04E10",
+      "kind": "closeout",
+      "objective": "M04 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M04 season closeout + push plan"
+    }
+  ],
+  "focus": "Accept cal creates/updates profile; reconnect apply+verify SET_CAL",
+  "milestone": "M04",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/scale_control.py",
+    "app/best_buds_weight_station/application_controller.py",
+    "app/best_buds_weight_station/device_service.py"
+  ],
+  "product_version_target": "2.0.0-rc4",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr9.calibration_profile_binding.v1",
+  "series_id": "BBWS_SR9_scale_profile_stability_governance",
+  "title": "Calibration binds to device profile",
+  "version": "0.1.0"
+}

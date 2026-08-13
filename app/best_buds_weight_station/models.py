@@ -25,6 +25,8 @@ class StabilityProfile:
     minimum_weight_g: float = 1.0
     maximum_weight_g: float = 50000.0
     timeout_ms: int = 15000
+    max_trend_g: float = 1.0
+    recoverable_timeout: bool = True
 
 
 @dataclass

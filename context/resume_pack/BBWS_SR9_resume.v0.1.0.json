@@ -1,0 +1,41 @@
+{
+  "active": {
+    "episode_id": "S01E01",
+    "milestone": "M01",
+    "season_id": "S01",
+    "status": "ready_to_execute"
+  },
+  "baseline_tag": "bbws-pre-sr9-scale-profile",
+  "completed_seasons": [],
+  "continuation_handoff": "kickoff_prompts/BBWS_SR9_HUMAN_CHAT_KICKOFF.md",
+  "decision_locks": {
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "characterization": "post_cal_100g_120_samples_bounded_recommend",
+    "device_identity": "EEPROM SET_DEVICE_ID unique board id",
+    "product_version_during_impl": "2.0.0-rc3",
+    "product_version_target": "2.0.0-rc4",
+    "profile_store": "config/scale_profiles typed atomic CRUD archive",
+    "push_cadence": "series_closeout",
+    "reference_mass_g": 100.0,
+    "stability_model": "spread_stddev_trend_hold_recoverable_timeout"
+  },
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server"
+  ],
+  "pack_id": "BBWS_SR9_resume",
+  "parent_series": "BBWS_SR8_scale_face_harvest_mode",
+  "parent_tag": "bbws-sr8-complete",
+  "product_version_during_impl": "2.0.0-rc3",
+  "product_version_target": "2.0.0-rc4",
+  "series_id": "BBWS_SR9_scale_profile_stability_governance",
+  "updated_at": "2026-08-13T01:54:38Z",
+  "version": "0.1.0"
+}
