@@ -69,8 +69,15 @@ class ApplicationController:
         return self._scale_profile_store
 
     def _default_stability_profile(self) -> StabilityProfile:
-        """Hanging-model settle hold; keep other StabilityProfile defaults until characterized."""
-        return StabilityProfile(settle_ms=1200)
+        """Hanging settle on physical; settle_ms=0 for simulator / software dry-runs.
+
+        Characterized scale profiles still install their own settle_ms (typically 1200).
+        Pre-characterization physical default matches the hanging model hold.
+        """
+        settle_ms = 0
+        if self.device is not None and self.device.mode != DeviceMode.SERIAL_SIMULATOR:
+            settle_ms = 1200
+        return StabilityProfile(settle_ms=settle_ms)
 
     def _resolve_stability_profile(self, device_id: str | None = None) -> StabilityProfile:
         device_id = device_id or (self.device.status.device_id if self.device else None)

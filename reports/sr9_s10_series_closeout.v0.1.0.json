@@ -1,0 +1,19 @@
+{
+  "baseline_tag": "bbws-pre-sr9-scale-profile",
+  "parent_tag": "bbws-sr8-complete",
+  "product_version": "2.0.0-rc4",
+  "receipt_id": "sr9_s10_series_closeout",
+  "runtime_claimed": false,
+  "season_id": "S10",
+  "series_id": "BBWS_SR9_scale_profile_stability_governance",
+  "status": "series_complete",
+  "tags": [
+    "v2.0.0-rc4",
+    "bbws-sr9-complete"
+  ],
+  "version": "0.1.0",
+  "verification": {
+    "drift_gate": "scripts/validate_drift_concordance_v200_rc4.py",
+    "pytest": "pass"
+  }
+}

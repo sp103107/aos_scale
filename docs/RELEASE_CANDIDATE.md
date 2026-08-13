@@ -1,22 +1,21 @@
-# Release candidate notes — v2.0.0-rc3
+# Release candidate notes — v2.0.0-rc4
 
-**Tag intent:** **Scale Face harvest-mode RC** — PySide Scale Face UI mode on top of
-the 2.0.0-rc2 Windows installer RC.  
+**Tag intent:** **Scale profile + stability governance RC** — device identity, scale profiles,
+post-cal characterization, and capture stability gates on top of the 2.0.0-rc3 Scale Face RC.  
 **Not** a production seal or legal-for-trade release.
 
-## New in rc3 (SR8)
+## New in rc4 (SR9)
 
-- **Scale Face (Harvest)** mode: View → Scale Face (Harvest) or Ctrl+Shift+F
-- Harvest / SETUP segment toggle on one face (not a separate process)
-- Hero weight uses `frozen_display_weight` while locked; status pill + Alice one-liner
-- Barcode field + SCAN; last 1–3 saved records strip
-- HARVEST strip: ZERO · SET TARE · LOCK WEIGHT · CONFIRM & RECORD · CANCEL · compact START/RESUME
-- SETUP strip: CONNECT · ZERO · SET TARE · CALIBRATE (existing guided dialog) · TEST SCANNER
-- Esc / Exit Scale Face returns to the full desktop MainWindow
-- Full UI `ROUTINE_ACTION_LAYOUT` remains exactly eight actions
+- Firmware/host **device identity** persistence (unique board id; collision needs operator action)
+- Typed atomic **scale profile** store under config (CRUD / archive; active-per-device)
+- **Calibration binding** to the active device profile; reconnect apply + verify
+- Post-cal **100 g characterization** (bounded recommend; operator confirm)
+- Capture **stability runtime** gates (spread/stddev/trend/hold; recoverable timeout)
+- Scale Setup UI for identity, profiles, characterization, and diagnostics
 
-## Carried from rc2
+## Carried from rc3
 
+- Scale Face (Harvest) mode with Harvest/SETUP toggle
 - Finish Run closeout + locked-weight display freeze + Resume Run picker
 - Install hygiene (LOCALAPPDATA data root) and Windows Setup.exe packaging
 - Capture loop: Scan → settle → Lock → Confirm → reset
@@ -28,6 +27,7 @@ the 2.0.0-rc2 Windows installer RC.
 - No legal-for-trade / NTEP / Weights & Measures certification
 - No Metrc sync or compliance
 - No remote/LAN weighing server
+- 100 g characterization is **repeatability evidence**, not certification
 - No guarantee that displayed grams are accurate until Guided Calibration with a verified reference mass
 
 ## Operator bring-up checklist
@@ -35,11 +35,11 @@ the 2.0.0-rc2 Windows installer RC.
 1. Open [START_HERE.md](../START_HERE.md) or [OPERATOR_ONBOARDING.md](OPERATOR_ONBOARDING.md).
 2. Launch `launch_best_buds.bat`.
 3. New Run → Connect Scale → Guided Calibration → ZERO.
-4. Optional: View → Scale Face (Harvest) for hang-side Lock/Confirm pacing.
+4. Optional: run post-cal characterization and confirm recommended stability settings.
 5. Capture plants; Export / Reconcile when done; Finish Run.
 
 ## Related
 
-- [BBWS_SR8_ARTIFACTS.md](BBWS_SR8_ARTIFACTS.md)
+- [BBWS_SR9_ARTIFACTS.md](BBWS_SR9_ARTIFACTS.md)
 - [WINDOWS_DEVICE_BRINGUP.md](WINDOWS_DEVICE_BRINGUP.md)
-- Drift gate: `scripts/validate_drift_concordance_v200_rc3.py`
+- Drift gate: `scripts/validate_drift_concordance_v200_rc4.py`

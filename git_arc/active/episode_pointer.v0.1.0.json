@@ -1,6 +1,6 @@
 {
-  "commit_plan": "no mid-episode push",
-  "episode_id": "S01E01",
-  "status": "next",
-  "updated_at": "2026-08-13T01:54:38Z"
+  "episode_id": "S10E10",
+  "status": "complete",
+  "commit_plan": "series closeout commit then tag+push",
+  "updated_at": "2026-08-13T02:09:11Z"
 }

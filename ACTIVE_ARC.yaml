@@ -1,18 +1,21 @@
 # BBWS SR9 live pointer — product owns truth (salvage cited, not mutated)
 series_id: BBWS_SR9_scale_profile_stability_governance
 series_version: 0.1.0
-season_id: S01
-season_slug: contract_and_baseline_freeze
-episode_id: S01E01
-milestone: M01
-status: active
+season_id: S10
+season_slug: series_closeout
+episode_id: S10E10
+milestone: M10
+status: series_complete
 parent_series_id: BBWS_SR8_scale_face_harvest_mode
 parent_tag: bbws-sr8-complete
 baseline_tag: bbws-pre-sr9-scale-profile
 product_version_target: 2.0.0-rc4
-product_version_during_impl: 2.0.0-rc3
+product_version_shipped: 2.0.0-rc4
 doctrine_source: C:/aos_arc_launcher_v0_4_21
-updated_at: 2026-08-13T01:54:38Z
+updated_at: 2026-08-13T02:09:11Z
 runtime_claimed: false
 capture_law: scan_settle_lock_confirm_reset
-next_action: Execute S01E01 contract and baseline freeze
+next_action: Series complete — scale profile stability governance shipped as 2.0.0-rc4
+completed_tags:
+  - v2.0.0-rc4
+  - bbws-sr9-complete

@@ -1,6 +1,6 @@
 # Core Process Implementation — Current
 
-Version: `2.0.0-rc3`
+Version: `2.0.0-rc4`
 
 ## Implemented software processes
 

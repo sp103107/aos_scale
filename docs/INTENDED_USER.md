@@ -1,7 +1,7 @@
 # Intended User — Best Buds Weight Station
 
 **runtime_claimed:** false  
-**product_version:** `2.0.0-rc3`
+**product_version:** `2.0.0-rc4`
 
 ## Who this product is for
 

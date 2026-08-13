@@ -1,3 +1,11 @@
+## 2.0.0-rc4 — Scale profile + stability governance (SR9)
+
+- Added typed atomic scale profile store (CRUD/archive, active-per-device, hash receipts).
+- Calibration binds to device profile; reconnect applies/verifies calibration on known devices.
+- Post-cal 100 g characterization (bounded recommend) plus capture stability runtime gates.
+- Scale Setup UI for device identity, profile management, characterization, and diagnostics.
+- Bumped product version surfaces to 2.0.0-rc4 with a new drift concordance gate; archival rc3 receipts unchanged.
+
 ## 2.0.0-rc3 — Scale Face harvest mode (SR8)
 
 - Added PySide **Scale Face (Harvest)** mode (View → Scale Face / Ctrl+Shift+F) sharing OperatorRuntime and capture law.
