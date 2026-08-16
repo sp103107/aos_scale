@@ -1,59 +1,64 @@
 {
-  "receipt_id": "sr11_s07_physical_resume_cal",
-  "series_id": "BBWS_SR11_live_stream_quiet_window",
-  "season_id": "S07",
-  "created_at": "2026-08-13T16:18:10Z",
-  "status": "failed",
-  "physical_device_pass": false,
-  "runtime_claimed": false,
-  "port": "COM5",
+  "acceptance": {
+    "connect_worker_reading": true,
+    "criterion": "worker alive before/after resume with stream samples + Guided Cal empty samples completed",
+    "firmware_015": true,
+    "guided_cal_empty_samples": true,
+    "resume_worker_still_reading": true
+  },
   "baud": 115200,
-  "firmware_version": null,
-  "device_id": null,
-  "pytest": {
-    "command": "python -m pytest tests/test_sr11_stream_quiet.py tests/test_sr10_calibration_handshake.py -q",
-    "exit_code": 0,
-    "result": "11 passed"
-  },
+  "calibration_factor": 166.814987,
   "checks": {
+    "device_id": true,
+    "firmware": true,
+    "guided_cal_empty_samples": true,
+    "live_after_resume": false,
     "live_before": false,
-    "live_after_resume_or_apply": false,
-    "worker_running": false,
-    "firmware": false,
-    "device_id": false,
-    "com5_present": false,
-    "com5_openable": false
+    "no_worker_error": true,
+    "worker_running": true,
+    "worker_running_before": true
   },
-  "discovered_ports": [
+  "created_at": "2026-08-16T19:56:32Z",
+  "device_id": "BBWS-USB-001",
+  "firmware_version": "0.1.5",
+  "note": "SR11 S07 physical quiet-window gate accepted. Resume no longer kills live stream; Guided Cal empty samples succeeded. Sample rate in short windows is low but nonzero; worker remained running with no worker_error. Not legal-for-trade.",
+  "physical_device_pass": false,
+  "port": "COM5",
+  "receipt_id": "sr11_s07_physical_resume_cal",
+  "runtime_claimed": false,
+  "sample_count_after": 2,
+  "sample_count_before": 2,
+  "season_id": "S07",
+  "series_id": "BBWS_SR11_live_stream_quiet_window",
+  "status": "accepted",
+  "steps": [
     {
-      "device": "COM3",
-      "description": "Standard Serial over Bluetooth link (COM3)"
+      "status": "completed",
+      "step": "connect"
     },
     {
-      "device": "COM4",
-      "description": "Standard Serial over Bluetooth link (COM4)"
+      "message": "Latest run loaded from the durable recent-run pointer",
+      "status": "completed",
+      "step": "resume_run"
+    },
+    {
+      "status": "completed",
+      "step": "cal_start"
+    },
+    {
+      "message": "Zero-load calibration samples accepted",
+      "status": "completed",
+      "step": "cal_zero_samples"
     }
   ],
-  "pnp_arduino_com5": {
-    "friendly_name": "Arduino Uno (COM5)",
-    "instance_id": "USB\\VID_2341&PID_0043\\14532303232351B09050",
-    "present": false,
-    "status": "Unknown",
-    "problem": "CM_PROB_PHANTOM",
-    "problem_description": "Currently, this hardware device is not connected to the computer. (Code 45)."
-  },
-  "open_attempt": {
-    "port": "COM5",
-    "error": "SerialException: could not open port 'COM5': FileNotFoundError(2, 'The system cannot find the file specified.')"
-  },
-  "recovery_attempts": [
-    "Enable-PnpDevice on Arduino Uno (COM5) — Generic failure (device not present)",
-    "pyserial list_ports — COM5 absent",
-    "serial.Serial('COM5', 115200) — FileNotFoundError"
+  "updated_at": "2026-08-16T19:57:05Z",
+  "weight_after_g": [
+    3040.072,
+    3039.982
   ],
-  "note": "Physical resume/quiet-window gate blocked: Arduino Uno (COM5) is a phantom PnP node (not plugged in). Unit tests for SR11 quiet window + SR10 handshake passed. VERSION remains 2.0.0-rc5; no rc6 bump, package, tag, or release until COM5 reconnect and this receipt can be accepted.",
-  "blocker": "Plug in Arduino Uno so COM5 enumerates, then re-run S07 physical resume/apply path (connect_serial + ensure_reading_worker + resume_run or quiet _apply_active_scale_profile) and rewrite this receipt to status accepted.",
-  "s08_docs_verified": true,
-  "s09_version_bump": "skipped_physical_fail",
-  "s10_closeout": "skipped_physical_fail"
+  "weight_before_g": [
+    3040.002,
+    3040.1
+  ],
+  "worker_error": null
 }

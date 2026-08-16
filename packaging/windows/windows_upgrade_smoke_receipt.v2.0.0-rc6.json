@@ -1,0 +1,50 @@
+﻿{
+    "receipt":  "windows_upgrade_smoke",
+    "from_version":  "2.0.0-rc5",
+    "to_version":  "2.0.0-rc6",
+    "platform":  "windows-x64",
+    "status":  "pass",
+    "steps":  [
+                  {
+                      "evidence":  "2.0.0-rc5",
+                      "step":  "silent_install_rc5_baseline",
+                      "result":  "pass",
+                      "installer_exit":  0
+                  },
+                  {
+                      "step":  "write_data_marker",
+                      "result":  "pass",
+                      "path":  "%LOCALAPPDATA%/BestBudsWeightStation/config/upgrade_smoke_marker.txt"
+                  },
+                  {
+                      "evidence":  "same AppId overwrite",
+                      "step":  "silent_upgrade_install_rc6",
+                      "result":  "pass",
+                      "installer_exit":  0
+                  },
+                  {
+                      "evidence":  "2.0.0-rc6",
+                      "step":  "version_after_upgrade",
+                      "result":  "pass"
+                  },
+                  {
+                      "evidence":  "exit 0",
+                      "step":  "simulator_self_test",
+                      "result":  "pass"
+                  },
+                  {
+                      "result":  "pass",
+                      "step":  "data_preserved"
+                  },
+                  {
+                      "evidence":  "before=scale-profile-3e384328-3116-4dac-99d0-3e9d3419c6a4.json,scale-profile-4e86cccb-42a9-4367-80bc-32aec6da894f.json,scale-profile-5ceb8442-14e3-4000-ac71-975edc50306e.json,scale-profile-6b1c03f8-78e1-4e0b-aa74-3fb4eac0bcbc.json,scale-profile-94373773-5b02-4e00-9ac6-ecca8c410a1a.json,scale-profile-e82d59ca-d3ef-4643-bc15-1f769d611497.json after=scale-profile-3e384328-3116-4dac-99d0-3e9d3419c6a4.json,scale-profile-4e86cccb-42a9-4367-80bc-32aec6da894f.json,scale-profile-5ceb8442-14e3-4000-ac71-975edc50306e.json,scale-profile-6b1c03f8-78e1-4e0b-aa74-3fb4eac0bcbc.json,scale-profile-94373773-5b02-4e00-9ac6-ecca8c410a1a.json,scale-profile-e82d59ca-d3ef-4643-bc15-1f769d611497.json",
+                      "step":  "scale_profiles_preserved",
+                      "result":  "pass"
+                  }
+              ],
+    "non_claims":  [
+                       "Not Authenticode-signed.",
+                       "No in-app auto-update; re-run newer Setup.exe.",
+                       "Physical S07 quiet-window gate accepted separately."
+                   ]
+}

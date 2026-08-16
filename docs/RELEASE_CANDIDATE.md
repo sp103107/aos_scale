@@ -1,4 +1,4 @@
-# Release candidate notes — v2.0.0-rc5
+# Release candidate notes — v2.0.0-rc6
 
 **Tag intent:** **Scale profile + stability governance RC** — device identity, scale profiles,
 post-cal characterization, and capture stability gates on top of the 2.0.0-rc3 Scale Face RC.  

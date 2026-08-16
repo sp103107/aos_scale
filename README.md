@@ -1,6 +1,6 @@
 # Best Buds Cultivator Weight Station (`aos_scale`)
 
-**Version:** `2.0.0-rc5`  
+**Version:** `2.0.0-rc6`  
 **Public repo:** [https://github.com/sp103107/aos_scale](https://github.com/sp103107/aos_scale)  
 **Start here:** [START_HERE.md](START_HERE.md) (operators) · [START_HERE_CODING_AGENT.md](START_HERE_CODING_AGENT.md) (agents)  
 **RC notes:** [docs/RELEASE_CANDIDATE.md](docs/RELEASE_CANDIDATE.md)

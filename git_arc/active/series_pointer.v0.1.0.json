@@ -1,14 +1,13 @@
 {
-  "auto_push": false,
-  "baseline_tag": "bbws-pre-sr11-stream-quiet",
-  "branch_plan": "main",
-  "parent_tag": "bbws-sr10-complete",
-  "planned_tags": [
-    "v2.0.0-rc6",
-    "bbws-sr11-complete"
-  ],
-  "push_policy": "after_series_closeout",
-  "remote_plan": "origin",
   "series_id": "BBWS_SR11_live_stream_quiet_window",
-  "updated_at": "2026-08-13T16:08:12Z"
+  "branch_plan": "main",
+  "remote_plan": "origin",
+  "push_policy": "after_series_closeout",
+  "auto_push": false,
+  "parent_tag": "bbws-sr10-complete",
+  "baseline_tag": "bbws-pre-sr11-stream-quiet",
+  "planned_tags": ["v2.0.0-rc6", "bbws-sr11-complete"],
+  "shipped_tags": ["v2.0.0-rc6", "bbws-sr11-complete"],
+  "status": "series_complete",
+  "updated_at": "2026-08-16T20:00:00Z"
 }

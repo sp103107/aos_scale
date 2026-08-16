@@ -1,49 +1,33 @@
 {
-  "active": {
-    "episode_id": "S07E01",
-    "milestone": "M07",
-    "season_id": "S07",
-    "status": "active"
-  },
-  "baseline_tag": "bbws-pre-sr11-stream-quiet",
-  "completed_seasons": [
-    "S01",
-    "S02",
-    "S03",
-    "S04",
-    "S05",
-    "S06"
-  ],
-  "continuation_handoff": "kickoff_prompts/BBWS_SR11_HUMAN_CHAT_KICKOFF.md",
-  "decision_locks": {
-    "capture_loop": "scan_settle_lock_confirm_reset",
-    "ensure_worker_before_cal_samples": true,
-    "input_integrity": "deferred_to_later_series",
-    "product_version_during_impl": "2.0.0-rc5",
-    "product_version_target": "2.0.0-rc6",
-    "push_cadence": "series_closeout",
-    "quiet_resume": true,
-    "rc6_requires_physical_s07": true,
-    "skip_matching_set_cal": true
-  },
-  "non_claims": [
-    "Not legal-for-trade / Metrc compliance",
-    "100 g characterization is repeatability evidence, not certification",
-    "Scale profiles/receipts are local operational evidence only",
-    "JSONL remains authoritative for weight records",
-    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
-    "Firmware device identity must be unique; collision requires operator intervention",
-    "Archived profiles never erase historical calibration or weight evidence",
-    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
-    "Not a remote weighing server",
-    "Quiet-window resume is operational integrity only \u2014 not certification"
-  ],
   "pack_id": "BBWS_SR11_resume",
+  "version": "0.1.0",
+  "series_id": "BBWS_SR11_live_stream_quiet_window",
+  "updated_at": "2026-08-16T20:00:00Z",
+  "active": {
+    "season_id": "S10",
+    "episode_id": "S10E10",
+    "milestone": "M10",
+    "status": "series_complete"
+  },
   "parent_series": "BBWS_SR10_calibration_handshake_integrity",
   "parent_tag": "bbws-sr10-complete",
-  "product_version_during_impl": "2.0.0-rc5",
+  "baseline_tag": "bbws-pre-sr11-stream-quiet",
   "product_version_target": "2.0.0-rc6",
-  "series_id": "BBWS_SR11_live_stream_quiet_window",
-  "updated_at": "2026-08-13T16:22:32Z",
-  "version": "0.1.0"
+  "product_version_shipped": "2.0.0-rc6",
+  "completed_seasons": ["S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10"],
+  "decision_locks": {
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "quiet_resume": true,
+    "skip_matching_set_cal": true,
+    "ensure_worker_before_cal_samples": true,
+    "rc6_requires_physical_s07": true,
+    "push_cadence": "series_closeout",
+    "input_integrity": "deferred_to_later_series"
+  },
+  "shipped_tags": ["v2.0.0-rc6", "bbws-sr11-complete"],
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Quiet-window resume is operational integrity only — not certification"
+  ],
+  "continuation_handoff": "kickoff_prompts/BBWS_SR11_HUMAN_CHAT_KICKOFF.md"
 }

@@ -1,0 +1,17 @@
+{
+  "receipt_id": "sr11_s10_series_closeout",
+  "series_id": "BBWS_SR11_live_stream_quiet_window",
+  "season_id": "S10",
+  "status": "accepted",
+  "product_version_shipped": "2.0.0-rc6",
+  "tags": ["v2.0.0-rc6", "bbws-sr11-complete"],
+  "artifacts": {
+    "setup": "dist/windows/BestBudsWeightStation-Setup-v2.0.0-rc6.exe",
+    "zip": "dist/windows/BestBudsWeightStation-windows-x64-v2.0.0-rc6.zip",
+    "upgrade_smoke": "packaging/windows/windows_upgrade_smoke_receipt.v2.0.0-rc6.json",
+    "physical_gate": "reports/sr11_s07_physical_resume_cal.json",
+    "drift": "reports/drift_concordance_report.v2.0.0-rc6.json"
+  },
+  "runtime_claimed": false,
+  "created_at": "2026-08-16T20:00:00Z"
+}
