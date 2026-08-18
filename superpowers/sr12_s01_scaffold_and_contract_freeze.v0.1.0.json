@@ -1,0 +1,306 @@
+{
+  "arc_id": "SR12_S01_scaffold_and_contract_freeze",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S01E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr12.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S01E01",
+      "kind": "context",
+      "objective": "Intent freeze: post-cal characterize stream",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: post-cal characterize stream"
+    },
+    {
+      "acceptance": "S01E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr12.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S01E02",
+      "kind": "context",
+      "objective": "Inventory collect_weight_samples vs Guided Cal ensure",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Inventory collect_weight_samples vs Guided Cal ensure"
+    },
+    {
+      "acceptance": "S01E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr12.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S01E03",
+      "kind": "implement",
+      "objective": "Write contract freeze receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write contract freeze receipt"
+    },
+    {
+      "acceptance": "S01E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr12.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S01E04",
+      "kind": "implement",
+      "objective": "Tag bbws-pre-sr12-characterize",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Tag bbws-pre-sr12-characterize"
+    },
+    {
+      "acceptance": "S01E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr12.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S01E05",
+      "kind": "implement",
+      "objective": "Authorize S02\u2013S06 characterize work",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Authorize S02\u2013S06 characterize work"
+    },
+    {
+      "acceptance": "S01E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr12.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S01E06",
+      "kind": "verify",
+      "objective": "Verify non-claims stamped",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify non-claims stamped"
+    },
+    {
+      "acceptance": "S01E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr12.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S01E07",
+      "kind": "receipt",
+      "objective": "S01 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S01 receipt pack"
+    },
+    {
+      "acceptance": "S01E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr12.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S01E08",
+      "kind": "verify",
+      "objective": "Verify ACTIVE_ARC points at S01",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify ACTIVE_ARC points at S01"
+    },
+    {
+      "acceptance": "S01E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr12.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S01E09",
+      "kind": "receipt",
+      "objective": "S01 closeout notes",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S01 closeout notes"
+    },
+    {
+      "acceptance": "S01E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr12.py",
+        "arc_lifecycle/blueprints/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S01E10",
+      "kind": "closeout",
+      "objective": "M01 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M01 season closeout + push plan"
+    }
+  ],
+  "focus": "Freeze SR12 contract; baseline tag; Arc artifacts",
+  "milestone": "M01",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Ensure-worker-before-characterize is operational integrity only \u2014 not certification"
+  ],
+  "primary_surfaces": [
+    "ACTIVE_ARC.yaml",
+    "cursor/",
+    "scripts/scaffold_bbws_sr12.py",
+    "arc_lifecycle/blueprints/",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc7",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr12.scaffold_and_contract_freeze.v1",
+  "series_id": "BBWS_SR12_post_cal_characterize_stream",
+  "title": "Scaffold + contract freeze",
+  "version": "0.1.0"
+}

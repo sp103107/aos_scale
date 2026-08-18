@@ -1,0 +1,12 @@
+{
+  "receipt_id": "sr12_s10_series_closeout",
+  "series_id": "BBWS_SR12_post_cal_characterize_stream",
+  "season_id": "S10",
+  "status": "accepted",
+  "product_version_shipped": "2.0.0-rc7",
+  "tags": ["v2.0.0-rc7", "bbws-sr12-complete"],
+  "drift": "reports/drift_concordance_report.v2.0.0-rc7.json",
+  "scripted_tests": "reports/sr12_s05_scripted_characterize_tests.json",
+  "characterize_gate": "reports/sr12_s06_physical_characterize.json",
+  "runtime_claimed": false
+}

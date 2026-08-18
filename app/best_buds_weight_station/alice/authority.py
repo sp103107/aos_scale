@@ -95,6 +95,12 @@ def operator_safe_error(error: Any) -> str:
         return "Start or resume a harvest run first when recording plants. Maintenance calibration can run after the scale is connected."
     if "at least three live" in text:
         return "Wait until the live weight is updating, then capture samples again."
+    if "not enough live weight samples" in text:
+        return (
+            "The scale is not sending enough live readings for the 100 g stability test. "
+            "Place the 100 g mass, wait until live grams are moving, then run the test again. "
+            "If the live number is frozen, Disconnect → Connect, then retry."
+        )
     if "steadier pan" in text or "do not match the loaded pan" in text:
         return raw
     if "zero stability" in text:

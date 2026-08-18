@@ -1,0 +1,262 @@
+{
+  "arc_id": "SR12_S08_no_unrelated_churn",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S08E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S08E01",
+      "kind": "context",
+      "objective": "Intent freeze: rc7 contains SR12 only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: rc7 contains SR12 only"
+    },
+    {
+      "acceptance": "S08E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S08E02",
+      "kind": "verify",
+      "objective": "Confirm no duplicate-barcode UI in this bump",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Confirm no duplicate-barcode UI in this bump"
+    },
+    {
+      "acceptance": "S08E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S08E03",
+      "kind": "verify",
+      "objective": "Confirm no auto-record-after-lock in this bump",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Confirm no auto-record-after-lock in this bump"
+    },
+    {
+      "acceptance": "S08E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S08E04",
+      "kind": "verify",
+      "objective": "Confirm no firmware bump",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Confirm no firmware bump"
+    },
+    {
+      "acceptance": "S08E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S08E05",
+      "kind": "receipt",
+      "objective": "Write scope receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write scope receipt"
+    },
+    {
+      "acceptance": "S08E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S08E06",
+      "kind": "receipt",
+      "objective": "S08 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S08 receipt pack"
+    },
+    {
+      "acceptance": "S08E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S08E07",
+      "kind": "verify",
+      "objective": "Verify capture law docs unchanged",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify capture law docs unchanged"
+    },
+    {
+      "acceptance": "S08E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S08E08",
+      "kind": "receipt",
+      "objective": "S08 closeout notes",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S08 closeout notes"
+    },
+    {
+      "acceptance": "S08E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S08E09",
+      "kind": "verify",
+      "objective": "Verify ACTIVE_ARC still SR12",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify ACTIVE_ARC still SR12"
+    },
+    {
+      "acceptance": "S08E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S08E10",
+      "kind": "closeout",
+      "objective": "M08 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M08 season closeout + push plan"
+    }
+  ],
+  "focus": "This bump is characterize-only; SR13/SR14 stay later series",
+  "milestone": "M08",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Ensure-worker-before-characterize is operational integrity only \u2014 not certification"
+  ],
+  "primary_surfaces": [
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc7",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr12.no_unrelated_churn.v1",
+  "series_id": "BBWS_SR12_post_cal_characterize_stream",
+  "title": "No unrelated churn",
+  "version": "0.1.0"
+}

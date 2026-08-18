@@ -550,7 +550,12 @@ class OperatorRuntime:
         settle_s: float = 0.5,
         timeout_s: float = 30.0,
     ) -> list[float]:
-        """Collect live weight samples for post-cal stability characterization."""
+        """Collect live weight samples for post-cal stability characterization.
+
+        Restarts the live reader first (same contract as Guided Cal raw collect)
+        so Accept's quiet window cannot starve the 100 g Stability Test.
+        """
+        self.ensure_reading_worker()
         if clear_first:
             self.buffer.clear()
             time.sleep(max(0.0, settle_s))
@@ -563,9 +568,10 @@ class OperatorRuntime:
         recent = self.buffer.recent(sample_count)
         samples = [float(item.weight_g) for item in recent]
         if len(samples) < 12:
+            extra = f" (scale note: {self.last_worker_error})" if self.last_worker_error else ""
             raise RuntimeError(
                 "not enough live weight samples for characterization — "
-                "place the 100 g mass and wait for the live stream"
+                "place the 100 g mass and wait for the live stream" + extra
             )
         return samples
 

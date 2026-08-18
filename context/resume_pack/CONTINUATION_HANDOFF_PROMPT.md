@@ -1,10 +1,9 @@
-# BBWS SR11 Continuation Handoff
+# BBWS SR12 Continuation Handoff
 
-Updated: 2026-08-13T16:08:12Z
+Updated: 2026-08-18T22:20:00Z
 
-**Active:** S01 / S01E01 / M01  
-**Series:** BBWS_SR11_live_stream_quiet_window  
-**Product target:** 2.0.0-rc6  
-**During impl:** 2.0.0-rc5
+**Active:** series_complete / S10 / M10  
+**Series:** BBWS_SR12_post_cal_characterize_stream  
+**Product shipped:** 2.0.0-rc7
 
-Load `ACTIVE_ARC.yaml` and `BBWS_SR11_resume.v0.1.0.json`, then execute the pointed episode.
+Do not invent seasons. Next work is a new series (SR13 duplicate barcode pre-gate).

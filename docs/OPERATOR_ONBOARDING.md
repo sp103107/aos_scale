@@ -2,7 +2,7 @@
 
 **runtime_claimed:** false  
 **audience:** harvest-station operator  
-**product_version:** `2.0.0-rc6`  
+**product_version:** `2.0.0-rc7`  
 **template cite:** KS structured onboarding (salvage cite-only)
 
 ## Flow map
@@ -65,6 +65,8 @@ Simulator without hardware: `launch_simulator.bat`.
 > **Accept recovery (SR10):** If Accept reports a leftover reply / handshake timeout, Disconnect → Connect, re-run Test, then Accept. Firmware should be **0.1.5** (Scale Setup STATUS). Close Serial Monitor before retrying.
 
 > **Resume recovery (SR11):** If live grams freeze after **Resume** (or Load Run) while the scale stays connected, Disconnect → Connect to restart the stream. SR11 opens a quiet window around resume/load so profile apply should not leave the reader stuck — use Disconnect→Connect only if it still happens.
+
+> **Stability test recovery (SR12):** If the 100 g Stability Test after Accept reports not enough live samples, wait until live grams move and retry. The station now restarts the live reader before collecting those samples. If grams stay frozen, Disconnect → Connect, then retry.
 
 > **Common confusion:** Large wild numbers before calibration are normal. Do not treat them as trade weight.
 

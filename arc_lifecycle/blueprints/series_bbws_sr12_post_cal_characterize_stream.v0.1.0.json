@@ -1,0 +1,108 @@
+{
+  "baseline_tag": "bbws-pre-sr12-characterize",
+  "blueprint_id": "BBWS_SR12_post_cal_characterize_stream",
+  "blueprint_type": "series",
+  "github_push_cadence": "after_series_closeout",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Ensure-worker-before-characterize is operational integrity only \u2014 not certification"
+  ],
+  "parent_arc_id": "bbws-sr11-complete",
+  "parent_series_id": "BBWS_SR11_live_stream_quiet_window",
+  "product_version_target": "2.0.0-rc7",
+  "runtime_claimed": false,
+  "seasons": [
+    {
+      "episode_count": 10,
+      "focus": "Freeze SR12 contract; baseline tag; Arc artifacts",
+      "milestone": "M01",
+      "season_id": "S01_scaffold_and_contract_freeze",
+      "superpower_ref": "superpowers/sr12_s01_scaffold_and_contract_freeze.v0.1.0.json",
+      "title": "Scaffold + contract freeze"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Call ensure_reading_worker at start of collect_weight_samples",
+      "milestone": "M02",
+      "season_id": "S02_ensure_worker_for_characterize",
+      "superpower_ref": "superpowers/sr12_s02_ensure_worker_for_characterize.v0.1.0.json",
+      "title": "Ensure worker before characterize samples"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Include last_worker_error when characterization samples starve",
+      "milestone": "M03",
+      "season_id": "S03_surface_worker_error_on_collect",
+      "superpower_ref": "superpowers/sr12_s03_surface_worker_error_on_collect.v0.1.0.json",
+      "title": "Surface worker error on collect fail"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Operator-safe message for not enough live weight samples",
+      "milestone": "M04",
+      "season_id": "S04_alice_characterize_copy",
+      "superpower_ref": "superpowers/sr12_s04_alice_characterize_copy.v0.1.0.json",
+      "title": "Alice characterize copy"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Stopped worker recovers; characterize collect does not starve",
+      "milestone": "M05",
+      "season_id": "S05_scripted_characterize_tests",
+      "superpower_ref": "superpowers/sr12_s05_scripted_characterize_tests.v0.1.0.json",
+      "title": "Scripted characterize tests"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Accept \u2192 100 g Stability Test with mass on pan",
+      "milestone": "M06",
+      "season_id": "S06_physical_characterize_gate",
+      "superpower_ref": "superpowers/sr12_s06_physical_characterize_gate.v0.1.0.json",
+      "title": "Physical post-cal characterize gate"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Bring-up note: 100 g test needs live stream after Accept",
+      "milestone": "M07",
+      "season_id": "S07_docs_characterize_recovery",
+      "superpower_ref": "superpowers/sr12_s07_docs_characterize_recovery.v0.1.0.json",
+      "title": "Docs + characterize recovery"
+    },
+    {
+      "episode_count": 10,
+      "focus": "This bump is characterize-only; SR13/SR14 stay later series",
+      "milestone": "M08",
+      "season_id": "S08_no_unrelated_churn",
+      "superpower_ref": "superpowers/sr12_s08_no_unrelated_churn.v0.1.0.json",
+      "title": "No unrelated churn"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Version/drift/manifest; Setup/zip \u2014 only after S06 gate",
+      "milestone": "M09",
+      "season_id": "S09_rc7_windows_packaging",
+      "superpower_ref": "superpowers/sr12_s09_rc7_windows_packaging.v0.1.0.json",
+      "title": "Bump to 2.0.0-rc7 + Windows packaging"
+    },
+    {
+      "episode_count": 10,
+      "focus": "Docs/release, tag v2.0.0-rc7 + bbws-sr12-complete",
+      "milestone": "M10",
+      "season_id": "S10_release_and_closeout",
+      "superpower_ref": "superpowers/sr12_s10_release_and_closeout.v0.1.0.json",
+      "title": "SR12 series closeout + tags"
+    }
+  ],
+  "series_goal": "After Guided Cal Accept, restart the live reader before 100 g characterization so Stability Test does not starve, then close with 2.0.0-rc7 after the characterize gate.",
+  "shape": "10 seasons \u00d7 10 episodes = 100",
+  "total_episodes": 100,
+  "version": "0.1.0"
+}

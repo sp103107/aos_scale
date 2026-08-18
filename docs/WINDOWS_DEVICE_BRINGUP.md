@@ -1,6 +1,6 @@
 # Windows Device Bring-up Notes (USB Serial)
 
-**product_version_target:** `2.0.0-rc5` (BBWS SR10)  
+**product_version_target:** `2.0.0-rc7` (BBWS SR12)  
 **scope:** operator PC bring-up hygiene only — not legal-for-trade / Metrc.
 
 ## How the app finds the scale
@@ -50,6 +50,8 @@ Current flash target: **`0.1.5`** (`firmware/elegoo_uno_r3_hx711/best_buds_scale
 If Guided Calibration **Accept** fails with a leftover-reply / handshake message: Disconnect → Connect → re-run Test → Accept again. Host now matches ACKs by command and skips interleaved weight lines.
 
 If live grams freeze after **Resume** / Load Run (SR11): Disconnect → Connect to restart the reading worker. SR11 stops the live stream briefly around resume/load profile apply so SET_CAL/STATUS are not interleaved with weight lines; Disconnect→Connect remains the recovery if a freeze still appears.
+
+If **100 g Stability Test** after Accept says characterization is unavailable / not enough live samples (SR12): wait until live grams are moving, then retry. The host now restarts the live reader before collecting characterize samples. If the live number is still frozen, Disconnect → Connect, then run the test again.
 
 ## Scale identity + profile bring-up (SR9)
 

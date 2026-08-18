@@ -1,0 +1,33 @@
+{
+  "acceptance": {
+    "auto_record_after_lock_deferred": true,
+    "capture_law": "scan_settle_lock_confirm_reset",
+    "duplicate_pre_gate_deferred": true,
+    "ensure_worker_before_characterize": true,
+    "jsonl_authoritative": true,
+    "rc7_requires_characterize_s06": true,
+    "version_bump_season": "S09"
+  },
+  "baseline_tag": "bbws-pre-sr12-characterize",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Ensure-worker-before-characterize is operational integrity only \u2014 not certification"
+  ],
+  "parent_tag": "bbws-sr11-complete",
+  "product_version_during_impl": "2.0.0-rc6",
+  "product_version_target": "2.0.0-rc7",
+  "receipt_id": "sr12_s01_contract_freeze",
+  "runtime_claimed": false,
+  "season_id": "S01",
+  "series_id": "BBWS_SR12_post_cal_characterize_stream",
+  "status": "accepted",
+  "version": "0.1.0"
+}

@@ -1,0 +1,13 @@
+{
+  "receipt_id": "sr12_s06_physical_characterize",
+  "season_id": "S06",
+  "series_id": "BBWS_SR12_post_cal_characterize_stream",
+  "status": "accepted",
+  "runtime_claimed": false,
+  "criterion": "After an Accept-style worker stop, collect_weight_samples restarts the reader and characterize returns samples; starve no longer waits 30s on a dead worker.",
+  "scripted_simulator_pass": true,
+  "physical_device_pass": false,
+  "note": "Scripted gate accepted the SR12 failure mode (worker stopped after quiet Accept, then 100 g characterize). Live COM 100 g mass confirmation remains operator follow-up on the floor; recovery copy is in WINDOWS_DEVICE_BRINGUP and OPERATOR_ONBOARDING. Not legal-for-trade.",
+  "operator_followup": "Connect physical scale, Guided Cal Accept, place verified 100 g, Run 100 g Stability Test; live grams must keep moving and the test must collect samples.",
+  "pytest_evidence": "reports/sr12_s05_scripted_characterize_tests.json"
+}

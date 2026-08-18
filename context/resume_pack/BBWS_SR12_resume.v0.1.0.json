@@ -1,0 +1,34 @@
+{
+  "pack_id": "BBWS_SR12_resume",
+  "version": "0.1.0",
+  "series_id": "BBWS_SR12_post_cal_characterize_stream",
+  "updated_at": "2026-08-18T22:20:00Z",
+  "active": {
+    "season_id": "S10",
+    "episode_id": "S10E10",
+    "milestone": "M10",
+    "status": "series_complete"
+  },
+  "parent_series": "BBWS_SR11_live_stream_quiet_window",
+  "parent_tag": "bbws-sr11-complete",
+  "baseline_tag": "bbws-pre-sr12-characterize",
+  "product_version_target": "2.0.0-rc7",
+  "product_version_shipped": "2.0.0-rc7",
+  "completed_seasons": ["S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10"],
+  "shipped_tags": ["v2.0.0-rc7", "bbws-sr12-complete"],
+  "decision_locks": {
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "product_version_target": "2.0.0-rc7",
+    "ensure_worker_before_characterize": true,
+    "push_cadence": "series_closeout",
+    "duplicate_pre_gate": "deferred_to_sr13",
+    "auto_record_after_lock": "deferred_to_sr14"
+  },
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan → settle → lock → confirm → reset"
+  ],
+  "continuation_handoff": "kickoff_prompts/BBWS_SR12_HUMAN_CHAT_KICKOFF.md"
+}

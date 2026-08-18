@@ -1,0 +1,295 @@
+{
+  "arc_id": "SR12_S07_docs_characterize_recovery",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S07E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/WINDOWS_DEVICE_BRINGUP.md",
+        "docs/BBWS_SR12_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S07E01",
+      "kind": "context",
+      "objective": "Intent freeze: docs only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: docs only"
+    },
+    {
+      "acceptance": "S07E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/WINDOWS_DEVICE_BRINGUP.md",
+        "docs/BBWS_SR12_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S07E02",
+      "kind": "implement",
+      "objective": "Stability test recovery steps",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Stability test recovery steps"
+    },
+    {
+      "acceptance": "S07E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/WINDOWS_DEVICE_BRINGUP.md",
+        "docs/BBWS_SR12_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S07E03",
+      "kind": "implement",
+      "objective": "BBWS_SR12_ARTIFACTS.md",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "BBWS_SR12_ARTIFACTS.md"
+    },
+    {
+      "acceptance": "S07E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/WINDOWS_DEVICE_BRINGUP.md",
+        "docs/BBWS_SR12_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S07E04",
+      "kind": "implement",
+      "objective": "Keep non-claims stamped",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Keep non-claims stamped"
+    },
+    {
+      "acceptance": "S07E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/WINDOWS_DEVICE_BRINGUP.md",
+        "docs/BBWS_SR12_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S07E05",
+      "kind": "verify",
+      "objective": "No capture-law doc drift",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No capture-law doc drift"
+    },
+    {
+      "acceptance": "S07E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/WINDOWS_DEVICE_BRINGUP.md",
+        "docs/BBWS_SR12_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S07E06",
+      "kind": "verify",
+      "objective": "Verify docs paths exist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Verify docs paths exist"
+    },
+    {
+      "acceptance": "S07E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/WINDOWS_DEVICE_BRINGUP.md",
+        "docs/BBWS_SR12_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S07E07",
+      "kind": "implement",
+      "objective": "Update CONTINUATION handoff",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Update CONTINUATION handoff"
+    },
+    {
+      "acceptance": "S07E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/WINDOWS_DEVICE_BRINGUP.md",
+        "docs/BBWS_SR12_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S07E08",
+      "kind": "receipt",
+      "objective": "S07 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S07 receipt pack"
+    },
+    {
+      "acceptance": "S07E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/WINDOWS_DEVICE_BRINGUP.md",
+        "docs/BBWS_SR12_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S07E09",
+      "kind": "receipt",
+      "objective": "S07 closeout notes",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S07 closeout notes"
+    },
+    {
+      "acceptance": "S07E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/WINDOWS_DEVICE_BRINGUP.md",
+        "docs/BBWS_SR12_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S07E10",
+      "kind": "closeout",
+      "objective": "M07 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M07 season closeout + push plan"
+    }
+  ],
+  "focus": "Bring-up note: 100 g test needs live stream after Accept",
+  "milestone": "M07",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Ensure-worker-before-characterize is operational integrity only \u2014 not certification"
+  ],
+  "primary_surfaces": [
+    "docs/",
+    "docs/OPERATOR_ONBOARDING.md",
+    "docs/WINDOWS_DEVICE_BRINGUP.md",
+    "docs/BBWS_SR12_ARTIFACTS.md"
+  ],
+  "product_version_target": "2.0.0-rc7",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr12.docs_characterize_recovery.v1",
+  "series_id": "BBWS_SR12_post_cal_characterize_stream",
+  "title": "Docs + characterize recovery",
+  "version": "0.1.0"
+}

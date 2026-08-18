@@ -1,0 +1,273 @@
+{
+  "arc_id": "SR12_S05_scripted_characterize_tests",
+  "doctrine_cite": [
+    "C:/aos_arc_launcher_v0_4_21/docs/CANONICAL_ARC_NAMING_MODEL.md",
+    "C:/aos_arc_launcher_v0_4_21/docs/GIT_MUTATION_BOUNDARY.md"
+  ],
+  "episodes": [
+    {
+      "acceptance": "S05E01 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S05E01",
+      "kind": "context",
+      "objective": "Intent freeze: characterize tests",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Intent freeze: characterize tests"
+    },
+    {
+      "acceptance": "S05E02 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S05E02",
+      "kind": "implement",
+      "objective": "Stopped worker collect recovers",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Stopped worker collect recovers"
+    },
+    {
+      "acceptance": "S05E03 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S05E03",
+      "kind": "implement",
+      "objective": "characterize_stability after ensure",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "characterize_stability after ensure"
+    },
+    {
+      "acceptance": "S05E04 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S05E04",
+      "kind": "implement",
+      "objective": "Worker error attached on starve",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Worker error attached on starve"
+    },
+    {
+      "acceptance": "S05E05 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S05E05",
+      "kind": "verify",
+      "objective": "Run pytest green",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Run pytest green"
+    },
+    {
+      "acceptance": "S05E06 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S05E06",
+      "kind": "receipt",
+      "objective": "Write S05 test receipt",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Write S05 test receipt"
+    },
+    {
+      "acceptance": "S05E07 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S05E07",
+      "kind": "verify",
+      "objective": "Regression with SR11 quiet tests",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Regression with SR11 quiet tests"
+    },
+    {
+      "acceptance": "S05E08 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S05E08",
+      "kind": "receipt",
+      "objective": "S05 receipt pack",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S05 receipt pack"
+    },
+    {
+      "acceptance": "S05E09 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S05E09",
+      "kind": "receipt",
+      "objective": "S05 closeout notes",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "S05 closeout notes"
+    },
+    {
+      "acceptance": "S05E10 produces context receipt or season closeout when kind is receipt/closeout",
+      "authorized_scope": [
+        "tests/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "capture workflow / state machine law mutation",
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate M: salvage or Arc Launcher",
+        "auto-push mid-episode",
+        "remote/LAN weighing server",
+        "bump VERSION to rc7 before S06 characterize gate and S09",
+        "duplicate barcode pre-gate (SR13)",
+        "auto_record_after_lock (SR14)"
+      ],
+      "id": "S05E10",
+      "kind": "closeout",
+      "objective": "M05 season closeout + push plan",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "M05 season closeout + push plan"
+    }
+  ],
+  "focus": "Stopped worker recovers; characterize collect does not starve",
+  "milestone": "M05",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "100 g characterization is repeatability evidence, not certification",
+    "Scale profiles/receipts are local operational evidence only",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Firmware device identity must be unique; collision requires operator intervention",
+    "Archived profiles never erase historical calibration or weight evidence",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Ensure-worker-before-characterize is operational integrity only \u2014 not certification"
+  ],
+  "primary_surfaces": [
+    "tests/",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc7",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr12.scripted_characterize_tests.v1",
+  "series_id": "BBWS_SR12_post_cal_characterize_stream",
+  "title": "Scripted characterize tests",
+  "version": "0.1.0"
+}

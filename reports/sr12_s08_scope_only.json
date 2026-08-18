@@ -1,0 +1,19 @@
+{
+  "receipt_id": "sr12_s08_scope_only",
+  "season_id": "S08",
+  "series_id": "BBWS_SR12_post_cal_characterize_stream",
+  "status": "accepted",
+  "runtime_claimed": false,
+  "this_bump_contains": [
+    "ensure_reading_worker in collect_weight_samples",
+    "last_worker_error on characterize starve",
+    "Alice 100 g starve copy",
+    "Arc SR12 artifacts and docs recovery notes"
+  ],
+  "deferred": [
+    "duplicate barcode pre-gate (SR13)",
+    "auto_record_after_lock + audible beep (SR14)"
+  ],
+  "firmware_bumped": false,
+  "capture_law_changed": false
+}

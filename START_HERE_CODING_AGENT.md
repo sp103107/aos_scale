@@ -1,7 +1,7 @@
 # START HERE — Coding Agent / LLM
 
 **runtime_claimed:** false  
-**product_version:** `2.0.0-rc6`  
+**product_version:** `2.0.0-rc7`  
 **series:** see `ACTIVE_ARC.yaml`
 
 ## Mission
