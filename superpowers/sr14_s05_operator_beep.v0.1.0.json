@@ -1,0 +1,207 @@
+{
+  "arc_id": "SR14_S05_operator_beep",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/operator_beep.py",
+        "app/best_buds_weight_station/application_controller.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S05E01",
+      "kind": "implement",
+      "objective": "Windows MessageBeep on terminal success/warning/error; silent in pytest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Operator beep episode 01"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/operator_beep.py",
+        "app/best_buds_weight_station/application_controller.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S05E02",
+      "kind": "implement",
+      "objective": "Windows MessageBeep on terminal success/warning/error; silent in pytest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Operator beep episode 02"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/operator_beep.py",
+        "app/best_buds_weight_station/application_controller.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S05E03",
+      "kind": "implement",
+      "objective": "Windows MessageBeep on terminal success/warning/error; silent in pytest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Operator beep episode 03"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/operator_beep.py",
+        "app/best_buds_weight_station/application_controller.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S05E04",
+      "kind": "implement",
+      "objective": "Windows MessageBeep on terminal success/warning/error; silent in pytest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Operator beep episode 04"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/operator_beep.py",
+        "app/best_buds_weight_station/application_controller.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S05E05",
+      "kind": "implement",
+      "objective": "Windows MessageBeep on terminal success/warning/error; silent in pytest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Operator beep episode 05"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/operator_beep.py",
+        "app/best_buds_weight_station/application_controller.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S05E06",
+      "kind": "implement",
+      "objective": "Windows MessageBeep on terminal success/warning/error; silent in pytest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Operator beep episode 06"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/operator_beep.py",
+        "app/best_buds_weight_station/application_controller.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S05E07",
+      "kind": "implement",
+      "objective": "Windows MessageBeep on terminal success/warning/error; silent in pytest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Operator beep episode 07"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/operator_beep.py",
+        "app/best_buds_weight_station/application_controller.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S05E08",
+      "kind": "closeout",
+      "objective": "Windows MessageBeep on terminal success/warning/error; silent in pytest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Operator beep episode 08"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/operator_beep.py",
+        "app/best_buds_weight_station/application_controller.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S05E09",
+      "kind": "closeout",
+      "objective": "Windows MessageBeep on terminal success/warning/error; silent in pytest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Operator beep episode 09"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/operator_beep.py",
+        "app/best_buds_weight_station/application_controller.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S05E10",
+      "kind": "closeout",
+      "objective": "Windows MessageBeep on terminal success/warning/error; silent in pytest",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Operator beep episode 10"
+    }
+  ],
+  "focus": "Windows MessageBeep on terminal success/warning/error; silent in pytest",
+  "milestone": "M05",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop remains scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset; Confirm is automatic when the setting is on",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Audible beep is an operator cue, not certification",
+    "Existing automatic mode (record on stable) is unchanged",
+    "Duplicate pre-gate from SR13 still warns before any auto-record"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/operator_beep.py",
+    "app/best_buds_weight_station/application_controller.py"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr14.operator_beep.v1",
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "title": "Operator beep",
+  "version": "0.1.0"
+}

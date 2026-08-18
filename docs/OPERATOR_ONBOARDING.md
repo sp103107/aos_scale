@@ -2,7 +2,7 @@
 
 **runtime_claimed:** false  
 **audience:** harvest-station operator  
-**product_version:** `2.0.0-rc8`  
+**product_version:** `2.0.0-rc9`  
 **template cite:** KS structured onboarding (salvage cite-only)
 
 ## Flow map
@@ -89,6 +89,8 @@ Scan (or type barcode + Enter)
 > **Duplicate barcode (SR13):** If that tag was already recorded in this run, a warning appears **before** weighing. **Cancel** leaves you Ready with no new record. **Continue** lets you weigh it again (tagged as a duplicate).
 
 > **Common confusion:** Confirm stays disabled until the weight is **Locked**. That is intentional.
+
+> **Auto-record after Lock (SR14):** Station Settings can turn on **Auto-record after Lock**. After a barcode and a stable Lock, the station records immediately and beeps. Confirm is skipped. Duplicate tags still warn first (Continue or Cancel).
 
 Barcode stays visible until Confirm. Cancel clears the in-progress plant.
 

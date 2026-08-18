@@ -714,8 +714,31 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
         result = runtime.lock_weight()
         if result.get("status") in {"failed", "blocked"}:
             show_result(result)
+            return
+        if (result.get("data") or {}).get("record"):
+            apply_saved_record(result)
+            return
+        status_line.config(text=result.get("message") or "Weight locked — Confirm & Record when ready.")
+
+    def apply_saved_record(result) -> None:
+        feedback = (result.get("data") or {}).get("feedback")
+        msg = result.get("message") or "Record saved."
+        status_line.config(text=msg)
+        operator_note.delete(0, "end")
+        void_var.set("void: none")
+        barcode.delete(0, "end")
+        barcode.focus_set()
+        if feedback == "warning":
+            messagebox.showwarning("Saved with duplicate warning", msg, parent=root)
+
+    def confirm_record() -> None:
+        note = operator_note.get().strip() or None
+        void_status = "void" if void_var.get().endswith("void") and "mark" in void_var.get() else "none"
+        result = runtime.dispatch("capture.confirm", {"operator_note": note, "void_status": void_status})
+        if result.get("status") == "completed":
+            apply_saved_record(result)
         else:
-            status_line.config(text=result.get("message") or "Weight locked — Confirm & Record when ready.")
+            show_result(result)
 
     def submit(event=None) -> None:
         value = barcode.get().strip()
@@ -741,23 +764,6 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
             barcode.insert(0, value)
             active_barcode_banner.config(text=f"Active plant: {value}")
             status_line.config(text=f"Barcode accepted: {value} — place plant, wait for stable, then Lock weight.")
-
-    def confirm_record() -> None:
-        note = operator_note.get().strip() or None
-        void_status = "void" if void_var.get().endswith("void") and "mark" in void_var.get() else "none"
-        result = runtime.dispatch("capture.confirm", {"operator_note": note, "void_status": void_status})
-        if result.get("status") == "completed":
-            feedback = (result.get("data") or {}).get("feedback")
-            msg = result.get("message") or "Record saved."
-            status_line.config(text=msg)
-            operator_note.delete(0, "end")
-            void_var.set("void: none")
-            barcode.delete(0, "end")
-            barcode.focus_set()
-            if feedback == "warning":
-                messagebox.showwarning("Saved with duplicate warning", msg, parent=root)
-        else:
-            show_result(result)
 
     def cancel_item() -> None:
         result = runtime.dispatch("capture.cancel")

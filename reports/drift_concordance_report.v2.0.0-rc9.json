@@ -1,0 +1,62 @@
+{
+  "checks": [
+    {
+      "code": "VERSION_PY_OK",
+      "path": "C:/best_buds_cultivator_weight_station_v0_1_9/app/best_buds_weight_station/version.py"
+    },
+    {
+      "code": "PYPROJECT_VERSION_OK",
+      "path": "pyproject.toml"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "README.md"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "START_HERE.md"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "START_HERE_CODING_AGENT.md"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "docs/RELEASE_CANDIDATE.md"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "docs/OPERATOR_ONBOARDING.md"
+    },
+    {
+      "code": "DOC_VERSION_OK",
+      "path": "docs/INTENDED_USER.md"
+    },
+    {
+      "code": "ISS_VERSION_OK",
+      "path": "packaging/windows/BestBudsWeightStation.iss"
+    },
+    {
+      "code": "VERSION_FILE_OK",
+      "path": "VERSION"
+    },
+    {
+      "code": "SCALE_FACE_OK",
+      "path": "C:/best_buds_cultivator_weight_station_v0_1_9/app/best_buds_weight_station/scale_face.py"
+    },
+    {
+      "code": "SCALE_PROFILES_OK",
+      "path": "C:/best_buds_cultivator_weight_station_v0_1_9/app/best_buds_weight_station/scale_profiles.py"
+    }
+  ],
+  "gate": "drift_concordance_v200_rc9",
+  "issues": [],
+  "non_claims": [
+    "Archival v0.1.9 manifests and the v200_rc1/rc2/rc3/rc4/rc5/rc6 gates are not rewritten",
+    "Not legal-for-trade / Metrc compliance",
+    "Scale profiles/receipts are local operational evidence only; not legal-for-trade"
+  ],
+  "product_version": "2.0.0-rc9",
+  "pyproject_version": "2.0.0rc9",
+  "status": "pass"
+}

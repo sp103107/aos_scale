@@ -1,0 +1,10 @@
+{
+  "receipt_id": "sr14_s10_series_closeout",
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "status": "accepted",
+  "product_version_shipped": "2.0.0-rc9",
+  "tags": ["v2.0.0-rc9", "bbws-sr14-complete"],
+  "drift": "reports/drift_concordance_report.v2.0.0-rc9.json",
+  "scripted_tests": "reports/sr14_s06_scripted_auto_lock_tests.json",
+  "runtime_claimed": false
+}

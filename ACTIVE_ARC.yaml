@@ -1,21 +1,21 @@
-# BBWS SR13 live pointer — product owns truth (salvage cited, not mutated)
-series_id: BBWS_SR13_duplicate_barcode_pre_gate
+# BBWS SR14 live pointer — product owns truth (salvage cited, not mutated)
+series_id: BBWS_SR14_auto_record_after_lock
 series_version: 0.1.0
 season_id: S10
 season_slug: release_and_closeout
 episode_id: S10E10
 milestone: M10
 status: series_complete
-parent_series_id: BBWS_SR12_post_cal_characterize_stream
-parent_tag: bbws-sr12-complete
-baseline_tag: bbws-pre-sr13-dup-gate
-product_version_target: 2.0.0-rc8
-product_version_shipped: 2.0.0-rc8
+parent_series_id: BBWS_SR13_duplicate_barcode_pre_gate
+parent_tag: bbws-sr13-complete
+baseline_tag: bbws-pre-sr14-auto-lock
+product_version_target: 2.0.0-rc9
+product_version_shipped: 2.0.0-rc9
 doctrine_source: C:/aos_arc_launcher_v0_4_21
-updated_at: 2026-08-18T22:40:00Z
+updated_at: 2026-08-18T23:00:00Z
 runtime_claimed: false
 capture_law: scan_settle_lock_confirm_reset
-next_action: Series complete — duplicate barcode pre-gate shipped as 2.0.0-rc8
+next_action: Series complete — auto-record after lock + beep shipped as 2.0.0-rc9
 completed_tags:
-  - v2.0.0-rc8
-  - bbws-sr13-complete
+  - v2.0.0-rc9
+  - bbws-sr14-complete

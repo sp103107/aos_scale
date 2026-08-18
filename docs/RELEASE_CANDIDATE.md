@@ -1,4 +1,24 @@
-# Release candidate notes — v2.0.0-rc8
+# Release candidate notes — v2.0.0-rc9
+
+**Tag intent:** **Auto-record after Lock + beep** — optional setting records when Lock
+hits, then beeps. Duplicate pre-gate from rc8 still warns first.  
+**Not** a production seal or legal-for-trade release.
+
+## New in rc9 (SR14)
+
+- Station Settings: **Auto-record after Lock** (default off)
+- When on, Scan → settle → **Lock** writes the plant; Confirm is skipped
+- Audible beep on successful (or warning) save; silent under pytest
+- Existing **automatic** mode (record on stable, skip Lock) is unchanged
+- Duplicate barcode Continue/Cancel still runs before any auto-record
+
+## Carried from rc8 (SR13)
+
+- Duplicate plant barcodes warn **before** weigh/record
+
+---
+
+# Prior — v2.0.0-rc8
 
 **Tag intent:** **Duplicate barcode pre-gate** — warn before weighing a tag already
 recorded in this run; Continue or Cancel. Cancel writes nothing.  

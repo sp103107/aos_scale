@@ -32,6 +32,8 @@ class AppSettings:
     warn_on_uncalibrated_weight: bool = True
     default_reference_weight_g: float = 2000.0
     barcode_required_for_capture: bool = True
+    # After Lock, skip Confirm and record immediately (manual capture path only).
+    auto_record_after_lock: bool = False
     # Operator display unit only; storage/JSONL remains grams via unit="g".
     display_unit: str = "g"
     updated_at: str = ""

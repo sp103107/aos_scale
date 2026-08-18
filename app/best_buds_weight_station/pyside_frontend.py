@@ -710,12 +710,20 @@ class StationSettingsDialog(QDialog):
         required = bool(runtime.controller.settings.barcode_required_for_capture)
         self.require_barcode.setCurrentIndex(0 if required else 1)
         form.addRow("Plant barcode policy", self.require_barcode)
+        self.auto_record = QComboBox()
+        self.auto_record.addItems(["off (Confirm after Lock)", "on (record when Lock hits)"])
+        auto = bool(getattr(runtime.controller.settings, "auto_record_after_lock", False))
+        self.auto_record.setCurrentIndex(1 if auto else 0)
+        form.addRow("Auto-record after Lock", self.auto_record)
         self.display_unit = QComboBox()
         self.display_unit.addItems(["g", "kg", "lb"])
         current = unit_label(getattr(runtime.controller.settings, "display_unit", "g") or "g")
         self.display_unit.setCurrentText(current)
         form.addRow("Display unit (storage stays g)", self.display_unit)
-        hint = QLabel("Scanners: USB HID only. Display lb/kg is not legal-for-trade; JSONL stays grams.")
+        hint = QLabel(
+            "Scanners: USB HID only. Auto-record after Lock still follows Scan → settle → Lock; "
+            "Confirm is skipped. Display lb/kg is not legal-for-trade; JSONL stays grams."
+        )
         hint.setStyleSheet("color:#5C6975")
         hint.setWordWrap(True)
         form.addRow(hint)
@@ -732,6 +740,13 @@ class StationSettingsDialog(QDialog):
         )
         if result.get("status") not in {"completed"}:
             _show_result(self, result)
+            return
+        auto_result = self.runtime.dispatch(
+            "settings.auto_record_after_lock.set",
+            {"auto_record_after_lock": self.auto_record.currentIndex() == 1},
+        )
+        if auto_result.get("status") not in {"completed"}:
+            _show_result(self, auto_result)
             return
         unit_result = self.runtime.dispatch(
             "settings.display_unit.set",
@@ -1467,8 +1482,39 @@ class MainWindow(QMainWindow):
         result = self.runtime.lock_weight()
         if result.get("status") in {"failed", "blocked"}:
             _show_result(self, result)
+            return
+        if (result.get("data") or {}).get("record"):
+            self._handle_record_saved(result)
+            return
+        self.statusBar().showMessage(result.get("message") or "Weight locked — Confirm & Record when ready.")
+
+    def _handle_record_saved(self, result: dict[str, Any]) -> None:
+        record = (result.get("data") or {}).get("record") or self.runtime.controller.last_record or {}
+        feedback = (result.get("data") or {}).get("feedback")
+        msg = result.get("message") or "Record saved."
+        run = self.runtime.controller.loaded_run
+        if run and (run.store.session_dir / "records.csv").exists():
+            msg += f" CSV: {run.store.session_dir / 'records.csv'}"
+        self.statusBar().showMessage(msg)
+        self.operator_note.clear()
+        self.void_next.setCurrentIndex(0)
+        self.barcode.clear()
+        QTimer.singleShot(0, self.barcode.setFocus)
+        if feedback == "warning":
+            QMessageBox.warning(self, "Saved with duplicate warning", msg)
+        _ = record
+
+    def confirm_record(self) -> None:
+        note = self.operator_note.text().strip() or None
+        void_status = "void" if self.void_next.currentIndex() == 1 else "none"
+        result = self.runtime.dispatch(
+            "capture.confirm",
+            {"operator_note": note, "void_status": void_status},
+        )
+        if result.get("status") == "completed":
+            self._handle_record_saved(result)
         else:
-            self.statusBar().showMessage(result.get("message") or "Weight locked — Confirm & Record when ready.")
+            _show_result(self, result)
 
     def change_strain(self) -> None:
         if not self.runtime.controller.loaded_run:
@@ -1528,30 +1574,6 @@ class MainWindow(QMainWindow):
             self.statusBar().showMessage(
                 f"Barcode accepted: {value} — place plant, wait for stable, then Lock weight."
             )
-    def confirm_record(self) -> None:
-        note = self.operator_note.text().strip() or None
-        void_status = "void" if self.void_next.currentIndex() == 1 else "none"
-        result = self.runtime.dispatch(
-            "capture.confirm",
-            {"operator_note": note, "void_status": void_status},
-        )
-        if result.get("status") == "completed":
-            record = (result.get("data") or {}).get("record") or self.runtime.controller.last_record or {}
-            feedback = (result.get("data") or {}).get("feedback")
-            msg = result.get("message") or "Record saved."
-            run = self.runtime.controller.loaded_run
-            if run and (run.store.session_dir / "records.csv").exists():
-                msg += f" CSV: {run.store.session_dir / 'records.csv'}"
-            # Soft pacing: status + last_saved carry the proof; modal only on duplicate warning.
-            self.statusBar().showMessage(msg)
-            self.operator_note.clear()
-            self.void_next.setCurrentIndex(0)
-            self.barcode.clear()
-            QTimer.singleShot(0, self.barcode.setFocus)
-            if feedback == "warning":
-                QMessageBox.warning(self, "Saved with duplicate warning", msg)
-        else:
-            _show_result(self, result)
 
     def cancel_item(self) -> None:
         result = self.runtime.dispatch("capture.cancel")

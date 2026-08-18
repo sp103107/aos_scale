@@ -1,0 +1,31 @@
+{
+  "active": {
+    "episode_id": "S10E10",
+    "season_id": "S10",
+    "status": "series_complete"
+  },
+  "product_version_shipped": "2.0.0-rc9",
+  "shipped_tags": ["v2.0.0-rc9", "bbws-sr14-complete"],
+  "baseline_tag": "bbws-pre-sr14-auto-lock",
+  "decision_locks": {
+    "auto_record_after_lock": true,
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "duplicate_pre_gate": true
+  },
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop remains scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset; Confirm is automatic when the setting is on",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Audible beep is an operator cue, not certification",
+    "Existing automatic mode (record on stable) is unchanged",
+    "Duplicate pre-gate from SR13 still warns before any auto-record"
+  ],
+  "pack_id": "BBWS_SR14_resume",
+  "parent_tag": "bbws-sr13-complete",
+  "product_version_target": "2.0.0-rc9",
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "updated_at": "2026-08-18T22:27:23Z",
+  "version": "0.1.0"
+}

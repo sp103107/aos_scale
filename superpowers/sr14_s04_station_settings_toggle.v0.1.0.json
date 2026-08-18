@@ -1,0 +1,207 @@
+{
+  "arc_id": "SR14_S04_station_settings_toggle",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E01",
+      "kind": "implement",
+      "objective": "Station Settings + lock UI handles saved record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Station Settings toggle episode 01"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E02",
+      "kind": "implement",
+      "objective": "Station Settings + lock UI handles saved record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Station Settings toggle episode 02"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E03",
+      "kind": "implement",
+      "objective": "Station Settings + lock UI handles saved record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Station Settings toggle episode 03"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E04",
+      "kind": "implement",
+      "objective": "Station Settings + lock UI handles saved record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Station Settings toggle episode 04"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E05",
+      "kind": "implement",
+      "objective": "Station Settings + lock UI handles saved record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Station Settings toggle episode 05"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E06",
+      "kind": "implement",
+      "objective": "Station Settings + lock UI handles saved record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Station Settings toggle episode 06"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E07",
+      "kind": "implement",
+      "objective": "Station Settings + lock UI handles saved record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Station Settings toggle episode 07"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E08",
+      "kind": "closeout",
+      "objective": "Station Settings + lock UI handles saved record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Station Settings toggle episode 08"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E09",
+      "kind": "closeout",
+      "objective": "Station Settings + lock UI handles saved record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Station Settings toggle episode 09"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E10",
+      "kind": "closeout",
+      "objective": "Station Settings + lock UI handles saved record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Station Settings toggle episode 10"
+    }
+  ],
+  "focus": "Station Settings + lock UI handles saved record",
+  "milestone": "M04",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop remains scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset; Confirm is automatic when the setting is on",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Audible beep is an operator cue, not certification",
+    "Existing automatic mode (record on stable) is unchanged",
+    "Duplicate pre-gate from SR13 still warns before any auto-record"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/pyside_frontend.py",
+    "app/best_buds_weight_station/production_ui.py"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr14.station_settings_toggle.v1",
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "title": "Station Settings toggle",
+  "version": "0.1.0"
+}

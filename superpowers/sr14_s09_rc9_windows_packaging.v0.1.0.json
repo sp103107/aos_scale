@@ -1,0 +1,240 @@
+{
+  "arc_id": "SR14_S09_rc9_windows_packaging",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E01",
+      "kind": "implement",
+      "objective": "Version/drift/manifest \u2014 SR14 only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bump to 2.0.0-rc9 + Windows packaging episode 01"
+    },
+    {
+      "authorized_scope": [
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E02",
+      "kind": "implement",
+      "objective": "Version/drift/manifest \u2014 SR14 only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bump to 2.0.0-rc9 + Windows packaging episode 02"
+    },
+    {
+      "authorized_scope": [
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E03",
+      "kind": "implement",
+      "objective": "Version/drift/manifest \u2014 SR14 only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bump to 2.0.0-rc9 + Windows packaging episode 03"
+    },
+    {
+      "authorized_scope": [
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E04",
+      "kind": "implement",
+      "objective": "Version/drift/manifest \u2014 SR14 only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bump to 2.0.0-rc9 + Windows packaging episode 04"
+    },
+    {
+      "authorized_scope": [
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E05",
+      "kind": "implement",
+      "objective": "Version/drift/manifest \u2014 SR14 only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bump to 2.0.0-rc9 + Windows packaging episode 05"
+    },
+    {
+      "authorized_scope": [
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E06",
+      "kind": "implement",
+      "objective": "Version/drift/manifest \u2014 SR14 only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bump to 2.0.0-rc9 + Windows packaging episode 06"
+    },
+    {
+      "authorized_scope": [
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E07",
+      "kind": "implement",
+      "objective": "Version/drift/manifest \u2014 SR14 only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bump to 2.0.0-rc9 + Windows packaging episode 07"
+    },
+    {
+      "authorized_scope": [
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E08",
+      "kind": "closeout",
+      "objective": "Version/drift/manifest \u2014 SR14 only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bump to 2.0.0-rc9 + Windows packaging episode 08"
+    },
+    {
+      "authorized_scope": [
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E09",
+      "kind": "closeout",
+      "objective": "Version/drift/manifest \u2014 SR14 only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bump to 2.0.0-rc9 + Windows packaging episode 09"
+    },
+    {
+      "authorized_scope": [
+        "VERSION",
+        "pyproject.toml",
+        "packaging/windows/",
+        "scripts/",
+        "manifests/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E10",
+      "kind": "closeout",
+      "objective": "Version/drift/manifest \u2014 SR14 only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Bump to 2.0.0-rc9 + Windows packaging episode 10"
+    }
+  ],
+  "focus": "Version/drift/manifest \u2014 SR14 only",
+  "milestone": "M09",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop remains scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset; Confirm is automatic when the setting is on",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Audible beep is an operator cue, not certification",
+    "Existing automatic mode (record on stable) is unchanged",
+    "Duplicate pre-gate from SR13 still warns before any auto-record"
+  ],
+  "primary_surfaces": [
+    "VERSION",
+    "pyproject.toml",
+    "packaging/windows/",
+    "scripts/",
+    "manifests/"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr14.rc9_windows_packaging.v1",
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "title": "Bump to 2.0.0-rc9 + Windows packaging",
+  "version": "0.1.0"
+}

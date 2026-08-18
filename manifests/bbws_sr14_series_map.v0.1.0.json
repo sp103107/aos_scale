@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-08-18T22:27:23Z",
+  "manifest_type": "series_map",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop remains scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset; Confirm is automatic when the setting is on",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Audible beep is an operator cue, not certification",
+    "Existing automatic mode (record on stable) is unchanged",
+    "Duplicate pre-gate from SR13 still warns before any auto-record"
+  ],
+  "seasons": [
+    {
+      "milestone": "M01",
+      "season_id": "S01",
+      "slug": "scaffold_and_contract_freeze",
+      "title": "Scaffold + contract freeze"
+    },
+    {
+      "milestone": "M02",
+      "season_id": "S02",
+      "slug": "settings_auto_record_after_lock",
+      "title": "Settings bool"
+    },
+    {
+      "milestone": "M03",
+      "season_id": "S03",
+      "slug": "lock_commits_when_enabled",
+      "title": "Lock commits when enabled"
+    },
+    {
+      "milestone": "M04",
+      "season_id": "S04",
+      "slug": "station_settings_toggle",
+      "title": "Station Settings toggle"
+    },
+    {
+      "milestone": "M05",
+      "season_id": "S05",
+      "slug": "operator_beep",
+      "title": "Operator beep"
+    },
+    {
+      "milestone": "M06",
+      "season_id": "S06",
+      "slug": "scripted_auto_lock_tests",
+      "title": "Scripted auto-lock tests"
+    },
+    {
+      "milestone": "M07",
+      "season_id": "S07",
+      "slug": "docs_auto_lock",
+      "title": "Docs + auto-lock"
+    },
+    {
+      "milestone": "M08",
+      "season_id": "S08",
+      "slug": "no_unrelated_churn",
+      "title": "No unrelated churn"
+    },
+    {
+      "milestone": "M09",
+      "season_id": "S09",
+      "slug": "rc9_windows_packaging",
+      "title": "Bump to 2.0.0-rc9 + Windows packaging"
+    },
+    {
+      "milestone": "M10",
+      "season_id": "S10",
+      "slug": "release_and_closeout",
+      "title": "SR14 series closeout + tags"
+    }
+  ],
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "version": "0.1.0"
+}

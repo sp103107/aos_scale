@@ -1,0 +1,229 @@
+{
+  "arc_id": "SR14_S01_scaffold_and_contract_freeze",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr14.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S01E01",
+      "kind": "implement",
+      "objective": "Freeze SR14 contract; baseline tag; Arc artifacts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Scaffold + contract freeze episode 01"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr14.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S01E02",
+      "kind": "implement",
+      "objective": "Freeze SR14 contract; baseline tag; Arc artifacts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Scaffold + contract freeze episode 02"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr14.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S01E03",
+      "kind": "implement",
+      "objective": "Freeze SR14 contract; baseline tag; Arc artifacts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Scaffold + contract freeze episode 03"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr14.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S01E04",
+      "kind": "implement",
+      "objective": "Freeze SR14 contract; baseline tag; Arc artifacts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Scaffold + contract freeze episode 04"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr14.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S01E05",
+      "kind": "implement",
+      "objective": "Freeze SR14 contract; baseline tag; Arc artifacts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Scaffold + contract freeze episode 05"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr14.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S01E06",
+      "kind": "implement",
+      "objective": "Freeze SR14 contract; baseline tag; Arc artifacts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Scaffold + contract freeze episode 06"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr14.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S01E07",
+      "kind": "implement",
+      "objective": "Freeze SR14 contract; baseline tag; Arc artifacts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Scaffold + contract freeze episode 07"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr14.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S01E08",
+      "kind": "closeout",
+      "objective": "Freeze SR14 contract; baseline tag; Arc artifacts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Scaffold + contract freeze episode 08"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr14.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S01E09",
+      "kind": "closeout",
+      "objective": "Freeze SR14 contract; baseline tag; Arc artifacts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Scaffold + contract freeze episode 09"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "cursor/",
+        "scripts/scaffold_bbws_sr14.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S01E10",
+      "kind": "closeout",
+      "objective": "Freeze SR14 contract; baseline tag; Arc artifacts",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Scaffold + contract freeze episode 10"
+    }
+  ],
+  "focus": "Freeze SR14 contract; baseline tag; Arc artifacts",
+  "milestone": "M01",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop remains scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset; Confirm is automatic when the setting is on",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Audible beep is an operator cue, not certification",
+    "Existing automatic mode (record on stable) is unchanged",
+    "Duplicate pre-gate from SR13 still warns before any auto-record"
+  ],
+  "primary_surfaces": [
+    "ACTIVE_ARC.yaml",
+    "cursor/",
+    "scripts/scaffold_bbws_sr14.py",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr14.scaffold_and_contract_freeze.v1",
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "title": "Scaffold + contract freeze",
+  "version": "0.1.0"
+}

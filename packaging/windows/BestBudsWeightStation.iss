@@ -3,7 +3,7 @@
 
 #define MyAppName "Best Buds Cultivator Weight Station"
 #ifndef MyAppVersion
-  #define MyAppVersion "2.0.0-rc8"
+  #define MyAppVersion "2.0.0-rc9"
 #endif
 #define MyAppPublisher "Best Buds / Avarachi Ventures"
 #define MyAppURL "https://github.com/sp103107/aos_scale"

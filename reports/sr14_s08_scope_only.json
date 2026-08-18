@@ -1,0 +1,13 @@
+{
+  "receipt_id": "sr14_s08_scope_only",
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "status": "accepted",
+  "this_bump_contains": [
+    "auto_record_after_lock setting (default false)",
+    "Lock commits when setting is on",
+    "operator beep on terminal feedback",
+    "Station Settings toggle"
+  ],
+  "firmware_bumped": false,
+  "capture_law_changed": false
+}

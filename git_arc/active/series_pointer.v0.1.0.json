@@ -1,8 +1,8 @@
 {
-  "baseline_tag": "bbws-pre-sr13-dup-gate",
-  "parent_tag": "bbws-sr12-complete",
-  "planned_tags": ["v2.0.0-rc8", "bbws-sr13-complete"],
-  "shipped_tags": ["v2.0.0-rc8", "bbws-sr13-complete"],
-  "series_id": "BBWS_SR13_duplicate_barcode_pre_gate",
-  "updated_at": "2026-08-18T22:40:00Z"
+  "baseline_tag": "bbws-pre-sr14-auto-lock",
+  "parent_tag": "bbws-sr13-complete",
+  "planned_tags": ["v2.0.0-rc9", "bbws-sr14-complete"],
+  "shipped_tags": ["v2.0.0-rc9", "bbws-sr14-complete"],
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "updated_at": "2026-08-18T23:00:00Z"
 }

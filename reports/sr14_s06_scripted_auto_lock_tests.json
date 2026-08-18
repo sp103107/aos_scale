@@ -1,0 +1,8 @@
+{
+  "receipt_id": "sr14_s06_scripted_auto_lock_tests",
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "status": "accepted",
+  "pytest": "tests/test_sr14_auto_record_after_lock.py",
+  "result": "32 passed with SR13/SR3/controller/settings regressions",
+  "runtime_claimed": false
+}

@@ -1,0 +1,196 @@
+{
+  "arc_id": "SR14_S08_no_unrelated_churn",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S08E01",
+      "kind": "implement",
+      "objective": "This bump is auto-record + beep only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 01"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S08E02",
+      "kind": "implement",
+      "objective": "This bump is auto-record + beep only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 02"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S08E03",
+      "kind": "implement",
+      "objective": "This bump is auto-record + beep only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 03"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S08E04",
+      "kind": "implement",
+      "objective": "This bump is auto-record + beep only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 04"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S08E05",
+      "kind": "implement",
+      "objective": "This bump is auto-record + beep only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 05"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S08E06",
+      "kind": "implement",
+      "objective": "This bump is auto-record + beep only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 06"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S08E07",
+      "kind": "implement",
+      "objective": "This bump is auto-record + beep only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 07"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S08E08",
+      "kind": "closeout",
+      "objective": "This bump is auto-record + beep only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 08"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S08E09",
+      "kind": "closeout",
+      "objective": "This bump is auto-record + beep only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 09"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S08E10",
+      "kind": "closeout",
+      "objective": "This bump is auto-record + beep only",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 10"
+    }
+  ],
+  "focus": "This bump is auto-record + beep only",
+  "milestone": "M08",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop remains scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset; Confirm is automatic when the setting is on",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Audible beep is an operator cue, not certification",
+    "Existing automatic mode (record on stable) is unchanged",
+    "Duplicate pre-gate from SR13 still warns before any auto-record"
+  ],
+  "primary_surfaces": [
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr14.no_unrelated_churn.v1",
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "title": "No unrelated churn",
+  "version": "0.1.0"
+}

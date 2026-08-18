@@ -676,6 +676,7 @@ class OperatorRuntime:
             "suggest_calibration_on_new_run": bool(settings.suggest_calibration_on_new_run),
             "warn_on_uncalibrated_weight": bool(settings.warn_on_uncalibrated_weight),
             "barcode_required_for_capture": bool(settings.barcode_required_for_capture),
+            "auto_record_after_lock": bool(getattr(settings, "auto_record_after_lock", False)),
             "default_reference_weight_g": float(settings.default_reference_weight_g),
             "display_unit": getattr(settings, "display_unit", "g") or "g",
             "storage_unit": settings.unit,

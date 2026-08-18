@@ -1,0 +1,207 @@
+{
+  "arc_id": "SR14_S02_settings_auto_record_after_lock",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/actions.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S02E01",
+      "kind": "implement",
+      "objective": "AppSettings.auto_record_after_lock default false + persist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Settings bool episode 01"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/actions.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S02E02",
+      "kind": "implement",
+      "objective": "AppSettings.auto_record_after_lock default false + persist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Settings bool episode 02"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/actions.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S02E03",
+      "kind": "implement",
+      "objective": "AppSettings.auto_record_after_lock default false + persist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Settings bool episode 03"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/actions.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S02E04",
+      "kind": "implement",
+      "objective": "AppSettings.auto_record_after_lock default false + persist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Settings bool episode 04"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/actions.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S02E05",
+      "kind": "implement",
+      "objective": "AppSettings.auto_record_after_lock default false + persist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Settings bool episode 05"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/actions.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S02E06",
+      "kind": "implement",
+      "objective": "AppSettings.auto_record_after_lock default false + persist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Settings bool episode 06"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/actions.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S02E07",
+      "kind": "implement",
+      "objective": "AppSettings.auto_record_after_lock default false + persist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Settings bool episode 07"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/actions.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S02E08",
+      "kind": "closeout",
+      "objective": "AppSettings.auto_record_after_lock default false + persist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Settings bool episode 08"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/actions.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S02E09",
+      "kind": "closeout",
+      "objective": "AppSettings.auto_record_after_lock default false + persist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Settings bool episode 09"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/settings.py",
+        "app/best_buds_weight_station/actions.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S02E10",
+      "kind": "closeout",
+      "objective": "AppSettings.auto_record_after_lock default false + persist",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Settings bool episode 10"
+    }
+  ],
+  "focus": "AppSettings.auto_record_after_lock default false + persist",
+  "milestone": "M02",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop remains scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset; Confirm is automatic when the setting is on",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Audible beep is an operator cue, not certification",
+    "Existing automatic mode (record on stable) is unchanged",
+    "Duplicate pre-gate from SR13 still warns before any auto-record"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/settings.py",
+    "app/best_buds_weight_station/actions.py"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr14.settings_auto_record_after_lock.v1",
+  "series_id": "BBWS_SR14_auto_record_after_lock",
+  "title": "Settings bool",
+  "version": "0.1.0"
+}

@@ -19,6 +19,7 @@ from .scale_profiles import (
     ScaleStabilityParams,
     validate_device_id,
 )
+from .operator_beep import play_operator_beep
 from .settings import AppSettings, SettingsStore
 from .state_machine import CaptureMachine, State
 from .storage import atomic_json, parse_jsonl
@@ -58,7 +59,16 @@ class ApplicationController:
         self.device: DeviceService | None = None
         self.scale: ScaleControlService | None = None
         self.feedback_events: list[str] = []
-        self.beep = beep or self.feedback_events.append
+        audio = beep
+
+        def _beep(kind: str) -> None:
+            self.feedback_events.append(kind)
+            if audio is not None:
+                audio(kind)
+            else:
+                play_operator_beep(kind)
+
+        self.beep = _beep
         self.last_alice_response: dict[str, Any] | None = None
         self.last_record: dict[str, Any] | None = None
         self._action_cache: dict[str, ActionResult] = {}
@@ -284,6 +294,7 @@ class ApplicationController:
             ActionType.CAPTURE_CANCEL.value: self._capture_cancel,
             ActionType.RUN_SET_ACTIVE_CULTIVAR.value: self._set_active_cultivar,
             ActionType.SETTINGS_BARCODE_POLICY_SET.value: self._set_barcode_policy,
+            ActionType.SETTINGS_AUTO_RECORD_AFTER_LOCK_SET.value: self._set_auto_record_after_lock,
             ActionType.SPREADSHEET_REBUILD.value: self._rebuild_spreadsheet,
             ActionType.STATE_RECOVER.value: self._recover,
             ActionType.STATE_FLUSH.value: self._flush,
@@ -431,6 +442,17 @@ class ApplicationController:
             "UNIT_TEST_PASS",
             "Barcode policy updated (HID keyboard-wedge scanners only this series).",
             {"barcode_required_for_capture": settings.barcode_required_for_capture},
+        )
+
+    def _set_auto_record_after_lock(self, request: ActionRequest) -> ActionResult:
+        enabled = bool(request.payload.get("auto_record_after_lock", False))
+        settings = self.settings_store.update(auto_record_after_lock=enabled)
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            "Auto-record after Lock updated. Confirm is skipped when this is on.",
+            {"auto_record_after_lock": settings.auto_record_after_lock},
         )
 
     def _set_display_unit(self, request: ActionRequest) -> ActionResult:
@@ -693,6 +715,8 @@ class ApplicationController:
             locked = self.machine.lock_weight()
         except RuntimeError as exc:
             return self._result(request, "failed", "UNIT_TEST_PASS", str(exc), {})
+        if bool(self.settings.auto_record_after_lock):
+            return self._capture_confirm(request)
         response = self._refresh_alice_for_state(
             context={
                 "weight_locked": True,
