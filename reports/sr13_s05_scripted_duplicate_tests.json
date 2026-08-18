@@ -1,0 +1,14 @@
+{
+  "receipt_id": "sr13_s05_scripted_duplicate_tests",
+  "series_id": "BBWS_SR13_duplicate_barcode_pre_gate",
+  "season_id": "S05",
+  "status": "accepted",
+  "pytest": "tests/test_sr13_duplicate_pre_gate.py tests/test_sr3_capture_ux.py tests/test_state_machine.py tests/test_application_controller.py tests/test_storage.py",
+  "result": "33 passed",
+  "coverage": [
+    "duplicate submit blocked before weigh; no JSONL write",
+    "acknowledge_duplicate continues and tags accepted",
+    "automatic mode cannot silently commit a duplicate"
+  ],
+  "runtime_claimed": false
+}

@@ -1,0 +1,22 @@
+{
+  "acceptance": {
+    "auto_record_deferred": true,
+    "cancel_writes_nothing": true,
+    "duplicate_pre_gate": true
+  },
+  "baseline_tag": "bbws-pre-sr13-dup-gate",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Duplicate warning is session-local (this run's JSONL), not a Metrc plant list",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset (gate sits on scan)",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Continue still records a second weight for the same barcode when the operator accepts",
+    "Auto-record-after-lock remains deferred to SR14"
+  ],
+  "product_version_target": "2.0.0-rc8",
+  "receipt_id": "sr13_s01_contract_freeze",
+  "series_id": "BBWS_SR13_duplicate_barcode_pre_gate",
+  "status": "accepted"
+}

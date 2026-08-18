@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "best-buds-cultivator-weight-station"
-version = "2.0.0rc7"
+version = "2.0.0rc8"
 description = "Local-first barcode-driven cultivation weight station"
 readme = "README.md"
 requires-python = ">=3.11"

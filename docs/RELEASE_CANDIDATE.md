@@ -1,4 +1,24 @@
-# Release candidate notes — v2.0.0-rc7
+# Release candidate notes — v2.0.0-rc8
+
+**Tag intent:** **Duplicate barcode pre-gate** — warn before weighing a tag already
+recorded in this run; Continue or Cancel. Cancel writes nothing.  
+**Not** a production seal or legal-for-trade release.
+
+## New in rc8 (SR13)
+
+- Duplicate plant barcodes show a warning **before** weigh/record
+- **Cancel** keeps Ready and writes no JSONL row
+- **Continue** allows a second weight and tags `duplicate_status=accepted`
+- Automatic capture cannot silently commit a duplicate (gate sits on scan)
+- Capture law unchanged: Scan → settle → Lock → Confirm → reset
+
+## Carried from rc7 (SR12)
+
+- 100 g Stability Test restarts the live reader after Accept
+
+---
+
+# Prior — v2.0.0-rc7
 
 **Tag intent:** **Post-cal 100 g Stability Test stream fix** — after Guided Cal Accept, characterize
 restarts the live reader so the stability test does not starve.  

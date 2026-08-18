@@ -723,6 +723,17 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
             status_line.config(text="Empty barcode blocked — scan or type a plant ID, then press Enter.")
             return
         result = runtime.submit_barcode(value)
+        if (result.get("data") or {}).get("duplicate_barcode"):
+            if not messagebox.askyesno(
+                "Duplicate barcode",
+                f"{value} was already recorded in this run.\n\n"
+                "Continue to weigh this plant again?\n"
+                "No / Cancel does not write a record.",
+                parent=root,
+            ):
+                status_line.config(text="Duplicate scan cancelled — barcode was not accepted.")
+                return
+            result = runtime.submit_barcode(value, acknowledge_duplicate=True)
         if result.get("status") in {"failed", "blocked"}:
             show_result(result)
         else:

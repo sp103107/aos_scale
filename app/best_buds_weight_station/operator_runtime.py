@@ -270,8 +270,11 @@ class OperatorRuntime:
     def new_run(self, payload: dict[str, Any]) -> dict[str, Any]:
         return self.dispatch_run_install("run.new", payload)
 
-    def submit_barcode(self, barcode: str) -> dict[str, Any]:
-        return self.dispatch("barcode.submit", {"barcode": barcode.strip()})
+    def submit_barcode(self, barcode: str, *, acknowledge_duplicate: bool = False) -> dict[str, Any]:
+        return self.dispatch(
+            "barcode.submit",
+            {"barcode": barcode.strip(), "acknowledge_duplicate": acknowledge_duplicate},
+        )
 
     def lock_weight(self) -> dict[str, Any]:
         return self.dispatch("capture.weight.lock", {})

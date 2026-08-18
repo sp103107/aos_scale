@@ -1503,6 +1503,23 @@ class MainWindow(QMainWindow):
             self.statusBar().showMessage("Empty barcode blocked — scan or type a plant ID, then press Enter.")
             return
         result=self.runtime.submit_barcode(value)
+        if (result.get("data") or {}).get("duplicate_barcode"):
+            box = QMessageBox(self)
+            box.setIcon(QMessageBox.Warning)
+            box.setWindowTitle("Duplicate barcode")
+            box.setText(f"{value} was already recorded in this run.")
+            box.setInformativeText(
+                "Continue to weigh this plant again, or cancel the scan. "
+                "Cancel does not write a record."
+            )
+            continue_btn = box.addButton("Continue", QMessageBox.AcceptRole)
+            cancel_btn = box.addButton("Cancel", QMessageBox.RejectRole)
+            box.setDefaultButton(cancel_btn)
+            box.exec()
+            if box.clickedButton() != continue_btn:
+                self.statusBar().showMessage("Duplicate scan cancelled — barcode was not accepted.")
+                return
+            result = self.runtime.submit_barcode(value, acknowledge_duplicate=True)
         if result.get("status") in {"failed", "blocked"}:
             _show_result(self, result)
         else:

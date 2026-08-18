@@ -1,0 +1,13 @@
+{
+  "receipt_id": "sr13_s08_scope_only",
+  "series_id": "BBWS_SR13_duplicate_barcode_pre_gate",
+  "status": "accepted",
+  "this_bump_contains": [
+    "pre-record duplicate Continue/Cancel on barcode.submit",
+    "duplicate_status accepted when operator continues",
+    "PySide and Tk warning dialogs"
+  ],
+  "deferred": ["auto_record_after_lock + audible beep (SR14)"],
+  "firmware_bumped": false,
+  "capture_law_changed": false
+}

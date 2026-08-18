@@ -1,0 +1,228 @@
+{
+  "arc_id": "SR13_S07_docs_duplicate_warn",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/BBWS_SR13_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S07E01",
+      "kind": "implement",
+      "objective": "Operator docs: duplicate warning before record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + duplicate warn episode 01"
+    },
+    {
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/BBWS_SR13_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S07E02",
+      "kind": "implement",
+      "objective": "Operator docs: duplicate warning before record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + duplicate warn episode 02"
+    },
+    {
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/BBWS_SR13_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S07E03",
+      "kind": "implement",
+      "objective": "Operator docs: duplicate warning before record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + duplicate warn episode 03"
+    },
+    {
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/BBWS_SR13_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S07E04",
+      "kind": "implement",
+      "objective": "Operator docs: duplicate warning before record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + duplicate warn episode 04"
+    },
+    {
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/BBWS_SR13_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S07E05",
+      "kind": "implement",
+      "objective": "Operator docs: duplicate warning before record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + duplicate warn episode 05"
+    },
+    {
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/BBWS_SR13_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S07E06",
+      "kind": "implement",
+      "objective": "Operator docs: duplicate warning before record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + duplicate warn episode 06"
+    },
+    {
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/BBWS_SR13_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S07E07",
+      "kind": "implement",
+      "objective": "Operator docs: duplicate warning before record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + duplicate warn episode 07"
+    },
+    {
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/BBWS_SR13_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S07E08",
+      "kind": "closeout",
+      "objective": "Operator docs: duplicate warning before record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + duplicate warn episode 08"
+    },
+    {
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/BBWS_SR13_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S07E09",
+      "kind": "closeout",
+      "objective": "Operator docs: duplicate warning before record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + duplicate warn episode 09"
+    },
+    {
+      "authorized_scope": [
+        "docs/",
+        "docs/OPERATOR_ONBOARDING.md",
+        "docs/BBWS_SR13_ARTIFACTS.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S07E10",
+      "kind": "closeout",
+      "objective": "Operator docs: duplicate warning before record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + duplicate warn episode 10"
+    }
+  ],
+  "focus": "Operator docs: duplicate warning before record",
+  "milestone": "M07",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Duplicate warning is session-local (this run's JSONL), not a Metrc plant list",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset (gate sits on scan)",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Continue still records a second weight for the same barcode when the operator accepts",
+    "Auto-record-after-lock remains deferred to SR14"
+  ],
+  "primary_surfaces": [
+    "docs/",
+    "docs/OPERATOR_ONBOARDING.md",
+    "docs/BBWS_SR13_ARTIFACTS.md"
+  ],
+  "product_version_target": "2.0.0-rc8",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr13.docs_duplicate_warn.v1",
+  "series_id": "BBWS_SR13_duplicate_barcode_pre_gate",
+  "title": "Docs + duplicate warn",
+  "version": "0.1.0"
+}

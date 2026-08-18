@@ -61,6 +61,7 @@ class CaptureMachine:
         self.last_error = None
         self.last_duplicate = None
         self.capture_idempotency_key = None
+        self.pending_duplicate_status = 'none'
 
     def set_profile(self, profile: StabilityProfile) -> None:
         """Install a resolved StabilityProfile and rebuild the detector window."""
@@ -88,12 +89,17 @@ class CaptureMachine:
         self.state = State.SESSION_READY
         self.state = State.WAITING_FOR_BARCODE
 
-    def scan(self, barcode):
+    def scan(self, barcode, *, duplicate_status='none'):
         if self.state != State.WAITING_FOR_BARCODE:
             raise RuntimeError('not waiting for barcode')
         if not barcode.strip():
             raise ValueError('barcode required')
+        allowed = {'none', 'warning', 'accepted'}
+        status = str(duplicate_status or 'none')
+        if status not in allowed:
+            raise ValueError('invalid duplicate status')
         self.barcode = barcode
+        self.pending_duplicate_status = status
         self.capture_idempotency_key = f'{self.store.context.session_id}:{self.store.sequence + 1}:{barcode}'
         self.detector.reset()
         self.state = State.BARCODE_CAPTURED
@@ -136,8 +142,9 @@ class CaptureMachine:
                     self.stable.weight_g,
                     self.stable.sample_count,
                     {'spread_g': self.stable.spread_g, 'stddev_g': self.stable.stddev_g},
-                    self.mode,
+                    capture_mode=self.mode,
                     raw_adc_value=raw,
+                    duplicate_status=self.pending_duplicate_status or 'none',
                     operator_note=operator_note,
                     void_status=void_status or 'none',
                     idempotency_key=self.capture_idempotency_key,
@@ -209,6 +216,7 @@ class CaptureMachine:
         self.barcode = None
         self.stable = None
         self.capture_idempotency_key = None
+        self.pending_duplicate_status = 'none'
 
     @staticmethod
     def _valid_local_commit_receipt(receipt: dict[str, Any]) -> bool:

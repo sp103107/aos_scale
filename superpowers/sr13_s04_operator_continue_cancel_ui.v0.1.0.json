@@ -1,0 +1,217 @@
+{
+  "arc_id": "SR13_S04_operator_continue_cancel_ui",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S04E01",
+      "kind": "implement",
+      "objective": "PySide and Tk warn before weigh; Cancel writes nothing",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Continue/Cancel UI episode 01"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S04E02",
+      "kind": "implement",
+      "objective": "PySide and Tk warn before weigh; Cancel writes nothing",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Continue/Cancel UI episode 02"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S04E03",
+      "kind": "implement",
+      "objective": "PySide and Tk warn before weigh; Cancel writes nothing",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Continue/Cancel UI episode 03"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S04E04",
+      "kind": "implement",
+      "objective": "PySide and Tk warn before weigh; Cancel writes nothing",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Continue/Cancel UI episode 04"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S04E05",
+      "kind": "implement",
+      "objective": "PySide and Tk warn before weigh; Cancel writes nothing",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Continue/Cancel UI episode 05"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S04E06",
+      "kind": "implement",
+      "objective": "PySide and Tk warn before weigh; Cancel writes nothing",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Continue/Cancel UI episode 06"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S04E07",
+      "kind": "implement",
+      "objective": "PySide and Tk warn before weigh; Cancel writes nothing",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Continue/Cancel UI episode 07"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S04E08",
+      "kind": "closeout",
+      "objective": "PySide and Tk warn before weigh; Cancel writes nothing",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Continue/Cancel UI episode 08"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S04E09",
+      "kind": "closeout",
+      "objective": "PySide and Tk warn before weigh; Cancel writes nothing",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Continue/Cancel UI episode 09"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/pyside_frontend.py",
+        "app/best_buds_weight_station/production_ui.py"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S04E10",
+      "kind": "closeout",
+      "objective": "PySide and Tk warn before weigh; Cancel writes nothing",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Continue/Cancel UI episode 10"
+    }
+  ],
+  "focus": "PySide and Tk warn before weigh; Cancel writes nothing",
+  "milestone": "M04",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Duplicate warning is session-local (this run's JSONL), not a Metrc plant list",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset (gate sits on scan)",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Continue still records a second weight for the same barcode when the operator accepts",
+    "Auto-record-after-lock remains deferred to SR14"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/pyside_frontend.py",
+    "app/best_buds_weight_station/production_ui.py"
+  ],
+  "product_version_target": "2.0.0-rc8",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr13.operator_continue_cancel_ui.v1",
+  "series_id": "BBWS_SR13_duplicate_barcode_pre_gate",
+  "title": "Continue/Cancel UI",
+  "version": "0.1.0"
+}

@@ -1,0 +1,239 @@
+{
+  "arc_id": "SR13_S10_release_and_closeout",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S10E01",
+      "kind": "implement",
+      "objective": "Docs/release, tag v2.0.0-rc8 + bbws-sr13-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SR13 series closeout + tags episode 01"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S10E02",
+      "kind": "implement",
+      "objective": "Docs/release, tag v2.0.0-rc8 + bbws-sr13-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SR13 series closeout + tags episode 02"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S10E03",
+      "kind": "implement",
+      "objective": "Docs/release, tag v2.0.0-rc8 + bbws-sr13-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SR13 series closeout + tags episode 03"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S10E04",
+      "kind": "implement",
+      "objective": "Docs/release, tag v2.0.0-rc8 + bbws-sr13-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SR13 series closeout + tags episode 04"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S10E05",
+      "kind": "implement",
+      "objective": "Docs/release, tag v2.0.0-rc8 + bbws-sr13-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SR13 series closeout + tags episode 05"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S10E06",
+      "kind": "implement",
+      "objective": "Docs/release, tag v2.0.0-rc8 + bbws-sr13-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SR13 series closeout + tags episode 06"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S10E07",
+      "kind": "implement",
+      "objective": "Docs/release, tag v2.0.0-rc8 + bbws-sr13-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SR13 series closeout + tags episode 07"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S10E08",
+      "kind": "closeout",
+      "objective": "Docs/release, tag v2.0.0-rc8 + bbws-sr13-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SR13 series closeout + tags episode 08"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S10E09",
+      "kind": "closeout",
+      "objective": "Docs/release, tag v2.0.0-rc8 + bbws-sr13-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SR13 series closeout + tags episode 09"
+    },
+    {
+      "authorized_scope": [
+        "ACTIVE_ARC.yaml",
+        "context/",
+        "git_arc/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S10E10",
+      "kind": "closeout",
+      "objective": "Docs/release, tag v2.0.0-rc8 + bbws-sr13-complete",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "SR13 series closeout + tags episode 10"
+    }
+  ],
+  "focus": "Docs/release, tag v2.0.0-rc8 + bbws-sr13-complete",
+  "milestone": "M10",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Duplicate warning is session-local (this run's JSONL), not a Metrc plant list",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset (gate sits on scan)",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Continue still records a second weight for the same barcode when the operator accepts",
+    "Auto-record-after-lock remains deferred to SR14"
+  ],
+  "primary_surfaces": [
+    "ACTIVE_ARC.yaml",
+    "context/",
+    "git_arc/",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc8",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr13.release_and_closeout.v1",
+  "series_id": "BBWS_SR13_duplicate_barcode_pre_gate",
+  "title": "SR13 series closeout + tags",
+  "version": "0.1.0"
+}

@@ -1,12 +1,8 @@
 {
-  "auto_push": false,
-  "baseline_tag": "bbws-pre-sr12-characterize",
-  "branch_plan": "main",
-  "parent_tag": "bbws-sr11-complete",
-  "planned_tags": ["v2.0.0-rc7", "bbws-sr12-complete"],
-  "shipped_tags": ["v2.0.0-rc7", "bbws-sr12-complete"],
-  "push_policy": "after_series_closeout",
-  "remote_plan": "origin",
-  "series_id": "BBWS_SR12_post_cal_characterize_stream",
-  "updated_at": "2026-08-18T22:20:00Z"
+  "baseline_tag": "bbws-pre-sr13-dup-gate",
+  "parent_tag": "bbws-sr12-complete",
+  "planned_tags": ["v2.0.0-rc8", "bbws-sr13-complete"],
+  "shipped_tags": ["v2.0.0-rc8", "bbws-sr13-complete"],
+  "series_id": "BBWS_SR13_duplicate_barcode_pre_gate",
+  "updated_at": "2026-08-18T22:40:00Z"
 }

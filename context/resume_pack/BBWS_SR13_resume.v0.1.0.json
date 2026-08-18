@@ -1,0 +1,31 @@
+{
+  "active": {
+    "episode_id": "S10E10",
+    "season_id": "S10",
+    "status": "series_complete"
+  },
+  "product_version_shipped": "2.0.0-rc8",
+  "shipped_tags": ["v2.0.0-rc8", "bbws-sr13-complete"],
+  "baseline_tag": "bbws-pre-sr13-dup-gate",
+  "decision_locks": {
+    "auto_record_after_lock": "deferred_to_sr14",
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "duplicate_pre_gate": true
+  },
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Duplicate warning is session-local (this run's JSONL), not a Metrc plant list",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset (gate sits on scan)",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Continue still records a second weight for the same barcode when the operator accepts",
+    "Auto-record-after-lock remains deferred to SR14"
+  ],
+  "pack_id": "BBWS_SR13_resume",
+  "parent_tag": "bbws-sr12-complete",
+  "product_version_target": "2.0.0-rc8",
+  "series_id": "BBWS_SR13_duplicate_barcode_pre_gate",
+  "updated_at": "2026-08-18T22:19:24Z",
+  "version": "0.1.0"
+}

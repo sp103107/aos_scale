@@ -2,7 +2,7 @@
 
 **runtime_claimed:** false  
 **audience:** harvest-station operator  
-**product_version:** `2.0.0-rc7`  
+**product_version:** `2.0.0-rc8`  
 **template cite:** KS structured onboarding (salvage cite-only)
 
 ## Flow map
@@ -85,6 +85,8 @@ Scan (or type barcode + Enter)
 ```
 
 > **Next action:** Press **Scan** to open the capture window when Ready; Enter submits the tag.
+
+> **Duplicate barcode (SR13):** If that tag was already recorded in this run, a warning appears **before** weighing. **Cancel** leaves you Ready with no new record. **Continue** lets you weigh it again (tagged as a duplicate).
 
 > **Common confusion:** Confirm stays disabled until the weight is **Locked**. That is intentional.
 

@@ -1,0 +1,10 @@
+{
+  "receipt_id": "sr13_s10_series_closeout",
+  "series_id": "BBWS_SR13_duplicate_barcode_pre_gate",
+  "status": "accepted",
+  "product_version_shipped": "2.0.0-rc8",
+  "tags": ["v2.0.0-rc8", "bbws-sr13-complete"],
+  "drift": "reports/drift_concordance_report.v2.0.0-rc8.json",
+  "scripted_tests": "reports/sr13_s05_scripted_duplicate_tests.json",
+  "runtime_claimed": false
+}

@@ -1,0 +1,206 @@
+{
+  "arc_id": "SR13_S08_no_unrelated_churn",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S08E01",
+      "kind": "implement",
+      "objective": "This bump is duplicate-gate only; auto-record stays SR14",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 01"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S08E02",
+      "kind": "implement",
+      "objective": "This bump is duplicate-gate only; auto-record stays SR14",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 02"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S08E03",
+      "kind": "implement",
+      "objective": "This bump is duplicate-gate only; auto-record stays SR14",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 03"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S08E04",
+      "kind": "implement",
+      "objective": "This bump is duplicate-gate only; auto-record stays SR14",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 04"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S08E05",
+      "kind": "implement",
+      "objective": "This bump is duplicate-gate only; auto-record stays SR14",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 05"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S08E06",
+      "kind": "implement",
+      "objective": "This bump is duplicate-gate only; auto-record stays SR14",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 06"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S08E07",
+      "kind": "implement",
+      "objective": "This bump is duplicate-gate only; auto-record stays SR14",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 07"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S08E08",
+      "kind": "closeout",
+      "objective": "This bump is duplicate-gate only; auto-record stays SR14",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 08"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S08E09",
+      "kind": "closeout",
+      "objective": "This bump is duplicate-gate only; auto-record stays SR14",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 09"
+    },
+    {
+      "authorized_scope": [
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "auto_record_after_lock (SR14)",
+        "firmware bump"
+      ],
+      "id": "S08E10",
+      "kind": "closeout",
+      "objective": "This bump is duplicate-gate only; auto-record stays SR14",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "No unrelated churn episode 10"
+    }
+  ],
+  "focus": "This bump is duplicate-gate only; auto-record stays SR14",
+  "milestone": "M08",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "Duplicate warning is session-local (this run's JSONL), not a Metrc plant list",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset (gate sits on scan)",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Continue still records a second weight for the same barcode when the operator accepts",
+    "Auto-record-after-lock remains deferred to SR14"
+  ],
+  "primary_surfaces": [
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc8",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr13.no_unrelated_churn.v1",
+  "series_id": "BBWS_SR13_duplicate_barcode_pre_gate",
+  "title": "No unrelated churn",
+  "version": "0.1.0"
+}

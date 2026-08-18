@@ -638,11 +638,37 @@ class ApplicationController:
 
     def _barcode_submit(self, request: ActionRequest) -> ActionResult:
         self._require_capture_ready()
-        assert self.machine
-        self.machine.scan(str(request.payload["barcode"]))
+        assert self.machine and self.loaded_run
+        barcode = str(request.payload["barcode"])
+        acknowledge = bool(request.payload.get("acknowledge_duplicate"))
+        normalized = barcode.strip().upper()
+        already = normalized in self.loaded_run.store.barcodes
+        if already and not acknowledge:
+            response = self.agent.respond(
+                self.machine.state.value,
+                session_id=self.loaded_run.store.context.session_id,
+            ).to_dict()
+            self.last_alice_response = response
+            return self._result(
+                request,
+                "blocked",
+                "PENDING",
+                "This barcode was already recorded in this run. Continue to weigh it again, or cancel the scan.",
+                {
+                    "duplicate_barcode": True,
+                    "barcode": barcode.strip(),
+                    "requires_operator_choice": True,
+                    "alice_response": response,
+                },
+                terminal=False,
+            )
+        self.machine.scan(
+            barcode,
+            duplicate_status="accepted" if already and acknowledge else "none",
+        )
         response = self.agent.respond(self.machine.state.value, session_id=self.loaded_run.store.context.session_id).to_dict()  # type: ignore[union-attr]
         self.last_alice_response = response
-        return self._result(request, "accepted", "PENDING", "Barcode accepted; waiting for a stable load", {"alice_response": response}, terminal=False)
+        return self._result(request, "accepted", "PENDING", "Barcode accepted; waiting for a stable load", {"alice_response": response, "duplicate_acknowledged": bool(already and acknowledge)}, terminal=False)
 
     def _reading_ingest(self, request: ActionRequest) -> ActionResult:
         self._require_run()
