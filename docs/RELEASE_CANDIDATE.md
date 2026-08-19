@@ -1,4 +1,40 @@
-# Release candidate notes — v2.0.0-rc9
+# Release candidate notes — v2.0.0-rc10
+
+**Tag intent:** **Operator UX + lock sensitivity** — finish→new run without restart,
+lock sensitivity slider, auto-record alert (beep/voice), async Zero/run actions with
+status-bar toasts, device-ID prompt before stability profile save.  
+**Not** a production seal or legal-for-trade release.
+
+**Windows Setup (SR16):** rc10 rebuilds `BestBudsWeightStation-Setup-v2.0.0-rc10.exe`
+and zip after full pytest / simulator / drift concordance gate. Debian `.deb` rebuilt
+to match. Physical COM 100 g remains operator follow-up.
+
+## New in rc10 (SR16)
+
+- **Finish Run → New Run** without restarting the app
+- Station Settings: **Lock sensitivity** (0 strict/slow → 100 loose/fast lock)
+- Station Settings: **Auto-record alert** (off / beep / voice / both) when automatic
+  capture saves without Confirm
+- PySide: async Zero, finish/resume/load run; status-bar toasts for routine success
+- Operator activity messages during long steps (Zero, characterize, run install)
+- **Assign Device ID** prompt before stability profile confirm (PySide + cal post-accept)
+- Tk partial parity: lock sensitivity, auto-record alert, worker record toast
+
+## Carried from rc9 (SR14)
+
+- Station Settings: **Auto-record after Lock** (default off)
+- When on, Scan → settle → **Lock** writes the plant; Confirm is skipped
+- Audible beep on successful (or warning) save; silent under pytest
+- Existing **automatic** mode (record on stable, skip Lock) is unchanged
+- Duplicate barcode Continue/Cancel still runs before any auto-record
+
+## Carried from rc8 (SR13)
+
+- Duplicate plant barcodes warn **before** weigh/record
+
+---
+
+# Prior — v2.0.0-rc9
 
 **Tag intent:** **Auto-record after Lock + beep** — optional setting records when Lock
 hits, then beeps. Duplicate pre-gate from rc8 still warns first.  

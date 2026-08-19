@@ -13,6 +13,8 @@
 | Build receipt | `dist/windows/windows_build_receipt.v2.0.0-rc9.json` |
 | Upgrade smoke | `packaging/windows/windows_upgrade_smoke_receipt.v2.0.0-rc9.json` |
 | Series closeout | `reports/sr15_s10_series_closeout.json` |
+| Automatic mode trial | `reports/automatic_capture_mode_trial.v2.0.0-rc9.json` |
+| SR16 auto-on-stable deferral | `reports/sr16_auto_on_stable_deferred.v0.1.0.json` |
 
 ## Non-claims
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
-VER=$(cat "$ROOT/VERSION")
+VER=$(tr -d '\r' < "$ROOT/VERSION")
 PKGROOT="${TMPDIR:-/tmp}/best-buds-weight-station-debian-root"
 OUT="$ROOT/dist/debian/best-buds-weight-station_${VER}_amd64.deb"
 rm -rf "$PKGROOT"; mkdir -p "$PKGROOT/DEBIAN" "$PKGROOT/opt/best-buds-weight-station/app" "$PKGROOT/usr/bin" "$PKGROOT/usr/share/applications" "$PKGROOT/usr/share/icons/hicolor/scalable/apps"

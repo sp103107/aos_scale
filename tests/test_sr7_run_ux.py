@@ -75,8 +75,6 @@ def test_list_sessions_excludes_finished(tmp_path):
     # Finish the first run, then create a second one under the same root.
     c.machine.state = State.WAITING_FOR_BARCODE
     assert c.dispatch(ActionRequest('run.finish')).status == 'completed'
-    c.loaded_run = None
-    c.machine = None
     second = definition(session_id='HR-2026-TEST-second')
     second['run_id'] = 'HR-2026-SECOND'
     result = c.dispatch(ActionRequest('run.new', {'definition': second, 'data_root': str(tmp_path / 'data'), 'simulator': True}))

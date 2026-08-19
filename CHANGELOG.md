@@ -1,3 +1,9 @@
+## 2.0.0-rc10 — Operator UX + lock sensitivity (SR16)
+
+- Finish Run → New Run without app restart.
+- Lock sensitivity slider and auto-record alert (beep/voice) in Station Settings.
+- PySide async Zero/run actions with status-bar toasts; device-ID prompt before stability profile save.
+
 ## 2.0.0-rc9 — Auto-record after Lock + beep (SR14)
 
 - Station Settings: Auto-record after Lock (default off); beep on save.

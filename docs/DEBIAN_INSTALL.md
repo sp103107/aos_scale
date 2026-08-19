@@ -1,8 +1,6 @@
-# Debian Install - v2.0.0-rc9
+# Debian Install - v2.0.0-rc10
 
-Debian packaging was last produced at v0.1.9; rebuild is required for 2.0.0-rc9.
-
-Install `dist/debian/best-buds-weight-station_0.1.9_amd64.deb` when present. Debian is the secondary platform. Tk is the guaranteed fallback; `python3-serial` is required for physical serial capture. PySide6 remains the primary shared frontend source but is not guaranteed by the Debian package.
+Install `dist/debian/best-buds-weight-station_2.0.0-rc10_amd64.deb` when present. Debian is the secondary platform. Tk is the guaranteed fallback; `python3-serial` is required for physical serial capture. PySide6 remains the primary shared frontend source but is not guaranteed by the Debian package.
 
 ## BBWS SR2 Linux notes
 

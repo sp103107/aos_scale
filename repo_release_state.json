@@ -76,7 +76,7 @@
   ],
   "stage_plan_status": "pass_11_of_11",
   "validation_status": "pass_core_process_and_targeted_regression",
-  "version": "2.0.0-rc9",
+  "version": "2.0.0-rc10",
   "windows_native_runtime_status": "NOT_RUN",
   "windows_status": "source_ready_native_runtime_not_run"
 }

@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any, Callable, Iterable
 
 from .actions import ActionRequest
+from .operator_activity import OperatorActivity, activity_message
 from .application_controller import ApplicationController
 from .device_service import DeviceMode, SimulatedFirmwareTransport
 from .models import now_rfc3339
@@ -162,6 +163,8 @@ class OperatorRuntime:
         self.buffer = ReadingBuffer()
         self.last_worker_error: str | None = None
         self.last_action_result: dict[str, Any] | None = None
+        self.current_activity: OperatorActivity | None = None
+        self.on_record_saved: Callable[[dict[str, Any]], None] | None = None
         self.worker = ScaleReadingWorker(
             self.controller,
             self.buffer,
@@ -171,6 +174,24 @@ class OperatorRuntime:
 
     def _capture_result(self, result: dict[str, Any]) -> None:
         self.last_action_result = result
+        if result.get("status") == "completed" and (result.get("data") or {}).get("record"):
+            callback = self.on_record_saved
+            if callback is not None:
+                callback(result)
+
+    def set_activity(
+        self,
+        phase: str,
+        step: str,
+        *,
+        progress: tuple[int, int] | None = None,
+        message: str | None = None,
+    ) -> None:
+        text = message or activity_message(phase, step, progress=progress)
+        self.current_activity = OperatorActivity(phase=phase, step=step, message=text, progress=progress)
+
+    def clear_activity(self) -> None:
+        self.current_activity = None
 
     def _capture_error(self, error: Exception) -> None:
         self.last_worker_error = f"{type(error).__name__}: {error}"
@@ -231,6 +252,7 @@ class OperatorRuntime:
         if self.worker.running:
             self.worker.stop(stop_stream=True)
             time.sleep(0.35)
+        self.set_activity("run_install", "quiet")
         result: dict[str, Any] = {"status": "failed", "message": "quiet profile apply did not run"}
         try:
             result = fn()
@@ -239,6 +261,7 @@ class OperatorRuntime:
                     self.buffer.clear()
                 self.last_worker_error = None
         finally:
+            self.clear_activity()
             if self.controller.device and self.controller.device.status.connected:
                 try:
                     self.worker.start()
@@ -319,16 +342,17 @@ class OperatorRuntime:
         was_running = self.worker.running
         if was_running:
             self.worker.stop(stop_stream=True)
-            # Let the HX711 finish the last conversion window before TARE.
             time.sleep(0.2)
+        self.set_activity("zeroing", "tare")
         result: dict[str, Any] = {"status": "failed", "message": "scale.zero did not run"}
         try:
+            self.set_activity("zeroing", "sampling")
             result = self.dispatch("scale.zero", {})
             if result.get("status") == "completed":
-                # Drop pre-zero samples so the UI does not keep showing -380000.
                 self.buffer.clear()
                 self.last_worker_error = None
         finally:
+            self.clear_activity()
             if self.controller.device and self.controller.device.status.connected:
                 try:
                     self.worker.start()
@@ -565,11 +589,19 @@ class OperatorRuntime:
         deadline = time.time() + max(1.0, timeout_s)
         while time.time() < deadline:
             recent = self.buffer.recent(sample_count)
-            if len(recent) >= sample_count:
+            count = len(recent)
+            if count >= sample_count:
+                self.clear_activity()
                 return [float(item.weight_g) for item in recent[-sample_count:]]
+            self.set_activity(
+                "characterizing",
+                "collecting",
+                progress=(min(count, sample_count), sample_count),
+            )
             time.sleep(0.05)
         recent = self.buffer.recent(sample_count)
         samples = [float(item.weight_g) for item in recent]
+        self.clear_activity()
         if len(samples) < 12:
             extra = f" (scale note: {self.last_worker_error})" if self.last_worker_error else ""
             raise RuntimeError(
@@ -644,11 +676,19 @@ class OperatorRuntime:
         if machine and getattr(machine, "detector", None) is not None:
             last_stability = getattr(machine.detector, "last_result", None)
         active_profile = getattr(controller, "active_scale_profile", None)
+        activity = self.current_activity
         return {
             "version": __import__("best_buds_weight_station.version", fromlist=["__version__"]).__version__,
             "state": controller.state,
             "operator_state": controller.operator_state_label(),
-            "alice_message": response.get("operator_message", "Start or resume a run."),
+            "alice_message": (
+                activity.message
+                if activity is not None
+                else response.get("operator_message", "Start or resume a run.")
+            ),
+            "activity_phase": activity.phase if activity else None,
+            "activity_message": activity.message if activity else None,
+            "activity_progress": activity.progress if activity else None,
             "alice_truth_class": response.get("truth_class", "NOT_RUN"),
             "alice_required_action": required_action.get("action_type", response.get("required_operator_action", "start or resume a run")),
             "run_id": context.run_id if context else None,
@@ -677,6 +717,9 @@ class OperatorRuntime:
             "warn_on_uncalibrated_weight": bool(settings.warn_on_uncalibrated_weight),
             "barcode_required_for_capture": bool(settings.barcode_required_for_capture),
             "auto_record_after_lock": bool(getattr(settings, "auto_record_after_lock", False)),
+            "lock_sensitivity": int(getattr(settings, "lock_sensitivity", 50)),
+            "auto_record_alert": getattr(settings, "auto_record_alert", "beep"),
+            "auto_record_alert_phrase": getattr(settings, "auto_record_alert_phrase", "Weight recorded"),
             "default_reference_weight_g": float(settings.default_reference_weight_g),
             "display_unit": getattr(settings, "display_unit", "g") or "g",
             "storage_unit": settings.unit,

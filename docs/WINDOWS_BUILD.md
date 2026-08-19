@@ -1,8 +1,8 @@
-# Windows Build - v2.0.0-rc9
+# Windows Build - v2.0.0-rc10
 
 Windows 10/11 x64 is the primary operator target. See [SYSTEM_REQUIREMENTS.md](SYSTEM_REQUIREMENTS.md) for hardware and OS requirements.
 
-**rc9 Setup:** SR15 rebuilds `dist/windows/BestBudsWeightStation-Setup-v2.0.0-rc9.exe` plus the matching zip. Product version stays `2.0.0-rc9` (test + package series, not a feature bump).
+**rc10 Setup:** SR16 rebuilds `dist/windows/BestBudsWeightStation-Setup-v2.0.0-rc10.exe` plus the matching zip and Debian `.deb`.
 
 ## Build on a native Windows host
 

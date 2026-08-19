@@ -47,6 +47,8 @@ class ActionType(str, Enum):
     RUN_SET_ACTIVE_CULTIVAR = "run.set_active_cultivar"
     SETTINGS_BARCODE_POLICY_SET = "settings.barcode_policy.set"
     SETTINGS_AUTO_RECORD_AFTER_LOCK_SET = "settings.auto_record_after_lock.set"
+    SETTINGS_LOCK_SENSITIVITY_SET = "settings.lock_sensitivity.set"
+    SETTINGS_AUTO_RECORD_ALERT_SET = "settings.auto_record_alert.set"
     SPREADSHEET_REBUILD = "spreadsheet.rebuild"
     STATE_RECOVER = "state.recover"
     STATE_FLUSH = "state.flush"

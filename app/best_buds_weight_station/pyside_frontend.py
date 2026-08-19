@@ -27,6 +27,7 @@ from PySide6.QtWidgets import (
     QPlainTextEdit,
     QPushButton,
     QScrollArea,
+    QSlider,
     QSpinBox,
     QDoubleSpinBox,
     QStackedWidget,
@@ -39,6 +40,8 @@ from .operator_surface import ROUTINE_ACTION_LAYOUT, frozen_display_weight
 from .run_manager import facility_id_from_cultivator
 from .scale_face import ScaleFaceWindow
 from .scale_profiles import validate_device_id
+from .stability_sensitivity import sensitivity_hint
+from .ui_action_runner import InFlightGuard, QtActionRunner
 from .ui_tokens import (
     COLOR_ACTIVE_BARCODE,
     COLOR_PRIMARY,
@@ -63,11 +66,57 @@ def _eyebrow(text: str) -> QLabel:
     return label
 
 
-def _show_result(parent: QWidget, result: dict[str, Any], *, success_title: str = "Completed") -> None:
+def _show_failure(parent: QWidget, result: dict[str, Any]) -> None:
+    QMessageBox.warning(parent, "Action not completed", result.get("message", "Action failed"))
+
+
+def _toast_status(parent: QMainWindow, message: str, *, ms: int = 7000) -> None:
+    parent.statusBar().showMessage(message, ms)
+
+
+def _show_result(
+    parent: QWidget,
+    result: dict[str, Any],
+    *,
+    success_title: str = "Completed",
+    toast_only: bool = False,
+) -> None:
     if result.get("status") in {"failed", "blocked"}:
-        QMessageBox.warning(parent, "Action not completed", result.get("message", "Action failed"))
+        _show_failure(parent, result)
+    elif toast_only and isinstance(parent, QMainWindow):
+        _toast_status(parent, result.get("message") or success_title)
     elif result.get("terminal", True):
         QMessageBox.information(parent, success_title, result.get("message", "Completed"))
+
+
+def _ensure_bbws_device_id(parent: QWidget, runtime: OperatorRuntime) -> str | None:
+    """Return a valid BBWS device id or prompt the operator to assign one."""
+    device = runtime.controller.device
+    current = (device.status.device_id if device else None) or ""
+    if current and current not in {"—"}:
+        try:
+            return validate_device_id(str(current))
+        except ValueError:
+            pass
+    default = "BBWS-SCALE-001" if not current or current == "—" else current
+    text, ok = QInputDialog.getText(
+        parent,
+        "Assign Device ID",
+        "Device ID (BBWS-SCALE-NNN or BBWS-…):",
+        text=default,
+    )
+    if not ok:
+        return None
+    try:
+        device_id = validate_device_id(text.strip())
+    except ValueError as exc:
+        QMessageBox.warning(parent, "Device ID not set", str(exc))
+        return None
+    result = runtime.set_device_id(device_id)
+    if result.get("status") != "completed":
+        _show_result(parent, result)
+        return None
+    return device_id
 
 
 class NewRunDialog(QDialog):
@@ -83,7 +132,12 @@ class NewRunDialog(QDialog):
         self.cultivator = QLineEdit("Best Buds")
         self.strain = QLineEdit()
         self.container = QLineEdit("DEFAULT")
-        self.mode = QComboBox(); self.mode.addItems(["manual", "automatic"])
+        self.mode = QComboBox()
+        self.mode.addItems(["automatic", "manual"])
+        # Harvest floor default: automatic records on stable (no Lock/Confirm clicks).
+        preferred = getattr(runtime.controller.settings, "capture_mode", "automatic") or "automatic"
+        idx = self.mode.findText(preferred)
+        self.mode.setCurrentIndex(idx if idx >= 0 else 0)
         self.data_root = QLineEdit(runtime.controller.settings.data_root)
         choose = QPushButton("Choose…")
         choose.clicked.connect(self.choose_folder)
@@ -462,16 +516,8 @@ class ScaleSetupDialog(QDialog):
         if not recommended:
             QMessageBox.information(self, "Not ready", "Run the 100 g Stability Test first.")
             return
-        device = self.runtime.controller.device
-        device_id = (device.status.device_id if device else None) or ""
-        try:
-            device_id = validate_device_id(str(device_id))
-        except ValueError:
-            QMessageBox.warning(
-                self,
-                "Device ID required",
-                "Assign a BBWS device ID before confirming a stability profile.",
-            )
+        device_id = _ensure_bbws_device_id(self, self.runtime)
+        if not device_id:
             return
         name, ok = QInputDialog.getText(
             self,
@@ -711,7 +757,7 @@ class StationSettingsDialog(QDialog):
         self.require_barcode.setCurrentIndex(0 if required else 1)
         form.addRow("Plant barcode policy", self.require_barcode)
         self.auto_record = QComboBox()
-        self.auto_record.addItems(["off (Confirm after Lock)", "on (record when Lock hits)"])
+        self.auto_record.addItems(["off (Confirm after Lock)", "on (record when Lock hits — manual only)"])
         auto = bool(getattr(runtime.controller.settings, "auto_record_after_lock", False))
         self.auto_record.setCurrentIndex(1 if auto else 0)
         form.addRow("Auto-record after Lock", self.auto_record)
@@ -720,9 +766,35 @@ class StationSettingsDialog(QDialog):
         current = unit_label(getattr(runtime.controller.settings, "display_unit", "g") or "g")
         self.display_unit.setCurrentText(current)
         form.addRow("Display unit (storage stays g)", self.display_unit)
+        self.lock_sensitivity = QSlider(Qt.Horizontal)
+        self.lock_sensitivity.setRange(0, 100)
+        self.lock_sensitivity.setValue(int(getattr(runtime.controller.settings, "lock_sensitivity", 50)))
+        self.sensitivity_hint = QLabel("")
+        self.sensitivity_hint.setWordWrap(True)
+        self.sensitivity_hint.setStyleSheet("color:#5C6975")
+        self.lock_sensitivity.valueChanged.connect(self._update_sensitivity_hint)
+        self._update_sensitivity_hint(self.lock_sensitivity.value())
+        sens_row = QVBoxLayout()
+        sens_row.addWidget(self.lock_sensitivity)
+        sens_labels = QHBoxLayout()
+        sens_labels.addWidget(QLabel("Strict (precise)"))
+        sens_labels.addStretch(1)
+        sens_labels.addWidget(QLabel("Loose (fast lock)"))
+        sens_row.addLayout(sens_labels)
+        sens_row.addWidget(self.sensitivity_hint)
+        form.addRow("Lock sensitivity", sens_row)
+        self.auto_record_alert = QComboBox()
+        self.auto_record_alert.addItems(["off", "beep", "voice", "both"])
+        alert = getattr(runtime.controller.settings, "auto_record_alert", "beep") or "beep"
+        idx = self.auto_record_alert.findText(alert)
+        self.auto_record_alert.setCurrentIndex(idx if idx >= 0 else 1)
+        form.addRow("Auto-record alert", self.auto_record_alert)
+        self.alert_phrase = QLineEdit(getattr(runtime.controller.settings, "auto_record_alert_phrase", "Weight recorded"))
+        form.addRow("Alert phrase (voice/both)", self.alert_phrase)
         hint = QLabel(
-            "Scanners: USB HID only. Auto-record after Lock still follows Scan → settle → Lock; "
-            "Confirm is skipped. Display lb/kg is not legal-for-trade; JSONL stays grams."
+            "Scanners: USB HID only. Lock sensitivity tunes spread/settle on top of the active scale profile. "
+            "Auto-record alert applies when automatic capture (or auto-record-after-lock) saves without Confirm. "
+            "Display lb/kg is not legal-for-trade; JSONL stays grams."
         )
         hint.setStyleSheet("color:#5C6975")
         hint.setWordWrap(True)
@@ -731,6 +803,14 @@ class StationSettingsDialog(QDialog):
         buttons.accepted.connect(self.save)
         buttons.rejected.connect(self.reject)
         form.addRow(buttons)
+
+    def _update_sensitivity_hint(self, value: int) -> None:
+        from .models import StabilityProfile
+
+        base = StabilityProfile()
+        self.sensitivity_hint.setText(
+            f"Effective at {value}: {sensitivity_hint(base, int(value))} — not legal-for-trade."
+        )
 
     def save(self) -> None:
         required = self.require_barcode.currentIndex() == 0
@@ -747,6 +827,23 @@ class StationSettingsDialog(QDialog):
         )
         if auto_result.get("status") not in {"completed"}:
             _show_result(self, auto_result)
+            return
+        sens_result = self.runtime.dispatch(
+            "settings.lock_sensitivity.set",
+            {"lock_sensitivity": int(self.lock_sensitivity.value())},
+        )
+        if sens_result.get("status") not in {"completed"}:
+            _show_result(self, sens_result)
+            return
+        alert_result = self.runtime.dispatch(
+            "settings.auto_record_alert.set",
+            {
+                "auto_record_alert": self.auto_record_alert.currentText(),
+                "auto_record_alert_phrase": self.alert_phrase.text().strip(),
+            },
+        )
+        if alert_result.get("status") not in {"completed"}:
+            _show_result(self, alert_result)
             return
         unit_result = self.runtime.dispatch(
             "settings.display_unit.set",
@@ -916,6 +1013,12 @@ class CalibrationDialog(QDialog):
                 )
                 return
             data = result.get("data") or {}
+            if data.get("prompt_assign_device_id"):
+                QMessageBox.information(
+                    self,
+                    "Assign device ID",
+                    "Calibration saved. Assign a BBWS device ID in Scale Setup before confirming a stability profile.",
+                )
             if data.get("prompt_characterize") or data.get("characterize_recommended"):
                 ask = QMessageBox.question(
                     self,
@@ -944,19 +1047,8 @@ class CalibrationDialog(QDialog):
             )
             if confirm != QMessageBox.Yes or not recommended:
                 return
-            device = self.runtime.controller.device
-            device_id = device.status.device_id if device else None
+            device_id = _ensure_bbws_device_id(self, self.runtime)
             if not device_id:
-                QMessageBox.warning(self, "Device ID required", "Assign a BBWS device ID in Scale Setup first.")
-                return
-            try:
-                device_id = validate_device_id(str(device_id))
-            except ValueError:
-                QMessageBox.warning(
-                    self,
-                    "Device ID required",
-                    "Assign a BBWS device ID in Scale Setup before confirming a stability profile.",
-                )
                 return
             confirmed = self.runtime.confirm_stability_profile(
                 device_id=device_id,
@@ -986,6 +1078,10 @@ class MainWindow(QMainWindow):
         self.simulator_requested = simulator
         self._calibration_open = False
         self._scale_face: ScaleFaceWindow | None = None
+        self._ui_busy = False
+        self._action_guard = InFlightGuard()
+        self._action_runner = QtActionRunner(self) if QtActionRunner is not None else None
+        self._default_button_labels: dict[str, str] = {}
         self.setWindowTitle(f"Best Buds Cultivator Weight Station v{__version__}")
         self.resize(1180, 820)
         self.setMinimumSize(1024, 720)
@@ -1132,6 +1228,7 @@ class MainWindow(QMainWindow):
             if spec.emphasis in object_names: button.setObjectName(object_names[spec.emphasis])
             actions.addWidget(button, spec.row, spec.column, 1, spec.columnspan)
             self.buttons[spec.label] = button
+        self._default_button_labels = {name: name for name in self.buttons}
         layout.addLayout(actions)
 
         log_card = QFrame(); log_card.setObjectName("card")
@@ -1169,6 +1266,7 @@ class MainWindow(QMainWindow):
             action = QAction(self); action.setShortcut(QKeySequence(shortcut)); action.triggered.connect(callback); self.addAction(action)
 
         self.timer = QTimer(self); self.timer.timeout.connect(self.refresh); self.timer.start(100)
+        self.runtime.on_record_saved = self._on_worker_record_saved
         if simulator: QTimer.singleShot(50, self.bootstrap_simulator)
         if smoke: QTimer.singleShot(1400, self.close)
         self.refresh()
@@ -1223,10 +1321,53 @@ class MainWindow(QMainWindow):
         if not self.runtime.controller.device:
             self.runtime.connect_simulator(); self.runtime.simulator_set_weight(1250.0)
 
+    def _run_background(
+        self,
+        action_key: str,
+        fn,
+        *,
+        on_success=None,
+        toast: str | None = None,
+    ) -> None:
+        if not self._action_guard.try_begin(action_key):
+            return
+        self._ui_busy = True
+        self.statusBar().showMessage("Working…")
+
+        def done(result: Any) -> None:
+            self._ui_busy = False
+            self._action_guard.end(action_key)
+            if on_success is not None:
+                on_success(result)
+            elif isinstance(result, dict):
+                if result.get("status") in {"failed", "blocked"}:
+                    _show_failure(self, result)
+                elif toast or result.get("message"):
+                    _toast_status(self, toast or str(result.get("message")))
+
+        def err(exc: Exception) -> None:
+            self._ui_busy = False
+            self._action_guard.end(action_key)
+            QMessageBox.warning(self, "Action not completed", str(exc))
+
+        if self._action_runner is not None:
+            self._action_runner.run(fn, on_success=done, on_error=err)
+        else:
+            try:
+                done(fn())
+            except Exception as exc:
+                err(exc)
+
+    def _on_worker_record_saved(self, result: dict[str, Any]) -> None:
+        QTimer.singleShot(0, lambda: self._handle_record_saved(result, from_worker=True))
+
     def refresh(self) -> None:
         s = self.runtime.snapshot(); device = s["device"]
         du = unit_label(s.get("display_unit") or "g")
-        self.status.setText(s["operator_state"].title())
+        if s.get("activity_message"):
+            self.status.setText(str(s["activity_message"])[:96])
+        else:
+            self.status.setText(s["operator_state"].title())
         locked = s.get("locked_weight_g")
         # While locked, the big display freezes at the locked value until
         # Confirm & Record or Cancel releases it (display-only; capture law unchanged).
@@ -1247,7 +1388,12 @@ class MainWindow(QMainWindow):
             self.locked_weight_label.setText("")
         reason = s.get("stability_reason")
         if s["state"] == "WAITING_FOR_STABLE_WEIGHT" and reason:
-            self.stability_reason_label.setText(f"Waiting for stable weight — {reason}")
+            spread = s.get("stability_spread_g")
+            stddev = s.get("stability_stddev_g")
+            extra = ""
+            if spread is not None and stddev is not None:
+                extra = f" (spread {float(spread):.2f} g, σ {float(stddev):.2f} g)"
+            self.stability_reason_label.setText(f"Waiting for stable weight — {reason}{extra}")
         else:
             self.stability_reason_label.setText("")
         active_bc = s.get("active_barcode")
@@ -1328,24 +1474,28 @@ class MainWindow(QMainWindow):
             self.statusBar().showMessage("Scale disconnected • open Scale Setup to connect")
 
         state=s["state"]; ready=state=="WAITING_FOR_BARCODE"; connected=bool(device.get("connected"))
-        self.barcode.setEnabled(ready and not self._calibration_open)
-        self.scan_btn.setEnabled(ready and not self._calibration_open)
-        self.auto_id_btn.setEnabled(ready and not self._calibration_open and not bool(s.get("barcode_required_for_capture", True)))
+        busy = self._ui_busy
+        self.barcode.setEnabled(ready and not self._calibration_open and not busy)
+        self.scan_btn.setEnabled(ready and not self._calibration_open and not busy)
+        self.auto_id_btn.setEnabled(ready and not self._calibration_open and not busy and not bool(s.get("barcode_required_for_capture", True)))
         self.auto_id_btn.setVisible(not bool(s.get("barcode_required_for_capture", True)))
         # Focus ownership: reclaim barcode focus only when ready and no modal owns focus.
         active = QApplication.activeModalWidget()
         if ready and not self._calibration_open and active is None and not self.barcode.hasFocus():
             if not self.operator_note.hasFocus():
                 self.barcode.setFocus()
-        self.buttons["START / RESUME"].setEnabled(state in {"NO_RUN", "RUN_FINISHED", "DEVICE_READY", "WAITING_FOR_BARCODE"})
-        self.buttons["CONNECT SCALE"].setEnabled(state not in self.CAPTURE_STATES)
+        self.buttons["START / RESUME"].setEnabled(not busy and state in {"NO_RUN", "RUN_FINISHED", "DEVICE_READY", "WAITING_FOR_BARCODE"})
+        self.buttons["CONNECT SCALE"].setEnabled(not busy and state not in self.CAPTURE_STATES)
         # Zero is maintenance: allowed whenever the scale is connected (run optional).
-        self.buttons["ZERO"].setEnabled(connected and state not in self.CAPTURE_STATES)
-        self.buttons["SET TARE"].setEnabled(connected and state in {"WAITING_FOR_BARCODE", "DEVICE_READY"})
-        self.buttons["LOCK WEIGHT"].setEnabled(state == "WEIGHT_STABLE")
-        self.buttons["CONFIRM & RECORD"].setEnabled(state == "MANUAL_CONFIRM")
-        self.buttons["CANCEL"].setEnabled(state in self.CAPTURE_STATES)
-        self.buttons["FINISH RUN"].setEnabled(bool(s["run_id"]) and state not in {"LOCAL_COMMIT_PENDING", "RUN_FINISHED"})
+        self.buttons["ZERO"].setEnabled(not busy and connected and state not in self.CAPTURE_STATES)
+        self.buttons["ZERO"].setText(
+            "Zeroing…" if self._action_guard.is_running("zero_scale") else self._default_button_labels.get("ZERO", "ZERO")
+        )
+        self.buttons["SET TARE"].setEnabled(not busy and connected and state in {"WAITING_FOR_BARCODE", "DEVICE_READY"})
+        self.buttons["LOCK WEIGHT"].setEnabled(not busy and state == "WEIGHT_STABLE")
+        self.buttons["CONFIRM & RECORD"].setEnabled(not busy and state == "MANUAL_CONFIRM")
+        self.buttons["CANCEL"].setEnabled(not busy and state in self.CAPTURE_STATES)
+        self.buttons["FINISH RUN"].setEnabled(not busy and bool(s["run_id"]) and state not in {"LOCAL_COMMIT_PENDING", "RUN_FINISHED"})
 
     def _refresh_capture_pill(self, state: str, has_saved: bool) -> None:
         """Text-labeled capture status pill (Ready / Stable / Locked / Saved)."""
@@ -1436,24 +1586,42 @@ class MainWindow(QMainWindow):
         # picker; it falls through to New Run / Browse when nothing is listed.
         self.choose_run()
     def new_run(self) -> None: NewRunDialog(self.runtime, self).exec()
-    def resume_run(self) -> None: _show_result(self, self.runtime.resume_run())
+    def resume_run(self) -> None:
+        def on_ok(result: dict[str, Any]) -> None:
+            if result.get("status") == "completed":
+                _toast_status(self, result.get("message") or "Run resumed")
+            else:
+                _show_result(self, result)
+
+        self._run_background("run.resume", self.runtime.resume_run, on_success=on_ok)
+
     def choose_run(self) -> None: ResumeRunDialog(self.runtime, self).exec()
     def load_run(self) -> None:
         path, _ = QFileDialog.getOpenFileName(self, "Load Existing Run", self.runtime.controller.settings.data_root, "Session manifest (session_manifest.json);;JSON files (*.json)")
-        if path: _show_result(self, self.runtime.load_run(path))
+        if not path:
+            return
+
+        def on_ok(result: dict[str, Any]) -> None:
+            if result.get("status") == "completed":
+                _toast_status(self, result.get("message") or "Run loaded")
+            else:
+                _show_result(self, result)
+
+        self._run_background("run.load", lambda: self.runtime.load_run(path), on_success=on_ok)
+
     def scale_setup(self) -> None: ScaleSetupDialog(self.runtime, self).exec()
     def zero_scale(self) -> None:
-        try:
-            result = self.runtime.zero_scale()
+        def on_ok(result: dict[str, Any]) -> None:
             if result.get("status") == "completed":
                 note = self.runtime.last_worker_error
-                _show_result(self, result, success_title="Scale Zeroed")
+                msg = result.get("message") or "Scale zeroed."
                 if note:
-                    self.statusBar().showMessage(f"Scale zeroed; live stream note: {note}")
+                    msg += f" Live stream note: {note}"
+                _toast_status(self, msg)
             else:
-                _show_result(self, result, success_title="Scale Zeroed")
-        except Exception as exc:
-            QMessageBox.warning(self, "Zero failed", str(exc))
+                _show_result(self, result)
+
+        self._run_background("zero_scale", self.runtime.zero_scale, on_success=on_ok)
     def container_tare(self) -> None: TareDialog(self.runtime, self).exec()
     def calibrate(self) -> None:
         self._calibration_open = True
@@ -1488,14 +1656,14 @@ class MainWindow(QMainWindow):
             return
         self.statusBar().showMessage(result.get("message") or "Weight locked — Confirm & Record when ready.")
 
-    def _handle_record_saved(self, result: dict[str, Any]) -> None:
+    def _handle_record_saved(self, result: dict[str, Any], *, from_worker: bool = False) -> None:
         record = (result.get("data") or {}).get("record") or self.runtime.controller.last_record or {}
         feedback = (result.get("data") or {}).get("feedback")
         msg = result.get("message") or "Record saved."
         run = self.runtime.controller.loaded_run
         if run and (run.store.session_dir / "records.csv").exists():
             msg += f" CSV: {run.store.session_dir / 'records.csv'}"
-        self.statusBar().showMessage(msg)
+        _toast_status(self, msg)
         self.operator_note.clear()
         self.void_next.setCurrentIndex(0)
         self.barcode.clear()
@@ -1503,6 +1671,7 @@ class MainWindow(QMainWindow):
         if feedback == "warning":
             QMessageBox.warning(self, "Saved with duplicate warning", msg)
         _ = record
+        _ = from_worker
 
     def confirm_record(self) -> None:
         note = self.operator_note.text().strip() or None
@@ -1524,7 +1693,11 @@ class MainWindow(QMainWindow):
     def station_settings(self) -> None:
         StationSettingsDialog(self.runtime, self).exec()
     def rebuild_csv(self) -> None:
-        _show_result(self, self.runtime.dispatch("spreadsheet.rebuild"), success_title="CSV rebuilt")
+        result = self.runtime.dispatch("spreadsheet.rebuild")
+        if result.get("status") == "completed":
+            _toast_status(self, result.get("message") or "CSV rebuilt from JSONL")
+        else:
+            _show_result(self, result)
     def reconcile_export(self) -> None:
         result = self.runtime.dispatch("report.reconcile")
         _show_result(self, result, success_title="Reconcile pass")
@@ -1603,8 +1776,16 @@ class MainWindow(QMainWindow):
             else:
                 _show_result(self, result)
     def finish_run(self) -> None:
-        if QMessageBox.question(self,"Finish Run","Finish the current run? Committed records remain immutable.")==QMessageBox.Yes:
-            _show_result(self,self.runtime.dispatch("run.finish"),success_title="Run Finished")
+        if QMessageBox.question(self, "Finish Run", "Finish the current run? Committed records remain immutable.") != QMessageBox.Yes:
+            return
+
+        def on_ok(result: dict[str, Any]) -> None:
+            if result.get("status") == "completed":
+                _toast_status(self, result.get("message") or "Run finished")
+            else:
+                _show_result(self, result)
+
+        self._run_background("run.finish", lambda: self.runtime.dispatch("run.finish"), on_success=on_ok)
     def export_report(self) -> None:
         path = QFileDialog.getExistingDirectory(self, "Export Report To", str(self.runtime.paths.exports))
         if not path:

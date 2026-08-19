@@ -1,9 +1,9 @@
-# System State Current - v2.0.0-rc9
+# System State Current - v2.0.0-rc10
 
 ## Current truth
 
-- Product version: `2.0.0-rc9`
-- Current phase: `sr15_rc9_test_and_windows_package`
+- Product version: `2.0.0-rc10`
+- Current phase: `sr16_rc10_ship_and_package`
 - Execution posture: `real_execution_allowed` for safe local software lanes with evidence capture
 - Primary target: Windows 10/11 + PySide6
 - Secondary target: Linux + PySide6; Tk fallback

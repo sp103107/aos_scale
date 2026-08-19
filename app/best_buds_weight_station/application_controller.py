@@ -20,7 +20,9 @@ from .scale_profiles import (
     validate_device_id,
 )
 from .operator_beep import play_operator_beep
+from .operator_voice import speak_operator_cue
 from .settings import AppSettings, SettingsStore
+from .stability_sensitivity import apply_lock_sensitivity
 from .state_machine import CaptureMachine, State
 from .storage import atomic_json, parse_jsonl
 
@@ -103,6 +105,43 @@ class ApplicationController:
         self.active_scale_profile = active
         return active.to_stability_profile()
 
+    def _effective_stability_profile(self, device_id: str | None = None) -> StabilityProfile:
+        base = self._resolve_stability_profile(device_id)
+        return apply_lock_sensitivity(base, self.settings.lock_sensitivity)
+
+    def _install_effective_profile(self, device_id: str | None = None) -> None:
+        if self.machine is not None:
+            self.machine.set_profile(self._effective_stability_profile(device_id))
+
+    def _is_auto_record_path(self, request: ActionRequest) -> bool:
+        if not self.loaded_run:
+            return False
+        mode = self.loaded_run.definition.capture_mode
+        if request.action_type == ActionType.READING_INGEST.value:
+            return mode == "automatic"
+        if request.action_type == ActionType.CAPTURE_CONFIRM.value:
+            if mode == "automatic":
+                return True
+            return bool(self.settings.auto_record_after_lock)
+        return False
+
+    def _play_record_alert(self, feedback_kind: str) -> None:
+        mode = self.settings.auto_record_alert
+        if mode == "off":
+            return
+        if feedback_kind == "warning":
+            if mode in {"beep", "both"}:
+                self.feedback_events.append("warning")
+                play_operator_beep("warning")
+            if mode in {"voice", "both"}:
+                speak_operator_cue("Saved with warning")
+            return
+        if mode in {"beep", "both"}:
+            self.feedback_events.append("success")
+            play_operator_beep("success")
+        if mode in {"voice", "both"}:
+            speak_operator_cue(self.settings.auto_record_alert_phrase)
+
     def _apply_active_scale_profile(self) -> dict[str, Any] | None:
         """After STATUS: load active profile by device_id, apply SET_CAL if needed, install stability.
 
@@ -126,7 +165,7 @@ class ApplicationController:
         reported = float(status["calibration_factor"])
         target = float(active.calibration_factor)
         if math.isclose(reported, target, rel_tol=1e-5, abs_tol=1e-5):
-            stability = active.to_stability_profile()
+            stability = self._effective_stability_profile(str(device_id))
             if self.machine is not None:
                 self.machine.set_profile(stability)
             self.active_scale_profile = active
@@ -138,7 +177,7 @@ class ApplicationController:
                 "set_cal_applied": False,
             }
         applied = self.device.apply_calibration_factor(target)
-        stability = active.to_stability_profile()
+        stability = self._effective_stability_profile(str(device_id))
         if self.machine is not None:
             self.machine.set_profile(stability)
         self.active_scale_profile = active
@@ -295,6 +334,8 @@ class ApplicationController:
             ActionType.RUN_SET_ACTIVE_CULTIVAR.value: self._set_active_cultivar,
             ActionType.SETTINGS_BARCODE_POLICY_SET.value: self._set_barcode_policy,
             ActionType.SETTINGS_AUTO_RECORD_AFTER_LOCK_SET.value: self._set_auto_record_after_lock,
+            ActionType.SETTINGS_LOCK_SENSITIVITY_SET.value: self._set_lock_sensitivity,
+            ActionType.SETTINGS_AUTO_RECORD_ALERT_SET.value: self._set_auto_record_alert,
             ActionType.SPREADSHEET_REBUILD.value: self._rebuild_spreadsheet,
             ActionType.STATE_RECOVER.value: self._recover,
             ActionType.STATE_FLUSH.value: self._flush,
@@ -349,7 +390,7 @@ class ApplicationController:
 
     def _install_loaded_run(self, loaded: LoadedRun) -> None:
         self.loaded_run = loaded
-        profile = self._resolve_stability_profile()
+        profile = self._effective_stability_profile()
         self.machine = CaptureMachine(loaded.store, profile, beep=self.beep)
         self.scale = None
         # Keep an already-connected USB/simulator scale bound without forcing reconnect.
@@ -357,7 +398,7 @@ class ApplicationController:
             self._bind_scale_service()
             applied = self._apply_active_scale_profile()
             if applied is None and self.machine is not None:
-                self.machine.set_profile(self._resolve_stability_profile())
+                self._install_effective_profile()
             self.machine.connect()
             if self.machine.state != State.RECOVERY_REQUIRED:
                 self.machine.start_session(loaded.definition.capture_mode)
@@ -371,7 +412,9 @@ class ApplicationController:
 
     def _run_new(self, request: ActionRequest) -> ActionResult:
         if self.loaded_run and self.loaded_run.store.sequence > 0:
-            raise InvalidActionState("finish or close the current run before creating another")
+            finished = self.machine is not None and self.machine.state == State.RUN_FINISHED
+            if not finished:
+                raise InvalidActionState("finish or close the current run before creating another")
         definition = RunDefinition(**request.payload["definition"])
         simulator = bool(request.payload.get("simulator", False))
         loaded = self.run_manager.create(
@@ -453,6 +496,38 @@ class ApplicationController:
             "UNIT_TEST_PASS",
             "Auto-record after Lock updated. Confirm is skipped when this is on.",
             {"auto_record_after_lock": settings.auto_record_after_lock},
+        )
+
+    def _set_lock_sensitivity(self, request: ActionRequest) -> ActionResult:
+        value = int(request.payload.get("lock_sensitivity", 50))
+        if not 0 <= value <= 100:
+            raise ValueError("lock_sensitivity must be between 0 and 100")
+        settings = self.settings_store.update(lock_sensitivity=value)
+        self._install_effective_profile()
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"Lock sensitivity set to {settings.lock_sensitivity}.",
+            {"lock_sensitivity": settings.lock_sensitivity},
+        )
+
+    def _set_auto_record_alert(self, request: ActionRequest) -> ActionResult:
+        mode = str(request.payload.get("auto_record_alert", "beep"))
+        phrase = request.payload.get("auto_record_alert_phrase")
+        changes: dict[str, Any] = {"auto_record_alert": mode}
+        if phrase is not None:
+            changes["auto_record_alert_phrase"] = str(phrase).strip()
+        settings = self.settings_store.update(**changes)
+        return self._result(
+            request,
+            "completed",
+            "UNIT_TEST_PASS",
+            f"Auto-record alert set to {settings.auto_record_alert}.",
+            {
+                "auto_record_alert": settings.auto_record_alert,
+                "auto_record_alert_phrase": settings.auto_record_alert_phrase,
+            },
         )
 
     def _set_display_unit(self, request: ActionRequest) -> ActionResult:
@@ -580,7 +655,7 @@ class ApplicationController:
         self.loaded_run.store.context.firmware_version = status.firmware_version or "unknown"
         self.loaded_run.store.context.evidence_truth_class = "simulator" if simulator else "SOURCE_PRESENT"
         if profile_apply is None:
-            self.machine.set_profile(self._resolve_stability_profile(status.device_id))
+            self._install_effective_profile(status.device_id)
         self.machine.connect()
         if self.machine.state != State.RECOVERY_REQUIRED:
             self.machine.start_session(self.loaded_run.definition.capture_mode)
@@ -629,7 +704,7 @@ class ApplicationController:
         profile_apply = self._apply_active_scale_profile()
         if self.machine and self.loaded_run:
             if profile_apply is None:
-                self.machine.set_profile(self._resolve_stability_profile(status.device_id))
+                self._install_effective_profile(status.device_id)
             self.machine.connect()
             if self.machine.state != State.RECOVERY_REQUIRED:
                 self.machine.start_session(self.loaded_run.definition.capture_mode)
@@ -769,7 +844,19 @@ class ApplicationController:
         confirmed = response.truth_class == TruthClass.RECEIPT_CONFIRMED
         if not confirmed:
             return self._result(request, "failed", response.truth_class.value, response.operator_message, {"alice_response": self.last_alice_response})
-        self.machine.complete_terminal_result(feedback)
+        auto_path = self._is_auto_record_path(request)
+        alert_mode = self.settings.auto_record_alert
+        if auto_path and alert_mode != "off":
+            noop = lambda _kind: None
+            saved_beep = self.machine.beep
+            self.machine.beep = noop
+            try:
+                self.machine.complete_terminal_result(feedback)
+            finally:
+                self.machine.beep = saved_beep
+            self._play_record_alert(feedback)
+        else:
+            self.machine.complete_terminal_result(feedback)
         if record is not None:
             self.last_record = record
         message = response.operator_message
@@ -899,11 +986,17 @@ class ApplicationController:
                 )
                 self.active_scale_profile = profile
                 if self.machine is not None:
-                    self.machine.set_profile(profile.to_stability_profile())
+                    self._install_effective_profile(str(device_id))
                 profile_binding = profile.to_dict()
         except ValueError:
             # Non-BBWS device ids remain calibratable but are not profile-bound yet.
             profile_binding = None
+        prompt_assign = False
+        if profile_binding is None and device_id:
+            try:
+                validate_device_id(str(device_id))
+            except ValueError:
+                prompt_assign = True
         return self._result(
             request,
             "completed",
@@ -914,6 +1007,7 @@ class ApplicationController:
                 "scale_profile": profile_binding,
                 "prompt_characterize": True,
                 "characterize_recommended": True,
+                "prompt_assign_device_id": prompt_assign,
                 "physical_device_pass": False,
             },
         )
@@ -961,7 +1055,7 @@ class ApplicationController:
         else:
             self.active_scale_profile = profile
             if self.machine is not None:
-                self.machine.set_profile(profile.to_stability_profile())
+                self._install_effective_profile(profile.device_id)
         return self._result(
             request,
             "completed",
@@ -1081,7 +1175,7 @@ class ApplicationController:
             )
         self.active_scale_profile = profile
         if self.machine is not None:
-            self.machine.set_profile(profile.to_stability_profile())
+            self._install_effective_profile(device_id)
         return self._result(
             request,
             "completed",

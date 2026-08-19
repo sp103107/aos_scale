@@ -23,9 +23,10 @@ def test_core_process_current_doc():
     assert 'PySerialTransport' in text and 'physical' in text.lower()
 
 
-def test_loaded_run_restores_last_saved_record(tmp_path):
+def test_loaded_run_restores_last_saved_record(tmp_path, monkeypatch):
     from best_buds_weight_station.operator_runtime import OperatorRuntime
     import time
+    monkeypatch.setenv("LOCALAPPDATA", str(tmp_path / "localappdata"))
     definition={'run_id':'RESUME-V019','operator_id':'OP','facility_id':'BEST-BUDS','station_id':'WS','cultivars':[{'cultivar_id':'CV','name':'Cultivar'}],'capture_mode':'manual','unit':'g','container_id':'DEFAULT','tare_g':0.0,'maximum_capacity_g':10000.0}
     rt=OperatorRuntime(tmp_path/'run',capture_mode='manual')
     rt.dispatch('run.new',{'definition':definition,'data_root':str(tmp_path/'run'),'simulator':True}); rt.connect_simulator(); rt.simulator_set_weight(500.0); rt.buffer.clear()

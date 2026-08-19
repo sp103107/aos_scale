@@ -2,7 +2,7 @@
 
 **runtime_claimed:** false  
 **audience:** harvest-station operator  
-**product_version:** `2.0.0-rc9`  
+**product_version:** `2.0.0-rc10`  
 **template cite:** KS structured onboarding (salvage cite-only)
 
 ## Flow map
@@ -74,25 +74,41 @@ Simulator without hardware: `launch_simulator.bat`.
 
 ---
 
-## 4. Capture loop (do not skip Lock)
+## 4. Capture loop
+
+### Automatic (recommended for harvest floor)
+
+Set **Capture mode: automatic** when you **Run → New Run**. No Lock or Confirm clicks.
 
 ```text
 Scan (or type barcode + Enter)
 → Place / hang plant → wait until Stable
-→ Lock weight
-→ Confirm & Record
-→ Ready for next scan
+→ Record saves automatically (beep) → Ready for next scan
 ```
 
-> **Next action:** Press **Scan** to open the capture window when Ready; Enter submits the tag.
+> **Next action:** Press **Scan** when Ready; Enter submits the tag.
 
 > **Duplicate barcode (SR13):** If that tag was already recorded in this run, a warning appears **before** weighing. **Cancel** leaves you Ready with no new record. **Continue** lets you weigh it again (tagged as a duplicate).
 
-> **Common confusion:** Confirm stays disabled until the weight is **Locked**. That is intentional.
+### Manual (Lock + Confirm every plant)
 
-> **Auto-record after Lock (SR14):** Station Settings can turn on **Auto-record after Lock**. After a barcode and a stable Lock, the station records immediately and beeps. Confirm is skipped. Duplicate tags still warn first (Continue or Cancel).
+Choose **Capture mode: manual** on New Run when you want an explicit Lock step before every record.
 
-Barcode stays visible until Confirm. Cancel clears the in-progress plant.
+```text
+Scan → Stable → Lock weight → Confirm & Record → Ready for next scan
+```
+
+> **Common confusion:** Confirm stays disabled until the weight is **Locked**. That is intentional for manual runs.
+
+> **Auto-record after Lock (SR14, manual only):** Station Settings → **Auto-record after Lock** skips **Confirm** after you press Lock. It does **not** skip Lock. For scan-and-go without any Lock click, use **automatic** capture mode instead.
+
+### Started a run in the wrong mode?
+
+Capture mode is fixed when the run is created. You **cannot** switch manual ↔ automatic mid-run.
+
+**Fix:** **Run → Finish Run** (or leave that session) → **Run → New Run** → pick **automatic** or **manual** as needed.
+
+Barcode stays visible until Confirm in manual mode. Cancel clears the in-progress plant.
 
 ---
 
@@ -113,9 +129,9 @@ On Windows PySide, use **View → Scale Face (Harvest)** (or **Ctrl+Shift+F**) f
 | **HARVEST** | ZERO · SET TARE · LOCK WEIGHT · CONFIRM & RECORD · CANCEL · compact START/RESUME when needed |
 | **SETUP** | CONNECT · ZERO · SET TARE · CALIBRATE (opens Guided Calibration) · TEST SCANNER |
 
-Same capture law as the full UI: Scan → settle → Lock → Confirm. Esc or **Exit Scale Face** returns to the full desktop window. New Run details, Export, and plant-log tables stay on the full UI.
+Same capture law as the full UI: Scan → settle → record. In **automatic** runs, Lock/Confirm are not required on stable. In **manual** runs, Lock then Confirm (or auto-record after Lock if that setting is on). Esc or **Exit Scale Face** returns to the full desktop window. New Run details, Export, and plant-log tables stay on the full UI.
 
-> **Next action:** After a run is ready and the scale is connected, open Scale Face for hang-side Lock/Confirm pacing.
+> **Next action:** After a run is ready and the scale is connected, open Scale Face for hang-side pacing. Prefer **automatic** capture mode on New Run for scan-and-go harvest.
 
 ---
 
@@ -134,6 +150,14 @@ Handoffs include CSV, XLSX, DOCX, JSON, and `handoff_bundle_manifest.json`.
 ## 7. Finish
 
 > **Next action:** Finish Run when the session is complete. Committed records remain immutable.
+
+---
+
+## 8. rc10 station tuning (Settings → Station Settings)
+
+- **Lock sensitivity** (0–100): Low = tighter stability / slower to lock; high = wider tolerance / faster lock. Tunes spread and settle on top of the active scale profile — not legal-for-trade.
+- **Auto-record alert**: When **automatic capture** saves a plant without Confirm, choose **off**, **beep**, **voice**, or **both** (default beep). Phrase defaults to *Weight recorded*.
+- **Finish Run → New Run**: After finishing a run, **Run → New Run** works without restarting the app.
 
 ---
 

@@ -1,6 +1,6 @@
 # START HERE — Best Buds Cultivator Weight Station
 
-**Version:** `2.0.0-rc9`  
+**Version:** `2.0.0-rc10`  
 **Audience:** Harvest-station operators and supervisors  
 **Public repo:** [https://github.com/sp103107/aos_scale](https://github.com/sp103107/aos_scale)
 
@@ -33,7 +33,9 @@ New Run (Cultivator + Strain)
 → Connect Scale
 → Guided Calibration (verified mass)
 → ZERO (empty) → optional SET TARE
-→ Scan → settle → Lock weight → Confirm & Record
+→ New Run: choose **automatic** capture mode for scan-and-go (no Lock/Confirm)
+  — or **manual** if you need Lock → Confirm on every plant
+→ Scan → settle → record (automatic) or Lock → Confirm (manual)
 → Export Report when the run is done
 ```
 

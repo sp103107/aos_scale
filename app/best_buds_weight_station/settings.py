@@ -18,7 +18,7 @@ DEFAULT_BAUD_RATE = 115200
 class AppSettings:
     schema_version: str = "1.0.0"
     data_root: str = "data/runtime"
-    capture_mode: str = "manual"
+    capture_mode: str = "automatic"
     serial_port: str | None = None
     baud_rate: int = DEFAULT_BAUD_RATE
     unit: str = "g"
@@ -36,6 +36,11 @@ class AppSettings:
     auto_record_after_lock: bool = False
     # Operator display unit only; storage/JSONL remains grams via unit="g".
     display_unit: str = "g"
+    # 0 = strict/slow lock, 50 = neutral, 100 = loose/fast lock (see stability_sensitivity).
+    lock_sensitivity: int = 50
+    # Alert when automatic capture (or auto-record-after-lock) saves without Confirm click.
+    auto_record_alert: str = "beep"
+    auto_record_alert_phrase: str = "Weight recorded"
     updated_at: str = ""
 
     def validate(self) -> None:
@@ -49,6 +54,14 @@ class AppSettings:
             raise ValueError("display_unit must be g, kg, or lb")
         if self.bluetooth_enabled or self.wifi_enabled:
             raise ValueError("remote transports are disabled by default in this release")
+        if not 0 <= int(self.lock_sensitivity) <= 100:
+            raise ValueError("lock_sensitivity must be between 0 and 100")
+        if self.auto_record_alert not in {"off", "beep", "voice", "both"}:
+            raise ValueError("auto_record_alert must be off, beep, voice, or both")
+        phrase = str(self.auto_record_alert_phrase or "").strip()
+        if not phrase or len(phrase) > 64:
+            raise ValueError("auto_record_alert_phrase must be 1–64 characters")
+        self.auto_record_alert_phrase = phrase
 
 
 class SettingsStore:

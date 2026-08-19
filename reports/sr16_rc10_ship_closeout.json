@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-08-19T19:21:00Z",
+  "drift_concordance": "reports/drift_concordance_report.v2.0.0-rc10.json",
+  "debian_path": "dist/debian/best-buds-weight-station_2.0.0-rc10_amd64.deb",
+  "debian_sha256": "pending_operator_verify",
+  "gates": {
+    "drift_concordance_v200_rc10": "pass",
+    "pytest_full": "pass",
+    "pytest_qt_sr15": "pass",
+    "self_test_simulator": "pass"
+  },
+  "non_claims": [
+    "Not Authenticode-signed.",
+    "Not legal-for-trade / Metrc compliance.",
+    "Physical COM 100 g remains operator follow-up.",
+    "Debian package ships Tk fallback; Windows Setup is primary operator surface."
+  ],
+  "physical_com_pass": false,
+  "product_version_shipped": "2.0.0-rc10",
+  "series_id": "BBWS_SR16_rc10_ship",
+  "setup_path": "dist/windows/BestBudsWeightStation-Setup-v2.0.0-rc10.exe",
+  "status": "series_complete",
+  "windows_build_receipt": "dist/windows/windows_build_receipt.v2.0.0-rc10.json",
+  "zip_path": "dist/windows/BestBudsWeightStation-windows-x64-v2.0.0-rc10.zip"
+}

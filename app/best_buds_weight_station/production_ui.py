@@ -350,12 +350,13 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     )
     status_line.pack(fill="x", pady=(8, 0))
 
-    def show_result(result: dict[str, Any], *, success_title: str = "Completed") -> None:
+    def show_result(result: dict[str, Any], *, success_title: str = "Completed", toast: bool = True) -> None:
         if result.get("status") in {"failed", "blocked"}:
             messagebox.showwarning("Action not completed", result.get("message", "Action failed"), parent=root)
+        elif toast and result.get("status") == "completed" and result.get("message"):
+            status_line.config(text=str(result.get("message")))
         elif result.get("terminal", True) and result.get("status") == "completed" and success_title:
-            # Soft path: most successes use status_line; keep modal only when asked.
-            pass
+            status_line.config(text=result.get("message") or success_title)
 
     def new_run() -> None:
         run_id = simpledialog.askstring("New Run", "Harvest-run ID", parent=root)
@@ -446,28 +447,42 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
     def station_settings() -> None:
         win = tk.Toplevel(root)
         win.title("Station Settings")
-        win.geometry("480x220")
+        win.geometry("520x360")
         body = ttk.Frame(win, padding=12)
         body.pack(fill="both", expand=True)
         required = bool(runtime.controller.settings.barcode_required_for_capture)
         barcode_policy = tk.StringVar(value="required" if required else "optional")
         display = tk.StringVar(value=str(getattr(runtime.controller.settings, "display_unit", "g") or "g"))
+        lock_sens = tk.IntVar(value=int(getattr(runtime.controller.settings, "lock_sensitivity", 50)))
+        alert_mode = tk.StringVar(value=str(getattr(runtime.controller.settings, "auto_record_alert", "beep") or "beep"))
+        alert_phrase = tk.StringVar(value=str(getattr(runtime.controller.settings, "auto_record_alert_phrase", "Weight recorded")))
         ttk.Label(body, text="Plant barcode policy").grid(row=0, column=0, sticky="w", pady=6)
         ttk.Combobox(body, textvariable=barcode_policy, values=["required", "optional"], state="readonly").grid(row=0, column=1, sticky="ew")
         ttk.Label(body, text="Display unit (storage stays g)").grid(row=1, column=0, sticky="w", pady=6)
         ttk.Combobox(body, textvariable=display, values=["g", "kg", "lb"], state="readonly").grid(row=1, column=1, sticky="ew")
-        ttk.Label(body, text="HID keyboard-wedge only. Display lb/kg is not legal-for-trade.").grid(row=2, column=0, columnspan=2, sticky="w", pady=8)
+        ttk.Label(body, text="Lock sensitivity (0 strict → 100 loose)").grid(row=2, column=0, sticky="w", pady=6)
+        ttk.Scale(body, from_=0, to=100, variable=lock_sens, orient="horizontal").grid(row=2, column=1, sticky="ew")
+        ttk.Label(body, text="Auto-record alert").grid(row=3, column=0, sticky="w", pady=6)
+        ttk.Combobox(body, textvariable=alert_mode, values=["off", "beep", "voice", "both"], state="readonly").grid(row=3, column=1, sticky="ew")
+        ttk.Label(body, text="Alert phrase").grid(row=4, column=0, sticky="w", pady=6)
+        ttk.Entry(body, textvariable=alert_phrase).grid(row=4, column=1, sticky="ew")
+        ttk.Label(body, text="HID keyboard-wedge only. Lock sensitivity tunes spread/settle. Auto-record alert applies to automatic capture.").grid(row=5, column=0, columnspan=2, sticky="w", pady=8)
 
         def save() -> None:
             runtime.dispatch("settings.barcode_policy.set", {"barcode_required_for_capture": barcode_policy.get() == "required"})
+            runtime.dispatch("settings.lock_sensitivity.set", {"lock_sensitivity": int(lock_sens.get())})
+            runtime.dispatch(
+                "settings.auto_record_alert.set",
+                {"auto_record_alert": alert_mode.get(), "auto_record_alert_phrase": alert_phrase.get().strip()},
+            )
             result = runtime.dispatch("settings.display_unit.set", {"display_unit": display.get()})
             if result.get("status") != "completed":
-                show_result(result)
+                show_result(result, toast=False)
             else:
                 win.destroy()
 
-        ttk.Button(body, text="Save", command=save).grid(row=3, column=0, pady=10)
-        ttk.Button(body, text="Cancel", command=win.destroy).grid(row=3, column=1, pady=10)
+        ttk.Button(body, text="Save", command=save).grid(row=6, column=0, pady=10)
+        ttk.Button(body, text="Cancel", command=win.destroy).grid(row=6, column=1, pady=10)
         body.grid_columnconfigure(1, weight=1)
 
     def test_scanner() -> None:
@@ -888,11 +903,22 @@ def _launch_tk(runtime: OperatorRuntime, *, simulator: bool, smoke: bool) -> int
 
     capture_states = {"BARCODE_CAPTURED", "WAITING_FOR_LOAD", "WEIGHING", "WAITING_FOR_STABLE_WEIGHT", "WEIGHT_STABLE", "MANUAL_CONFIRM"}
 
+    def on_worker_record_saved(result: dict[str, Any]) -> None:
+        def apply() -> None:
+            msg = result.get("message") or "Record saved."
+            status_line.config(text=msg)
+            barcode.delete(0, "end")
+            barcode.focus_set()
+
+        root.after(0, apply)
+
+    runtime.on_record_saved = on_worker_record_saved
+
     def refresh() -> None:
         s = runtime.snapshot()
         d = s["device"]
         du = unit_label(s.get("display_unit") or "g")
-        status.config(text=s["operator_state"])
+        status.config(text=s.get("activity_message") or s["operator_state"])
         weight.config(text=format_weight(float(s["weight_g"]), du))
         if s.get("weight_uncalibrated"):
             weight_hint.config(text="Uncalibrated raw — open Scale → Guided Calibration with a verified reference mass.")

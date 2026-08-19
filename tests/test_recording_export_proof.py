@@ -45,9 +45,10 @@ def test_compile_report_writes_csv_xlsx_docx_json(tmp_path):
     assert Path(artifacts["docx"]).read_bytes()[:2] == b"PK"
 
 
-def test_operator_export_copies_handoff_and_session_csv(tmp_path):
+def test_operator_export_copies_handoff_and_session_csv(tmp_path, monkeypatch):
     from tests.test_operator_runtime import wait_state
 
+    monkeypatch.setenv("LOCALAPPDATA", str(tmp_path / "localappdata"))
     runtime = OperatorRuntime(tmp_path / "runs", capture_mode="automatic")
     runtime.dispatch(
         "run.new",
