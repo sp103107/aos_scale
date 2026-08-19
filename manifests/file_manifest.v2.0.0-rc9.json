@@ -16,7 +16,7 @@
     "validation/reports/pytest* except pytest_full_suite.vNEXT.log",
     "*.pyc"
   ],
-  "file_count": 1444,
+  "file_count": 1475,
   "files": [
     {
       "path": ".github/workflows/release.yml",
@@ -50,8 +50,8 @@
     },
     {
       "path": "ACTIVE_ARC.yaml",
-      "sha256": "88d8b07e2776b1b8e6099385cf57cbe6e0ea1c9f520813027851fcabbe89f34d",
-      "size_bytes": 747
+      "sha256": "c65b42c366695127614ad2ec6eb45595d2e51b11a2de14f37b7872c092b02bcf",
+      "size_bytes": 703
     },
     {
       "path": "adapters/camera_barcode/adapter_manifest.v0.1.0.json",
@@ -444,6 +444,11 @@
       "size_bytes": 4303
     },
     {
+      "path": "arc_lifecycle/blueprints/series_bbws_sr15_rc9_test_and_windows_package.v0.1.0.json",
+      "sha256": "951ee6d081fa5fc14119b469022ce77fe4d534a6c6d175f770061d26b09b8604",
+      "size_bytes": 4264
+    },
+    {
       "path": "arc_lifecycle/blueprints/series_bbws_sr1_harvest_operator_loop.v0.1.0.json",
       "sha256": "ed9f427d355aee9a030cf300bb8116557ab13141e4337017e38eb51ef1a19f22",
       "size_bytes": 4069
@@ -585,8 +590,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "818e3dd74f3e7bdb3a5761ee17f0296c7fdb032a9812603cd6a8245610fe2972",
-      "size_bytes": 11052
+      "sha256": "2bc12251922c9e92668d6a794c2e3811e6ce9271b4fff6ae36adf57cc2bd7431",
+      "size_bytes": 11927
     },
     {
       "path": "COMMERCIAL.md",
@@ -1624,6 +1629,11 @@
       "size_bytes": 346
     },
     {
+      "path": "context/ledger/bbws_sr15_ledger.md",
+      "sha256": "384991a08d1427c30f2f7bddeb8eb77416ec7e8eaf21dd002366cefa4b6a1a2f",
+      "size_bytes": 964
+    },
+    {
       "path": "context/ledger/bbws_sr1_ledger.md",
       "sha256": "03f870cca21be300aa07014c7d16439474d47ab9259e0b66642e18c9007c204a",
       "size_bytes": 1046
@@ -1744,6 +1754,11 @@
       "size_bytes": 1219
     },
     {
+      "path": "context/resume_pack/BBWS_SR15_resume.v0.1.0.json",
+      "sha256": "e360fc651ac0f7c481859d86b5d48df3b69bb0f44a517dc7a41d9c32cff1db8e",
+      "size_bytes": 1292
+    },
+    {
       "path": "context/resume_pack/BBWS_SR1_resume.v0.1.0.json",
       "sha256": "62d0f3e6649e64143dd21ca241b6fa223a56e547450bd889aa36b2471889f908",
       "size_bytes": 1347
@@ -1790,8 +1805,8 @@
     },
     {
       "path": "context/resume_pack/CONTINUATION_HANDOFF_PROMPT.md",
-      "sha256": "7809d5c50970c3d7705a05ee6325499449bfc39df5287665dd0bbe1d9016ce38",
-      "size_bytes": 270
+      "sha256": "420be9164a38442c689a08a15df66db509cd714aa2904f90e68ed866c1d4708f",
+      "size_bytes": 324
     },
     {
       "path": "context/resume_pack/CONTINUATION_HANDOFF_PROMPT.v0.1.0.md",
@@ -2314,6 +2329,11 @@
       "size_bytes": 2368
     },
     {
+      "path": "cursor/BBWS_SR15_RC9_TEST_AND_WINDOWS_PACKAGE_SERIES_MAP.v0.1.0.md",
+      "sha256": "6d4fb2ac2bc4daa3a273eedf2e5bb74c040067c35ec9ea8c2c74ed08739fc043",
+      "size_bytes": 2376
+    },
+    {
       "path": "cursor/BBWS_SR1_HARVEST_OPERATOR_LOOP_SERIES_MAP.v0.1.0.md",
       "sha256": "a728851be0353c04285c795c5869b3794e57b092596f439f83290260d8f2970f",
       "size_bytes": 2736
@@ -2469,6 +2489,11 @@
       "size_bytes": 1009
     },
     {
+      "path": "docs/BBWS_SR15_ARTIFACTS.md",
+      "sha256": "75466b069f40530110c014893d3ad6aa411a397366c5ec8dfa46450913880354",
+      "size_bytes": 1218
+    },
+    {
       "path": "docs/BBWS_SR1_ARTIFACTS.md",
       "sha256": "d5f3f20864a06de909118b9a0ade69228edcb867140a64b47e6cc4f060a022d9",
       "size_bytes": 1454
@@ -2575,7 +2600,7 @@
     },
     {
       "path": "docs/CORE_PROCESS_IMPLEMENTATION_CURRENT.md",
-      "sha256": "7e5494355060788193739b4111dd8f84b16260edbdc441629e5869e987b8058b",
+      "sha256": "188b1db800ef3c183f01f21a007806815e38b5e9e83c8164017956364568e71f",
       "size_bytes": 1291
     },
     {
@@ -2585,7 +2610,7 @@
     },
     {
       "path": "docs/DEBIAN_INSTALL.md",
-      "sha256": "06b2546ffdc6048a00358cf6aec11038994a7398150317fbea8d6917f55f7230",
+      "sha256": "659face0f810cbd7ddd0f6766e479b0803129a41897c2d9f0e465f7a6365221f",
       "size_bytes": 825
     },
     {
@@ -2680,8 +2705,8 @@
     },
     {
       "path": "docs/RELEASE_CANDIDATE.md",
-      "sha256": "17122ef72231e2e59d4666c103bacf6dda2a4d9e744e20db9c4ca2c49bebcd5f",
-      "size_bytes": 5488
+      "sha256": "703c5ded4419e7f18e566548a2e9811ff0a45e1fdfcec888f612c603a2db2c6e",
+      "size_bytes": 5774
     },
     {
       "path": "docs/RUN_AND_FILE_MANAGEMENT_V0.1.3.md",
@@ -2705,8 +2730,8 @@
     },
     {
       "path": "docs/SYSTEM_STATE_CURRENT.md",
-      "sha256": "f4ca3a02235f8b9debef2b8ad58356ffcd101ca54ea0ddf62fd796730fdee7aa",
-      "size_bytes": 1386
+      "sha256": "f6b696efb1d14bed9ee65be0f37a7c7b5cdc552e9a74427b538806e23f9e22b3",
+      "size_bytes": 1390
     },
     {
       "path": "docs/TRANSPORT_AND_BUTTON_BOUNDARIES_V0.1.3.md",
@@ -2725,8 +2750,8 @@
     },
     {
       "path": "docs/WINDOWS_BUILD.md",
-      "sha256": "d7e0c3ed0c4473fd34f198deae0ba012d549fc6997690ba24888a2b8e2073c47",
-      "size_bytes": 1587
+      "sha256": "63bd61046fedd64070825311e1948dd8e9dc7d2cceba8785a52b10da031b0a7f",
+      "size_bytes": 1798
     },
     {
       "path": "docs/WINDOWS_DEVICE_BRINGUP.md",
@@ -2890,18 +2915,18 @@
     },
     {
       "path": "git_arc/active/episode_pointer.v0.1.0.json",
-      "sha256": "d15bd850caf6bdc918f9d787d324d5cc945b7a78677c5f0d4f24d5549575caff",
-      "size_bytes": 135
+      "sha256": "10a759bda329097ec562fcbe05fb360402776ad40383b40885697e7b28dfae85",
+      "size_bytes": 146
     },
     {
       "path": "git_arc/active/season_pointer.v0.1.0.json",
-      "sha256": "c3cecc603134ab492f0430d9120a527d65381073576a334aac560514f6949f5c",
-      "size_bytes": 267
+      "sha256": "47a8c1537bcb41b974162b362cfbd8913060fedce8e425a6bb276687a766b5d0",
+      "size_bytes": 283
     },
     {
       "path": "git_arc/active/series_pointer.v0.1.0.json",
-      "sha256": "fce27b1e9cfe8ab38474567a02e3f1b87cd19760414bdd04130c2e80d869d220",
-      "size_bytes": 297
+      "sha256": "f983dde834371f28c565ad23a5b2465514f9b898b0ff8ad14e36edcfd6adff2e",
+      "size_bytes": 277
     },
     {
       "path": "guide_pack.json",
@@ -2952,6 +2977,11 @@
       "path": "kickoff_prompts/BBWS_SR14_HUMAN_CHAT_KICKOFF.md",
       "sha256": "df38e046e6ddd5e0d00ea02743867932d4864729f170c46d438692e50b228bea",
       "size_bytes": 200
+    },
+    {
+      "path": "kickoff_prompts/BBWS_SR15_HUMAN_CHAT_KICKOFF.md",
+      "sha256": "260358a729490b2ea738636f5de881b8546f90e1c4eac9018d3ebd3ef3bae7d1",
+      "size_bytes": 193
     },
     {
       "path": "kickoff_prompts/BBWS_SR1_HUMAN_CHAT_KICKOFF.md",
@@ -3077,6 +3107,11 @@
       "path": "manifests/bbws_sr14_series_map.v0.1.0.json",
       "sha256": "aab70cbd767536e8b05ad4abbc22784040c9633fbf51016c7779cb9f1aae2e57",
       "size_bytes": 2263
+    },
+    {
+      "path": "manifests/bbws_sr15_series_map.v0.1.0.json",
+      "sha256": "5de0b04bde7cbe442d895bd4884c4eaba701ee9b2af52aa43f02629a2d503d41",
+      "size_bytes": 2239
     },
     {
       "path": "manifests/bbws_sr1_series_map.v0.1.0.json",
@@ -3275,8 +3310,8 @@
     },
     {
       "path": "packaging/windows/build_windows.ps1",
-      "sha256": "93ef3a36b6d4caa7545910a1d88ea211368abaaaf82aedab3ad974dcca493f12",
-      "size_bytes": 5619
+      "sha256": "7e8fd06d7245ef1d888ba5dd41c6dff6a3c920f140b962649a4decdc3f138248",
+      "size_bytes": 5595
     },
     {
       "path": "packaging/windows/install_windows.ps1",
@@ -3347,6 +3382,11 @@
       "path": "packaging/windows/windows_upgrade_smoke_receipt.v2.0.0-rc6.json",
       "sha256": "c179d574498a0329f89d7e959c5812f53b5421bb4f4ff1ebe5c89b2320eb2c82",
       "size_bytes": 2568
+    },
+    {
+      "path": "packaging/windows/windows_upgrade_smoke_receipt.v2.0.0-rc9.json",
+      "sha256": "394b885b0b5d835a0ca5aa2040254855615fe7ac56ee5ad15debf00ae436df34",
+      "size_bytes": 1445
     },
     {
       "path": "pipeline/plans/cursor_ready.v0.1.7.json",
@@ -3525,8 +3565,8 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "60f5befc0029d6f05de8a66cb4f84d17957f6bcca79b0a7a0871182a299dee80",
-      "size_bytes": 1289
+      "sha256": "8cc948a49a2c7e1abaea851a869e0cc5de9a832cabed653a660256a4e46aabea",
+      "size_bytes": 1325
     },
     {
       "path": "README.md",
@@ -4215,8 +4255,8 @@
     },
     {
       "path": "reports/drift_concordance_stage_v018.json",
-      "sha256": "2f93fc5b74c6ecda6eee5fc1bb984bd859f05b7f5323b69a55521158aa903f25",
-      "size_bytes": 827
+      "sha256": "92ed5f0b2eb433bbdc112896774ead3e7363fd699ce3c97f71dd1e269bd802df",
+      "size_bytes": 323
     },
     {
       "path": "reports/drift_report.v0.1.0.json",
@@ -4629,6 +4669,56 @@
       "size_bytes": 373
     },
     {
+      "path": "reports/sr15_s01_contract_freeze.v0.1.0.json",
+      "sha256": "7b50749abbbb615d1df1b3d53f3a8c8df5fb34e30fb9670d630ce86100ded875",
+      "size_bytes": 977
+    },
+    {
+      "path": "reports/sr15_s02_pytest_sr12_sr14.json",
+      "sha256": "fc2a160c378c7af4a168eef4857342364a4b56f718e3b36401ca748af339aa2f",
+      "size_bytes": 1047
+    },
+    {
+      "path": "reports/sr15_s03_simulator_self_test_smoke.json",
+      "sha256": "4f5726eb395725fa45dd07b2fa2ec37f3484dc73ce4e026e40106804c2b873f0",
+      "size_bytes": 819
+    },
+    {
+      "path": "reports/sr15_s04_pytest_qt_operator_dialogs.json",
+      "sha256": "17fb58283ac86fa914cd15c6e6af3119b906d2859e70da93cb0959e297603be8",
+      "size_bytes": 705
+    },
+    {
+      "path": "reports/sr15_s05_bugbot_review.json",
+      "sha256": "0393999b07561c5483141313d53f34751d8fccff6238fae71ce0c1787996948c",
+      "size_bytes": 771
+    },
+    {
+      "path": "reports/sr15_s06_defect_pass_or_none.json",
+      "sha256": "5c65c8425a664192c06733fa29857200aa9e68dca099172b8e2d1dbaacf4f9f4",
+      "size_bytes": 574
+    },
+    {
+      "path": "reports/sr15_s07_docs_rc9_setup.json",
+      "sha256": "ae3f4010b7ee5c700810a53198914c980114ea79aecbccbc3733505032c71991",
+      "size_bytes": 432
+    },
+    {
+      "path": "reports/sr15_s08_windows_setup_build.json",
+      "sha256": "bdedcb4b5a2664289107f8b4b6eac957ecfbdf3eea7df17a4c41865aa506aa31",
+      "size_bytes": 928
+    },
+    {
+      "path": "reports/sr15_s09_upgrade_smoke.json",
+      "sha256": "7d1daf486a169feeafcd4a10748b1ffc017e89a8425464beb9414b27b1b6f9a3",
+      "size_bytes": 358
+    },
+    {
+      "path": "reports/sr15_s10_series_closeout.json",
+      "sha256": "7808c19e2b83d7130e4c13be2dbe275d4dac1f11a5f496695143e8cf28ab2305",
+      "size_bytes": 640
+    },
+    {
       "path": "reports/sr8_s01_scale_face_contract_freeze.v0.1.0.json",
       "sha256": "b3868d5dac3dad26737f6a49d5da1a402f8ff9ae824200f20cb65a987da24075",
       "size_bytes": 1670
@@ -4879,6 +4969,11 @@
       "size_bytes": 2568
     },
     {
+      "path": "reports/windows_upgrade_smoke_receipt.v2.0.0-rc9.json",
+      "sha256": "394b885b0b5d835a0ca5aa2040254855615fe7ac56ee5ad15debf00ae436df34",
+      "size_bytes": 1445
+    },
+    {
       "path": "resume_stage.bat",
       "sha256": "023d3e6daad00e064427e213241b8528c798c5862ccf7b546c4bc97db7ac339c",
       "size_bytes": 311
@@ -5087,6 +5182,11 @@
       "path": "scripts/scaffold_bbws_sr14.py",
       "sha256": "185e87a53c28ec3d6ea03d79bd53e8e372cc0297e9856af9d031f07ae54dd967",
       "size_bytes": 11304
+    },
+    {
+      "path": "scripts/scaffold_bbws_sr15.py",
+      "sha256": "d1c0692d5f170ec83ec528c3d40a135b304240224a084e1854fd0b53375d5d0c",
+      "size_bytes": 11113
     },
     {
       "path": "scripts/scaffold_bbws_sr2.py",
@@ -5547,6 +5647,56 @@
       "path": "superpowers/sr14_s10_release_and_closeout.v0.1.0.json",
       "sha256": "b46d0e92e9f24bf6c6e34e79cafb220e4f64fd354196c4bd56e82fc135ec8d9e",
       "size_bytes": 6796
+    },
+    {
+      "path": "superpowers/sr15_s01_scaffold_and_contract_freeze.v0.1.0.json",
+      "sha256": "884cfa40a47118da079053158ea134dbe43d4478937cdbce6c8810fa39c2fc67",
+      "size_bytes": 7008
+    },
+    {
+      "path": "superpowers/sr15_s02_pytest_sr12_sr14.v0.1.0.json",
+      "sha256": "42dba38e46c215fd4bb307e1ec9d08af45ecc420bc422cef638da6ea769b1f13",
+      "size_bytes": 6310
+    },
+    {
+      "path": "superpowers/sr15_s03_simulator_self_test_smoke.v0.1.0.json",
+      "sha256": "b9bedd8efe1b6f274f18b48459ad374a19b22169ad98fa9feaca41d982087851",
+      "size_bytes": 6603
+    },
+    {
+      "path": "superpowers/sr15_s04_pytest_qt_operator_dialogs.v0.1.0.json",
+      "sha256": "b8db064cc9b71f1ef546d39d53203429e9f67667c1f3b09c388b01d602f1c361",
+      "size_bytes": 6935
+    },
+    {
+      "path": "superpowers/sr15_s05_bugbot_review.v0.1.0.json",
+      "sha256": "c3872f1ba4ad6fe601c71889ac392eddaa6f3b3f6dc2e689180574f82e88b48e",
+      "size_bytes": 5824
+    },
+    {
+      "path": "superpowers/sr15_s06_defect_pass_or_none.v0.1.0.json",
+      "sha256": "0b7040fea19f498bbe2ee8d3d81fd26a6376e52ce65059faea642f2b8673127e",
+      "size_bytes": 6481
+    },
+    {
+      "path": "superpowers/sr15_s07_docs_rc9_setup.v0.1.0.json",
+      "sha256": "18ef1a903f8958f6bfebff26e7cd3daccbc497c13572a4aa02d4e37047e047c3",
+      "size_bytes": 6614
+    },
+    {
+      "path": "superpowers/sr15_s08_windows_setup_build.v0.1.0.json",
+      "sha256": "5df92dfe321028e01eee4d43d1f56ae9f76daafa4f30ee741354d776c4524c31",
+      "size_bytes": 6272
+    },
+    {
+      "path": "superpowers/sr15_s09_upgrade_smoke.v0.1.0.json",
+      "sha256": "d6b89676d3751cdec1e6244651370cafc1295d56f56733b1f8f918b0003f48fe",
+      "size_bytes": 6282
+    },
+    {
+      "path": "superpowers/sr15_s10_release_and_closeout.v0.1.0.json",
+      "sha256": "f9e7ff5def59b508d8d3811e2d61616dd160eaf5b1e3f5d0ccf334e78dbae907",
+      "size_bytes": 7124
     },
     {
       "path": "superpowers/sr2_s01_tk_gap_audit.v0.1.0.json",
@@ -6025,8 +6175,8 @@
     },
     {
       "path": "tests/test_core_process_closure_v019.py",
-      "sha256": "932fdc1b7fc78d6e18973ff30ab4d618329f436ee5b13e7b0afcdc6cd90b55d4",
-      "size_bytes": 2403
+      "sha256": "d0d29c684b2fa5acf36eebe19d582f24016ca339c936e049e2dcba3b84931a7e",
+      "size_bytes": 2579
     },
     {
       "path": "tests/test_device_service.py",
@@ -6134,6 +6284,11 @@
       "size_bytes": 2628
     },
     {
+      "path": "tests/test_sr15_qt_operator_dialogs.py",
+      "sha256": "b177f104540bc56390f302f95ac67cee957c63e3324d34307f84547643575889",
+      "size_bytes": 3515
+    },
+    {
       "path": "tests/test_sr3_capture_ux.py",
       "sha256": "5b0ecf7139fc7d8a98f4c9d0b26eea0b68e029e6f9dd8d51e559f3dfcb723c5d",
       "size_bytes": 3894
@@ -6150,8 +6305,8 @@
     },
     {
       "path": "tests/test_sr6_onboarding.py",
-      "sha256": "62424e324ba9b69a405830fb940508d88534c9944d8c55b05a538c3cd5d61f7d",
-      "size_bytes": 1199
+      "sha256": "f074bb16905239366a58d3ff2852311e5eb4f1477233cac2f6d69f327d905d03",
+      "size_bytes": 1322
     },
     {
       "path": "tests/test_sr7_run_ux.py",
@@ -6685,7 +6840,7 @@
     },
     {
       "path": "validation/llm_harness/validation_graph.json",
-      "sha256": "d58101fe98b23b0a7495967b2ba5c1c1923b7cede3c4ca79d8f1287ca6c33118",
+      "sha256": "bee0bd7679b7d45d92b4a048c7f886e70e81319543cf6857128b42911af9f5ad",
       "size_bytes": 2031
     },
     {
@@ -7239,7 +7394,7 @@
       "size_bytes": 11
     }
   ],
-  "generated_at": "2026-08-18T22:28:36Z",
+  "generated_at": "2026-08-19T00:25:09Z",
   "manifest_version": "1.0.0",
   "package_name": "best_buds_cultivator_weight_station",
   "version": "2.0.0-rc9"

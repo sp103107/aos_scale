@@ -1,0 +1,207 @@
+{
+  "arc_id": "SR15_S04_pytest_qt_operator_dialogs",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "tests/test_sr15_qt_operator_dialogs.py",
+        "pyproject.toml"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E01",
+      "kind": "implement",
+      "objective": "Offscreen Qt: duplicate Cancel writes nothing; Station Settings auto-record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "pytest-qt operator dialogs episode 01"
+    },
+    {
+      "authorized_scope": [
+        "tests/test_sr15_qt_operator_dialogs.py",
+        "pyproject.toml"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E02",
+      "kind": "implement",
+      "objective": "Offscreen Qt: duplicate Cancel writes nothing; Station Settings auto-record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "pytest-qt operator dialogs episode 02"
+    },
+    {
+      "authorized_scope": [
+        "tests/test_sr15_qt_operator_dialogs.py",
+        "pyproject.toml"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E03",
+      "kind": "implement",
+      "objective": "Offscreen Qt: duplicate Cancel writes nothing; Station Settings auto-record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "pytest-qt operator dialogs episode 03"
+    },
+    {
+      "authorized_scope": [
+        "tests/test_sr15_qt_operator_dialogs.py",
+        "pyproject.toml"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E04",
+      "kind": "implement",
+      "objective": "Offscreen Qt: duplicate Cancel writes nothing; Station Settings auto-record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "pytest-qt operator dialogs episode 04"
+    },
+    {
+      "authorized_scope": [
+        "tests/test_sr15_qt_operator_dialogs.py",
+        "pyproject.toml"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E05",
+      "kind": "implement",
+      "objective": "Offscreen Qt: duplicate Cancel writes nothing; Station Settings auto-record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "pytest-qt operator dialogs episode 05"
+    },
+    {
+      "authorized_scope": [
+        "tests/test_sr15_qt_operator_dialogs.py",
+        "pyproject.toml"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E06",
+      "kind": "implement",
+      "objective": "Offscreen Qt: duplicate Cancel writes nothing; Station Settings auto-record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "pytest-qt operator dialogs episode 06"
+    },
+    {
+      "authorized_scope": [
+        "tests/test_sr15_qt_operator_dialogs.py",
+        "pyproject.toml"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E07",
+      "kind": "implement",
+      "objective": "Offscreen Qt: duplicate Cancel writes nothing; Station Settings auto-record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "pytest-qt operator dialogs episode 07"
+    },
+    {
+      "authorized_scope": [
+        "tests/test_sr15_qt_operator_dialogs.py",
+        "pyproject.toml"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E08",
+      "kind": "closeout",
+      "objective": "Offscreen Qt: duplicate Cancel writes nothing; Station Settings auto-record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "pytest-qt operator dialogs episode 08"
+    },
+    {
+      "authorized_scope": [
+        "tests/test_sr15_qt_operator_dialogs.py",
+        "pyproject.toml"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E09",
+      "kind": "closeout",
+      "objective": "Offscreen Qt: duplicate Cancel writes nothing; Station Settings auto-record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "pytest-qt operator dialogs episode 09"
+    },
+    {
+      "authorized_scope": [
+        "tests/test_sr15_qt_operator_dialogs.py",
+        "pyproject.toml"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S04E10",
+      "kind": "closeout",
+      "objective": "Offscreen Qt: duplicate Cancel writes nothing; Station Settings auto-record",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "pytest-qt operator dialogs episode 10"
+    }
+  ],
+  "focus": "Offscreen Qt: duplicate Cancel writes nothing; Station Settings auto-record",
+  "milestone": "M04",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Packaged Setup is not Authenticode-signed",
+    "Physical COM 100 g remains operator follow-up unless a live scale is connected",
+    "pytest-qt is a test extra only \u2014 not an operator runtime dependency"
+  ],
+  "primary_surfaces": [
+    "tests/test_sr15_qt_operator_dialogs.py",
+    "pyproject.toml"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr15.pytest_qt_operator_dialogs.v1",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "title": "pytest-qt operator dialogs",
+  "version": "0.1.0"
+}

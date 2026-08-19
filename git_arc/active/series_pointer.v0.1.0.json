@@ -1,8 +1,10 @@
 {
-  "baseline_tag": "bbws-pre-sr14-auto-lock",
-  "parent_tag": "bbws-sr13-complete",
-  "planned_tags": ["v2.0.0-rc9", "bbws-sr14-complete"],
-  "shipped_tags": ["v2.0.0-rc9", "bbws-sr14-complete"],
-  "series_id": "BBWS_SR14_auto_record_after_lock",
-  "updated_at": "2026-08-18T23:00:00Z"
+  "baseline_tag": "bbws-pre-sr15-test-package",
+  "parent_tag": "bbws-sr14-complete",
+  "planned_tags": [
+    "bbws-sr15-complete"
+  ],
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "status": "series_complete",
+  "updated_at": "2026-08-19T00:25:00Z"
 }

@@ -1,0 +1,24 @@
+{
+  "receipt_id": "sr15_s02_pytest_sr12_sr14",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "status": "accepted",
+  "product_version": "2.0.0-rc9",
+  "sr12_sr14_pytest": "tests/test_sr12_characterize_stream.py tests/test_sr13_duplicate_pre_gate.py tests/test_sr14_auto_record_after_lock.py",
+  "sr12_sr14_result": "12 passed",
+  "full_pytest": "python -m pytest -q",
+  "full_pytest_result": "pass",
+  "fail_closed": true,
+  "pin_repairs": [
+    "tests/test_core_process_closure_v019.py and tests/test_sr6_onboarding.py now pin to VERSION",
+    "validation/llm_harness/validation_graph.json package_version 2.0.0-rc9",
+    "CURRENT_TEXT_FILES and CHANGELOG live-version strings updated to 2.0.0-rc9",
+    "manifests/file_manifest.v2.0.0-rc9.json regenerated"
+  ],
+  "physical_device_pass": false,
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Physical COM 100 g remains operator follow-up unless a live scale is connected"
+  ]
+}

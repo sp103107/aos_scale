@@ -1,6 +1,8 @@
-# Windows Build - v2.0.0-rc4
+# Windows Build - v2.0.0-rc9
 
 Windows 10/11 x64 is the primary operator target. See [SYSTEM_REQUIREMENTS.md](SYSTEM_REQUIREMENTS.md) for hardware and OS requirements.
+
+**rc9 Setup:** SR15 rebuilds `dist/windows/BestBudsWeightStation-Setup-v2.0.0-rc9.exe` plus the matching zip. Product version stays `2.0.0-rc9` (test + package series, not a feature bump).
 
 ## Build on a native Windows host
 
@@ -8,7 +10,7 @@ Requirements on the build PC:
 
 - Python 3.11 or 3.12
 - PowerShell
-- Optional but recommended: [Inno Setup 6](https://jrsoftware.org/isinfo.php) (`ISCC.exe` on `PATH` or under Program Files) to produce `BestBudsWeightStation-Setup-v*.exe`
+- [Inno Setup 6](https://jrsoftware.org/isinfo.php) (`ISCC.exe` on `PATH` or under Program Files). Required for this RC — the build script hard-fails if ISCC is missing.
 
 ```powershell
 .\packaging\windows\build_windows.ps1
@@ -22,7 +24,7 @@ The script:
 4. Builds the PyInstaller onedir app
 5. Runs `verify_windows.ps1` (`--version` and simulator self-test)
 6. Zips `dist\windows\BestBudsWeightStation-windows-x64-v{VERSION}.zip`
-7. If Inno Setup is available, compiles `BestBudsWeightStation-Setup-v{VERSION}.exe`
+7. Compiles `BestBudsWeightStation-Setup-v{VERSION}.exe` with Inno Setup (hard fail if ISCC is missing)
 8. Writes `dist\windows\windows_build_receipt.v{VERSION}.json`
 
 ## Install without the Setup EXE

@@ -1,0 +1,52 @@
+{
+  "receipt": "windows_upgrade_smoke",
+  "from_version": "2.0.0-rc6",
+  "to_version": "2.0.0-rc9",
+  "platform": "windows-x64",
+  "status": "pass",
+  "steps": [
+    {
+      "step": "silent_install_rc6_baseline",
+      "result": "pass",
+      "evidence": "existing per-user install already at 2.0.0-rc6"
+    },
+    {
+      "step": "write_data_marker",
+      "result": "pass",
+      "path": "%LOCALAPPDATA%/BestBudsWeightStation/config/upgrade_smoke_marker.txt"
+    },
+    {
+      "step": "silent_upgrade_install_rc9",
+      "result": "pass",
+      "installer_exit": 0,
+      "evidence": "same AppId overwrite"
+    },
+    {
+      "step": "version_after_upgrade",
+      "result": "pass",
+      "evidence": "2.0.0-rc9"
+    },
+    {
+      "step": "simulator_self_test",
+      "result": "pass",
+      "command": "BestBudsWeightStation.exe --self-test --simulator",
+      "evidence": "exit 0, SIMULATOR_PASS, 2 records, 305.0 net_g"
+    },
+    {
+      "step": "data_preserved",
+      "result": "pass",
+      "evidence": "upgrade_smoke_marker.txt still present with pre-rc9-upgrade content"
+    },
+    {
+      "step": "scale_profiles_preserved",
+      "result": "pass",
+      "evidence": "10 scale-profile-*.json files unchanged across upgrade"
+    }
+  ],
+  "physical_device_pass": false,
+  "non_claims": [
+    "Not Authenticode-signed.",
+    "No in-app auto-update; re-run newer Setup.exe.",
+    "Physical COM 100 g remains operator follow-up."
+  ]
+}

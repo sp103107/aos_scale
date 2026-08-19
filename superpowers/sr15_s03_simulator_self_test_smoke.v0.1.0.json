@@ -1,0 +1,207 @@
+{
+  "arc_id": "SR15_S03_simulator_self_test_smoke",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/cli.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S03E01",
+      "kind": "implement",
+      "objective": "--self-test --simulator and --ui-smoke --simulator",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Simulator self-test + ui-smoke episode 01"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/cli.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S03E02",
+      "kind": "implement",
+      "objective": "--self-test --simulator and --ui-smoke --simulator",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Simulator self-test + ui-smoke episode 02"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/cli.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S03E03",
+      "kind": "implement",
+      "objective": "--self-test --simulator and --ui-smoke --simulator",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Simulator self-test + ui-smoke episode 03"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/cli.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S03E04",
+      "kind": "implement",
+      "objective": "--self-test --simulator and --ui-smoke --simulator",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Simulator self-test + ui-smoke episode 04"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/cli.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S03E05",
+      "kind": "implement",
+      "objective": "--self-test --simulator and --ui-smoke --simulator",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Simulator self-test + ui-smoke episode 05"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/cli.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S03E06",
+      "kind": "implement",
+      "objective": "--self-test --simulator and --ui-smoke --simulator",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Simulator self-test + ui-smoke episode 06"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/cli.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S03E07",
+      "kind": "implement",
+      "objective": "--self-test --simulator and --ui-smoke --simulator",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Simulator self-test + ui-smoke episode 07"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/cli.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S03E08",
+      "kind": "closeout",
+      "objective": "--self-test --simulator and --ui-smoke --simulator",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Simulator self-test + ui-smoke episode 08"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/cli.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S03E09",
+      "kind": "closeout",
+      "objective": "--self-test --simulator and --ui-smoke --simulator",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Simulator self-test + ui-smoke episode 09"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/cli.py",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S03E10",
+      "kind": "closeout",
+      "objective": "--self-test --simulator and --ui-smoke --simulator",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Simulator self-test + ui-smoke episode 10"
+    }
+  ],
+  "focus": "--self-test --simulator and --ui-smoke --simulator",
+  "milestone": "M03",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Packaged Setup is not Authenticode-signed",
+    "Physical COM 100 g remains operator follow-up unless a live scale is connected",
+    "pytest-qt is a test extra only \u2014 not an operator runtime dependency"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/cli.py",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr15.simulator_self_test_smoke.v1",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "title": "Simulator self-test + ui-smoke",
+  "version": "0.1.0"
+}

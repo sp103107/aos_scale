@@ -1,0 +1,20 @@
+{
+  "receipt_id": "sr15_s05_bugbot_review",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "status": "accepted",
+  "product_version": "2.0.0-rc9",
+  "tool": "Cursor Bugbot",
+  "diff": "branch changes vs default base",
+  "findings": [
+    {
+      "severity": "medium",
+      "location": "app/best_buds_weight_station/application_controller.py:718-719",
+      "title": "Auto-record drops note and void",
+      "disposition": "not_blocking",
+      "rationale": "SR14 contract skips Confirm when auto_record_after_lock is on. Optional note/void are Confirm-time fields. Harvest records still write. Not a blocking operator-code defect for the rc9 Setup gate."
+    }
+  ],
+  "operator_code_fix": false,
+  "product_version_bump": false,
+  "runtime_claimed": false
+}

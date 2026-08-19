@@ -1,0 +1,25 @@
+{
+  "receipt_id": "sr15_s08_windows_setup_build",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "status": "accepted",
+  "product_version": "2.0.0-rc9",
+  "command": "packaging\\windows\\build_windows.ps1",
+  "exit_code": 0,
+  "setup_path": "dist/windows/BestBudsWeightStation-Setup-v2.0.0-rc9.exe",
+  "zip_path": "dist/windows/BestBudsWeightStation-windows-x64-v2.0.0-rc9.zip",
+  "build_receipt": "dist/windows/windows_build_receipt.v2.0.0-rc9.json",
+  "inno_available": true,
+  "verify_windows": {
+    "version_smoke": "pass",
+    "simulator_self_test": "pass"
+  },
+  "full_pytest_during_build": "exited 1 warn-first (packaging-critical pytest passed; S02 already fail-closed on host pytest)",
+  "physical_device_pass": false,
+  "code_signed": false,
+  "runtime_claimed": false,
+  "non_claims": [
+    "Not Authenticode-signed.",
+    "Not legal-for-trade certification.",
+    "No production metrology claim."
+  ]
+}

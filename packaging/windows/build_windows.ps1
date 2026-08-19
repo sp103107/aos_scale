@@ -105,13 +105,11 @@ if ($Iscc) {
     if ($LASTEXITCODE -ne 0) { throw "Inno Setup compile failed with exit $LASTEXITCODE" }
     $SetupPath = Join-Path $OutDir "BestBudsWeightStation-Setup-v$Version.exe"
     if (-not (Test-Path $SetupPath)) {
-        Write-Warning "Expected setup at $SetupPath was not found after ISCC."
-        $SetupPath = $null
-    } else {
-        Write-Host "Wrote $SetupPath"
+        throw "Expected setup at $SetupPath was not found after ISCC."
     }
+    Write-Host "Wrote $SetupPath"
 } else {
-    Write-Warning 'Inno Setup (ISCC.exe) not found. Zip package only. Install Inno Setup 6 to produce Setup.exe.'
+    throw 'Inno Setup (ISCC.exe) not found. SR15 requires Setup.exe — install Inno Setup 6 and re-run packaging\windows\build_windows.ps1.'
 }
 
 $Receipt = [ordered]@{

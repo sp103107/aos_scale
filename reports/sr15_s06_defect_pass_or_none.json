@@ -1,0 +1,19 @@
+{
+  "receipt_id": "sr15_s06_defect_pass_or_none",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "status": "accepted",
+  "verdict": "no_defect",
+  "product_version": "2.0.0-rc9",
+  "s02_s05": {
+    "pytest_sr12_sr14": "pass",
+    "full_pytest": "pass",
+    "self_test_simulator": "pass",
+    "ui_smoke_simulator": "pass",
+    "pytest_qt": "pass",
+    "bugbot": "one medium finding treated as SR14 Confirm-skip tradeoff, not blocking"
+  },
+  "operator_code_changes": "none",
+  "rc10_required": false,
+  "physical_device_pass": false,
+  "runtime_claimed": false
+}

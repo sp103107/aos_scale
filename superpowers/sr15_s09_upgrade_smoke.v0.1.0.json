@@ -1,0 +1,207 @@
+{
+  "arc_id": "SR15_S09_upgrade_smoke",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E01",
+      "kind": "implement",
+      "objective": "Silent upgrade to rc9; data marker and self-test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Packaged upgrade smoke episode 01"
+    },
+    {
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E02",
+      "kind": "implement",
+      "objective": "Silent upgrade to rc9; data marker and self-test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Packaged upgrade smoke episode 02"
+    },
+    {
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E03",
+      "kind": "implement",
+      "objective": "Silent upgrade to rc9; data marker and self-test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Packaged upgrade smoke episode 03"
+    },
+    {
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E04",
+      "kind": "implement",
+      "objective": "Silent upgrade to rc9; data marker and self-test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Packaged upgrade smoke episode 04"
+    },
+    {
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E05",
+      "kind": "implement",
+      "objective": "Silent upgrade to rc9; data marker and self-test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Packaged upgrade smoke episode 05"
+    },
+    {
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E06",
+      "kind": "implement",
+      "objective": "Silent upgrade to rc9; data marker and self-test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Packaged upgrade smoke episode 06"
+    },
+    {
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E07",
+      "kind": "implement",
+      "objective": "Silent upgrade to rc9; data marker and self-test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Packaged upgrade smoke episode 07"
+    },
+    {
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E08",
+      "kind": "closeout",
+      "objective": "Silent upgrade to rc9; data marker and self-test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Packaged upgrade smoke episode 08"
+    },
+    {
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E09",
+      "kind": "closeout",
+      "objective": "Silent upgrade to rc9; data marker and self-test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Packaged upgrade smoke episode 09"
+    },
+    {
+      "authorized_scope": [
+        "packaging/windows/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S09E10",
+      "kind": "closeout",
+      "objective": "Silent upgrade to rc9; data marker and self-test",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Packaged upgrade smoke episode 10"
+    }
+  ],
+  "focus": "Silent upgrade to rc9; data marker and self-test",
+  "milestone": "M09",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Packaged Setup is not Authenticode-signed",
+    "Physical COM 100 g remains operator follow-up unless a live scale is connected",
+    "pytest-qt is a test extra only \u2014 not an operator runtime dependency"
+  ],
+  "primary_surfaces": [
+    "packaging/windows/",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr15.upgrade_smoke.v1",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "title": "Packaged upgrade smoke",
+  "version": "0.1.0"
+}

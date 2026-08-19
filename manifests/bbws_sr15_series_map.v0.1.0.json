@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-08-18T23:23:33Z",
+  "manifest_type": "series_map",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Packaged Setup is not Authenticode-signed",
+    "Physical COM 100 g remains operator follow-up unless a live scale is connected",
+    "pytest-qt is a test extra only \u2014 not an operator runtime dependency"
+  ],
+  "seasons": [
+    {
+      "milestone": "M01",
+      "season_id": "S01",
+      "slug": "scaffold_and_contract_freeze",
+      "title": "Scaffold + contract freeze"
+    },
+    {
+      "milestone": "M02",
+      "season_id": "S02",
+      "slug": "pytest_sr12_sr14",
+      "title": "pytest SR12\u201314 + full suite"
+    },
+    {
+      "milestone": "M03",
+      "season_id": "S03",
+      "slug": "simulator_self_test_smoke",
+      "title": "Simulator self-test + ui-smoke"
+    },
+    {
+      "milestone": "M04",
+      "season_id": "S04",
+      "slug": "pytest_qt_operator_dialogs",
+      "title": "pytest-qt operator dialogs"
+    },
+    {
+      "milestone": "M05",
+      "season_id": "S05",
+      "slug": "bugbot_review",
+      "title": "Bugbot review"
+    },
+    {
+      "milestone": "M06",
+      "season_id": "S06",
+      "slug": "defect_pass_or_none",
+      "title": "Defect pass or none"
+    },
+    {
+      "milestone": "M07",
+      "season_id": "S07",
+      "slug": "docs_rc9_setup",
+      "title": "Docs + rc9 Setup note"
+    },
+    {
+      "milestone": "M08",
+      "season_id": "S08",
+      "slug": "windows_setup_build",
+      "title": "Windows Setup + zip"
+    },
+    {
+      "milestone": "M09",
+      "season_id": "S09",
+      "slug": "upgrade_smoke",
+      "title": "Packaged upgrade smoke"
+    },
+    {
+      "milestone": "M10",
+      "season_id": "S10",
+      "slug": "release_and_closeout",
+      "title": "SR15 series closeout + tags"
+    }
+  ],
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "version": "0.1.0"
+}

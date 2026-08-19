@@ -1,8 +1,9 @@
 {
-  "commit_plan": "Commit S01 scaffold after contract freeze",
-  "milestone": "M01",
-  "push_plan": "git push origin HEAD --tags after series closeout",
-  "season_id": "S01",
-  "slug": "scaffold_and_contract_freeze",
-  "updated_at": "2026-08-18T22:12:48Z"
+  "commit_plan": "Commit SR15 closeout locally; do not push unless asked",
+  "milestone": "M10",
+  "push_plan": "no push unless operator asks",
+  "season_id": "S10",
+  "slug": "release_and_closeout",
+  "status": "series_complete",
+  "updated_at": "2026-08-19T00:25:00Z"
 }

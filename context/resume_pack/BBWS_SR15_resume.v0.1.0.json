@@ -1,0 +1,34 @@
+{
+  "active": {
+    "episode_id": "S10E10",
+    "season_id": "S10",
+    "status": "series_complete"
+  },
+  "product_version_shipped": "2.0.0-rc9",
+  "shipped_tags": ["bbws-sr15-complete"],
+  "kept_product_tag": "v2.0.0-rc9",
+  "baseline_tag": "bbws-pre-sr15-test-package",
+  "decision_locks": {
+    "capture_loop": "scan_settle_lock_confirm_reset",
+    "product_stays_rc9": true,
+    "pytest_fail_closed": true,
+    "setup_exe_required": true,
+    "rc10_not_required": true
+  },
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Packaged Setup is not Authenticode-signed",
+    "Physical COM 100 g remains operator follow-up unless a live scale is connected",
+    "pytest-qt is a test extra only \u2014 not an operator runtime dependency"
+  ],
+  "pack_id": "BBWS_SR15_resume",
+  "parent_tag": "bbws-sr14-complete",
+  "product_version_target": "2.0.0-rc9",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "updated_at": "2026-08-19T00:25:00Z",
+  "version": "0.1.0"
+}

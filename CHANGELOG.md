@@ -1,3 +1,25 @@
+## 2.0.0-rc9 — Auto-record after Lock + beep (SR14)
+
+- Station Settings: Auto-record after Lock (default off); beep on save.
+- Duplicate pre-gate from rc8 still warns before any auto-record.
+- Capture law unchanged: Scan → settle → Lock → Confirm → reset (Confirm skipped when auto-record is on).
+
+## 2.0.0-rc8 — Duplicate barcode pre-gate (SR13)
+
+- Duplicate plant barcodes warn before weigh/record; Cancel writes nothing.
+
+## 2.0.0-rc7 — Post-cal 100 g Stability Test stream (SR12)
+
+- Characterize restarts the live reader after Guided Cal Accept so the 100 g test does not starve.
+
+## 2.0.0-rc6 — Quiet window around Resume/Load (SR11)
+
+- Skip redundant SET_CAL when STATUS already matches the active profile.
+
+## 2.0.0-rc5 — Device identity + handshake (SR10)
+
+- Device identity and handshake surfaces for reconnect/profile bind.
+
 ## 2.0.0-rc4 — Scale profile + stability governance (SR9)
 
 - Added typed atomic scale profile store (CRUD/archive, active-per-device, hash receipts).

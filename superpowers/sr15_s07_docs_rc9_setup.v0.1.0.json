@@ -1,0 +1,207 @@
+{
+  "arc_id": "SR15_S07_docs_rc9_setup",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "docs/WINDOWS_BUILD.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S07E01",
+      "kind": "implement",
+      "objective": "WINDOWS_BUILD and RELEASE_CANDIDATE note that rc9 has Setup",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + rc9 Setup note episode 01"
+    },
+    {
+      "authorized_scope": [
+        "docs/WINDOWS_BUILD.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S07E02",
+      "kind": "implement",
+      "objective": "WINDOWS_BUILD and RELEASE_CANDIDATE note that rc9 has Setup",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + rc9 Setup note episode 02"
+    },
+    {
+      "authorized_scope": [
+        "docs/WINDOWS_BUILD.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S07E03",
+      "kind": "implement",
+      "objective": "WINDOWS_BUILD and RELEASE_CANDIDATE note that rc9 has Setup",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + rc9 Setup note episode 03"
+    },
+    {
+      "authorized_scope": [
+        "docs/WINDOWS_BUILD.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S07E04",
+      "kind": "implement",
+      "objective": "WINDOWS_BUILD and RELEASE_CANDIDATE note that rc9 has Setup",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + rc9 Setup note episode 04"
+    },
+    {
+      "authorized_scope": [
+        "docs/WINDOWS_BUILD.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S07E05",
+      "kind": "implement",
+      "objective": "WINDOWS_BUILD and RELEASE_CANDIDATE note that rc9 has Setup",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + rc9 Setup note episode 05"
+    },
+    {
+      "authorized_scope": [
+        "docs/WINDOWS_BUILD.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S07E06",
+      "kind": "implement",
+      "objective": "WINDOWS_BUILD and RELEASE_CANDIDATE note that rc9 has Setup",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + rc9 Setup note episode 06"
+    },
+    {
+      "authorized_scope": [
+        "docs/WINDOWS_BUILD.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S07E07",
+      "kind": "implement",
+      "objective": "WINDOWS_BUILD and RELEASE_CANDIDATE note that rc9 has Setup",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + rc9 Setup note episode 07"
+    },
+    {
+      "authorized_scope": [
+        "docs/WINDOWS_BUILD.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S07E08",
+      "kind": "closeout",
+      "objective": "WINDOWS_BUILD and RELEASE_CANDIDATE note that rc9 has Setup",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + rc9 Setup note episode 08"
+    },
+    {
+      "authorized_scope": [
+        "docs/WINDOWS_BUILD.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S07E09",
+      "kind": "closeout",
+      "objective": "WINDOWS_BUILD and RELEASE_CANDIDATE note that rc9 has Setup",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + rc9 Setup note episode 09"
+    },
+    {
+      "authorized_scope": [
+        "docs/WINDOWS_BUILD.md",
+        "docs/RELEASE_CANDIDATE.md"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S07E10",
+      "kind": "closeout",
+      "objective": "WINDOWS_BUILD and RELEASE_CANDIDATE note that rc9 has Setup",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Docs + rc9 Setup note episode 10"
+    }
+  ],
+  "focus": "WINDOWS_BUILD and RELEASE_CANDIDATE note that rc9 has Setup",
+  "milestone": "M07",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Packaged Setup is not Authenticode-signed",
+    "Physical COM 100 g remains operator follow-up unless a live scale is connected",
+    "pytest-qt is a test extra only \u2014 not an operator runtime dependency"
+  ],
+  "primary_surfaces": [
+    "docs/WINDOWS_BUILD.md",
+    "docs/RELEASE_CANDIDATE.md"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr15.docs_rc9_setup.v1",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "title": "Docs + rc9 Setup note",
+  "version": "0.1.0"
+}

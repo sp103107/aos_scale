@@ -1,0 +1,15 @@
+{
+  "receipt_id": "sr15_s10_series_closeout",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "status": "accepted",
+  "product_version_shipped": "2.0.0-rc9",
+  "tags": ["bbws-sr15-complete"],
+  "kept_product_tag": "v2.0.0-rc9",
+  "setup_path": "dist/windows/BestBudsWeightStation-Setup-v2.0.0-rc9.exe",
+  "zip_path": "dist/windows/BestBudsWeightStation-windows-x64-v2.0.0-rc9.zip",
+  "upgrade_smoke": "reports/windows_upgrade_smoke_receipt.v2.0.0-rc9.json",
+  "bugbot": "reports/sr15_s05_bugbot_review.json",
+  "defects": "reports/sr15_s06_defect_pass_or_none.json",
+  "physical_device_pass": false,
+  "runtime_claimed": false
+}

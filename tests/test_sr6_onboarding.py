@@ -8,7 +8,8 @@ ROOT = Path(__file__).parents[1]
 
 
 def test_product_version_is_current_rc():
-    assert __version__ == "2.0.0-rc4"
+    # Live pin: onboarding contract tracks VERSION, not an archival RC string.
+    assert __version__ == (ROOT / "VERSION").read_text(encoding="utf-8").strip()
 
 
 def test_start_here_doors_exist():

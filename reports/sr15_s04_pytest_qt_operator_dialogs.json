@@ -1,0 +1,19 @@
+{
+  "receipt_id": "sr15_s04_pytest_qt_operator_dialogs",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "status": "accepted",
+  "product_version": "2.0.0-rc9",
+  "new_file": "tests/test_sr15_qt_operator_dialogs.py",
+  "dev_extra": "pytest-qt>=4 in pyproject.toml [project.optional-dependencies] dev",
+  "pytest": "tests/test_sr15_qt_operator_dialogs.py",
+  "result": "2 passed (QT_QPA_PLATFORM=offscreen)",
+  "covers": [
+    "duplicate Cancel writes nothing",
+    "Station Settings can set auto_record_after_lock"
+  ],
+  "runtime_claimed": false,
+  "non_claims": [
+    "pytest-qt is a test extra only — not an operator runtime dependency",
+    "Not legal-for-trade / Metrc compliance"
+  ]
+}

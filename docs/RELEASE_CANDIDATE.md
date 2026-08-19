@@ -4,6 +4,10 @@
 hits, then beeps. Duplicate pre-gate from rc8 still warns first.  
 **Not** a production seal or legal-for-trade release.
 
+**Windows Setup (SR15):** rc9 now has a rebuilt `BestBudsWeightStation-Setup-v2.0.0-rc9.exe`
+and zip after the pytest / simulator / pytest-qt / Bugbot test gate. Onboarding is unchanged
+(no operator-code defect shipped in that gate). Physical COM 100 g remains operator follow-up.
+
 ## New in rc9 (SR14)
 
 - Station Settings: **Auto-record after Lock** (default off)

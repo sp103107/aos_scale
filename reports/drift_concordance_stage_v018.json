@@ -3,29 +3,8 @@
   "compatibility_policy": "older references are allowed only in immutable history or explicit compatibility surfaces",
   "current_surface_count": 8,
   "historical_immutable_count": 16,
-  "issues": [
-    {
-      "code": "CURRENT_VERSION_MISSING",
-      "path": "CHANGELOG.md"
-    },
-    {
-      "code": "CURRENT_VERSION_MISSING",
-      "path": "docs/SYSTEM_STATE_CURRENT.md"
-    },
-    {
-      "code": "CURRENT_VERSION_MISSING",
-      "path": "docs/WINDOWS_BUILD.md"
-    },
-    {
-      "code": "CURRENT_VERSION_MISSING",
-      "path": "docs/DEBIAN_INSTALL.md"
-    },
-    {
-      "code": "CURRENT_VERSION_MISSING",
-      "path": "docs/CORE_PROCESS_IMPLEMENTATION_CURRENT.md"
-    }
-  ],
+  "issues": [],
   "pipeline_version": "0.1.9",
-  "status": "FAIL",
+  "status": "PASS",
   "version": "2.0.0-rc9"
 }

@@ -1,0 +1,207 @@
+{
+  "arc_id": "SR15_S06_defect_pass_or_none",
+  "episodes": [
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S06E01",
+      "kind": "implement",
+      "objective": "Fix confirmed defects only; operator-code fixes bump rc10",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Defect pass or none episode 01"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S06E02",
+      "kind": "implement",
+      "objective": "Fix confirmed defects only; operator-code fixes bump rc10",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Defect pass or none episode 02"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S06E03",
+      "kind": "implement",
+      "objective": "Fix confirmed defects only; operator-code fixes bump rc10",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Defect pass or none episode 03"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S06E04",
+      "kind": "implement",
+      "objective": "Fix confirmed defects only; operator-code fixes bump rc10",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Defect pass or none episode 04"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S06E05",
+      "kind": "implement",
+      "objective": "Fix confirmed defects only; operator-code fixes bump rc10",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Defect pass or none episode 05"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S06E06",
+      "kind": "implement",
+      "objective": "Fix confirmed defects only; operator-code fixes bump rc10",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Defect pass or none episode 06"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S06E07",
+      "kind": "implement",
+      "objective": "Fix confirmed defects only; operator-code fixes bump rc10",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Defect pass or none episode 07"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S06E08",
+      "kind": "closeout",
+      "objective": "Fix confirmed defects only; operator-code fixes bump rc10",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Defect pass or none episode 08"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S06E09",
+      "kind": "closeout",
+      "objective": "Fix confirmed defects only; operator-code fixes bump rc10",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Defect pass or none episode 09"
+    },
+    {
+      "authorized_scope": [
+        "app/best_buds_weight_station/",
+        "reports/"
+      ],
+      "forbidden_scope": [
+        "JSONL authority changes",
+        "claim legal-for-trade or Metrc",
+        "mutate salvage or Arc Launcher",
+        "firmware bump"
+      ],
+      "id": "S06E10",
+      "kind": "closeout",
+      "objective": "Fix confirmed defects only; operator-code fixes bump rc10",
+      "runtime_claimed": false,
+      "status": "planned",
+      "title": "Defect pass or none episode 10"
+    }
+  ],
+  "focus": "Fix confirmed defects only; operator-code fixes bump rc10",
+  "milestone": "M06",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Packaged Setup is not Authenticode-signed",
+    "Physical COM 100 g remains operator follow-up unless a live scale is connected",
+    "pytest-qt is a test extra only \u2014 not an operator runtime dependency"
+  ],
+  "primary_surfaces": [
+    "app/best_buds_weight_station/",
+    "reports/"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "runtime_claimed": false,
+  "schema_version": "bbws.sr15.defect_pass_or_none.v1",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "title": "Defect pass or none",
+  "version": "0.1.0"
+}

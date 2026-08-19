@@ -1,0 +1,24 @@
+{
+  "acceptance": {
+    "physical_com_not_blocking": true,
+    "product_stays_rc9": true,
+    "pytest_fail_closed": true,
+    "pytest_qt_dev_extra": true,
+    "setup_exe_required": true
+  },
+  "baseline_tag": "bbws-pre-sr15-test-package",
+  "non_claims": [
+    "Not legal-for-trade / Metrc compliance",
+    "JSONL remains authoritative for weight records",
+    "Capture loop unchanged: scan \u2192 settle \u2192 lock \u2192 confirm \u2192 reset",
+    "Salvage/KS/Book Spine and Arc Launcher are documentation doctrine cites only",
+    "Not a remote weighing server",
+    "Packaged Setup is not Authenticode-signed",
+    "Physical COM 100 g remains operator follow-up unless a live scale is connected",
+    "pytest-qt is a test extra only \u2014 not an operator runtime dependency"
+  ],
+  "product_version_target": "2.0.0-rc9",
+  "receipt_id": "sr15_s01_contract_freeze",
+  "series_id": "BBWS_SR15_rc9_test_and_windows_package",
+  "status": "accepted"
+}
