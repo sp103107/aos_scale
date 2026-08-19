@@ -1321,6 +1321,35 @@ class MainWindow(QMainWindow):
         if not self.runtime.controller.device:
             self.runtime.connect_simulator(); self.runtime.simulator_set_weight(1250.0)
 
+    def _run_device_sync(
+        self,
+        action_key: str,
+        fn,
+        *,
+        on_success=None,
+        busy_message: str = "Working…",
+    ) -> None:
+        """Run scale/run-install work on the UI thread (serial I/O is not thread-safe)."""
+        if not self._action_guard.try_begin(action_key):
+            return
+        self._ui_busy = True
+        self.statusBar().showMessage(busy_message)
+        QApplication.processEvents()
+        try:
+            result = fn()
+            if on_success is not None:
+                on_success(result)
+            elif isinstance(result, dict):
+                if result.get("status") in {"failed", "blocked"}:
+                    _show_failure(self, result)
+                elif result.get("message"):
+                    _toast_status(self, str(result.get("message")))
+        except Exception as exc:
+            QMessageBox.warning(self, "Action not completed", str(exc))
+        finally:
+            self._ui_busy = False
+            self._action_guard.end(action_key)
+
     def _run_background(
         self,
         action_key: str,
@@ -1593,7 +1622,7 @@ class MainWindow(QMainWindow):
             else:
                 _show_result(self, result)
 
-        self._run_background("run.resume", self.runtime.resume_run, on_success=on_ok)
+        self._run_device_sync("run.resume", self.runtime.resume_run, on_success=on_ok)
 
     def choose_run(self) -> None: ResumeRunDialog(self.runtime, self).exec()
     def load_run(self) -> None:
@@ -1607,7 +1636,7 @@ class MainWindow(QMainWindow):
             else:
                 _show_result(self, result)
 
-        self._run_background("run.load", lambda: self.runtime.load_run(path), on_success=on_ok)
+        self._run_device_sync("run.load", lambda: self.runtime.load_run(path), on_success=on_ok)
 
     def scale_setup(self) -> None: ScaleSetupDialog(self.runtime, self).exec()
     def zero_scale(self) -> None:
@@ -1621,7 +1650,12 @@ class MainWindow(QMainWindow):
             else:
                 _show_result(self, result)
 
-        self._run_background("zero_scale", self.runtime.zero_scale, on_success=on_ok)
+        self._run_device_sync(
+            "zero_scale",
+            self.runtime.zero_scale,
+            on_success=on_ok,
+            busy_message="Zeroing…",
+        )
     def container_tare(self) -> None: TareDialog(self.runtime, self).exec()
     def calibrate(self) -> None:
         self._calibration_open = True

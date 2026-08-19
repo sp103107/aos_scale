@@ -2,7 +2,7 @@
 
 **runtime_claimed:** false  
 **audience:** harvest-station operator  
-**product_version:** `2.0.0-rc10`  
+**product_version:** `2.0.0-rc10.1`  
 **template cite:** KS structured onboarding (salvage cite-only)
 
 ## Flow map
@@ -158,6 +158,7 @@ Handoffs include CSV, XLSX, DOCX, JSON, and `handoff_bundle_manifest.json`.
 - **Lock sensitivity** (0–100): Low = tighter stability / slower to lock; high = wider tolerance / faster lock. Tunes spread and settle on top of the active scale profile — not legal-for-trade.
 - **Auto-record alert**: When **automatic capture** saves a plant without Confirm, choose **off**, **beep**, **voice**, or **both** (default beep). Phrase defaults to *Weight recorded*.
 - **Finish Run → New Run**: After finishing a run, **Run → New Run** works without restarting the app.
+- **rc10.1:** If Zero ever closed the app, install Setup **v2.0.0-rc10.1** — Zero now runs safely on the UI thread.
 
 ---
 

@@ -1,6 +1,6 @@
 {
   "exclusions": [
-    "manifests/file_manifest.v2.0.0-rc10.json",
+    "manifests/file_manifest.v2.0.0-rc10.1.json",
     ".git/",
     ".pytest_cache/",
     "__pycache__/",
@@ -16,7 +16,7 @@
     "validation/reports/pytest* except pytest_full_suite.vNEXT.log",
     "*.pyc"
   ],
-  "file_count": 1488,
+  "file_count": 1492,
   "files": [
     {
       "path": ".github/workflows/release.yml",
@@ -50,8 +50,8 @@
     },
     {
       "path": "ACTIVE_ARC.yaml",
-      "sha256": "517e738ffa3d34ea8eaa2e26472de83330ad3cb7f05a98d156ddb5f313beed87",
-      "size_bytes": 692
+      "sha256": "ccca65d15947104aea492effbb1a6d55dd2e0545482c6821490917f7fc22a7c7",
+      "size_bytes": 696
     },
     {
       "path": "adapters/camera_barcode/adapter_manifest.v0.1.0.json",
@@ -400,8 +400,8 @@
     },
     {
       "path": "app/best_buds_weight_station/validation/drift.py",
-      "sha256": "8c15d95f076726dbf6a78e596e0ab968b6d8d2c032fa77433685019965c51467",
-      "size_bytes": 9792
+      "sha256": "34d26a400e86b5f91d38419d43d351537e9bf8bd03c50bf2d79e1427554fc986",
+      "size_bytes": 10130
     },
     {
       "path": "app/best_buds_weight_station/validation/dry_run.py",
@@ -435,8 +435,8 @@
     },
     {
       "path": "app/best_buds_weight_station/version.py",
-      "sha256": "04988fc7f802edac1510b012bf981fd45f736affbec86be4af94de491bb51053",
-      "size_bytes": 28
+      "sha256": "d96cc181d588089aa16cd32fdc1a77632b8000c846cbf3d5d11fb04f1404d007",
+      "size_bytes": 30
     },
     {
       "path": "arc_lifecycle/blueprints/series_bbws_sr10_calibration_handshake_integrity.v0.1.0.json",
@@ -610,8 +610,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "bb1144dda8e9fe8673998161d25e55abcd2af0d40f526e7e14dd94c5d941e862",
-      "size_bytes": 12223
+      "sha256": "6c11c77ceb44a09d58cd153b17735addfaa5f1437906a8cae51f7518dea6d474",
+      "size_bytes": 12477
     },
     {
       "path": "COMMERCIAL.md",
@@ -2515,8 +2515,8 @@
     },
     {
       "path": "docs/BBWS_SR16_ARTIFACTS.md",
-      "sha256": "846152c295683d5086dee5e6245d8895e6f026a68dcd17f87d5830a2f4d94719",
-      "size_bytes": 1181
+      "sha256": "48f8029d831a6aed4075508a3c2c5cd3b2abb2f9b5a5b135d45ec78d9ed14188",
+      "size_bytes": 1124
     },
     {
       "path": "docs/BBWS_SR1_ARTIFACTS.md",
@@ -2625,8 +2625,8 @@
     },
     {
       "path": "docs/CORE_PROCESS_IMPLEMENTATION_CURRENT.md",
-      "sha256": "c2901be8896ce8ad4e0647cae0780ca3c7d2e90adfd932b07ca9c47614f5c680",
-      "size_bytes": 1292
+      "sha256": "96bdc7ffa397c6194734c09ffeefe6671eb59e5a167ab6632baf09cc378590cc",
+      "size_bytes": 1294
     },
     {
       "path": "docs/CRASH_SAFE_PERSISTENCE_V0.1.3.md",
@@ -2635,8 +2635,8 @@
     },
     {
       "path": "docs/DEBIAN_INSTALL.md",
-      "sha256": "57ab1780c239eeb66eb9c27b032de4df7f77093dc400f5f4a27b738d87466266",
-      "size_bytes": 747
+      "sha256": "9d8d9f35aa74b0d55d3913205b525186b328cbd8539e8549f3562ba56c9f817f",
+      "size_bytes": 751
     },
     {
       "path": "docs/DEVICE_ZERO_TARE_CALIBRATION_V0.1.3.md",
@@ -2670,8 +2670,8 @@
     },
     {
       "path": "docs/INTENDED_USER.md",
-      "sha256": "ac606c97f21468172d2a5566d6f507dacb65681dfd31aa48f5fb0ebcf1575da1",
-      "size_bytes": 1408
+      "sha256": "e40ce669e8e1d0b2449ee2d332e99c318c9fae5757eabe84073b5002600c43c5",
+      "size_bytes": 1410
     },
     {
       "path": "docs/LLM_SOFTWARE_DRY_RUN_AND_AGENT_BOOTSTRAP.md",
@@ -2690,8 +2690,8 @@
     },
     {
       "path": "docs/OPERATOR_ONBOARDING.md",
-      "sha256": "899f146b69da1dab630a5b60c2eef2b70e90ecd397c439afe586205eb6eea1a0",
-      "size_bytes": 7740
+      "sha256": "4d7d245a242e1788cb37cdcc08782d562a3fb7529730216ede25abd8e715c48b",
+      "size_bytes": 7861
     },
     {
       "path": "docs/OPERATOR_RUNBOOK.md",
@@ -2730,8 +2730,8 @@
     },
     {
       "path": "docs/RELEASE_CANDIDATE.md",
-      "sha256": "a204a53263351dfc67820f0861900d7b58460359076317099ec6ec1497e130da",
-      "size_bytes": 7537
+      "sha256": "fe5edec659f5d718866f0d08a933b11dcbdf09090a1d3dc320d3f8d496b335a2",
+      "size_bytes": 8491
     },
     {
       "path": "docs/RUN_AND_FILE_MANAGEMENT_V0.1.3.md",
@@ -2755,8 +2755,8 @@
     },
     {
       "path": "docs/SYSTEM_STATE_CURRENT.md",
-      "sha256": "e5ed538f42d1a91e5909cecd62a7f6d3b6063d43df849349723565d0e28ca5a5",
-      "size_bytes": 1385
+      "sha256": "052347ebc71ff8758a6e81dcd7aad8e44e909bca560de0b2ccdbbbb74453c7b0",
+      "size_bytes": 1389
     },
     {
       "path": "docs/TRANSPORT_AND_BUTTON_BOUNDARIES_V0.1.3.md",
@@ -2775,8 +2775,8 @@
     },
     {
       "path": "docs/WINDOWS_BUILD.md",
-      "sha256": "eb3ae37169f54d52c578b0cce172541f3dfb83a25a83c227b81d344dcd18f619",
-      "size_bytes": 1740
+      "sha256": "7631560fa14de29c0f80525375ceada7fb01d56e375feb741210c6bb2d2142d2",
+      "size_bytes": 1734
     },
     {
       "path": "docs/WINDOWS_DEVICE_BRINGUP.md",
@@ -2955,8 +2955,8 @@
     },
     {
       "path": "guide_pack.json",
-      "sha256": "a5cabd98800395e8c2618be89cb3cbb67cbab5c5b3a5ce53ef9820674662760b",
-      "size_bytes": 1576
+      "sha256": "c99d85d235ad3a06cf20cbaa8a94246c4efd0fbe997864cc8b2a4fb66d5aa823",
+      "size_bytes": 1578
     },
     {
       "path": "kernel/commit_order.v1.json",
@@ -3234,6 +3234,11 @@
       "size_bytes": 165875
     },
     {
+      "path": "manifests/file_manifest.v2.0.0-rc10.json",
+      "sha256": "1ebbba5b85f30ca3199835207d67763da767b6b2b7cbeda276ba15ada159bf8f",
+      "size_bytes": 285539
+    },
+    {
       "path": "manifests/file_manifest.v2.0.0-rc2.json",
       "sha256": "a8c81966990ffa64f7dacc2c27ae7a3aac37728e91a219fe8b746ced11d8f6bd",
       "size_bytes": 239984
@@ -3330,8 +3335,8 @@
     },
     {
       "path": "packaging/windows/BestBudsWeightStation.iss",
-      "sha256": "5913827a519138ef8205f46aba48e5e07efe6e2741ee797bcf9bedbfbeb389ca",
-      "size_bytes": 2597
+      "sha256": "c768da8dec6d3687f8c243f0264f4e7471f47805e98ce5c746ff8f1e8d4b5674",
+      "size_bytes": 2599
     },
     {
       "path": "packaging/windows/BestBudsWeightStation.spec",
@@ -3595,13 +3600,13 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "f3c384ab1a6baf2f3b764487b309761682ce7e9073b1a4fb3fc79a0d6218fa18",
-      "size_bytes": 1326
+      "sha256": "688d70487f441b1d48b7c1ffaf64167f0841a961342c280172e780096e5d4119",
+      "size_bytes": 1332
     },
     {
       "path": "README.md",
-      "sha256": "e2e76b8614a094fdd41d85c7f1d3b077e9ded7f8595cdbecc7b3ef4531d0b976",
-      "size_bytes": 3301
+      "sha256": "217930b6b79c3790fa13df3b89c1d0201054a17817d88d1ddc279292e0e00ca7",
+      "size_bytes": 3303
     },
     {
       "path": "registry/socket_suggestion_registry.v0.1.7.json",
@@ -3900,8 +3905,8 @@
     },
     {
       "path": "repo_release_state.json",
-      "sha256": "d3d0636cd64f4674bb49958c7666aca9891619d5a6f5031a089e13d636e38828",
-      "size_bytes": 3884
+      "sha256": "bc019d2b3a84dcc1108efe84f0479aaf6e8d2529933e01ae8997a7f36adba67b",
+      "size_bytes": 3886
     },
     {
       "path": "repo_scaffold/README.md",
@@ -4249,6 +4254,11 @@
       "size_bytes": 1335
     },
     {
+      "path": "reports/drift_concordance_report.v2.0.0-rc10.1.json",
+      "sha256": "794aa78896720b6ad285032b1a97d70259835e432aa0ad8d9d48b6a893c04b47",
+      "size_bytes": 1647
+    },
+    {
       "path": "reports/drift_concordance_report.v2.0.0-rc10.json",
       "sha256": "d7426ed7e5fc29afaf7d8f296c611e60332bf88267d7f2b636d04cf8306b094f",
       "size_bytes": 1695
@@ -4295,8 +4305,8 @@
     },
     {
       "path": "reports/drift_concordance_stage_v018.json",
-      "sha256": "bee74b18e76a27c4649ed11db63fdcd492b92a51ddcb4466c88b4bb8e5a2b25b",
-      "size_bytes": 324
+      "sha256": "a96863dc16d17770b8e754bb777e63901182b42ef4c28524039d4a64a67302a0",
+      "size_bytes": 326
     },
     {
       "path": "reports/drift_report.v0.1.0.json",
@@ -4762,6 +4772,11 @@
       "path": "reports/sr16_auto_on_stable_deferred.v0.1.0.json",
       "sha256": "9c528e62bd51b8ae551f9d295039a6ff74e598de4bc2bd2373af32ca436da117",
       "size_bytes": 644
+    },
+    {
+      "path": "reports/sr16_rc10_1_ship_closeout.json",
+      "sha256": "a14eeb779d9d8a6f2340a6d44d0bd95d9889ba5895a0eb9e00842dc3774df817",
+      "size_bytes": 917
     },
     {
       "path": "reports/sr16_rc10_ship_closeout.json",
@@ -5324,6 +5339,11 @@
       "size_bytes": 4170
     },
     {
+      "path": "scripts/validate_drift_concordance_v200_rc10_1.py",
+      "sha256": "8c992e63f2bb38820b3cfaf8e1bf80c54f133329866fe8e9859a0f3530b45f7c",
+      "size_bytes": 4056
+    },
+    {
       "path": "scripts/validate_drift_concordance_v200_rc2.py",
       "sha256": "2e0934f6372b2bf3b30d6973f4463c421452b3fa7380ee0262d8ade63f652600",
       "size_bytes": 3639
@@ -5395,13 +5415,13 @@
     },
     {
       "path": "START_HERE.md",
-      "sha256": "ca251b1a97d317edfd75d9137a121e2ada8906b42eb729d6abe31f9412d29375",
-      "size_bytes": 2267
+      "sha256": "ea3a512bc4b2f1fb4cf4d8ec57a2d0be163b6fd6403e0abfc6f71b33a8117a87",
+      "size_bytes": 2269
     },
     {
       "path": "START_HERE_CODING_AGENT.md",
-      "sha256": "ee3af5d997e470f1be0f7092484338eacbaa393487fe0f05668ad76974a5d900",
-      "size_bytes": 2371
+      "sha256": "39b90f9cec4152d907ff6597aa8d5ce726f3ec7821a325d2965b940f937dd081",
+      "size_bytes": 2373
     },
     {
       "path": "superpowers/s01_recording_polish.v0.1.0.json",
@@ -6905,8 +6925,8 @@
     },
     {
       "path": "validation/llm_harness/validation_graph.json",
-      "sha256": "00d9b4adf34bcdfbb7f5b2f9f23aee0e57a4073af96330852e289e6ef1919435",
-      "size_bytes": 2032
+      "sha256": "c4d0ca850dbeeef6c19d019812a113df01ba4460fc7fc4ccb6cf92624fee2c14",
+      "size_bytes": 2034
     },
     {
       "path": "validation/llm_harness_inspect.v0.1.4.json",
@@ -7455,12 +7475,12 @@
     },
     {
       "path": "VERSION",
-      "sha256": "063aa5e2029a3fc55a3e1d7bf566cd0467fd02f17f4fa13fa94fd218f4fa1ada",
-      "size_bytes": 12
+      "sha256": "c3f87bc71a248d1569fabceece15eb178a2bf450156c322ab25d7e3252bde6a0",
+      "size_bytes": 14
     }
   ],
-  "generated_at": "2026-08-19T19:57:48Z",
+  "generated_at": "2026-08-19T20:15:46Z",
   "manifest_version": "1.0.0",
   "package_name": "best_buds_cultivator_weight_station",
-  "version": "2.0.0-rc10"
+  "version": "2.0.0-rc10.1"
 }

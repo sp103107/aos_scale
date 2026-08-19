@@ -70,6 +70,7 @@ class ScaleReadingWorker:
         controller: ApplicationController,
         buffer: ReadingBuffer,
         *,
+        device_lock: threading.RLock | None = None,
         poll_interval_s: float = 0.05,
         on_sample: Callable[[ReadingSample], None] | None = None,
         on_result: Callable[[dict[str, Any]], None] | None = None,
@@ -77,6 +78,7 @@ class ScaleReadingWorker:
     ):
         self.controller = controller
         self.buffer = buffer
+        self._device_lock = device_lock or threading.RLock()
         self.poll_interval_s = poll_interval_s
         self.on_sample = on_sample or (lambda sample: None)
         self.on_result = on_result or (lambda result: None)
@@ -123,7 +125,10 @@ class ScaleReadingWorker:
                 device = self.controller.device
                 if not device or not device.status.connected:
                     raise ConnectionError("scale disconnected while reading")
-                message = device.read_stream_message()
+                with self._device_lock:
+                    if self._stop.is_set():
+                        break
+                    message = device.read_stream_message()
                 if message.get("kind") != "W":
                     continue
                 sample = ReadingSample(
@@ -161,6 +166,7 @@ class OperatorRuntime:
         self.controller = ApplicationController(self.paths.config)
         self.controller.settings_store.update(data_root=str(selected_root), capture_mode=capture_mode)
         self.buffer = ReadingBuffer()
+        self._device_lock = threading.RLock()
         self.last_worker_error: str | None = None
         self.last_action_result: dict[str, Any] | None = None
         self.current_activity: OperatorActivity | None = None
@@ -168,6 +174,7 @@ class OperatorRuntime:
         self.worker = ScaleReadingWorker(
             self.controller,
             self.buffer,
+            device_lock=self._device_lock,
             on_result=self._capture_result,
             on_error=self._capture_error,
         )
@@ -254,21 +261,22 @@ class OperatorRuntime:
             time.sleep(0.35)
         self.set_activity("run_install", "quiet")
         result: dict[str, Any] = {"status": "failed", "message": "quiet profile apply did not run"}
-        try:
-            result = fn()
-            if result.get("status") == "completed":
-                if clear_buffer:
-                    self.buffer.clear()
-                self.last_worker_error = None
-        finally:
-            self.clear_activity()
-            if self.controller.device and self.controller.device.status.connected:
-                try:
-                    self.worker.start()
-                    if result.get("status") == "completed":
-                        self.last_worker_error = None
-                except Exception as exc:
-                    self.last_worker_error = f"{type(exc).__name__}: {exc}"
+        with self._device_lock:
+            try:
+                result = fn()
+                if result.get("status") == "completed":
+                    if clear_buffer:
+                        self.buffer.clear()
+                    self.last_worker_error = None
+            finally:
+                self.clear_activity()
+                if self.controller.device and self.controller.device.status.connected:
+                    try:
+                        self.worker.start()
+                        if result.get("status") == "completed":
+                            self.last_worker_error = None
+                    except Exception as exc:
+                        self.last_worker_error = f"{type(exc).__name__}: {exc}"
         return result
 
     def dispatch_run_install(self, action: str, payload: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -339,29 +347,30 @@ class OperatorRuntime:
     def zero_scale(self) -> dict[str, Any]:
         # Deliberately omit readings. The controller must acquire them from the
         # connected device after issuing TARE. Simulator evidence remains explicit.
-        was_running = self.worker.running
-        if was_running:
-            self.worker.stop(stop_stream=True)
-            time.sleep(0.2)
-        self.set_activity("zeroing", "tare")
-        result: dict[str, Any] = {"status": "failed", "message": "scale.zero did not run"}
-        try:
-            self.set_activity("zeroing", "sampling")
-            result = self.dispatch("scale.zero", {})
-            if result.get("status") == "completed":
-                self.buffer.clear()
-                self.last_worker_error = None
-        finally:
-            self.clear_activity()
-            if self.controller.device and self.controller.device.status.connected:
-                try:
-                    self.worker.start()
-                    if result.get("status") == "completed":
-                        self.last_worker_error = None
-                except Exception as exc:
-                    # Zero already applied; stream restart must not look like Zero failed.
-                    self.last_worker_error = f"{type(exc).__name__}: {exc}"
-        return result
+        with self._device_lock:
+            was_running = self.worker.running
+            if was_running:
+                self.worker.stop(stop_stream=True)
+                time.sleep(0.2)
+            self.set_activity("zeroing", "tare")
+            result: dict[str, Any] = {"status": "failed", "message": "scale.zero did not run"}
+            try:
+                self.set_activity("zeroing", "sampling")
+                result = self.dispatch("scale.zero", {})
+                if result.get("status") == "completed":
+                    self.buffer.clear()
+                    self.last_worker_error = None
+            finally:
+                self.clear_activity()
+                if self.controller.device and self.controller.device.status.connected:
+                    try:
+                        self.worker.start()
+                        if result.get("status") == "completed":
+                            self.last_worker_error = None
+                    except Exception as exc:
+                        # Zero already applied; stream restart must not look like Zero failed.
+                        self.last_worker_error = f"{type(exc).__name__}: {exc}"
+            return result
 
     def set_known_tare(self, container_id: str, tare_g: float) -> dict[str, Any]:
         return self.dispatch("scale.container_tare.set", {"container_id": container_id, "tare_g": tare_g})

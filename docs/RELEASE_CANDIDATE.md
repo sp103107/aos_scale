@@ -1,4 +1,27 @@
-# Release candidate notes — v2.0.0-rc10
+# Release candidate notes — v2.0.0-rc10.1
+
+**Tag intent:** **Zero crash hotfix** — PySide Zero/Resume/Load no longer run serial I/O on
+a background thread (rc10 could exit the app on physical COM when zeroing).  
+**Not** a production seal or legal-for-trade release.
+
+**Windows Setup (SR16 patch):** rc10.1 rebuilds `BestBudsWeightStation-Setup-v2.0.0-rc10.1.exe`
+and zip after pytest / simulator / drift concordance gate.
+
+## New in rc10.1 (SR16 patch)
+
+- **Zero Scale** runs on the UI thread with a device lock (fixes app exit on COM zero)
+- **Resume Run** and **Load Run** also use UI-thread device paths
+- `QtActionRunner` retains worker threads until finished (QueuedConnection callbacks)
+
+## Carried from rc10 (SR16)
+
+- **Finish Run → New Run** without restarting the app
+- Lock sensitivity slider and auto-record alert in Station Settings
+- Status-bar toasts, operator activity messages, device-ID prompt before stability profile
+
+---
+
+# Prior — v2.0.0-rc10
 
 **Tag intent:** **Operator UX + lock sensitivity** — finish→new run without restart,
 lock sensitivity slider, auto-record alert (beep/voice), async Zero/run actions with
@@ -15,7 +38,8 @@ to match. Physical COM 100 g remains operator follow-up.
 - Station Settings: **Lock sensitivity** (0 strict/slow → 100 loose/fast lock)
 - Station Settings: **Auto-record alert** (off / beep / voice / both) when automatic
   capture saves without Confirm
-- PySide: async Zero, finish/resume/load run; status-bar toasts for routine success
+- PySide: async finish/resume/load run where safe; **Zero/resume/load run on UI thread**
+  (serial I/O is not thread-safe — background Zero could exit the app on physical COM)
 - Operator activity messages during long steps (Zero, characterize, run install)
 - **Assign Device ID** prompt before stability profile confirm (PySide + cal post-accept)
 - Tk partial parity: lock sensitivity, auto-record alert, worker record toast

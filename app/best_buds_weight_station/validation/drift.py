@@ -43,6 +43,14 @@ IMMUTABLE_PREFIXES = (
 EXCLUDED_DIRS = {".git", ".pytest_cache", "__pycache__", "build", ".venv", "logs", "dist"}
 
 
+def marketing_to_pep440(version: str) -> str:
+    """Map marketing tags like 2.0.0-rc10.1 to PEP 440 (2.0.0rc10.post1)."""
+    match = re.fullmatch(r"(\d+\.\d+\.\d+)-rc(\d+)\.(\d+)", version.strip())
+    if match:
+        return f"{match.group(1)}rc{match.group(2)}.post{match.group(3)}"
+    return version.replace("-rc", "rc").replace("-a", "a").replace("-b", "b")
+
+
 def _current_files(repo_root: Path, manifest_path: Path) -> set[str]:
     files: set[str] = set()
     for path in repo_root.rglob("*"):
@@ -85,7 +93,7 @@ def inspect(repo_root: Path) -> dict[str, Any]:
 
     pyproject_path = repo_root / "pyproject.toml"
     # pyproject must use the PEP 440 normalized form (e.g. 2.0.0rc2 for 2.0.0-rc2).
-    pep440 = version.replace("-rc", "rc").replace("-a", "a").replace("-b", "b")
+    pep440 = marketing_to_pep440(version)
     if not pyproject_path.exists():
         issues.append({"code": "PYPROJECT_NOT_INSTALLED", "path": "pyproject.toml", "repairable": False, "scope": "installed_package"})
     else:

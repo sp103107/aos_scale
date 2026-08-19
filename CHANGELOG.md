@@ -1,3 +1,8 @@
+## 2.0.0-rc10.1 — Zero crash hotfix (SR16 patch)
+
+- Fix PySide Zero/Resume/Load running serial I/O on a background thread (could exit the app on COM scales).
+- Zero/resume/load stay on the UI thread; device lock serializes reader vs maintenance.
+
 ## 2.0.0-rc10 — Operator UX + lock sensitivity (SR16)
 
 - Finish Run → New Run without app restart.

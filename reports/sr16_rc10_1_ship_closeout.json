@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-08-19T20:25:00Z",
+  "drift_concordance": "reports/drift_concordance_report.v2.0.0-rc10.1.json",
+  "debian_path": "dist/debian/best-buds-weight-station_2.0.0-rc10.1_amd64.deb",
+  "fix_summary": "PySide Zero/Resume/Load serial I/O moved to UI thread; device lock added",
+  "gates": {
+    "drift_concordance_v200_rc10_1": "pass",
+    "pytest_full": "pass",
+    "self_test_simulator": "pass"
+  },
+  "non_claims": [
+    "Not Authenticode-signed.",
+    "Not legal-for-trade / Metrc compliance.",
+    "Physical COM validation remains operator follow-up."
+  ],
+  "parent_release": "v2.0.0-rc10",
+  "physical_com_pass": false,
+  "product_version_shipped": "2.0.0-rc10.1",
+  "series_id": "BBWS_SR16_rc10_ship",
+  "setup_path": "dist/windows/BestBudsWeightStation-Setup-v2.0.0-rc10.1.exe",
+  "status": "series_complete",
+  "zip_path": "dist/windows/BestBudsWeightStation-windows-x64-v2.0.0-rc10.1.zip"
+}

@@ -1,8 +1,8 @@
-# System State Current - v2.0.0-rc10
+# System State Current - v2.0.0-rc10.1
 
 ## Current truth
 
-- Product version: `2.0.0-rc10`
+- Product version: `2.0.0-rc10.1`
 - Current phase: `sr16_rc10_ship_and_package`
 - Execution posture: `real_execution_allowed` for safe local software lanes with evidence capture
 - Primary target: Windows 10/11 + PySide6

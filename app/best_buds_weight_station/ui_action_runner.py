@@ -55,7 +55,7 @@ def run_tk_background(
 
 
 try:
-    from PySide6.QtCore import QObject, QThread, Signal
+    from PySide6.QtCore import QObject, QThread, Signal, Qt
 
     class _ActionWorker(QThread):
         finished_ok = Signal(object)
@@ -74,6 +74,10 @@ try:
     class QtActionRunner(QObject):
         """Run a callable on a worker thread; signals return to the Qt main thread."""
 
+        def __init__(self, parent: QObject | None = None):
+            super().__init__(parent)
+            self._active: list[_ActionWorker] = []
+
         def run(
             self,
             fn: Callable[[], Any],
@@ -82,9 +86,17 @@ try:
             on_error: Callable[[Exception], None],
         ) -> None:
             worker = _ActionWorker(fn)
-            worker.finished_ok.connect(on_success)
-            worker.finished_err.connect(on_error)
-            worker.finished.connect(worker.deleteLater)
+            worker.setParent(self)
+            self._active.append(worker)
+
+            def _release() -> None:
+                if worker in self._active:
+                    self._active.remove(worker)
+                worker.deleteLater()
+
+            worker.finished_ok.connect(on_success, Qt.ConnectionType.QueuedConnection)
+            worker.finished_err.connect(on_error, Qt.ConnectionType.QueuedConnection)
+            worker.finished.connect(_release)
             worker.start()
 
 except ImportError:
